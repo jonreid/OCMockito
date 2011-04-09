@@ -1,0 +1,408 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08BDD5AD1350C59C00E5A443 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5AC1350C59C00E5A443 /* Cocoa.framework */; };
+		08BDD5BF1350C59C00E5A443 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5AC1350C59C00E5A443 /* Cocoa.framework */; };
+		08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5A91350C59C00E5A443 /* OCMockito.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08BDD5C01350C59C00E5A443 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08BDD59F1350C59C00E5A443 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08BDD5A81350C59C00E5A443;
+			remoteInfo = OCMockito;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08BDD5A91350C59C00E5A443 /* OCMockito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMockito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08BDD5AC1350C59C00E5A443 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		08BDD5AF1350C59C00E5A443 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		08BDD5B01350C59C00E5A443 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		08BDD5B11350C59C00E5A443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		08BDD5BE1350C59C00E5A443 /* OCMockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08BED07F1350DE4900CCBF76 /* OCMockito-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OCMockito-Info.plist"; sourceTree = "<group>"; };
+		08BED0801350DE4900CCBF76 /* OCMockito-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCMockito-Prefix.pch"; sourceTree = "<group>"; };
+		08BED0811350DE4900CCBF76 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08BDD5A51350C59C00E5A443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08BDD5AD1350C59C00E5A443 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08BDD5BA1350C59C00E5A443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08BDD5BF1350C59C00E5A443 /* Cocoa.framework in Frameworks */,
+				08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08BDD59D1350C59C00E5A443 = {
+			isa = PBXGroup;
+			children = (
+				08BDD5B21350C59C00E5A443 /* OCMockito */,
+				08BDD5C31350C59C00E5A443 /* Tests */,
+				08BED0781350DD8900CCBF76 /* Supporting Files */,
+				08BDD5AB1350C59C00E5A443 /* Frameworks */,
+				08BDD5AA1350C59C00E5A443 /* Products */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		08BDD5AA1350C59C00E5A443 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08BDD5A91350C59C00E5A443 /* OCMockito.framework */,
+				08BDD5BE1350C59C00E5A443 /* OCMockitoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08BDD5AB1350C59C00E5A443 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08BDD5AC1350C59C00E5A443 /* Cocoa.framework */,
+				08BDD5AE1350C59C00E5A443 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08BDD5AE1350C59C00E5A443 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08BDD5AF1350C59C00E5A443 /* AppKit.framework */,
+				08BDD5B01350C59C00E5A443 /* CoreData.framework */,
+				08BDD5B11350C59C00E5A443 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		08BDD5B21350C59C00E5A443 /* OCMockito */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OCMockito;
+			sourceTree = "<group>";
+		};
+		08BDD5C31350C59C00E5A443 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		08BED0781350DD8900CCBF76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				08BED07F1350DE4900CCBF76 /* OCMockito-Info.plist */,
+				08BED0801350DE4900CCBF76 /* OCMockito-Prefix.pch */,
+				08BED0811350DE4900CCBF76 /* Tests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		08BDD5A61350C59C00E5A443 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		08BDD5A81350C59C00E5A443 /* OCMockito */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08BDD5D01350C59C00E5A443 /* Build configuration list for PBXNativeTarget "OCMockito" */;
+			buildPhases = (
+				08BDD5A41350C59C00E5A443 /* Sources */,
+				08BDD5A51350C59C00E5A443 /* Frameworks */,
+				08BDD5A61350C59C00E5A443 /* Headers */,
+				08BDD5A71350C59C00E5A443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCMockito;
+			productName = OCMockito;
+			productReference = 08BDD5A91350C59C00E5A443 /* OCMockito.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		08BDD5BD1350C59C00E5A443 /* OCMockitoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08BDD5D31350C59C00E5A443 /* Build configuration list for PBXNativeTarget "OCMockitoTests" */;
+			buildPhases = (
+				08BDD5B91350C59C00E5A443 /* Sources */,
+				08BDD5BA1350C59C00E5A443 /* Frameworks */,
+				08BDD5BB1350C59C00E5A443 /* Resources */,
+				08BDD5BC1350C59C00E5A443 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08BDD5C11350C59C00E5A443 /* PBXTargetDependency */,
+			);
+			name = OCMockitoTests;
+			productName = OCMockitoTests;
+			productReference = 08BDD5BE1350C59C00E5A443 /* OCMockitoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08BDD59F1350C59C00E5A443 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "eBay Inc";
+			};
+			buildConfigurationList = 08BDD5A21350C59C00E5A443 /* Build configuration list for PBXProject "OCMockito" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 08BDD59D1350C59C00E5A443;
+			productRefGroup = 08BDD5AA1350C59C00E5A443 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08BDD5A81350C59C00E5A443 /* OCMockito */,
+				08BDD5BD1350C59C00E5A443 /* OCMockitoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08BDD5A71350C59C00E5A443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08BDD5BB1350C59C00E5A443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08BDD5BC1350C59C00E5A443 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08BDD5A41350C59C00E5A443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08BDD5B91350C59C00E5A443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		08BDD5C11350C59C00E5A443 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 08BDD5A81350C59C00E5A443 /* OCMockito */;
+			targetProxy = 08BDD5C01350C59C00E5A443 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08BDD5CE1350C59C00E5A443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OCMockito-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wextra",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+				);
+			};
+			name = Debug;
+		};
+		08BDD5CF1350C59C00E5A443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OCMockito-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wextra",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+				);
+			};
+			name = Release;
+		};
+		08BDD5D11350C59C00E5A443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "OCMockito-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		08BDD5D21350C59C00E5A443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "OCMockito-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		08BDD5D41350C59C00E5A443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		08BDD5D51350C59C00E5A443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08BDD5A21350C59C00E5A443 /* Build configuration list for PBXProject "OCMockito" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08BDD5CE1350C59C00E5A443 /* Debug */,
+				08BDD5CF1350C59C00E5A443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08BDD5D01350C59C00E5A443 /* Build configuration list for PBXNativeTarget "OCMockito" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08BDD5D11350C59C00E5A443 /* Debug */,
+				08BDD5D21350C59C00E5A443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08BDD5D31350C59C00E5A443 /* Build configuration list for PBXNativeTarget "OCMockitoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08BDD5D41350C59C00E5A443 /* Debug */,
+				08BDD5D51350C59C00E5A443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08BDD59F1350C59C00E5A443 /* Project object */;
+}
