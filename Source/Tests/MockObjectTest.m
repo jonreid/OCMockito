@@ -23,14 +23,18 @@
 
 @implementation MockObjectTest
 
-- (void)testNameOfTest
+- (void)testMockObjectShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
 	// set up
+    NSString *mockString = [MTMockObject mockForClass:[NSString class]];
+    NSString *realString = [NSString string];
+    SEL selector = @selector(rangeOfString:options:);
 
 	// exercise
-
-	// verify
-	STFail(@"Test runs successfully", nil);
+    NSMethodSignature *signature = [mockString methodSignatureForSelector:selector];
+    
+    // verify
+    assertThat(signature, is(equalTo([realString methodSignatureForSelector:selector])));
 }
 
 @end

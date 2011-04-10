@@ -7,4 +7,7 @@
 
 
 @interface MTMockObject : NSProxy
+
++ (id)mockForClass:(Class)aClass;
+
 @end

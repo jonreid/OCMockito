@@ -436,6 +436,8 @@
 				INFOPLIST_FILE = "Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
 					"-framework",
 					SenTestingKit,
 				);
@@ -460,6 +462,8 @@
 				INFOPLIST_FILE = "Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
 					"-framework",
 					SenTestingKit,
 				);
