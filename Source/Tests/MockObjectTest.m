@@ -9,8 +9,12 @@
 	// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
-//#define HC_SHORTHAND
-//#import <OCHamcrest/OCHamcrest.h>
+#define HC_SHORTHAND
+#if TARGET_OS_MAC
+    #import <OCHamcrest/OCHamcrest.h>
+#else
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
+#endif
 
 
 @interface MockObjectTest : SenTestCase
