@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0827E83513526E7300C39A57 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
+		0827E83613526E7300C39A57 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
 		085D2FB21351080400EBBE91 /* MockObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* MockObjectTest.m */; };
 		085D2FB51351082800EBBE91 /* MTMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MTMockObject.h */; };
 		085D2FB61351082800EBBE91 /* MTMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MTMockObject.m */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0827E83313526E7300C39A57 /* OCMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockito.h; sourceTree = "<group>"; };
+		0827E83413526E7300C39A57 /* OCMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockito.m; sourceTree = "<group>"; };
 		085D2FB11351080400EBBE91 /* MockObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockObjectTest.m; sourceTree = "<group>"; };
 		085D2FB31351082800EBBE91 /* MTMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMockObject.h; sourceTree = "<group>"; };
 		085D2FB41351082800EBBE91 /* MTMockObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMockObject.m; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 		08BDD5B21350C59C00E5A443 /* OCMockito */ = {
 			isa = PBXGroup;
 			children = (
+				0827E83313526E7300C39A57 /* OCMockito.h */,
+				0827E83413526E7300C39A57 /* OCMockito.m */,
 				085D2FB31351082800EBBE91 /* MTMockObject.h */,
 				085D2FB41351082800EBBE91 /* MTMockObject.m */,
 			);
@@ -348,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D3020135126BC00EBBE91 /* MockObjectTest.m in Sources */,
+				0827E83613526E7300C39A57 /* OCMockito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D2FB21351080400EBBE91 /* MockObjectTest.m in Sources */,
+				0827E83513526E7300C39A57 /* OCMockito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,32 +7,51 @@
 
 @interface MTMockObject ()
 @property(nonatomic, assign) Class mockedClass;
-- (id)initWithClass:(Class)aClass;
+@property(nonatomic, assign) id testCase;
+- (id)initWithClass:(Class)aClass testCase:(id)test;
 @end
 
 
 @implementation MTMockObject
 
 @synthesize mockedClass;
+@synthesize testCase;
 
 
-+ (id)mockForClass:(Class)aClass
++ (id)mockForClass:(Class)aClass testCase:(id)test
 {
-    return [[[self alloc] initWithClass:aClass] autorelease];
+    return [[[self alloc] initWithClass:aClass testCase:test] autorelease];
 }
 
 
-- (id)initWithClass:(Class)aClass
+- (id)initWithClass:(Class)aClass testCase:(id)test
 {
     if (self)
+    {
         mockedClass = aClass;
+        testCase = test;
+    }
     return self;
+}
+
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+{
 }
 
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     return [mockedClass instanceMethodSignatureForSelector:aSelector];
+}
+
+
+#pragma mark -
+#pragma mark NSObject
+
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    return [mockedClass instancesRespondToSelector:aSelector];
 }
 
 @end
