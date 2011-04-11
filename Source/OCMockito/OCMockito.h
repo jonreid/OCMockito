@@ -23,11 +23,11 @@
 #endif
 
 
-OBJC_EXPORT id MTVerifyHappenedOnceWithLocation(id mock, const char *fileName, int lineNumber);
+OBJC_EXPORT id MTVerifyWithLocation(id mock, const char *fileName, int lineNumber);
 
 #define MTVerifyHappenedOnce(mock)  \
-    MTVerifyHappenedOnceWithLocation(mock, __FILE__, __LINE__)
+    MTVerifyWithLocation(mock, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
-    #define verifyHappenedOnce(mock) MTVerifyHappenedOnce(mock)
+    #define verify(mock) MTVerifyHappenedOnce(mock)
 #endif

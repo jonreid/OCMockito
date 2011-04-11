@@ -5,20 +5,20 @@
 
 #import "OCMockito.h"
 
-#import "MTMockObject.h"
+#import "MTClassMock.h"
 
 
 @implementation OCMockito
 
 + (id)mockForClass:(Class)aClass testCase:(id)test
 {
-    return [MTMockObject mockForClass:aClass testCase:test];
+    return [MTClassMock mockForClass:aClass testCase:test];
 }
 
 @end
 
 
-id MTVerifyHappenedOnceWithLocation(id mock, const char *fileName, int lineNumber)
+id MTVerifyWithLocation(id mock, const char *fileName, int lineNumber)
 {
     return nil;
 }

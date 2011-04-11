@@ -1,18 +1,18 @@
 //
-//  OCMockito - MTMockObject.m
+//  OCMockito - MTClassMock.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MTMockObject.h"
+#import "MTClassMock.h"
 
-@interface MTMockObject ()
+@interface MTClassMock ()
 @property(nonatomic, assign) Class mockedClass;
 @property(nonatomic, assign) id testCase;
 - (id)initWithClass:(Class)aClass testCase:(id)test;
 @end
 
 
-@implementation MTMockObject
+@implementation MTClassMock
 
 @synthesize mockedClass;
 @synthesize testCase;

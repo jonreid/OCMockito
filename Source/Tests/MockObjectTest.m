@@ -67,7 +67,7 @@
     [mockArray removeAllObjects];
     
     // verify
-    [verifyHappenedOnce(mockArray) removeAllObjects];
+    [verify(mockArray) removeAllObjects];
 }
 
 @end
