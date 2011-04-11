@@ -15,8 +15,7 @@
 @end
 
 
-#define MTMockForClass(aClass)  \
-    [OCMockito mockForClass:aClass testCase:self]
+#define MTMockForClass(aClass) [OCMockito mockForClass:aClass testCase:self]
 
 #ifdef MOCKITO_SHORTHAND
     #define mockForClass(aClass) MTMockForClass(aClass)
@@ -25,9 +24,8 @@
 
 OBJC_EXPORT id MTVerifyWithLocation(id mock, const char *fileName, int lineNumber);
 
-#define MTVerifyHappenedOnce(mock)  \
-    MTVerifyWithLocation(mock, __FILE__, __LINE__)
+#define MTVerify(mock) MTVerifyWithLocation(mock, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
-    #define verify(mock) MTVerifyHappenedOnce(mock)
+    #define verify(mock) MTVerify(mock)
 #endif

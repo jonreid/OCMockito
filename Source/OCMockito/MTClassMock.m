@@ -5,10 +5,12 @@
 
 #import "MTClassMock.h"
 
+#import "MTMockingProgress.h"
+#import "MTMockitoCore.h"
+
 @interface MTClassMock ()
 @property(nonatomic, assign) Class mockedClass;
 @property(nonatomic, assign) id testCase;
-- (id)initWithClass:(Class)aClass testCase:(id)test;
 @end
 
 
@@ -37,6 +39,12 @@
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
+    MTMockingProgress *mockingProgress = [[MTMockitoCore sharedCore] mockingProgress];
+    id <MTVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
+    if (verificationMode)
+    {
+        
+    }
 }
 
 

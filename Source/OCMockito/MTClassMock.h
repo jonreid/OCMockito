@@ -9,5 +9,6 @@
 @interface MTClassMock : NSProxy
 
 + (id)mockForClass:(Class)aClass testCase:(id)test;
+- (id)initWithClass:(Class)aClass testCase:(id)test;
 
 @end

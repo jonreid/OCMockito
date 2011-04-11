@@ -9,6 +9,30 @@
 /* Begin PBXBuildFile section */
 		0827E83513526E7300C39A57 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
 		0827E83613526E7300C39A57 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
+		0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E83313526E7300C39A57 /* OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0827E83F1352B1C000C39A57 /* OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E83313526E7300C39A57 /* OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0827E8421352B6FC00C39A57 /* MTMockitoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8401352B6FC00C39A57 /* MTMockitoCore.h */; };
+		0827E8431352B6FC00C39A57 /* MTMockitoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8401352B6FC00C39A57 /* MTMockitoCore.h */; };
+		0827E8441352B6FC00C39A57 /* MTMockitoCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8411352B6FC00C39A57 /* MTMockitoCore.m */; };
+		0827E8451352B6FC00C39A57 /* MTMockitoCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8411352B6FC00C39A57 /* MTMockitoCore.m */; };
+		0827E8481352B7BF00C39A57 /* MTMockingProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8461352B7BE00C39A57 /* MTMockingProgress.h */; };
+		0827E8491352B7BF00C39A57 /* MTMockingProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8461352B7BE00C39A57 /* MTMockingProgress.h */; };
+		0827E84A1352B7BF00C39A57 /* MTMockingProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8471352B7BF00C39A57 /* MTMockingProgress.m */; };
+		0827E84B1352B7BF00C39A57 /* MTMockingProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8471352B7BF00C39A57 /* MTMockingProgress.m */; };
+		0827E8531352BBBC00C39A57 /* MTVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8521352BBBC00C39A57 /* MTVerificationMode.h */; };
+		0827E8541352BBBC00C39A57 /* MTVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8521352BBBC00C39A57 /* MTVerificationMode.h */; };
+		0827E8561352BC1D00C39A57 /* MTVerificationData.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8551352BC1D00C39A57 /* MTVerificationData.h */; };
+		0827E8571352BC1D00C39A57 /* MTVerificationData.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8551352BC1D00C39A57 /* MTVerificationData.h */; };
+		0827E85A1352BDF800C39A57 /* MTMockAwareVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8581352BDF800C39A57 /* MTMockAwareVerificationMode.h */; };
+		0827E85B1352BDF800C39A57 /* MTMockAwareVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8581352BDF800C39A57 /* MTMockAwareVerificationMode.h */; };
+		0827E85C1352BDF800C39A57 /* MTMockAwareVerificationMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8591352BDF800C39A57 /* MTMockAwareVerificationMode.m */; };
+		0827E85D1352BDF800C39A57 /* MTMockAwareVerificationMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8591352BDF800C39A57 /* MTMockAwareVerificationMode.m */; };
+		0827E8651352C50400C39A57 /* MTLineLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8641352C50400C39A57 /* MTLineLocation.h */; };
+		0827E8661352C50400C39A57 /* MTLineLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8641352C50400C39A57 /* MTLineLocation.h */; };
+		0827E8691352CC6400C39A57 /* MTTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8671352CC6400C39A57 /* MTTimes.h */; };
+		0827E86A1352CC6400C39A57 /* MTTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8671352CC6400C39A57 /* MTTimes.h */; };
+		0827E86B1352CC6400C39A57 /* MTTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8681352CC6400C39A57 /* MTTimes.m */; };
+		0827E86C1352CC6400C39A57 /* MTTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8681352CC6400C39A57 /* MTTimes.m */; };
 		085D2FB21351080400EBBE91 /* MockObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* MockObjectTest.m */; };
 		085D2FB51351082800EBBE91 /* MTClassMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MTClassMock.h */; };
 		085D2FB61351082800EBBE91 /* MTClassMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MTClassMock.m */; };
@@ -46,6 +70,17 @@
 /* Begin PBXFileReference section */
 		0827E83313526E7300C39A57 /* OCMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockito.h; sourceTree = "<group>"; };
 		0827E83413526E7300C39A57 /* OCMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockito.m; sourceTree = "<group>"; };
+		0827E8401352B6FC00C39A57 /* MTMockitoCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMockitoCore.h; sourceTree = "<group>"; };
+		0827E8411352B6FC00C39A57 /* MTMockitoCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMockitoCore.m; sourceTree = "<group>"; };
+		0827E8461352B7BE00C39A57 /* MTMockingProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMockingProgress.h; sourceTree = "<group>"; };
+		0827E8471352B7BF00C39A57 /* MTMockingProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMockingProgress.m; sourceTree = "<group>"; };
+		0827E8521352BBBC00C39A57 /* MTVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTVerificationMode.h; sourceTree = "<group>"; };
+		0827E8551352BC1D00C39A57 /* MTVerificationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTVerificationData.h; sourceTree = "<group>"; };
+		0827E8581352BDF800C39A57 /* MTMockAwareVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMockAwareVerificationMode.h; sourceTree = "<group>"; };
+		0827E8591352BDF800C39A57 /* MTMockAwareVerificationMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMockAwareVerificationMode.m; sourceTree = "<group>"; };
+		0827E8641352C50400C39A57 /* MTLineLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLineLocation.h; sourceTree = "<group>"; };
+		0827E8671352CC6400C39A57 /* MTTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTimes.h; sourceTree = "<group>"; };
+		0827E8681352CC6400C39A57 /* MTTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTimes.m; sourceTree = "<group>"; };
 		085D2FB11351080400EBBE91 /* MockObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockObjectTest.m; sourceTree = "<group>"; };
 		085D2FB31351082800EBBE91 /* MTClassMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTClassMock.h; sourceTree = "<group>"; };
 		085D2FB41351082800EBBE91 /* MTClassMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTClassMock.m; sourceTree = "<group>"; };
@@ -143,6 +178,17 @@
 				0827E83413526E7300C39A57 /* OCMockito.m */,
 				085D2FB31351082800EBBE91 /* MTClassMock.h */,
 				085D2FB41351082800EBBE91 /* MTClassMock.m */,
+				0827E8641352C50400C39A57 /* MTLineLocation.h */,
+				0827E8581352BDF800C39A57 /* MTMockAwareVerificationMode.h */,
+				0827E8591352BDF800C39A57 /* MTMockAwareVerificationMode.m */,
+				0827E8401352B6FC00C39A57 /* MTMockitoCore.h */,
+				0827E8411352B6FC00C39A57 /* MTMockitoCore.m */,
+				0827E8461352B7BE00C39A57 /* MTMockingProgress.h */,
+				0827E8471352B7BF00C39A57 /* MTMockingProgress.m */,
+				0827E8671352CC6400C39A57 /* MTTimes.h */,
+				0827E8681352CC6400C39A57 /* MTTimes.m */,
+				0827E8551352BC1D00C39A57 /* MTVerificationData.h */,
+				0827E8521352BBBC00C39A57 /* MTVerificationMode.h */,
 			);
 			path = OCMockito;
 			sourceTree = "<group>";
@@ -172,6 +218,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0827E83F1352B1C000C39A57 /* OCMockito.h in Headers */,
+				0827E8431352B6FC00C39A57 /* MTMockitoCore.h in Headers */,
+				0827E8491352B7BF00C39A57 /* MTMockingProgress.h in Headers */,
+				0827E8541352BBBC00C39A57 /* MTVerificationMode.h in Headers */,
+				0827E8571352BC1D00C39A57 /* MTVerificationData.h in Headers */,
+				0827E85B1352BDF800C39A57 /* MTMockAwareVerificationMode.h in Headers */,
+				0827E8661352C50400C39A57 /* MTLineLocation.h in Headers */,
+				0827E86A1352CC6400C39A57 /* MTTimes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +234,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D2FB51351082800EBBE91 /* MTClassMock.h in Headers */,
+				0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */,
+				0827E8421352B6FC00C39A57 /* MTMockitoCore.h in Headers */,
+				0827E8481352B7BF00C39A57 /* MTMockingProgress.h in Headers */,
+				0827E8531352BBBC00C39A57 /* MTVerificationMode.h in Headers */,
+				0827E8561352BC1D00C39A57 /* MTVerificationData.h in Headers */,
+				0827E85A1352BDF800C39A57 /* MTMockAwareVerificationMode.h in Headers */,
+				0827E8651352C50400C39A57 /* MTLineLocation.h in Headers */,
+				0827E8691352CC6400C39A57 /* MTTimes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +408,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D301F1351267D00EBBE91 /* MTClassMock.m in Sources */,
+				0827E8451352B6FC00C39A57 /* MTMockitoCore.m in Sources */,
+				0827E84B1352B7BF00C39A57 /* MTMockingProgress.m in Sources */,
+				0827E85D1352BDF800C39A57 /* MTMockAwareVerificationMode.m in Sources */,
+				0827E86C1352CC6400C39A57 /* MTTimes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +429,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D2FB61351082800EBBE91 /* MTClassMock.m in Sources */,
+				0827E8441352B6FC00C39A57 /* MTMockitoCore.m in Sources */,
+				0827E84A1352B7BF00C39A57 /* MTMockingProgress.m in Sources */,
+				0827E85C1352BDF800C39A57 /* MTMockAwareVerificationMode.m in Sources */,
+				0827E86B1352CC6400C39A57 /* MTTimes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

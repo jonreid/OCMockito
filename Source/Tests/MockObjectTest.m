@@ -17,6 +17,33 @@
 #endif
 
 
+@interface MockTestCase : NSObject
+@property(nonatomic, assign) NSUInteger failureCount;
+@property(nonatomic, retain) NSException *failureException;
+- (void)failWithException:(NSException *)exception;
+@end
+
+@implementation MockTestCase
+@synthesize failureCount;
+@synthesize failureException;
+
+- (void)dealloc
+{
+    [failureException release];
+    [super dealloc];
+}
+
+- (void)failWithException:(NSException *)exception
+{
+    ++failureCount;
+    [self setFailureException:exception];
+}
+
+@end
+
+
+#pragma mark -
+
 @interface MockObjectTest : SenTestCase
 @end
 
@@ -58,7 +85,7 @@
 }
 
 
-- (void)testInvokingVoidMethodWithNoArgsShouldVerifyOnce
+- (void)testInvokingVoidMethodWithNoArgsShouldVerify
 {
     // set up
     NSMutableArray *mockArray = mockForClass([NSMutableArray class]);
@@ -68,6 +95,20 @@
     
     // verify
     [verify(mockArray) removeAllObjects];
+}
+
+
+- (void)testNotInvokingVoidMethodWithNoArgsVerifyShouldFail
+{
+    // set up
+    MockTestCase *testCase = [[[MockTestCase alloc] init] autorelease];
+    NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class] testCase:testCase];
+        
+    // exercise
+    [verify(mockArray) removeAllObjects];
+    
+    // verify
+    assertThatUnsignedInteger([testCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
 @end

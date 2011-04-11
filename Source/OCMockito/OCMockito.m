@@ -6,6 +6,9 @@
 #import "OCMockito.h"
 
 #import "MTClassMock.h"
+#import "MTLineLocation.h"
+#import "MTMockitoCore.h"
+#import "MTTimes.h"
 
 
 @implementation OCMockito
@@ -20,5 +23,8 @@
 
 id MTVerifyWithLocation(id mock, const char *fileName, int lineNumber)
 {
-    return nil;
+    MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
+    return [mockitoCore verifyMock:mock
+                          withMode:[MTTimes timesWithCount:1]
+                        atLocation:MTLineLocationMake(fileName, lineNumber)];
 }
