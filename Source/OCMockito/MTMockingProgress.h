@@ -5,14 +5,16 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MTLineLocation.h"
+#import "MTTestLocation.h"
 
 @protocol MTVerificationMode;
 
 
 @interface MTMockingProgress : NSObject
 
-- (void)verificationStarted:(id <MTVerificationMode>)mode lineLocation:(MTLineLocation)location;
+@property(nonatomic, assign) MTTestLocation testLocation;
+
+- (void)verification:(id <MTVerificationMode>)mode startedAtLocation:(MTTestLocation)location;
 - (id <MTVerificationMode>)pullVerificationMode;
 
 @end

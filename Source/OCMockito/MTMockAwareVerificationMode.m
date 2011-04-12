@@ -47,9 +47,9 @@
 #pragma mark -
 #pragma mark MTVerificationMode
 
-- (void)verifyWithData:(id <MTVerificationData>)data
+- (void)verifyData:(MTVerificationData *)data
 {
-    [mode verifyWithData:data];
+    [mode verifyData:data];
 }
 
 @end

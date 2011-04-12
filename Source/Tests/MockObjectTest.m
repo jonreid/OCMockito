@@ -102,10 +102,10 @@
 {
     // set up
     MockTestCase *testCase = [[[MockTestCase alloc] init] autorelease];
-    NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class] testCase:testCase];
+    NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class]];
         
     // exercise
-    [verify(mockArray) removeAllObjects];
+    [MTVerifyWithLocation(mockArray, testCase, __FILE__, __LINE__) removeAllObjects];
     
     // verify
     assertThatUnsignedInteger([testCase failureCount], is(equalToUnsignedInteger(1)));    

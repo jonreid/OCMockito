@@ -3,12 +3,18 @@
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
+#import <Foundation/Foundation.h>
+
+#import "MTTestLocation.h"
+
+@class MTInvocationContainer;
 @class MTInvocationMatcher;
 
 
-@protocol MTVerificationData
+@interface MTVerificationData : NSObject
 
-- (NSArray *)allInvocations;
-- (MTInvocationMatcher *)wanted;
+@property(nonatomic, retain) MTInvocationContainer *invocations;
+@property(nonatomic, retain) MTInvocationMatcher *wanted;
+@property(nonatomic, assign) MTTestLocation testLocation;
 
 @end

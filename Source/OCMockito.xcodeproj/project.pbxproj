@@ -27,12 +27,22 @@
 		0827E85B1352BDF800C39A57 /* MTMockAwareVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8581352BDF800C39A57 /* MTMockAwareVerificationMode.h */; };
 		0827E85C1352BDF800C39A57 /* MTMockAwareVerificationMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8591352BDF800C39A57 /* MTMockAwareVerificationMode.m */; };
 		0827E85D1352BDF800C39A57 /* MTMockAwareVerificationMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8591352BDF800C39A57 /* MTMockAwareVerificationMode.m */; };
-		0827E8651352C50400C39A57 /* MTLineLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8641352C50400C39A57 /* MTLineLocation.h */; };
-		0827E8661352C50400C39A57 /* MTLineLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8641352C50400C39A57 /* MTLineLocation.h */; };
+		0827E8651352C50400C39A57 /* MTTestLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8641352C50400C39A57 /* MTTestLocation.h */; };
+		0827E8661352C50400C39A57 /* MTTestLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8641352C50400C39A57 /* MTTestLocation.h */; };
 		0827E8691352CC6400C39A57 /* MTTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8671352CC6400C39A57 /* MTTimes.h */; };
 		0827E86A1352CC6400C39A57 /* MTTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8671352CC6400C39A57 /* MTTimes.h */; };
 		0827E86B1352CC6400C39A57 /* MTTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8681352CC6400C39A57 /* MTTimes.m */; };
 		0827E86C1352CC6400C39A57 /* MTTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8681352CC6400C39A57 /* MTTimes.m */; };
+		0827E86E1353E30400C39A57 /* MTVerificationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E86D1353E30400C39A57 /* MTVerificationData.m */; };
+		0827E86F1353E30400C39A57 /* MTVerificationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E86D1353E30400C39A57 /* MTVerificationData.m */; };
+		0827E8721353EAD900C39A57 /* MTInvocationContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8701353EAD900C39A57 /* MTInvocationContainer.h */; };
+		0827E8731353EAD900C39A57 /* MTInvocationContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8701353EAD900C39A57 /* MTInvocationContainer.h */; };
+		0827E8741353EAD900C39A57 /* MTInvocationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8711353EAD900C39A57 /* MTInvocationContainer.m */; };
+		0827E8751353EAD900C39A57 /* MTInvocationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8711353EAD900C39A57 /* MTInvocationContainer.m */; };
+		0827E87E1354181400C39A57 /* NSException+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E87C1354181300C39A57 /* NSException+OCMockito.h */; };
+		0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E87C1354181300C39A57 /* NSException+OCMockito.h */; };
+		0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
+		0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
 		085D2FB21351080400EBBE91 /* MockObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* MockObjectTest.m */; };
 		085D2FB51351082800EBBE91 /* MTClassMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MTClassMock.h */; };
 		085D2FB61351082800EBBE91 /* MTClassMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MTClassMock.m */; };
@@ -78,9 +88,14 @@
 		0827E8551352BC1D00C39A57 /* MTVerificationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTVerificationData.h; sourceTree = "<group>"; };
 		0827E8581352BDF800C39A57 /* MTMockAwareVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMockAwareVerificationMode.h; sourceTree = "<group>"; };
 		0827E8591352BDF800C39A57 /* MTMockAwareVerificationMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMockAwareVerificationMode.m; sourceTree = "<group>"; };
-		0827E8641352C50400C39A57 /* MTLineLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLineLocation.h; sourceTree = "<group>"; };
+		0827E8641352C50400C39A57 /* MTTestLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTestLocation.h; sourceTree = "<group>"; };
 		0827E8671352CC6400C39A57 /* MTTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTimes.h; sourceTree = "<group>"; };
 		0827E8681352CC6400C39A57 /* MTTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTimes.m; sourceTree = "<group>"; };
+		0827E86D1353E30400C39A57 /* MTVerificationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTVerificationData.m; sourceTree = "<group>"; };
+		0827E8701353EAD900C39A57 /* MTInvocationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTInvocationContainer.h; sourceTree = "<group>"; };
+		0827E8711353EAD900C39A57 /* MTInvocationContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTInvocationContainer.m; sourceTree = "<group>"; };
+		0827E87C1354181300C39A57 /* NSException+OCMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+OCMockito.h"; sourceTree = "<group>"; };
+		0827E87D1354181300C39A57 /* NSException+OCMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+OCMockito.m"; sourceTree = "<group>"; };
 		085D2FB11351080400EBBE91 /* MockObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockObjectTest.m; sourceTree = "<group>"; };
 		085D2FB31351082800EBBE91 /* MTClassMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTClassMock.h; sourceTree = "<group>"; };
 		085D2FB41351082800EBBE91 /* MTClassMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTClassMock.m; sourceTree = "<group>"; };
@@ -178,17 +193,22 @@
 				0827E83413526E7300C39A57 /* OCMockito.m */,
 				085D2FB31351082800EBBE91 /* MTClassMock.h */,
 				085D2FB41351082800EBBE91 /* MTClassMock.m */,
-				0827E8641352C50400C39A57 /* MTLineLocation.h */,
+				0827E8701353EAD900C39A57 /* MTInvocationContainer.h */,
+				0827E8711353EAD900C39A57 /* MTInvocationContainer.m */,
 				0827E8581352BDF800C39A57 /* MTMockAwareVerificationMode.h */,
 				0827E8591352BDF800C39A57 /* MTMockAwareVerificationMode.m */,
 				0827E8401352B6FC00C39A57 /* MTMockitoCore.h */,
 				0827E8411352B6FC00C39A57 /* MTMockitoCore.m */,
 				0827E8461352B7BE00C39A57 /* MTMockingProgress.h */,
 				0827E8471352B7BF00C39A57 /* MTMockingProgress.m */,
+				0827E8641352C50400C39A57 /* MTTestLocation.h */,
 				0827E8671352CC6400C39A57 /* MTTimes.h */,
 				0827E8681352CC6400C39A57 /* MTTimes.m */,
 				0827E8551352BC1D00C39A57 /* MTVerificationData.h */,
+				0827E86D1353E30400C39A57 /* MTVerificationData.m */,
 				0827E8521352BBBC00C39A57 /* MTVerificationMode.h */,
+				0827E87C1354181300C39A57 /* NSException+OCMockito.h */,
+				0827E87D1354181300C39A57 /* NSException+OCMockito.m */,
 			);
 			path = OCMockito;
 			sourceTree = "<group>";
@@ -224,8 +244,10 @@
 				0827E8541352BBBC00C39A57 /* MTVerificationMode.h in Headers */,
 				0827E8571352BC1D00C39A57 /* MTVerificationData.h in Headers */,
 				0827E85B1352BDF800C39A57 /* MTMockAwareVerificationMode.h in Headers */,
-				0827E8661352C50400C39A57 /* MTLineLocation.h in Headers */,
+				0827E8661352C50400C39A57 /* MTTestLocation.h in Headers */,
 				0827E86A1352CC6400C39A57 /* MTTimes.h in Headers */,
+				0827E8731353EAD900C39A57 /* MTInvocationContainer.h in Headers */,
+				0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +262,10 @@
 				0827E8531352BBBC00C39A57 /* MTVerificationMode.h in Headers */,
 				0827E8561352BC1D00C39A57 /* MTVerificationData.h in Headers */,
 				0827E85A1352BDF800C39A57 /* MTMockAwareVerificationMode.h in Headers */,
-				0827E8651352C50400C39A57 /* MTLineLocation.h in Headers */,
+				0827E8651352C50400C39A57 /* MTTestLocation.h in Headers */,
 				0827E8691352CC6400C39A57 /* MTTimes.h in Headers */,
+				0827E8721353EAD900C39A57 /* MTInvocationContainer.h in Headers */,
+				0827E87E1354181400C39A57 /* NSException+OCMockito.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +436,9 @@
 				0827E84B1352B7BF00C39A57 /* MTMockingProgress.m in Sources */,
 				0827E85D1352BDF800C39A57 /* MTMockAwareVerificationMode.m in Sources */,
 				0827E86C1352CC6400C39A57 /* MTTimes.m in Sources */,
+				0827E86F1353E30400C39A57 /* MTVerificationData.m in Sources */,
+				0827E8751353EAD900C39A57 /* MTInvocationContainer.m in Sources */,
+				0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +460,9 @@
 				0827E84A1352B7BF00C39A57 /* MTMockingProgress.m in Sources */,
 				0827E85C1352BDF800C39A57 /* MTMockAwareVerificationMode.m in Sources */,
 				0827E86B1352CC6400C39A57 /* MTTimes.m in Sources */,
+				0827E86E1353E30400C39A57 /* MTVerificationData.m in Sources */,
+				0827E8741353EAD900C39A57 /* MTInvocationContainer.m in Sources */,
+				0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +546,7 @@
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-ObjC",
+					"-all_load",
 					"-framework",
 					SenTestingKit,
 				);
@@ -542,6 +573,7 @@
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-ObjC",
+					"-all_load",
 					"-framework",
 					SenTestingKit,
 				);

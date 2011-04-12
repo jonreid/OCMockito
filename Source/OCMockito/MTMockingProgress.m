@@ -10,20 +10,19 @@
 
 @interface MTMockingProgress ()
 @property(nonatomic, retain) id <MTVerificationMode> verificationMode;
-@property(nonatomic, assign) MTLineLocation lineLocation;
 @end
 
 
 @implementation MTMockingProgress
 
+@synthesize testLocation;
 @synthesize verificationMode;
-@synthesize lineLocation;
 
 
-- (void)verificationStarted:(id <MTVerificationMode>)mode lineLocation:(MTLineLocation)location
+- (void)verification:(id <MTVerificationMode>)mode startedAtLocation:(MTTestLocation)location
 {
     [self setVerificationMode:mode];
-    [self setLineLocation:location];
+    [self setTestLocation:location];
 }
 
 

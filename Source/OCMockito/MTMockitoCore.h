@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MTLineLocation.h"
+#import "MTTestLocation.h"
 
 @class MTClassMock;
 @class MTMockingProgress;
@@ -20,6 +20,6 @@
 
 - (id)verifyMock:(MTClassMock *)mock
         withMode:(id <MTVerificationMode>)mode
-      atLocation:(MTLineLocation)location;
+      atLocation:(MTTestLocation)location;
 
 @end

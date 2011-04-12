@@ -10,21 +10,21 @@
 
 @interface OCMockito : NSObject
 
-+ (id)mockForClass:(Class)aClass testCase:(id)test;
++ (id)mockForClass:(Class)aClass;
 
 @end
 
 
-#define MTMockForClass(aClass) [OCMockito mockForClass:aClass testCase:self]
+#define MTMockForClass(aClass) [OCMockito mockForClass:aClass]
 
 #ifdef MOCKITO_SHORTHAND
     #define mockForClass(aClass) MTMockForClass(aClass)
 #endif
 
 
-OBJC_EXPORT id MTVerifyWithLocation(id mock, const char *fileName, int lineNumber);
+OBJC_EXPORT id MTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 
-#define MTVerify(mock) MTVerifyWithLocation(mock, __FILE__, __LINE__)
+#define MTVerify(mock) MTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
     #define verify(mock) MTVerify(mock)

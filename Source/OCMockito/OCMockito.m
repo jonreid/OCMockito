@@ -6,25 +6,25 @@
 #import "OCMockito.h"
 
 #import "MTClassMock.h"
-#import "MTLineLocation.h"
+#import "MTTestLocation.h"
 #import "MTMockitoCore.h"
 #import "MTTimes.h"
 
 
 @implementation OCMockito
 
-+ (id)mockForClass:(Class)aClass testCase:(id)test
++ (id)mockForClass:(Class)aClass
 {
-    return [MTClassMock mockForClass:aClass testCase:test];
+    return [MTClassMock mockForClass:aClass];
 }
 
 @end
 
 
-id MTVerifyWithLocation(id mock, const char *fileName, int lineNumber)
+id MTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
     MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
     return [mockitoCore verifyMock:mock
                           withMode:[MTTimes timesWithCount:1]
-                        atLocation:MTLineLocationMake(fileName, lineNumber)];
+                        atLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
 }

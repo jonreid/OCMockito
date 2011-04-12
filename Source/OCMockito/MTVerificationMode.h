@@ -5,11 +5,11 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MTVerificationData;
+@class MTVerificationData;
 
 
 @protocol MTVerificationMode <NSObject>
 
-- (void)verifyWithData:(id <MTVerificationData>)data;
+- (void)verifyData:(MTVerificationData *)data;
 
 @end

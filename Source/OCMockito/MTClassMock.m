@@ -5,35 +5,45 @@
 
 #import "MTClassMock.h"
 
+#import "MTInvocationContainer.h"
 #import "MTMockingProgress.h"
 #import "MTMockitoCore.h"
+#import "MTVerificationData.h"
+#import "MTVerificationMode.h"
 
 @interface MTClassMock ()
 @property(nonatomic, assign) Class mockedClass;
-@property(nonatomic, assign) id testCase;
+@property(nonatomic, retain) MTInvocationContainer *invocationContainer;
 @end
 
 
 @implementation MTClassMock
 
 @synthesize mockedClass;
-@synthesize testCase;
+@synthesize invocationContainer;
 
 
-+ (id)mockForClass:(Class)aClass testCase:(id)test
++ (id)mockForClass:(Class)aClass
 {
-    return [[[self alloc] initWithClass:aClass testCase:test] autorelease];
+    return [[[self alloc] initWithClass:aClass] autorelease];
 }
 
 
-- (id)initWithClass:(Class)aClass testCase:(id)test
+- (id)initWithClass:(Class)aClass
 {
     if (self)
     {
         mockedClass = aClass;
-        testCase = test;
+        invocationContainer = [[MTInvocationContainer alloc] init];
     }
     return self;
+}
+
+
+- (void)dealloc
+{
+    [invocationContainer release];
+    [super dealloc];
 }
 
 
@@ -43,7 +53,14 @@
     id <MTVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
     if (verificationMode)
     {
-        
+        MTVerificationData *data = [[[MTVerificationData alloc] init] autorelease];
+        [data setInvocations:invocationContainer];
+        [data setTestLocation:[mockingProgress testLocation]];
+        [verificationMode verifyData:data];
+    }
+    else
+    {
+        [invocationContainer registerInvocation:anInvocation];
     }
 }
 

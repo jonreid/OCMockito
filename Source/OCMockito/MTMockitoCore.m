@@ -42,9 +42,9 @@
 
 - (id)verifyMock:(MTClassMock *)mock
         withMode:(id <MTVerificationMode>)mode
-      atLocation:(MTLineLocation)location
+      atLocation:(MTTestLocation)location
 {
-    [mockingProgress verificationStarted:mode lineLocation:location];
+    [mockingProgress verification:mode startedAtLocation:location];
     return mock;
 }
 
