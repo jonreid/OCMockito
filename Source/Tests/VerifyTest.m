@@ -1,5 +1,5 @@
 //
-//  OCMockito - MockObjectTest.m
+//  OCMockito - VerifyTest.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -44,46 +44,11 @@
 
 #pragma mark -
 
-@interface MockObjectTest : SenTestCase
+@interface VerifyTest : SenTestCase
 @end
 
 
-@implementation MockObjectTest
-
-- (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
-{
-	// set up
-    NSString *mockString = mockForClass([NSString class]);
-    NSString *realString = [NSString string];
-    SEL selector = @selector(rangeOfString:options:);
-    
-	// exercise
-    NSMethodSignature *signature = [mockString methodSignatureForSelector:selector];
-    
-    // verify
-    assertThat(signature, is(equalTo([realString methodSignatureForSelector:selector])));
-}
-
-
-- (void)testMockShouldRespondToKnownSelector
-{
-	// set up
-    NSString *mockString = mockForClass([NSString class]);
-    
-    // verify
-    STAssertTrue([mockString respondsToSelector:@selector(substringFromIndex:)], nil);
-}
-
-
-- (void)testMockShouldNotRespondToUnknownSelector
-{
-	// set up
-    NSString *mockString = mockForClass([NSString class]);
-    
-    // verify
-    STAssertFalse([mockString respondsToSelector:@selector(removeAllObjects)], nil);
-}
-
+@implementation VerifyTest
 
 - (void)testInvokingVoidMethodWithNoArgsShouldVerify
 {

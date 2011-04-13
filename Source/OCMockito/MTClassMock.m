@@ -11,6 +11,7 @@
 #import "MTVerificationData.h"
 #import "MTVerificationMode.h"
 
+
 @interface MTClassMock ()
 @property(nonatomic, assign) Class mockedClass;
 @property(nonatomic, retain) MTInvocationContainer *invocationContainer;

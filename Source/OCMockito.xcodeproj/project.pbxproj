@@ -43,7 +43,7 @@
 		0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E87C1354181300C39A57 /* NSException+OCMockito.h */; };
 		0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
 		0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
-		085D2FB21351080400EBBE91 /* MockObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* MockObjectTest.m */; };
+		085D2FB21351080400EBBE91 /* VerifyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* VerifyTest.m */; };
 		085D2FB51351082800EBBE91 /* MTClassMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MTClassMock.h */; };
 		085D2FB61351082800EBBE91 /* MTClassMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MTClassMock.m */; };
 		085D2FB71351087400EBBE91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
@@ -53,10 +53,12 @@
 		085D30021351254000EBBE91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
 		085D30071351254000EBBE91 /* liblibocmockito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D2FF51351254000EBBE91 /* liblibocmockito.a */; };
 		085D301F1351267D00EBBE91 /* MTClassMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MTClassMock.m */; };
-		085D3020135126BC00EBBE91 /* MockObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* MockObjectTest.m */; };
+		085D3020135126BC00EBBE91 /* VerifyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* VerifyTest.m */; };
 		085D30221351279C00EBBE91 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D30211351279C00EBBE91 /* OCHamcrestIOS.framework */; };
 		085D30231351279C00EBBE91 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D30211351279C00EBBE91 /* OCHamcrestIOS.framework */; };
 		085D3024135127CA00EBBE91 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D2FB9135108FF00EBBE91 /* OCHamcrest.framework */; };
+		089A8C2313552DE7003E7D27 /* ClassMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* ClassMockTest.m */; };
+		089A8C2413552DE7003E7D27 /* ClassMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* ClassMockTest.m */; };
 		08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5A91350C59C00E5A443 /* OCMockito.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,13 +98,14 @@
 		0827E8711353EAD900C39A57 /* MTInvocationContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTInvocationContainer.m; sourceTree = "<group>"; };
 		0827E87C1354181300C39A57 /* NSException+OCMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+OCMockito.h"; sourceTree = "<group>"; };
 		0827E87D1354181300C39A57 /* NSException+OCMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+OCMockito.m"; sourceTree = "<group>"; };
-		085D2FB11351080400EBBE91 /* MockObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockObjectTest.m; sourceTree = "<group>"; };
+		085D2FB11351080400EBBE91 /* VerifyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyTest.m; sourceTree = "<group>"; };
 		085D2FB31351082800EBBE91 /* MTClassMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTClassMock.h; sourceTree = "<group>"; };
 		085D2FB41351082800EBBE91 /* MTClassMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTClassMock.m; sourceTree = "<group>"; };
 		085D2FB9135108FF00EBBE91 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-1.4/OCHamcrest.framework"; sourceTree = "<group>"; };
 		085D2FF51351254000EBBE91 /* liblibocmockito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibocmockito.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		085D30211351279C00EBBE91 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.4/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
+		089A8C2213552DE7003E7D27 /* ClassMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassMockTest.m; sourceTree = "<group>"; };
 		08BDD5A91350C59C00E5A443 /* OCMockito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMockito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BDD5B11350C59C00E5A443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08BDD5BE1350C59C00E5A443 /* OCMockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +219,8 @@
 		08BDD5C31350C59C00E5A443 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				085D2FB11351080400EBBE91 /* MockObjectTest.m */,
+				089A8C2213552DE7003E7D27 /* ClassMockTest.m */,
+				085D2FB11351080400EBBE91 /* VerifyTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -446,8 +450,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				085D3020135126BC00EBBE91 /* MockObjectTest.m in Sources */,
+				085D3020135126BC00EBBE91 /* VerifyTest.m in Sources */,
 				0827E83613526E7300C39A57 /* OCMockito.m in Sources */,
+				089A8C2413552DE7003E7D27 /* ClassMockTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,8 +475,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				085D2FB21351080400EBBE91 /* MockObjectTest.m in Sources */,
+				085D2FB21351080400EBBE91 /* VerifyTest.m in Sources */,
 				0827E83513526E7300C39A57 /* OCMockito.m in Sources */,
+				089A8C2313552DE7003E7D27 /* ClassMockTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
