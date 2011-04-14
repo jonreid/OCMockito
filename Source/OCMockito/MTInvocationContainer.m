@@ -6,9 +6,16 @@
 #import "MTInvocationContainer.h"
 
 
+@interface MTInvocationContainer ()
+@property(nonatomic, retain) NSInvocation *invocationForStubbing;
+@end
+
+
 @implementation MTInvocationContainer
 
 @synthesize registeredInvocations;
+@synthesize invocationForStubbing;
+
 
 - (id)init
 {
@@ -22,13 +29,15 @@
 - (void)dealloc
 {
     [registeredInvocations release];
+    [invocationForStubbing release];
     [super dealloc];
 }
 
 
-- (void)registerInvocation:(NSInvocation *)invocation
+- (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation
 {
     [registeredInvocations addObject:invocation];
+    [self setInvocationForStubbing:invocation];
 }
 
 @end

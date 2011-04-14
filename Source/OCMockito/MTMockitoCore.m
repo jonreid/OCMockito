@@ -9,6 +9,11 @@
 #import "MTVerificationMode.h"
 
 
+@interface MTMockitoCore ()
+- (MTOngoingStubbing *)stub;
+@end
+
+
 @implementation MTMockitoCore
 
 @synthesize mockingProgress;
@@ -40,11 +45,24 @@
 }
 
 
+- (MTOngoingStubbing *)givenAtLocation:(MTTestLocation)location
+{
+    [mockingProgress stubbingStartedAtLocation:location];
+    return [self stub];
+}
+
+
+- (MTOngoingStubbing *)stub
+{
+    return [mockingProgress pullOngoingStubbing];
+}
+
+
 - (id)verifyMock:(MTClassMock *)mock
         withMode:(id <MTVerificationMode>)mode
       atLocation:(MTTestLocation)location
 {
-    [mockingProgress verification:mode startedAtLocation:location];
+    [mockingProgress verificationStarted:mode atLocation:location];
     return mock;
 }
 

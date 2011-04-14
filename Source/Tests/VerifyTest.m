@@ -50,7 +50,7 @@
 
 @implementation VerifyTest
 
-- (void)testInvokingVoidMethodWithNoArgsShouldVerify
+- (void)testInvokingVoidMethodWithNoArgsShouldPassVerify
 {
     // set up
     NSMutableArray *mockArray = mockForClass([NSMutableArray class]);
@@ -63,7 +63,7 @@
 }
 
 
-- (void)testNotInvokingVoidMethodWithNoArgsVerifyShouldFail
+- (void)testNotInvokingVoidMethodWithNoArgsShouldFailVerify
 {
     // set up
     MockTestCase *testCase = [[[MockTestCase alloc] init] autorelease];

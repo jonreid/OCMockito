@@ -9,6 +9,7 @@
 
 @class MTClassMock;
 @class MTMockingProgress;
+@class MTOngoingStubbing;
 @protocol MTVerificationMode;
 
 
@@ -17,6 +18,8 @@
 @property(nonatomic, retain) MTMockingProgress *mockingProgress;
 
 + (id)sharedCore;
+
+- (MTOngoingStubbing *)givenAtLocation:(MTTestLocation)location;
 
 - (id)verifyMock:(MTClassMock *)mock
         withMode:(id <MTVerificationMode>)mode

@@ -7,6 +7,7 @@
 
 #import "MTTestLocation.h"
 
+@class MTOngoingStubbing;
 @protocol MTVerificationMode;
 
 
@@ -14,7 +15,10 @@
 
 @property(nonatomic, assign) MTTestLocation testLocation;
 
-- (void)verification:(id <MTVerificationMode>)mode startedAtLocation:(MTTestLocation)location;
+- (void)reportOngoingStubbing:(MTOngoingStubbing *)theOngoingStubbing;
+- (MTOngoingStubbing *)pullOngoingStubbing;
+- (void)stubbingStartedAtLocation:(MTTestLocation)location;
+- (void)verificationStarted:(id <MTVerificationMode>)mode atLocation:(MTTestLocation)location;
 - (id <MTVerificationMode>)pullVerificationMode;
 
 @end

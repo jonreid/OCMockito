@@ -10,6 +10,6 @@
 
 @property(nonatomic, retain) NSMutableArray *registeredInvocations;
 
-- (void)registerInvocation:(NSInvocation *)invocation;
+- (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
 
 @end

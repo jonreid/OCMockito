@@ -6,6 +6,7 @@
 #import "OCMockito.h"
 
 #import "MTClassMock.h"
+#import "MTMockingProgress.h"
 #import "MTTestLocation.h"
 #import "MTMockitoCore.h"
 #import "MTTimes.h"
@@ -19,6 +20,13 @@
 }
 
 @end
+
+
+MTOngoingStubbing * MTGivenWithLocation(id methodCall, id testCase, const char *fileName, int lineNumber)
+{
+    MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
+    return [mockitoCore givenAtLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
+}
 
 
 id MTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)

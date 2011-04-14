@@ -8,6 +8,7 @@
 #import "MTInvocationContainer.h"
 #import "MTMockingProgress.h"
 #import "MTMockitoCore.h"
+#import "MTOngoingStubbing.h"
 #import "MTVerificationData.h"
 #import "MTVerificationMode.h"
 
@@ -58,11 +59,14 @@
         [data setInvocations:invocationContainer];
         [data setTestLocation:[mockingProgress testLocation]];
         [verificationMode verifyData:data];
+        return;
     }
-    else
-    {
-        [invocationContainer registerInvocation:anInvocation];
-    }
+    
+    [invocationContainer setInvocationForPotentialStubbing:anInvocation];
+    MTOngoingStubbing *ongoingStubbing = [[MTOngoingStubbing alloc]
+                                          initWithInvocationContainer:invocationContainer];
+    [mockingProgress reportOngoingStubbing:ongoingStubbing];
+    [ongoingStubbing release];
 }
 
 

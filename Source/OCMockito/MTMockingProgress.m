@@ -9,6 +9,7 @@
 
 
 @interface MTMockingProgress ()
+@property(nonatomic, retain) MTOngoingStubbing *ongoingStubbing;
 @property(nonatomic, retain) id <MTVerificationMode> verificationMode;
 @end
 
@@ -16,10 +17,31 @@
 @implementation MTMockingProgress
 
 @synthesize testLocation;
+@synthesize ongoingStubbing;
 @synthesize verificationMode;
 
 
-- (void)verification:(id <MTVerificationMode>)mode startedAtLocation:(MTTestLocation)location
+- (void)reportOngoingStubbing:(MTOngoingStubbing *)theOngoingStubbing
+{
+    [self setOngoingStubbing:theOngoingStubbing];
+}
+
+
+- (MTOngoingStubbing *)pullOngoingStubbing
+{
+    MTOngoingStubbing *result = [ongoingStubbing retain];
+    [self setOngoingStubbing:nil];
+    return [result autorelease];
+}
+
+
+- (void)stubbingStartedAtLocation:(MTTestLocation)location
+{
+    [self setTestLocation:location];
+}
+
+
+- (void)verificationStarted:(id <MTVerificationMode>)mode atLocation:(MTTestLocation)location
 {
     [self setVerificationMode:mode];
     [self setTestLocation:location];
