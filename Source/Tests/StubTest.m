@@ -28,7 +28,7 @@
 - (void)testStubbedMethodWithNoArgsReturningObject
 {
     // given
-    NSString *mockString = mockForClass([NSString class]);
+    NSString *mockString = mock([NSString class]);
     
     // when
     [given([mockString uppercaseString]) willReturn:@"STUBBED"];

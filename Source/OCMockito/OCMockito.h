@@ -18,10 +18,10 @@
 @end
 
 
-#define MTMockForClass(aClass) [OCMockito mockForClass:aClass]
+#define MTMock(aClass) [OCMockito mockForClass:aClass]
 
 #ifdef MOCKITO_SHORTHAND
-    #define mockForClass(aClass) MTMockForClass(aClass)
+    #define mock(aClass) MTMock(aClass)
 #endif
 
 

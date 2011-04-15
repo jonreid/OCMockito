@@ -26,7 +26,7 @@
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
 	// set up
-    NSString *mockString = mockForClass([NSString class]);
+    NSString *mockString = mock([NSString class]);
     NSString *realString = [NSString string];
     SEL selector = @selector(rangeOfString:options:);
     
@@ -41,7 +41,7 @@
 - (void)testMockShouldRespondToKnownSelector
 {
 	// set up
-    NSString *mockString = mockForClass([NSString class]);
+    NSString *mockString = mock([NSString class]);
     
     // verify
     STAssertTrue([mockString respondsToSelector:@selector(substringFromIndex:)], nil);
@@ -51,7 +51,7 @@
 - (void)testMockShouldNotRespondToUnknownSelector
 {
 	// set up
-    NSString *mockString = mockForClass([NSString class]);
+    NSString *mockString = mock([NSString class]);
     
     // verify
     STAssertFalse([mockString respondsToSelector:@selector(removeAllObjects)], nil);

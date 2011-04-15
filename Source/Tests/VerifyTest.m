@@ -53,7 +53,7 @@
 - (void)testInvokingVoidMethodWithNoArgsShouldPassVerify
 {
     // set up
-    NSMutableArray *mockArray = mockForClass([NSMutableArray class]);
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
     
     // exercise
     [mockArray removeAllObjects];
