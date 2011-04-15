@@ -8,7 +8,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-// Test support
+    // Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND

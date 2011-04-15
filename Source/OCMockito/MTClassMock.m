@@ -7,7 +7,6 @@
 
 #import "MTInvocationContainer.h"
 #import "MTMockingProgress.h"
-#import "MTMockitoCore.h"
 #import "MTOngoingStubbing.h"
 #import "MTVerificationData.h"
 #import "MTVerificationMode.h"
@@ -15,6 +14,7 @@
 
 @interface MTClassMock ()
 @property(nonatomic, assign) Class mockedClass;
+@property(nonatomic, retain) MTMockingProgress *mockingProgress;
 @property(nonatomic, retain) MTInvocationContainer *invocationContainer;
 @end
 
@@ -22,6 +22,7 @@
 @implementation MTClassMock
 
 @synthesize mockedClass;
+@synthesize mockingProgress;
 @synthesize invocationContainer;
 
 
@@ -36,7 +37,8 @@
     if (self)
     {
         mockedClass = aClass;
-        invocationContainer = [[MTInvocationContainer alloc] init];
+        mockingProgress = [[MTMockingProgress sharedProgress] retain];
+        invocationContainer = [[MTInvocationContainer alloc] initWithMockingProgress:mockingProgress];
     }
     return self;
 }
@@ -44,6 +46,7 @@
 
 - (void)dealloc
 {
+    [mockingProgress release];
     [invocationContainer release];
     [super dealloc];
 }
@@ -51,7 +54,6 @@
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
-    MTMockingProgress *mockingProgress = [[MTMockitoCore sharedCore] mockingProgress];
     id <MTVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
     if (verificationMode)
     {
@@ -67,6 +69,14 @@
                                           initWithInvocationContainer:invocationContainer];
     [mockingProgress reportOngoingStubbing:ongoingStubbing];
     [ongoingStubbing release];
+    
+    NSMethodSignature *methodSignature = [anInvocation methodSignature];
+    const char* methodReturnType = [methodSignature methodReturnType];
+    if (*methodReturnType != 'v')
+    {
+        id answer = [invocationContainer answer];
+        [anInvocation setReturnValue:&answer];
+    }
 }
 
 

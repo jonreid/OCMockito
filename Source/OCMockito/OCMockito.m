@@ -6,7 +6,6 @@
 #import "OCMockito.h"
 
 #import "MTClassMock.h"
-#import "MTMockingProgress.h"
 #import "MTTestLocation.h"
 #import "MTMockitoCore.h"
 #import "MTTimes.h"

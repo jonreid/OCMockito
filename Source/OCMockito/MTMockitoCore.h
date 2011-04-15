@@ -8,14 +8,11 @@
 #import "MTTestLocation.h"
 
 @class MTClassMock;
-@class MTMockingProgress;
 @class MTOngoingStubbing;
 @protocol MTVerificationMode;
 
 
 @interface MTMockitoCore : NSObject
-
-@property(nonatomic, retain) MTMockingProgress *mockingProgress;
 
 + (id)sharedCore;
 

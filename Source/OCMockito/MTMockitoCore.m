@@ -10,6 +10,7 @@
 
 
 @interface MTMockitoCore ()
+@property(nonatomic, retain) MTMockingProgress *mockingProgress;
 - (MTOngoingStubbing *)stub;
 @end
 
@@ -33,7 +34,7 @@
 {
     self = [super init];
     if (self)
-        mockingProgress = [[MTMockingProgress alloc] init];
+        mockingProgress = [[MTMockingProgress sharedProgress] retain];
     return self;
 }
 

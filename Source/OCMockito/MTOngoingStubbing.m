@@ -5,6 +5,8 @@
 
 #import "MTOngoingStubbing.h"
 
+#import "MTInvocationContainer.h"
+
 
 @interface MTOngoingStubbing ()
 @property(nonatomic, retain) MTInvocationContainer *invocationContainer;
@@ -34,6 +36,7 @@
 
 - (MTOngoingStubbing *)willReturn:(id)object
 {
+    [invocationContainer addAnswer:object];
     return self;
 }
 

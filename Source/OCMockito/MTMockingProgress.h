@@ -15,6 +15,7 @@
 
 @property(nonatomic, assign) MTTestLocation testLocation;
 
++ (id)sharedProgress;
 - (void)reportOngoingStubbing:(MTOngoingStubbing *)theOngoingStubbing;
 - (MTOngoingStubbing *)pullOngoingStubbing;
 - (void)stubbingStartedAtLocation:(MTTestLocation)location;

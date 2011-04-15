@@ -21,6 +21,16 @@
 @synthesize verificationMode;
 
 
++ (id)sharedProgress
+{
+    static id sharedProgress = nil;
+    
+    if (!sharedProgress)
+        sharedProgress = [[self alloc] init];
+    return sharedProgress;
+}
+
+
 - (void)reportOngoingStubbing:(MTOngoingStubbing *)theOngoingStubbing
 {
     [self setOngoingStubbing:theOngoingStubbing];
