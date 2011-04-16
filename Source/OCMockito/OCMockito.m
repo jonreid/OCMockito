@@ -24,7 +24,7 @@
 MTOngoingStubbing * MTGivenWithLocation(id methodCall, id testCase, const char *fileName, int lineNumber)
 {
     MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
-    return [mockitoCore givenAtLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
+    return [mockitoCore stubAtLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
 

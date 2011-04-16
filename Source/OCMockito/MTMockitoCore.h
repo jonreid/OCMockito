@@ -16,7 +16,7 @@
 
 + (id)sharedCore;
 
-- (MTOngoingStubbing *)givenAtLocation:(MTTestLocation)location;
+- (MTOngoingStubbing *)stubAtLocation:(MTTestLocation)location;
 
 - (id)verifyMock:(MTClassMock *)mock
         withMode:(id <MTVerificationMode>)mode

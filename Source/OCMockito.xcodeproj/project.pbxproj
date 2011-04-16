@@ -66,6 +66,8 @@
 		089A8C381356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MTOngoingStubbing.m */; };
 		089A8C391356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MTOngoingStubbing.m */; };
 		08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5A91350C59C00E5A443 /* OCMockito.framework */; };
+		08F189E31359661E00F76379 /* MockingProgressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189E21359661E00F76379 /* MockingProgressTest.m */; };
+		08F189E41359661E00F76379 /* MockingProgressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189E21359661E00F76379 /* MockingProgressTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,7 @@
 		08BED07F1350DE4900CCBF76 /* OCMockito-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OCMockito-Info.plist"; sourceTree = "<group>"; };
 		08BED0801350DE4900CCBF76 /* OCMockito-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCMockito-Prefix.pch"; sourceTree = "<group>"; };
 		08BED0811350DE4900CCBF76 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		08F189E21359661E00F76379 /* MockingProgressTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockingProgressTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,9 +233,10 @@
 		08BDD5C31350C59C00E5A443 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				089A8C2213552DE7003E7D27 /* ClassMockTest.m */,
 				089A8C3113555D0C003E7D27 /* StubTest.m */,
 				085D2FB11351080400EBBE91 /* VerifyTest.m */,
+				089A8C2213552DE7003E7D27 /* ClassMockTest.m */,
+				08F189E21359661E00F76379 /* MockingProgressTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -469,6 +473,7 @@
 				0827E83613526E7300C39A57 /* OCMockito.m in Sources */,
 				089A8C2413552DE7003E7D27 /* ClassMockTest.m in Sources */,
 				089A8C3313555D0C003E7D27 /* StubTest.m in Sources */,
+				08F189E41359661E00F76379 /* MockingProgressTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +501,7 @@
 				0827E83513526E7300C39A57 /* OCMockito.m in Sources */,
 				089A8C2313552DE7003E7D27 /* ClassMockTest.m in Sources */,
 				089A8C3213555D0C003E7D27 /* StubTest.m in Sources */,
+				08F189E31359661E00F76379 /* MockingProgressTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

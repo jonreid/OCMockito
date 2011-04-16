@@ -17,6 +17,9 @@
 #endif
 
 
+#define verifyWithMockTestCase(mock) MTVerifyWithLocation(mock, mockTestCase, __FILE__, __LINE__)
+
+
 @interface MockTestCase : NSObject
 @property(nonatomic, assign) NSUInteger failureCount;
 @property(nonatomic, retain) NSException *failureException;
@@ -50,7 +53,21 @@
 
 @implementation VerifyTest
 
-- (void)testInvokingVoidMethodWithNoArgsShouldPassVerify
+- (void)testNotInvokingVoidMethodWithNoArgumentsShouldFailVerify
+{
+    // set up
+    NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class]];
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    // exercise
+    [verifyWithMockTestCase(mockArray) removeAllObjects];
+    
+    // verify
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
+
+
+- (void)testInvokingVoidMethodWithNoArgumentsShouldPassVerify
 {
     // set up
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -63,17 +80,33 @@
 }
 
 
-- (void)testNotInvokingVoidMethodWithNoArgsShouldFailVerify
-{
-    // set up
-    MockTestCase *testCase = [[[MockTestCase alloc] init] autorelease];
-    NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class]];
-        
-    // exercise
-    [MTVerifyWithLocation(mockArray, testCase, __FILE__, __LINE__) removeAllObjects];
-    
-    // verify
-    assertThatUnsignedInteger([testCase failureCount], is(equalToUnsignedInteger(1)));    
-}
+//- (void)testInvokingVoidMethodWithDifferentObjectArgumentShouldFailVerify
+//{
+//    // set up
+//    NSMutableArray *mockArray = mock([NSMutableArray class]);
+//    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+//    
+//    // exercise
+//    [mockArray removeObject:@"foo"];
+//    [verifyWithMockTestCase(mockArray) removeObject:@"bar"];
+//
+//    // verify
+//    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+//}
+//
+//
+//- (void)testInvokingVoidMethodWithEqualObjectArgumentShouldPassVerify
+//{
+//    // set up
+//    NSMutableArray *mockArray = mock([NSMutableArray class]);
+//    id object1 = [NSString stringWithString:@"stub"];
+//    id object2 = [NSString stringWithString:@"stub"];
+//    
+//    // exercise
+//    [mockArray removeObject:object1];
+//    
+//    // verify
+//    [verify(mockArray) removeObject:object2];
+//}
 
 @end

@@ -31,6 +31,12 @@
 }
 
 
+- (void)stubbingStartedAtLocation:(MTTestLocation)location
+{
+    [self setTestLocation:location];
+}
+
+
 - (void)reportOngoingStubbing:(MTOngoingStubbing *)theOngoingStubbing
 {
     [self setOngoingStubbing:theOngoingStubbing];
@@ -42,12 +48,6 @@
     MTOngoingStubbing *result = [ongoingStubbing retain];
     [self setOngoingStubbing:nil];
     return [result autorelease];
-}
-
-
-- (void)stubbingStartedAtLocation:(MTTestLocation)location
-{
-    [self setTestLocation:location];
 }
 
 

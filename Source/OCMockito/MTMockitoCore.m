@@ -46,7 +46,7 @@
 }
 
 
-- (MTOngoingStubbing *)givenAtLocation:(MTTestLocation)location
+- (MTOngoingStubbing *)stubAtLocation:(MTTestLocation)location
 {
     [mockingProgress stubbingStartedAtLocation:location];
     return [self stub];
