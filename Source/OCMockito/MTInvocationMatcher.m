@@ -13,60 +13,97 @@
 
 
 @interface MTInvocationMatcher ()
-@property(nonatomic, retain) NSInvocation *invocation;
+@property(nonatomic, retain) NSInvocation *expected;
+@property(nonatomic, retain) NSMutableArray *argumentMatchers;
 @property(nonatomic, assign) NSUInteger numberOfArguments;
 @end
 
 
 @implementation MTInvocationMatcher
 
-@synthesize invocation;
+@synthesize expected;
+@synthesize argumentMatchers;
 @synthesize numberOfArguments;
+
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+        argumentMatchers = [[NSMutableArray alloc] initWithObjects:[NSNull null], [NSNull null], nil];
+    return self;
+}
 
 
 - (void)dealloc
 {
-    [invocation release];
+    [expected release];
+    [argumentMatchers release];
     [super dealloc];
 }
 
 
-- (void)setExpected:(NSInvocation *)expected
+- (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
 {
-    [self setInvocation:expected];
+    [self setExpected:expectedInvocation];
+    [expected retainArguments];
     
-    numberOfArguments = [[invocation methodSignature] numberOfArguments];
+    NSMethodSignature *methodSignature = [expected methodSignature];
+    
+    numberOfArguments = [[expected methodSignature] numberOfArguments];
     for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
     {
-        id argument = nil;
-        [invocation getArgument:&argument atIndex:argumentIndex];
-        
-        if (![argument conformsToProtocol:@protocol(HCMatcher)])
+        const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
+        if (strcmp(argumentType, @encode(BOOL)) == 0)
+            [argumentMatchers addObject:[NSNull null]];
+        else if (strcmp(argumentType, @encode(id)) == 0)
         {
-            HCIsEqual *isEqualMatcher = [[[HCIsEqual alloc] initEqualTo:argument] autorelease];
-            [invocation setArgument:&isEqualMatcher atIndex:argumentIndex];
+            id argument = nil;
+            [expected getArgument:&argument atIndex:argumentIndex];
+            
+            if ([argument conformsToProtocol:@protocol(HCMatcher)])
+                [argumentMatchers addObject:argument];
+            else
+            {
+                HCIsEqual *isEqualMatcher = [[HCIsEqual alloc] initEqualTo:argument];
+                [argumentMatchers addObject:isEqualMatcher];
+                [isEqualMatcher release];
+            }
         }
     }
-    
-    [invocation retainArguments];
 }
 
 
 - (BOOL)matches:(NSInvocation *)actual
 {
-    if ([invocation selector] != [actual selector])
+    if ([expected selector] != [actual selector])
         return NO;
-    
+
+    NSMethodSignature *methodSignature = [expected methodSignature];
+
     for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
     {
-        id <HCMatcher> expectedArgument = nil;
-        [invocation getArgument:&expectedArgument atIndex:argumentIndex];
-        
-        id actualArgument = nil;
-        [actual getArgument:&actualArgument atIndex:argumentIndex];
-        
-        if (![expectedArgument matches:actualArgument])
-            return NO;
+        const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
+        if (strcmp(argumentType, @encode(BOOL)) == 0)
+        {
+            BOOL actualArgument;
+            [actual getArgument:&actualArgument atIndex:argumentIndex];
+
+            BOOL expectedArgument;
+            [expected getArgument:&expectedArgument atIndex:argumentIndex];
+            
+            if (expectedArgument != actualArgument)
+                return NO;
+        }
+        else if (strcmp(argumentType, @encode(id)) == 0)
+        {
+            id actualArgument;
+            [actual getArgument:&actualArgument atIndex:argumentIndex];
+            
+            id <HCMatcher> expectedArgument = [argumentMatchers objectAtIndex:argumentIndex];
+            if (![expectedArgument matches:actualArgument])
+                return NO;
+        }
     }
     
     return YES;
