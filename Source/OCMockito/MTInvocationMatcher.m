@@ -54,7 +54,7 @@
     for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (strcmp(argumentType, @encode(BOOL)) == 0)
+        if (strcmp(argumentType, @encode(char)) == 0)
             [argumentMatchers addObject:[NSNull null]];
         else if (strcmp(argumentType, @encode(id)) == 0)
         {
@@ -84,12 +84,12 @@
     for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (strcmp(argumentType, @encode(BOOL)) == 0)
+        if (strcmp(argumentType, @encode(char)) == 0)
         {
-            BOOL actualArgument;
+            char actualArgument;
             [actual getArgument:&actualArgument atIndex:argumentIndex];
 
-            BOOL expectedArgument;
+            char expectedArgument;
             [expected getArgument:&expectedArgument atIndex:argumentIndex];
             
             if (expectedArgument != actualArgument)

@@ -29,6 +29,39 @@
 - (void)differentMethodWithObjectArg:(id)arg {}
 
 - (void)methodWithBoolArg:(BOOL)arg {}
+- (void)methodWithCharArg:(char)arg {}
+
++ (NSInvocation *)invocationWithSelector:(SEL)selector
+{
+    NSMethodSignature *methodSignature = [self instanceMethodSignatureForSelector:selector];
+    return [NSInvocation invocationWithMethodSignature:methodSignature];
+}
+
++ (NSInvocation *)invocationWithNoArgs
+{
+    return [self invocationWithSelector:@selector(methodWithNoArgs)];
+}
+
++ (NSInvocation *)invocationWithObjectArg:(id)argument
+{
+    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithObjectArg:)];
+    [invocation setArgument:&argument atIndex:2];
+    return invocation;
+}
+
++ (NSInvocation *)invocationWithBoolArg:(BOOL)argument
+{
+    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithBoolArg:)];
+    [invocation setArgument:&argument atIndex:2];
+    return invocation;
+}
+
++ (NSInvocation *)invocationWithCharArg:(char)argument
+{
+    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithCharArg:)];
+    [invocation setArgument:&argument atIndex:2];
+    return invocation;
+}
 
 @end
 
@@ -58,43 +91,10 @@
 }
 
 
-- (NSInvocation *)invocationWithNoArgsWithSelector:(SEL)selector
-{
-    SEL noArgumentSelector = @selector(methodWithNoArgs);
-    NSMethodSignature *methodSignature = [[DummyObject class]
-                                          instanceMethodSignatureForSelector:noArgumentSelector];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
-    [invocation setSelector:selector];
-    return invocation;
-}
-
-
-- (NSInvocation *)invocationWithObjectArg:(id)argument
-{
-    SEL selector = @selector(methodWithObjectArg:);
-    NSMethodSignature *methodSignature = [[DummyObject class]
-                                          instanceMethodSignatureForSelector:selector];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
-}
-
-
-- (NSInvocation *)invocationWithBoolArg:(BOOL)argument
-{
-    SEL selector = @selector(methodWithBoolArg:);
-    NSMethodSignature *methodSignature = [[DummyObject class]
-                                          instanceMethodSignatureForSelector:selector];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
-}
-
-
 - (void)testShouldMatchNoArgumentInvocationsIfSelectorsMatch
 {
-    NSInvocation *expected = [self invocationWithNoArgsWithSelector:@selector(methodWithNoArgs)];
-    NSInvocation *actual = [self invocationWithNoArgsWithSelector:@selector(methodWithNoArgs)];
+    NSInvocation *expected = [DummyObject invocationWithNoArgs];
+    NSInvocation *actual = [DummyObject invocationWithNoArgs];
     
     [invocationMatcher setExpectedInvocation:expected];
     
@@ -104,8 +104,10 @@
 
 - (void)testShouldNotMatchNoArgumentInvocationsIfSelectorsDiffer
 {
-    NSInvocation *expected = [self invocationWithNoArgsWithSelector:@selector(methodWithNoArgs)];
-    NSInvocation *actual = [self invocationWithNoArgsWithSelector:@selector(differentMethodWithNoArgs)];
+    NSInvocation *expected = [DummyObject invocationWithNoArgs];
+    NSInvocation *actual = [DummyObject invocationWithNoArgs];
+    [expected setSelector:@selector(methodWithNoArgs)];
+    [actual setSelector:@selector(differentMethodWithNoArgs)];
     
     [invocationMatcher setExpectedInvocation:expected];
     
@@ -115,8 +117,8 @@
 
 - (void)testShouldMatchIfObjectArgumentEqualsExpectedArgument
 {
-    NSInvocation *expected = [self invocationWithObjectArg:@"something"];
-    NSInvocation *actual = [self invocationWithObjectArg:@"something"];
+    NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something"];
+    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something"];
     
     [invocationMatcher setExpectedInvocation:expected];
     
@@ -126,8 +128,8 @@
 
 - (void)testShouldNotMatchIfObjectArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [self invocationWithObjectArg:@"something"];
-    NSInvocation *actual = [self invocationWithObjectArg:@"different"];
+    NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something"];
+    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"different"];
     
     [invocationMatcher setExpectedInvocation:expected];
     
@@ -137,10 +139,10 @@
 
 - (void)testShouldNotMatchIfArgumentsMatchButSelectorsDiffer
 {
-    NSInvocation *expected = [self invocationWithObjectArg:@"something"];
-    NSInvocation *actual = [self invocationWithObjectArg:@"something"];
-    [actual setSelector:@selector(methodWithObjectArg:)];
-    [expected setSelector:@selector(differentMethodWithObjectArg:)];
+    NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something"];
+    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something"];
+    [expected setSelector:@selector(methodWithObjectArg:)];
+    [actual setSelector:@selector(differentMethodWithObjectArg:)];
     
     [invocationMatcher setExpectedInvocation:expected];
     
@@ -151,8 +153,8 @@
 - (void)testShouldMatchIfObjectArgumentSatisfiesArgumentExpectation
 {
     id <HCMatcher> argumentExpectation = equalTo(@"something");
-    NSInvocation *expected = [self invocationWithObjectArg:argumentExpectation];
-    NSInvocation *actual = [self invocationWithObjectArg:@"something"];
+    NSInvocation *expected = [DummyObject invocationWithObjectArg:argumentExpectation];
+    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something"];
     
     [invocationMatcher setExpectedInvocation:expected];
     
@@ -163,8 +165,8 @@
 - (void)testShouldNotMatchIfObjectArgumentDoesNotSatisfyArgumentExpectation
 {
     id <HCMatcher> argumentExpectation = equalTo(@"something");
-    NSInvocation *expected = [self invocationWithObjectArg:argumentExpectation];
-    NSInvocation *actual = [self invocationWithObjectArg:@"different"];
+    NSInvocation *expected = [DummyObject invocationWithObjectArg:argumentExpectation];
+    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"different"];
     
     [invocationMatcher setExpectedInvocation:expected];
     
@@ -174,8 +176,8 @@
 
 - (void)testShouldMatchIfBoolArgumentEqualsExpectedArgument
 {
-    NSInvocation *expected = [self invocationWithBoolArg:YES];
-    NSInvocation *actual = [self invocationWithBoolArg:YES];
+    NSInvocation *expected = [DummyObject invocationWithBoolArg:YES];
+    NSInvocation *actual = [DummyObject invocationWithBoolArg:YES];
     
     [invocationMatcher setExpectedInvocation:expected];
     
@@ -185,8 +187,30 @@
 
 - (void)testShouldNotMatchIfBoolArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [self invocationWithBoolArg:NO];
-    NSInvocation *actual = [self invocationWithBoolArg:YES];
+    NSInvocation *expected = [DummyObject invocationWithBoolArg:NO];
+    NSInvocation *actual = [DummyObject invocationWithBoolArg:YES];
+    
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertFalse([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testShouldMatchIfCharArgumentEqualsExpectedArgument
+{
+    NSInvocation *expected = [DummyObject invocationWithCharArg:'a'];
+    NSInvocation *actual = [DummyObject invocationWithCharArg:'a'];
+    
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testShouldNotMatchIfCharArgumentDoesNotEqualExpectedArgument
+{
+    NSInvocation *expected = [DummyObject invocationWithCharArg:'a'];
+    NSInvocation *actual = [DummyObject invocationWithCharArg:'z'];
     
     [invocationMatcher setExpectedInvocation:expected];
     
