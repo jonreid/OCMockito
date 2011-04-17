@@ -8,7 +8,7 @@
 
 @interface MTInvocationMatcher : NSObject
 
-- (id)initWithExpectedInvocation:(NSInvocation *)expected;
+- (void)setExpected:(NSInvocation *)expected;
 - (BOOL)matches:(NSInvocation *)actual;
 
 @end

@@ -18,10 +18,27 @@
 
 
 @interface InvocationMatcherTest : SenTestCase
+{
+    MTInvocationMatcher *invocationMatcher;
+}
 @end
 
 
 @implementation InvocationMatcherTest
+
+- (void)setUp
+{
+    [super setUp];
+    invocationMatcher = [[MTInvocationMatcher alloc] init];
+}
+
+
+- (void)tearDown
+{
+    [invocationMatcher release];
+    [super tearDown];
+}
+
 
 - (NSInvocation *)invocationWithSingleObjectArgument:(id)argument
 {
@@ -51,8 +68,7 @@
     NSInvocation *expected = [self invocationWithSingleObjectArgument:argumentExpectation];
     NSInvocation *actual = [self invocationWithSingleObjectArgument:@"something"];
     
-    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
-                                               initWithExpectedInvocation:expected] autorelease];
+    [invocationMatcher setExpected:expected];
     
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
@@ -63,8 +79,7 @@
     NSInvocation *expected = [self invocationWithSingleObjectArgument:@"something"];
     NSInvocation *actual = [self invocationWithSingleObjectArgument:@"something"];
     
-    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
-                                               initWithExpectedInvocation:expected] autorelease];
+    [invocationMatcher setExpected:expected];
     
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
@@ -76,8 +91,7 @@
     NSInvocation *expected = [self invocationWithSingleObjectArgument:argumentExpectation];
     NSInvocation *actual = [self invocationWithSingleObjectArgument:@"different"];
     
-    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
-                                               initWithExpectedInvocation:expected] autorelease];
+    [invocationMatcher setExpected:expected];
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
@@ -88,8 +102,7 @@
     NSInvocation *expected = [self invocationWithSingleObjectArgument:@"something"];
     NSInvocation *actual = [self invocationWithSingleObjectArgument:@"different"];
     
-    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
-                                               initWithExpectedInvocation:expected] autorelease];
+    [invocationMatcher setExpected:expected];
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
@@ -103,8 +116,7 @@
     [actual setSelector:@selector(removeObject:)];
     [expected setSelector:@selector(removeObjectForKey:)];
     
-    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
-                                               initWithExpectedInvocation:expected] autorelease];
+    [invocationMatcher setExpected:expected];
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
@@ -115,8 +127,7 @@
     NSInvocation *expected = [self noArgumentInvocationWithSelector:@selector(removeAllObjects)];
     NSInvocation *actual = [self noArgumentInvocationWithSelector:@selector(removeAllObjects)];
     
-    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
-                                               initWithExpectedInvocation:expected] autorelease];
+    [invocationMatcher setExpected:expected];
     
     STAssertTrue([invocationMatcher matches:actual], nil);
 }

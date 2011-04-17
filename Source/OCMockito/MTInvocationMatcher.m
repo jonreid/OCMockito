@@ -24,36 +24,31 @@
 @synthesize numberOfArguments;
 
 
-- (id)initWithExpectedInvocation:(NSInvocation *)expected
-{
-    self = [super init];
-    if (self)
-    {
-        invocation = [expected retain];
-
-        numberOfArguments = [[invocation methodSignature] numberOfArguments];
-        for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
-        {
-            id argument = nil;
-            [invocation getArgument:&argument atIndex:argumentIndex];
-            
-            if (![argument conformsToProtocol:@protocol(HCMatcher)])
-            {
-                HCIsEqual *isEqualMatcher = [[[HCIsEqual alloc] initEqualTo:argument] autorelease];
-                [invocation setArgument:&isEqualMatcher atIndex:argumentIndex];
-            }
-        }
-
-        [invocation retainArguments];
-    }
-    return self;
-}
-
-
 - (void)dealloc
 {
     [invocation release];
     [super dealloc];
+}
+
+
+- (void)setExpected:(NSInvocation *)expected
+{
+    [self setInvocation:expected];
+    
+    numberOfArguments = [[invocation methodSignature] numberOfArguments];
+    for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
+    {
+        id argument = nil;
+        [invocation getArgument:&argument atIndex:argumentIndex];
+        
+        if (![argument conformsToProtocol:@protocol(HCMatcher)])
+        {
+            HCIsEqual *isEqualMatcher = [[[HCIsEqual alloc] initEqualTo:argument] autorelease];
+            [invocation setArgument:&isEqualMatcher atIndex:argumentIndex];
+        }
+    }
+    
+    [invocation retainArguments];
 }
 
 
