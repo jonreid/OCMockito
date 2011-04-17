@@ -14,12 +14,14 @@
 
 @interface MTInvocationMatcher ()
 @property(nonatomic, retain) NSInvocation *invocation;
+@property(nonatomic, assign) NSUInteger numberOfArguments;
 @end
 
 
 @implementation MTInvocationMatcher
 
 @synthesize invocation;
+@synthesize numberOfArguments;
 
 
 - (id)initWithExpectedInvocation:(NSInvocation *)expected
@@ -28,6 +30,20 @@
     if (self)
     {
         invocation = [expected retain];
+
+        numberOfArguments = [[invocation methodSignature] numberOfArguments];
+        for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
+        {
+            id argument = nil;
+            [invocation getArgument:&argument atIndex:argumentIndex];
+            
+            if (![argument conformsToProtocol:@protocol(HCMatcher)])
+            {
+                HCIsEqual *isEqualMatcher = [[[HCIsEqual alloc] initEqualTo:argument] autorelease];
+                [invocation setArgument:&isEqualMatcher atIndex:argumentIndex];
+            }
+        }
+
         [invocation retainArguments];
     }
     return self;
@@ -46,7 +62,6 @@
     if ([invocation selector] != [actual selector])
         return NO;
     
-    NSUInteger numberOfArguments = [[invocation methodSignature] numberOfArguments];
     for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
     {
         id <HCMatcher> expectedArgument = nil;

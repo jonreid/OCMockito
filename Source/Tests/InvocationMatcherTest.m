@@ -47,81 +47,78 @@
 
 - (void)testShouldMatchIfActualArgumentMatchesArgumentExpectation
 {
-    // given
     id <HCMatcher> argumentExpectation = equalTo(@"something");
     NSInvocation *expected = [self invocationWithSingleObjectArgument:argumentExpectation];
     NSInvocation *actual = [self invocationWithSingleObjectArgument:@"something"];
-
-    // when
+    
     MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
                                                initWithExpectedInvocation:expected] autorelease];
+    
+    STAssertTrue([invocationMatcher matches:actual], nil);
+}
 
-    // then
+
+- (void)testShouldMatchIfActualArgumentEqualsExpectedArgument
+{
+    NSInvocation *expected = [self invocationWithSingleObjectArgument:@"something"];
+    NSInvocation *actual = [self invocationWithSingleObjectArgument:@"something"];
+    
+    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
+                                               initWithExpectedInvocation:expected] autorelease];
+    
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
 
 
 - (void)testShouldNotMatchIfActualArgumentMatchesArgumentExpectation
 {
-    // given
     id <HCMatcher> argumentExpectation = equalTo(@"something");
     NSInvocation *expected = [self invocationWithSingleObjectArgument:argumentExpectation];
     NSInvocation *actual = [self invocationWithSingleObjectArgument:@"different"];
     
-    // when
     MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
                                                initWithExpectedInvocation:expected] autorelease];
     
-    // then
+    STAssertFalse([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testShouldNotMatchIfActualArgumentDoesNotEqualExpectedArgument
+{
+    NSInvocation *expected = [self invocationWithSingleObjectArgument:@"something"];
+    NSInvocation *actual = [self invocationWithSingleObjectArgument:@"different"];
+    
+    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
+                                               initWithExpectedInvocation:expected] autorelease];
+    
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
 
 - (void)testShouldNotMatchIfArgumentsMatchButSelectorsDiffer
 {
-    // given
     id <HCMatcher> argumentExpectation = equalTo(@"something");
     NSInvocation *expected = [self invocationWithSingleObjectArgument:argumentExpectation];
     NSInvocation *actual = [self invocationWithSingleObjectArgument:@"something"];
     [actual setSelector:@selector(removeObject:)];
     [expected setSelector:@selector(removeObjectForKey:)];
     
-    // when
     MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
                                                initWithExpectedInvocation:expected] autorelease];
     
-    // then
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
 
 - (void)testShouldMatchNoArgumentInvocationsIfSelectorsMatch
 {
-    // given
     NSInvocation *expected = [self noArgumentInvocationWithSelector:@selector(removeAllObjects)];
     NSInvocation *actual = [self noArgumentInvocationWithSelector:@selector(removeAllObjects)];
     
-    // when
     MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
                                                initWithExpectedInvocation:expected] autorelease];
     
-    // then
     STAssertTrue([invocationMatcher matches:actual], nil);
-}
-
-
-- (void)testShouldNotMatchNoArgumentInvocationsIfSelectorsDiffer
-{
-    // given
-    NSInvocation *expected = [self noArgumentInvocationWithSelector:@selector(removeAllObjects)];
-    NSInvocation *actual = [self noArgumentInvocationWithSelector:@selector(hash)];
-    
-    // when
-    MTInvocationMatcher *invocationMatcher = [[[MTInvocationMatcher alloc]
-                                               initWithExpectedInvocation:expected] autorelease];
-    
-    // then
-    STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
 

@@ -55,29 +55,31 @@
 
 - (void)testNotInvokingVoidMethodWithNoArgumentsShouldFailVerify
 {
-    // set up
     NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class]];
     MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
     
-    // exercise
     [verifyWithMockTestCase(mockArray) removeAllObjects];
     
-    // verify
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
 
 - (void)testInvokingVoidMethodWithNoArgumentsShouldPassVerify
 {
-    // set up
     NSMutableArray *mockArray = mock([NSMutableArray class]);
     
-    // exercise
     [mockArray removeAllObjects];
     
-    // verify
     [verify(mockArray) removeAllObjects];
 }
+
+
+//- (void)howToHaveMatchersForPrimitives
+//{
+//    id foo;
+//    [[verify(foo) withMatcher:equalToUnsignedInteger(3) atIndex:0] objectAtIndex:0];    
+//    [[verify(foo) withMatcher:equalToUnsignedInteger(3)] objectAtIndex:0];    
+//}
 
 
 //- (void)testInvokingVoidMethodWithDifferentObjectArgumentShouldFailVerify
