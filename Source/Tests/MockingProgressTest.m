@@ -1,8 +1,6 @@
 //
 //  OCMockito - MockingProgressTest.m
-//  Copyright 2011 eBay Inc. All rights reserved.
-//
-//  Created by: Reid, Jonathan(joreid)
+//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
     // Class under test
