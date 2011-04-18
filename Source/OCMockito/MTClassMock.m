@@ -72,7 +72,7 @@
     
     NSMethodSignature *methodSignature = [anInvocation methodSignature];
     const char* methodReturnType = [methodSignature methodReturnType];
-    if (*methodReturnType != 'v')
+    if (strcmp(methodReturnType, @encode(void)) != 0)
     {
         id answer = [invocationContainer answer];
         [anInvocation setReturnValue:&answer];

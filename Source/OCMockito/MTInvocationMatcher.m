@@ -19,9 +19,6 @@
 @property(nonatomic, retain) NSMutableArray *argumentMatchers;
 @property(nonatomic, assign) NSUInteger numberOfArguments;
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount;
-- (BOOL)objectArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
-- (BOOL)charArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
-- (BOOL)intArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
 @end
 
 
@@ -96,38 +93,7 @@
 }
 
 
-- (BOOL)matches:(NSInvocation *)actual
-{
-    if ([expected selector] != [actual selector])
-        return NO;
-
-    NSMethodSignature *methodSignature = [expected methodSignature];
-
-    for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
-    {
-        const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (strcmp(argumentType, @encode(id)) == 0)
-        {
-            if ([self objectArgumentMismatchInInvocation:actual atIndex:argumentIndex])
-                return NO;
-        }
-        else if (strcmp(argumentType, @encode(char)) == 0)
-        {
-            if ([self charArgumentMismatchInInvocation:actual atIndex:argumentIndex])
-                return NO;
-        }
-        else if (strcmp(argumentType, @encode(int)) == 0)
-        {
-            if ([self intArgumentMismatchInInvocation:actual atIndex:argumentIndex])
-                return NO;
-        }
-    }
-    
-    return YES;
-}
-
-
-- (BOOL)objectArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index
+- (BOOL)argumentObjectMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index
 {
     id actualArgument;
     [actual getArgument:&actualArgument atIndex:index];
@@ -137,8 +103,8 @@
 }
 
 
-#define DEFINE_ARGUMENT_MISMATCH_METHOD(type, Type)                                                 \
-    - (BOOL)type ## ArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index   \
+#define DEFINE_ARGUMENT_MISMATCH_METHOD(type, typeName)                                             \
+    - (BOOL)argument ## typeName ## MismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index  \
     {                                                                                               \
         type actualArgument;                                                                        \
         [actual getArgument:&actualArgument atIndex:index];                                         \
@@ -151,10 +117,62 @@
             return expectedArgument != actualArgument;                                              \
         }                                                                                           \
         else                                                                                        \
-            return ![matcher matches:[NSNumber numberWith ## Type :actualArgument]];                \
+            return ![matcher matches:[NSNumber numberWith ## typeName :actualArgument]];            \
     }
 
 DEFINE_ARGUMENT_MISMATCH_METHOD(char, Char)
 DEFINE_ARGUMENT_MISMATCH_METHOD(int, Int)
+DEFINE_ARGUMENT_MISMATCH_METHOD(short, Short)
+DEFINE_ARGUMENT_MISMATCH_METHOD(long, Long)
+DEFINE_ARGUMENT_MISMATCH_METHOD(long long, LongLong)
+DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned char, UnsignedChar)
+DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned int, UnsignedInt)
+DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned short, UnsignedShort)
+DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned long, UnsignedLong)
+DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned long long, UnsignedLongLong)
+DEFINE_ARGUMENT_MISMATCH_METHOD(float, Float)
+DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
+
+
+#define HANDLE_ARGUMENT_TYPE(type, typeName)                                                        \
+    else if (strcmp(argumentType, @encode(type)) == 0)                                              \
+    {                                                                                               \
+        if ([self argument ## typeName ## MismatchInInvocation:actual atIndex:argumentIndex])       \
+            return NO;                                                                              \
+    }
+
+
+- (BOOL)matches:(NSInvocation *)actual
+{
+    if ([expected selector] != [actual selector])
+        return NO;
+
+    NSMethodSignature *methodSignature = [expected methodSignature];
+
+    for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
+    {
+        const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
+        if (strcmp(argumentType, @encode(id)) == 0)
+        {
+            if ([self argumentObjectMismatchInInvocation:actual atIndex:argumentIndex])
+                return NO;
+        }
+        HANDLE_ARGUMENT_TYPE(char, Char)
+        HANDLE_ARGUMENT_TYPE(int, Int)
+        HANDLE_ARGUMENT_TYPE(short, Short)
+        HANDLE_ARGUMENT_TYPE(long, Long)
+        HANDLE_ARGUMENT_TYPE(long long, LongLong)
+        HANDLE_ARGUMENT_TYPE(unsigned char, UnsignedChar)
+        HANDLE_ARGUMENT_TYPE(unsigned int, UnsignedInt)
+        HANDLE_ARGUMENT_TYPE(unsigned short, UnsignedShort)
+        HANDLE_ARGUMENT_TYPE(unsigned long, UnsignedLong)
+        HANDLE_ARGUMENT_TYPE(unsigned long long, UnsignedLongLong)
+        HANDLE_ARGUMENT_TYPE(float, Float)
+        HANDLE_ARGUMENT_TYPE(double, Double)
+    }
+    
+    return YES;
+}
+
 
 @end
