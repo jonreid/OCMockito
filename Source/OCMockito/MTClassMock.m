@@ -6,6 +6,7 @@
 #import "MTClassMock.h"
 
 #import "MTInvocationContainer.h"
+#import "MTInvocationMatcher.h"
 #import "MTMockingProgress.h"
 #import "MTOngoingStubbing.h"
 #import "MTVerificationData.h"
@@ -57,10 +58,17 @@
     id <MTVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
     if (verificationMode)
     {
-        MTVerificationData *data = [[[MTVerificationData alloc] init] autorelease];
+        MTInvocationMatcher *invocationMatcher = [[MTInvocationMatcher alloc] init];
+        [invocationMatcher setExpectedInvocation:anInvocation];
+        
+        MTVerificationData *data = [[MTVerificationData alloc] init];
         [data setInvocations:invocationContainer];
+        [data setWanted:invocationMatcher];
         [data setTestLocation:[mockingProgress testLocation]];
         [verificationMode verifyData:data];
+        
+        [invocationMatcher release];
+        [data release];
         return;
     }
     

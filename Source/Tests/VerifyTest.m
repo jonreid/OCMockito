@@ -53,18 +53,7 @@
 
 @implementation VerifyTest
 
-- (void)testNotInvokingVoidMethodWithNoArgumentsShouldFailVerify
-{
-    NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class]];
-    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
-    
-    [verifyWithMockTestCase(mockArray) removeAllObjects];
-    
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
-}
-
-
-- (void)testInvokingVoidMethodWithNoArgumentsShouldPassVerify
+- (void)testInvokingMethodWithNoArgumentsShouldPassVerify
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
     
@@ -74,41 +63,68 @@
 }
 
 
-//- (void)howToHaveMatchersForPrimitives
-//{
-//    id foo;
-//    [[verify(foo) withMatcher:equalToUnsignedInteger(3) atIndex:0] objectAtIndex:0];    
-//    [[verify(foo) withMatcher:equalToUnsignedInteger(3)] objectAtIndex:0];    
-//}
+- (void)testNotInvokingMethodWithNoArgumentsShouldFailVerify
+{
+    NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class]];
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    [verifyWithMockTestCase(mockArray) removeAllObjects];
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
 
 
-//- (void)testInvokingVoidMethodWithDifferentObjectArgumentShouldFailVerify
-//{
-//    // set up
-//    NSMutableArray *mockArray = mock([NSMutableArray class]);
-//    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
-//    
-//    // exercise
-//    [mockArray removeObject:@"foo"];
-//    [verifyWithMockTestCase(mockArray) removeObject:@"bar"];
-//
-//    // verify
-//    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
-//}
-//
-//
-//- (void)testInvokingVoidMethodWithEqualObjectArgumentShouldPassVerify
-//{
-//    // set up
-//    NSMutableArray *mockArray = mock([NSMutableArray class]);
-//    id object1 = [NSString stringWithString:@"stub"];
-//    id object2 = [NSString stringWithString:@"stub"];
-//    
-//    // exercise
-//    [mockArray removeObject:object1];
-//    
-//    // verify
-//    [verify(mockArray) removeObject:object2];
-//}
+- (void)testInvokingWithEqualObjectArgumentsShouldPassVerify
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    
+    [mockArray removeObject:@"same"];
+    
+    [verify(mockArray) removeObject:@"same"];
+}
+
+
+- (void)testInvokingWithDifferentObjectArgumentsShouldFailVerify
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    [mockArray removeObject:@"same"];
+    
+    [verifyWithMockTestCase(mockArray) removeObject:@"different"];
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
+
+
+- (void)testInvokingWithArgumentMatcherSatisfiedShouldPassVerify
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    
+    [mockArray removeObject:@"same"];
+
+    [verify(mockArray) removeObject:equalTo(@"same")];
+}
+
+
+- (void)testInvokingWithEqualPrimitiveNumericArgumentsShouldPassVerify
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    
+    [mockArray removeObjectAtIndex:2];
+    
+    [verify(mockArray) removeObjectAtIndex:2];
+}
+
+
+- (void)testInvokingWithDifferentPrimitiveNumericArgumentsShouldFailVerify
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    [mockArray removeObjectAtIndex:2];
+    
+    [verifyWithMockTestCase(mockArray) removeObjectAtIndex:99];
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
+
 
 @end

@@ -6,6 +6,7 @@
 #import "MTTimes.h"
 
 #import "MTInvocationContainer.h"
+#import "MTInvocationMatcher.h"
 #import "MTTestLocation.h"
 #import "MTVerificationData.h"
 #import "NSException+OCMockito.h"
@@ -49,7 +50,14 @@
 
 - (void)verifyData:(MTVerificationData *)data
 {
-    if ([[[data invocations] registeredInvocations] count] != wantedCount)
+    NSUInteger matchingCount = 0;
+    for (NSInvocation *invocation in [[data invocations] registeredInvocations])
+    {
+        if ([[data wanted] matches:invocation])
+            ++matchingCount;
+    }
+    
+    if (matchingCount != wantedCount)
     {
         MTTestLocation testLocation = [data testLocation];
         NSString *fileName = [NSString stringWithCString:testLocation.fileName
