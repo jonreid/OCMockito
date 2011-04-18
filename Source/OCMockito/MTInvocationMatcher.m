@@ -20,6 +20,7 @@
 @property(nonatomic, assign) NSUInteger numberOfArguments;
 - (BOOL)objectArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
 - (BOOL)charArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
+- (BOOL)intArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
 @end
 
 
@@ -99,6 +100,11 @@
             if ([self charArgumentMismatchInInvocation:actual atIndex:argumentIndex])
                 return NO;
         }
+        else if (strcmp(argumentType, @encode(int)) == 0)
+        {
+            if ([self intArgumentMismatchInInvocation:actual atIndex:argumentIndex])
+                return NO;
+        }
     }
     
     return YES;
@@ -115,20 +121,24 @@
 }
 
 
-- (BOOL)charArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index
-{
-    char actualArgument;
-    [actual getArgument:&actualArgument atIndex:index];
-    
-    id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];
-    if ([matcher isEqual:[NSNull null]])
-    {
-        char expectedArgument;
-        [expected getArgument:&expectedArgument atIndex:index];
-        return expectedArgument != actualArgument;
+#define DEFINE_ARGUMENT_MISMATCH_METHOD(type, Type)                                                 \
+    - (BOOL)type ## ArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index   \
+    {                                                                                               \
+        type actualArgument;                                                                        \
+        [actual getArgument:&actualArgument atIndex:index];                                         \
+                                                                                                    \
+        id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];                            \
+        if ([matcher isEqual:[NSNull null]])                                                        \
+        {                                                                                           \
+            type expectedArgument;                                                                  \
+            [expected getArgument:&expectedArgument atIndex:index];                                 \
+            return expectedArgument != actualArgument;                                              \
+        }                                                                                           \
+        else                                                                                        \
+            return ![matcher matches:[NSNumber numberWith ## Type :actualArgument]];                \
     }
-    else
-        return ![matcher matches:[NSNumber numberWithChar:actualArgument]];
-}
+
+DEFINE_ARGUMENT_MISMATCH_METHOD(char, Char)
+DEFINE_ARGUMENT_MISMATCH_METHOD(int, Int)
 
 @end

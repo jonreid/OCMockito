@@ -30,6 +30,7 @@
 
 - (void)methodWithBoolArg:(BOOL)arg {}
 - (void)methodWithCharArg:(char)arg {}
+- (void)methodWithIntArg:(int)arg {}
 
 + (NSInvocation *)invocationWithSelector:(SEL)selector
 {
@@ -59,6 +60,13 @@
 + (NSInvocation *)invocationWithCharArg:(char)argument
 {
     NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithCharArg:)];
+    [invocation setArgument:&argument atIndex:2];
+    return invocation;
+}
+
++ (NSInvocation *)invocationWithIntArg:(int)argument
+{
+    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithIntArg:)];
     [invocation setArgument:&argument atIndex:2];
     return invocation;
 }
@@ -220,10 +228,44 @@
 
 - (void)testShouldMatchIfCharArgumentConvertedToNSNumberSatisfiesOverrideMatcher
 {
-    NSInvocation *expected = [DummyObject invocationWithCharArg:'a'];   // This arg will be ignored.
+    NSInvocation *expected = [DummyObject invocationWithCharArg:0];   // This arg will be ignored.
     NSInvocation *actual = [DummyObject invocationWithCharArg:'z'];
     
     [invocationMatcher setMatcher:greaterThan([NSNumber numberWithChar:'n']) forIndex:2];
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testShouldMatchIfIntArgumentEqualsExpectedArgument
+{
+    NSInvocation *expected = [DummyObject invocationWithIntArg:42];
+    NSInvocation *actual = [DummyObject invocationWithIntArg:42];
+    
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testShouldNotMatchIfIntArgumentDoesNotEqualExpectedArgument
+{
+    NSInvocation *expected = [DummyObject invocationWithIntArg:42];
+    NSInvocation *actual = [DummyObject invocationWithIntArg:99];
+    
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertFalse([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testShouldMatchIfIntArgumentConvertedToNSNumberSatisfiesOverrideMatcher
+{
+    NSInvocation *expected = [DummyObject invocationWithCharArg:0];   // This arg will be ignored.
+    NSInvocation *actual = [DummyObject invocationWithCharArg:51];
+    
+    [invocationMatcher setMatcher:greaterThan([NSNumber numberWithInt:50]) forIndex:2];
     [invocationMatcher setExpectedInvocation:expected];
     
     STAssertTrue([invocationMatcher matches:actual], nil);
