@@ -32,6 +32,8 @@
 - (void)methodWithCharArg:(char)arg {}
 - (void)methodWithIntArg:(int)arg {}
 
+- (void)methodWithObjectArg:(id)arg1 intArg:(int)arg2 {}
+
 + (NSInvocation *)invocationWithSelector:(SEL)selector
 {
     NSMethodSignature *methodSignature = [self instanceMethodSignatureForSelector:selector];
@@ -68,6 +70,14 @@
 {
     NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithIntArg:)];
     [invocation setArgument:&argument atIndex:2];
+    return invocation;
+}
+
++ (NSInvocation *)invocationWithObjectArg:(id)argument1 intArg:(int)argument2
+{
+    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithObjectArg:intArg:)];
+    [invocation setArgument:&argument1 atIndex:2];
+    [invocation setArgument:&argument2 atIndex:3];
     return invocation;
 }
 
@@ -266,6 +276,18 @@
     NSInvocation *actual = [DummyObject invocationWithCharArg:51];
     
     [invocationMatcher setMatcher:greaterThan([NSNumber numberWithInt:50]) forIndex:2];
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testShouldMatchOverrideMatcherSpecifiedForSecondPrimitiveArgument
+{
+    NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something" intArg:0];
+    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something" intArg:51];
+    
+    [invocationMatcher setMatcher:greaterThan([NSNumber numberWithInt:50]) forIndex:3];
     [invocationMatcher setExpectedInvocation:expected];
     
     STAssertTrue([invocationMatcher matches:actual], nil);

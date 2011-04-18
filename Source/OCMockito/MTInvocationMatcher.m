@@ -18,6 +18,7 @@
 @property(nonatomic, retain) NSInvocation *expected;
 @property(nonatomic, retain) NSMutableArray *argumentMatchers;
 @property(nonatomic, assign) NSUInteger numberOfArguments;
+- (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount;
 - (BOOL)objectArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
 - (BOOL)charArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
 - (BOOL)intArgumentMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index;
@@ -35,7 +36,7 @@
 {
     self = [super init];
     if (self)
-        argumentMatchers = [[NSMutableArray alloc] initWithObjects:[NSNull null], [NSNull null], nil];
+        argumentMatchers = [[NSMutableArray alloc] init];
     return self;
 }
 
@@ -48,9 +49,27 @@
 }
 
 
-- (void)setMatcher:(id <HCMatcher>)matcher forIndex:(NSUInteger)index
+- (void)setMatcher:(id <HCMatcher>)matcher forIndex:(NSUInteger)argumentIndex
 {
-    [argumentMatchers addObject:matcher];
+    NSUInteger matchersCount = [argumentMatchers count];
+    if (matchersCount <= argumentIndex)
+    {
+        [self trueUpArgumentMatchersToCount:argumentIndex];
+        [argumentMatchers addObject:matcher];
+    }
+    else
+        [argumentMatchers replaceObjectAtIndex:argumentIndex withObject:matcher];
+}
+
+
+- (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount
+{
+    NSUInteger matchersCount = [argumentMatchers count];
+    while (matchersCount < desiredCount)
+    {
+        [argumentMatchers addObject:[NSNull null]];
+        ++matchersCount;
+    } 
 }
 
 
@@ -62,6 +81,8 @@
     NSMethodSignature *methodSignature = [expected methodSignature];
     
     numberOfArguments = [[expected methodSignature] numberOfArguments];
+    [self trueUpArgumentMatchersToCount:numberOfArguments];
+        
     for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
@@ -69,12 +90,7 @@
         {
             id argument = nil;
             [expected getArgument:&argument atIndex:argumentIndex];
-            [argumentMatchers addObject:HCWrapInMatcher(argument)];
-        }
-        else
-        {
-            if ([argumentMatchers count] <= argumentIndex)
-                [argumentMatchers addObject:[NSNull null]];
+            [self setMatcher:HCWrapInMatcher(argument) forIndex:argumentIndex];
         }
     }
 }

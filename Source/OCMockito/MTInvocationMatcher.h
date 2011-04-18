@@ -10,7 +10,7 @@
 
 @interface MTInvocationMatcher : NSObject
 
-- (void)setMatcher:(id <HCMatcher>)matcher forIndex:(NSUInteger)index;
+- (void)setMatcher:(id <HCMatcher>)matcher forIndex:(NSUInteger)argumentIndex;
 
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation;
 - (BOOL)matches:(NSInvocation *)actual;
