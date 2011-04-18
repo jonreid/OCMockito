@@ -218,4 +218,16 @@
 }
 
 
+- (void)testShouldMatchIfCharArgumentConvertedToNSNumberSatisfiesOverrideMatcher
+{
+    NSInvocation *expected = [DummyObject invocationWithCharArg:'a'];   // This arg will be ignored.
+    NSInvocation *actual = [DummyObject invocationWithCharArg:'z'];
+    
+    [invocationMatcher setMatcher:greaterThan([NSNumber numberWithChar:'n']) forIndex:2];
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
+
 @end

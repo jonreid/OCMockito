@@ -7,8 +7,10 @@
 
 #if TARGET_OS_MAC
     #import <OCHamcrest/OCHamcrest.h>
+    #import <OCHamcrest/HCWrapInMatcher.h>
 #else
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
+    #import <OCHamcrestIOS/HCWrapInMatcher.h>
 #endif
 
 
@@ -43,6 +45,12 @@
 }
 
 
+- (void)setMatcher:(id <HCMatcher>)matcher forIndex:(NSUInteger)index
+{
+    [argumentMatchers addObject:matcher];
+}
+
+
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
 {
     [self setExpected:expectedInvocation];
@@ -54,21 +62,16 @@
     for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (strcmp(argumentType, @encode(char)) == 0)
-            [argumentMatchers addObject:[NSNull null]];
-        else if (strcmp(argumentType, @encode(id)) == 0)
+        if (strcmp(argumentType, @encode(id)) == 0)
         {
             id argument = nil;
             [expected getArgument:&argument atIndex:argumentIndex];
-            
-            if ([argument conformsToProtocol:@protocol(HCMatcher)])
-                [argumentMatchers addObject:argument];
-            else
-            {
-                HCIsEqual *isEqualMatcher = [[HCIsEqual alloc] initEqualTo:argument];
-                [argumentMatchers addObject:isEqualMatcher];
-                [isEqualMatcher release];
-            }
+            [argumentMatchers addObject:HCWrapInMatcher(argument)];
+        }
+        else
+        {
+            if ([argumentMatchers count] <= argumentIndex)
+                [argumentMatchers addObject:[NSNull null]];
         }
     }
 }
@@ -83,26 +86,33 @@
 
     for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
     {
+        id <HCMatcher> matcher = [argumentMatchers objectAtIndex:argumentIndex];
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (strcmp(argumentType, @encode(char)) == 0)
-        {
-            char actualArgument;
-            [actual getArgument:&actualArgument atIndex:argumentIndex];
-
-            char expectedArgument;
-            [expected getArgument:&expectedArgument atIndex:argumentIndex];
-            
-            if (expectedArgument != actualArgument)
-                return NO;
-        }
-        else if (strcmp(argumentType, @encode(id)) == 0)
+        if (strcmp(argumentType, @encode(id)) == 0)
         {
             id actualArgument;
             [actual getArgument:&actualArgument atIndex:argumentIndex];
             
-            id <HCMatcher> expectedArgument = [argumentMatchers objectAtIndex:argumentIndex];
-            if (![expectedArgument matches:actualArgument])
+            if (![matcher matches:actualArgument])
                 return NO;
+        }
+        else if (strcmp(argumentType, @encode(char)) == 0)
+        {
+            char actualArgument;
+            [actual getArgument:&actualArgument atIndex:argumentIndex];
+            
+            if ([matcher isEqual:[NSNull null]])
+            {
+                char expectedArgument;
+                [expected getArgument:&expectedArgument atIndex:argumentIndex];
+                if (expectedArgument != actualArgument)
+                    return NO;
+            }
+            else
+            {
+                if (![matcher matches:[NSNumber numberWithChar:actualArgument]])
+                    return NO;
+            }
         }
     }
     
