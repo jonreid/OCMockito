@@ -246,7 +246,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
     NSInvocation *expected = [DummyObject invocationWithCharArg:0];   // Argument will be ignored.
     NSInvocation *actual = [DummyObject invocationWithCharArg:'z'];
     
-    [invocationMatcher setMatcher:lessThan([NSNumber numberWithChar:'n']) forIndex:2];
+    [invocationMatcher setMatcher:lessThan([NSNumber numberWithChar:'n']) atIndex:2];
     [invocationMatcher setExpectedInvocation:expected];
     
     STAssertFalse([invocationMatcher matches:actual], nil);
@@ -269,7 +269,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
     NSInvocation *expected = [DummyObject invocationWithCharArg:0];   // Argument will be ignored.
     NSInvocation *actual = [DummyObject invocationWithCharArg:51];
     
-    [invocationMatcher setMatcher:lessThan([NSNumber numberWithInt:50]) forIndex:2];
+    [invocationMatcher setMatcher:lessThan([NSNumber numberWithInt:50]) atIndex:2];
     [invocationMatcher setExpectedInvocation:expected];
     
     STAssertFalse([invocationMatcher matches:actual], nil);
@@ -369,7 +369,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
     NSInvocation *expected = [DummyObject invocationWithFloatArg:0];   // Argument will be ignored.
     NSInvocation *actual = [DummyObject invocationWithFloatArg:3.14];
     
-    [invocationMatcher setMatcher:closeTo(3.5, 0.1) forIndex:2];
+    [invocationMatcher setMatcher:closeTo(3.5, 0.1) atIndex:2];
     [invocationMatcher setExpectedInvocation:expected];
     
     STAssertFalse([invocationMatcher matches:actual], nil);
@@ -381,7 +381,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
     NSInvocation *expected = [DummyObject invocationWithDoubleArg:0];   // Argument will be ignored.
     NSInvocation *actual = [DummyObject invocationWithDoubleArg:3.14];
     
-    [invocationMatcher setMatcher:closeTo(3.5, 0.1) forIndex:2];
+    [invocationMatcher setMatcher:closeTo(3.5, 0.1) atIndex:2];
     [invocationMatcher setExpectedInvocation:expected];
     
     STAssertFalse([invocationMatcher matches:actual], nil);
@@ -393,10 +393,19 @@ DEFINE_INVOCATION_METHOD(double, Double)
     NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something" intArg:0];
     NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something" intArg:51];
     
-    [invocationMatcher setMatcher:greaterThan([NSNumber numberWithInt:50]) forIndex:3];
+    [invocationMatcher setMatcher:greaterThan([NSNumber numberWithInt:50]) atIndex:3];
     [invocationMatcher setExpectedInvocation:expected];
     
     STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testArgumentMatchersCountShouldReflectLargestSetMatcherIndex
+{
+    [invocationMatcher setMatcher:equalTo(@"irrelevant") atIndex:3];
+    [invocationMatcher setMatcher:equalTo(@"irrelevant") atIndex:2];
+    
+    assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
 }
 
 @end

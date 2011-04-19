@@ -58,7 +58,9 @@
     id <MTVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
     if (verificationMode)
     {
-        MTInvocationMatcher *invocationMatcher = [[MTInvocationMatcher alloc] init];
+        MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+        if (!invocationMatcher)
+            invocationMatcher = [[[MTInvocationMatcher alloc] init] autorelease];
         [invocationMatcher setExpectedInvocation:anInvocation];
         
         MTVerificationData *data = [[MTVerificationData alloc] init];
@@ -67,7 +69,6 @@
         [data setTestLocation:[mockingProgress testLocation]];
         [verificationMode verifyData:data];
         
-        [invocationMatcher release];
         [data release];
         return;
     }
@@ -91,6 +92,19 @@
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     return [mockedClass instanceMethodSignatureForSelector:aSelector];
+}
+
+
+- (id)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
+{
+    [mockingProgress setMatcher:matcher atIndex:argumentIndex];
+    return self;
+}
+
+
+- (id)withMatcher:(id <HCMatcher>)matcher
+{
+    return [self setMatcher:matcher atIndex:2];
 }
 
 

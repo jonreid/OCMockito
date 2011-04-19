@@ -5,20 +5,23 @@
 
 #import "MTMockingProgress.h"
 
+#import "MTInvocationMatcher.h"
 #import "MTVerificationMode.h"
 
 
 @interface MTMockingProgress ()
-@property(nonatomic, retain) MTOngoingStubbing *ongoingStubbing;
+@property(nonatomic, retain) MTInvocationMatcher *invocationMatcher;
 @property(nonatomic, retain) id <MTVerificationMode> verificationMode;
+@property(nonatomic, retain) MTOngoingStubbing *ongoingStubbing;
 @end
 
 
 @implementation MTMockingProgress
 
 @synthesize testLocation;
-@synthesize ongoingStubbing;
+@synthesize invocationMatcher;
 @synthesize verificationMode;
+@synthesize ongoingStubbing;
 
 
 + (id)sharedProgress
@@ -28,6 +31,15 @@
     if (!sharedProgress)
         sharedProgress = [[self alloc] init];
     return sharedProgress;
+}
+
+
+- (void)dealloc
+{
+    [invocationMatcher release];
+    [verificationMode release];
+    [ongoingStubbing release];
+    [super dealloc];
 }
 
 
@@ -47,6 +59,22 @@
 {
     MTOngoingStubbing *result = [ongoingStubbing retain];
     [self setOngoingStubbing:nil];
+    return [result autorelease];
+}
+
+
+- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
+{
+    if (!invocationMatcher)
+        invocationMatcher = [[MTInvocationMatcher alloc] init];
+    [invocationMatcher setMatcher:matcher atIndex:argumentIndex];
+}
+
+
+- (MTInvocationMatcher *)pullInvocationMatcher
+{
+    MTInvocationMatcher *result = [invocationMatcher retain];
+    [self setInvocationMatcher:nil];
     return [result autorelease];
 }
 

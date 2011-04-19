@@ -127,4 +127,25 @@
 }
 
 
+- (void)testMatcherSatisfiedWithNumericArgumentShouldPassVerify
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    
+    [mockArray removeObjectAtIndex:2];
+    
+    [[verify(mockArray) setMatcher:greaterThan([NSNumber numberWithInt:1]) atIndex:2]
+     removeObjectAtIndex:0];
+}
+
+
+- (void)testShortcutForSpecifyingMatcherForFirstArgument
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    
+    [mockArray removeObjectAtIndex:2];
+    
+    [[verify(mockArray) withMatcher:greaterThan([NSNumber numberWithInt:1])] removeObjectAtIndex:0];
+}
+
+
 @end

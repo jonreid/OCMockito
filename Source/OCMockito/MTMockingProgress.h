@@ -7,7 +7,9 @@
 
 #import "MTTestLocation.h"
 
+@class MTInvocationMatcher;
 @class MTOngoingStubbing;
+@protocol HCMatcher;
 @protocol MTVerificationMode;
 
 
@@ -20,6 +22,9 @@
 - (void)stubbingStartedAtLocation:(MTTestLocation)location;
 - (void)reportOngoingStubbing:(MTOngoingStubbing *)theOngoingStubbing;
 - (MTOngoingStubbing *)pullOngoingStubbing;
+
+- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
+- (MTInvocationMatcher *)pullInvocationMatcher;
 
 - (void)verificationStarted:(id <MTVerificationMode>)mode atLocation:(MTTestLocation)location;
 - (id <MTVerificationMode>)pullVerificationMode;

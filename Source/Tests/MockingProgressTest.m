@@ -8,6 +8,7 @@
 
     // Collaborators
 #import "MTInvocationContainer.h"
+#import "MTInvocationMatcher.h"
 #import "MTOngoingStubbing.h"
 #import "MTTimes.h"
 
@@ -111,5 +112,43 @@
     // then
     assertThat([mockingProgress pullVerificationMode], is(nilValue()));
 }
+
+
+- (void)testPullInvocationMatcherWithoutSettingMatchersShouldBeNil
+{
+    assertThat([mockingProgress pullInvocationMatcher], is(nilValue()));
+}
+
+
+- (void)testPullInvocationMatcherAfterSettingMatchersShouldHaveThoseMatchers
+{
+    [mockingProgress setMatcher:equalTo(@"irrelevant") atIndex:3];
+    
+    MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+    
+    assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
+}
+
+
+- (void)testPullInvocationMatcherShouldClearCurrentMatcher
+{
+    [mockingProgress setMatcher:equalTo(@"irrelevant") atIndex:3];
+
+    [mockingProgress pullInvocationMatcher];
+    
+    assertThat([mockingProgress pullInvocationMatcher], is(nilValue()));
+}
+
+
+- (void)testMoreThanOneSetMatcherShouldAccumulate
+{
+    [mockingProgress setMatcher:equalTo(@"irrelevant") atIndex:3];
+    [mockingProgress setMatcher:equalTo(@"irrelevant") atIndex:2];
+
+    MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+    
+    assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
+}
+
 
 @end

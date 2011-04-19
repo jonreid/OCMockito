@@ -5,10 +5,14 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol HCMatcher;
+
 
 @interface MTClassMock : NSProxy
 
 + (id)mockForClass:(Class)aClass;
 - (id)initWithClass:(Class)aClass;
+- (id)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
+- (id)withMatcher:(id <HCMatcher>)matcher;
 
 @end

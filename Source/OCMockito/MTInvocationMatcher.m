@@ -46,7 +46,7 @@
 }
 
 
-- (void)setMatcher:(id <HCMatcher>)matcher forIndex:(NSUInteger)argumentIndex
+- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
 {
     NSUInteger matchersCount = [argumentMatchers count];
     if (matchersCount <= argumentIndex)
@@ -56,6 +56,12 @@
     }
     else
         [argumentMatchers replaceObjectAtIndex:argumentIndex withObject:matcher];
+}
+
+
+- (NSUInteger)argumentMatchersCount
+{
+    return [argumentMatchers count];
 }
 
 
@@ -87,7 +93,7 @@
         {
             id argument = nil;
             [expected getArgument:&argument atIndex:argumentIndex];
-            [self setMatcher:HCWrapInMatcher(argument) forIndex:argumentIndex];
+            [self setMatcher:HCWrapInMatcher(argument) atIndex:argumentIndex];
         }
     }
 }

@@ -5,10 +5,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MTClassMock.h"
 #import "MTOngoingStubbing.h"
 #import <objc/objc-api.h>
-
-@class MTOngoingStubbing;
 
 
 @interface OCMockito : NSObject
