@@ -5,20 +5,9 @@
 
 #import "OCMockito.h"
 
-#import "MTClassMock.h"
 #import "MTTestLocation.h"
 #import "MTMockitoCore.h"
 #import "MTTimes.h"
-
-
-@implementation OCMockito
-
-+ (id)mockForClass:(Class)aClass
-{
-    return [MTClassMock mockForClass:aClass];
-}
-
-@end
 
 
 MTOngoingStubbing * MTGivenWithLocation(id methodCall, id testCase, const char *fileName, int lineNumber)

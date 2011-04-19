@@ -65,7 +65,7 @@
 
 - (void)testNotInvokingMethodWithNoArgumentsShouldFailVerify
 {
-    NSMutableArray *mockArray = [OCMockito mockForClass:[NSMutableArray class]];
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
     MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
     
     [verifyWithMockTestCase(mockArray) removeAllObjects];

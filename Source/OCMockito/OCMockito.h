@@ -10,14 +10,7 @@
 #import <objc/objc-api.h>
 
 
-@interface OCMockito : NSObject
-
-+ (id)mockForClass:(Class)aClass;
-
-@end
-
-
-#define MTMock(aClass) [OCMockito mockForClass:aClass]
+#define MTMock(aClass) [MTClassMock mockForClass:aClass]
 
 #ifdef MOCKITO_SHORTHAND
     #define mock(aClass) MTMock(aClass)
