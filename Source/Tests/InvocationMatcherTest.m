@@ -34,11 +34,13 @@
 - (void)methodWithShortArg:(short)arg {}
 - (void)methodWithLongArg:(long)arg {}
 - (void)methodWithLongLongArg:(long long)arg {}
+- (void)methodWithIntegerArg:(NSInteger)arg {}
 - (void)methodWithUnsignedCharArg:(unsigned char)arg {}
 - (void)methodWithUnsignedIntArg:(unsigned int)arg {}
 - (void)methodWithUnsignedShortArg:(unsigned short)arg {}
 - (void)methodWithUnsignedLongArg:(unsigned long)arg {}
 - (void)methodWithUnsignedLongLongArg:(unsigned long long)arg {}
+- (void)methodWithUnsignedIntegerArg:(NSUInteger)arg {}
 - (void)methodWithFloatArg:(float)arg {}
 - (void)methodWithDoubleArg:(double)arg {}
 
@@ -70,11 +72,13 @@ DEFINE_INVOCATION_METHOD(int, Int)
 DEFINE_INVOCATION_METHOD(short, Short)
 DEFINE_INVOCATION_METHOD(long, Long)
 DEFINE_INVOCATION_METHOD(long long, LongLong)
+DEFINE_INVOCATION_METHOD(NSInteger, Integer)
 DEFINE_INVOCATION_METHOD(unsigned char, UnsignedChar)
 DEFINE_INVOCATION_METHOD(unsigned int, UnsignedInt)
 DEFINE_INVOCATION_METHOD(unsigned short, UnsignedShort)
 DEFINE_INVOCATION_METHOD(unsigned long, UnsignedLong)
 DEFINE_INVOCATION_METHOD(unsigned long long, UnsignedLongLong)
+DEFINE_INVOCATION_METHOD(NSUInteger, UnsignedInteger)
 DEFINE_INVOCATION_METHOD(float, Float)
 DEFINE_INVOCATION_METHOD(double, Double)
 
@@ -309,6 +313,17 @@ DEFINE_INVOCATION_METHOD(double, Double)
 }
 
 
+- (void)testShouldNotMatchIfIntegerArgumentDoesNotEqualExpectedArgument
+{
+    NSInvocation *expected = [DummyObject invocationWithIntegerArg:42];
+    NSInvocation *actual = [DummyObject invocationWithIntegerArg:99];
+    
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertFalse([invocationMatcher matches:actual], nil);
+}
+
+
 - (void)testShouldNotMatchIfUnsignedCharArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithUnsignedCharArg:42];
@@ -357,6 +372,17 @@ DEFINE_INVOCATION_METHOD(double, Double)
 {
     NSInvocation *expected = [DummyObject invocationWithUnsignedLongLongArg:42];
     NSInvocation *actual = [DummyObject invocationWithUnsignedLongLongArg:99];
+    
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    STAssertFalse([invocationMatcher matches:actual], nil);
+}
+
+
+- (void)testShouldNotMatchIfUnsignedIntegerArgumentDoesNotEqualExpectedArgument
+{
+    NSInvocation *expected = [DummyObject invocationWithUnsignedIntegerArg:42];
+    NSInvocation *actual = [DummyObject invocationWithUnsignedIntegerArg:99];
     
     [invocationMatcher setExpectedInvocation:expected];
     
