@@ -66,6 +66,10 @@
 		089A8C381356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MTOngoingStubbing.m */; };
 		089A8C391356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MTOngoingStubbing.m */; };
 		08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5A91350C59C00E5A443 /* OCMockito.framework */; };
+		08E1E74A136289C70066B0C7 /* MTStubbedInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E1E748136289C70066B0C7 /* MTStubbedInvocationMatcher.h */; };
+		08E1E74B136289C70066B0C7 /* MTStubbedInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E1E748136289C70066B0C7 /* MTStubbedInvocationMatcher.h */; };
+		08E1E74C136289C70066B0C7 /* MTStubbedInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E1E749136289C70066B0C7 /* MTStubbedInvocationMatcher.m */; };
+		08E1E74D136289C70066B0C7 /* MTStubbedInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E1E749136289C70066B0C7 /* MTStubbedInvocationMatcher.m */; };
 		08F189E31359661E00F76379 /* MockingProgressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189E21359661E00F76379 /* MockingProgressTest.m */; };
 		08F189E41359661E00F76379 /* MockingProgressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189E21359661E00F76379 /* MockingProgressTest.m */; };
 		08F189FD135A6D1300F76379 /* InvocationMatcherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189FC135A6D1300F76379 /* InvocationMatcherTest.m */; };
@@ -129,6 +133,8 @@
 		08BED07F1350DE4900CCBF76 /* OCMockito-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OCMockito-Info.plist"; sourceTree = "<group>"; };
 		08BED0801350DE4900CCBF76 /* OCMockito-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCMockito-Prefix.pch"; sourceTree = "<group>"; };
 		08BED0811350DE4900CCBF76 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		08E1E748136289C70066B0C7 /* MTStubbedInvocationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStubbedInvocationMatcher.h; sourceTree = "<group>"; };
+		08E1E749136289C70066B0C7 /* MTStubbedInvocationMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStubbedInvocationMatcher.m; sourceTree = "<group>"; };
 		08F189E21359661E00F76379 /* MockingProgressTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockingProgressTest.m; sourceTree = "<group>"; };
 		08F189FC135A6D1300F76379 /* InvocationMatcherTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvocationMatcherTest.m; sourceTree = "<group>"; };
 		08F189FF135A6D8C00F76379 /* MTInvocationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTInvocationMatcher.h; sourceTree = "<group>"; };
@@ -229,6 +235,8 @@
 				0827E8471352B7BF00C39A57 /* MTMockingProgress.m */,
 				089A8C341356A7BA003E7D27 /* MTOngoingStubbing.h */,
 				089A8C351356A7BB003E7D27 /* MTOngoingStubbing.m */,
+				08E1E748136289C70066B0C7 /* MTStubbedInvocationMatcher.h */,
+				08E1E749136289C70066B0C7 /* MTStubbedInvocationMatcher.m */,
 				0827E8641352C50400C39A57 /* MTTestLocation.h */,
 				0827E8671352CC6400C39A57 /* MTTimes.h */,
 				0827E8681352CC6400C39A57 /* MTTimes.m */,
@@ -282,6 +290,7 @@
 				0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */,
 				089A8C371356A7BB003E7D27 /* MTOngoingStubbing.h in Headers */,
 				08F18A02135A6D8D00F76379 /* MTInvocationMatcher.h in Headers */,
+				08E1E74B136289C70066B0C7 /* MTStubbedInvocationMatcher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +311,7 @@
 				0827E87E1354181400C39A57 /* NSException+OCMockito.h in Headers */,
 				089A8C361356A7BB003E7D27 /* MTOngoingStubbing.h in Headers */,
 				08F18A01135A6D8D00F76379 /* MTInvocationMatcher.h in Headers */,
+				08E1E74A136289C70066B0C7 /* MTStubbedInvocationMatcher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +487,7 @@
 				0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */,
 				089A8C391356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */,
 				08F18A04135A6D8D00F76379 /* MTInvocationMatcher.m in Sources */,
+				08E1E74D136289C70066B0C7 /* MTStubbedInvocationMatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +518,7 @@
 				0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */,
 				089A8C381356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */,
 				08F18A03135A6D8D00F76379 /* MTInvocationMatcher.m in Sources */,
+				08E1E74C136289C70066B0C7 /* MTStubbedInvocationMatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

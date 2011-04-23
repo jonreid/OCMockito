@@ -10,7 +10,7 @@
 #import "MTTimes.h"
 
 
-MTOngoingStubbing * MTGivenWithLocation(id methodCall, id testCase, const char *fileName, int lineNumber)
+MTOngoingStubbing *MTGivenWithLocation(id methodCall, id testCase, const char *fileName, int lineNumber)
 {
     MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
     return [mockitoCore stubAtLocation:MTTestLocationMake(testCase, fileName, lineNumber)];

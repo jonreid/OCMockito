@@ -121,8 +121,8 @@
     MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
     
     [mockArray removeObjectAtIndex:2];
-    
     [verifyWithMockTestCase(mockArray) removeObjectAtIndex:99];
+    
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 

@@ -17,6 +17,19 @@
 #endif
 
 
+@interface ReturningObject : NSObject
+@end
+
+@implementation ReturningObject
+
+- (id)methodReturningObject { return self; }
+- (id)methodReturningObjectWithArg:(id)arg { return self; }
+
+@end
+
+
+#pragma mark -
+
 @interface StubTest : SenTestCase
 @end
 
@@ -25,11 +38,30 @@
 
 - (void)testStubbedMethodWithNoArgsReturningObject
 {
-    NSString *mockString = mock([NSString class]);
+    ReturningObject *mockObject = mock([ReturningObject class]);
     
-    [given([mockString uppercaseString]) willReturn:@"STUBBED"];
+    [given([mockObject methodReturningObject]) willReturn:@"STUBBED"];
     
-    assertThat([mockString uppercaseString], is(@"STUBBED"));
+    assertThat([mockObject methodReturningObject], is(@"STUBBED"));
+}
+
+
+- (void)testUnstubbedMethodReturningObjectShouldReturnNil
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+        
+    assertThat([mockObject methodReturningObject], is(nilValue()));
+}
+
+
+- (void)testStubsWithDifferentArgsShouldHaveDifferentReturnValues
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+
+    [given([mockObject methodReturningObjectWithArg:@"foo"]) willReturn:@"FOO"];
+    [given([mockObject methodReturningObjectWithArg:@"bar"]) willReturn:@"BAR"];
+
+    assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
 @end

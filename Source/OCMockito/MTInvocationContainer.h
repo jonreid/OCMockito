@@ -11,10 +11,10 @@
 @interface MTInvocationContainer : NSObject
 
 @property(nonatomic, retain) NSMutableArray *registeredInvocations;
-@property(nonatomic, retain) id answer;
 
 - (id)initWithMockingProgress:(MTMockingProgress *)theMockingProgress;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
-- (void)addAnswer:(id)object;
+- (void)addAnswer:(id)answer;
+- (id)findAnswerFor:(NSInvocation *)invocation;
 
 @end

@@ -5,19 +5,22 @@
 
 #import "MTInvocationContainer.h"
 
+#import "MTStubbedInvocationMatcher.h"
+
 
 @interface MTInvocationContainer ()
 @property(nonatomic, retain) MTMockingProgress *mockingProgress;
 @property(nonatomic, retain) NSInvocation *invocationForStubbing;
+@property(nonatomic, retain) NSMutableArray *stubbed;
 @end
 
 
 @implementation MTInvocationContainer
 
 @synthesize registeredInvocations;
-@synthesize answer;
 @synthesize mockingProgress;
 @synthesize invocationForStubbing;
+@synthesize stubbed;
 
 
 - (id)initWithMockingProgress:(MTMockingProgress *)theMockingProgress
@@ -27,6 +30,7 @@
     {
         registeredInvocations = [[NSMutableArray alloc] init];
         mockingProgress = [theMockingProgress retain];
+        stubbed = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -35,9 +39,10 @@
 - (void)dealloc
 {
     [registeredInvocations release];
-    [answer release];
     [mockingProgress release];
     [invocationForStubbing release];
+    [stubbed release];
+    
     [super dealloc];
 }
 
@@ -50,10 +55,25 @@
 }
 
 
-- (void)addAnswer:(id)object
+- (void)addAnswer:(id)answer
 {
     [registeredInvocations removeLastObject];
-    [self setAnswer:object];
+    
+    MTStubbedInvocationMatcher *stubbedInvocationMatcher = [[MTStubbedInvocationMatcher alloc] init];
+    [stubbedInvocationMatcher setExpectedInvocation:invocationForStubbing];
+    [stubbedInvocationMatcher setAnswer:answer];
+    [stubbed insertObject:stubbedInvocationMatcher atIndex:0];
+    [stubbedInvocationMatcher release];
+}
+
+
+- (id)findAnswerFor:(NSInvocation *)invocation
+{
+    for (MTStubbedInvocationMatcher *stubbedInvocationMatcher in stubbed)
+        if ([stubbedInvocationMatcher matches:invocation])
+            return [stubbedInvocationMatcher answer];
+    
+    return nil;
 }
 
 @end

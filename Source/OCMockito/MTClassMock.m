@@ -83,7 +83,7 @@
     const char* methodReturnType = [methodSignature methodReturnType];
     if (strcmp(methodReturnType, @encode(void)) != 0)
     {
-        id answer = [invocationContainer answer];
+        id answer = [invocationContainer findAnswerFor:anInvocation];
         [anInvocation setReturnValue:&answer];
     }
 }
