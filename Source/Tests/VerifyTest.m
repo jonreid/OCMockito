@@ -133,7 +133,7 @@
     
     [mockArray removeObjectAtIndex:2];
     
-    [[verify(mockArray) setMatcher:greaterThan([NSNumber numberWithInt:1]) atIndex:0]
+    [[verify(mockArray) withMatcher:greaterThan([NSNumber numberWithInt:1]) forArgument:0]
      removeObjectAtIndex:0];
 }
 

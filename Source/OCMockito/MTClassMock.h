@@ -12,7 +12,7 @@
 
 + (id)mockForClass:(Class)aClass;
 - (id)initWithClass:(Class)aClass;
-- (id)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index;
+- (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
 - (id)withMatcher:(id <HCMatcher>)matcher;
 
 @end
