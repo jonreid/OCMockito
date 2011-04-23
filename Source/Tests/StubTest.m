@@ -26,6 +26,20 @@
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
 
+- (BOOL)methodReturningBool { return NO; }
+- (char)methodReturningChar { return 0; }
+- (int)methodReturningInt { return 0; }
+- (short)methodReturningShort { return 0; }
+- (long)methodReturningLong { return 0; }
+- (long long)methodReturningLongLong { return 0; }
+- (unsigned char)methodReturningUnsignedChar { return 0; }
+- (unsigned int)methodReturningUnsignedInt { return 0; }
+- (unsigned short)methodReturningUnsignedShort { return 0; }
+- (unsigned long)methodReturningUnsignedLong { return 0; }
+- (unsigned long long)methodReturningUnsignedLongLong { return 0; }
+- (float)methodReturningFloat { return 0; }
+- (double)methodReturningDouble { return 0; }
+
 @end
 
 
@@ -37,7 +51,7 @@
 
 @implementation StubTest
 
-- (void)testStubbedMethodWithNoArgsReturningObject
+- (void)testStubbedMethoShouldReturnGivenObject
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
     
@@ -98,7 +112,7 @@
 }
 
 
-- (void)testShortcutForSpecifyingMatcherForFirstArgument
+- (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
     
@@ -106,6 +120,116 @@
       withMatcher:greaterThan([NSNumber numberWithInt:1])] willReturn:@"FOO"];
     
     assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenBool
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningBool]) willReturnBool:YES];
+    
+    STAssertTrue([mockObject methodReturningBool], nil);
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenChar
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningChar]) willReturnChar:'a'];
+    
+    assertThatChar([mockObject methodReturningChar], equalToChar('a'));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenInt
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningInt]) willReturnInt:42];
+    
+    assertThatInt([mockObject methodReturningInt], equalToInt(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenShort
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningShort]) willReturnShort:42];
+    
+    assertThatShort([mockObject methodReturningShort], equalToShort(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenLong
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningLong]) willReturnLong:42];
+    
+    assertThatLong([mockObject methodReturningLong], equalToLong(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenLongLong
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningLongLong]) willReturnLongLong:42];
+    
+    assertThatLongLong([mockObject methodReturningLongLong], equalToLongLong(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenUnsignedChar
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningUnsignedChar]) willReturnUnsignedChar:'a'];
+    
+    assertThatUnsignedChar([mockObject methodReturningUnsignedChar], equalToUnsignedChar('a'));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenUnsignedInt
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningUnsignedInt]) willReturnUnsignedInt:42];
+    
+    assertThatUnsignedInt([mockObject methodReturningUnsignedInt], equalToUnsignedInt(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenUnsignedShort
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningUnsignedShort]) willReturnUnsignedShort:42];
+    
+    assertThatUnsignedShort([mockObject methodReturningUnsignedShort], equalToUnsignedShort(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenUnsignedLong
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningUnsignedLong]) willReturnUnsignedLong:42];
+    
+    assertThatUnsignedLong([mockObject methodReturningUnsignedLong], equalToUnsignedLong(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenUnsignedLongLong
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningUnsignedLongLong]) willReturnUnsignedLongLong:42];
+    
+    assertThatUnsignedLongLong([mockObject methodReturningUnsignedLongLong], equalToUnsignedLongLong(42));
 }
 
 @end

@@ -53,6 +53,14 @@
 }
 
 
+#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                           \
+    else if (strcmp(methodReturnType, @encode(type)) == 0)                                  \
+    {                                                                                       \
+        type answer = [[invocationContainer findAnswerFor:anInvocation] typeName ## Value]; \
+        [anInvocation setReturnValue:&answer];                                              \
+    }
+
+
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
     id <MTVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
@@ -81,11 +89,21 @@
     
     NSMethodSignature *methodSignature = [anInvocation methodSignature];
     const char* methodReturnType = [methodSignature methodReturnType];
-    if (strcmp(methodReturnType, @encode(void)) != 0)
+    if (strcmp(methodReturnType, @encode(id)) == 0)
     {
         id answer = [invocationContainer findAnswerFor:anInvocation];
         [anInvocation setReturnValue:&answer];
     }
+    HANDLE_METHOD_RETURN_TYPE(char, char)
+    HANDLE_METHOD_RETURN_TYPE(int, int)
+    HANDLE_METHOD_RETURN_TYPE(short, short)
+    HANDLE_METHOD_RETURN_TYPE(long, long)
+    HANDLE_METHOD_RETURN_TYPE(long long, longLong)
+    HANDLE_METHOD_RETURN_TYPE(unsigned char, unsignedChar)
+    HANDLE_METHOD_RETURN_TYPE(unsigned int, unsignedInt)
+    HANDLE_METHOD_RETURN_TYPE(unsigned short, unsignedShort)
+    HANDLE_METHOD_RETURN_TYPE(unsigned long, unsignedLong)
+    HANDLE_METHOD_RETURN_TYPE(unsigned long long, unsignedLongLong)
 }
 
 

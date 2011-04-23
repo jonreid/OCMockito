@@ -20,7 +20,7 @@
 OBJC_EXPORT MTOngoingStubbing *MTGivenWithLocation(id methodCall,
                                                    id testCase, const char *fileName, int lineNumber);
 
-#define MTGiven(methodCall) MTGivenWithLocation(methodCall, self, __FILE__, __LINE__)
+#define MTGiven(methodCall) MTGivenWithLocation((id)methodCall, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
     #define given(methodCall) MTGiven(methodCall)

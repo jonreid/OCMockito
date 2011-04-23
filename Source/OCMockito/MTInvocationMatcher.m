@@ -109,21 +109,21 @@
 }
 
 
-#define DEFINE_ARGUMENT_MISMATCH_METHOD(type, typeName)                                             \
-    - (BOOL)argument ## typeName ## MismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index  \
-    {                                                                                               \
-        type actualArgument;                                                                        \
-        [actual getArgument:&actualArgument atIndex:index];                                         \
-                                                                                                    \
-        id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];                            \
-        if ([matcher isEqual:[NSNull null]])                                                        \
-        {                                                                                           \
-            type expectedArgument;                                                                  \
-            [expected getArgument:&expectedArgument atIndex:index];                                 \
-            return expectedArgument != actualArgument;                                              \
-        }                                                                                           \
-        else                                                                                        \
-            return ![matcher matches:[NSNumber numberWith ## typeName :actualArgument]];            \
+#define DEFINE_ARGUMENT_MISMATCH_METHOD(type, typeName)                                     \
+    - (BOOL)argument ## typeName ## MismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index \
+    {                                                                                       \
+        type actualArgument;                                                                \
+        [actual getArgument:&actualArgument atIndex:index];                                 \
+                                                                                            \
+        id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];                    \
+        if ([matcher isEqual:[NSNull null]])                                                \
+        {                                                                                   \
+            type expectedArgument;                                                          \
+            [expected getArgument:&expectedArgument atIndex:index];                         \
+            return expectedArgument != actualArgument;                                      \
+        }                                                                                   \
+        else                                                                                \
+            return ![matcher matches:[NSNumber numberWith ## typeName :actualArgument]];    \
     }
 
 DEFINE_ARGUMENT_MISMATCH_METHOD(char, Char)
@@ -140,11 +140,11 @@ DEFINE_ARGUMENT_MISMATCH_METHOD(float, Float)
 DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
 
 
-#define HANDLE_ARGUMENT_TYPE(type, typeName)                                                        \
-    else if (strcmp(argumentType, @encode(type)) == 0)                                              \
-    {                                                                                               \
-        if ([self argument ## typeName ## MismatchInInvocation:actual atIndex:argumentIndex])       \
-            return NO;                                                                              \
+#define HANDLE_ARGUMENT_TYPE(type, typeName)                                                    \
+    else if (strcmp(argumentType, @encode(type)) == 0)                                          \
+    {                                                                                           \
+        if ([self argument ## typeName ## MismatchInInvocation:actual atIndex:argumentIndex])   \
+            return NO;                                                                          \
     }
 
 

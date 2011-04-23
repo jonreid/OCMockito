@@ -138,7 +138,7 @@
 }
 
 
-- (void)testShortcutForSpecifyingMatcherForFirstArgument
+- (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
     
