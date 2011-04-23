@@ -16,6 +16,10 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
+struct Foo {
+    int i;
+};
+typedef struct Foo Foo;
 
 @interface ReturningObject : NSObject
 @end
@@ -38,9 +42,9 @@
 - (unsigned short)methodReturningUnsignedShort { return 0; }
 - (unsigned long)methodReturningUnsignedLong { return 0; }
 - (unsigned long long)methodReturningUnsignedLongLong { return 0; }
-- (float)methodReturningFloat { return 0; }
-- (double)methodReturningDouble { return 0; }
 - (NSUInteger)methodReturningUnsignedInteger { return 0; }
+//- (float)methodReturningFloat { return 0; }
+//- (double)methodReturningDouble { return 0; }
 
 @end
 
@@ -253,5 +257,15 @@
     
     assertThatUnsignedInteger([mockObject methodReturningUnsignedInteger], equalToUnsignedInteger(42));
 }
+
+
+//- (void)testStubbedMethodShouldReturnGivenFloat
+//{
+//    ReturningObject *mockObject = mock([ReturningObject class]);
+//    
+//    [given([mockObject methodReturningFloat]) willReturnFloat:42];
+//    
+//    assertThatFloat([mockObject methodReturningFloat], equalToFloat(42));
+//}
 
 @end
