@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 
 @class MTMockingProgress;
+@protocol HCMatcher;
 
 
 @interface MTInvocationContainer : NSObject
@@ -14,6 +15,7 @@
 
 - (id)initWithMockingProgress:(MTMockingProgress *)theMockingProgress;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
+- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id)answer;
 - (id)findAnswerFor:(NSInvocation *)invocation;
 

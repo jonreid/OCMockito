@@ -66,13 +66,46 @@
 }
 
 
-- (void)testStubsShouldAcceptArgumentMatchers
+- (void)testStubShouldAcceptArgumentMatchers
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
     
     [given([mockObject methodReturningObjectWithArg:equalTo(@"foo")]) willReturn:@"FOO"];
     
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
+}
+
+
+- (void)testStubShouldReturnValueForMatchingNumericArgument
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
+    [given([mockObject methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
+    
+    assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
+}
+
+
+- (void)testStubShouldAcceptMatcherForNumericArgument
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [[given([mockObject methodReturningObjectWithIntArg:0])
+      withMatcher:greaterThan([NSNumber numberWithInt:1]) forArgument:0] willReturn:@"FOO"];
+    
+    assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
+}
+
+
+- (void)testShortcutForSpecifyingMatcherForFirstArgument
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [[given([mockObject methodReturningObjectWithIntArg:0])
+      withMatcher:greaterThan([NSNumber numberWithInt:1])] willReturn:@"FOO"];
+    
+    assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
 @end

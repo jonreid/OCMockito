@@ -122,7 +122,7 @@
 
 - (void)testPullInvocationMatcherAfterSettingMatchersShouldHaveThoseMatchers
 {
-    [mockingProgress setMatcher:equalTo(@"irrelevant") atIndex:3];
+    [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
     
     MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
     
@@ -132,7 +132,7 @@
 
 - (void)testPullInvocationMatcherShouldClearCurrentMatcher
 {
-    [mockingProgress setMatcher:equalTo(@"irrelevant") atIndex:3];
+    [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:3];
 
     [mockingProgress pullInvocationMatcher];
     
@@ -142,8 +142,8 @@
 
 - (void)testMoreThanOneSetMatcherShouldAccumulate
 {
-    [mockingProgress setMatcher:equalTo(@"irrelevant") atIndex:3];
-    [mockingProgress setMatcher:equalTo(@"irrelevant") atIndex:2];
+    [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
+    [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:0];
 
     MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
     

@@ -63,11 +63,11 @@
 }
 
 
-- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
+- (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
     if (!invocationMatcher)
         invocationMatcher = [[MTInvocationMatcher alloc] init];
-    [invocationMatcher setMatcher:matcher atIndex:argumentIndex];
+    [invocationMatcher setMatcher:matcher atIndex:index+2];
 }
 
 

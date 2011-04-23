@@ -10,7 +10,7 @@
 
 @interface MTInvocationContainer ()
 @property(nonatomic, retain) MTMockingProgress *mockingProgress;
-@property(nonatomic, retain) NSInvocation *invocationForStubbing;
+@property(nonatomic, retain) MTStubbedInvocationMatcher *invocationMatcherForStubbing;
 @property(nonatomic, retain) NSMutableArray *stubbed;
 @end
 
@@ -19,7 +19,7 @@
 
 @synthesize registeredInvocations;
 @synthesize mockingProgress;
-@synthesize invocationForStubbing;
+@synthesize invocationMatcherForStubbing;
 @synthesize stubbed;
 
 
@@ -40,7 +40,7 @@
 {
     [registeredInvocations release];
     [mockingProgress release];
-    [invocationForStubbing release];
+    [invocationMatcherForStubbing release];
     [stubbed release];
     
     [super dealloc];
@@ -51,7 +51,17 @@
 {
     [invocation retainArguments];
     [registeredInvocations addObject:invocation];
-    [self setInvocationForStubbing:invocation];
+    
+    MTStubbedInvocationMatcher *stubbedInvocationMatcher = [[MTStubbedInvocationMatcher alloc] init];
+    [stubbedInvocationMatcher setExpectedInvocation:invocation];
+    [self setInvocationMatcherForStubbing:stubbedInvocationMatcher];
+    [stubbedInvocationMatcher release];
+}
+
+
+- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
+{
+    [invocationMatcherForStubbing setMatcher:matcher atIndex:argumentIndex];
 }
 
 
@@ -59,11 +69,8 @@
 {
     [registeredInvocations removeLastObject];
     
-    MTStubbedInvocationMatcher *stubbedInvocationMatcher = [[MTStubbedInvocationMatcher alloc] init];
-    [stubbedInvocationMatcher setExpectedInvocation:invocationForStubbing];
-    [stubbedInvocationMatcher setAnswer:answer];
-    [stubbed insertObject:stubbedInvocationMatcher atIndex:0];
-    [stubbedInvocationMatcher release];
+    [invocationMatcherForStubbing setAnswer:answer];
+    [stubbed insertObject:invocationMatcherForStubbing atIndex:0];
 }
 
 

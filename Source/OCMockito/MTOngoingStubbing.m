@@ -34,6 +34,19 @@
 }
 
 
+- (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
+{
+    [invocationContainer setMatcher:matcher atIndex:index+2];
+    return self;
+}
+
+
+- (id)withMatcher:(id <HCMatcher>)matcher
+{
+    return [self withMatcher:matcher forArgument:0];
+}
+
+
 - (MTOngoingStubbing *)willReturn:(id)object
 {
     [invocationContainer addAnswer:object];

@@ -97,7 +97,7 @@
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
-    [mockingProgress setMatcher:matcher atIndex:index+2];
+    [mockingProgress setMatcher:matcher forArgument:index];
     return self;
 }
 

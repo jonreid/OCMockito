@@ -23,7 +23,7 @@
 - (void)reportOngoingStubbing:(MTOngoingStubbing *)theOngoingStubbing;
 - (MTOngoingStubbing *)pullOngoingStubbing;
 
-- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
+- (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
 - (MTInvocationMatcher *)pullInvocationMatcher;
 
 - (void)verificationStarted:(id <MTVerificationMode>)mode atLocation:(MTTestLocation)location;
