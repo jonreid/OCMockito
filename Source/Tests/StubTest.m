@@ -32,6 +32,7 @@
 - (short)methodReturningShort { return 0; }
 - (long)methodReturningLong { return 0; }
 - (long long)methodReturningLongLong { return 0; }
+- (NSInteger)methodReturningInteger { return 0; }
 - (unsigned char)methodReturningUnsignedChar { return 0; }
 - (unsigned int)methodReturningUnsignedInt { return 0; }
 - (unsigned short)methodReturningUnsignedShort { return 0; }
@@ -39,6 +40,7 @@
 - (unsigned long long)methodReturningUnsignedLongLong { return 0; }
 - (float)methodReturningFloat { return 0; }
 - (double)methodReturningDouble { return 0; }
+- (NSUInteger)methodReturningUnsignedInteger { return 0; }
 
 @end
 
@@ -183,6 +185,16 @@
 }
 
 
+- (void)testStubbedMethodShouldReturnGivenInteger
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningInteger]) willReturnInteger:42];
+    
+    assertThatInteger([mockObject methodReturningInteger], equalToInteger(42));
+}
+
+
 - (void)testStubbedMethodShouldReturnGivenUnsignedChar
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -230,6 +242,16 @@
     [given([mockObject methodReturningUnsignedLongLong]) willReturnUnsignedLongLong:42];
     
     assertThatUnsignedLongLong([mockObject methodReturningUnsignedLongLong], equalToUnsignedLongLong(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenUnsignedInteger
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningUnsignedInteger]) willReturnUnsignedInteger:42];
+    
+    assertThatUnsignedInteger([mockObject methodReturningUnsignedInteger], equalToUnsignedInteger(42));
 }
 
 @end

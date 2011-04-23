@@ -55,11 +55,13 @@ DEFINE_RETURN_METHOD(int, Int)
 DEFINE_RETURN_METHOD(short, Short)
 DEFINE_RETURN_METHOD(long, Long)
 DEFINE_RETURN_METHOD(long long, LongLong)
+DEFINE_RETURN_METHOD(NSInteger, Integer)
 DEFINE_RETURN_METHOD(unsigned char, UnsignedChar)
 DEFINE_RETURN_METHOD(unsigned int, UnsignedInt)
 DEFINE_RETURN_METHOD(unsigned short, UnsignedShort)
 DEFINE_RETURN_METHOD(unsigned long, UnsignedLong)
 DEFINE_RETURN_METHOD(unsigned long long, UnsignedLongLong)
+DEFINE_RETURN_METHOD(NSUInteger, UnsignedInteger)
 
 
 #pragma mark -
