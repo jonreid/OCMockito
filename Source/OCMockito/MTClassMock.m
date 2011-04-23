@@ -95,16 +95,16 @@
 }
 
 
-- (id)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
+- (id)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index
 {
-    [mockingProgress setMatcher:matcher atIndex:argumentIndex];
+    [mockingProgress setMatcher:matcher atIndex:index+2];
     return self;
 }
 
 
 - (id)withMatcher:(id <HCMatcher>)matcher
 {
-    return [self setMatcher:matcher atIndex:2];
+    return [self setMatcher:matcher atIndex:0];
 }
 
 
