@@ -34,6 +34,16 @@
 }
 
 
+- (MTOngoingStubbing *)willReturn:(id)object
+{
+    [invocationContainer addAnswer:object];
+    return self;
+}
+
+
+#pragma mark -
+#pragma mark MTPrimitiveArgumentMatching
+
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
     [invocationContainer setMatcher:matcher atIndex:index+2];
@@ -44,13 +54,6 @@
 - (id)withMatcher:(id <HCMatcher>)matcher
 {
     return [self withMatcher:matcher forArgument:0];
-}
-
-
-- (MTOngoingStubbing *)willReturn:(id)object
-{
-    [invocationContainer addAnswer:object];
-    return self;
 }
 
 @end

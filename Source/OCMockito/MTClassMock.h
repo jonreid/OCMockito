@@ -4,15 +4,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTPrimitiveArgumentMatching.h"
 
-@protocol HCMatcher;
 
-
-@interface MTClassMock : NSProxy
+@interface MTClassMock : NSProxy <MTPrimitiveArgumentMatching>
 
 + (id)mockForClass:(Class)aClass;
 - (id)initWithClass:(Class)aClass;
-- (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
-- (id)withMatcher:(id <HCMatcher>)matcher;
 
 @end

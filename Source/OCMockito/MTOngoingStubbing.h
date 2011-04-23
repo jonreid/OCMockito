@@ -4,16 +4,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTPrimitiveArgumentMatching.h"
 
 @class MTInvocationContainer;
-@protocol HCMatcher;
 
 
-@interface MTOngoingStubbing : NSObject
+@interface MTOngoingStubbing : NSObject <MTPrimitiveArgumentMatching>
 
 - (id)initWithInvocationContainer:(MTInvocationContainer *)anInvocationContainer;
-- (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
-- (id)withMatcher:(id <HCMatcher>)matcher;
 - (MTOngoingStubbing *)willReturn:(id)object;
 
 @end

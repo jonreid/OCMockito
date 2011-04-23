@@ -95,6 +95,18 @@
 }
 
 
+#pragma mark -
+#pragma mark NSObject
+
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    return [mockedClass instancesRespondToSelector:aSelector];
+}
+
+
+#pragma mark -
+#pragma mark MTPrimitiveArgumentMatching
+
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
     [mockingProgress setMatcher:matcher forArgument:index];
@@ -105,15 +117,6 @@
 - (id)withMatcher:(id <HCMatcher>)matcher
 {
     return [self withMatcher:matcher forArgument:0];
-}
-
-
-#pragma mark -
-#pragma mark NSObject
-
-- (BOOL)respondsToSelector:(SEL)aSelector
-{
-    return [mockedClass instancesRespondToSelector:aSelector];
 }
 
 @end
