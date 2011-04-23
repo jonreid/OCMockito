@@ -24,6 +24,7 @@
 
 - (id)methodReturningObject { return self; }
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
+- (id)methodReturningObjectWithIntArg:(int)arg { return self; }
 
 @end
 
@@ -61,6 +62,16 @@
     [given([mockObject methodReturningObjectWithArg:@"foo"]) willReturn:@"FOO"];
     [given([mockObject methodReturningObjectWithArg:@"bar"]) willReturn:@"BAR"];
 
+    assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
+}
+
+
+- (void)testStubsShouldAcceptArgumentMatchers
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [given([mockObject methodReturningObjectWithArg:equalTo(@"foo")]) willReturn:@"FOO"];
+    
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
