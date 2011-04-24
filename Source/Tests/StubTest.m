@@ -43,8 +43,8 @@ typedef struct Foo Foo;
 - (unsigned long)methodReturningUnsignedLong { return 0; }
 - (unsigned long long)methodReturningUnsignedLongLong { return 0; }
 - (NSUInteger)methodReturningUnsignedInteger { return 0; }
-//- (float)methodReturningFloat { return 0; }
-//- (double)methodReturningDouble { return 0; }
+- (float)methodReturningFloat { return 0; }
+- (double)methodReturningDouble { return 0; }
 
 @end
 
@@ -259,13 +259,25 @@ typedef struct Foo Foo;
 }
 
 
-//- (void)testStubbedMethodShouldReturnGivenFloat
-//{
-//    ReturningObject *mockObject = mock([ReturningObject class]);
-//    
-//    [given([mockObject methodReturningFloat]) willReturnFloat:42];
-//    
-//    assertThatFloat([mockObject methodReturningFloat], equalToFloat(42));
-//}
+- (void)testStubbedMethodShouldReturnGivenFloat
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [mockObject methodReturningFloat];
+    [givenPreviousCall willReturnFloat:42];
+    
+    assertThatFloat([mockObject methodReturningFloat], equalToFloat(42));
+}
+
+
+- (void)testStubbedMethodShouldReturnGivenDouble
+{
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    [mockObject methodReturningDouble];
+    [givenPreviousCall willReturnDouble:42];
+    
+    assertThatDouble([mockObject methodReturningDouble], equalToDouble(42));
+}
 
 @end

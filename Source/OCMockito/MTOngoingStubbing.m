@@ -62,7 +62,8 @@ DEFINE_RETURN_METHOD(unsigned short, UnsignedShort)
 DEFINE_RETURN_METHOD(unsigned long, UnsignedLong)
 DEFINE_RETURN_METHOD(unsigned long long, UnsignedLongLong)
 DEFINE_RETURN_METHOD(NSUInteger, UnsignedInteger)
-//DEFINE_RETURN_METHOD(float, Float)
+DEFINE_RETURN_METHOD(float, Float)
+DEFINE_RETURN_METHOD(double, Double)
 
 
 #pragma mark -

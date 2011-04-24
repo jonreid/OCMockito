@@ -104,6 +104,8 @@
     HANDLE_METHOD_RETURN_TYPE(unsigned short, unsignedShort)
     HANDLE_METHOD_RETURN_TYPE(unsigned long, unsignedLong)
     HANDLE_METHOD_RETURN_TYPE(unsigned long long, unsignedLongLong)
+    HANDLE_METHOD_RETURN_TYPE(float, float)
+    HANDLE_METHOD_RETURN_TYPE(double, double)
 }
 
 

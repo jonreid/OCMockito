@@ -26,6 +26,7 @@
 - (MTOngoingStubbing *)willReturnUnsignedLong:(unsigned long)value;
 - (MTOngoingStubbing *)willReturnUnsignedLongLong:(unsigned long long)value;
 - (MTOngoingStubbing *)willReturnUnsignedInteger:(NSUInteger)value;
-//- (MTOngoingStubbing *)willReturnFloat:(float)value;
+- (MTOngoingStubbing *)willReturnFloat:(float)value;
+- (MTOngoingStubbing *)willReturnDouble:(double)value;
 
 @end
