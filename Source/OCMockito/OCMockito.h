@@ -7,6 +7,7 @@
 
 #import "MTClassMock.h"
 #import "MTOngoingStubbing.h"
+#import "MTTimes.h"
 #import <objc/objc-api.h>
 
 
@@ -42,4 +43,18 @@ OBJC_EXPORT id MTVerifyWithLocation(id mock, id testCase, const char *fileName, 
 
 #ifdef MOCKITO_SHORTHAND
     #define verify(mock) MTVerify(mock)
+#endif
+
+
+OBJC_EXPORT id MTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
+
+#define MTVerifyCount(mock, mode) MTVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
+
+#ifdef MOCKITO_SHORTHAND
+    #define verifyCount(mock, mode) MTVerifyCount(mock, mode)
+#endif
+
+
+#ifdef MOCKITO_SHORTHAND
+    #define times(wantedNumberOfInvocations) [MTTimes timesWithCount:wantedNumberOfInvocations]
 #endif

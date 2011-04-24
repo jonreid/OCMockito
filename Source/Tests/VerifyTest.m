@@ -18,6 +18,7 @@
 
 
 #define verifyWithMockTestCase(mock) MTVerifyWithLocation(mock, mockTestCase, __FILE__, __LINE__)
+#define verifyCountWithMockTestCase(mock, mode) MTVerifyCountWithLocation(mock, mode, mockTestCase, __FILE__, __LINE__)
 
 
 @interface MockTestCase : NSObject
@@ -53,7 +54,7 @@
 
 @implementation VerifyTest
 
-- (void)testInvokingMethodWithNoArgumentsShouldPassVerify
+- (void)testInvokingMethodShouldPassVerify
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
     
@@ -63,7 +64,7 @@
 }
 
 
-- (void)testNotInvokingMethodWithNoArgumentsShouldFailVerify
+- (void)testNotInvokingMethodShouldFailVerify
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
     MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
@@ -145,6 +146,76 @@
     [mockArray removeObjectAtIndex:2];
     
     [[verify(mockArray) withMatcher:greaterThan([NSNumber numberWithInt:1])] removeObjectAtIndex:0];
+}
+
+
+- (void)testVerifyTimesOneShouldFailForMethodNotInvoked
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
+
+
+- (void)testVerifyTimesOneShouldPassForMethodInvokedOnce
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    
+    [mockArray removeAllObjects];
+    
+    [verifyCount(mockArray, times(1)) removeAllObjects];
+}
+
+
+- (void)testVerifyTimesOneShouldFailForMethodInvokedTwice
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    [mockArray removeAllObjects];
+    [mockArray removeAllObjects];
+
+    [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
+
+
+- (void)testVerifyTimesTwoShouldFailForMethodInvokedOnce
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    [mockArray removeAllObjects];
+    
+    [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
+
+
+- (void)testVerifyTimesTwoShouldFailForMethodInvokedTwice
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    
+    [mockArray removeAllObjects];
+    [mockArray removeAllObjects];
+    
+    [verifyCount(mockArray, times(2)) removeAllObjects];
+}
+
+
+- (void)testVerifyTimesTwoShouldFailForMethodInvokedThreeTimes
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    [mockArray removeAllObjects];
+    [mockArray removeAllObjects];
+    [mockArray removeAllObjects];
+    
+    [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
 

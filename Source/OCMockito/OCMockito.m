@@ -30,3 +30,12 @@ id MTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumb
                           withMode:[MTTimes timesWithCount:1]
                         atLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
 }
+
+
+id MTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber)
+{
+    MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
+    return [mockitoCore verifyMock:mock
+                          withMode:mode
+                        atLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
+}
