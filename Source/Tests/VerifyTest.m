@@ -219,4 +219,23 @@
 }
 
 
+- (void)testVerifyNeverShouldPassForMethodInvoked
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    
+    [verifyCount(mockArray, never()) removeAllObjects];
+}
+
+
+- (void)testVerifyNeverShouldFailForInvokedMethod
+{
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    [mockArray removeAllObjects];
+
+    [verifyCountWithMockTestCase(mockArray, never()) removeAllObjects];
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
+
 @end

@@ -1,5 +1,5 @@
 //
-//  OCMockito - MTTimes.h
+//  OCMockito - MTExactTimes.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -7,7 +7,7 @@
 #import "MTVerificationMode.h"
 
 
-@interface MTTimes : NSObject <MTVerificationMode>
+@interface MTExactTimes : NSObject <MTVerificationMode>
 
 + (id)timesWithCount:(NSUInteger)wantedNumberOfInvocations;
 - (id)initWithCount:(NSUInteger)wantedNumberOfInvocations;

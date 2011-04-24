@@ -7,7 +7,6 @@
 
 #import "MTClassMock.h"
 #import "MTOngoingStubbing.h"
-#import "MTTimes.h"
 #import <objc/objc-api.h>
 
 
@@ -55,6 +54,15 @@ OBJC_EXPORT id MTVerifyCountWithLocation(id mock, id mode, id testCase, const ch
 #endif
 
 
+OBJC_EXPORT id MTTimes(NSUInteger wantedNumberOfInvocations);
+
 #ifdef MOCKITO_SHORTHAND
-    #define times(wantedNumberOfInvocations) [MTTimes timesWithCount:wantedNumberOfInvocations]
+    #define times(wantedNumberOfInvocations) MTTimes(wantedNumberOfInvocations)
+#endif
+
+
+OBJC_EXPORT id MTNever(void);
+
+#ifdef MOCKITO_SHORTHAND
+    #define never() MTNever()
 #endif

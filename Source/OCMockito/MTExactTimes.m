@@ -1,9 +1,9 @@
 //
-//  OCMockito - MTTimes.m
+//  OCMockito - MTExactTimes.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MTTimes.h"
+#import "MTExactTimes.h"
 
 #import "MTInvocationContainer.h"
 #import "MTInvocationMatcher.h"
@@ -21,12 +21,12 @@
 @end
 
 
-@interface MTTimes ()
+@interface MTExactTimes ()
 @property(nonatomic, assign) NSUInteger wantedCount;
 @end
 
 
-@implementation MTTimes
+@implementation MTExactTimes
 
 @synthesize wantedCount;
 

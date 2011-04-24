@@ -7,10 +7,10 @@
 #import "MTMockingProgress.h"
 
     // Collaborators
+#import "MTExactTimes.h"
 #import "MTInvocationContainer.h"
 #import "MTInvocationMatcher.h"
 #import "MTOngoingStubbing.h"
-#import "MTTimes.h"
 
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
@@ -90,7 +90,7 @@
 - (void)testPullVerificationModeWithVerificationStartedShouldReturnMode
 {
     // given
-    id <MTVerificationMode> mode = [MTTimes timesWithCount:42];
+    id <MTVerificationMode> mode = [MTExactTimes timesWithCount:42];
     
     // when
     [mockingProgress verificationStarted:mode atLocation:MTTestLocationMake(self, __FILE__, __LINE__)];
@@ -103,7 +103,7 @@
 - (void)testPullVerificationModeShouldClearCurrentVerification
 {
     // given
-    id <MTVerificationMode> mode = [MTTimes timesWithCount:42];
+    id <MTVerificationMode> mode = [MTExactTimes timesWithCount:42];
     
     // when
     [mockingProgress verificationStarted:mode atLocation:MTTestLocationMake(self, __FILE__, __LINE__)];

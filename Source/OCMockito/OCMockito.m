@@ -5,9 +5,9 @@
 
 #import "OCMockito.h"
 
-#import "MTTestLocation.h"
+#import "MTExactTimes.h"
 #import "MTMockitoCore.h"
-#import "MTTimes.h"
+#import "MTTestLocation.h"
 
 
 MTOngoingStubbing *MTGivenWithLocation(id methodCall, id testCase, const char *fileName, int lineNumber)
@@ -25,10 +25,7 @@ MTOngoingStubbing *MTGivenPreviousCallWithLocation(id testCase, const char *file
 
 id MTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
-    MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
-    return [mockitoCore verifyMock:mock
-                          withMode:[MTTimes timesWithCount:1]
-                        atLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
+    return MTVerifyCountWithLocation(mock, MTTimes(1), testCase, fileName, lineNumber);
 }
 
 
@@ -38,4 +35,16 @@ id MTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName
     return [mockitoCore verifyMock:mock
                           withMode:mode
                         atLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
+}
+
+
+id MTTimes(NSUInteger wantedNumberOfInvocations)
+{
+    return [MTExactTimes timesWithCount:wantedNumberOfInvocations];
+}
+
+
+id MTNever()
+{
+    return MTTimes(0);
 }
