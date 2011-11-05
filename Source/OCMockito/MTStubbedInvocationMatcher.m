@@ -10,7 +10,6 @@
 
 @synthesize answer;
 
-
 - (void)dealloc
 {
     [answer release];

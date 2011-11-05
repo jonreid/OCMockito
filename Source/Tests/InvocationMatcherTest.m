@@ -110,13 +110,11 @@ DEFINE_INVOCATION_METHOD(double, Double)
     invocationMatcher = [[MTInvocationMatcher alloc] init];
 }
 
-
 - (void)tearDown
 {
     [invocationMatcher release];
     [super tearDown];
 }
-
 
 - (void)testShouldMatchNoArgumentInvocationsIfSelectorsMatch
 {
@@ -127,7 +125,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchNoArgumentInvocationsIfSelectorsDiffer
 {
@@ -141,7 +138,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldMatchIfObjectArgumentEqualsExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something"];
@@ -152,7 +148,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfObjectArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something"];
@@ -162,7 +157,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfArgumentsMatchButSelectorsDiffer
 {
@@ -176,7 +170,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldMatchIfObjectArgumentSatisfiesArgumentExpectation
 {
     id <HCMatcher> argumentExpectation = equalTo(@"something");
@@ -187,7 +180,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfObjectArgumentDoesNotSatisfyArgumentExpectation
 {
@@ -200,7 +192,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldMatchIfBoolArgumentEqualsExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithBoolArg:YES];
@@ -210,7 +201,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfBoolArgumentDoesNotEqualExpectedArgument
 {
@@ -222,7 +212,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldMatchIfCharArgumentEqualsExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithCharArg:'a'];
@@ -233,7 +222,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfCharArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithCharArg:'a'];
@@ -243,7 +231,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testNotShouldMatchIfCharArgumentConvertedToObjectDoesNotSatisfyOverrideMatcher
 {
@@ -256,7 +243,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfIntArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithIntArg:42];
@@ -266,7 +252,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfIntArgumentConvertedToObjectDoesNotSatisfyOverrideMatcher
 {
@@ -279,7 +264,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfShortArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithShortArg:42];
@@ -289,7 +273,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfLongArgumentDoesNotEqualExpectedArgument
 {
@@ -301,7 +284,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfLongLongArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithLongLongArg:42];
@@ -311,7 +293,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfIntegerArgumentDoesNotEqualExpectedArgument
 {
@@ -323,7 +304,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfUnsignedCharArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithUnsignedCharArg:42];
@@ -333,7 +313,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfUnsignedIntArgumentDoesNotEqualExpectedArgument
 {
@@ -345,7 +324,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfUnsignedShortArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithUnsignedShortArg:42];
@@ -355,7 +333,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfUnsignedLongArgumentDoesNotEqualExpectedArgument
 {
@@ -367,7 +344,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfUnsignedLongLongArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithUnsignedLongLongArg:42];
@@ -378,7 +354,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfUnsignedIntegerArgumentDoesNotEqualExpectedArgument
 {
     NSInvocation *expected = [DummyObject invocationWithUnsignedIntegerArg:42];
@@ -388,7 +363,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testShouldNotMatchIfFloatArgumentConvertedToObjectDoesNotSatisfyOverrideMatcher
 {
@@ -401,7 +375,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldNotMatchIfDoubleArgumentConvertedToObjectDoesNotSatisfyOverrideMatcher
 {
     NSInvocation *expected = [DummyObject invocationWithDoubleArg:0];   // Argument will be ignored.
@@ -413,7 +386,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
-
 - (void)testShouldMatchOverrideMatcherSpecifiedForSecondPrimitiveArgument
 {
     NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something" intArg:0];
@@ -424,7 +396,6 @@ DEFINE_INVOCATION_METHOD(double, Double)
     
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
-
 
 - (void)testArgumentMatchersCountShouldReflectLargestSetMatcherIndex
 {

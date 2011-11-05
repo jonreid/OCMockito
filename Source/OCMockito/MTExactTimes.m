@@ -35,7 +35,6 @@
     return [[[self alloc] initWithCount:wantedNumberOfInvocations] autorelease];
 }
 
-
 - (id)initWithCount:(NSUInteger)wantedNumberOfInvocations
 {
     self = [super init];
@@ -45,8 +44,7 @@
 }
 
 
-#pragma mark -
-#pragma mark MTVerificationMode
+#pragma mark - MTVerificationMode
 
 - (void)verifyData:(MTVerificationData *)data
 {

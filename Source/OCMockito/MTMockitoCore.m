@@ -19,7 +19,6 @@
 
 @synthesize mockingProgress;
 
-
 + (id)sharedCore
 {
     static id sharedCore = nil;
@@ -29,7 +28,6 @@
     return sharedCore;
 }
 
-
 - (id)init
 {
     self = [super init];
@@ -38,13 +36,11 @@
     return self;
 }
 
-
 - (void)dealloc
 {
     [mockingProgress release];
     [super dealloc];
 }
-
 
 - (MTOngoingStubbing *)stubAtLocation:(MTTestLocation)location
 {
@@ -52,12 +48,10 @@
     return [self stub];
 }
 
-
 - (MTOngoingStubbing *)stub
 {
     return [mockingProgress pullOngoingStubbing];
 }
-
 
 - (id)verifyMock:(MTClassMock *)mock
         withMode:(id <MTVerificationMode>)mode

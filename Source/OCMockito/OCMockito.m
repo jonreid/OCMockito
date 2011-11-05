@@ -15,19 +15,16 @@ MTOngoingStubbing *MTGivenWithLocation(id methodCall, id testCase, const char *f
     return MTGivenPreviousCallWithLocation(testCase, fileName, lineNumber);
 }
 
-
 MTOngoingStubbing *MTGivenPreviousCallWithLocation(id testCase, const char *fileName, int lineNumber)
 {
     MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
     return [mockitoCore stubAtLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
-
 id MTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
     return MTVerifyCountWithLocation(mock, MTTimes(1), testCase, fileName, lineNumber);
 }
-
 
 id MTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber)
 {
@@ -37,12 +34,10 @@ id MTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName
                         atLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
-
 id MTTimes(NSUInteger wantedNumberOfInvocations)
 {
     return [MTExactTimes timesWithCount:wantedNumberOfInvocations];
 }
-
 
 id MTNever()
 {

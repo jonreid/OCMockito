@@ -16,10 +16,9 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
-struct Foo {
+typedef struct {
     int i;
-};
-typedef struct Foo Foo;
+} Foo;
 
 @interface ReturningObject : NSObject
 @end
@@ -54,7 +53,6 @@ typedef struct Foo Foo;
 @interface StubTest : SenTestCase
 @end
 
-
 @implementation StubTest
 
 - (void)testStubbedMethoShouldReturnGivenObject
@@ -66,14 +64,12 @@ typedef struct Foo Foo;
     assertThat([mockObject methodReturningObject], is(@"STUBBED"));
 }
 
-
 - (void)testUnstubbedMethodReturningObjectShouldReturnNil
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
         
     assertThat([mockObject methodReturningObject], is(nilValue()));
 }
-
 
 - (void)testStubsWithDifferentArgsShouldHaveDifferentReturnValues
 {
@@ -85,7 +81,6 @@ typedef struct Foo Foo;
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
-
 - (void)testStubShouldAcceptArgumentMatchers
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -94,7 +89,6 @@ typedef struct Foo Foo;
     
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
-
 
 - (void)testStubShouldReturnValueForMatchingNumericArgument
 {
@@ -106,7 +100,6 @@ typedef struct Foo Foo;
     assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
 }
 
-
 - (void)testStubShouldAcceptMatcherForNumericArgument
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -116,7 +109,6 @@ typedef struct Foo Foo;
     
     assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
-
 
 - (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
@@ -128,7 +120,6 @@ typedef struct Foo Foo;
     assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
-
 - (void)testStubbedMethodShouldReturnGivenBool
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -137,7 +128,6 @@ typedef struct Foo Foo;
     
     STAssertTrue([mockObject methodReturningBool], nil);
 }
-
 
 - (void)testStubbedMethodShouldReturnGivenChar
 {
@@ -148,7 +138,6 @@ typedef struct Foo Foo;
     assertThatChar([mockObject methodReturningChar], equalToChar('a'));
 }
 
-
 - (void)testStubbedMethodShouldReturnGivenInt
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -157,7 +146,6 @@ typedef struct Foo Foo;
     
     assertThatInt([mockObject methodReturningInt], equalToInt(42));
 }
-
 
 - (void)testStubbedMethodShouldReturnGivenShort
 {
@@ -168,7 +156,6 @@ typedef struct Foo Foo;
     assertThatShort([mockObject methodReturningShort], equalToShort(42));
 }
 
-
 - (void)testStubbedMethodShouldReturnGivenLong
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -177,7 +164,6 @@ typedef struct Foo Foo;
     
     assertThatLong([mockObject methodReturningLong], equalToLong(42));
 }
-
 
 - (void)testStubbedMethodShouldReturnGivenLongLong
 {
@@ -188,7 +174,6 @@ typedef struct Foo Foo;
     assertThatLongLong([mockObject methodReturningLongLong], equalToLongLong(42));
 }
 
-
 - (void)testStubbedMethodShouldReturnGivenInteger
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -197,7 +182,6 @@ typedef struct Foo Foo;
     
     assertThatInteger([mockObject methodReturningInteger], equalToInteger(42));
 }
-
 
 - (void)testStubbedMethodShouldReturnGivenUnsignedChar
 {
@@ -208,7 +192,6 @@ typedef struct Foo Foo;
     assertThatUnsignedChar([mockObject methodReturningUnsignedChar], equalToUnsignedChar('a'));
 }
 
-
 - (void)testStubbedMethodShouldReturnGivenUnsignedInt
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -217,7 +200,6 @@ typedef struct Foo Foo;
     
     assertThatUnsignedInt([mockObject methodReturningUnsignedInt], equalToUnsignedInt(42));
 }
-
 
 - (void)testStubbedMethodShouldReturnGivenUnsignedShort
 {
@@ -228,7 +210,6 @@ typedef struct Foo Foo;
     assertThatUnsignedShort([mockObject methodReturningUnsignedShort], equalToUnsignedShort(42));
 }
 
-
 - (void)testStubbedMethodShouldReturnGivenUnsignedLong
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -237,7 +218,6 @@ typedef struct Foo Foo;
     
     assertThatUnsignedLong([mockObject methodReturningUnsignedLong], equalToUnsignedLong(42));
 }
-
 
 - (void)testStubbedMethodShouldReturnGivenUnsignedLongLong
 {
@@ -248,7 +228,6 @@ typedef struct Foo Foo;
     assertThatUnsignedLongLong([mockObject methodReturningUnsignedLongLong], equalToUnsignedLongLong(42));
 }
 
-
 - (void)testStubbedMethodShouldReturnGivenUnsignedInteger
 {
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -257,7 +236,6 @@ typedef struct Foo Foo;
     
     assertThatUnsignedInteger([mockObject methodReturningUnsignedInteger], equalToUnsignedInteger(42));
 }
-
 
 - (void)testStubbedMethodShouldReturnGivenFloat
 {
@@ -268,7 +246,6 @@ typedef struct Foo Foo;
     
     assertThatFloat([mockObject methodReturningFloat], equalToFloat(42));
 }
-
 
 - (void)testStubbedMethodShouldReturnGivenDouble
 {

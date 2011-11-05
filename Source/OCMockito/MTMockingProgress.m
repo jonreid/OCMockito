@@ -23,7 +23,6 @@
 @synthesize verificationMode;
 @synthesize ongoingStubbing;
 
-
 + (id)sharedProgress
 {
     static id sharedProgress = nil;
@@ -33,7 +32,6 @@
     return sharedProgress;
 }
 
-
 - (void)dealloc
 {
     [invocationMatcher release];
@@ -42,18 +40,15 @@
     [super dealloc];
 }
 
-
 - (void)stubbingStartedAtLocation:(MTTestLocation)location
 {
     [self setTestLocation:location];
 }
 
-
 - (void)reportOngoingStubbing:(MTOngoingStubbing *)theOngoingStubbing
 {
     [self setOngoingStubbing:theOngoingStubbing];
 }
-
 
 - (MTOngoingStubbing *)pullOngoingStubbing
 {
@@ -62,14 +57,12 @@
     return [result autorelease];
 }
 
-
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
     if (!invocationMatcher)
         invocationMatcher = [[MTInvocationMatcher alloc] init];
     [invocationMatcher setMatcher:matcher atIndex:index+2];
 }
-
 
 - (MTInvocationMatcher *)pullInvocationMatcher
 {
@@ -78,13 +71,11 @@
     return [result autorelease];
 }
 
-
 - (void)verificationStarted:(id <MTVerificationMode>)mode atLocation:(MTTestLocation)location
 {
     [self setVerificationMode:mode];
     [self setTestLocation:location];
 }
-
 
 - (id <MTVerificationMode>)pullVerificationMode
 {

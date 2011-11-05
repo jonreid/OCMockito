@@ -34,19 +34,16 @@
     mockingProgress = [[MTMockingProgress alloc] init];
 }
 
-
 - (void)tearDown
 {
     [mockingProgress release];
     [super tearDown];
 }
 
-
 - (void)testPullOngoingStubbingWithoutStubbingReportedShouldBeNil
 {
     assertThat([mockingProgress pullOngoingStubbing], is(nilValue()));
 }
-
 
 - (void)testPullOngoingStubbingWithStubbingReportedShouldReturnStubbing
 {
@@ -62,7 +59,6 @@
     // then
     assertThat([mockingProgress pullOngoingStubbing], is(sameInstance(ongoingStubbing)));
 }
-
 
 - (void)testPullOngoingStubbingShouldClearCurrentStubbing
 {
@@ -80,12 +76,10 @@
     assertThat([mockingProgress pullOngoingStubbing], is(nilValue()));
 }
 
-
 - (void)testPullVerificationModeWithoutVerificationStartedShouldBeNil
 {
     assertThat([mockingProgress pullVerificationMode], is(nilValue()));
 }
-
 
 - (void)testPullVerificationModeWithVerificationStartedShouldReturnMode
 {
@@ -98,7 +92,6 @@
     // then
     assertThat([mockingProgress pullVerificationMode], is(sameInstance(mode)));
 }
-
 
 - (void)testPullVerificationModeShouldClearCurrentVerification
 {
@@ -113,12 +106,10 @@
     assertThat([mockingProgress pullVerificationMode], is(nilValue()));
 }
 
-
 - (void)testPullInvocationMatcherWithoutSettingMatchersShouldBeNil
 {
     assertThat([mockingProgress pullInvocationMatcher], is(nilValue()));
 }
-
 
 - (void)testPullInvocationMatcherAfterSettingMatchersShouldHaveThoseMatchers
 {
@@ -129,7 +120,6 @@
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
 }
 
-
 - (void)testPullInvocationMatcherShouldClearCurrentMatcher
 {
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:3];
@@ -138,7 +128,6 @@
     
     assertThat([mockingProgress pullInvocationMatcher], is(nilValue()));
 }
-
 
 - (void)testMoreThanOneSetMatcherShouldAccumulate
 {
@@ -149,6 +138,5 @@
     
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
 }
-
 
 @end

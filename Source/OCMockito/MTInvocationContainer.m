@@ -22,7 +22,6 @@
 @synthesize invocationMatcherForStubbing;
 @synthesize stubbed;
 
-
 - (id)initWithMockingProgress:(MTMockingProgress *)theMockingProgress
 {
     self = [super init];
@@ -35,7 +34,6 @@
     return self;
 }
 
-
 - (void)dealloc
 {
     [registeredInvocations release];
@@ -45,7 +43,6 @@
     
     [super dealloc];
 }
-
 
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation
 {
@@ -58,12 +55,10 @@
     [stubbedInvocationMatcher release];
 }
 
-
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
 {
     [invocationMatcherForStubbing setMatcher:matcher atIndex:argumentIndex];
 }
-
 
 - (void)addAnswer:(id)answer
 {
@@ -72,7 +67,6 @@
     [invocationMatcherForStubbing setAnswer:answer];
     [stubbed insertObject:invocationMatcherForStubbing atIndex:0];
 }
-
 
 - (id)findAnswerFor:(NSInvocation *)invocation
 {

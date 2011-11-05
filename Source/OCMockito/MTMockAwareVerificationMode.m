@@ -23,7 +23,6 @@
     return [[[self alloc] initWithMock:aMock mode:aMode] autorelease];
 }
 
-
 - (id)initWithMock:(MTClassMock *)aMock mode:(id <MTVerificationMode>)aMode
 {
     self = [super init];
@@ -35,7 +34,6 @@
     return self;
 }
 
-
 - (void)dealloc
 {
     [mock release];
@@ -44,8 +42,7 @@
 }
 
 
-#pragma mark -
-#pragma mark MTVerificationMode
+#pragma mark - MTVerificationMode
 
 - (void)verifyData:(MTVerificationData *)data
 {

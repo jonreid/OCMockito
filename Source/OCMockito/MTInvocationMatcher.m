@@ -28,7 +28,6 @@
 @synthesize argumentMatchers;
 @synthesize numberOfArguments;
 
-
 - (id)init
 {
     self = [super init];
@@ -37,14 +36,12 @@
     return self;
 }
 
-
 - (void)dealloc
 {
     [expected release];
     [argumentMatchers release];
     [super dealloc];
 }
-
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
 {
@@ -58,12 +55,10 @@
         [argumentMatchers replaceObjectAtIndex:argumentIndex withObject:matcher];
 }
 
-
 - (NSUInteger)argumentMatchersCount
 {
     return [argumentMatchers count];
 }
-
 
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount
 {
@@ -74,7 +69,6 @@
         ++matchersCount;
     } 
 }
-
 
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
 {
@@ -98,7 +92,6 @@
     }
 }
 
-
 - (BOOL)argumentObjectMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index
 {
     id actualArgument;
@@ -107,7 +100,6 @@
     id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];
     return ![matcher matches:actualArgument];
 }
-
 
 #define DEFINE_ARGUMENT_MISMATCH_METHOD(type, typeName)                                     \
     - (BOOL)argument ## typeName ## MismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index \
@@ -147,7 +139,6 @@ DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
             return NO;                                                                          \
     }
 
-
 - (BOOL)matches:(NSInvocation *)actual
 {
     if ([expected selector] != [actual selector])
@@ -179,6 +170,5 @@ DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
     
     return YES;
 }
-
 
 @end

@@ -17,7 +17,6 @@
 
 @synthesize invocationContainer;
 
-
 - (id)initWithInvocationContainer:(MTInvocationContainer *)anInvocationContainer
 {
     self = [super init];
@@ -26,13 +25,11 @@
     return self;
 }
 
-
 - (void)dealloc
 {
     [invocationContainer release];
     [super dealloc];
 }
-
 
 - (MTOngoingStubbing *)willReturn:(id)object
 {
@@ -40,14 +37,12 @@
     return self;
 }
 
-
 #define DEFINE_RETURN_METHOD(type, typeName)                                        \
     - (MTOngoingStubbing *)willReturn ## typeName:(type)value                       \
     {                                                                               \
         [invocationContainer addAnswer:[NSNumber numberWith ## typeName:value]];    \
         return self;                                                                \
     }
-
 
 DEFINE_RETURN_METHOD(BOOL, Bool)
 DEFINE_RETURN_METHOD(char, Char)
@@ -66,15 +61,13 @@ DEFINE_RETURN_METHOD(float, Float)
 DEFINE_RETURN_METHOD(double, Double)
 
 
-#pragma mark -
-#pragma mark MTPrimitiveArgumentMatching
+#pragma mark - MTPrimitiveArgumentMatching
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
     [invocationContainer setMatcher:matcher atIndex:index+2];
     return self;
 }
-
 
 - (id)withMatcher:(id <HCMatcher>)matcher
 {

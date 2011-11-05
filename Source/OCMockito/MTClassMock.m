@@ -26,12 +26,10 @@
 @synthesize mockingProgress;
 @synthesize invocationContainer;
 
-
 + (id)mockForClass:(Class)aClass
 {
     return [[[self alloc] initWithClass:aClass] autorelease];
 }
-
 
 - (id)initWithClass:(Class)aClass
 {
@@ -44,7 +42,6 @@
     return self;
 }
 
-
 - (void)dealloc
 {
     [mockingProgress release];
@@ -52,14 +49,12 @@
     [super dealloc];
 }
 
-
 #define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                           \
     else if (strcmp(methodReturnType, @encode(type)) == 0)                                  \
     {                                                                                       \
         type answer = [[invocationContainer findAnswerFor:anInvocation] typeName ## Value]; \
         [anInvocation setReturnValue:&answer];                                              \
     }
-
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
@@ -108,15 +103,13 @@
     HANDLE_METHOD_RETURN_TYPE(double, double)
 }
 
-
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     return [mockedClass instanceMethodSignatureForSelector:aSelector];
 }
 
 
-#pragma mark -
-#pragma mark NSObject
+#pragma mark - NSObject
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
@@ -124,15 +117,13 @@
 }
 
 
-#pragma mark -
-#pragma mark MTPrimitiveArgumentMatching
+#pragma mark - MTPrimitiveArgumentMatching
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
     [mockingProgress setMatcher:matcher forArgument:index];
     return self;
 }
-
 
 - (id)withMatcher:(id <HCMatcher>)matcher
 {

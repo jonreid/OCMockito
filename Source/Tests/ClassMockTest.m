@@ -20,7 +20,6 @@
 @interface ClassMockTest : SenTestCase
 @end
 
-
 @implementation ClassMockTest
 
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
@@ -34,14 +33,12 @@
     assertThat(signature, is(equalTo([realString methodSignatureForSelector:selector])));
 }
 
-
 - (void)testMockShouldRespondToKnownSelector
 {
     NSString *mockString = mock([NSString class]);
     
     STAssertTrue([mockString respondsToSelector:@selector(substringFromIndex:)], nil);
 }
-
 
 - (void)testMockShouldNotRespondToUnknownSelector
 {

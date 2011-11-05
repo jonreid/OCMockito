@@ -16,7 +16,6 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
-
 #define verifyWithMockTestCase(mock) MTVerifyWithLocation(mock, mockTestCase, __FILE__, __LINE__)
 #define verifyCountWithMockTestCase(mock, mode) MTVerifyCountWithLocation(mock, mode, mockTestCase, __FILE__, __LINE__)
 
@@ -51,7 +50,6 @@
 @interface VerifyTest : SenTestCase
 @end
 
-
 @implementation VerifyTest
 
 - (void)testInvokingMethodShouldPassVerify
@@ -63,7 +61,6 @@
     [verify(mockArray) removeAllObjects];
 }
 
-
 - (void)testNotInvokingMethodShouldFailVerify
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -73,7 +70,6 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-
 - (void)testInvokingWithEqualObjectArgumentsShouldPassVerify
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -82,7 +78,6 @@
     
     [verify(mockArray) removeObject:@"same"];
 }
-
 
 - (void)testInvokingWithDifferentObjectArgumentsShouldFailVerify
 {
@@ -95,7 +90,6 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-
 - (void)testInvokingWithArgumentMatcherSatisfiedShouldPassVerify
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -105,7 +99,6 @@
     [verify(mockArray) removeObject:equalTo(@"same")];
 }
 
-
 - (void)testInvokingWithEqualPrimitiveNumericArgumentsShouldPassVerify
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -114,7 +107,6 @@
     
     [verify(mockArray) removeObjectAtIndex:2];
 }
-
 
 - (void)testInvokingWithDifferentPrimitiveNumericArgumentsShouldFailVerify
 {
@@ -127,7 +119,6 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-
 - (void)testMatcherSatisfiedWithNumericArgumentShouldPassVerify
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -138,7 +129,6 @@
      removeObjectAtIndex:0];
 }
 
-
 - (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -147,7 +137,6 @@
     
     [[verify(mockArray) withMatcher:greaterThan([NSNumber numberWithInt:1])] removeObjectAtIndex:0];
 }
-
 
 - (void)testVerifyTimesOneShouldFailForMethodNotInvoked
 {
@@ -158,7 +147,6 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-
 - (void)testVerifyTimesOneShouldPassForMethodInvokedOnce
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -167,7 +155,6 @@
     
     [verifyCount(mockArray, times(1)) removeAllObjects];
 }
-
 
 - (void)testVerifyTimesOneShouldFailForMethodInvokedTwice
 {
@@ -181,7 +168,6 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-
 - (void)testVerifyTimesTwoShouldFailForMethodInvokedOnce
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -193,7 +179,6 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-
 - (void)testVerifyTimesTwoShouldFailForMethodInvokedTwice
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -203,7 +188,6 @@
     
     [verifyCount(mockArray, times(2)) removeAllObjects];
 }
-
 
 - (void)testVerifyTimesTwoShouldFailForMethodInvokedThreeTimes
 {
@@ -218,14 +202,12 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-
 - (void)testVerifyNeverShouldPassForMethodInvoked
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
     
     [verifyCount(mockArray, never()) removeAllObjects];
 }
-
 
 - (void)testVerifyNeverShouldFailForInvokedMethod
 {

@@ -12,7 +12,6 @@
 @synthesize wanted;
 @synthesize testLocation;
 
-
 - (void)dealloc
 {
     [invocations release];
