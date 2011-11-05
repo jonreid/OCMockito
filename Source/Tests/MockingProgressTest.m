@@ -113,29 +113,38 @@
 
 - (void)testPullInvocationMatcherAfterSettingMatchersShouldHaveThoseMatchers
 {
+    // given
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
     
+    // when
     MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
     
+    // then
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
 }
 
 - (void)testPullInvocationMatcherShouldClearCurrentMatcher
 {
+    // given
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:3];
 
+    // when
     [mockingProgress pullInvocationMatcher];
     
+    // then
     assertThat([mockingProgress pullInvocationMatcher], is(nilValue()));
 }
 
 - (void)testMoreThanOneSetMatcherShouldAccumulate
 {
+    // given
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:0];
 
+    // when
     MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
     
+    // then
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
 }
 
