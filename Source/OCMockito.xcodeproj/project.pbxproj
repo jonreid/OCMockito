@@ -331,6 +331,7 @@
 				085D2FF11351254000EBBE91 /* Sources */,
 				085D2FF21351254000EBBE91 /* Frameworks */,
 				085D2FF31351254000EBBE91 /* Headers */,
+				08AEC30E1468E668008731C7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -464,6 +465,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		08AEC30E1468E668008731C7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = TestSupport/exportenv.sh;
+		};
 		08BDD5BC1350C59C00E5A443 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -558,6 +572,123 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0840703A1466006E0006F568 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "OCMockito-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lgcov";
+				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wextra",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+				);
+			};
+			name = Coverage;
+		};
+		0840703B1466006E0006F568 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.4\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				INFOPLIST_FILE = "OCMockito-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Coverage;
+		};
+		0840703C1466006E0006F568 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.4\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Coverage;
+		};
+		0840703D1466006E0006F568 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/libocmockito.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.4\"",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Coverage;
+		};
+		0840703E1466006E0006F568 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.4\"",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					SenTestingKit,
+					"-lgcov",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Coverage;
+		};
 		085D30141351254000EBBE91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -570,7 +701,6 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -589,7 +719,6 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -609,7 +738,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-ObjC",
@@ -636,7 +764,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-ObjC",
@@ -660,11 +787,11 @@
 				GCC_PREFIX_HEADER = "OCMockito-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -684,11 +811,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OCMockito-Prefix.pch";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
@@ -791,6 +918,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				085D30141351254000EBBE91 /* Debug */,
+				0840703D1466006E0006F568 /* Coverage */,
 				085D30151351254000EBBE91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -800,6 +928,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				085D30171351254000EBBE91 /* Debug */,
+				0840703E1466006E0006F568 /* Coverage */,
 				085D30181351254000EBBE91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -809,6 +938,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08BDD5CE1350C59C00E5A443 /* Debug */,
+				0840703A1466006E0006F568 /* Coverage */,
 				08BDD5CF1350C59C00E5A443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -818,6 +948,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08BDD5D11350C59C00E5A443 /* Debug */,
+				0840703B1466006E0006F568 /* Coverage */,
 				08BDD5D21350C59C00E5A443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -827,6 +958,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08BDD5D41350C59C00E5A443 /* Debug */,
+				0840703C1466006E0006F568 /* Coverage */,
 				08BDD5D51350C59C00E5A443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
