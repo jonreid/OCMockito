@@ -17,7 +17,6 @@
 @synthesize mock;
 @synthesize mode;
 
-
 + (id)verificationWithMock:(MTClassMock *)aMock mode:(id <MTVerificationMode>)aMode
 {
     return [[[self alloc] initWithMock:aMock mode:aMode] autorelease];
