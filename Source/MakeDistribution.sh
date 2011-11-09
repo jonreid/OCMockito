@@ -2,7 +2,7 @@ VERSION=0.1
 DISTFILE=OCMockito-${VERSION}
 DISTPATH=build/${DISTFILE}
 PROJECTROOT=..
-DOCSET=build/Documentation/org.hamcrest.OCMockito.docset
+DOCSET=build/Documentation/org.mockito.OCMockito.docset
 
 echo Preparing clean build
 rm -rf build
