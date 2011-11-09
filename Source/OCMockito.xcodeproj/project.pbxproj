@@ -44,7 +44,7 @@
 		0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
 		0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
 		085D2FB21351080400EBBE91 /* VerifyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* VerifyTest.m */; };
-		085D2FB51351082800EBBE91 /* MTClassMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MTClassMock.h */; };
+		085D2FB51351082800EBBE91 /* MTClassMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MTClassMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		085D2FB61351082800EBBE91 /* MTClassMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MTClassMock.m */; };
 		085D2FB71351087400EBBE91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
 		085D2FB81351087500EBBE91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
@@ -57,12 +57,13 @@
 		085D30221351279C00EBBE91 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D30211351279C00EBBE91 /* OCHamcrestIOS.framework */; };
 		085D30231351279C00EBBE91 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D30211351279C00EBBE91 /* OCHamcrestIOS.framework */; };
 		085D3024135127CA00EBBE91 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D2FB9135108FF00EBBE91 /* OCHamcrest.framework */; };
+		086F86E8146A41350050F00E /* MTClassMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MTClassMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		089A8C2313552DE7003E7D27 /* ClassMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* ClassMockTest.m */; };
 		089A8C2413552DE7003E7D27 /* ClassMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* ClassMockTest.m */; };
 		089A8C3213555D0C003E7D27 /* StubTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubTest.m */; };
 		089A8C3313555D0C003E7D27 /* StubTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubTest.m */; };
-		089A8C361356A7BB003E7D27 /* MTOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MTOngoingStubbing.h */; };
-		089A8C371356A7BB003E7D27 /* MTOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MTOngoingStubbing.h */; };
+		089A8C361356A7BB003E7D27 /* MTOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MTOngoingStubbing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		089A8C371356A7BB003E7D27 /* MTOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MTOngoingStubbing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		089A8C381356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MTOngoingStubbing.m */; };
 		089A8C391356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MTOngoingStubbing.m */; };
 		08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5A91350C59C00E5A443 /* OCMockito.framework */; };
@@ -70,8 +71,8 @@
 		08E1E74B136289C70066B0C7 /* MTStubbedInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E1E748136289C70066B0C7 /* MTStubbedInvocationMatcher.h */; };
 		08E1E74C136289C70066B0C7 /* MTStubbedInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E1E749136289C70066B0C7 /* MTStubbedInvocationMatcher.m */; };
 		08E1E74D136289C70066B0C7 /* MTStubbedInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E1E749136289C70066B0C7 /* MTStubbedInvocationMatcher.m */; };
-		08E1E74F13633BC10066B0C7 /* MTPrimitiveArgumentMatching.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E1E74E13633BC10066B0C7 /* MTPrimitiveArgumentMatching.h */; };
-		08E1E75013633BC10066B0C7 /* MTPrimitiveArgumentMatching.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E1E74E13633BC10066B0C7 /* MTPrimitiveArgumentMatching.h */; };
+		08E1E74F13633BC10066B0C7 /* MTPrimitiveArgumentMatching.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E1E74E13633BC10066B0C7 /* MTPrimitiveArgumentMatching.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08E1E75013633BC10066B0C7 /* MTPrimitiveArgumentMatching.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E1E74E13633BC10066B0C7 /* MTPrimitiveArgumentMatching.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08F189E31359661E00F76379 /* MockingProgressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189E21359661E00F76379 /* MockingProgressTest.m */; };
 		08F189E41359661E00F76379 /* MockingProgressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189E21359661E00F76379 /* MockingProgressTest.m */; };
 		08F189FD135A6D1300F76379 /* InvocationMatcherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189FC135A6D1300F76379 /* InvocationMatcherTest.m */; };
@@ -296,6 +297,7 @@
 				08F18A02135A6D8D00F76379 /* MTInvocationMatcher.h in Headers */,
 				08E1E74B136289C70066B0C7 /* MTStubbedInvocationMatcher.h in Headers */,
 				08E1E75013633BC10066B0C7 /* MTPrimitiveArgumentMatching.h in Headers */,
+				086F86E8146A41350050F00E /* MTClassMock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
