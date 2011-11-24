@@ -10,7 +10,7 @@
 
 
 /**
-    Methods to invoke on @c given(methodCall) to stub return values.
+    Methods to invoke on @c given(methodCall) to return stubbed values.
  */
 @interface MKOngoingStubbing : NSObject <MKPrimitiveArgumentMatching>
 
