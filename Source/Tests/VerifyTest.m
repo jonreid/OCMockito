@@ -253,7 +253,8 @@
     
     // then
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
-    assertThat([[mockTestCase failureException] description], is(@"Expected 1 invocation"));
+    assertThat([[mockTestCase failureException] description],
+               is(@"Expected 1 matching invocation, but received 0"));
 }
 
 - (void)testVerifyTimesTwoFailureShouldStateExpectedNumberOfInvocations
@@ -262,9 +263,13 @@
     NSMutableArray *mockArray = mock([NSMutableArray class]);
     MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
     
+    // when
+    [mockArray removeAllObjects];
+    
     // then
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
-    assertThat([[mockTestCase failureException] description], is(@"Expected 2 invocations"));
+    assertThat([[mockTestCase failureException] description],
+               is(@"Expected 2 matching invocations, but received 1"));
 }
 
 - (void)testVerifyNeverShouldPassForMethodInvoked
