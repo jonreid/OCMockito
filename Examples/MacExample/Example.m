@@ -57,4 +57,33 @@
      removeObjectAtIndex:0];    // The 0 is a placeholder, replaced by the matcher
 }
 
+- (void)testSimpleStub
+{
+    NSArray *mockArray = mock([NSArray class]);
+    
+    [given([mockArray lastObject]) willReturn:@"last"];
+    
+    assertThat([mockArray lastObject], is(@"last"));
+}
+
+- (void)testStubsWithArguments
+{
+    NSArray *mockArray = mock([NSArray class]);
+    
+    [given([mockArray objectAtIndex:0]) willReturn:@"foo"];
+    [given([mockArray objectAtIndex:1]) willReturn:@"bar"];
+    
+    assertThat([mockArray objectAtIndex:0], is(@"foo"));
+}
+
+- (void)testStubReturningPrimitive
+{
+    NSArray *mockArray = mock([NSArray class]);
+    
+    [mockArray count];
+    [givenPreviousCall willReturnUnsignedInteger:3];
+    
+    assertThatUnsignedInteger([mockArray count], is(equalToUnsignedInteger(3)));
+}
+
 @end
