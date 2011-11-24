@@ -216,7 +216,7 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-- (void)testVerifyTimesTwoShouldFailForMethodInvokedTwice
+- (void)testVerifyTimesTwoShouldPassForMethodInvokedTwice
 {
     // given
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -243,6 +243,28 @@
     // then
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+}
+
+- (void)testVerifyTimesOneFailureShouldStateExpectedNumberOfInvocations
+{
+    // given
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    // then
+    [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
+    assertThat([[mockTestCase failureException] description], is(@"Wanted 1 invocation"));
+}
+
+- (void)testVerifyTimesTwoFailureShouldStateExpectedNumberOfInvocations
+{
+    // given
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    // then
+    [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
+    assertThat([[mockTestCase failureException] description], is(@"Wanted 2 invocations"));
 }
 
 - (void)testVerifyNeverShouldPassForMethodInvoked

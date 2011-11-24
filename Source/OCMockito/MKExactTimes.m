@@ -57,12 +57,15 @@
     
     if (matchingCount != wantedCount)
     {
+        NSString *plural = (wantedCount == 1) ? @"" : @"s";
+        NSString *description = [NSString stringWithFormat:@"Wanted %d invocation%@", wantedCount, plural];
+        
         MKTestLocation testLocation = [data testLocation];
         NSString *fileName = [NSString stringWithCString:testLocation.fileName
                                                 encoding:NSUTF8StringEncoding];
         NSException *failure = [NSException failureInFile:fileName
                                                    atLine:testLocation.lineNumber
-                                                   reason:@"need better description here"];
+                                                   reason:description];
         [testLocation.testCase failWithException:failure];
     }
 }
