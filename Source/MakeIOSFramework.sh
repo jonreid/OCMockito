@@ -45,4 +45,4 @@ ln -s Versions/Current/OCMockitoIOS "${IOS_FRAMEWORK}/OCMockitoIOS"
 
 # Update the name in the plist file.
 NAME_EXPRESSION="s/OCMockito/OCMockitoIOS/g;"
-perl -pi -e "${NAME_EXPRESSION}" "${IOS_FRAMEWORK}/Resources/OCMockito-Info.plist"
+perl -pi -e "${NAME_EXPRESSION}" "${IOS_FRAMEWORK}/Resources/Info.plist"
