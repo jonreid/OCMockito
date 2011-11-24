@@ -9,7 +9,7 @@
 
 @interface MKExactTimes : NSObject <MKVerificationMode>
 
-+ (id)timesWithCount:(NSUInteger)wantedNumberOfInvocations;
-- (id)initWithCount:(NSUInteger)wantedNumberOfInvocations;
++ (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations;
+- (id)initWithCount:(NSUInteger)expectedNumberOfInvocations;
 
 @end

@@ -22,24 +22,24 @@
 
 
 @interface MKExactTimes ()
-@property(nonatomic, assign) NSUInteger wantedCount;
+@property(nonatomic, assign) NSUInteger expectedCount;
 @end
 
 
 @implementation MKExactTimes
 
-@synthesize wantedCount;
+@synthesize expectedCount;
 
-+ (id)timesWithCount:(NSUInteger)wantedNumberOfInvocations
++ (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations
 {
-    return [[[self alloc] initWithCount:wantedNumberOfInvocations] autorelease];
+    return [[[self alloc] initWithCount:expectedNumberOfInvocations] autorelease];
 }
 
-- (id)initWithCount:(NSUInteger)wantedNumberOfInvocations
+- (id)initWithCount:(NSUInteger)expectedNumberOfInvocations
 {
     self = [super init];
     if (self)
-        wantedCount = wantedNumberOfInvocations;
+        expectedCount = expectedNumberOfInvocations;
     return self;
 }
 
@@ -55,11 +55,11 @@
             ++matchingCount;
     }
     
-    if (matchingCount != wantedCount)
+    if (matchingCount != expectedCount)
     {
-        NSString *plural = (wantedCount == 1) ? @"" : @"s";
+        NSString *plural = (expectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %d matching invocation%@, but received %d",
-                                 wantedCount, plural, matchingCount];
+                                 expectedCount, plural, matchingCount];
         
         MKTestLocation testLocation = [data testLocation];
         NSString *fileName = [NSString stringWithCString:testLocation.fileName
