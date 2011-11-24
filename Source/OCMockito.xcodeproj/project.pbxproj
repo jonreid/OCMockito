@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0827E83513526E7300C39A57 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
-		0827E83613526E7300C39A57 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
 		0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E83313526E7300C39A57 /* OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0827E83F1352B1C000C39A57 /* OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E83313526E7300C39A57 /* OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0827E8421352B6FC00C39A57 /* MTMockitoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8401352B6FC00C39A57 /* MTMockitoCore.h */; };
@@ -50,9 +48,11 @@
 		085D2FB81351087500EBBE91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
 		085D2FF61351254000EBBE91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
 		085D30021351254000EBBE91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
-		085D30071351254000EBBE91 /* liblibocmockito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D2FF51351254000EBBE91 /* liblibocmockito.a */; };
+		085D30071351254000EBBE91 /* libocmockito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D2FF51351254000EBBE91 /* libocmockito.a */; };
 		085D301F1351267D00EBBE91 /* MTClassMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MTClassMock.m */; };
 		085D3020135126BC00EBBE91 /* VerifyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* VerifyTest.m */; };
+		085EECD9146A4D52001CF010 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
+		085EECDA146A4D53001CF010 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
 		086F86E8146A41350050F00E /* MTClassMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MTClassMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		086F86EA146A43CB0050F00E /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086F86E9146A43CB0050F00E /* OCHamcrest.framework */; };
 		086F86EB146A43CB0050F00E /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086F86E9146A43CB0050F00E /* OCHamcrest.framework */; };
@@ -122,7 +122,7 @@
 		085D2FB11351080400EBBE91 /* VerifyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyTest.m; sourceTree = "<group>"; };
 		085D2FB31351082800EBBE91 /* MTClassMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTClassMock.h; sourceTree = "<group>"; };
 		085D2FB41351082800EBBE91 /* MTClassMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTClassMock.m; sourceTree = "<group>"; };
-		085D2FF51351254000EBBE91 /* liblibocmockito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibocmockito.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		085D2FF51351254000EBBE91 /* libocmockito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libocmockito.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		086F86E9146A43CB0050F00E /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-1.6/OCHamcrest.framework"; sourceTree = "<group>"; };
 		086F86EC146A43E10050F00E /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.6/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D30021351254000EBBE91 /* Foundation.framework in Frameworks */,
-				085D30071351254000EBBE91 /* liblibocmockito.a in Frameworks */,
+				085D30071351254000EBBE91 /* libocmockito.a in Frameworks */,
 				086F86EE146A43E20050F00E /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,7 +204,7 @@
 			children = (
 				08BDD5A91350C59C00E5A443 /* OCMockito.framework */,
 				08BDD5BE1350C59C00E5A443 /* OCMockitoTests.octest */,
-				085D2FF51351254000EBBE91 /* liblibocmockito.a */,
+				085D2FF51351254000EBBE91 /* libocmockito.a */,
 				085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */,
 			);
 			name = Products;
@@ -341,7 +341,7 @@
 			);
 			name = libocmockito;
 			productName = libocmockito;
-			productReference = 085D2FF51351254000EBBE91 /* liblibocmockito.a */;
+			productReference = 085D2FF51351254000EBBE91 /* libocmockito.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		085D2FFE1351254000EBBE91 /* libocmockitoTests */ = {
@@ -407,7 +407,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "eBay Inc";
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 08BDD5A21350C59C00E5A443 /* Build configuration list for PBXProject "OCMockito" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -511,6 +511,7 @@
 				089A8C391356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */,
 				08F18A04135A6D8D00F76379 /* MTInvocationMatcher.m in Sources */,
 				08E1E74D136289C70066B0C7 /* MTStubbedInvocationMatcher.m in Sources */,
+				085EECDA146A4D53001CF010 /* OCMockito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +520,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D3020135126BC00EBBE91 /* VerifyTest.m in Sources */,
-				0827E83613526E7300C39A57 /* OCMockito.m in Sources */,
 				089A8C2413552DE7003E7D27 /* ClassMockTest.m in Sources */,
 				089A8C3313555D0C003E7D27 /* StubTest.m in Sources */,
 				08F189E41359661E00F76379 /* MockingProgressTest.m in Sources */,
@@ -542,6 +542,7 @@
 				089A8C381356A7BB003E7D27 /* MTOngoingStubbing.m in Sources */,
 				08F18A03135A6D8D00F76379 /* MTInvocationMatcher.m in Sources */,
 				08E1E74C136289C70066B0C7 /* MTStubbedInvocationMatcher.m in Sources */,
+				085EECD9146A4D52001CF010 /* OCMockito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +551,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D2FB21351080400EBBE91 /* VerifyTest.m in Sources */,
-				0827E83513526E7300C39A57 /* OCMockito.m in Sources */,
 				089A8C2313552DE7003E7D27 /* ClassMockTest.m in Sources */,
 				089A8C3213555D0C003E7D27 /* StubTest.m in Sources */,
 				08F189E31359661E00F76379 /* MockingProgressTest.m in Sources */,
@@ -659,7 +659,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ocmockito;
 				SDKROOT = iphoneos;
 			};
 			name = Coverage;
@@ -704,7 +704,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ocmockito;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -722,7 +722,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ocmockito;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
