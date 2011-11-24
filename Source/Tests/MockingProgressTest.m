@@ -4,13 +4,13 @@
 //
 
     // Class under test
-#import "MTMockingProgress.h"
+#import "MKMockingProgress.h"
 
     // Collaborators
-#import "MTExactTimes.h"
-#import "MTInvocationContainer.h"
-#import "MTInvocationMatcher.h"
-#import "MTOngoingStubbing.h"
+#import "MKExactTimes.h"
+#import "MKInvocationContainer.h"
+#import "MKInvocationMatcher.h"
+#import "MKOngoingStubbing.h"
 
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
@@ -21,7 +21,7 @@
 
 @interface MockingProgressTest : SenTestCase
 {
-    MTMockingProgress *mockingProgress;
+    MKMockingProgress *mockingProgress;
 }
 @end
 
@@ -31,7 +31,7 @@
 - (void)setUp
 {
     [super setUp];
-    mockingProgress = [[MTMockingProgress alloc] init];
+    mockingProgress = [[MKMockingProgress alloc] init];
 }
 
 - (void)tearDown
@@ -48,9 +48,9 @@
 - (void)testPullOngoingStubbingWithStubbingReportedShouldReturnStubbing
 {
     // given
-    MTInvocationContainer *invocationContainer = [[[MTInvocationContainer alloc]
+    MKInvocationContainer *invocationContainer = [[[MKInvocationContainer alloc]
                                                    initWithMockingProgress:mockingProgress] autorelease];
-    MTOngoingStubbing *ongoingStubbing = [[[MTOngoingStubbing alloc]
+    MKOngoingStubbing *ongoingStubbing = [[[MKOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer] autorelease];
     
     // when
@@ -63,9 +63,9 @@
 - (void)testPullOngoingStubbingShouldClearCurrentStubbing
 {
     // given
-    MTInvocationContainer *invocationContainer = [[[MTInvocationContainer alloc]
+    MKInvocationContainer *invocationContainer = [[[MKInvocationContainer alloc]
                                                    initWithMockingProgress:mockingProgress] autorelease];
-    MTOngoingStubbing *ongoingStubbing = [[[MTOngoingStubbing alloc]
+    MKOngoingStubbing *ongoingStubbing = [[[MKOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer] autorelease];
     
     // when
@@ -84,10 +84,10 @@
 - (void)testPullVerificationModeWithVerificationStartedShouldReturnMode
 {
     // given
-    id <MTVerificationMode> mode = [MTExactTimes timesWithCount:42];
+    id <MKVerificationMode> mode = [MKExactTimes timesWithCount:42];
     
     // when
-    [mockingProgress verificationStarted:mode atLocation:MTTestLocationMake(self, __FILE__, __LINE__)];
+    [mockingProgress verificationStarted:mode atLocation:MKTestLocationMake(self, __FILE__, __LINE__)];
     
     // then
     assertThat([mockingProgress pullVerificationMode], is(sameInstance(mode)));
@@ -96,10 +96,10 @@
 - (void)testPullVerificationModeShouldClearCurrentVerification
 {
     // given
-    id <MTVerificationMode> mode = [MTExactTimes timesWithCount:42];
+    id <MKVerificationMode> mode = [MKExactTimes timesWithCount:42];
     
     // when
-    [mockingProgress verificationStarted:mode atLocation:MTTestLocationMake(self, __FILE__, __LINE__)];
+    [mockingProgress verificationStarted:mode atLocation:MKTestLocationMake(self, __FILE__, __LINE__)];
     [mockingProgress pullVerificationMode];
     
     // then
@@ -117,7 +117,7 @@
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
     
     // when
-    MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+    MKInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
     
     // then
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
@@ -142,7 +142,7 @@
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:0];
 
     // when
-    MTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+    MKInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
     
     // then
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));

@@ -16,8 +16,8 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
-#define verifyWithMockTestCase(mock) MTVerifyWithLocation(mock, mockTestCase, __FILE__, __LINE__)
-#define verifyCountWithMockTestCase(mock, mode) MTVerifyCountWithLocation(mock, mode, mockTestCase, __FILE__, __LINE__)
+#define verifyWithMockTestCase(mock) MKVerifyWithLocation(mock, mockTestCase, __FILE__, __LINE__)
+#define verifyCountWithMockTestCase(mock, mode) MKVerifyCountWithLocation(mock, mode, mockTestCase, __FILE__, __LINE__)
 
 
 @interface MockTestCase : NSObject

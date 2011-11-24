@@ -1,15 +1,15 @@
 //
-//  OCMockito - MTVerificationMode.h
+//  OCMockito - MKVerificationMode.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
 #import <Foundation/Foundation.h>
 
-@class MTVerificationData;
+@class MKVerificationData;
 
 
-@protocol MTVerificationMode <NSObject>
+@protocol MKVerificationMode <NSObject>
 
-- (void)verifyData:(MTVerificationData *)data;
+- (void)verifyData:(MKVerificationData *)data;
 
 @end

@@ -5,41 +5,41 @@
 
 #import "OCMockito.h"
 
-#import "MTExactTimes.h"
-#import "MTMockitoCore.h"
-#import "MTTestLocation.h"
+#import "MKExactTimes.h"
+#import "MKMockitoCore.h"
+#import "MKTestLocation.h"
 
 
-MTOngoingStubbing *MTGivenWithLocation(id methodCall, id testCase, const char *fileName, int lineNumber)
+MKOngoingStubbing *MKGivenWithLocation(id methodCall, id testCase, const char *fileName, int lineNumber)
 {
-    return MTGivenPreviousCallWithLocation(testCase, fileName, lineNumber);
+    return MKGivenPreviousCallWithLocation(testCase, fileName, lineNumber);
 }
 
-MTOngoingStubbing *MTGivenPreviousCallWithLocation(id testCase, const char *fileName, int lineNumber)
+MKOngoingStubbing *MKGivenPreviousCallWithLocation(id testCase, const char *fileName, int lineNumber)
 {
-    MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
-    return [mockitoCore stubAtLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
+    MKMockitoCore *mockitoCore = [MKMockitoCore sharedCore];
+    return [mockitoCore stubAtLocation:MKTestLocationMake(testCase, fileName, lineNumber)];
 }
 
-id MTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
+id MKVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
-    return MTVerifyCountWithLocation(mock, MTTimes(1), testCase, fileName, lineNumber);
+    return MKVerifyCountWithLocation(mock, MKTimes(1), testCase, fileName, lineNumber);
 }
 
-id MTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber)
+id MKVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber)
 {
-    MTMockitoCore *mockitoCore = [MTMockitoCore sharedCore];
+    MKMockitoCore *mockitoCore = [MKMockitoCore sharedCore];
     return [mockitoCore verifyMock:mock
                           withMode:mode
-                        atLocation:MTTestLocationMake(testCase, fileName, lineNumber)];
+                        atLocation:MKTestLocationMake(testCase, fileName, lineNumber)];
 }
 
-id MTTimes(NSUInteger wantedNumberOfInvocations)
+id MKTimes(NSUInteger wantedNumberOfInvocations)
 {
-    return [MTExactTimes timesWithCount:wantedNumberOfInvocations];
+    return [MKExactTimes timesWithCount:wantedNumberOfInvocations];
 }
 
-id MTNever()
+id MKNever()
 {
-    return MTTimes(0);
+    return MKTimes(0);
 }

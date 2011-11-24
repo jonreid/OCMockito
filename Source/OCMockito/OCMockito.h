@@ -5,8 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MTClassMock.h"
-#import "MTOngoingStubbing.h"
+#import "MKClassMock.h"
+#import "MKOngoingStubbing.h"
 #import <objc/objc-api.h>
 
 
@@ -16,14 +16,14 @@
     Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
     @c mock.
  */
-#define MTMock(aClass) [MTClassMock mockForClass:aClass]
+#define MKMock(aClass) [MKClassMock mockForClass:aClass]
 
 #ifdef MOCKITO_SHORTHAND
-    #define mock(aClass) MTMock(aClass)
+    #define mock(aClass) MKMock(aClass)
 #endif
 
 
-OBJC_EXPORT MTOngoingStubbing *MTGivenWithLocation(id methodCall,
+OBJC_EXPORT MKOngoingStubbing *MKGivenWithLocation(id methodCall,
                                                    id testCase, const char *fileName, int lineNumber);
 
 /**
@@ -42,14 +42,14 @@ OBJC_EXPORT MTOngoingStubbing *MTGivenWithLocation(id methodCall,
     @c given doesn't work for methods returning @c float or @double values. For such methods,
     invoke the method on the mock object, then use @ref givenPreviousCall.
  */
-#define MTGiven(methodCall) MTGivenWithLocation((id)methodCall, self, __FILE__, __LINE__)
+#define MKGiven(methodCall) MKGivenWithLocation((id)methodCall, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
-    #define given(methodCall) MTGiven(methodCall)
+    #define given(methodCall) MKGiven(methodCall)
 #endif
 
 
-OBJC_EXPORT MTOngoingStubbing *MTGivenPreviousCallWithLocation(id testCase, const char *fileName, int lineNumber);
+OBJC_EXPORT MKOngoingStubbing *MKGivenPreviousCallWithLocation(id testCase, const char *fileName, int lineNumber);
 
 /**
     Enables stubbing of previous method invocation.
@@ -67,15 +67,15 @@ OBJC_EXPORT MTOngoingStubbing *MTGivenPreviousCallWithLocation(id testCase, cons
 [givenPreviousCall willReturnDouble:42];
 @endcode
  */
-#define MTGivenPreviousCall MTGivenPreviousCallWithLocation(self, __FILE__, __LINE__)
+#define MKGivenPreviousCall MKGivenPreviousCallWithLocation(self, __FILE__, __LINE__)
 
 
 #ifdef MOCKITO_SHORTHAND
-    #define givenPreviousCall MTGivenPreviousCall
+    #define givenPreviousCall MKGivenPreviousCall
 #endif
 
 
-OBJC_EXPORT id MTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
+OBJC_EXPORT id MKVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 
 /**
     Verifies certain behavior happened once.
@@ -98,15 +98,15 @@ OBJC_EXPORT id MTVerifyWithLocation(id mock, id testCase, const char *fileName, 
 verifyCount(mockObject, times(1))
 @endcode
  */
-#define MTVerify(mock) MTVerifyWithLocation(mock, self, __FILE__, __LINE__)
+#define MKVerify(mock) MKVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
     #undef verify
-    #define verify(mock) MTVerify(mock)
+    #define verify(mock) MKVerify(mock)
 #endif
 
 
-OBJC_EXPORT id MTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
+OBJC_EXPORT id MKVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
 
 /**
     Verifies certain behavior happened a given number of times.
@@ -124,15 +124,15 @@ OBJC_EXPORT id MTVerifyCountWithLocation(id mock, id mode, id testCase, const ch
     match given OCHamcrest matchers. If an argument is not a matcher, it is implicitly wrapped in an
     @c equalTo matcher to check for equality.
  */
-#define MTVerifyCount(mock, mode) MTVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
+#define MKVerifyCount(mock, mode) MKVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
-    #define verifyCount(mock, mode) MTVerifyCount(mock, mode)
+    #define verifyCount(mock, mode) MKVerifyCount(mock, mode)
 #endif
 
 
 /**
-    Allows verifying exact number of invocations.
+    Verifies exact number of invocations.
 
     Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
     @c times.
@@ -142,10 +142,10 @@ OBJC_EXPORT id MTVerifyCountWithLocation(id mock, id mode, id testCase, const ch
 [verifyCount(mockObject, times(2)) someMethod:@"some arg"];
 @endcode
  */
-OBJC_EXPORT id MTTimes(NSUInteger wantedNumberOfInvocations);
+OBJC_EXPORT id MKTimes(NSUInteger wantedNumberOfInvocations);
 
 #ifdef MOCKITO_SHORTHAND
-    #define times(wantedNumberOfInvocations) MTTimes(wantedNumberOfInvocations)
+    #define times(wantedNumberOfInvocations) MKTimes(wantedNumberOfInvocations)
 #endif
 
 
@@ -160,8 +160,8 @@ OBJC_EXPORT id MTTimes(NSUInteger wantedNumberOfInvocations);
     [verifyCount(mockObject, never()) someMethod:@"some arg"];
     @endcode
  */
-OBJC_EXPORT id MTNever(void);
+OBJC_EXPORT id MKNever(void);
 
 #ifdef MOCKITO_SHORTHAND
-    #define never() MTNever()
+    #define never() MKNever()
 #endif
