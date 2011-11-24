@@ -58,7 +58,7 @@
     if (matchingCount != wantedCount)
     {
         NSString *plural = (wantedCount == 1) ? @"" : @"s";
-        NSString *description = [NSString stringWithFormat:@"Wanted %d invocation%@", wantedCount, plural];
+        NSString *description = [NSString stringWithFormat:@"Expected %d invocation%@", wantedCount, plural];
         
         MKTestLocation testLocation = [data testLocation];
         NSString *fileName = [NSString stringWithCString:testLocation.fileName

@@ -253,7 +253,7 @@
     
     // then
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
-    assertThat([[mockTestCase failureException] description], is(@"Wanted 1 invocation"));
+    assertThat([[mockTestCase failureException] description], is(@"Expected 1 invocation"));
 }
 
 - (void)testVerifyTimesTwoFailureShouldStateExpectedNumberOfInvocations
@@ -264,7 +264,7 @@
     
     // then
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
-    assertThat([[mockTestCase failureException] description], is(@"Wanted 2 invocations"));
+    assertThat([[mockTestCase failureException] description], is(@"Expected 2 invocations"));
 }
 
 - (void)testVerifyNeverShouldPassForMethodInvoked
