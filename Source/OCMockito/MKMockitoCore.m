@@ -6,7 +6,7 @@
 #import "MKMockitoCore.h"
 
 #import "MKMockingProgress.h"
-#import "MTVerificationMode.h"
+#import "MKVerificationMode.h"
 
 
 @interface MKMockitoCore ()

@@ -4,7 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MTVerificationMode.h"
+#import "MKVerificationMode.h"
 
 
 @class MKClassMock;

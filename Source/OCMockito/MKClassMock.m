@@ -10,7 +10,7 @@
 #import "MKMockingProgress.h"
 #import "MKOngoingStubbing.h"
 #import "MKVerificationData.h"
-#import "MTVerificationMode.h"
+#import "MKVerificationMode.h"
 
 
 @interface MKClassMock ()

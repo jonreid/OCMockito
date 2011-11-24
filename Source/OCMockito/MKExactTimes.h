@@ -4,7 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MTVerificationMode.h"
+#import "MKVerificationMode.h"
 
 
 @interface MKExactTimes : NSObject <MKVerificationMode>
