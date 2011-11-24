@@ -15,7 +15,7 @@
 {
     NSMutableArray *mockArray = mock([NSMutableArray class]);
     
-    //    [mockArray removeAllObjects];
+//    [mockArray removeAllObjects];
     
     [verify(mockArray) removeAllObjects];
 }
