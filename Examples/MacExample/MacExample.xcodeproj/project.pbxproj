@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0817B5F9147ECC4E00C5401D /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817B5F8147ECC4E00C5401D /* OCHamcrest.framework */; };
+		0817B5FA147ECC5E00C5401D /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0817B5F8147ECC4E00C5401D /* OCHamcrest.framework */; };
+		0817B5FB147ECC6200C5401D /* OCMockito.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0846234A147DE82200FEEDBE /* OCMockito.framework */; };
+		0817B5FD147ECC9F00C5401D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817B5FC147ECC9F00C5401D /* SenTestingKit.framework */; };
 		0846234B147DE82200FEEDBE /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0846234A147DE82200FEEDBE /* OCMockito.framework */; };
-		08FD0405147DF8D700D921E9 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FD0404147DF8D700D921E9 /* OCHamcrest.framework */; };
 		0FC264990DA88F1100B4CD6B /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC264980DA88F1100B4CD6B /* Example.m */; };
 /* End PBXBuildFile section */
 
@@ -19,14 +22,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				0817B5FA147ECC5E00C5401D /* OCHamcrest.framework in CopyFiles */,
+				0817B5FB147ECC6200C5401D /* OCMockito.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0817B5F8147ECC4E00C5401D /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../../OCHamcrest-1.6/OCHamcrest.framework"; sourceTree = "<group>"; };
+		0817B5FC147ECC9F00C5401D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0846234A147DE82200FEEDBE /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = ../../OCMockito.framework; sourceTree = "<group>"; };
-		08FD0404147DF8D700D921E9 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../../OCHamcrest.framework; sourceTree = "<group>"; };
 		0FC2648E0DA88ECB00B4CD6B /* Example.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Example.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC264900DA88ECB00B4CD6B /* Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Example-Info.plist"; sourceTree = "<group>"; };
 		0FC264980DA88F1100B4CD6B /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; usesTabs = 0; };
@@ -38,7 +44,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0846234B147DE82200FEEDBE /* OCMockito.framework in Frameworks */,
-				08FD0405147DF8D700D921E9 /* OCHamcrest.framework in Frameworks */,
+				0817B5F9147ECC4E00C5401D /* OCHamcrest.framework in Frameworks */,
+				0817B5FD147ECC9F00C5401D /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,8 +55,9 @@
 		08462349147DE7D900FEEDBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0817B5FC147ECC9F00C5401D /* SenTestingKit.framework */,
+				0817B5F8147ECC4E00C5401D /* OCHamcrest.framework */,
 				0846234A147DE82200FEEDBE /* OCMockito.framework */,
-				08FD0404147DF8D700D921E9 /* OCHamcrest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"\"$(SRCROOT)/../..\"",
+					"\"$(SRCROOT)/../../OCHamcrest-1.6\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../..\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -197,8 +206,6 @@
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
-					"-framework",
-					SenTestingKit,
 				);
 				PRODUCT_NAME = Example;
 				WRAPPER_EXTENSION = octest;
@@ -214,6 +221,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"\"$(SRCROOT)/../..\"",
+					"\"$(SRCROOT)/../../OCHamcrest-1.6\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../..\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -224,8 +232,6 @@
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
-					"-framework",
-					SenTestingKit,
 				);
 				PRODUCT_NAME = Example;
 				WRAPPER_EXTENSION = octest;
