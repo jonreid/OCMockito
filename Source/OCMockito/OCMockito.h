@@ -101,6 +101,7 @@ verifyCount(mockObject, times(1))
 #define MTVerify(mock) MTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
+    #undef verify
     #define verify(mock) MTVerify(mock)
 #endif
 
