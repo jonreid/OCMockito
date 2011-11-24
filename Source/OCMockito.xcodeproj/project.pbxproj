@@ -193,8 +193,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */,
-				085D2FB81351087500EBBE91 /* Foundation.framework in Frameworks */,
 				086F86EB146A43CB0050F00E /* OCHamcrest.framework in Frameworks */,
+				085D2FB81351087500EBBE91 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +401,6 @@
 			buildPhases = (
 				08BDD5B91350C59C00E5A443 /* Sources */,
 				08BDD5BA1350C59C00E5A443 /* Frameworks */,
-				08BDD5BB1350C59C00E5A443 /* Resources */,
 				0817B5C4147EC2F500C5401D /* CopyFiles */,
 				08BDD5BC1350C59C00E5A443 /* ShellScript */,
 			);
@@ -453,13 +452,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		08BDD5A71350C59C00E5A443 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		08BDD5BB1350C59C00E5A443 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
