@@ -1,4 +1,5 @@
 VERSION=0.1
+OCHAMCRESTVERSION=1.6
 DISTFILE=OCMockito-${VERSION}
 DISTPATH=build/${DISTFILE}
 PROJECTROOT=..
@@ -34,6 +35,8 @@ cp -R "build/Release/OCMockito.framework" "${DISTPATH}"
 cp -R "build/Release/OCMockitoIOS.framework" "${DISTPATH}"
 cp "${PROJECTROOT}/LICENSE.txt" "${DISTPATH}"
 cp "${PROJECTROOT}/LICENSE-mockito.txt" "${DISTPATH}"
+cp -R "${PROJECTROOT}/Examples" "${DISTPATH}"
+cp -R "${PROJECTROOT}/Frameworks/OCHamcrest-${OCHAMCRESTVERSION}" "${DISTPATH}"
 mkdir "${DISTPATH}/Documentation"
 cp -R "${DOCSET}" "${DISTPATH}/Documentation"
 cp "${PROJECTROOT}/Documentation/Makefile" "${DISTPATH}/Documentation"
