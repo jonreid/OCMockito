@@ -1,12 +1,24 @@
 ![mockito](http://docs.mockito.googlecode.com/hg/latest/org/mockito/logo.jpg)
 
-OCMockito enables mocks creation, verification and stubbing.
+OCMockito supports creation, verification and stubbing of mock objects.
+
+Key differences from OCMock:
+
+* Mock objects are always "nice," recording their calls instead of throwing
+  exceptions about unspecified invocations. This makes tests less brittle.
+
+* No expect-run-verify, making tests more readable. Mock objects record their
+  calls, then you verify the methods you want.
+
+* Verification failures are reported as unit test failures, identifying specific
+  lines instead of throwing exceptions. This makes it easier to identify
+  failures. (It also keeps the pre-iOS 5 Simulator from crashing.)
 
 
 Mac and iOS
 ===========
 
-OCMockito is supported for both Mac and iOS development.
+OCMockito supports both Mac and iOS development.
 
 __Mac:__
 
