@@ -80,8 +80,7 @@
 {
     NSArray *mockArray = mock([NSArray class]);
     
-    [mockArray count];
-    [givenPreviousCall willReturnUnsignedInteger:3];
+    [given([mockArray count]) willReturnUnsignedInteger:3];
     
     assertThatUnsignedInteger([mockArray count], is(equalToUnsignedInteger(3)));
 }
