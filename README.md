@@ -1,11 +1,12 @@
 ![mockito](http://docs.mockito.googlecode.com/hg/latest/org/mockito/logo.jpg)
 
-OCMockito supports creation, verification and stubbing of mock objects.
+OCMockito is an Objective-C implementation of Mockito, supporting creation,
+verification and stubbing of mock objects.
 
 Key differences from OCMock:
 
 * Mock objects are always "nice," recording their calls instead of throwing
-  exceptions about unspecified invocations. This makes tests less brittle.
+  exceptions about unspecified invocations. This makes tests less fragile.
 
 * No expect-run-verify, making tests more readable. Mock objects record their
   calls, then you verify the methods you want.
