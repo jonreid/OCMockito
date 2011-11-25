@@ -112,7 +112,7 @@ Argument matchers
 
 OCMockito verifies argument values by testing for equality. But when extra
 flexibility is required, you can specify
-[OCHamcrest](http://jonreid.github.com/OCHamcrest/) matchers.
+ [OCHamcrest](https://github.com/jonreid/OCHamcrest) matchers.
 
     // mock creation
     NSMutableArray *mockArray = mock([NSMutableArray class]);
