@@ -140,3 +140,23 @@ Use the shortcut ``-withMatcher:`` to specify a matcher for a single argument:
 
     [[given([mockArray objectAtIndex:0]) withMatcher:anything()]
      willReturn:@"foo"];
+
+
+Verifying exact number of invocations / never
+=============================================
+
+    // using mock
+    [mockArray addObject:@"once"];
+
+    [mockArray addObject:@"twice"];
+    [mockArray addObject:@"twice"];
+
+    // the following two verifications work exactly the same
+    [verify(mockArray) addObject:@"once"];
+    [verifyCount(mockArray, times(1)) addObject:@"once"];
+
+    // verify exact number of invocations
+    [verifyCount(mockArray, times(2)) addObject:@"twice"];
+
+    // verify using never(), which is an alias for times(0)
+    [verifyCount(mockArray, never()) addObject:@"never happened"];
