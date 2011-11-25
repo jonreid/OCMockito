@@ -89,8 +89,50 @@ How about some stubbing?
     NSLog(@"%@", [mockArray objectAtIndex:999]);
 
 
+How do you stub methods that return non-objects?
+================================================
+
+To stub methods that return non-object types, specify ``willReturn&lt;type&gt;``,
+like this:
+
+    [given([mockArray count]) willReturnUnsignedInteger:3];
+
+This doesn't work for methods returning float or double. For these types,
+separate the call from the return:
+
+    [mockObject methodReturningFloat];
+    [givenPreviousCall willReturnFloat:0.25];
+
+
 Argument matchers
 =================
 
 OCMockito verifies argument values by testing for equality. But when extra
 flexibility is required, you can specify OCHamcrest matchers.
+
+    // mock creation
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+
+    // using mock object
+    [mockArray removeObject:@"This is a test"];
+
+    // verification
+    [verify(mockArray) removeObject:startsWith(@"This is")];
+
+OCHamcrest matchers can be specified as arguments for both verification and
+stubbing.
+
+
+How do you specify matchers for primitive arguments?
+====================================================
+
+To stub a method that takes a primitive argument but specify a matcher, invoke
+the method with a dummy argument, then call ``-withMatcher:forArgument:``
+
+    [[given([mockArray objectAtIndex:0]) withMatcher:anything() forArgument:0]
+     willReturn:@"foo"];
+
+Use the shortcut ``-withMatcher:`` to specify a matcher for a single argument:
+
+    [[given([mockArray objectAtIndex:0]) withMatcher:anything()]
+     willReturn:@"foo"];
