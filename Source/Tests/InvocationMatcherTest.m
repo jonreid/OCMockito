@@ -157,6 +157,19 @@ DEFINE_INVOCATION_METHOD(double, Double)
     STAssertTrue([invocationMatcher matches:actual], nil);
 }
 
+- (void)testShouldMatchIfObjectArgumentsAreNil
+{
+    // given
+    NSInvocation *expected = [DummyObject invocationWithObjectArg:nil];
+    NSInvocation *actual = [DummyObject invocationWithObjectArg:nil];
+    
+    // when
+    [invocationMatcher setExpectedInvocation:expected];
+    
+    // then
+    STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
 - (void)testShouldNotMatchIfObjectArgumentDoesNotEqualExpectedArgument
 {
     // given

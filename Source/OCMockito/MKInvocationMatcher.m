@@ -5,6 +5,8 @@
 
 #import "MKInvocationMatcher.h"
 
+#define HC_SHORTHAND
+
 #if TARGET_OS_MAC
     #import <OCHamcrest/OCHamcrest.h>
     #import <OCHamcrest/HCWrapInMatcher.h>
@@ -87,7 +89,14 @@
         {
             id argument = nil;
             [expected getArgument:&argument atIndex:argumentIndex];
-            [self setMatcher:HCWrapInMatcher(argument) atIndex:argumentIndex];
+            
+            id <HCMatcher> matcher;
+            if (argument != nil)
+                matcher = HCWrapInMatcher(argument);
+            else
+                matcher = nilValue();
+            
+            [self setMatcher:matcher atIndex:argumentIndex];
         }
     }
 }
