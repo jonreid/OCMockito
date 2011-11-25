@@ -14,10 +14,8 @@ Key differences from OCMock:
   lines instead of throwing exceptions. This makes it easier to identify
   failures. (It also keeps the pre-iOS 5 Simulator from crashing.)
 
-
-See also:
-* [Quality Coding](http://jonreid.blogs.com/qualitycoding/) - Tools, tips and
-techniques for _building quality in_ to your iOS programs.
+See also: [Quality Coding](http://jonreid.blogs.com/qualitycoding/) - Tools,
+tips and techniques for _building quality in_ to your iOS programs.
 
 
 Mac and iOS
