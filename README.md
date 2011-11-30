@@ -3,7 +3,7 @@
 OCMockito is an Objective-C implementation of Mockito, supporting creation,
 verification and stubbing of mock objects.
 
-Key differences from OCMock:
+Key differences from other mocking frameworks:
 
 * Mock objects are always "nice," recording their calls instead of throwing
   exceptions about unspecified invocations. This makes tests less fragile.
