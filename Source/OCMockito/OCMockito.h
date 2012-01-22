@@ -42,7 +42,7 @@ OBJC_EXPORT MKOngoingStubbing *MKGivenWithLocation(id methodCall,
     @c given doesn't work for methods returning @c float or @double values. For such methods,
     invoke the method on the mock object, then use @ref givenPreviousCall.
  */
-#define MKGiven(methodCall) MKGivenWithLocation((id)methodCall, self, __FILE__, __LINE__)
+#define MKGiven(methodCall) MKGivenWithLocation((id)(int)methodCall, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
     #define given(methodCall) MKGiven(methodCall)
