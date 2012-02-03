@@ -49,6 +49,8 @@ double-check your Copy Files phase.
 
 __iOS:__
 
+To build OCMockitoIOS.framework, run Source/MakeIOSFramework.sh.
+
 Add OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
 
 Add "-lstdc++" and "-ObjC" to your "Other Linker Flags".
