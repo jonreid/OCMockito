@@ -23,8 +23,7 @@
 #endif
 
 
-OBJC_EXPORT MKOngoingStubbing *MKGivenWithLocation(id methodCall,
-                                                   id testCase, const char *fileName, int lineNumber);
+OBJC_EXPORT MKOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
 
 /**
     Enables method stubbing.
@@ -42,14 +41,12 @@ OBJC_EXPORT MKOngoingStubbing *MKGivenWithLocation(id methodCall,
     @c given doesn't work for methods returning @c float or @double values. For such methods,
     invoke the method on the mock object, then use @ref givenPreviousCall.
  */
-#define MKGiven(methodCall) MKGivenWithLocation((id)methodCall, self, __FILE__, __LINE__)
+#define MKGiven(methodCall) MKGivenWithLocation(self, __FILE__, __LINE__, methodCall)
 
 #ifdef MOCKITO_SHORTHAND
     #define given(methodCall) MKGiven(methodCall)
 #endif
 
-
-OBJC_EXPORT MKOngoingStubbing *MKGivenPreviousCallWithLocation(id testCase, const char *fileName, int lineNumber);
 
 /**
     Enables stubbing of previous method invocation.
@@ -67,7 +64,7 @@ OBJC_EXPORT MKOngoingStubbing *MKGivenPreviousCallWithLocation(id testCase, cons
 [givenPreviousCall willReturnDouble:42];
 @endcode
  */
-#define MKGivenPreviousCall MKGivenPreviousCallWithLocation(self, __FILE__, __LINE__)
+#define MKGivenPreviousCall MKGivenWithLocation(self, __FILE__, __LINE__)
 
 
 #ifdef MOCKITO_SHORTHAND
