@@ -303,11 +303,10 @@ typedef struct {
     ReturningObject *mockObject = mock([ReturningObject class]);
     
     // when
-    [mockObject methodReturningFloat];
-    [givenPreviousCall willReturnFloat:42];
+    [given([mockObject methodReturningFloat]) willReturnFloat:42.5];
     
     // then
-    assertThatFloat([mockObject methodReturningFloat], equalToFloat(42));
+    assertThatFloat([mockObject methodReturningFloat], equalToFloat(42.5));
 }
 
 - (void)testStubbedMethodShouldReturnGivenDouble
@@ -316,8 +315,7 @@ typedef struct {
     ReturningObject *mockObject = mock([ReturningObject class]);
     
     // when
-    [mockObject methodReturningDouble];
-    [givenPreviousCall willReturnDouble:42];
+    [given([mockObject methodReturningDouble]) willReturnDouble:42];
     
     // then
     assertThatDouble([mockObject methodReturningDouble], equalToDouble(42));
