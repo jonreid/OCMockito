@@ -98,16 +98,10 @@ How about some stubbing?
 How do you stub methods that return non-objects?
 ================================================
 
-To stub methods that return non-object types, specify ``willReturn&lt;type&gt;``,
+To stub methods that return non-object types, specify ``willReturn<type>``,
 like this:
 
     [given([mockArray count]) willReturnUnsignedInteger:3];
-
-This doesn't work for methods returning float or double. For these types,
-separate the call from the return:
-
-    [mockObject methodReturningFloat];
-    [givenPreviousCall willReturnFloat:0.25];
 
 
 Argument matchers

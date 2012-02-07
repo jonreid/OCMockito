@@ -37,38 +37,11 @@ OBJC_EXPORT MKOngoingStubbing *MKGivenWithLocation(id testCase, const char *file
     @li @ref [given([mockObject methodReturningString]) willReturn:@"foo"];
 
     See @ref MTOngoingStubbing for other methods to stub different types of return values.
-
-    @c given doesn't work for methods returning @c float or @double values. For such methods,
-    invoke the method on the mock object, then use @ref givenPreviousCall.
  */
 #define MKGiven(methodCall) MKGivenWithLocation(self, __FILE__, __LINE__, methodCall)
 
 #ifdef MOCKITO_SHORTHAND
     #define given(methodCall) MKGiven(methodCall)
-#endif
-
-
-/**
-    Enables stubbing of previous method invocation.
-
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c givenPreviousCall.
- 
-    Methods that return @c float or @c double values can't be passed to @ref given. For these methods,
-    first invoke the method on the mock object. Then use @c givenPreviousCall to stub the return
-    value.
-
-    Example:
-@code
-[mockObject methodReturningDouble];
-[givenPreviousCall willReturnDouble:42];
-@endcode
- */
-#define MKGivenPreviousCall MKGivenWithLocation(self, __FILE__, __LINE__)
-
-
-#ifdef MOCKITO_SHORTHAND
-    #define givenPreviousCall MKGivenPreviousCall
 #endif
 
 
