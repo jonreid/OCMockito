@@ -1,6 +1,6 @@
+.DS_Store
 build/
 *.pbxuser
 *.perspectivev3
 xcuserdata/
 Source/TestSupport/env.sh
-Source/.DS_Store
