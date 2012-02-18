@@ -8,7 +8,7 @@
 
     // Collaborators
 #import "MKExactTimes.h"
-#import "MKInvocationContainer.h"
+#import "MKTInvocationContainer.h"
 #import "MKInvocationMatcher.h"
 #import "MKOngoingStubbing.h"
 
@@ -48,7 +48,7 @@
 - (void)testPullOngoingStubbingWithStubbingReportedShouldReturnStubbing
 {
     // given
-    MKInvocationContainer *invocationContainer = [[[MKInvocationContainer alloc]
+    MKTInvocationContainer *invocationContainer = [[[MKTInvocationContainer alloc]
                                                    initWithMockingProgress:mockingProgress] autorelease];
     MKOngoingStubbing *ongoingStubbing = [[[MKOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer] autorelease];
@@ -63,7 +63,7 @@
 - (void)testPullOngoingStubbingShouldClearCurrentStubbing
 {
     // given
-    MKInvocationContainer *invocationContainer = [[[MKInvocationContainer alloc]
+    MKTInvocationContainer *invocationContainer = [[[MKTInvocationContainer alloc]
                                                    initWithMockingProgress:mockingProgress] autorelease];
     MKOngoingStubbing *ongoingStubbing = [[[MKOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer] autorelease];

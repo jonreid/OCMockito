@@ -34,10 +34,10 @@
 		0827E86C1352CC6400C39A57 /* MKExactTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8681352CC6400C39A57 /* MKExactTimes.m */; };
 		0827E86E1353E30400C39A57 /* MKVerificationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E86D1353E30400C39A57 /* MKVerificationData.m */; };
 		0827E86F1353E30400C39A57 /* MKVerificationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E86D1353E30400C39A57 /* MKVerificationData.m */; };
-		0827E8721353EAD900C39A57 /* MKInvocationContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8701353EAD900C39A57 /* MKInvocationContainer.h */; };
-		0827E8731353EAD900C39A57 /* MKInvocationContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8701353EAD900C39A57 /* MKInvocationContainer.h */; };
-		0827E8741353EAD900C39A57 /* MKInvocationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8711353EAD900C39A57 /* MKInvocationContainer.m */; };
-		0827E8751353EAD900C39A57 /* MKInvocationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8711353EAD900C39A57 /* MKInvocationContainer.m */; };
+		0827E8721353EAD900C39A57 /* MKTInvocationContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */; };
+		0827E8731353EAD900C39A57 /* MKTInvocationContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */; };
+		0827E8741353EAD900C39A57 /* MKTInvocationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */; };
+		0827E8751353EAD900C39A57 /* MKTInvocationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */; };
 		0827E87E1354181400C39A57 /* NSException+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E87C1354181300C39A57 /* NSException+OCMockito.h */; };
 		0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E87C1354181300C39A57 /* NSException+OCMockito.h */; };
 		0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
@@ -131,8 +131,8 @@
 		0827E8671352CC6400C39A57 /* MKExactTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKExactTimes.h; sourceTree = "<group>"; };
 		0827E8681352CC6400C39A57 /* MKExactTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKExactTimes.m; sourceTree = "<group>"; };
 		0827E86D1353E30400C39A57 /* MKVerificationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKVerificationData.m; sourceTree = "<group>"; };
-		0827E8701353EAD900C39A57 /* MKInvocationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKInvocationContainer.h; sourceTree = "<group>"; };
-		0827E8711353EAD900C39A57 /* MKInvocationContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKInvocationContainer.m; sourceTree = "<group>"; };
+		0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTInvocationContainer.h; sourceTree = "<group>"; };
+		0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocationContainer.m; sourceTree = "<group>"; };
 		0827E87C1354181300C39A57 /* NSException+OCMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+OCMockito.h"; sourceTree = "<group>"; };
 		0827E87D1354181300C39A57 /* NSException+OCMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+OCMockito.m"; sourceTree = "<group>"; };
 		085D2FB11351080400EBBE91 /* VerifyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyTest.m; sourceTree = "<group>"; };
@@ -247,8 +247,8 @@
 				0827E83413526E7300C39A57 /* OCMockito.m */,
 				085D2FB31351082800EBBE91 /* MKTClassMock.h */,
 				085D2FB41351082800EBBE91 /* MKTClassMock.m */,
-				0827E8701353EAD900C39A57 /* MKInvocationContainer.h */,
-				0827E8711353EAD900C39A57 /* MKInvocationContainer.m */,
+				0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */,
+				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
 				08F189FF135A6D8C00F76379 /* MKInvocationMatcher.h */,
 				08F18A00135A6D8C00F76379 /* MKInvocationMatcher.m */,
 				0827E8581352BDF800C39A57 /* MKMockAwareVerificationMode.h */,
@@ -311,7 +311,7 @@
 				0827E85B1352BDF800C39A57 /* MKMockAwareVerificationMode.h in Headers */,
 				0827E8661352C50400C39A57 /* MKTestLocation.h in Headers */,
 				0827E86A1352CC6400C39A57 /* MKExactTimes.h in Headers */,
-				0827E8731353EAD900C39A57 /* MKInvocationContainer.h in Headers */,
+				0827E8731353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */,
 				089A8C371356A7BB003E7D27 /* MKOngoingStubbing.h in Headers */,
 				08F18A02135A6D8D00F76379 /* MKInvocationMatcher.h in Headers */,
@@ -334,7 +334,7 @@
 				0827E85A1352BDF800C39A57 /* MKMockAwareVerificationMode.h in Headers */,
 				0827E8651352C50400C39A57 /* MKTestLocation.h in Headers */,
 				0827E8691352CC6400C39A57 /* MKExactTimes.h in Headers */,
-				0827E8721353EAD900C39A57 /* MKInvocationContainer.h in Headers */,
+				0827E8721353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				0827E87E1354181400C39A57 /* NSException+OCMockito.h in Headers */,
 				089A8C361356A7BB003E7D27 /* MKOngoingStubbing.h in Headers */,
 				08F18A01135A6D8D00F76379 /* MKInvocationMatcher.h in Headers */,
@@ -519,7 +519,7 @@
 				0827E85D1352BDF800C39A57 /* MKMockAwareVerificationMode.m in Sources */,
 				0827E86C1352CC6400C39A57 /* MKExactTimes.m in Sources */,
 				0827E86F1353E30400C39A57 /* MKVerificationData.m in Sources */,
-				0827E8751353EAD900C39A57 /* MKInvocationContainer.m in Sources */,
+				0827E8751353EAD900C39A57 /* MKTInvocationContainer.m in Sources */,
 				0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */,
 				089A8C391356A7BB003E7D27 /* MKOngoingStubbing.m in Sources */,
 				08F18A04135A6D8D00F76379 /* MKInvocationMatcher.m in Sources */,
@@ -550,7 +550,7 @@
 				0827E85C1352BDF800C39A57 /* MKMockAwareVerificationMode.m in Sources */,
 				0827E86B1352CC6400C39A57 /* MKExactTimes.m in Sources */,
 				0827E86E1353E30400C39A57 /* MKVerificationData.m in Sources */,
-				0827E8741353EAD900C39A57 /* MKInvocationContainer.m in Sources */,
+				0827E8741353EAD900C39A57 /* MKTInvocationContainer.m in Sources */,
 				0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */,
 				089A8C381356A7BB003E7D27 /* MKOngoingStubbing.m in Sources */,
 				08F18A03135A6D8D00F76379 /* MKInvocationMatcher.m in Sources */,

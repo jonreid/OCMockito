@@ -1,21 +1,21 @@
 //
-//  OCMockito - MKInvocationContainer.m
+//  OCMockito - MKTInvocationContainer.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKInvocationContainer.h"
+#import "MKTInvocationContainer.h"
 
 #import "MKStubbedInvocationMatcher.h"
 
 
-@interface MKInvocationContainer ()
+@interface MKTInvocationContainer ()
 @property(nonatomic, retain) MKMockingProgress *mockingProgress;
 @property(nonatomic, retain) MKStubbedInvocationMatcher *invocationMatcherForStubbing;
 @property(nonatomic, retain) NSMutableArray *stubbed;
 @end
 
 
-@implementation MKInvocationContainer
+@implementation MKTInvocationContainer
 
 @synthesize registeredInvocations;
 @synthesize mockingProgress;

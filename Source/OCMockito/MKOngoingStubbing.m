@@ -5,11 +5,11 @@
 
 #import "MKOngoingStubbing.h"
 
-#import "MKInvocationContainer.h"
+#import "MKTInvocationContainer.h"
 
 
 @interface MKOngoingStubbing ()
-@property(nonatomic, retain) MKInvocationContainer *invocationContainer;
+@property(nonatomic, retain) MKTInvocationContainer *invocationContainer;
 @end
 
 
@@ -17,7 +17,7 @@
 
 @synthesize invocationContainer;
 
-- (id)initWithInvocationContainer:(MKInvocationContainer *)anInvocationContainer
+- (id)initWithInvocationContainer:(MKTInvocationContainer *)anInvocationContainer
 {
     self = [super init];
     if (self)

@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKInvocationContainer.h
+//  OCMockito - MKTInvocationContainer.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -9,7 +9,7 @@
 @protocol HCMatcher;
 
 
-@interface MKInvocationContainer : NSObject
+@interface MKTInvocationContainer : NSObject
 
 @property(nonatomic, retain) NSMutableArray *registeredInvocations;
 

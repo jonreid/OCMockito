@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "MKPrimitiveArgumentMatching.h"
 
-@class MKInvocationContainer;
+@class MKTInvocationContainer;
 
 
 /**
@@ -14,7 +14,7 @@
  */
 @interface MKOngoingStubbing : NSObject <MKPrimitiveArgumentMatching>
 
-- (id)initWithInvocationContainer:(MKInvocationContainer *)anInvocationContainer;
+- (id)initWithInvocationContainer:(MKTInvocationContainer *)anInvocationContainer;
 
 /// Stubs given object as return value.
 - (MKOngoingStubbing *)willReturn:(id)object;
