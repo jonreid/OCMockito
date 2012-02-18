@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKPrimitiveArgumentMatching.h
+//  OCMockito - MKTPrimitiveArgumentMatching.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -9,7 +9,7 @@
 /**
     Ability to specify OCHamcrest matchers for primitive numeric arguments.
  */
-@protocol MKPrimitiveArgumentMatching
+@protocol MKTPrimitiveArgumentMatching
 
 /**
     Specifies OCHamcrest matcher for a specific argument of a method.

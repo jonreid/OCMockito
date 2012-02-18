@@ -4,7 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MKPrimitiveArgumentMatching.h"
+#import "MKTPrimitiveArgumentMatching.h"
 
 @class MKTInvocationContainer;
 
@@ -12,7 +12,7 @@
 /**
     Methods to invoke on @c given(methodCall) to return stubbed values.
  */
-@interface MKTOngoingStubbing : NSObject <MKPrimitiveArgumentMatching>
+@interface MKTOngoingStubbing : NSObject <MKTPrimitiveArgumentMatching>
 
 - (id)initWithInvocationContainer:(MKTInvocationContainer *)anInvocationContainer;
 

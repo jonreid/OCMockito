@@ -4,10 +4,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MKPrimitiveArgumentMatching.h"
+#import "MKTPrimitiveArgumentMatching.h"
 
 
-@interface MKTClassMock : NSProxy <MKPrimitiveArgumentMatching>
+@interface MKTClassMock : NSProxy <MKTPrimitiveArgumentMatching>
 
 + (id)mockForClass:(Class)aClass;
 - (id)initWithClass:(Class)aClass;
