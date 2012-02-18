@@ -12,7 +12,7 @@
 @protocol MKVerificationMode;
 
 
-@interface MKMockitoCore : NSObject
+@interface MKTMockitoCore : NSObject
 
 + (id)sharedCore;
 

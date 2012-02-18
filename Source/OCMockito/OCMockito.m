@@ -6,13 +6,13 @@
 #import "OCMockito.h"
 
 #import "MKExactTimes.h"
-#import "MKMockitoCore.h"
+#import "MKTMockitoCore.h"
 #import "MKTestLocation.h"
 
 
 MKOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
 {
-    MKMockitoCore *mockitoCore = [MKMockitoCore sharedCore];
+    MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
     return [mockitoCore stubAtLocation:MKTestLocationMake(testCase, fileName, lineNumber)];
 }
 
@@ -23,7 +23,7 @@ id MKVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumb
 
 id MKVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber)
 {
-    MKMockitoCore *mockitoCore = [MKMockitoCore sharedCore];
+    MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
     return [mockitoCore verifyMock:mock
                           withMode:mode
                         atLocation:MKTestLocationMake(testCase, fileName, lineNumber)];

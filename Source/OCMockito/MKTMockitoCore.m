@@ -3,19 +3,19 @@
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKMockitoCore.h"
+#import "MKTMockitoCore.h"
 
 #import "MKMockingProgress.h"
 #import "MKVerificationMode.h"
 
 
-@interface MKMockitoCore ()
+@interface MKTMockitoCore ()
 @property(nonatomic, retain) MKMockingProgress *mockingProgress;
 - (MKOngoingStubbing *)stub;
 @end
 
 
-@implementation MKMockitoCore
+@implementation MKTMockitoCore
 
 @synthesize mockingProgress;
 

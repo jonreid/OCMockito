@@ -10,10 +10,10 @@
 		0817B5C5147EC2FE00C5401D /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 086F86E9146A43CB0050F00E /* OCHamcrest.framework */; };
 		0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E83313526E7300C39A57 /* OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0827E83F1352B1C000C39A57 /* OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E83313526E7300C39A57 /* OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0827E8421352B6FC00C39A57 /* MKMockitoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8401352B6FC00C39A57 /* MKMockitoCore.h */; };
-		0827E8431352B6FC00C39A57 /* MKMockitoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8401352B6FC00C39A57 /* MKMockitoCore.h */; };
-		0827E8441352B6FC00C39A57 /* MKMockitoCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8411352B6FC00C39A57 /* MKMockitoCore.m */; };
-		0827E8451352B6FC00C39A57 /* MKMockitoCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8411352B6FC00C39A57 /* MKMockitoCore.m */; };
+		0827E8421352B6FC00C39A57 /* MKTMockitoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */; };
+		0827E8431352B6FC00C39A57 /* MKTMockitoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */; };
+		0827E8441352B6FC00C39A57 /* MKTMockitoCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */; };
+		0827E8451352B6FC00C39A57 /* MKTMockitoCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */; };
 		0827E8481352B7BF00C39A57 /* MKMockingProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8461352B7BE00C39A57 /* MKMockingProgress.h */; };
 		0827E8491352B7BF00C39A57 /* MKMockingProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8461352B7BE00C39A57 /* MKMockingProgress.h */; };
 		0827E84A1352B7BF00C39A57 /* MKMockingProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8471352B7BF00C39A57 /* MKMockingProgress.m */; };
@@ -119,8 +119,8 @@
 /* Begin PBXFileReference section */
 		0827E83313526E7300C39A57 /* OCMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockito.h; sourceTree = "<group>"; };
 		0827E83413526E7300C39A57 /* OCMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockito.m; sourceTree = "<group>"; };
-		0827E8401352B6FC00C39A57 /* MKMockitoCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMockitoCore.h; sourceTree = "<group>"; };
-		0827E8411352B6FC00C39A57 /* MKMockitoCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMockitoCore.m; sourceTree = "<group>"; };
+		0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTMockitoCore.h; sourceTree = "<group>"; };
+		0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMockitoCore.m; sourceTree = "<group>"; };
 		0827E8461352B7BE00C39A57 /* MKMockingProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMockingProgress.h; sourceTree = "<group>"; };
 		0827E8471352B7BF00C39A57 /* MKMockingProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMockingProgress.m; sourceTree = "<group>"; };
 		0827E8521352BBBC00C39A57 /* MKVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKVerificationMode.h; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 				08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */,
 				0827E8581352BDF800C39A57 /* MKTMockAwareVerificationMode.h */,
 				0827E8591352BDF800C39A57 /* MKTMockAwareVerificationMode.m */,
-				0827E8401352B6FC00C39A57 /* MKMockitoCore.h */,
-				0827E8411352B6FC00C39A57 /* MKMockitoCore.m */,
+				0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */,
+				0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */,
 				0827E8461352B7BE00C39A57 /* MKMockingProgress.h */,
 				0827E8471352B7BF00C39A57 /* MKMockingProgress.m */,
 				089A8C341356A7BA003E7D27 /* MKOngoingStubbing.h */,
@@ -304,7 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0827E83F1352B1C000C39A57 /* OCMockito.h in Headers */,
-				0827E8431352B6FC00C39A57 /* MKMockitoCore.h in Headers */,
+				0827E8431352B6FC00C39A57 /* MKTMockitoCore.h in Headers */,
 				0827E8491352B7BF00C39A57 /* MKMockingProgress.h in Headers */,
 				0827E8541352BBBC00C39A57 /* MKVerificationMode.h in Headers */,
 				0827E8571352BC1D00C39A57 /* MKVerificationData.h in Headers */,
@@ -327,7 +327,7 @@
 			files = (
 				085D2FB51351082800EBBE91 /* MKTClassMock.h in Headers */,
 				0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */,
-				0827E8421352B6FC00C39A57 /* MKMockitoCore.h in Headers */,
+				0827E8421352B6FC00C39A57 /* MKTMockitoCore.h in Headers */,
 				0827E8481352B7BF00C39A57 /* MKMockingProgress.h in Headers */,
 				0827E8531352BBBC00C39A57 /* MKVerificationMode.h in Headers */,
 				0827E8561352BC1D00C39A57 /* MKVerificationData.h in Headers */,
@@ -514,7 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D301F1351267D00EBBE91 /* MKTClassMock.m in Sources */,
-				0827E8451352B6FC00C39A57 /* MKMockitoCore.m in Sources */,
+				0827E8451352B6FC00C39A57 /* MKTMockitoCore.m in Sources */,
 				0827E84B1352B7BF00C39A57 /* MKMockingProgress.m in Sources */,
 				0827E85D1352BDF800C39A57 /* MKTMockAwareVerificationMode.m in Sources */,
 				0827E86C1352CC6400C39A57 /* MKExactTimes.m in Sources */,
@@ -545,7 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D2FB61351082800EBBE91 /* MKTClassMock.m in Sources */,
-				0827E8441352B6FC00C39A57 /* MKMockitoCore.m in Sources */,
+				0827E8441352B6FC00C39A57 /* MKTMockitoCore.m in Sources */,
 				0827E84A1352B7BF00C39A57 /* MKMockingProgress.m in Sources */,
 				0827E85C1352BDF800C39A57 /* MKTMockAwareVerificationMode.m in Sources */,
 				0827E86B1352CC6400C39A57 /* MKExactTimes.m in Sources */,
