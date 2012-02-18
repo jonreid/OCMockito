@@ -1,12 +1,12 @@
 //
-//  OCMockito - MKStubbedInvocationMatcher.m
+//  OCMockito - MKTStubbedInvocationMatcher.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKStubbedInvocationMatcher.h"
+#import "MKTStubbedInvocationMatcher.h"
 
 
-@implementation MKStubbedInvocationMatcher
+@implementation MKTStubbedInvocationMatcher
 
 @synthesize answer;
 

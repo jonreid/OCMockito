@@ -5,12 +5,12 @@
 
 #import "MKTInvocationContainer.h"
 
-#import "MKStubbedInvocationMatcher.h"
+#import "MKTStubbedInvocationMatcher.h"
 
 
 @interface MKTInvocationContainer ()
 @property(nonatomic, retain) MKTMockingProgress *mockingProgress;
-@property(nonatomic, retain) MKStubbedInvocationMatcher *invocationMatcherForStubbing;
+@property(nonatomic, retain) MKTStubbedInvocationMatcher *invocationMatcherForStubbing;
 @property(nonatomic, retain) NSMutableArray *stubbed;
 @end
 
@@ -49,7 +49,7 @@
     [invocation retainArguments];
     [registeredInvocations addObject:invocation];
     
-    MKStubbedInvocationMatcher *stubbedInvocationMatcher = [[MKStubbedInvocationMatcher alloc] init];
+    MKTStubbedInvocationMatcher *stubbedInvocationMatcher = [[MKTStubbedInvocationMatcher alloc] init];
     [stubbedInvocationMatcher setExpectedInvocation:invocation];
     [self setInvocationMatcherForStubbing:stubbedInvocationMatcher];
     [stubbedInvocationMatcher release];
@@ -70,7 +70,7 @@
 
 - (id)findAnswerFor:(NSInvocation *)invocation
 {
-    for (MKStubbedInvocationMatcher *stubbedInvocationMatcher in stubbed)
+    for (MKTStubbedInvocationMatcher *stubbedInvocationMatcher in stubbed)
         if ([stubbedInvocationMatcher matches:invocation])
             return [stubbedInvocationMatcher answer];
     
