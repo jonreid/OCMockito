@@ -3,16 +3,16 @@
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKMockAwareVerificationMode.h"
+#import "MKTMockAwareVerificationMode.h"
 
 
-@interface MKMockAwareVerificationMode ()
+@interface MKTMockAwareVerificationMode ()
 @property(nonatomic, retain) MKTClassMock *mock;
 @property(nonatomic, retain) id <MKVerificationMode> mode;
 @end
 
 
-@implementation MKMockAwareVerificationMode
+@implementation MKTMockAwareVerificationMode
 
 @synthesize mock;
 @synthesize mode;

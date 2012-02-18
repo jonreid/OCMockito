@@ -11,7 +11,7 @@
 @protocol MKVerificationMode;
 
 
-@interface MKMockAwareVerificationMode : NSObject <MKVerificationMode>
+@interface MKTMockAwareVerificationMode : NSObject <MKVerificationMode>
 
 + (id)verificationWithMock:(MKTClassMock *)aMock mode:(id <MKVerificationMode>)aMode;
 - (id)initWithMock:(MKTClassMock *)mock mode:(id <MKVerificationMode>)mode;
