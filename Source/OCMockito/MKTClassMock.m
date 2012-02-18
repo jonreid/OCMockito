@@ -10,7 +10,7 @@
 #import "MKTMockingProgress.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTVerificationData.h"
-#import "MKVerificationMode.h"
+#import "MKTVerificationMode.h"
 
 
 @interface MKTClassMock ()
@@ -58,7 +58,7 @@
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
-    id <MKVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
+    id <MKTVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
     if (verificationMode)
     {
         MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];

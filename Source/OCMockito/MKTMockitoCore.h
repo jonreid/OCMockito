@@ -9,7 +9,7 @@
 
 @class MKTClassMock;
 @class MKTOngoingStubbing;
-@protocol MKVerificationMode;
+@protocol MKTVerificationMode;
 
 
 @interface MKTMockitoCore : NSObject
@@ -19,7 +19,7 @@
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location;
 
 - (id)verifyMock:(MKTClassMock *)mock
-        withMode:(id <MKVerificationMode>)mode
+        withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location;
 
 @end

@@ -4,16 +4,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MKVerificationMode.h"
+#import "MKTVerificationMode.h"
 
 
 @class MKTClassMock;
 @protocol MKVerificationMode;
 
 
-@interface MKTMockAwareVerificationMode : NSObject <MKVerificationMode>
+@interface MKTMockAwareVerificationMode : NSObject <MKTVerificationMode>
 
-+ (id)verificationWithMock:(MKTClassMock *)aMock mode:(id <MKVerificationMode>)aMode;
-- (id)initWithMock:(MKTClassMock *)mock mode:(id <MKVerificationMode>)mode;
++ (id)verificationWithMock:(MKTClassMock *)aMock mode:(id <MKTVerificationMode>)aMode;
+- (id)initWithMock:(MKTClassMock *)mock mode:(id <MKTVerificationMode>)mode;
 
 @end

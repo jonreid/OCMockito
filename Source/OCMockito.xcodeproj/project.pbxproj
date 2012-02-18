@@ -18,8 +18,8 @@
 		0827E8491352B7BF00C39A57 /* MKTMockingProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8461352B7BE00C39A57 /* MKTMockingProgress.h */; };
 		0827E84A1352B7BF00C39A57 /* MKTMockingProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */; };
 		0827E84B1352B7BF00C39A57 /* MKTMockingProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */; };
-		0827E8531352BBBC00C39A57 /* MKVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8521352BBBC00C39A57 /* MKVerificationMode.h */; };
-		0827E8541352BBBC00C39A57 /* MKVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8521352BBBC00C39A57 /* MKVerificationMode.h */; };
+		0827E8531352BBBC00C39A57 /* MKTVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */; };
+		0827E8541352BBBC00C39A57 /* MKTVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */; };
 		0827E8561352BC1D00C39A57 /* MKTVerificationData.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8551352BC1D00C39A57 /* MKTVerificationData.h */; };
 		0827E8571352BC1D00C39A57 /* MKTVerificationData.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8551352BC1D00C39A57 /* MKTVerificationData.h */; };
 		0827E85A1352BDF800C39A57 /* MKTMockAwareVerificationMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8581352BDF800C39A57 /* MKTMockAwareVerificationMode.h */; };
@@ -123,7 +123,7 @@
 		0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMockitoCore.m; sourceTree = "<group>"; };
 		0827E8461352B7BE00C39A57 /* MKTMockingProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTMockingProgress.h; sourceTree = "<group>"; };
 		0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMockingProgress.m; sourceTree = "<group>"; };
-		0827E8521352BBBC00C39A57 /* MKVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKVerificationMode.h; sourceTree = "<group>"; };
+		0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTVerificationMode.h; sourceTree = "<group>"; };
 		0827E8551352BC1D00C39A57 /* MKTVerificationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTVerificationData.h; sourceTree = "<group>"; };
 		0827E8581352BDF800C39A57 /* MKTMockAwareVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTMockAwareVerificationMode.h; sourceTree = "<group>"; };
 		0827E8591352BDF800C39A57 /* MKTMockAwareVerificationMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMockAwareVerificationMode.m; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 				0827E8681352CC6400C39A57 /* MKTExactTimes.m */,
 				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
 				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
-				0827E8521352BBBC00C39A57 /* MKVerificationMode.h */,
+				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
 				0827E87C1354181300C39A57 /* NSException+OCMockito.h */,
 				0827E87D1354181300C39A57 /* NSException+OCMockito.m */,
 			);
@@ -306,7 +306,7 @@
 				0827E83F1352B1C000C39A57 /* OCMockito.h in Headers */,
 				0827E8431352B6FC00C39A57 /* MKTMockitoCore.h in Headers */,
 				0827E8491352B7BF00C39A57 /* MKTMockingProgress.h in Headers */,
-				0827E8541352BBBC00C39A57 /* MKVerificationMode.h in Headers */,
+				0827E8541352BBBC00C39A57 /* MKTVerificationMode.h in Headers */,
 				0827E8571352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
 				0827E85B1352BDF800C39A57 /* MKTMockAwareVerificationMode.h in Headers */,
 				0827E8661352C50400C39A57 /* MKTTestLocation.h in Headers */,
@@ -329,7 +329,7 @@
 				0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */,
 				0827E8421352B6FC00C39A57 /* MKTMockitoCore.h in Headers */,
 				0827E8481352B7BF00C39A57 /* MKTMockingProgress.h in Headers */,
-				0827E8531352BBBC00C39A57 /* MKVerificationMode.h in Headers */,
+				0827E8531352BBBC00C39A57 /* MKTVerificationMode.h in Headers */,
 				0827E8561352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
 				0827E85A1352BDF800C39A57 /* MKTMockAwareVerificationMode.h in Headers */,
 				0827E8651352C50400C39A57 /* MKTTestLocation.h in Headers */,

@@ -10,7 +10,7 @@
 @class MKTInvocationMatcher;
 @class MKTOngoingStubbing;
 @protocol HCMatcher;
-@protocol MKVerificationMode;
+@protocol MKTVerificationMode;
 
 
 @interface MKTMockingProgress : NSObject
@@ -26,7 +26,7 @@
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
 - (MKTInvocationMatcher *)pullInvocationMatcher;
 
-- (void)verificationStarted:(id <MKVerificationMode>)mode atLocation:(MKTTestLocation)location;
-- (id <MKVerificationMode>)pullVerificationMode;
+- (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location;
+- (id <MKTVerificationMode>)pullVerificationMode;
 
 @end

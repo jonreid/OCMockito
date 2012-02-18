@@ -6,12 +6,12 @@
 #import "MKTMockingProgress.h"
 
 #import "MKTInvocationMatcher.h"
-#import "MKVerificationMode.h"
+#import "MKTVerificationMode.h"
 
 
 @interface MKTMockingProgress ()
 @property(nonatomic, retain) MKTInvocationMatcher *invocationMatcher;
-@property(nonatomic, retain) id <MKVerificationMode> verificationMode;
+@property(nonatomic, retain) id <MKTVerificationMode> verificationMode;
 @property(nonatomic, retain) MKTOngoingStubbing *ongoingStubbing;
 @end
 
@@ -71,15 +71,15 @@
     return [result autorelease];
 }
 
-- (void)verificationStarted:(id <MKVerificationMode>)mode atLocation:(MKTTestLocation)location
+- (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location
 {
     [self setVerificationMode:mode];
     [self setTestLocation:location];
 }
 
-- (id <MKVerificationMode>)pullVerificationMode
+- (id <MKTVerificationMode>)pullVerificationMode
 {
-    id <MKVerificationMode> result = [verificationMode retain];
+    id <MKTVerificationMode> result = [verificationMode retain];
     [self setVerificationMode:nil];
     return [result autorelease];
 }

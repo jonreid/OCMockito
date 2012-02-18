@@ -6,7 +6,7 @@
 #import "MKTMockitoCore.h"
 
 #import "MKTMockingProgress.h"
-#import "MKVerificationMode.h"
+#import "MKTVerificationMode.h"
 
 
 @interface MKTMockitoCore ()
@@ -54,7 +54,7 @@
 }
 
 - (id)verifyMock:(MKTClassMock *)mock
-        withMode:(id <MKVerificationMode>)mode
+        withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location
 {
     [mockingProgress verificationStarted:mode atLocation:location];

@@ -4,10 +4,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MKVerificationMode.h"
+#import "MKTVerificationMode.h"
 
 
-@interface MKTExactTimes : NSObject <MKVerificationMode>
+@interface MKTExactTimes : NSObject <MKTVerificationMode>
 
 + (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations;
 - (id)initWithCount:(NSUInteger)expectedNumberOfInvocations;
