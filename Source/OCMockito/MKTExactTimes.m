@@ -22,7 +22,7 @@
 
 
 @interface MKTExactTimes ()
-@property(nonatomic, assign) NSUInteger expectedCount;
+@property (nonatomic, assign) NSUInteger expectedCount;
 @end
 
 

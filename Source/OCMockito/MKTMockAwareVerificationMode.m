@@ -7,8 +7,8 @@
 
 
 @interface MKTMockAwareVerificationMode ()
-@property(nonatomic, retain) MKTClassMock *mock;
-@property(nonatomic, retain) id <MKTVerificationMode> mode;
+@property (nonatomic, retain) MKTClassMock *mock;
+@property (nonatomic, retain) id <MKTVerificationMode> mode;
 @end
 
 

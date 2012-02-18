@@ -17,9 +17,9 @@
 
 
 @interface MKTInvocationMatcher ()
-@property(nonatomic, retain) NSInvocation *expected;
-@property(nonatomic, retain) NSMutableArray *argumentMatchers;
-@property(nonatomic, assign) NSUInteger numberOfArguments;
+@property (nonatomic, retain) NSInvocation *expected;
+@property (nonatomic, retain) NSMutableArray *argumentMatchers;
+@property (nonatomic, assign) NSUInteger numberOfArguments;
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount;
 @end
 

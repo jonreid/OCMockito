@@ -10,9 +10,9 @@
 
 
 @interface MKTMockingProgress ()
-@property(nonatomic, retain) MKTInvocationMatcher *invocationMatcher;
-@property(nonatomic, retain) id <MKTVerificationMode> verificationMode;
-@property(nonatomic, retain) MKTOngoingStubbing *ongoingStubbing;
+@property (nonatomic, retain) MKTInvocationMatcher *invocationMatcher;
+@property (nonatomic, retain) id <MKTVerificationMode> verificationMode;
+@property (nonatomic, retain) MKTOngoingStubbing *ongoingStubbing;
 @end
 
 

@@ -9,9 +9,9 @@
 
 
 @interface MKTInvocationContainer ()
-@property(nonatomic, retain) MKTMockingProgress *mockingProgress;
-@property(nonatomic, retain) MKTStubbedInvocationMatcher *invocationMatcherForStubbing;
-@property(nonatomic, retain) NSMutableArray *stubbed;
+@property (nonatomic, retain) MKTMockingProgress *mockingProgress;
+@property (nonatomic, retain) MKTStubbedInvocationMatcher *invocationMatcherForStubbing;
+@property (nonatomic, retain) NSMutableArray *stubbed;
 @end
 
 

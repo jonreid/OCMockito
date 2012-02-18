@@ -14,9 +14,9 @@
 
 
 @interface MKTClassMock ()
-@property(nonatomic, assign) Class mockedClass;
-@property(nonatomic, retain) MKTMockingProgress *mockingProgress;
-@property(nonatomic, retain) MKTInvocationContainer *invocationContainer;
+@property (nonatomic, assign) Class mockedClass;
+@property (nonatomic, retain) MKTMockingProgress *mockingProgress;
+@property (nonatomic, retain) MKTInvocationContainer *invocationContainer;
 @end
 
 
