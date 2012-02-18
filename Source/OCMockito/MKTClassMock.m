@@ -6,7 +6,7 @@
 #import "MKTClassMock.h"
 
 #import "MKTInvocationContainer.h"
-#import "MKInvocationMatcher.h"
+#import "MKTInvocationMatcher.h"
 #import "MKMockingProgress.h"
 #import "MKOngoingStubbing.h"
 #import "MKVerificationData.h"
@@ -61,9 +61,9 @@
     id <MKVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
     if (verificationMode)
     {
-        MKInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+        MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
         if (!invocationMatcher)
-            invocationMatcher = [[[MKInvocationMatcher alloc] init] autorelease];
+            invocationMatcher = [[[MKTInvocationMatcher alloc] init] autorelease];
         [invocationMatcher setExpectedInvocation:anInvocation];
         
         MKVerificationData *data = [[MKVerificationData alloc] init];

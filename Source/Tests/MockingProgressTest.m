@@ -9,7 +9,7 @@
     // Collaborators
 #import "MKExactTimes.h"
 #import "MKTInvocationContainer.h"
-#import "MKInvocationMatcher.h"
+#import "MKTInvocationMatcher.h"
 #import "MKOngoingStubbing.h"
 
     // Test support
@@ -117,7 +117,7 @@
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
     
     // when
-    MKInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+    MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
     
     // then
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
@@ -142,7 +142,7 @@
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:0];
 
     // when
-    MKInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+    MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
     
     // then
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));

@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKInvocationMatcher.h
+//  OCMockito - MKTInvocationMatcher.h
 //  Copyright 2011 eBay Inc. All rights reserved.
 //
 
@@ -8,7 +8,7 @@
 @protocol HCMatcher;
 
 
-@interface MKInvocationMatcher : NSObject
+@interface MKTInvocationMatcher : NSObject
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (NSUInteger)argumentMatchersCount;

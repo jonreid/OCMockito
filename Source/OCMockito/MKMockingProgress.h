@@ -7,7 +7,7 @@
 
 #import "MKTestLocation.h"
 
-@class MKInvocationMatcher;
+@class MKTInvocationMatcher;
 @class MKOngoingStubbing;
 @protocol HCMatcher;
 @protocol MKVerificationMode;
@@ -24,7 +24,7 @@
 - (MKOngoingStubbing *)pullOngoingStubbing;
 
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
-- (MKInvocationMatcher *)pullInvocationMatcher;
+- (MKTInvocationMatcher *)pullInvocationMatcher;
 
 - (void)verificationStarted:(id <MKVerificationMode>)mode atLocation:(MKTestLocation)location;
 - (id <MKVerificationMode>)pullVerificationMode;

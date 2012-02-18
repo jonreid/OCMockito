@@ -5,12 +5,12 @@
 
 #import "MKMockingProgress.h"
 
-#import "MKInvocationMatcher.h"
+#import "MKTInvocationMatcher.h"
 #import "MKVerificationMode.h"
 
 
 @interface MKMockingProgress ()
-@property(nonatomic, retain) MKInvocationMatcher *invocationMatcher;
+@property(nonatomic, retain) MKTInvocationMatcher *invocationMatcher;
 @property(nonatomic, retain) id <MKVerificationMode> verificationMode;
 @property(nonatomic, retain) MKOngoingStubbing *ongoingStubbing;
 @end
@@ -60,13 +60,13 @@
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
     if (!invocationMatcher)
-        invocationMatcher = [[MKInvocationMatcher alloc] init];
+        invocationMatcher = [[MKTInvocationMatcher alloc] init];
     [invocationMatcher setMatcher:matcher atIndex:index+2];
 }
 
-- (MKInvocationMatcher *)pullInvocationMatcher
+- (MKTInvocationMatcher *)pullInvocationMatcher
 {
-    MKInvocationMatcher *result = [invocationMatcher retain];
+    MKTInvocationMatcher *result = [invocationMatcher retain];
     [self setInvocationMatcher:nil];
     return [result autorelease];
 }

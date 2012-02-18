@@ -4,7 +4,7 @@
 //
 
     // Class under test
-#import "MKInvocationMatcher.h"
+#import "MKTInvocationMatcher.h"
 
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
@@ -97,7 +97,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
 
 @interface InvocationMatcherTest : SenTestCase
 {
-    MKInvocationMatcher *invocationMatcher;
+    MKTInvocationMatcher *invocationMatcher;
 }
 @end
 
@@ -107,7 +107,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
 - (void)setUp
 {
     [super setUp];
-    invocationMatcher = [[MKInvocationMatcher alloc] init];
+    invocationMatcher = [[MKTInvocationMatcher alloc] init];
 }
 
 - (void)tearDown

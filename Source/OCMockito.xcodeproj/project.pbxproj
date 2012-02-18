@@ -80,10 +80,10 @@
 		08F189E41359661E00F76379 /* MockingProgressTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189E21359661E00F76379 /* MockingProgressTest.m */; };
 		08F189FD135A6D1300F76379 /* InvocationMatcherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189FC135A6D1300F76379 /* InvocationMatcherTest.m */; };
 		08F189FE135A6D1300F76379 /* InvocationMatcherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F189FC135A6D1300F76379 /* InvocationMatcherTest.m */; };
-		08F18A01135A6D8D00F76379 /* MKInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 08F189FF135A6D8C00F76379 /* MKInvocationMatcher.h */; };
-		08F18A02135A6D8D00F76379 /* MKInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 08F189FF135A6D8C00F76379 /* MKInvocationMatcher.h */; };
-		08F18A03135A6D8D00F76379 /* MKInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F18A00135A6D8C00F76379 /* MKInvocationMatcher.m */; };
-		08F18A04135A6D8D00F76379 /* MKInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F18A00135A6D8C00F76379 /* MKInvocationMatcher.m */; };
+		08F18A01135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */; };
+		08F18A02135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */; };
+		08F18A03135A6D8D00F76379 /* MKTInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */; };
+		08F18A04135A6D8D00F76379 /* MKTInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,8 +158,8 @@
 		08E1E74E13633BC10066B0C7 /* MKPrimitiveArgumentMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPrimitiveArgumentMatching.h; sourceTree = "<group>"; };
 		08F189E21359661E00F76379 /* MockingProgressTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockingProgressTest.m; sourceTree = "<group>"; };
 		08F189FC135A6D1300F76379 /* InvocationMatcherTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvocationMatcherTest.m; sourceTree = "<group>"; };
-		08F189FF135A6D8C00F76379 /* MKInvocationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKInvocationMatcher.h; sourceTree = "<group>"; };
-		08F18A00135A6D8C00F76379 /* MKInvocationMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKInvocationMatcher.m; sourceTree = "<group>"; };
+		08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTInvocationMatcher.h; sourceTree = "<group>"; };
+		08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocationMatcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,8 +249,8 @@
 				085D2FB41351082800EBBE91 /* MKTClassMock.m */,
 				0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */,
 				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
-				08F189FF135A6D8C00F76379 /* MKInvocationMatcher.h */,
-				08F18A00135A6D8C00F76379 /* MKInvocationMatcher.m */,
+				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
+				08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */,
 				0827E8581352BDF800C39A57 /* MKMockAwareVerificationMode.h */,
 				0827E8591352BDF800C39A57 /* MKMockAwareVerificationMode.m */,
 				0827E8401352B6FC00C39A57 /* MKMockitoCore.h */,
@@ -314,7 +314,7 @@
 				0827E8731353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */,
 				089A8C371356A7BB003E7D27 /* MKOngoingStubbing.h in Headers */,
-				08F18A02135A6D8D00F76379 /* MKInvocationMatcher.h in Headers */,
+				08F18A02135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */,
 				08E1E74B136289C70066B0C7 /* MKStubbedInvocationMatcher.h in Headers */,
 				08E1E75013633BC10066B0C7 /* MKPrimitiveArgumentMatching.h in Headers */,
 				086F86E8146A41350050F00E /* MKTClassMock.h in Headers */,
@@ -337,7 +337,7 @@
 				0827E8721353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				0827E87E1354181400C39A57 /* NSException+OCMockito.h in Headers */,
 				089A8C361356A7BB003E7D27 /* MKOngoingStubbing.h in Headers */,
-				08F18A01135A6D8D00F76379 /* MKInvocationMatcher.h in Headers */,
+				08F18A01135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */,
 				08E1E74A136289C70066B0C7 /* MKStubbedInvocationMatcher.h in Headers */,
 				08E1E74F13633BC10066B0C7 /* MKPrimitiveArgumentMatching.h in Headers */,
 			);
@@ -522,7 +522,7 @@
 				0827E8751353EAD900C39A57 /* MKTInvocationContainer.m in Sources */,
 				0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */,
 				089A8C391356A7BB003E7D27 /* MKOngoingStubbing.m in Sources */,
-				08F18A04135A6D8D00F76379 /* MKInvocationMatcher.m in Sources */,
+				08F18A04135A6D8D00F76379 /* MKTInvocationMatcher.m in Sources */,
 				08E1E74D136289C70066B0C7 /* MKStubbedInvocationMatcher.m in Sources */,
 				085EECDA146A4D53001CF010 /* OCMockito.m in Sources */,
 			);
@@ -553,7 +553,7 @@
 				0827E8741353EAD900C39A57 /* MKTInvocationContainer.m in Sources */,
 				0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */,
 				089A8C381356A7BB003E7D27 /* MKOngoingStubbing.m in Sources */,
-				08F18A03135A6D8D00F76379 /* MKInvocationMatcher.m in Sources */,
+				08F18A03135A6D8D00F76379 /* MKTInvocationMatcher.m in Sources */,
 				08E1E74C136289C70066B0C7 /* MKStubbedInvocationMatcher.m in Sources */,
 				085EECD9146A4D52001CF010 /* OCMockito.m in Sources */,
 			);

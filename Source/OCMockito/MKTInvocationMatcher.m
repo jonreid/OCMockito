@@ -1,9 +1,9 @@
 //
-//  OCMockito - MKInvocationMatcher.m
+//  OCMockito - MKTInvocationMatcher.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKInvocationMatcher.h"
+#import "MKTInvocationMatcher.h"
 
 #define HC_SHORTHAND
 
@@ -16,7 +16,7 @@
 #endif
 
 
-@interface MKInvocationMatcher ()
+@interface MKTInvocationMatcher ()
 @property(nonatomic, retain) NSInvocation *expected;
 @property(nonatomic, retain) NSMutableArray *argumentMatchers;
 @property(nonatomic, assign) NSUInteger numberOfArguments;
@@ -24,7 +24,7 @@
 @end
 
 
-@implementation MKInvocationMatcher
+@implementation MKTInvocationMatcher
 
 @synthesize expected;
 @synthesize argumentMatchers;

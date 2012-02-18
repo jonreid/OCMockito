@@ -8,13 +8,13 @@
 #import "MKTestLocation.h"
 
 @class MKTInvocationContainer;
-@class MKInvocationMatcher;
+@class MKTInvocationMatcher;
 
 
 @interface MKVerificationData : NSObject
 
 @property(nonatomic, retain) MKTInvocationContainer *invocations;
-@property(nonatomic, retain) MKInvocationMatcher *wanted;
+@property(nonatomic, retain) MKTInvocationMatcher *wanted;
 @property(nonatomic, assign) MKTestLocation testLocation;
 
 @end
