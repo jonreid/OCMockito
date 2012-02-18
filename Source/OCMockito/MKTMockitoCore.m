@@ -11,7 +11,7 @@
 
 @interface MKTMockitoCore ()
 @property(nonatomic, retain) MKTMockingProgress *mockingProgress;
-- (MKOngoingStubbing *)stub;
+- (MKTOngoingStubbing *)stub;
 @end
 
 
@@ -42,13 +42,13 @@
     [super dealloc];
 }
 
-- (MKOngoingStubbing *)stubAtLocation:(MKTestLocation)location
+- (MKTOngoingStubbing *)stubAtLocation:(MKTestLocation)location
 {
     [mockingProgress stubbingStartedAtLocation:location];
     return [self stub];
 }
 
-- (MKOngoingStubbing *)stub
+- (MKTOngoingStubbing *)stub
 {
     return [mockingProgress pullOngoingStubbing];
 }

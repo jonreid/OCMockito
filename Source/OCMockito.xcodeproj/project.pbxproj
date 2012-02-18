@@ -63,10 +63,10 @@
 		089A8C2413552DE7003E7D27 /* ClassMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* ClassMockTest.m */; };
 		089A8C3213555D0C003E7D27 /* StubTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubTest.m */; };
 		089A8C3313555D0C003E7D27 /* StubTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubTest.m */; };
-		089A8C361356A7BB003E7D27 /* MKOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MKOngoingStubbing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		089A8C371356A7BB003E7D27 /* MKOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MKOngoingStubbing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		089A8C381356A7BB003E7D27 /* MKOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MKOngoingStubbing.m */; };
-		089A8C391356A7BB003E7D27 /* MKOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MKOngoingStubbing.m */; };
+		089A8C361356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		089A8C371356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		089A8C381356A7BB003E7D27 /* MKTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */; };
+		089A8C391356A7BB003E7D27 /* MKTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */; };
 		08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5A91350C59C00E5A443 /* OCMockito.framework */; };
 		08C61DB314E23938003D0843 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C61DB214E23938003D0843 /* SenTestingKit.framework */; };
 		08C61DB414E23938003D0843 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C61DB214E23938003D0843 /* SenTestingKit.framework */; };
@@ -144,8 +144,8 @@
 		086F86EC146A43E10050F00E /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.6/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		089A8C2213552DE7003E7D27 /* ClassMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassMockTest.m; sourceTree = "<group>"; };
 		089A8C3113555D0C003E7D27 /* StubTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubTest.m; sourceTree = "<group>"; };
-		089A8C341356A7BA003E7D27 /* MKOngoingStubbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKOngoingStubbing.h; sourceTree = "<group>"; };
-		089A8C351356A7BB003E7D27 /* MKOngoingStubbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKOngoingStubbing.m; sourceTree = "<group>"; };
+		089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTOngoingStubbing.h; sourceTree = "<group>"; };
+		089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTOngoingStubbing.m; sourceTree = "<group>"; };
 		08BDD5A91350C59C00E5A443 /* OCMockito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMockito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BDD5B11350C59C00E5A443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08BDD5BE1350C59C00E5A443 /* OCMockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,8 +257,8 @@
 				0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */,
 				0827E8461352B7BE00C39A57 /* MKTMockingProgress.h */,
 				0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */,
-				089A8C341356A7BA003E7D27 /* MKOngoingStubbing.h */,
-				089A8C351356A7BB003E7D27 /* MKOngoingStubbing.m */,
+				089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */,
+				089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */,
 				08E1E74E13633BC10066B0C7 /* MKPrimitiveArgumentMatching.h */,
 				08E1E748136289C70066B0C7 /* MKStubbedInvocationMatcher.h */,
 				08E1E749136289C70066B0C7 /* MKStubbedInvocationMatcher.m */,
@@ -313,7 +313,7 @@
 				0827E86A1352CC6400C39A57 /* MKExactTimes.h in Headers */,
 				0827E8731353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */,
-				089A8C371356A7BB003E7D27 /* MKOngoingStubbing.h in Headers */,
+				089A8C371356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */,
 				08F18A02135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */,
 				08E1E74B136289C70066B0C7 /* MKStubbedInvocationMatcher.h in Headers */,
 				08E1E75013633BC10066B0C7 /* MKPrimitiveArgumentMatching.h in Headers */,
@@ -336,7 +336,7 @@
 				0827E8691352CC6400C39A57 /* MKExactTimes.h in Headers */,
 				0827E8721353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				0827E87E1354181400C39A57 /* NSException+OCMockito.h in Headers */,
-				089A8C361356A7BB003E7D27 /* MKOngoingStubbing.h in Headers */,
+				089A8C361356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */,
 				08F18A01135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */,
 				08E1E74A136289C70066B0C7 /* MKStubbedInvocationMatcher.h in Headers */,
 				08E1E74F13633BC10066B0C7 /* MKPrimitiveArgumentMatching.h in Headers */,
@@ -521,7 +521,7 @@
 				0827E86F1353E30400C39A57 /* MKVerificationData.m in Sources */,
 				0827E8751353EAD900C39A57 /* MKTInvocationContainer.m in Sources */,
 				0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */,
-				089A8C391356A7BB003E7D27 /* MKOngoingStubbing.m in Sources */,
+				089A8C391356A7BB003E7D27 /* MKTOngoingStubbing.m in Sources */,
 				08F18A04135A6D8D00F76379 /* MKTInvocationMatcher.m in Sources */,
 				08E1E74D136289C70066B0C7 /* MKStubbedInvocationMatcher.m in Sources */,
 				085EECDA146A4D53001CF010 /* OCMockito.m in Sources */,
@@ -552,7 +552,7 @@
 				0827E86E1353E30400C39A57 /* MKVerificationData.m in Sources */,
 				0827E8741353EAD900C39A57 /* MKTInvocationContainer.m in Sources */,
 				0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */,
-				089A8C381356A7BB003E7D27 /* MKOngoingStubbing.m in Sources */,
+				089A8C381356A7BB003E7D27 /* MKTOngoingStubbing.m in Sources */,
 				08F18A03135A6D8D00F76379 /* MKTInvocationMatcher.m in Sources */,
 				08E1E74C136289C70066B0C7 /* MKStubbedInvocationMatcher.m in Sources */,
 				085EECD9146A4D52001CF010 /* OCMockito.m in Sources */,

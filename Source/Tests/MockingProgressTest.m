@@ -10,7 +10,7 @@
 #import "MKExactTimes.h"
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
-#import "MKOngoingStubbing.h"
+#import "MKTOngoingStubbing.h"
 
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
@@ -50,7 +50,7 @@
     // given
     MKTInvocationContainer *invocationContainer = [[[MKTInvocationContainer alloc]
                                                    initWithMockingProgress:mockingProgress] autorelease];
-    MKOngoingStubbing *ongoingStubbing = [[[MKOngoingStubbing alloc]
+    MKTOngoingStubbing *ongoingStubbing = [[[MKTOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer] autorelease];
     
     // when
@@ -65,7 +65,7 @@
     // given
     MKTInvocationContainer *invocationContainer = [[[MKTInvocationContainer alloc]
                                                    initWithMockingProgress:mockingProgress] autorelease];
-    MKOngoingStubbing *ongoingStubbing = [[[MKOngoingStubbing alloc]
+    MKTOngoingStubbing *ongoingStubbing = [[[MKTOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer] autorelease];
     
     // when

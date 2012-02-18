@@ -8,7 +8,7 @@
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
 #import "MKTMockingProgress.h"
-#import "MKOngoingStubbing.h"
+#import "MKTOngoingStubbing.h"
 #import "MKVerificationData.h"
 #import "MKVerificationMode.h"
 
@@ -77,7 +77,7 @@
     }
     
     [invocationContainer setInvocationForPotentialStubbing:anInvocation];
-    MKOngoingStubbing *ongoingStubbing = [[MKOngoingStubbing alloc]
+    MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
                                           initWithInvocationContainer:invocationContainer];
     [mockingProgress reportOngoingStubbing:ongoingStubbing];
     [ongoingStubbing release];

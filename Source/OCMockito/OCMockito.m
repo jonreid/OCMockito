@@ -10,7 +10,7 @@
 #import "MKTestLocation.h"
 
 
-MKOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
+MKTOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
 {
     MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
     return [mockitoCore stubAtLocation:MKTestLocationMake(testCase, fileName, lineNumber)];

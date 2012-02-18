@@ -1,19 +1,19 @@
 //
-//  OCMockito - MKOngoingStubbing.m
+//  OCMockito - MKTOngoingStubbing.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKOngoingStubbing.h"
+#import "MKTOngoingStubbing.h"
 
 #import "MKTInvocationContainer.h"
 
 
-@interface MKOngoingStubbing ()
+@interface MKTOngoingStubbing ()
 @property(nonatomic, retain) MKTInvocationContainer *invocationContainer;
 @end
 
 
-@implementation MKOngoingStubbing
+@implementation MKTOngoingStubbing
 
 @synthesize invocationContainer;
 
@@ -31,14 +31,14 @@
     [super dealloc];
 }
 
-- (MKOngoingStubbing *)willReturn:(id)object
+- (MKTOngoingStubbing *)willReturn:(id)object
 {
     [invocationContainer addAnswer:object];
     return self;
 }
 
 #define DEFINE_RETURN_METHOD(type, typeName)                                        \
-    - (MKOngoingStubbing *)willReturn ## typeName:(type)value                       \
+    - (MKTOngoingStubbing *)willReturn ## typeName:(type)value                      \
     {                                                                               \
         [invocationContainer addAnswer:[NSNumber numberWith ## typeName:value]];    \
         return self;                                                                \

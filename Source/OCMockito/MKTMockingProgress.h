@@ -8,7 +8,7 @@
 #import "MKTestLocation.h"
 
 @class MKTInvocationMatcher;
-@class MKOngoingStubbing;
+@class MKTOngoingStubbing;
 @protocol HCMatcher;
 @protocol MKVerificationMode;
 
@@ -20,8 +20,8 @@
 + (id)sharedProgress;
 
 - (void)stubbingStartedAtLocation:(MKTestLocation)location;
-- (void)reportOngoingStubbing:(MKOngoingStubbing *)theOngoingStubbing;
-- (MKOngoingStubbing *)pullOngoingStubbing;
+- (void)reportOngoingStubbing:(MKTOngoingStubbing *)theOngoingStubbing;
+- (MKTOngoingStubbing *)pullOngoingStubbing;
 
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
 - (MKTInvocationMatcher *)pullInvocationMatcher;

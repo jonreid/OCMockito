@@ -12,7 +12,7 @@
 @interface MKTMockingProgress ()
 @property(nonatomic, retain) MKTInvocationMatcher *invocationMatcher;
 @property(nonatomic, retain) id <MKVerificationMode> verificationMode;
-@property(nonatomic, retain) MKOngoingStubbing *ongoingStubbing;
+@property(nonatomic, retain) MKTOngoingStubbing *ongoingStubbing;
 @end
 
 
@@ -45,14 +45,14 @@
     [self setTestLocation:location];
 }
 
-- (void)reportOngoingStubbing:(MKOngoingStubbing *)theOngoingStubbing
+- (void)reportOngoingStubbing:(MKTOngoingStubbing *)theOngoingStubbing
 {
     [self setOngoingStubbing:theOngoingStubbing];
 }
 
-- (MKOngoingStubbing *)pullOngoingStubbing
+- (MKTOngoingStubbing *)pullOngoingStubbing
 {
-    MKOngoingStubbing *result = [ongoingStubbing retain];
+    MKTOngoingStubbing *result = [ongoingStubbing retain];
     [self setOngoingStubbing:nil];
     return [result autorelease];
 }

@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MKTClassMock.h"
-#import "MKOngoingStubbing.h"
+#import "MKTOngoingStubbing.h"
 #import <objc/objc-api.h>
 
 
@@ -23,7 +23,7 @@
 #endif
 
 
-OBJC_EXPORT MKOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
+OBJC_EXPORT MKTOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
 
 /**
     Enables method stubbing.
