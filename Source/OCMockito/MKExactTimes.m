@@ -7,7 +7,7 @@
 
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
-#import "MKTestLocation.h"
+#import "MKTTestLocation.h"
 #import "MKVerificationData.h"
 #import "NSException+OCMockito.h"
 
@@ -61,7 +61,7 @@
         NSString *description = [NSString stringWithFormat:@"Expected %d matching invocation%@, but received %d",
                                  expectedCount, plural, matchingCount];
         
-        MKTestLocation testLocation = [data testLocation];
+        MKTTestLocation testLocation = [data testLocation];
         NSString *fileName = [NSString stringWithCString:testLocation.fileName
                                                 encoding:NSUTF8StringEncoding];
         NSException *failure = [NSException failureInFile:fileName

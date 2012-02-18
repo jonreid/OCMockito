@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MKTestLocation.h"
+#import "MKTTestLocation.h"
 
 @class MKTInvocationContainer;
 @class MKTInvocationMatcher;
@@ -15,6 +15,6 @@
 
 @property(nonatomic, retain) MKTInvocationContainer *invocations;
 @property(nonatomic, retain) MKTInvocationMatcher *wanted;
-@property(nonatomic, assign) MKTestLocation testLocation;
+@property(nonatomic, assign) MKTTestLocation testLocation;
 
 @end

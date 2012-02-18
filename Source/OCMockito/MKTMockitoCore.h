@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MKTestLocation.h"
+#import "MKTTestLocation.h"
 
 @class MKTClassMock;
 @class MKTOngoingStubbing;
@@ -16,10 +16,10 @@
 
 + (id)sharedCore;
 
-- (MKTOngoingStubbing *)stubAtLocation:(MKTestLocation)location;
+- (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location;
 
 - (id)verifyMock:(MKTClassMock *)mock
         withMode:(id <MKVerificationMode>)mode
-      atLocation:(MKTestLocation)location;
+      atLocation:(MKTTestLocation)location;
 
 @end

@@ -7,13 +7,13 @@
 
 #import "MKExactTimes.h"
 #import "MKTMockitoCore.h"
-#import "MKTestLocation.h"
+#import "MKTTestLocation.h"
 
 
 MKTOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
 {
     MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
-    return [mockitoCore stubAtLocation:MKTestLocationMake(testCase, fileName, lineNumber)];
+    return [mockitoCore stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
 id MKVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
@@ -26,7 +26,7 @@ id MKVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName
     MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
     return [mockitoCore verifyMock:mock
                           withMode:mode
-                        atLocation:MKTestLocationMake(testCase, fileName, lineNumber)];
+                        atLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
 id MKTimes(NSUInteger wantedNumberOfInvocations)

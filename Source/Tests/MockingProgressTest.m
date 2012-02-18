@@ -87,7 +87,7 @@
     id <MKVerificationMode> mode = [MKExactTimes timesWithCount:42];
     
     // when
-    [mockingProgress verificationStarted:mode atLocation:MKTestLocationMake(self, __FILE__, __LINE__)];
+    [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
     
     // then
     assertThat([mockingProgress pullVerificationMode], is(sameInstance(mode)));
@@ -99,7 +99,7 @@
     id <MKVerificationMode> mode = [MKExactTimes timesWithCount:42];
     
     // when
-    [mockingProgress verificationStarted:mode atLocation:MKTestLocationMake(self, __FILE__, __LINE__)];
+    [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
     [mockingProgress pullVerificationMode];
     
     // then

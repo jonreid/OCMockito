@@ -40,7 +40,7 @@
     [super dealloc];
 }
 
-- (void)stubbingStartedAtLocation:(MKTestLocation)location
+- (void)stubbingStartedAtLocation:(MKTTestLocation)location
 {
     [self setTestLocation:location];
 }
@@ -71,7 +71,7 @@
     return [result autorelease];
 }
 
-- (void)verificationStarted:(id <MKVerificationMode>)mode atLocation:(MKTestLocation)location
+- (void)verificationStarted:(id <MKVerificationMode>)mode atLocation:(MKTTestLocation)location
 {
     [self setVerificationMode:mode];
     [self setTestLocation:location];

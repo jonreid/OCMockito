@@ -42,7 +42,7 @@
     [super dealloc];
 }
 
-- (MKTOngoingStubbing *)stubAtLocation:(MKTestLocation)location
+- (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location
 {
     [mockingProgress stubbingStartedAtLocation:location];
     return [self stub];
@@ -55,7 +55,7 @@
 
 - (id)verifyMock:(MKTClassMock *)mock
         withMode:(id <MKVerificationMode>)mode
-      atLocation:(MKTestLocation)location
+      atLocation:(MKTTestLocation)location
 {
     [mockingProgress verificationStarted:mode atLocation:location];
     return mock;

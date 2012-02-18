@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTestLocation.h
+//  OCMockito - MKTTestLocation.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -8,12 +8,12 @@ typedef struct
     id testCase;
     const char *fileName;
     int lineNumber;
-} MKTestLocation;
+} MKTTestLocation;
 
 
-static inline MKTestLocation MKTestLocationMake(id test, const char *file, int line)
+static inline MKTTestLocation MKTTestLocationMake(id test, const char *file, int line)
 {
-    MKTestLocation location;
+    MKTTestLocation location;
     location.testCase = test;
     location.fileName = file;
     location.lineNumber = line;

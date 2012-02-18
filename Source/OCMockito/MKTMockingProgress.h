@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MKTestLocation.h"
+#import "MKTTestLocation.h"
 
 @class MKTInvocationMatcher;
 @class MKTOngoingStubbing;
@@ -15,18 +15,18 @@
 
 @interface MKTMockingProgress : NSObject
 
-@property(nonatomic, assign) MKTestLocation testLocation;
+@property(nonatomic, assign) MKTTestLocation testLocation;
 
 + (id)sharedProgress;
 
-- (void)stubbingStartedAtLocation:(MKTestLocation)location;
+- (void)stubbingStartedAtLocation:(MKTTestLocation)location;
 - (void)reportOngoingStubbing:(MKTOngoingStubbing *)theOngoingStubbing;
 - (MKTOngoingStubbing *)pullOngoingStubbing;
 
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
 - (MKTInvocationMatcher *)pullInvocationMatcher;
 
-- (void)verificationStarted:(id <MKVerificationMode>)mode atLocation:(MKTestLocation)location;
+- (void)verificationStarted:(id <MKVerificationMode>)mode atLocation:(MKTTestLocation)location;
 - (id <MKVerificationMode>)pullVerificationMode;
 
 @end
