@@ -1,9 +1,9 @@
 //
-//  OCMockito - MKExactTimes.m
+//  OCMockito - MKTExactTimes.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKExactTimes.h"
+#import "MKTExactTimes.h"
 
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
@@ -21,12 +21,12 @@
 @end
 
 
-@interface MKExactTimes ()
+@interface MKTExactTimes ()
 @property(nonatomic, assign) NSUInteger expectedCount;
 @end
 
 
-@implementation MKExactTimes
+@implementation MKTExactTimes
 
 @synthesize expectedCount;
 

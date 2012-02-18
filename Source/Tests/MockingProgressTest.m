@@ -7,7 +7,7 @@
 #import "MKTMockingProgress.h"
 
     // Collaborators
-#import "MKExactTimes.h"
+#import "MKTExactTimes.h"
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
 #import "MKTOngoingStubbing.h"
@@ -84,7 +84,7 @@
 - (void)testPullVerificationModeWithVerificationStartedShouldReturnMode
 {
     // given
-    id <MKVerificationMode> mode = [MKExactTimes timesWithCount:42];
+    id <MKVerificationMode> mode = [MKTExactTimes timesWithCount:42];
     
     // when
     [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
@@ -96,7 +96,7 @@
 - (void)testPullVerificationModeShouldClearCurrentVerification
 {
     // given
-    id <MKVerificationMode> mode = [MKExactTimes timesWithCount:42];
+    id <MKVerificationMode> mode = [MKTExactTimes timesWithCount:42];
     
     // when
     [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];

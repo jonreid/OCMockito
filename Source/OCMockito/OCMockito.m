@@ -5,7 +5,7 @@
 
 #import "OCMockito.h"
 
-#import "MKExactTimes.h"
+#import "MKTExactTimes.h"
 #import "MKTMockitoCore.h"
 #import "MKTTestLocation.h"
 
@@ -31,7 +31,7 @@ id MKVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName
 
 id MKTimes(NSUInteger wantedNumberOfInvocations)
 {
-    return [MKExactTimes timesWithCount:wantedNumberOfInvocations];
+    return [MKTExactTimes timesWithCount:wantedNumberOfInvocations];
 }
 
 id MKNever()
