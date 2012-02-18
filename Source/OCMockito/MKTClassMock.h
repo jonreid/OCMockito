@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKClassMock.h
+//  OCMockito - MKTClassMock.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -7,7 +7,7 @@
 #import "MKPrimitiveArgumentMatching.h"
 
 
-@interface MKClassMock : NSProxy <MKPrimitiveArgumentMatching>
+@interface MKTClassMock : NSProxy <MKPrimitiveArgumentMatching>
 
 + (id)mockForClass:(Class)aClass;
 - (id)initWithClass:(Class)aClass;

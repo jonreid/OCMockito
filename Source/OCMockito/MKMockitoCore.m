@@ -53,7 +53,7 @@
     return [mockingProgress pullOngoingStubbing];
 }
 
-- (id)verifyMock:(MKClassMock *)mock
+- (id)verifyMock:(MKTClassMock *)mock
         withMode:(id <MKVerificationMode>)mode
       atLocation:(MKTestLocation)location
 {

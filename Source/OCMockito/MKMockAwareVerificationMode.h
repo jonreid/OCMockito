@@ -7,13 +7,13 @@
 #import "MKVerificationMode.h"
 
 
-@class MKClassMock;
+@class MKTClassMock;
 @protocol MKVerificationMode;
 
 
 @interface MKMockAwareVerificationMode : NSObject <MKVerificationMode>
 
-+ (id)verificationWithMock:(MKClassMock *)aMock mode:(id <MKVerificationMode>)aMode;
-- (id)initWithMock:(MKClassMock *)mock mode:(id <MKVerificationMode>)mode;
++ (id)verificationWithMock:(MKTClassMock *)aMock mode:(id <MKVerificationMode>)aMode;
+- (id)initWithMock:(MKTClassMock *)mock mode:(id <MKVerificationMode>)mode;
 
 @end

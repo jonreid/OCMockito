@@ -1,9 +1,9 @@
 //
-//  OCMockito - MKClassMock.m
+//  OCMockito - MKTClassMock.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKClassMock.h"
+#import "MKTClassMock.h"
 
 #import "MKInvocationContainer.h"
 #import "MKInvocationMatcher.h"
@@ -13,14 +13,14 @@
 #import "MKVerificationMode.h"
 
 
-@interface MKClassMock ()
+@interface MKTClassMock ()
 @property(nonatomic, assign) Class mockedClass;
 @property(nonatomic, retain) MKMockingProgress *mockingProgress;
 @property(nonatomic, retain) MKInvocationContainer *invocationContainer;
 @end
 
 
-@implementation MKClassMock
+@implementation MKTClassMock
 
 @synthesize mockedClass;
 @synthesize mockingProgress;
