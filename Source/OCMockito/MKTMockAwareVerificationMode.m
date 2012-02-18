@@ -43,7 +43,7 @@
 
 #pragma mark - MTVerificationMode
 
-- (void)verifyData:(MKVerificationData *)data
+- (void)verifyData:(MKTVerificationData *)data
 {
     [mode verifyData:data];
 }

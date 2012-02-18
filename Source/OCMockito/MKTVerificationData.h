@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKVerificationData.h
+//  OCMockito - MKTVerificationData.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -11,7 +11,7 @@
 @class MKTInvocationMatcher;
 
 
-@interface MKVerificationData : NSObject
+@interface MKTVerificationData : NSObject
 
 @property(nonatomic, retain) MKTInvocationContainer *invocations;
 @property(nonatomic, retain) MKTInvocationMatcher *wanted;

@@ -8,7 +8,7 @@
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
 #import "MKTTestLocation.h"
-#import "MKVerificationData.h"
+#import "MKTVerificationData.h"
 #import "NSException+OCMockito.h"
 
 
@@ -46,7 +46,7 @@
 
 #pragma mark - MTVerificationMode
 
-- (void)verifyData:(MKVerificationData *)data
+- (void)verifyData:(MKTVerificationData *)data
 {
     NSUInteger matchingCount = 0;
     for (NSInvocation *invocation in [[data invocations] registeredInvocations])

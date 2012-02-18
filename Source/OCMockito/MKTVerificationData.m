@@ -1,12 +1,12 @@
 //
-//  OCMockito - MKVerificationData.m
+//  OCMockito - MKTVerificationData.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKVerificationData.h"
+#import "MKTVerificationData.h"
 
 
-@implementation MKVerificationData
+@implementation MKTVerificationData
 
 @synthesize invocations;
 @synthesize wanted;

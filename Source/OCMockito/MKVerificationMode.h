@@ -5,11 +5,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class MKVerificationData;
+@class MKTVerificationData;
 
 
 @protocol MKVerificationMode <NSObject>
 
-- (void)verifyData:(MKVerificationData *)data;
+- (void)verifyData:(MKTVerificationData *)data;
 
 @end

@@ -9,7 +9,7 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTMockingProgress.h"
 #import "MKTOngoingStubbing.h"
-#import "MKVerificationData.h"
+#import "MKTVerificationData.h"
 #import "MKVerificationMode.h"
 
 
@@ -66,7 +66,7 @@
             invocationMatcher = [[[MKTInvocationMatcher alloc] init] autorelease];
         [invocationMatcher setExpectedInvocation:anInvocation];
         
-        MKVerificationData *data = [[MKVerificationData alloc] init];
+        MKTVerificationData *data = [[MKTVerificationData alloc] init];
         [data setInvocations:invocationContainer];
         [data setWanted:invocationMatcher];
         [data setTestLocation:[mockingProgress testLocation]];
