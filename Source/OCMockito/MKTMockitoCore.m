@@ -1,16 +1,16 @@
 //
-//  OCMockito - MKMockitoCore.m
+//  OCMockito - MKTMockitoCore.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
 #import "MKTMockitoCore.h"
 
-#import "MKMockingProgress.h"
+#import "MKTMockingProgress.h"
 #import "MKVerificationMode.h"
 
 
 @interface MKTMockitoCore ()
-@property(nonatomic, retain) MKMockingProgress *mockingProgress;
+@property(nonatomic, retain) MKTMockingProgress *mockingProgress;
 - (MKOngoingStubbing *)stub;
 @end
 
@@ -32,7 +32,7 @@
 {
     self = [super init];
     if (self)
-        mockingProgress = [[MKMockingProgress sharedProgress] retain];
+        mockingProgress = [[MKTMockingProgress sharedProgress] retain];
     return self;
 }
 

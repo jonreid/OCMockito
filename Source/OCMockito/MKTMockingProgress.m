@@ -1,22 +1,22 @@
 //
-//  OCMockito - MKMockingProgress.m
+//  OCMockito - MKTMockingProgress.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKMockingProgress.h"
+#import "MKTMockingProgress.h"
 
 #import "MKTInvocationMatcher.h"
 #import "MKVerificationMode.h"
 
 
-@interface MKMockingProgress ()
+@interface MKTMockingProgress ()
 @property(nonatomic, retain) MKTInvocationMatcher *invocationMatcher;
 @property(nonatomic, retain) id <MKVerificationMode> verificationMode;
 @property(nonatomic, retain) MKOngoingStubbing *ongoingStubbing;
 @end
 
 
-@implementation MKMockingProgress
+@implementation MKTMockingProgress
 
 @synthesize testLocation;
 @synthesize invocationMatcher;

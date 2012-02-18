@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKMockitoCore.h
+//  OCMockito - MKTMockitoCore.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 

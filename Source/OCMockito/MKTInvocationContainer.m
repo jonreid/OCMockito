@@ -9,7 +9,7 @@
 
 
 @interface MKTInvocationContainer ()
-@property(nonatomic, retain) MKMockingProgress *mockingProgress;
+@property(nonatomic, retain) MKTMockingProgress *mockingProgress;
 @property(nonatomic, retain) MKStubbedInvocationMatcher *invocationMatcherForStubbing;
 @property(nonatomic, retain) NSMutableArray *stubbed;
 @end
@@ -22,7 +22,7 @@
 @synthesize invocationMatcherForStubbing;
 @synthesize stubbed;
 
-- (id)initWithMockingProgress:(MKMockingProgress *)theMockingProgress
+- (id)initWithMockingProgress:(MKTMockingProgress *)theMockingProgress
 {
     self = [super init];
     if (self)

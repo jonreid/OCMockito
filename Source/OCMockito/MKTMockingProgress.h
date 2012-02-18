@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKMockingProgress.h
+//  OCMockito - MKTMockingProgress.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -13,7 +13,7 @@
 @protocol MKVerificationMode;
 
 
-@interface MKMockingProgress : NSObject
+@interface MKTMockingProgress : NSObject
 
 @property(nonatomic, assign) MKTestLocation testLocation;
 

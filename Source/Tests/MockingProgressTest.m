@@ -4,7 +4,7 @@
 //
 
     // Class under test
-#import "MKMockingProgress.h"
+#import "MKTMockingProgress.h"
 
     // Collaborators
 #import "MKExactTimes.h"
@@ -21,7 +21,7 @@
 
 @interface MockingProgressTest : SenTestCase
 {
-    MKMockingProgress *mockingProgress;
+    MKTMockingProgress *mockingProgress;
 }
 @end
 
@@ -31,7 +31,7 @@
 - (void)setUp
 {
     [super setUp];
-    mockingProgress = [[MKMockingProgress alloc] init];
+    mockingProgress = [[MKTMockingProgress alloc] init];
 }
 
 - (void)tearDown

@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class MKMockingProgress;
+@class MKTMockingProgress;
 @protocol HCMatcher;
 
 
@@ -13,7 +13,7 @@
 
 @property(nonatomic, retain) NSMutableArray *registeredInvocations;
 
-- (id)initWithMockingProgress:(MKMockingProgress *)theMockingProgress;
+- (id)initWithMockingProgress:(MKTMockingProgress *)theMockingProgress;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id)answer;

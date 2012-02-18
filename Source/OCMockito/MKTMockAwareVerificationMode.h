@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKMockAwareVerificationMode.h
+//  OCMockito - MKTMockAwareVerificationMode.h
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 

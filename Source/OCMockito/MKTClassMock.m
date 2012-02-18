@@ -7,7 +7,7 @@
 
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
-#import "MKMockingProgress.h"
+#import "MKTMockingProgress.h"
 #import "MKOngoingStubbing.h"
 #import "MKVerificationData.h"
 #import "MKVerificationMode.h"
@@ -15,7 +15,7 @@
 
 @interface MKTClassMock ()
 @property(nonatomic, assign) Class mockedClass;
-@property(nonatomic, retain) MKMockingProgress *mockingProgress;
+@property(nonatomic, retain) MKTMockingProgress *mockingProgress;
 @property(nonatomic, retain) MKTInvocationContainer *invocationContainer;
 @end
 
@@ -36,7 +36,7 @@
     if (self)
     {
         mockedClass = aClass;
-        mockingProgress = [[MKMockingProgress sharedProgress] retain];
+        mockingProgress = [[MKTMockingProgress sharedProgress] retain];
         invocationContainer = [[MKTInvocationContainer alloc] initWithMockingProgress:mockingProgress];
     }
     return self;
