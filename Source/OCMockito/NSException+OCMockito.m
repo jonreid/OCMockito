@@ -8,7 +8,9 @@
 
 @implementation NSException (OCMockito)
 
-+ (NSException *)failureInFile:(NSString *)fileName atLine:(int)lineNumber reason:(NSString *)reason
++ (NSException *)mkt_failureInFile:(NSString *)fileName
+                            atLine:(int)lineNumber
+                            reason:(NSString *)reason
 {
     NSNumber *line = [NSNumber numberWithInt:lineNumber];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:

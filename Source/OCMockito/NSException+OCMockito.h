@@ -8,6 +8,8 @@
 
 @interface NSException (OCMockito)
 
-+ (NSException *)failureInFile:(NSString *)fileName atLine:(int)lineNumber reason:(NSString *)reason;
++ (NSException *)mkt_failureInFile:(NSString *)fileName
+                            atLine:(int)lineNumber
+                            reason:(NSString *)reason;
 
 @end

@@ -64,9 +64,9 @@
         MKTTestLocation testLocation = [data testLocation];
         NSString *fileName = [NSString stringWithCString:testLocation.fileName
                                                 encoding:NSUTF8StringEncoding];
-        NSException *failure = [NSException failureInFile:fileName
-                                                   atLine:testLocation.lineNumber
-                                                   reason:description];
+        NSException *failure = [NSException mkt_failureInFile:fileName
+                                                       atLine:testLocation.lineNumber
+                                                       reason:description];
         [testLocation.testCase failWithException:failure];
     }
 }
