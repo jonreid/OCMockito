@@ -61,7 +61,7 @@ DEFINE_RETURN_METHOD(float, Float)
 DEFINE_RETURN_METHOD(double, Double)
 
 
-#pragma mark - MTPrimitiveArgumentMatching
+#pragma mark - MKTPrimitiveArgumentMatching
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {

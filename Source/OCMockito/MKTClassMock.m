@@ -117,7 +117,7 @@
 }
 
 
-#pragma mark - MTPrimitiveArgumentMatching
+#pragma mark - MKTPrimitiveArgumentMatching
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {

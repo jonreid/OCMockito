@@ -44,7 +44,7 @@
 }
 
 
-#pragma mark - MTVerificationMode
+#pragma mark - MKTVerificationMode
 
 - (void)verifyData:(MKTVerificationData *)data
 {
