@@ -1,5 +1,5 @@
 //
-//  OCMockito - InvocationMatcherTest.m
+//  OCMockito - MKTInvocationMatcherTest.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -95,14 +95,14 @@ DEFINE_INVOCATION_METHOD(double, Double)
 
 #pragma mark -
 
-@interface InvocationMatcherTest : SenTestCase
+@interface MKTInvocationMatcherTest : SenTestCase
 {
     MKTInvocationMatcher *invocationMatcher;
 }
 @end
 
 
-@implementation InvocationMatcherTest
+@implementation MKTInvocationMatcherTest
 
 - (void)setUp
 {

@@ -1,5 +1,5 @@
 //
-//  OCMockito - MockingProgressTest.m
+//  OCMockito - MKTMockingProgressTest.m
 //  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -19,14 +19,14 @@
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 
 
-@interface MockingProgressTest : SenTestCase
+@interface MKTMockingProgressTest : SenTestCase
 {
     MKTMockingProgress *mockingProgress;
 }
 @end
 
 
-@implementation MockingProgressTest
+@implementation MKTMockingProgressTest
 
 - (void)setUp
 {
