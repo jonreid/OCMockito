@@ -10,18 +10,18 @@
 #import "MKTTestLocation.h"
 
 
-MKTOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
+MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
 {
     MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
     return [mockitoCore stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
-id MKVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
+id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
-    return MKVerifyCountWithLocation(mock, MKTimes(1), testCase, fileName, lineNumber);
+    return MKTVerifyCountWithLocation(mock, MKTTimes(1), testCase, fileName, lineNumber);
 }
 
-id MKVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber)
+id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber)
 {
     MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
     return [mockitoCore verifyMock:mock
@@ -29,12 +29,12 @@ id MKVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName
                         atLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
-id MKTimes(NSUInteger wantedNumberOfInvocations)
+id MKTTimes(NSUInteger wantedNumberOfInvocations)
 {
     return [MKTExactTimes timesWithCount:wantedNumberOfInvocations];
 }
 
-id MKNever()
+id MKTNever()
 {
-    return MKTimes(0);
+    return MKTTimes(0);
 }
