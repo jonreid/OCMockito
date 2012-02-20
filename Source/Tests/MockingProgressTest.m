@@ -111,7 +111,7 @@
     assertThat([mockingProgress pullInvocationMatcher], is(nilValue()));
 }
 
-- (void)testPullInvocationMatcherAfterSettingMatchersShouldHaveThoseMatchers
+- (void)testPullInvocationMatcherAfterSetMatcherShouldHaveThoseMatchersForAllFunctionArguments
 {
     // given
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
@@ -121,6 +121,7 @@
     
     // then
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
+                                                        // 0:self, 1:_cmd, 2:argument0, 3:argument1
 }
 
 - (void)testPullInvocationMatcherShouldClearCurrentMatcher
@@ -146,6 +147,7 @@
     
     // then
     assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
+                                                        // 0:self, 1:_cmd, 2:argument0, 3:argument1
 }
 
 @end
