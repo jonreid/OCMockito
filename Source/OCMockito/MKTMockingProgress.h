@@ -23,10 +23,10 @@
 - (void)reportOngoingStubbing:(MKTOngoingStubbing *)theOngoingStubbing;
 - (MKTOngoingStubbing *)pullOngoingStubbing;
 
-- (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
-- (MKTInvocationMatcher *)pullInvocationMatcher;
-
 - (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location;
 - (id <MKTVerificationMode>)pullVerificationMode;
+
+- (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
+- (MKTInvocationMatcher *)pullInvocationMatcher;
 
 @end

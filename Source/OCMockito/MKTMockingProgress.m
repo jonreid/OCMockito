@@ -57,6 +57,19 @@
     return [result autorelease];
 }
 
+- (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location
+{
+    [self setVerificationMode:mode];
+    [self setTestLocation:location];
+}
+
+- (id <MKTVerificationMode>)pullVerificationMode
+{
+    id <MKTVerificationMode> result = [verificationMode retain];
+    [self setVerificationMode:nil];
+    return [result autorelease];
+}
+
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
     if (!invocationMatcher)
@@ -68,19 +81,6 @@
 {
     MKTInvocationMatcher *result = [invocationMatcher retain];
     [self setInvocationMatcher:nil];
-    return [result autorelease];
-}
-
-- (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location
-{
-    [self setVerificationMode:mode];
-    [self setTestLocation:location];
-}
-
-- (id <MKTVerificationMode>)pullVerificationMode
-{
-    id <MKTVerificationMode> result = [verificationMode retain];
-    [self setVerificationMode:nil];
     return [result autorelease];
 }
 

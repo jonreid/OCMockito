@@ -40,7 +40,7 @@
     [super tearDown];
 }
 
-- (void)testPullOngoingStubbingWithoutStubbingReportedShouldBeNil
+- (void)testPullOngoingStubbingWithoutStubbingReportedShouldReturnNil
 {
     assertThat([mockingProgress pullOngoingStubbing], is(nilValue()));
 }
@@ -76,7 +76,7 @@
     assertThat([mockingProgress pullOngoingStubbing], is(nilValue()));
 }
 
-- (void)testPullVerificationModeWithoutVerificationStartedShouldBeNil
+- (void)testPullVerificationModeWithoutVerificationStartedShouldReturnNil
 {
     assertThat([mockingProgress pullVerificationMode], is(nilValue()));
 }
