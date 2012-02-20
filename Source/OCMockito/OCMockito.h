@@ -11,7 +11,7 @@
 
 
 /**
-    Creates mock object of given class.
+    Returns a mock object of a given class.
  
     Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
     @c mock.

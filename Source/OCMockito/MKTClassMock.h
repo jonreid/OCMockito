@@ -7,6 +7,9 @@
 #import "MKTPrimitiveArgumentMatching.h"
 
 
+/**
+    Mock object of a given class.
+ */
 @interface MKTClassMock : NSProxy <MKTPrimitiveArgumentMatching>
 
 + (id)mockForClass:(Class)aClass;
