@@ -37,6 +37,24 @@
     return self;
 }
 
+- (MKTOngoingStubbing *)willReturnPoint:(NSPoint)value
+{
+    [invocationContainer addAnswer:[NSValue valueWithPoint:value]];
+    return self;
+}
+
+- (MKTOngoingStubbing *)willReturnSize:(NSSize)value
+{
+    [invocationContainer addAnswer:[NSValue valueWithSize:value]];
+    return self;
+}
+
+- (MKTOngoingStubbing *)willReturnRect:(NSRect)value
+{
+    [invocationContainer addAnswer:[NSValue valueWithRect:value]];
+    return self;
+}
+
 #define DEFINE_RETURN_METHOD(type, typeName)                                        \
     - (MKTOngoingStubbing *)willReturn ## typeName:(type)value                      \
     {                                                                               \
