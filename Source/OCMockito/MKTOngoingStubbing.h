@@ -28,6 +28,8 @@
 /// Stubs given @c NSRect as return value.
 - (MKTOngoingStubbing *)willReturnRect:(NSRect)value;
 
+/// Stubs given @c NSRange as return value.
+- (MKTOngoingStubbing *)willReturnRange:(NSRange)value;
 
 /// Stubs given @c BOOL as return value.
 - (MKTOngoingStubbing *)willReturnBool:(BOOL)value;

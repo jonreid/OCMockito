@@ -104,6 +104,11 @@
         NSRect answer = [[invocationContainer findAnswerFor:anInvocation] rectValue];
         [anInvocation setReturnValue:&answer];
     }
+    else if(strcmp(methodReturnType, @encode(NSRange)) == 0)
+    {
+        NSRange answer = [[invocationContainer findAnswerFor:anInvocation] rangeValue];
+        [anInvocation setReturnValue:&answer];
+    }
     HANDLE_METHOD_RETURN_TYPE(char, char)
     HANDLE_METHOD_RETURN_TYPE(int, int)
     HANDLE_METHOD_RETURN_TYPE(short, short)

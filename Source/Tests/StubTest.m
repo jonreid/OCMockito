@@ -49,6 +49,7 @@ typedef struct {
 - (NSPoint)methodReturningPoint { return NSMakePoint(0, 0); }
 - (NSSize)methodReturningSize { return NSMakeSize(10, 10); }
 - (NSRect)methodReturningRect { return NSMakeRect(0, 0, 10, 10); }
+- (NSRange)methodReturningRange { return NSMakeRange(0, 0); }
 
 @end
 
@@ -362,5 +363,18 @@ typedef struct {
     // then
     NSRect rect = [mockObject methodReturningRect];
     assertThatBool(NSEqualRects(rect, NSMakeRect(1,2,3,4)), equalToBool(YES));
+}
+
+- (void)testStubbedMethodShouldReturnGivenRange
+{
+    // given
+    ReturningObject *mockObject = mock([ReturningObject class]);
+
+    // when
+    [given([mockObject methodReturningRange]) willReturnRange:NSMakeRange(1, 2)];
+
+    // then
+    NSRange range = [mockObject methodReturningRange];
+    assertThatBool(NSEqualRanges(range, NSMakeRange(1, 2)), equalToBool(YES));
 }
 @end
