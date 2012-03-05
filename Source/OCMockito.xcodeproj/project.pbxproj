@@ -140,7 +140,7 @@
 		085D2FB41351082800EBBE91 /* MKTClassMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassMock.m; sourceTree = "<group>"; };
 		085D2FF51351254000EBBE91 /* libocmockito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libocmockito.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		086F86E9146A43CB0050F00E /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-1.6/OCHamcrest.framework"; sourceTree = "<group>"; };
+		086F86E9146A43CB0050F00E /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-1.7/OCHamcrest.framework"; sourceTree = "<group>"; };
 		086F86EC146A43E10050F00E /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.6/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		089A8C2213552DE7003E7D27 /* ClassMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassMockTest.m; sourceTree = "<group>"; };
 		089A8C3113555D0C003E7D27 /* StubTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubTest.m; sourceTree = "<group>"; };
