@@ -89,26 +89,10 @@
         id answer = [invocationContainer findAnswerFor:anInvocation];
         [anInvocation setReturnValue:&answer];
     }
-    else if(strcmp(methodReturnType, @encode(NSPoint)) == 0)
-    {
-        NSPoint answer = [[invocationContainer findAnswerFor:anInvocation] pointValue];
-        [anInvocation setReturnValue:&answer];
-    }
-    else if(strcmp(methodReturnType, @encode(NSSize)) == 0)
-    {
-        NSSize answer = [[invocationContainer findAnswerFor:anInvocation] sizeValue];
-        [anInvocation setReturnValue:&answer];
-    }
-    else if(strcmp(methodReturnType, @encode(NSRect)) == 0)
-    {
-        NSRect answer = [[invocationContainer findAnswerFor:anInvocation] rectValue];
-        [anInvocation setReturnValue:&answer];
-    }
-    else if(strcmp(methodReturnType, @encode(NSRange)) == 0)
-    {
-        NSRange answer = [[invocationContainer findAnswerFor:anInvocation] rangeValue];
-        [anInvocation setReturnValue:&answer];
-    }
+    HANDLE_METHOD_RETURN_TYPE(NSPoint, point)
+    HANDLE_METHOD_RETURN_TYPE(NSSize, size)
+    HANDLE_METHOD_RETURN_TYPE(NSRect, rect)
+    HANDLE_METHOD_RETURN_TYPE(NSRange, range)
     HANDLE_METHOD_RETURN_TYPE(char, char)
     HANDLE_METHOD_RETURN_TYPE(int, int)
     HANDLE_METHOD_RETURN_TYPE(short, short)
