@@ -295,7 +295,7 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-- (void)testVerifyWithAccidentalNilShouldGiveError
+- (void)testVerifyWithNilShouldGiveError
 {
     // given
     MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
@@ -303,10 +303,10 @@
     // then
     [verifyWithMockTestCase(nil) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
-               is(@"Argument passed to verify() should be a mock but is nil."));
+               is(@"Argument passed to verify() should be a mock but is nil"));
 }
 
-- (void)testVerifyCountWithAccidentalNilShouldGiveError
+- (void)testVerifyCountWithNilShouldGiveError
 {
     // given
     MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
@@ -314,7 +314,31 @@
     // then
     [verifyCountWithMockTestCase(nil, times(1)) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
-               is(@"Argument passed to verifyCount() should be a mock but is nil."));
+               is(@"Argument passed to verifyCount() should be a mock but is nil"));
+}
+
+- (void)testVerifyWithNonMockShouldGiveError
+{
+    // given
+    NSMutableArray *realArray = [NSMutableArray array];
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    // then
+    [verifyWithMockTestCase(realArray) removeAllObjects];
+    assertThat([[mockTestCase failureException] description],
+               is(@"Argument passed to verify() should be a mock but is type NSCFArray"));
+}
+
+- (void)testVerifyCountWithNonMockShouldGiveError
+{
+    // given
+    NSMutableArray *realArray = [NSMutableArray array];
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    // then
+    [verifyCountWithMockTestCase(realArray, times(1)) removeAllObjects];
+    assertThat([[mockTestCase failureException] description],
+               is(@"Argument passed to verifyCount() should be a mock but is type NSCFArray"));
 }
 
 @end

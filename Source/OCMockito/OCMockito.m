@@ -10,6 +10,28 @@
 #import "MKTTestLocation.h"
 
 
+static BOOL isValidMock(id mock, id testCase, const char *fileName, int lineNumber, NSString *functionName)
+{
+    NSString *underlyingClassName = NSStringFromClass([mock class]);
+    if (![underlyingClassName isEqualToString:@"MKTClassMock"])
+    {
+        NSString *actual = nil;
+        if (!underlyingClassName)
+            actual = @"nil";
+        else
+            actual = [@"type " stringByAppendingString:underlyingClassName];
+        
+        NSString *description = [NSString stringWithFormat:
+                                 @"Argument passed to %@ should be a mock but is %@",
+                                 functionName, actual];
+        MKTFailTest(testCase, fileName, lineNumber, description);
+        return NO;
+    }
+    
+    return YES;
+}
+
+
 MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
 {
     MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
@@ -18,24 +40,16 @@ MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int 
 
 id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
-    if (!mock)
-    {
-        MKTFailTest(testCase, fileName, lineNumber,
-                    @"Argument passed to verify() should be a mock but is nil.");
+    if (!isValidMock(mock, testCase, fileName, lineNumber, @"verify()"))
         return nil;
-    }
     
     return MKTVerifyCountWithLocation(mock, MKTTimes(1), testCase, fileName, lineNumber);
 }
 
 id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber)
 {
-    if (!mock)
-    {
-        MKTFailTest(testCase, fileName, lineNumber,
-                    @"Argument passed to verifyCount() should be a mock but is nil.");
+    if (!isValidMock(mock, testCase, fileName, lineNumber, @"verifyCount()"))
         return nil;
-    }
     
     MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
     return [mockitoCore verifyMock:mock
