@@ -295,4 +295,26 @@
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
+- (void)testVerifyWithAccidentalNilShouldGiveError
+{
+    // given
+    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    
+    // then
+    [verifyWithMockTestCase(nil) removeAllObjects];
+    assertThat([[mockTestCase failureException] description],
+               is(@"Argument passed to verify() should be a mock but is nil."));
+}
+
+//- (void)testVerifyCountWithAccidentalNilShouldGiveError
+//{
+//    // given
+//    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+//    
+//    // then
+//    [verifyCountWithMockTestCase(nil, times(1)) removeAllObjects];
+//    assertThat([[mockTestCase failureException] description],
+//               is(@"Argument passed to verify() should be a mock but is nil."));
+//}
+
 @end
