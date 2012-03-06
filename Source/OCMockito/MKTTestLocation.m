@@ -17,7 +17,7 @@
 @end
 
 
-void MKTTestFail(MKTTestLocation testLocation, NSString *description)
+void MKTFailTestLocation(MKTTestLocation testLocation, NSString *description)
 {
     NSString *fileName = [NSString stringWithCString:testLocation.fileName
                                             encoding:NSUTF8StringEncoding];

@@ -314,7 +314,7 @@
     // then
     [verifyCountWithMockTestCase(nil, times(1)) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
-               is(@"Argument passed to verify() should be a mock but is nil."));
+               is(@"Argument passed to verifyCount() should be a mock but is nil."));
 }
 
 @end

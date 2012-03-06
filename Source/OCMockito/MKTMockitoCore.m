@@ -57,12 +57,6 @@
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location
 {
-    if (!mock)
-    {
-        MKTTestFail(location, @"Argument passed to verify() should be a mock but is nil.");
-        return nil;
-    }
-    
     [mockingProgress verificationStarted:mode atLocation:location];
     return mock;
 }

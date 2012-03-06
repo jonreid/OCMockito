@@ -60,7 +60,7 @@
         NSString *plural = (expectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %d matching invocation%@, but received %d",
                                  expectedCount, plural, matchingCount];
-        MKTTestFail([data testLocation], description);
+        MKTFailTestLocation([data testLocation], description);
     }
 }
 
