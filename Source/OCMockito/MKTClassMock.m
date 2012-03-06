@@ -14,7 +14,9 @@
 
 
 @interface MKTClassMock ()
-@property (nonatomic, assign) Class mockedClass;
+{
+    Class mockedClass;
+}
 @property (nonatomic, retain) MKTMockingProgress *mockingProgress;
 @property (nonatomic, retain) MKTInvocationContainer *invocationContainer;
 @end
@@ -22,7 +24,6 @@
 
 @implementation MKTClassMock
 
-@synthesize mockedClass;
 @synthesize mockingProgress;
 @synthesize invocationContainer;
 

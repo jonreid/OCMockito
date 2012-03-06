@@ -17,9 +17,11 @@
 
 
 @interface MKTInvocationMatcher ()
+{
+    NSUInteger numberOfArguments;
+}
 @property (nonatomic, retain) NSInvocation *expected;
 @property (nonatomic, retain) NSMutableArray *argumentMatchers;
-@property (nonatomic, assign) NSUInteger numberOfArguments;
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount;
 @end
 
@@ -28,7 +30,6 @@
 
 @synthesize expected;
 @synthesize argumentMatchers;
-@synthesize numberOfArguments;
 
 - (id)init
 {

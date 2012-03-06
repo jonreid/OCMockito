@@ -22,13 +22,13 @@
 
 
 @interface MKTExactTimes ()
-@property (nonatomic, assign) NSUInteger expectedCount;
+{
+    NSUInteger expectedCount;
+}
 @end
 
 
 @implementation MKTExactTimes
-
-@synthesize expectedCount;
 
 + (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations
 {
