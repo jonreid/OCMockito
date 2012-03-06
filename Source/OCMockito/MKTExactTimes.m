@@ -46,6 +46,16 @@
 
 #pragma mark MKTVerificationMode
 
+- (void)failTestWithDescription:(NSString *)description location:(MKTTestLocation)testLocation
+{
+    NSString *fileName = [NSString stringWithCString:testLocation.fileName
+                                            encoding:NSUTF8StringEncoding];
+    NSException *failure = [NSException mkt_failureInFile:fileName
+                                                   atLine:testLocation.lineNumber
+                                                   reason:description];
+    [testLocation.testCase failWithException:failure];
+}
+
 - (void)verifyData:(MKTVerificationData *)data
 {
     NSUInteger matchingCount = 0;
@@ -60,14 +70,7 @@
         NSString *plural = (expectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %d matching invocation%@, but received %d",
                                  expectedCount, plural, matchingCount];
-        
-        MKTTestLocation testLocation = [data testLocation];
-        NSString *fileName = [NSString stringWithCString:testLocation.fileName
-                                                encoding:NSUTF8StringEncoding];
-        NSException *failure = [NSException mkt_failureInFile:fileName
-                                                       atLine:testLocation.lineNumber
-                                                       reason:description];
-        [testLocation.testCase failWithException:failure];
+        [self failTestWithDescription:description location:[data testLocation]];
     }
 }
 
