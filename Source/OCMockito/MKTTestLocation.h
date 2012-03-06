@@ -20,4 +20,5 @@ static inline MKTTestLocation MKTTestLocationMake(id test, const char *file, int
     return location;
 }
 
+void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description);
 void MKTFailTestLocation(MKTTestLocation testLocation, NSString *description);

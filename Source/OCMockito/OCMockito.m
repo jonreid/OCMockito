@@ -20,8 +20,8 @@ id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNum
 {
     if (!mock)
     {
-        MKTTestLocation location = MKTTestLocationMake(testCase, fileName, lineNumber);
-        MKTFailTestLocation(location, @"Argument passed to verify() should be a mock but is nil.");
+        MKTFailTest(testCase, fileName, lineNumber,
+                    @"Argument passed to verify() should be a mock but is nil.");
         return nil;
     }
     
@@ -32,8 +32,8 @@ id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileNam
 {
     if (!mock)
     {
-        MKTTestLocation location = MKTTestLocationMake(testCase, fileName, lineNumber);
-        MKTFailTestLocation(location, @"Argument passed to verifyCount() should be a mock but is nil.");
+        MKTFailTest(testCase, fileName, lineNumber,
+                    @"Argument passed to verifyCount() should be a mock but is nil.");
         return nil;
     }
     

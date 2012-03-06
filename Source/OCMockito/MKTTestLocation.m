@@ -17,12 +17,16 @@
 @end
 
 
+void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description)
+{
+    NSString *theFileName = [NSString stringWithCString:fileName encoding:NSUTF8StringEncoding];
+    NSException *failure = [NSException mkt_failureInFile:theFileName
+                                                   atLine:lineNumber
+                                                   reason:description];
+    [testCase failWithException:failure];
+}
+
 void MKTFailTestLocation(MKTTestLocation testLocation, NSString *description)
 {
-    NSString *fileName = [NSString stringWithCString:testLocation.fileName
-                                            encoding:NSUTF8StringEncoding];
-    NSException *failure = [NSException mkt_failureInFile:fileName
-                                                   atLine:testLocation.lineNumber
-                                                   reason:description];
-    [testLocation.testCase failWithException:failure];
+    MKTFailTest(testLocation.testCase, testLocation.fileName, testLocation.lineNumber, description);
 }
