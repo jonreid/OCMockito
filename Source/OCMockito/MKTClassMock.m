@@ -109,7 +109,7 @@
 }
 
 
-#pragma mark - NSObject
+#pragma mark NSObject
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
@@ -117,7 +117,7 @@
 }
 
 
-#pragma mark - MKTPrimitiveArgumentMatching
+#pragma mark MKTPrimitiveArgumentMatching
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
