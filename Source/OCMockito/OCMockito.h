@@ -7,6 +7,7 @@
 
 #import "MKTClassMock.h"
 #import "MKTOngoingStubbing.h"
+#import "MKTProtocolMock.h"
 #import <objc/objc-api.h>
 
 
@@ -20,6 +21,19 @@
 
 #ifdef MOCKITO_SHORTHAND
     #define mock(aClass) MKTMock(aClass)
+#endif
+
+
+/**
+    Returns a mock object implementing a given protocol.
+
+    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c mockProtocol.
+ */
+#define MKTMockProtocol(aProtocol) [MKTProtocolMock mockForProtocol:aProtocol]
+
+#ifdef MOCKITO_SHORTHAND
+    #define mockProtocol(aProtocol) MKTMockProtocol(aProtocol)
 #endif
 
 

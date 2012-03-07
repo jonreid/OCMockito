@@ -44,6 +44,12 @@
 		0827E87F1354181400C39A57 /* NSException+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E87C1354181300C39A57 /* NSException+OCMockito.h */; };
 		0827E8801354181400C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
 		0827E8881354224800C39A57 /* NSException+OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E87D1354181300C39A57 /* NSException+OCMockito.m */; };
+		085A8BC7150718E30018EC66 /* MKTProtocolMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */; };
+		085A8BC8150718E30018EC66 /* MKTProtocolMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */; };
+		085A8BCB15071F7B0018EC66 /* MKTProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */; };
+		085A8BCC15071F7B0018EC66 /* MKTProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */; };
+		085A8BCD15071F7B0018EC66 /* MKTProtocolMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */; };
+		085A8BCE15071F7B0018EC66 /* MKTProtocolMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */; };
 		085D2FB21351080400EBBE91 /* VerifyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* VerifyTest.m */; };
 		085D2FB51351082800EBBE91 /* MKTClassMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MKTClassMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		085D2FB61351082800EBBE91 /* MKTClassMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MKTClassMock.m */; };
@@ -138,6 +144,9 @@
 		0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocationContainer.m; sourceTree = "<group>"; };
 		0827E87C1354181300C39A57 /* NSException+OCMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+OCMockito.h"; sourceTree = "<group>"; };
 		0827E87D1354181300C39A57 /* NSException+OCMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+OCMockito.m"; sourceTree = "<group>"; };
+		085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMockTest.m; sourceTree = "<group>"; };
+		085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTProtocolMock.h; sourceTree = "<group>"; };
+		085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMock.m; sourceTree = "<group>"; };
 		085D2FB11351080400EBBE91 /* VerifyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyTest.m; sourceTree = "<group>"; };
 		085D2FB31351082800EBBE91 /* MKTClassMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTClassMock.h; sourceTree = "<group>"; };
 		085D2FB41351082800EBBE91 /* MKTClassMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassMock.m; sourceTree = "<group>"; };
@@ -250,6 +259,8 @@
 				0827E83413526E7300C39A57 /* OCMockito.m */,
 				085D2FB31351082800EBBE91 /* MKTClassMock.h */,
 				085D2FB41351082800EBBE91 /* MKTClassMock.m */,
+				085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */,
+				085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */,
 				0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */,
 				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
 				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
@@ -282,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				089A8C2213552DE7003E7D27 /* MKTClassMockTest.m */,
+				085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */,
 				08F189FC135A6D1300F76379 /* MKTInvocationMatcherTest.m */,
 				08F189E21359661E00F76379 /* MKTMockingProgressTest.m */,
 				089A8C3113555D0C003E7D27 /* StubTest.m */,
@@ -322,6 +334,7 @@
 				08E1E74B136289C70066B0C7 /* MKTStubbedInvocationMatcher.h in Headers */,
 				08E1E75013633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h in Headers */,
 				086F86E8146A41350050F00E /* MKTClassMock.h in Headers */,
+				085A8BCC15071F7B0018EC66 /* MKTProtocolMock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +357,7 @@
 				08F18A01135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */,
 				08E1E74A136289C70066B0C7 /* MKTStubbedInvocationMatcher.h in Headers */,
 				08E1E74F13633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h in Headers */,
+				085A8BCB15071F7B0018EC66 /* MKTProtocolMock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +544,7 @@
 				08E1E74D136289C70066B0C7 /* MKTStubbedInvocationMatcher.m in Sources */,
 				085EECDA146A4D53001CF010 /* OCMockito.m in Sources */,
 				08068ED31505A59700FA2D8F /* MKTTestLocation.m in Sources */,
+				085A8BCE15071F7B0018EC66 /* MKTProtocolMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +557,7 @@
 				089A8C3313555D0C003E7D27 /* StubTest.m in Sources */,
 				08F189E41359661E00F76379 /* MKTMockingProgressTest.m in Sources */,
 				08F189FE135A6D1300F76379 /* MKTInvocationMatcherTest.m in Sources */,
+				085A8BC8150718E30018EC66 /* MKTProtocolMockTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +578,7 @@
 				08E1E74C136289C70066B0C7 /* MKTStubbedInvocationMatcher.m in Sources */,
 				085EECD9146A4D52001CF010 /* OCMockito.m in Sources */,
 				08068ED21505A59700FA2D8F /* MKTTestLocation.m in Sources */,
+				085A8BCD15071F7B0018EC66 /* MKTProtocolMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +591,7 @@
 				089A8C3213555D0C003E7D27 /* StubTest.m in Sources */,
 				08F189E31359661E00F76379 /* MKTMockingProgressTest.m in Sources */,
 				08F189FD135A6D1300F76379 /* MKTInvocationMatcherTest.m in Sources */,
+				085A8BC7150718E30018EC66 /* MKTProtocolMockTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
