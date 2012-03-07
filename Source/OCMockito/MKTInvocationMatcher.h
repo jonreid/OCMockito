@@ -1,6 +1,6 @@
 //
 //  OCMockito - MKTInvocationMatcher.h
-//  Copyright 2011 eBay Inc. All rights reserved.
+//  Copyright 2012 eBay Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
