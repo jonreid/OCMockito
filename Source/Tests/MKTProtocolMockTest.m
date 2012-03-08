@@ -1,6 +1,6 @@
 //
 //  OCMockito - MKTProtocolMockTest.m
-//  Copyright 2012 eBay Inc. All rights reserved.
+//  Copyright 2012 Jonathan M. Reid. All rights reserved.
 //
 //  Created by: Jon Reid
 //
