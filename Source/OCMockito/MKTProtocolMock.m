@@ -125,8 +125,7 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return YES;
-//    return [mockedProtocol instancesRespondToSelector:aSelector];
+    return [self methodSignatureForSelector:aSelector] != nil;
 }
 
 

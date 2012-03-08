@@ -137,4 +137,31 @@
     STAssertFalse([mockImplementor conformsToProtocol:@protocol(NSCoding)], nil);
 }
 
+- (void)testMockShouldRespondToRequiredSelector
+{
+    // given
+    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    
+    // then
+    STAssertTrue([mockImplementor respondsToSelector:@selector(required)], nil);
+}
+
+- (void)testMockShouldRespondToOptionalSelector
+{
+    // given
+    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    
+    // then
+    STAssertTrue([mockImplementor respondsToSelector:@selector(optional)], nil);
+}
+
+- (void)testMockShouldNotRespondToUnrelatedSelector
+{
+    // given
+    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    
+    // then
+    STAssertFalse([mockImplementor respondsToSelector:@selector(objectAtIndex:)], nil);
+}
+
 @end
