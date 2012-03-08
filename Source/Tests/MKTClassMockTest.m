@@ -36,6 +36,19 @@
     assertThat(signature, is(equalTo([realString methodSignatureForSelector:selector])));
 }
 
+- (void)testMethodSignatureForSelectorNotInClassShouldAnswerNil
+{
+    // given
+    NSString *mockString = mock([NSString class]);
+    SEL selector = @selector(objectAtIndex:);
+    
+    // when
+    NSMethodSignature *signature = [mockString methodSignatureForSelector:selector];
+    
+    // then
+    assertThat(signature, is(nilValue()));
+}
+
 - (void)testMockShouldRespondToKnownSelector
 {
     // given

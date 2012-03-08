@@ -110,6 +110,8 @@
     struct objc_method_description methodDescription = protocol_getMethodDescription(mockedProtocol, aSelector, YES, YES);
     if (!methodDescription.name)
         methodDescription = protocol_getMethodDescription(mockedProtocol, aSelector, NO, YES);
+    if (!methodDescription.name)
+        return nil;
 	return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
 }
 

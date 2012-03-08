@@ -97,4 +97,17 @@
     assertThat(signature, is(equalTo([realImplementor methodSignatureForSelector:selector])));
 }
 
+- (void)testMethodSignatureForSelectorNotInProtocolShouldAnswerNil
+{
+    // given
+    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    SEL selector = @selector(objectAtIndex:);
+    
+    // when
+    NSMethodSignature *signature = [(id)mockImplementor methodSignatureForSelector:selector];
+    
+    // then
+    assertThat(signature, is(nilValue()));
+}
+
 @end
