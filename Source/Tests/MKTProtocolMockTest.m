@@ -83,4 +83,18 @@
     assertThat(signature, is(equalTo([realImplementor methodSignatureForSelector:selector])));
 }
 
+- (void)testMockShouldAnswerSameMethodSignatureForOptionalSelectorAsRealImplementor
+{
+    // given
+    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    FullImplementor *realImplementor = [[[FullImplementor alloc] init] autorelease];
+    SEL selector = @selector(optional);
+    
+    // when
+    NSMethodSignature *signature = [(id)mockImplementor methodSignatureForSelector:selector];
+    
+    // then
+    assertThat(signature, is(equalTo([realImplementor methodSignatureForSelector:selector])));
+}
+
 @end

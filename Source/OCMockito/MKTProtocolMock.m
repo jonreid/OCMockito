@@ -108,6 +108,8 @@
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     struct objc_method_description methodDescription = protocol_getMethodDescription(mockedProtocol, aSelector, YES, YES);
+    if (!methodDescription.name)
+        methodDescription = protocol_getMethodDescription(mockedProtocol, aSelector, NO, YES);
 	return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
 }
 
