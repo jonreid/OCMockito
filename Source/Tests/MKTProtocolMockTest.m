@@ -110,4 +110,31 @@
     assertThat(signature, is(nilValue()));
 }
 
+- (void)testMockShouldConformToItsOwnProtocol
+{
+    // given
+    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    
+    // then
+    STAssertTrue([mockImplementor conformsToProtocol:@protocol(TestingProtocol)], nil);
+}
+
+- (void)testMockShouldConformToParentProtocol
+{
+    // given
+    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    
+    // then
+    STAssertTrue([mockImplementor conformsToProtocol:@protocol(NSObject)], nil);
+}
+
+- (void)testMockShouldNotConformToUnrelatedProtocol
+{
+    // given
+    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    
+    // then
+    STAssertFalse([mockImplementor conformsToProtocol:@protocol(NSCoding)], nil);
+}
+
 @end

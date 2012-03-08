@@ -118,6 +118,11 @@
 
 #pragma mark NSObject
 
+- (BOOL)conformsToProtocol:(Protocol *)aProtocol
+{
+    return protocol_conformsToProtocol(mockedProtocol, aProtocol);
+}
+
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
     return YES;
