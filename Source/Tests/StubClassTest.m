@@ -16,10 +16,6 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
-typedef struct {
-    int i;
-} Foo;
-
 
 @interface ReturningObject : NSObject
 @end
