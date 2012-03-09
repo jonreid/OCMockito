@@ -1,6 +1,6 @@
 //
 //  OCMockito - MKTInvocationMatcher.h
-//  Copyright 2012 Jonathan M. Reid. All rights reserved.
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
 #import <Foundation/Foundation.h>

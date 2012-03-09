@@ -1,8 +1,6 @@
 //
 //  OCMockito - MKTProtocolMockTest.m
-//  Copyright 2012 Jonathan M. Reid. All rights reserved.
-//
-//  Created by: Jon Reid
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
 #define MOCKITO_SHORTHAND

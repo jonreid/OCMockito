@@ -7,6 +7,7 @@
 #import "OCMockito.h"
 
 	// Test support
+#import "MockTestCase.h"
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -16,36 +17,6 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
-#define verifyWithMockTestCase(mock) MKTVerifyWithLocation(mock, mockTestCase, __FILE__, __LINE__)
-#define verifyCountWithMockTestCase(mock, mode) MKTVerifyCountWithLocation(mock, mode, mockTestCase, __FILE__, __LINE__)
-
-
-@interface MockTestCase : NSObject
-@property (nonatomic, assign) NSUInteger failureCount;
-@property (nonatomic, retain) NSException *failureException;
-- (void)failWithException:(NSException *)exception;
-@end
-
-@implementation MockTestCase
-@synthesize failureCount;
-@synthesize failureException;
-
-- (void)dealloc
-{
-    [failureException release];
-    [super dealloc];
-}
-
-- (void)failWithException:(NSException *)exception
-{
-    ++failureCount;
-    [self setFailureException:exception];
-}
-
-@end
-
-
-#pragma mark -
 
 @interface VerifyClassTest : SenTestCase
 @end
