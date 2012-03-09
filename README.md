@@ -43,7 +43,7 @@ Add:
 
 Note: If your Console shows
 
-    otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument".  Terminating temporary process.
+    otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument". Terminating temporary process.
 
 double-check your Copy Files phase.
 
@@ -68,7 +68,7 @@ Let's verify some behavior!
 ===========================
 
     // mock creation
-    NSMutableArray *mockArray =  mock([NSMutableArray class]);
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
 
     // using mock object
     [mockArray addObject:@"one"];
@@ -86,13 +86,19 @@ How about some stubbing?
 ========================
 
     // mock creation
-    NSArray *mockArray =  mock([NSArray class]);
+    NSArray *mockArray = mock([NSArray class]);
 
     // stubbing
     [given([mockArray objectAtIndex:0]) willReturn:@"first"];
 
     // following prints "(null)" because objectAtIndex:999 was not stubbed
     NSLog(@"%@", [mockArray objectAtIndex:999]);
+
+
+How do you mock a protocol?
+===========================
+
+    id <NSURLConnectionDelegate> delegate = mockProtocol(@protocol(NSURLConnectionDelegate));
 
 
 How do you stub methods that return non-objects?
