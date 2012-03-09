@@ -1,7 +1,10 @@
 == NEXT VERSION IN PROGRESS ==
 
+* mockProtocol(É) creates mock object of given protocol.
 * given(É) now supports methods returning float or double. Thanks to: Markus Gasser
+* verify(É) and verifyCount(É) check that argument is a mock object.
 * Eliminated givenPreviousCall.
+* Temporarily changed build to Debug for initial development.
 
 
 == Version 0.1 ==
