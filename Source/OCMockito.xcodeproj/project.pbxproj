@@ -98,6 +98,10 @@
 		08FD4B241509A93B0004E1FA /* VerifyProtocolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B221509A93B0004E1FA /* VerifyProtocolTest.m */; };
 		08FD4B261509B8740004E1FA /* StubProtocolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B251509B8740004E1FA /* StubProtocolTest.m */; };
 		08FD4B271509B8740004E1FA /* StubProtocolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B251509B8740004E1FA /* StubProtocolTest.m */; };
+		08FD4B2A1509BEA90004E1FA /* MKTBaseMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */; };
+		08FD4B2B1509BEA90004E1FA /* MKTBaseMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */; };
+		08FD4B2C1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */; };
+		08FD4B2D1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +186,8 @@
 		08FD4B1F1509A6C40004E1FA /* MockTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockTestCase.m; sourceTree = "<group>"; };
 		08FD4B221509A93B0004E1FA /* VerifyProtocolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyProtocolTest.m; sourceTree = "<group>"; };
 		08FD4B251509B8740004E1FA /* StubProtocolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubProtocolTest.m; sourceTree = "<group>"; };
+		08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBaseMockObject.h; sourceTree = "<group>"; };
+		08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBaseMockObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +273,8 @@
 			children = (
 				0827E83313526E7300C39A57 /* OCMockito.h */,
 				0827E83413526E7300C39A57 /* OCMockito.m */,
+				08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */,
+				08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */,
 				085D2FB31351082800EBBE91 /* MKTClassMock.h */,
 				085D2FB41351082800EBBE91 /* MKTClassMock.m */,
 				085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */,
@@ -349,6 +357,7 @@
 				08E1E75013633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h in Headers */,
 				086F86E8146A41350050F00E /* MKTClassMock.h in Headers */,
 				085A8BCC15071F7B0018EC66 /* MKTProtocolMock.h in Headers */,
+				08FD4B2B1509BEA90004E1FA /* MKTBaseMockObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +381,7 @@
 				08E1E74A136289C70066B0C7 /* MKTStubbedInvocationMatcher.h in Headers */,
 				08E1E74F13633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h in Headers */,
 				085A8BCB15071F7B0018EC66 /* MKTProtocolMock.h in Headers */,
+				08FD4B2A1509BEA90004E1FA /* MKTBaseMockObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +569,7 @@
 				085EECDA146A4D53001CF010 /* OCMockito.m in Sources */,
 				08068ED31505A59700FA2D8F /* MKTTestLocation.m in Sources */,
 				085A8BCE15071F7B0018EC66 /* MKTProtocolMock.m in Sources */,
+				08FD4B2D1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +607,7 @@
 				085EECD9146A4D52001CF010 /* OCMockito.m in Sources */,
 				08068ED21505A59700FA2D8F /* MKTTestLocation.m in Sources */,
 				085A8BCD15071F7B0018EC66 /* MKTProtocolMock.m in Sources */,
+				08FD4B2C1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

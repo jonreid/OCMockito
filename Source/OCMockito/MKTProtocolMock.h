@@ -3,14 +3,13 @@
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import <Foundation/Foundation.h>
-#import "MKTPrimitiveArgumentMatching.h"
+#import "MKTBaseMockObject.h"
 
 
 /**
     Mock object implementing a given protocol.
  */
-@interface MKTProtocolMock : NSProxy <MKTPrimitiveArgumentMatching>
+@interface MKTProtocolMock : MKTBaseMockObject
 
 + (id)mockForProtocol:(Protocol *)aClass;
 - (id)initWithProtocol:(Protocol *)aClass;
