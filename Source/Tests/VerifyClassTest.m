@@ -297,7 +297,7 @@
     // then
     [verifyWithMockTestCase(realArray) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
-               is(@"Argument passed to verify() should be a mock but is type NSCFArray"));
+               startsWith(@"Argument passed to verify() should be a mock but is type "));
 }
 
 - (void)testVerifyCountWithNonMockShouldGiveError
@@ -309,7 +309,7 @@
     // then
     [verifyCountWithMockTestCase(realArray, times(1)) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
-               is(@"Argument passed to verifyCount() should be a mock but is type NSCFArray"));
+               startsWith(@"Argument passed to verifyCount() should be a mock but is type "));
 }
 
 @end

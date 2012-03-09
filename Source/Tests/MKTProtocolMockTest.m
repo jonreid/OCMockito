@@ -9,7 +9,6 @@
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
 
-#define HC_SHORTHAND
 #if TARGET_OS_MAC
     #import <OCHamcrest/OCHamcrest.h>
 #else
@@ -78,7 +77,7 @@
     NSMethodSignature *signature = [(id)mockImplementor methodSignatureForSelector:selector];
     
     // then
-    assertThat(signature, is(equalTo([realImplementor methodSignatureForSelector:selector])));
+    HC_assertThat(signature, HC_equalTo([realImplementor methodSignatureForSelector:selector]));
 }
 
 - (void)testMockShouldAnswerSameMethodSignatureForOptionalSelectorAsRealImplementor
@@ -92,7 +91,7 @@
     NSMethodSignature *signature = [(id)mockImplementor methodSignatureForSelector:selector];
     
     // then
-    assertThat(signature, is(equalTo([realImplementor methodSignatureForSelector:selector])));
+    HC_assertThat(signature, HC_equalTo([realImplementor methodSignatureForSelector:selector]));
 }
 
 - (void)testMethodSignatureForSelectorNotInProtocolShouldAnswerNil
@@ -105,7 +104,7 @@
     NSMethodSignature *signature = [(id)mockImplementor methodSignatureForSelector:selector];
     
     // then
-    assertThat(signature, is(nilValue()));
+    HC_assertThat(signature, HC_nilValue());
 }
 
 - (void)testMockShouldConformToItsOwnProtocol
