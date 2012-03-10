@@ -1,4 +1,4 @@
-== Version 0.2 ==
+== Version 0.21 ==
 
 09 Mar 2012
 * Added mockProtocol(É) which creates mock object of given protocol.
