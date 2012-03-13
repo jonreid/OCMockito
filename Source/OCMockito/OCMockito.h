@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MKTClassMock.h"
+#import "MKTClassObjectMock.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTProtocolMock.h"
 #import <objc/objc-api.h>
@@ -21,6 +22,19 @@
 
 #ifdef MOCKITO_SHORTHAND
     #define mock(aClass) MKTMock(aClass)
+#endif
+
+
+/**
+ Returns a mock class object of a given class.
+ 
+ Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+ @c mock.
+ */
+#define MKTMockClass(aClass) [MKTClassObjectMock mockForClass:aClass]
+
+#ifdef MOCKITO_SHORTHAND
+#define mockClass(aClass) MKTMockClass(aClass)
 #endif
 
 
