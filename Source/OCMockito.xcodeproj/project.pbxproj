@@ -286,6 +286,8 @@
 				085D2FB41351082800EBBE91 /* MKTClassMock.m */,
 				085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */,
 				085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */,
+				00E9DCAF151130C200F66D7C /* MKTClassAndProtocolMock.h */,
+				00E9DCB0151130C200F66D7C /* MKTClassAndProtocolMock.m */,
 				0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */,
 				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
 				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
@@ -310,8 +312,6 @@
 				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
 				0827E87C1354181300C39A57 /* NSException+OCMockito.h */,
 				0827E87D1354181300C39A57 /* NSException+OCMockito.m */,
-				00E9DCAF151130C200F66D7C /* MKTClassAndProtocolMock.h */,
-				00E9DCB0151130C200F66D7C /* MKTClassAndProtocolMock.m */,
 			);
 			path = OCMockito;
 			sourceTree = "<group>";

@@ -8,6 +8,9 @@
 
 #import "MKTProtocolMock.h"
 
+/**
+    Mock object of a given class that also implements a given protocol.
+ */
 @interface MKTClassAndProtocolMock : MKTProtocolMock
 
 + (id)mockForClass:(Class)cls protocol:(Protocol *)protocol;
