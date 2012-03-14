@@ -321,6 +321,7 @@
 			children = (
 				089A8C2213552DE7003E7D27 /* MKTClassMockTest.m */,
 				085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */,
+				00E9DCB6151133ED00F66D7C /* MKTClassAndProtocolMockTest.m */,
 				08F189FC135A6D1300F76379 /* MKTInvocationMatcherTest.m */,
 				08F189E21359661E00F76379 /* MKTMockingProgressTest.m */,
 				08FD4B1E1509A6C40004E1FA /* MockTestCase.h */,
@@ -329,7 +330,6 @@
 				08FD4B251509B8740004E1FA /* StubProtocolTest.m */,
 				085D2FB11351080400EBBE91 /* VerifyClassTest.m */,
 				08FD4B221509A93B0004E1FA /* VerifyProtocolTest.m */,
-				00E9DCB6151133ED00F66D7C /* MKTClassAndProtocolMockTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
