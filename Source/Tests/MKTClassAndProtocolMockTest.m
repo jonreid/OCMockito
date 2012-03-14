@@ -54,7 +54,6 @@
 @end
 
 
-
 #pragma mark -
 
 @interface MKTClassAndProtocolMockTest : SenTestCase
