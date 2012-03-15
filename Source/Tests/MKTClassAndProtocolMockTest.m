@@ -125,7 +125,6 @@
     HC_assertThatBool([mock respondsToSelector:@selector(objectAtIndex:)], HC_equalToBool(NO));
 }
 
-
 - (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementor
 {
     // given
