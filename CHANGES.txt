@@ -1,6 +1,7 @@
 == NEXT VERSION IN PROGRESS
 
 * Added mockClass(É) which creates mock class object. Thanks to: David Hart
+* Added mockObjectAndProtocol(Class, Protocol) which creates a mock object of a given class that also implements a given protocol. Thanks to: Kevin Lundberg
 
 
 == Version 0.21 ==

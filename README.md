@@ -95,8 +95,8 @@ How about some stubbing?
     NSLog(@"%@", [mockArray objectAtIndex:999]);
 
 
-How do you mock a class?
-========================
+How do you mock a class object?
+===============================
 
     Class mockStringClass = mockClass([NSString class]);
 
@@ -105,6 +105,13 @@ How do you mock a protocol?
 ===========================
 
     id <MyDelegate> delegate = mockProtocol(@protocol(MyDelegate));
+
+
+How do you mock an object that also implements a protocol?
+==========================================================
+
+    UIViewController <CustomProtocol> *controller =
+        mockObjectAndProtocol([UIViewController class], @protocol(CustomProtocol));
 
 
 How do you stub methods that return non-objects?
