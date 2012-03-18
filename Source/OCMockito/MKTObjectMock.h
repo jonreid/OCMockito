@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTClassMock.h
+//  OCMockito - MKTObjectMock.h
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -9,7 +9,7 @@
 /**
     Mock object of a given class.
  */
-@interface MKTClassMock : MKTBaseMockObject
+@interface MKTObjectMock : MKTBaseMockObject
 
 + (id)mockForClass:(Class)aClass;
 - (id)initWithClass:(Class)aClass;

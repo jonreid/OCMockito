@@ -5,11 +5,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MKTClassMock.h"
 #import "MKTClassObjectMock.h"
+#import "MKTObjectMock.h"
+#import "MKTObjectAndProtocolMock.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTProtocolMock.h"
-#import "MKTObjectAndProtocolMock.h"
 #import <objc/objc-api.h>
 
 
@@ -19,7 +19,7 @@
     Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
     @c mock.
  */
-#define MKTMock(aClass) [MKTClassMock mockForClass:aClass]
+#define MKTMock(aClass) [MKTObjectMock mockForClass:aClass]
 
 #ifdef MOCKITO_SHORTHAND
     #define mock(aClass) MKTMock(aClass)

@@ -7,7 +7,7 @@
 
 #import "MKTTestLocation.h"
 
-@class MKTClassMock;
+@class MKTObjectMock;
 @class MKTOngoingStubbing;
 @protocol MKTVerificationMode;
 
@@ -18,7 +18,7 @@
 
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location;
 
-- (id)verifyMock:(MKTClassMock *)mock
+- (id)verifyMock:(MKTObjectMock *)mock
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location;
 

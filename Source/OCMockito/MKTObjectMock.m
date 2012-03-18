@@ -1,19 +1,19 @@
 //
-//  OCMockito - MKTClassMock.m
+//  OCMockito - MKTObjectMock.m
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "MKTClassMock.h"
+#import "MKTObjectMock.h"
 
 
-@interface MKTClassMock ()
+@interface MKTObjectMock ()
 {
     Class mockedClass;
 }
 @end
 
 
-@implementation MKTClassMock
+@implementation MKTObjectMock
 
 + (id)mockForClass:(Class)aClass
 {

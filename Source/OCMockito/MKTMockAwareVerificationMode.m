@@ -7,7 +7,7 @@
 
 
 @interface MKTMockAwareVerificationMode ()
-@property (nonatomic, retain) MKTClassMock *mock;
+@property (nonatomic, retain) MKTObjectMock *mock;
 @property (nonatomic, retain) id <MKTVerificationMode> mode;
 @end
 
@@ -17,12 +17,12 @@
 @synthesize mock;
 @synthesize mode;
 
-+ (id)verificationWithMock:(MKTClassMock *)aMock mode:(id <MKTVerificationMode>)aMode
++ (id)verificationWithMock:(MKTObjectMock *)aMock mode:(id <MKTVerificationMode>)aMode
 {
     return [[[self alloc] initWithMock:aMock mode:aMode] autorelease];
 }
 
-- (id)initWithMock:(MKTClassMock *)aMock mode:(id <MKTVerificationMode>)aMode
+- (id)initWithMock:(MKTObjectMock *)aMock mode:(id <MKTVerificationMode>)aMode
 {
     self = [super init];
     if (self)

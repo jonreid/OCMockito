@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTClassMockTest.m
+//  OCMockito - MKTObjectMockTest.m
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -17,10 +17,10 @@
 #endif
 
 
-@interface MKTClassMockTest : SenTestCase
+@interface MKTObjectMockTest : SenTestCase
 @end
 
-@implementation MKTClassMockTest
+@implementation MKTObjectMockTest
 
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
