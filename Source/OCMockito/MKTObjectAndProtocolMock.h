@@ -1,19 +1,19 @@
 //
-//  MKTClassAndProtocolMock.h
-//  OCMockito
-//
-//  Created by Kevin Lundberg on 3/14/12.
-//  Copyright (c) 2012 Jonathan M. Reid. All rights reserved.
+//  OCMockito - MKTObjectAndProtocolMock.h
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//  
+//  Created by: Kevin Lundberg
 //
 
 #import "MKTProtocolMock.h"
 
+
 /**
     Mock object of a given class that also implements a given protocol.
  */
-@interface MKTClassAndProtocolMock : MKTProtocolMock
+@interface MKTObjectAndProtocolMock : MKTProtocolMock
 
-+ (id)mockForClass:(Class)cls protocol:(Protocol *)protocol;
-- (id)initWithClass:(Class)cls protocol:(Protocol *)protocol;
++ (id)mockForClass:(Class)aClass protocol:(Protocol *)protocol;
+- (id)initWithClass:(Class)aClass protocol:(Protocol *)protocol;
 
 @end

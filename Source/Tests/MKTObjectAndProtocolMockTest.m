@@ -1,71 +1,58 @@
 //
-//  MKTClassAndProtocolMockTest.m
-//  OCMockito
+//  OCMockito - MKTObjectAndProtocolMockTest.m
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//  
+//  Created by: Kevin Lundberg
 //
-//  Created by Kevin Lundberg on 3/14/12.
-//  Copyright (c) 2012 Kevin Lundberg. All rights reserved.
-//
+
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
+    // Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #if TARGET_OS_MAC
-#import <OCHamcrest/OCHamcrest.h>
+    #import <OCHamcrest/OCHamcrest.h>
 #else
-#import <OCHamcrestIOS/OCHamcrestIOS.h>
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
 
 @protocol TestProtocol <NSObject>
-
 @required
-- (void) requiredMethod;
-
+- (void)requiredMethod;
 @end
 
+
 @interface TestClass : NSObject 
-
-- (void) instanceMethod;
-
+- (void)instanceMethod;
 @end
 
 @implementation TestClass
-
-- (void) instanceMethod
-{
-    
-}
-
+- (void)instanceMethod {}
 @end
 
-@interface TestSubclass : TestClass <TestProtocol>
 
+@interface TestSubclass : TestClass <TestProtocol>
 @end
 
 @implementation TestSubclass
-
-- (void) requiredMethod
-{
-    
-}
-
+- (void)requiredMethod {}
 @end
 
 
 #pragma mark -
 
-@interface MKTClassAndProtocolMockTest : SenTestCase
-
+@interface MKTObjectAndProtocolMockTest : SenTestCase
 @end
 
 
-@implementation MKTClassAndProtocolMockTest
+@implementation MKTObjectAndProtocolMockTest
 
 - (void)testClassProtocolMockCanCallMethodFromClass
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     
     // then
     STAssertNoThrow([mock instanceMethod],nil);
@@ -74,7 +61,7 @@
 - (void)testClassProtocolMockCanCallMethodFromProtocol
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     
     // then
     STAssertNoThrow([mock requiredMethod],nil);
@@ -83,7 +70,7 @@
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     TestClass<TestProtocol> *obj = [[[TestSubclass alloc] init] autorelease];
     SEL selector = @selector(instanceMethod);
     
@@ -97,7 +84,7 @@
 - (void)testMethodSignatureForSelectorNotInClassOrProtocolShouldAnswerNil
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     SEL bogusSelector = @selector(objectAtIndex:);
     
     // when
@@ -110,7 +97,7 @@
 - (void)testMockShouldRespondToKnownSelector
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     
     // then
     HC_assertThatBool([mock respondsToSelector:@selector(instanceMethod)], HC_equalToBool(YES));
@@ -119,7 +106,7 @@
 - (void)testMockShouldNotRespondToUnknownSelector
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     
     // then
     HC_assertThatBool([mock respondsToSelector:@selector(objectAtIndex:)], HC_equalToBool(NO));
@@ -128,7 +115,7 @@
 - (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementor
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     TestClass<TestProtocol> *obj = [[[TestSubclass alloc] init] autorelease];
     SEL selector = @selector(requiredMethod);
     
@@ -143,7 +130,7 @@
 {
     // given
     Protocol *protocol = @protocol(TestProtocol);
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], protocol);
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], protocol);
     
     // then
     STAssertTrue([mock conformsToProtocol:protocol],nil);
@@ -152,7 +139,7 @@
 - (void)testMockShouldConformToParentProtocol
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     
     // then
     STAssertTrue([mock conformsToProtocol:@protocol(NSObject)], nil);
@@ -161,7 +148,7 @@
 - (void)testMockShouldNotConformToUnrelatedProtocol
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     
     // then
     STAssertFalse([mock conformsToProtocol:@protocol(NSCoding)], nil);
@@ -170,7 +157,7 @@
 - (void)testMockShouldRespondToRequiredSelector
 {
     // given
-    TestClass<TestProtocol> *mock = mockClassAndProtocol([TestClass class], @protocol(TestProtocol));
+    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     
     // then
     STAssertTrue([mock respondsToSelector:@selector(requiredMethod)], nil);

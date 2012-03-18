@@ -1,5 +1,5 @@
 //
-//  OCMockito - VerifyClassTest.m
+//  OCMockito - VerifyObjectTest.m
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -18,10 +18,10 @@
 #endif
 
 
-@interface VerifyClassTest : SenTestCase
+@interface VerifyObjectTest : SenTestCase
 @end
 
-@implementation VerifyClassTest
+@implementation VerifyObjectTest
 
 - (void)testInvokingMethodShouldPassVerify
 {

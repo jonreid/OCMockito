@@ -1,35 +1,34 @@
 //
-//  MKTClassAndProtocolMock.m
-//  OCMockito
-//
-//  Created by Kevin Lundberg on 3/14/12.
-//  Copyright (c) 2012 Kevin Lundberg. All rights reserved.
+//  OCMockito - MKTObjectAndProtocolMock.m
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//  
+//  Created by: Kevin Lundberg
 //
 
-#import "MKTClassAndProtocolMock.h"
+#import "MKTObjectAndProtocolMock.h"
 
 #import <objc/runtime.h>
 
-@interface MKTClassAndProtocolMock ()
+
+@interface MKTObjectAndProtocolMock ()
 {
     Class mockedClass;
 }
 
 @end
 
-@implementation MKTClassAndProtocolMock
+@implementation MKTObjectAndProtocolMock
 
-+ (id)mockForClass:(Class)cls protocol:(Protocol *)protocol
++ (id)mockForClass:(Class)aClass protocol:(Protocol *)protocol
 {
-    return [[[self alloc] initWithClass:cls protocol:protocol] autorelease];
+    return [[[self alloc] initWithClass:aClass protocol:protocol] autorelease];
 }
 
-- (id)initWithClass:(Class)cls protocol:(Protocol *)protocol
+- (id)initWithClass:(Class)aClass protocol:(Protocol *)protocol
 {
     self = [super initWithProtocol:protocol];
-    if (self) {
-        mockedClass = cls;
-    }
+    if (self)
+        mockedClass = aClass;
     return self;
 }
 
@@ -38,18 +37,18 @@
 {
     NSMethodSignature *signature = [mockedClass instanceMethodSignatureForSelector:aSelector];
     
-    if (signature) {
+    if (signature)
         return signature;
-    } else {
+    else
         return [super methodSignatureForSelector:aSelector];
-    }
 }
 
 #pragma mark NSObject protocol
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return [mockedClass instancesRespondToSelector:aSelector] || [super respondsToSelector:aSelector];
+    return [mockedClass instancesRespondToSelector:aSelector] ||
+           [super respondsToSelector:aSelector];
 }
 
 @end

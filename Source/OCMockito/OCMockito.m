@@ -15,7 +15,8 @@ static BOOL isValidMock(id mock, id testCase, const char *fileName, int lineNumb
     NSString *underlyingClassName = NSStringFromClass([mock class]);
     if (!([underlyingClassName isEqualToString:@"MKTClassMock"] ||
           [underlyingClassName isEqualToString:@"MKTClassObjectMock"] ||
-          [underlyingClassName isEqualToString:@"MKTProtocolMock"]))
+          [underlyingClassName isEqualToString:@"MKTProtocolMock"] ||
+          [underlyingClassName isEqualToString:@"MKTObjectAndProtocolMock"]))
     {
         NSString *actual = nil;
         if (!underlyingClassName)

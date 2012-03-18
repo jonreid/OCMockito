@@ -9,7 +9,7 @@
 #import "MKTClassObjectMock.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTProtocolMock.h"
-#import "MKTClassAndProtocolMock.h"
+#import "MKTObjectAndProtocolMock.h"
 #import <objc/objc-api.h>
 
 
@@ -56,10 +56,10 @@
     Returns a mock object of a given class that also implements a given protocol.
  */
 
-#define MKTMockClassAndProtocol(aClass, aProtocol) [MKTClassAndProtocolMock mockForClass:aClass protocol:aProtocol]
+#define MKTMockObjectAndProtocol(aClass, aProtocol) [MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol]
 
 #ifdef MOCKITO_SHORTHAND
-    #define mockClassAndProtocol(aClass, aProtocol) MKTMockClassAndProtocol(aClass, aProtocol)
+    #define mockObjectAndProtocol(aClass, aProtocol) MKTMockObjectAndProtocol(aClass, aProtocol)
 #endif
 
 OBJC_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
