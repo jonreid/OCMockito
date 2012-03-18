@@ -85,8 +85,8 @@
 		08E1E75013633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E1E74E13633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08E9DC1C15163D4600BD7FB4 /* VerifyClassObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E9DC1B15163D4600BD7FB4 /* VerifyClassObjectTest.m */; };
 		08E9DC1D15163D4600BD7FB4 /* VerifyClassObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E9DC1B15163D4600BD7FB4 /* VerifyClassObjectTest.m */; };
-		08E9DC231516738200BD7FB4 /* MKTObjectAndProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */; };
-		08E9DC241516738200BD7FB4 /* MKTObjectAndProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */; };
+		08E9DC231516738200BD7FB4 /* MKTObjectAndProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08E9DC241516738200BD7FB4 /* MKTObjectAndProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08E9DC251516738200BD7FB4 /* MKTObjectAndProtocolMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E9DC221516738200BD7FB4 /* MKTObjectAndProtocolMock.m */; };
 		08E9DC261516738200BD7FB4 /* MKTObjectAndProtocolMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E9DC221516738200BD7FB4 /* MKTObjectAndProtocolMock.m */; };
 		08E9DC281516739A00BD7FB4 /* MKTObjectAndProtocolMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E9DC271516739A00BD7FB4 /* MKTObjectAndProtocolMockTest.m */; };
