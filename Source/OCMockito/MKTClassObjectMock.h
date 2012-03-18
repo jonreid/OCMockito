@@ -2,6 +2,8 @@
 //  OCMockito - MKTClassObjectMock.h
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
+//  Created by: David Hart
+//
 
 #import "MKTBaseMockObject.h"
 

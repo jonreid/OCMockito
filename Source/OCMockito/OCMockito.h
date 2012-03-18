@@ -26,15 +26,15 @@
 
 
 /**
- Returns a mock class object of a given class.
- 
- Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
- @c mock.
+    Returns a mock class object of a given class.
+
+    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c mock.
  */
 #define MKTMockClass(aClass) [MKTClassObjectMock mockForClass:aClass]
 
 #ifdef MOCKITO_SHORTHAND
-#define mockClass(aClass) MKTMockClass(aClass)
+    #define mockClass(aClass) MKTMockClass(aClass)
 #endif
 
 

@@ -1,6 +1,8 @@
 //
-//  OCMockito - MKTClassMockTest.m
+//  OCMockito - MKTClassObjectMockTest.m
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: David Hart
 //
 
 #define MOCKITO_SHORTHAND
