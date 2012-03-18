@@ -1,13 +1,14 @@
-== NEXT VERSION IN PROGRESS
+== Version 0.22 ==
 
-* Added mockClass(É) which creates mock class object. Thanks to: David Hart
-* Added mockObjectAndProtocol(Class, Protocol) which creates a mock object of a given class that also implements a given protocol. Thanks to: Kevin Lundberg
+18 Mar 2012
+* Added mockClass(É) which mocks a class object. Thanks to: David Hart
+* Added mockObjectAndProtocol(Class, Protocol) which mocks an object of a given class that also implements a given protocol. Thanks to: Kevin Lundberg
 
 
 == Version 0.21 ==
 
 09 Mar 2012
-* Added mockProtocol(É) which creates mock object of given protocol.
+* Added mockProtocol(É) which mocks an object implementing a given protocol.
 * given(É) now supports methods returning float or double. Thanks to: Markus Gasser
 * verify(É) and verifyCount(É) check that argument is a mock object.
 * Eliminated givenPreviousCall.
