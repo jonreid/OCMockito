@@ -43,11 +43,11 @@
 }
 
 #define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                           \
-else if (strcmp(methodReturnType, @encode(type)) == 0)                                  \
-{                                                                                       \
-type answer = [[invocationContainer findAnswerFor:anInvocation] typeName ## Value]; \
-[anInvocation setReturnValue:&answer];                                              \
-}
+    else if (strcmp(methodReturnType, @encode(type)) == 0)                                  \
+    {                                                                                       \
+        type answer = [[invocationContainer findAnswerFor:anInvocation] typeName ## Value]; \
+        [anInvocation setReturnValue:&answer];                                              \
+    }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
