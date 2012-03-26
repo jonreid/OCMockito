@@ -8,14 +8,14 @@
 
 @implementation MKTVerificationData
 
-@synthesize invocations;
-@synthesize wanted;
-@synthesize testLocation;
+@synthesize invocations = _invocations;
+@synthesize wanted = _wanted;
+@synthesize testLocation = _testLocation;
 
 - (void)dealloc
 {
-    [invocations release];
-    [wanted release];
+    [_invocations release];
+    [_wanted release];
     [super dealloc];
 }
 

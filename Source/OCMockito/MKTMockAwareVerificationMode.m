@@ -7,36 +7,35 @@
 
 
 @interface MKTMockAwareVerificationMode ()
-@property (nonatomic, retain, readonly) MKTObjectMock *mock;
-@property (nonatomic, retain, readonly) id <MKTVerificationMode> mode;
+{
+    MKTObjectMock *_mock;
+    id <MKTVerificationMode> _mode;
+}
 @end
 
 
 @implementation MKTMockAwareVerificationMode
 
-@synthesize mock;
-@synthesize mode;
-
-+ (id)verificationWithMock:(MKTObjectMock *)aMock mode:(id <MKTVerificationMode>)aMode
++ (id)verificationWithMock:(MKTObjectMock *)mock mode:(id <MKTVerificationMode>)mode
 {
-    return [[[self alloc] initWithMock:aMock mode:aMode] autorelease];
+    return [[[self alloc] initWithMock:mock mode:mode] autorelease];
 }
 
-- (id)initWithMock:(MKTObjectMock *)aMock mode:(id <MKTVerificationMode>)aMode
+- (id)initWithMock:(MKTObjectMock *)mock mode:(id <MKTVerificationMode>)mode
 {
     self = [super init];
     if (self)
     {
-        mock = [aMock retain];
-        mode = [aMode retain];
+        _mock = [mock retain];
+        _mode = [mode retain];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [mock release];
-    [mode release];
+    [_mock release];
+    [_mode release];
     [super dealloc];
 }
 
@@ -45,7 +44,7 @@
 
 - (void)verifyData:(MKTVerificationData *)data
 {
-    [mode verifyData:data];
+    [_mode verifyData:data];
 }
 
 @end

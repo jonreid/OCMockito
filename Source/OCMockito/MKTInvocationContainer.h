@@ -13,7 +13,7 @@
 
 @property (nonatomic, readonly) NSMutableArray *registeredInvocations;
 
-- (id)initWithMockingProgress:(MKTMockingProgress *)theMockingProgress;
+- (id)initWithMockingProgress:(MKTMockingProgress *)mockingProgress;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id)answer;

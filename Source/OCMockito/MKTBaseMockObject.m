@@ -14,22 +14,21 @@
 
 
 @interface MKTBaseMockObject ()
-@property (nonatomic, retain) MKTMockingProgress *mockingProgress;
-@property (nonatomic, retain) MKTInvocationContainer *invocationContainer;
+{
+    MKTMockingProgress *_mockingProgress;
+    MKTInvocationContainer *_invocationContainer;
+}
 @end
 
 
 @implementation MKTBaseMockObject
 
-@synthesize mockingProgress;
-@synthesize invocationContainer;
-
 - (id)init
 {
     if (self)
     {
-        mockingProgress = [[MKTMockingProgress sharedProgress] retain];
-        invocationContainer = [[MKTInvocationContainer alloc] initWithMockingProgress:mockingProgress];
+        _mockingProgress = [[MKTMockingProgress sharedProgress] retain];
+        _invocationContainer = [[MKTInvocationContainer alloc] initWithMockingProgress:_mockingProgress];
 
     }
     return self;
@@ -37,49 +36,49 @@
 
 - (void)dealloc
 {
-    [mockingProgress release];
-    [invocationContainer release];
+    [_mockingProgress release];
+    [_invocationContainer release];
     [super dealloc];
 }
 
-#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                           \
-    else if (strcmp(methodReturnType, @encode(type)) == 0)                                  \
-    {                                                                                       \
-        type answer = [[invocationContainer findAnswerFor:anInvocation] typeName ## Value]; \
-        [anInvocation setReturnValue:&answer];                                              \
+#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                            \
+    else if (strcmp(methodReturnType, @encode(type)) == 0)                                   \
+    {                                                                                        \
+        type answer = [[_invocationContainer findAnswerFor:anInvocation] typeName ## Value]; \
+        [anInvocation setReturnValue:&answer];                                               \
     }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
-    id <MKTVerificationMode> verificationMode = [mockingProgress pullVerificationMode];
+    id <MKTVerificationMode> verificationMode = [_mockingProgress pullVerificationMode];
     if (verificationMode)
     {
-        MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+        MKTInvocationMatcher *invocationMatcher = [_mockingProgress pullInvocationMatcher];
         if (!invocationMatcher)
             invocationMatcher = [[[MKTInvocationMatcher alloc] init] autorelease];
         [invocationMatcher setExpectedInvocation:anInvocation];
         
         MKTVerificationData *data = [[MKTVerificationData alloc] init];
-        [data setInvocations:invocationContainer];
+        [data setInvocations:_invocationContainer];
         [data setWanted:invocationMatcher];
-        [data setTestLocation:[mockingProgress testLocation]];
+        [data setTestLocation:[_mockingProgress testLocation]];
         [verificationMode verifyData:data];
         
         [data release];
         return;
     }
     
-    [invocationContainer setInvocationForPotentialStubbing:anInvocation];
+    [_invocationContainer setInvocationForPotentialStubbing:anInvocation];
     MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
-                                           initWithInvocationContainer:invocationContainer];
-    [mockingProgress reportOngoingStubbing:ongoingStubbing];
+                                           initWithInvocationContainer:_invocationContainer];
+    [_mockingProgress reportOngoingStubbing:ongoingStubbing];
     [ongoingStubbing release];
     
     NSMethodSignature *methodSignature = [anInvocation methodSignature];
     const char* methodReturnType = [methodSignature methodReturnType];
     if (strcmp(methodReturnType, @encode(id)) == 0)
     {
-        id answer = [invocationContainer findAnswerFor:anInvocation];
+        id answer = [_invocationContainer findAnswerFor:anInvocation];
         [anInvocation setReturnValue:&answer];
     }
     HANDLE_METHOD_RETURN_TYPE(char, char)
@@ -101,7 +100,7 @@
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
-    [mockingProgress setMatcher:matcher forArgument:index];
+    [_mockingProgress setMatcher:matcher forArgument:index];
     return self;
 }
 

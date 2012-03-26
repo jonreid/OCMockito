@@ -20,7 +20,7 @@
 + (id)sharedProgress;
 
 - (void)stubbingStartedAtLocation:(MKTTestLocation)location;
-- (void)reportOngoingStubbing:(MKTOngoingStubbing *)theOngoingStubbing;
+- (void)reportOngoingStubbing:(MKTOngoingStubbing *)ongoingStubbing;
 - (MKTOngoingStubbing *)pullOngoingStubbing;
 
 - (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location;

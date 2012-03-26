@@ -10,14 +10,14 @@
 
 
 @interface MKTMockitoCore ()
-@property (nonatomic, retain, readonly) MKTMockingProgress *mockingProgress;
+{
+    MKTMockingProgress *_mockingProgress;
+}
 - (MKTOngoingStubbing *)stub;
 @end
 
 
 @implementation MKTMockitoCore
-
-@synthesize mockingProgress;
 
 + (id)sharedCore
 {
@@ -32,32 +32,32 @@
 {
     self = [super init];
     if (self)
-        mockingProgress = [[MKTMockingProgress sharedProgress] retain];
+        _mockingProgress = [[MKTMockingProgress sharedProgress] retain];
     return self;
 }
 
 - (void)dealloc
 {
-    [mockingProgress release];
+    [_mockingProgress release];
     [super dealloc];
 }
 
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location
 {
-    [mockingProgress stubbingStartedAtLocation:location];
+    [_mockingProgress stubbingStartedAtLocation:location];
     return [self stub];
 }
 
 - (MKTOngoingStubbing *)stub
 {
-    return [mockingProgress pullOngoingStubbing];
+    return [_mockingProgress pullOngoingStubbing];
 }
 
 - (id)verifyMock:(MKTObjectMock *)mock
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location
 {
-    [mockingProgress verificationStarted:mode atLocation:location];
+    [_mockingProgress verificationStarted:mode atLocation:location];
     return mock;
 }
 

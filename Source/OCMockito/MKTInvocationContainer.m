@@ -9,37 +9,37 @@
 
 
 @interface MKTInvocationContainer ()
-@property (nonatomic, retain) MKTMockingProgress *mockingProgress;
+{
+    MKTMockingProgress *_mockingProgress;
+    NSMutableArray *_stubbed;
+}
 @property (nonatomic, retain) MKTStubbedInvocationMatcher *invocationMatcherForStubbing;
-@property (nonatomic, retain) NSMutableArray *stubbed;
 @end
 
 
 @implementation MKTInvocationContainer
 
-@synthesize registeredInvocations;
-@synthesize mockingProgress;
-@synthesize invocationMatcherForStubbing;
-@synthesize stubbed;
+@synthesize registeredInvocations = _registeredInvocations;
+@synthesize invocationMatcherForStubbing = _invocationMatcherForStubbing;
 
-- (id)initWithMockingProgress:(MKTMockingProgress *)theMockingProgress
+- (id)initWithMockingProgress:(MKTMockingProgress *)mockingProgress
 {
     self = [super init];
     if (self)
     {
-        registeredInvocations = [[NSMutableArray alloc] init];
-        mockingProgress = [theMockingProgress retain];
-        stubbed = [[NSMutableArray alloc] init];
+        _registeredInvocations = [[NSMutableArray alloc] init];
+        _mockingProgress = [mockingProgress retain];
+        _stubbed = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [registeredInvocations release];
-    [mockingProgress release];
-    [invocationMatcherForStubbing release];
-    [stubbed release];
+    [_registeredInvocations release];
+    [_mockingProgress release];
+    [_invocationMatcherForStubbing release];
+    [_stubbed release];
     
     [super dealloc];
 }
@@ -47,7 +47,7 @@
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation
 {
     [invocation retainArguments];
-    [registeredInvocations addObject:invocation];
+    [_registeredInvocations addObject:invocation];
     
     MKTStubbedInvocationMatcher *stubbedInvocationMatcher = [[MKTStubbedInvocationMatcher alloc] init];
     [stubbedInvocationMatcher setExpectedInvocation:invocation];
@@ -57,20 +57,20 @@
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
 {
-    [invocationMatcherForStubbing setMatcher:matcher atIndex:argumentIndex];
+    [_invocationMatcherForStubbing setMatcher:matcher atIndex:argumentIndex];
 }
 
 - (void)addAnswer:(id)answer
 {
-    [registeredInvocations removeLastObject];
+    [_registeredInvocations removeLastObject];
     
-    [invocationMatcherForStubbing setAnswer:answer];
-    [stubbed insertObject:invocationMatcherForStubbing atIndex:0];
+    [_invocationMatcherForStubbing setAnswer:answer];
+    [_stubbed insertObject:_invocationMatcherForStubbing atIndex:0];
 }
 
 - (id)findAnswerFor:(NSInvocation *)invocation
 {
-    for (MKTStubbedInvocationMatcher *stubbedInvocationMatcher in stubbed)
+    for (MKTStubbedInvocationMatcher *stubbedInvocationMatcher in _stubbed)
         if ([stubbedInvocationMatcher matches:invocation])
             return [stubbedInvocationMatcher answer];
     

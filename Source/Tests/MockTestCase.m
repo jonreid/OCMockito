@@ -8,18 +8,18 @@
 
 @implementation MockTestCase
 
-@synthesize failureCount;
-@synthesize failureException;
+@synthesize failureCount = _failureCount;
+@synthesize failureException = _failureException;
 
 - (void)dealloc
 {
-    [failureException release];
+    [_failureException release];
     [super dealloc];
 }
 
 - (void)failWithException:(NSException *)exception
 {
-    ++failureCount;
+    ++_failureCount;
     [self setFailureException:exception];
 }
 

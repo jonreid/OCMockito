@@ -8,11 +8,11 @@
 
 @implementation MKTStubbedInvocationMatcher
 
-@synthesize answer;
+@synthesize answer = _answer;
 
 - (void)dealloc
 {
-    [answer release];
+    [_answer release];
     [super dealloc];
 }
 
