@@ -60,10 +60,10 @@
 		085EECD9146A4D52001CF010 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
 		085EECDA146A4D53001CF010 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
 		086F86E8146A41350050F00E /* MKTObjectMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MKTObjectMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0884757F1509CEF700A65050 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0884757E1509CEF700A65050 /* OCHamcrest.framework */; };
-		088475801509CEF700A65050 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0884757E1509CEF700A65050 /* OCHamcrest.framework */; };
-		088475821509CF0E00A65050 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 088475811509CF0E00A65050 /* OCHamcrestIOS.framework */; };
-		088475831509CF0E00A65050 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 088475811509CF0E00A65050 /* OCHamcrestIOS.framework */; };
+		086FDE68151FF4EF0019319E /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086FDE67151FF4EF0019319E /* OCHamcrest.framework */; };
+		086FDE69151FF4EF0019319E /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086FDE67151FF4EF0019319E /* OCHamcrest.framework */; };
+		086FDE6B151FF4F80019319E /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */; };
+		086FDE6C151FF4F80019319E /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */; };
 		089A8C2313552DE7003E7D27 /* MKTObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */; };
 		089A8C2413552DE7003E7D27 /* MKTObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */; };
 		089A8C3213555D0C003E7D27 /* StubClassTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubClassTest.m */; };
@@ -176,8 +176,8 @@
 		085D2FB41351082800EBBE91 /* MKTObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectMock.m; sourceTree = "<group>"; };
 		085D2FF51351254000EBBE91 /* libocmockito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libocmockito.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0884757E1509CEF700A65050 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
-		088475811509CF0E00A65050 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		086FDE67151FF4EF0019319E /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-1.7/OCHamcrest.framework"; sourceTree = "<group>"; };
+		086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.7/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectMockTest.m; sourceTree = "<group>"; };
 		089A8C3113555D0C003E7D27 /* StubClassTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubClassTest.m; sourceTree = "<group>"; };
 		089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTOngoingStubbing.h; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D2FF61351254000EBBE91 /* Foundation.framework in Frameworks */,
-				088475821509CF0E00A65050 /* OCHamcrestIOS.framework in Frameworks */,
+				086FDE6B151FF4F80019319E /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,8 +229,8 @@
 				085D30021351254000EBBE91 /* Foundation.framework in Frameworks */,
 				085D30071351254000EBBE91 /* libocmockito.a in Frameworks */,
 				08C61DB414E23938003D0843 /* SenTestingKit.framework in Frameworks */,
-				088475831509CF0E00A65050 /* OCHamcrestIOS.framework in Frameworks */,
 				080BFE2D151FE38900EC8721 /* libprofile_rt.dylib in Frameworks */,
+				086FDE6C151FF4F80019319E /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D2FB71351087400EBBE91 /* Foundation.framework in Frameworks */,
-				0884757F1509CEF700A65050 /* OCHamcrest.framework in Frameworks */,
+				086FDE68151FF4EF0019319E /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +250,7 @@
 				08BDD5C21350C59C00E5A443 /* OCMockito.framework in Frameworks */,
 				085D2FB81351087500EBBE91 /* Foundation.framework in Frameworks */,
 				08C61DB314E23938003D0843 /* SenTestingKit.framework in Frameworks */,
-				088475801509CEF700A65050 /* OCHamcrest.framework in Frameworks */,
+				086FDE69151FF4EF0019319E /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +285,8 @@
 			children = (
 				08BDD5B11350C59C00E5A443 /* Foundation.framework */,
 				08C61DB214E23938003D0843 /* SenTestingKit.framework */,
-				0884757E1509CEF700A65050 /* OCHamcrest.framework */,
-				088475811509CF0E00A65050 /* OCHamcrestIOS.framework */,
+				086FDE67151FF4EF0019319E /* OCHamcrest.framework */,
+				086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */,
 				080BFE2C151FE38900EC8721 /* libprofile_rt.dylib */,
 			);
 			name = Frameworks;
