@@ -9,7 +9,7 @@
 
 
 @interface MKTOngoingStubbing ()
-@property (nonatomic, retain) MKTInvocationContainer *invocationContainer;
+@property (nonatomic, retain, readonly) MKTInvocationContainer *invocationContainer;
 @end
 
 

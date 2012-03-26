@@ -21,7 +21,7 @@
     NSUInteger numberOfArguments;
 }
 @property (nonatomic, retain) NSInvocation *expected;
-@property (nonatomic, retain) NSMutableArray *argumentMatchers;
+@property (nonatomic, retain, readonly) NSMutableArray *argumentMatchers;
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount;
 @end
 

@@ -7,8 +7,8 @@
 
 
 @interface MKTMockAwareVerificationMode ()
-@property (nonatomic, retain) MKTObjectMock *mock;
-@property (nonatomic, retain) id <MKTVerificationMode> mode;
+@property (nonatomic, retain, readonly) MKTObjectMock *mock;
+@property (nonatomic, retain, readonly) id <MKTVerificationMode> mode;
 @end
 
 

@@ -10,7 +10,7 @@
 
 
 @interface MKTMockitoCore ()
-@property (nonatomic, retain) MKTMockingProgress *mockingProgress;
+@property (nonatomic, retain, readonly) MKTMockingProgress *mockingProgress;
 - (MKTOngoingStubbing *)stub;
 @end
 
