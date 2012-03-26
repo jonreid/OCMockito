@@ -64,6 +64,7 @@
 		086FDE69151FF4EF0019319E /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086FDE67151FF4EF0019319E /* OCHamcrest.framework */; };
 		086FDE6B151FF4F80019319E /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */; };
 		086FDE6C151FF4F80019319E /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */; };
+		086FDE6D151FF60D0019319E /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 086FDE67151FF4EF0019319E /* OCHamcrest.framework */; };
 		089A8C2313552DE7003E7D27 /* MKTObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */; };
 		089A8C2413552DE7003E7D27 /* MKTObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */; };
 		089A8C3213555D0C003E7D27 /* StubClassTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubClassTest.m */; };
@@ -141,6 +142,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				086FDE6D151FF60D0019319E /* OCHamcrest.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
