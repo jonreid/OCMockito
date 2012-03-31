@@ -21,7 +21,7 @@ cd lcov
 "${LCOV_PATH}/lcov" -d "${OBJ_DIR}" --capture -o ${LCOV_INFO}
 
 # Exclude things we don't want to track
-"${LCOV_PATH}/lcov" -d "${OBJ_DIR}" --remove ${LCOV_INFO} "/xcode_4.2_and_ios_5_sdk_for_snow_leopard/*" -o ${LCOV_INFO}
+"${LCOV_PATH}/lcov" -d "${OBJ_DIR}" --remove ${LCOV_INFO} "/Applications/Xcode.app/*" -o ${LCOV_INFO}
 "${LCOV_PATH}/lcov" -d "${OBJ_DIR}" --remove ${LCOV_INFO} "TestSupport/*" -o ${LCOV_INFO}
 
 # Generate and display html
