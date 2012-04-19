@@ -174,3 +174,23 @@ OBJC_EXPORT id MKTNever(void);
 #ifdef MOCKITO_SHORTHAND
     #define never() MKTNever()
 #endif
+
+
+/**
+ Verifies minimum number of invocations.
+ 
+ The verification will succeed if the specified invocation happened the number of times
+ specified or more.
+ Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+ @c atLeast.
+ 
+ Example:
+ @code
+ [verifyCount(mockObject, atLeast(2)) someMethod:@"some arg"];
+ @endcode
+ */
+OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
+
+#ifdef MOCKITO_SHORTHAND
+#define atLeast(minimumWantedNumberOfInvocations) MKTAtLeast(minimumWantedNumberOfInvocations)
+#endif
