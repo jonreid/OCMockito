@@ -194,3 +194,21 @@ OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
 #ifdef MOCKITO_SHORTHAND
 #define atLeast(minimumWantedNumberOfInvocations) MKTAtLeast(minimumWantedNumberOfInvocations)
 #endif
+
+
+/**
+ Verifies that interaction happened once or more.
+ 
+ Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+ @c atLeastOnce.
+ 
+ Example:
+ @code
+ [verifyCount(mockObject, atLeastOnce()) someMethod:@"some arg"];
+ @endcode
+ */
+OBJC_EXPORT id MKTAtLeastOnce(void);
+
+#ifdef MOCKITO_SHORTHAND
+#define atLeastOnce() MKTAtLeastOnce()
+#endif

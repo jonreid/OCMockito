@@ -75,3 +75,8 @@ id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations)
 {
     return [MKTAtLeastTimes timesWithMinimumCount:minimumWantedNumberOfInvocations];
 }
+
+id MKTAtLeastOnce()
+{
+    return MKTAtLeast(1);
+}
