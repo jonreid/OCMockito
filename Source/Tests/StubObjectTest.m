@@ -1,5 +1,5 @@
 //
-//  OCMockito - StubClassTest.m
+//  OCMockito - StubObjectTest.m
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
@@ -47,10 +47,10 @@
 
 #pragma mark -
 
-@interface StubClassTest : SenTestCase
+@interface StubObjectTest : SenTestCase
 @end
 
-@implementation StubClassTest
+@implementation StubObjectTest
 
 - (void)testStubbedMethoShouldReturnGivenObject
 {

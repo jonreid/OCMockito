@@ -66,8 +66,8 @@
 		086FDE6D151FF60D0019319E /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 086FDE67151FF4EF0019319E /* OCHamcrest.framework */; };
 		089A8C2313552DE7003E7D27 /* MKTObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */; };
 		089A8C2413552DE7003E7D27 /* MKTObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */; };
-		089A8C3213555D0C003E7D27 /* StubClassTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubClassTest.m */; };
-		089A8C3313555D0C003E7D27 /* StubClassTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubClassTest.m */; };
+		089A8C3213555D0C003E7D27 /* StubObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubObjectTest.m */; };
+		089A8C3313555D0C003E7D27 /* StubObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C3113555D0C003E7D27 /* StubObjectTest.m */; };
 		089A8C361356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		089A8C371356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		089A8C381356A7BB003E7D27 /* MKTOngoingStubbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */; };
@@ -185,7 +185,7 @@
 		086FDE67151FF4EF0019319E /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-1.7/OCHamcrest.framework"; sourceTree = "<group>"; };
 		086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.7/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectMockTest.m; sourceTree = "<group>"; };
-		089A8C3113555D0C003E7D27 /* StubClassTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubClassTest.m; sourceTree = "<group>"; };
+		089A8C3113555D0C003E7D27 /* StubObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubObjectTest.m; sourceTree = "<group>"; };
 		089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTOngoingStubbing.h; sourceTree = "<group>"; };
 		089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTOngoingStubbing.m; sourceTree = "<group>"; };
 		08BDD5A91350C59C00E5A443 /* OCMockito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMockito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,7 +356,7 @@
 				08F189E21359661E00F76379 /* MKTMockingProgressTest.m */,
 				08FD4B1E1509A6C40004E1FA /* MockTestCase.h */,
 				08FD4B1F1509A6C40004E1FA /* MockTestCase.m */,
-				089A8C3113555D0C003E7D27 /* StubClassTest.m */,
+				089A8C3113555D0C003E7D27 /* StubObjectTest.m */,
 				08FD4B251509B8740004E1FA /* StubProtocolTest.m */,
 				08E9DC1B15163D4600BD7FB4 /* VerifyClassObjectTest.m */,
 				08FD4B221509A93B0004E1FA /* VerifyProtocolTest.m */,
@@ -629,7 +629,7 @@
 			files = (
 				085D3020135126BC00EBBE91 /* VerifyObjectTest.m in Sources */,
 				089A8C2413552DE7003E7D27 /* MKTObjectMockTest.m in Sources */,
-				089A8C3313555D0C003E7D27 /* StubClassTest.m in Sources */,
+				089A8C3313555D0C003E7D27 /* StubObjectTest.m in Sources */,
 				08F189E41359661E00F76379 /* MKTMockingProgressTest.m in Sources */,
 				08F189FE135A6D1300F76379 /* MKTInvocationMatcherTest.m in Sources */,
 				085A8BC8150718E30018EC66 /* MKTProtocolMockTest.m in Sources */,
@@ -674,7 +674,7 @@
 			files = (
 				085D2FB21351080400EBBE91 /* VerifyObjectTest.m in Sources */,
 				089A8C2313552DE7003E7D27 /* MKTObjectMockTest.m in Sources */,
-				089A8C3213555D0C003E7D27 /* StubClassTest.m in Sources */,
+				089A8C3213555D0C003E7D27 /* StubObjectTest.m in Sources */,
 				08F189E31359661E00F76379 /* MKTMockingProgressTest.m in Sources */,
 				08F189FD135A6D1300F76379 /* MKTInvocationMatcherTest.m in Sources */,
 				085A8BC7150718E30018EC66 /* MKTProtocolMockTest.m in Sources */,
