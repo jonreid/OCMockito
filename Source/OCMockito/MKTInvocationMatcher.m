@@ -85,7 +85,7 @@
     for (NSUInteger argumentIndex = 2; argumentIndex < _numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (strcmp(argumentType, @encode(id)) == 0)
+        if ((strcmp(argumentType, @encode(id)) == 0) || (strcmp(argumentType, @encode(Class)) == 0))
         {
             id argument = nil;
             [_expected getArgument:&argument atIndex:argumentIndex];
@@ -101,7 +101,7 @@
     }
 }
 
-- (BOOL)argumentObjectMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index
+- (BOOL)argumentObjectClassMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index
 {
     id actualArgument;
     [actual getArgument:&actualArgument atIndex:index];
@@ -158,9 +158,9 @@ DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
     for (NSUInteger argumentIndex = 2; argumentIndex < _numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (strcmp(argumentType, @encode(id)) == 0)
+        if ((strcmp(argumentType, @encode(id)) == 0) || (strcmp(argumentType, @encode(Class)) == 0))
         {
-            if ([self argumentObjectMismatchInInvocation:actual atIndex:argumentIndex])
+            if ([self argumentObjectClassMismatchInInvocation:actual atIndex:argumentIndex])
                 return NO;
         }
         HANDLE_ARGUMENT_TYPE(char, Char)
