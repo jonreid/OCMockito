@@ -6,6 +6,7 @@
 #import "OCMockito.h"
 
 #import "MKTExactTimes.h"
+#import "MKTAtLeastTimes.h"
 #import "MKTMockitoCore.h"
 #import "MKTTestLocation.h"
 
@@ -68,4 +69,14 @@ id MKTTimes(NSUInteger wantedNumberOfInvocations)
 id MKTNever()
 {
     return MKTTimes(0);
+}
+
+id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations)
+{
+    return [MKTAtLeastTimes timesWithMinimumCount:minimumWantedNumberOfInvocations];
+}
+
+id MKTAtLeastOnce()
+{
+    return MKTAtLeast(1);
 }
