@@ -3,6 +3,9 @@
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
+#import <Foundation/Foundation.h>
+
+
 typedef struct
 {
     id testCase;
