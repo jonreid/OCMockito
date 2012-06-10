@@ -1,16 +1,16 @@
 //
-//  OCMockito - NSException+OCMockito.m
+//  OCMockito - MKTException.m
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
 
-#import "NSException+OCMockito.h"
+#import "MKTException.h"
 
 
-@implementation NSException (OCMockito)
+@implementation MKTException
 
-+ (NSException *)mkt_failureInFile:(NSString *)fileName
-                            atLine:(int)lineNumber
-                            reason:(NSString *)reason
++ (NSException *)failureInFile:(NSString *)fileName
+                        atLine:(int)lineNumber
+                        reason:(NSString *)reason
 {
     NSNumber *line = [NSNumber numberWithInt:lineNumber];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:

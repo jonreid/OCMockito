@@ -5,7 +5,7 @@
 
 #import "MKTTestLocation.h"
 
-#import "NSException+OCMockito.h"
+#import "MKTException.h"
 
 
 // As of 2010-09-09, the iPhone simulator has a bug where you can't catch exceptions when they are
@@ -20,9 +20,9 @@
 void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description)
 {
     NSString *theFileName = [NSString stringWithCString:fileName encoding:NSUTF8StringEncoding];
-    NSException *failure = [NSException mkt_failureInFile:theFileName
-                                                   atLine:lineNumber
-                                                   reason:description];
+    NSException *failure = [MKTException failureInFile:theFileName
+                                                atLine:lineNumber
+                                                reason:description];
     [testCase failWithException:failure];
 }
 
