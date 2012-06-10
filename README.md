@@ -53,8 +53,6 @@ To build OCMockitoIOS.framework, run Source/MakeIOSFramework.sh.
 
 Add OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
 
-Add "-lstdc++" and "-ObjC" to your "Other Linker Flags".
-
 Add:
 
     #define HC_SHORTHAND
