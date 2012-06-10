@@ -1,3 +1,8 @@
+== NEXT VERSION IN PROGRESS
+
+* Added atLeast(count) and atLeastOnce() for verifyCount(). Thanks to: Markus Gasser
+
+
 == Version 0.22 ==
 
 18 Mar 2012

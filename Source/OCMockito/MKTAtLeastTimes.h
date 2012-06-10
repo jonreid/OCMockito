@@ -1,9 +1,8 @@
 //
-//  MKTAtLeastTimes.h
-//  OCMockito
-//
+//  OCMockito - MKTAtLeastTimes.h
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//  
 //  Created by Markus Gasser on 18.04.12.
-//  Copyright (c) 2012 Jonathan M. Reid. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

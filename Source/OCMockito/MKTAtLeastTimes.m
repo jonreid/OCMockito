@@ -1,9 +1,8 @@
 //
-//  MKTAtLeastTimes.m
-//  OCMockito
-//
+//  OCMockito - MKTAtLeastTimes.m
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//  
 //  Created by Markus Gasser on 18.04.12.
-//  Copyright (c) 2012 Jonathan M. Reid. All rights reserved.
 //
 
 #import "MKTAtLeastTimes.h"
@@ -42,7 +41,8 @@
 
 - (void)verifyData:(MKTVerificationData *)data
 {
-    if (minimumExpectedCount == 0) return; // this always succeeds
+    if (minimumExpectedCount == 0)
+        return;     // this always succeeds
     
     NSUInteger matchingCount = 0;
     for (NSInvocation *invocation in [[data invocations] registeredInvocations])
