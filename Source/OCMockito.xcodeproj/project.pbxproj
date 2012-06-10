@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		08068ED21505A59700FA2D8F /* MKTTestLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08068ED11505A59700FA2D8F /* MKTTestLocation.m */; };
 		08068ED31505A59700FA2D8F /* MKTTestLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08068ED11505A59700FA2D8F /* MKTTestLocation.m */; };
-		080BFE39151FE46100EC8721 /* fixCoverage.c in Sources */ = {isa = PBXBuildFile; fileRef = 080BFE38151FE46100EC8721 /* fixCoverage.c */; };
 		0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E83313526E7300C39A57 /* OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0827E83F1352B1C000C39A57 /* OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E83313526E7300C39A57 /* OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0827E8421352B6FC00C39A57 /* MKTMockitoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */; };
@@ -155,7 +154,6 @@
 
 /* Begin PBXFileReference section */
 		08068ED11505A59700FA2D8F /* MKTTestLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTTestLocation.m; sourceTree = "<group>"; };
-		080BFE38151FE46100EC8721 /* fixCoverage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fixCoverage.c; path = TestSupport/fixCoverage.c; sourceTree = "<group>"; };
 		0827E83313526E7300C39A57 /* OCMockito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockito.h; sourceTree = "<group>"; };
 		0827E83413526E7300C39A57 /* OCMockito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockito.m; sourceTree = "<group>"; };
 		0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTMockitoCore.h; sourceTree = "<group>"; };
@@ -182,8 +180,8 @@
 		085D2FB41351082800EBBE91 /* MKTObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectMock.m; sourceTree = "<group>"; };
 		085D2FF51351254000EBBE91 /* libocmockito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libocmockito.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		086FDE67151FF4EF0019319E /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-1.7/OCHamcrest.framework"; sourceTree = "<group>"; };
-		086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.7/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
+		086FDE67151FF4EF0019319E /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-1.8/OCHamcrest.framework"; sourceTree = "<group>"; };
+		086FDE6A151FF4F80019319E /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.8/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectMockTest.m; sourceTree = "<group>"; };
 		089A8C3113555D0C003E7D27 /* StubObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubObjectTest.m; sourceTree = "<group>"; };
 		089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTOngoingStubbing.h; sourceTree = "<group>"; };
@@ -372,7 +370,6 @@
 				08BED07F1350DE4900CCBF76 /* OCMockito-Info.plist */,
 				08BED0801350DE4900CCBF76 /* OCMockito-Prefix.pch */,
 				08BED0811350DE4900CCBF76 /* Tests-Info.plist */,
-				080BFE38151FE46100EC8721 /* fixCoverage.c */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -618,7 +615,6 @@
 				08FD4B2D1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */,
 				638F68DA150FC21A0081DEE6 /* MKTClassObjectMock.m in Sources */,
 				08E9DC261516738200BD7FB4 /* MKTObjectAndProtocolMock.m in Sources */,
-				080BFE39151FE46100EC8721 /* fixCoverage.c in Sources */,
 				361533CA153F276300BB982B /* MKTAtLeastTimes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,7 +739,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -761,7 +757,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -780,7 +776,7 @@
 				DSTROOT = /tmp/libocmockito.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -798,7 +794,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -822,7 +818,7 @@
 				DSTROOT = /tmp/libocmockito.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -840,7 +836,7 @@
 				DSTROOT = /tmp/libocmockito.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -858,7 +854,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -882,7 +878,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -960,7 +956,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -980,7 +976,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -997,7 +993,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1014,7 +1010,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.7\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
