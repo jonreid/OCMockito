@@ -23,6 +23,8 @@
 @implementation ReturningObject
 
 - (id)methodReturningObject { return self; }
+- (Class)methodReturningClass { return [self class]; }
+- (Class)methodReturningClassWithClassArg:(Class)arg { return [self class]; }
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
 
@@ -71,6 +73,40 @@
     
     // then
     assertThat([mockObject methodReturningObject], is(nilValue()));
+}
+
+- (void)testStubbedMethoShouldReturnGivenClass
+{
+    // given
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    // when
+    [given([mockObject methodReturningClass]) willReturn:[NSString class]];
+    
+    // then
+    assertThat([mockObject methodReturningClass], is([NSString class]));
+}
+
+- (void)testUnstubbedMethodReturningClassShouldReturnNull
+{
+    // given
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    // then
+    assertThat([mockObject methodReturningClass], is(nilValue()));
+}
+
+- (void)testStubbedMethodSouldReturnOnMatchingArgument
+{
+    // given
+    ReturningObject *mockObject = mock([ReturningObject class]);
+    
+    // when
+    [given([mockObject methodReturningClassWithClassArg:[NSString class]]) willReturn:[NSString class]];
+    
+    // then
+    assertThat([mockObject methodReturningClassWithClassArg:[NSData class]], is(nilValue()));
+    assertThat([mockObject methodReturningClassWithClassArg:[NSString class]], is([NSString class]));
 }
 
 - (void)testStubsWithDifferentArgsShouldHaveDifferentReturnValues

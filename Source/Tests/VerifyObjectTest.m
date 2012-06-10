@@ -17,6 +17,11 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
+@interface TestObject : NSObject @end
+@implementation TestObject
+- (void)methodWithClassArg:(Class)class { return; }
+@end
+
 
 @interface VerifyObjectTest : SenTestCase
 @end
@@ -310,6 +315,20 @@
     [verifyCountWithMockTestCase(realArray, times(1)) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
                startsWith(@"Argument passed to verifyCount() should be a mock but is type "));
+}
+
+- (void)testVerifyWithClassArgCountCorrectly
+{
+    // given
+    TestObject *testMock = mock([TestObject class]);
+    
+    // when
+    [testMock methodWithClassArg:[NSString class]];
+    [testMock methodWithClassArg:[NSData class]];
+    
+    // then
+    [verify(testMock) methodWithClassArg:[NSString class]];
+    [verify(testMock) methodWithClassArg:[NSData class]];
 }
 
 @end
