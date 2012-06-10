@@ -5,8 +5,9 @@
 
 #import "MKTInvocationMatcher.h"
 
-#define HC_SHORTHAND
+#import "MKTTypeEncoding.h"
 
+#define HC_SHORTHAND
 #if TARGET_OS_MAC
     #import <OCHamcrest/OCHamcrest.h>
     #import <OCHamcrest/HCWrapInMatcher.h>
@@ -85,7 +86,7 @@
     for (NSUInteger argumentIndex = 2; argumentIndex < _numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if ((strcmp(argumentType, @encode(id)) == 0) || (strcmp(argumentType, @encode(Class)) == 0))
+        if (MKTTypeEncodingIsObjectOrClass(argumentType))
         {
             id argument = nil;
             [_expected getArgument:&argument atIndex:argumentIndex];
@@ -158,7 +159,7 @@ DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
     for (NSUInteger argumentIndex = 2; argumentIndex < _numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if ((strcmp(argumentType, @encode(id)) == 0) || (strcmp(argumentType, @encode(Class)) == 0))
+        if (MKTTypeEncodingIsObjectOrClass(argumentType))
         {
             if ([self argumentObjectClassMismatchInInvocation:actual atIndex:argumentIndex])
                 return NO;

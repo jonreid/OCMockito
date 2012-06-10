@@ -9,6 +9,7 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTMockingProgress.h"
 #import "MKTOngoingStubbing.h"
+#import "MKTTypeEncoding.h"
 #import "MKTVerificationData.h"
 #import "MKTVerificationMode.h"
 
@@ -76,7 +77,7 @@
     
     NSMethodSignature *methodSignature = [anInvocation methodSignature];
     const char* methodReturnType = [methodSignature methodReturnType];
-    if ((strcmp(methodReturnType, @encode(id)) == 0) || (strcmp(methodReturnType, @encode(Class)) == 0))
+    if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
     {
         id answer = [_invocationContainer findAnswerFor:anInvocation];
         [anInvocation setReturnValue:&answer];

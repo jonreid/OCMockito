@@ -1,6 +1,7 @@
 == NEXT VERSION IN PROGRESS
 
 * Added atLeast(count) and atLeastOnce() for verifyCount(). Thanks to: Markus Gasser
+* Handle Class as both argument type and return type. Thanks to: David Hart
 
 
 == Version 0.22 ==
