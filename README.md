@@ -158,8 +158,8 @@ Use the shortcut ``-withMatcher:`` to specify a matcher for a single argument:
      willReturn:@"foo"];
 
 
-Verifying exact number of invocations / never
-=============================================
+Verifying exact number of invocations / at least x / never
+==========================================================
 
     // using mock
     [mockArray addObject:@"once"];
@@ -173,6 +173,11 @@ Verifying exact number of invocations / never
 
     // verify exact number of invocations
     [verifyCount(mockArray, times(2)) addObject:@"twice"];
+    [verifyCount(mockArray, times(3)) addObject:@"three times"];
 
     // verify using never(), which is an alias for times(0)
     [verifyCount(mockArray, never()) addObject:@"never happened"];
+
+    // verify using atLeast
+    [verifyCount(mockArray, atLeastOnce()) addObject:@"at least once"];
+    [verifyCount(mockArray, atLeast(2)) addObject:@"at least twice"];
