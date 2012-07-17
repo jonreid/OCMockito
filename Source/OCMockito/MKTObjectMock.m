@@ -36,6 +36,11 @@
 
 #pragma mark NSObject protocol
 
+- (BOOL)isKindOfClass:(Class)aClass
+{
+    return [mockedClass isSubclassOfClass:aClass];
+}
+
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
     return [mockedClass instancesRespondToSelector:aSelector];
