@@ -3,6 +3,7 @@
 //  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //  
 //  Created by: Kevin Lundberg
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #define MOCKITO_SHORTHAND
