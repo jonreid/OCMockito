@@ -49,6 +49,33 @@
     assertThat(signature, is(nilValue()));
 }
 
+- (void)testMockShouldBeKindOfSameClass
+{
+    // given
+    NSString *mockString = mock([NSString class]);
+    
+    //then
+    STAssertTrue([mockString isKindOfClass:[NSString class]], nil);
+}
+
+- (void)testMockShouldBeKindOfSubclass
+{
+    // given
+    NSString *mockString = mock([NSMutableString class]);
+    
+    //then
+    STAssertTrue([mockString isKindOfClass:[NSString class]], nil);
+}
+
+- (void)testMockShouldNotBeKindOfDifferentClass
+{
+    // given
+    NSString *mockString = mock([NSString class]);
+    
+    //then
+    STAssertFalse([mockString isKindOfClass:[NSArray class]], nil);
+}
+
 - (void)testMockShouldRespondToKnownSelector
 {
     // given
