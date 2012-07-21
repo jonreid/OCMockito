@@ -15,9 +15,6 @@ Key differences from other mocking frameworks:
   lines instead of throwing exceptions. This makes it easier to identify
   failures. (It also keeps the pre-iOS 5 Simulator from crashing.)
 
-See also: [Quality Coding](http://jonreid.blogs.com/qualitycoding/) - Tools,
-tips and techniques for _building quality in_ to your iOS programs.
-
 
 Mac and iOS
 ===========
@@ -26,7 +23,7 @@ OCMockito supports both Mac and iOS development.
 
 __Mac:__
 
-Add OCHamcrest.framework and OCMockito.framework and to your project.
+Add both OCHamcrest.framework and OCMockito.framework and to your project.
 
 Add a Copy Files build phase to copy both OCHamcrest.framework and
 OCMockito.framework and to your Products Directory. For unit test bundles, make
@@ -49,9 +46,9 @@ double-check your Copy Files phase.
 
 __iOS:__
 
-To build OCMockitoIOS.framework, run Source/MakeIOSFramework.sh.
+If you want to build OCMockitoIOS.framework, run Source/MakeIOSFramework.sh. But it's easier to get it pre-built from [Downloads](https://github.com/jonreid/OCMockito/downloads).
 
-Add OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
+Add both OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
 
 Add:
 
@@ -179,3 +176,11 @@ Verifying exact number of invocations / at least x / never
     // verify using atLeast
     [verifyCount(mockArray, atLeastOnce()) addObject:@"at least once"];
     [verifyCount(mockArray, atLeast(2)) addObject:@"at least twice"];
+
+
+More resources
+==============
+
+* [Sources](https://github.com/jonreid/OCMockito)
+* [Quality Coding](http://qualitycoding.org/) - Tools, tips &
+techniques for _building quality in_ to iOS development.
