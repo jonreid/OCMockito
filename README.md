@@ -19,7 +19,16 @@ Key differences from other mocking frameworks:
 Mac and iOS
 ===========
 
-OCMockito supports both Mac and iOS development.
+Rather than build OCMockito yourself, I recommend you use the pre-built release
+available in [Downloads](https://github.com/jonreid/OCMockito/downloads). This
+works for projects using Automatic Reference Counting (ARC) as well as for
+projects using traditional memory management.
+
+(But if you still want to build OCMockito yourself, go into the Source folder
+and execute ``MakeDistribution.sh`` from Terminal.)
+
+The steps vary slightly depending on whether your project is a Mac project or an
+iOS project:
 
 __Mac:__
 
@@ -45,8 +54,6 @@ Note: If your Console shows
 double-check your Copy Files phase.
 
 __iOS:__
-
-If you want to build OCMockitoIOS.framework, run Source/MakeIOSFramework.sh. But it's easier to get it pre-built from [Downloads](https://github.com/jonreid/OCMockito/downloads).
 
 Add both OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
 
