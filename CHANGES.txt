@@ -2,6 +2,7 @@
 
 * Added atLeast(count) and atLeastOnce() for verifyCount(). Thanks to: Markus Gasser
 * Handle Class as both argument type and return type. Thanks to: David Hart
+* Added support for -isKindOfClass: to object mocks. Thanks to: Tim Pesce
 * No more need to specify "Other Linker Flags"! Depending on your project, you may be able to eliminate:
   * -lstdc++
   * -ObjC
