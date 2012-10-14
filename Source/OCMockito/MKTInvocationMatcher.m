@@ -79,16 +79,6 @@
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
 {
     [self setExpected:expectedInvocation];
-<<<<<<< HEAD
-    [expected retainArguments];
-
-    NSMethodSignature *methodSignature = [expected methodSignature];
-
-    numberOfArguments = [[expected methodSignature] numberOfArguments];
-    [self trueUpArgumentMatchersToCount:numberOfArguments];
-
-    for (NSUInteger argumentIndex = 2; argumentIndex < numberOfArguments; ++argumentIndex)
-=======
     [_expected retainArguments];
     
     NSMethodSignature *methodSignature = [_expected methodSignature];
@@ -97,19 +87,13 @@
     [self trueUpArgumentMatchersToCount:_numberOfArguments];
         
     for (NSUInteger argumentIndex = 2; argumentIndex < _numberOfArguments; ++argumentIndex)
->>>>>>> upstream/master
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
         if (MKTTypeEncodingIsObjectOrClass(argumentType))
         {
             id argument = nil;
-<<<<<<< HEAD
-            [expected getArgument:&argument atIndex:argumentIndex];
-
-=======
             [_expected getArgument:&argument atIndex:argumentIndex];
-            
->>>>>>> upstream/master
+
             id <HCMatcher> matcher;
             if (argument != nil)
                 matcher = HCWrapInMatcher(argument);
@@ -125,13 +109,8 @@
 {
     id actualArgument;
     [actual getArgument:&actualArgument atIndex:index];
-<<<<<<< HEAD
-
-    id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];
-=======
     
     id <HCMatcher> matcher = [_argumentMatchers objectAtIndex:index];
->>>>>>> upstream/master
     return ![matcher matches:actualArgument];
 }
 
