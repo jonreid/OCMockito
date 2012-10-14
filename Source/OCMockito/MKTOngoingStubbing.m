@@ -1,6 +1,9 @@
 //
 //  OCMockito - MKTOngoingStubbing.m
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #import "MKTOngoingStubbing.h"
@@ -9,31 +12,31 @@
 
 
 @interface MKTOngoingStubbing ()
-@property (nonatomic, retain) MKTInvocationContainer *invocationContainer;
+{
+    MKTInvocationContainer *_invocationContainer;
+}
 @end
 
 
 @implementation MKTOngoingStubbing
 
-@synthesize invocationContainer;
-
-- (id)initWithInvocationContainer:(MKTInvocationContainer *)anInvocationContainer
+- (id)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
 {
     self = [super init];
     if (self)
-        invocationContainer = [anInvocationContainer retain];
+        _invocationContainer = [invocationContainer retain];
     return self;
 }
 
 - (void)dealloc
 {
-    [invocationContainer release];
+    [_invocationContainer release];
     [super dealloc];
 }
 
 - (MKTOngoingStubbing *)willReturn:(id)object
 {
-    [invocationContainer addAnswer:object];
+    [_invocationContainer addAnswer:object];
     return self;
 }
 
@@ -52,7 +55,7 @@ DEFINE_VALUE_RETURN_METHOD(NSRange, Range)
 #define DEFINE_RETURN_METHOD(type, typeName)                                        \
     - (MKTOngoingStubbing *)willReturn ## typeName:(type)value                      \
     {                                                                               \
-        [invocationContainer addAnswer:[NSNumber numberWith ## typeName:value]];    \
+        [_invocationContainer addAnswer:[NSNumber numberWith ## typeName:value]];   \
         return self;                                                                \
     }
 
@@ -73,11 +76,11 @@ DEFINE_RETURN_METHOD(float, Float)
 DEFINE_RETURN_METHOD(double, Double)
 
 
-#pragma mark - MTPrimitiveArgumentMatching
+#pragma mark MKTPrimitiveArgumentMatching
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
-    [invocationContainer setMatcher:matcher atIndex:index+2];
+    [_invocationContainer setMatcher:matcher atIndex:index+2];
     return self;
 }
 

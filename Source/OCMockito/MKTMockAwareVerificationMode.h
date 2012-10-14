@@ -1,19 +1,22 @@
 //
 //  OCMockito - MKTMockAwareVerificationMode.h
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #import <Foundation/Foundation.h>
 #import "MKTVerificationMode.h"
 
 
-@class MKTClassMock;
+@class MKTObjectMock;
 @protocol MKVerificationMode;
 
 
 @interface MKTMockAwareVerificationMode : NSObject <MKTVerificationMode>
 
-+ (id)verificationWithMock:(MKTClassMock *)aMock mode:(id <MKTVerificationMode>)aMode;
-- (id)initWithMock:(MKTClassMock *)mock mode:(id <MKTVerificationMode>)mode;
++ (id)verificationWithMock:(MKTObjectMock *)mock mode:(id <MKTVerificationMode>)mode;
+- (id)initWithMock:(MKTObjectMock *)mock mode:(id <MKTVerificationMode>)mode;
 
 @end

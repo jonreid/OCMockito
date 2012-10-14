@@ -1,29 +1,71 @@
 //
 //  OCMockito - OCMockito.h
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #import <Foundation/Foundation.h>
 
-#import "MKTClassMock.h"
+#import "MKTClassObjectMock.h"
+#import "MKTObjectMock.h"
+#import "MKTObjectAndProtocolMock.h"
 #import "MKTOngoingStubbing.h"
+#import "MKTProtocolMock.h"
 #import <objc/objc-api.h>
 
 
 /**
-    Creates mock object of given class.
+    Returns a mock object of a given class.
  
     Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
     @c mock.
  */
-#define MKMock(aClass) [MKTClassMock mockForClass:aClass]
+#define MKTMock(aClass) [MKTObjectMock mockForClass:aClass]
 
 #ifdef MOCKITO_SHORTHAND
-    #define mock(aClass) MKMock(aClass)
+    #define mock(aClass) MKTMock(aClass)
 #endif
 
 
-OBJC_EXPORT MKTOngoingStubbing *MKGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
+/**
+    Returns a mock class object of a given class.
+
+    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c mock.
+ */
+#define MKTMockClass(aClass) [MKTClassObjectMock mockForClass:aClass]
+
+#ifdef MOCKITO_SHORTHAND
+    #define mockClass(aClass) MKTMockClass(aClass)
+#endif
+
+
+/**
+    Returns a mock object implementing a given protocol.
+
+    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c mockProtocol.
+ */
+#define MKTMockProtocol(aProtocol) [MKTProtocolMock mockForProtocol:aProtocol]
+
+#ifdef MOCKITO_SHORTHAND
+    #define mockProtocol(aProtocol) MKTMockProtocol(aProtocol)
+#endif
+
+
+/**
+    Returns a mock object of a given class that also implements a given protocol.
+ */
+
+#define MKTMockObjectAndProtocol(aClass, aProtocol) [MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol]
+
+#ifdef MOCKITO_SHORTHAND
+    #define mockObjectAndProtocol(aClass, aProtocol) MKTMockObjectAndProtocol(aClass, aProtocol)
+#endif
+
+OBJC_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
 
 /**
     Enables method stubbing.
@@ -36,16 +78,16 @@ OBJC_EXPORT MKTOngoingStubbing *MKGivenWithLocation(id testCase, const char *fil
     Example:
     @li @ref [given([mockObject methodReturningString]) willReturn:@"foo"];
 
-    See @ref MTOngoingStubbing for other methods to stub different types of return values.
+    See @ref MKTOngoingStubbing for other methods to stub different types of return values.
  */
-#define MKGiven(methodCall) MKGivenWithLocation(self, __FILE__, __LINE__, methodCall)
+#define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
 
 #ifdef MOCKITO_SHORTHAND
-    #define given(methodCall) MKGiven(methodCall)
+    #define given(methodCall) MKTGiven(methodCall)
 #endif
 
 
-OBJC_EXPORT id MKVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
+OBJC_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 
 /**
     Verifies certain behavior happened once.
@@ -68,15 +110,15 @@ OBJC_EXPORT id MKVerifyWithLocation(id mock, id testCase, const char *fileName, 
 verifyCount(mockObject, times(1))
 @endcode
  */
-#define MKVerify(mock) MKVerifyWithLocation(mock, self, __FILE__, __LINE__)
+#define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
     #undef verify
-    #define verify(mock) MKVerify(mock)
+    #define verify(mock) MKTVerify(mock)
 #endif
 
 
-OBJC_EXPORT id MKVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
+OBJC_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
 
 /**
     Verifies certain behavior happened a given number of times.
@@ -94,10 +136,10 @@ OBJC_EXPORT id MKVerifyCountWithLocation(id mock, id mode, id testCase, const ch
     match given OCHamcrest matchers. If an argument is not a matcher, it is implicitly wrapped in an
     @c equalTo matcher to check for equality.
  */
-#define MKVerifyCount(mock, mode) MKVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
+#define MKTVerifyCount(mock, mode) MKTVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
-    #define verifyCount(mock, mode) MKVerifyCount(mock, mode)
+    #define verifyCount(mock, mode) MKTVerifyCount(mock, mode)
 #endif
 
 
@@ -112,10 +154,10 @@ OBJC_EXPORT id MKVerifyCountWithLocation(id mock, id mode, id testCase, const ch
 [verifyCount(mockObject, times(2)) someMethod:@"some arg"];
 @endcode
  */
-OBJC_EXPORT id MKTimes(NSUInteger wantedNumberOfInvocations);
+OBJC_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 
 #ifdef MOCKITO_SHORTHAND
-    #define times(wantedNumberOfInvocations) MKTimes(wantedNumberOfInvocations)
+    #define times(wantedNumberOfInvocations) MKTTimes(wantedNumberOfInvocations)
 #endif
 
 
@@ -130,8 +172,47 @@ OBJC_EXPORT id MKTimes(NSUInteger wantedNumberOfInvocations);
     [verifyCount(mockObject, never()) someMethod:@"some arg"];
     @endcode
  */
-OBJC_EXPORT id MKNever(void);
+OBJC_EXPORT id MKTNever(void);
 
 #ifdef MOCKITO_SHORTHAND
-    #define never() MKNever()
+    #define never() MKTNever()
+#endif
+
+
+/**
+    Verifies minimum number of invocations.
+
+    The verification will succeed if the specified invocation happened the number of times
+    specified or more.
+ 
+    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c atLeast.
+
+    Example:
+@code
+[verifyCount(mockObject, atLeast(2)) someMethod:@"some arg"];
+@endcode
+ */
+OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
+
+#ifdef MOCKITO_SHORTHAND
+    #define atLeast(minimumWantedNumberOfInvocations) MKTAtLeast(minimumWantedNumberOfInvocations)
+#endif
+
+
+/**
+    Verifies that interaction happened once or more.
+
+    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c atLeastOnce.
+
+    Example:
+@code
+[verifyCount(mockObject, atLeastOnce()) someMethod:@"some arg"];
+@endcode
+ */
+OBJC_EXPORT id MKTAtLeastOnce(void);
+
+#ifdef MOCKITO_SHORTHAND
+    #define atLeastOnce() MKTAtLeastOnce()
 #endif

@@ -15,18 +15,24 @@ Key differences from other mocking frameworks:
   lines instead of throwing exceptions. This makes it easier to identify
   failures. (It also keeps the pre-iOS 5 Simulator from crashing.)
 
-See also: [Quality Coding](http://jonreid.blogs.com/qualitycoding/) - Tools,
-tips and techniques for _building quality in_ to your iOS programs.
-
 
 Mac and iOS
 ===========
 
-OCMockito supports both Mac and iOS development.
+Rather than build OCMockito yourself, I recommend you use the pre-built release
+available in [Downloads](https://github.com/jonreid/OCMockito/downloads). This
+works for projects using Automatic Reference Counting (ARC) as well as for
+projects using traditional memory management.
+
+(But if you still want to build OCMockito yourself, go into the Source folder
+and execute ``MakeDistribution.sh`` from Terminal.)
+
+The steps vary slightly depending on whether your project is a Mac project or an
+iOS project:
 
 __Mac:__
 
-Add OCHamcrest.framework and OCMockito.framework and to your project.
+Add both OCHamcrest.framework and OCMockito.framework and to your project.
 
 Add a Copy Files build phase to copy both OCHamcrest.framework and
 OCMockito.framework and to your Products Directory. For unit test bundles, make
@@ -43,17 +49,13 @@ Add:
 
 Note: If your Console shows
 
-    otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument".  Terminating temporary process.
+    otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument". Terminating temporary process.
 
 double-check your Copy Files phase.
 
 __iOS:__
 
-To build OCMockitoIOS.framework, run Source/MakeIOSFramework.sh.
-
-Add OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
-
-Add "-lstdc++" and "-ObjC" to your "Other Linker Flags".
+Add both OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
 
 Add:
 
@@ -68,7 +70,7 @@ Let's verify some behavior!
 ===========================
 
     // mock creation
-    NSMutableArray *mockArray =  mock([NSMutableArray class]);
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
 
     // using mock object
     [mockArray addObject:@"one"];
@@ -86,13 +88,32 @@ How about some stubbing?
 ========================
 
     // mock creation
-    NSArray *mockArray =  mock([NSArray class]);
+    NSArray *mockArray = mock([NSArray class]);
 
     // stubbing
     [given([mockArray objectAtIndex:0]) willReturn:@"first"];
 
     // following prints "(null)" because objectAtIndex:999 was not stubbed
     NSLog(@"%@", [mockArray objectAtIndex:999]);
+
+
+How do you mock a class object?
+===============================
+
+    Class mockStringClass = mockClass([NSString class]);
+
+
+How do you mock a protocol?
+===========================
+
+    id <MyDelegate> delegate = mockProtocol(@protocol(MyDelegate));
+
+
+How do you mock an object that also implements a protocol?
+==========================================================
+
+    UIViewController <CustomProtocol> *controller =
+        mockObjectAndProtocol([UIViewController class], @protocol(CustomProtocol));
 
 
 How do you stub methods that return non-objects?
@@ -139,8 +160,8 @@ Use the shortcut ``-withMatcher:`` to specify a matcher for a single argument:
      willReturn:@"foo"];
 
 
-Verifying exact number of invocations / never
-=============================================
+Verifying exact number of invocations / at least x / never
+==========================================================
 
     // using mock
     [mockArray addObject:@"once"];
@@ -154,6 +175,19 @@ Verifying exact number of invocations / never
 
     // verify exact number of invocations
     [verifyCount(mockArray, times(2)) addObject:@"twice"];
+    [verifyCount(mockArray, times(3)) addObject:@"three times"];
 
     // verify using never(), which is an alias for times(0)
     [verifyCount(mockArray, never()) addObject:@"never happened"];
+
+    // verify using atLeast
+    [verifyCount(mockArray, atLeastOnce()) addObject:@"at least once"];
+    [verifyCount(mockArray, atLeast(2)) addObject:@"at least twice"];
+
+
+More resources
+==============
+
+* [Sources](https://github.com/jonreid/OCMockito)
+* [Quality Coding](http://qualitycoding.org/) - Tools, tips &
+techniques for _building quality in_ to iOS development.

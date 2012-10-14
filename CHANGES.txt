@@ -1,7 +1,28 @@
-== NEXT VERSION IN PROGRESS ==
+== NEXT VERSION IN PROGRESS
 
+* Added atLeast(count) and atLeastOnce() for verifyCount(). Thanks to: Markus Gasser
+* Handle Class as both argument type and return type. Thanks to: David Hart
+* Added support for -isKindOfClass: to object mocks. Thanks to: Tim Pesce
+* No more need to specify "Other Linker Flags"! Depending on your project, you may be able to eliminate:
+  * -lstdc++
+  * -ObjC
+
+
+== Version 0.22 ==
+
+18 Mar 2012
+* Added mockClass(É) which mocks a class object. Thanks to: David Hart
+* Added mockObjectAndProtocol(Class, Protocol) which mocks an object of a given class that also implements a given protocol. Thanks to: Kevin Lundberg
+
+
+== Version 0.21 ==
+
+09 Mar 2012
+* Added mockProtocol(É) which mocks an object implementing a given protocol.
 * given(É) now supports methods returning float or double. Thanks to: Markus Gasser
+* verify(É) and verifyCount(É) check that argument is a mock object.
 * Eliminated givenPreviousCall.
+* Changed build configuration to Debug during initial development.
 
 
 == Version 0.1 ==

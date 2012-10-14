@@ -1,13 +1,16 @@
 //
 //  OCMockito - MKTMockitoCore.h
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #import <Foundation/Foundation.h>
 
 #import "MKTTestLocation.h"
 
-@class MKTClassMock;
+@class MKTObjectMock;
 @class MKTOngoingStubbing;
 @protocol MKTVerificationMode;
 
@@ -18,7 +21,7 @@
 
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location;
 
-- (id)verifyMock:(MKTClassMock *)mock
+- (id)verifyMock:(MKTObjectMock *)mock
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location;
 

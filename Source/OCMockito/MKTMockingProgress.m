@@ -1,6 +1,9 @@
 //
 //  OCMockito - MKTMockingProgress.m
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #import "MKTMockingProgress.h"
@@ -18,10 +21,10 @@
 
 @implementation MKTMockingProgress
 
-@synthesize testLocation;
-@synthesize invocationMatcher;
-@synthesize verificationMode;
-@synthesize ongoingStubbing;
+@synthesize testLocation = _testLocation;
+@synthesize invocationMatcher = _invocationMatcher;
+@synthesize verificationMode = _verificationMode;
+@synthesize ongoingStubbing = _ongoingStubbing;
 
 + (id)sharedProgress
 {
@@ -34,9 +37,9 @@
 
 - (void)dealloc
 {
-    [invocationMatcher release];
-    [verificationMode release];
-    [ongoingStubbing release];
+    [_invocationMatcher release];
+    [_verificationMode release];
+    [_ongoingStubbing release];
     [super dealloc];
 }
 
@@ -45,29 +48,15 @@
     [self setTestLocation:location];
 }
 
-- (void)reportOngoingStubbing:(MKTOngoingStubbing *)theOngoingStubbing
+- (void)reportOngoingStubbing:(MKTOngoingStubbing *)ongoingStubbing
 {
-    [self setOngoingStubbing:theOngoingStubbing];
+    [self setOngoingStubbing:ongoingStubbing];
 }
 
 - (MKTOngoingStubbing *)pullOngoingStubbing
 {
-    MKTOngoingStubbing *result = [ongoingStubbing retain];
+    MKTOngoingStubbing *result = [_ongoingStubbing retain];
     [self setOngoingStubbing:nil];
-    return [result autorelease];
-}
-
-- (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
-{
-    if (!invocationMatcher)
-        invocationMatcher = [[MKTInvocationMatcher alloc] init];
-    [invocationMatcher setMatcher:matcher atIndex:index+2];
-}
-
-- (MKTInvocationMatcher *)pullInvocationMatcher
-{
-    MKTInvocationMatcher *result = [invocationMatcher retain];
-    [self setInvocationMatcher:nil];
     return [result autorelease];
 }
 
@@ -79,8 +68,22 @@
 
 - (id <MKTVerificationMode>)pullVerificationMode
 {
-    id <MKTVerificationMode> result = [verificationMode retain];
+    id <MKTVerificationMode> result = [_verificationMode retain];
     [self setVerificationMode:nil];
+    return [result autorelease];
+}
+
+- (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
+{
+    if (!_invocationMatcher)
+        _invocationMatcher = [[MKTInvocationMatcher alloc] init];
+    [_invocationMatcher setMatcher:matcher atIndex:index+2];
+}
+
+- (MKTInvocationMatcher *)pullInvocationMatcher
+{
+    MKTInvocationMatcher *result = [_invocationMatcher retain];
+    [self setInvocationMatcher:nil];
     return [result autorelease];
 }
 

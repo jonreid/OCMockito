@@ -1,6 +1,9 @@
 //
 //  OCMockito - MKTExactTimes.m
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #import "MKTExactTimes.h"
@@ -9,7 +12,7 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTTestLocation.h"
 #import "MKTVerificationData.h"
-#import "NSException+OCMockito.h"
+#import "MKTException.h"
 
 
 // As of 2010-09-09, the iPhone simulator has a bug where you can't catch exceptions when they are
@@ -22,13 +25,13 @@
 
 
 @interface MKTExactTimes ()
-@property (nonatomic, assign) NSUInteger expectedCount;
+{
+    NSUInteger expectedCount;
+}
 @end
 
 
 @implementation MKTExactTimes
-
-@synthesize expectedCount;
 
 + (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations
 {
@@ -44,7 +47,7 @@
 }
 
 
-#pragma mark - MTVerificationMode
+#pragma mark MKTVerificationMode
 
 - (void)verifyData:(MKTVerificationData *)data
 {
@@ -60,14 +63,7 @@
         NSString *plural = (expectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %d matching invocation%@, but received %d",
                                  expectedCount, plural, matchingCount];
-        
-        MKTTestLocation testLocation = [data testLocation];
-        NSString *fileName = [NSString stringWithCString:testLocation.fileName
-                                                encoding:NSUTF8StringEncoding];
-        NSException *failure = [NSException failureInFile:fileName
-                                                   atLine:testLocation.lineNumber
-                                                   reason:description];
-        [testLocation.testCase failWithException:failure];
+        MKTFailTestLocation([data testLocation], description);
     }
 }
 

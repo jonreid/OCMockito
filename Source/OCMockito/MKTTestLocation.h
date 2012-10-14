@@ -1,7 +1,13 @@
 //
 //  OCMockito - MKTTestLocation.h
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
 //
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
+//
+
+#import <Foundation/Foundation.h>
+
 
 typedef struct
 {
@@ -19,3 +25,6 @@ static inline MKTTestLocation MKTTestLocationMake(id test, const char *file, int
     location.lineNumber = line;
     return location;
 }
+
+void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description);
+void MKTFailTestLocation(MKTTestLocation testLocation, NSString *description);

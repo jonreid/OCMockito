@@ -1,6 +1,9 @@
 //
 //  OCMockito - MKTMockitoCore.m
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #import "MKTMockitoCore.h"
@@ -10,14 +13,14 @@
 
 
 @interface MKTMockitoCore ()
-@property (nonatomic, retain) MKTMockingProgress *mockingProgress;
+{
+    MKTMockingProgress *_mockingProgress;
+}
 - (MKTOngoingStubbing *)stub;
 @end
 
 
 @implementation MKTMockitoCore
-
-@synthesize mockingProgress;
 
 + (id)sharedCore
 {
@@ -32,32 +35,32 @@
 {
     self = [super init];
     if (self)
-        mockingProgress = [[MKTMockingProgress sharedProgress] retain];
+        _mockingProgress = [[MKTMockingProgress sharedProgress] retain];
     return self;
 }
 
 - (void)dealloc
 {
-    [mockingProgress release];
+    [_mockingProgress release];
     [super dealloc];
 }
 
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location
 {
-    [mockingProgress stubbingStartedAtLocation:location];
+    [_mockingProgress stubbingStartedAtLocation:location];
     return [self stub];
 }
 
 - (MKTOngoingStubbing *)stub
 {
-    return [mockingProgress pullOngoingStubbing];
+    return [_mockingProgress pullOngoingStubbing];
 }
 
-- (id)verifyMock:(MKTClassMock *)mock
+- (id)verifyMock:(MKTObjectMock *)mock
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location
 {
-    [mockingProgress verificationStarted:mode atLocation:location];
+    [_mockingProgress verificationStarted:mode atLocation:location];
     return mock;
 }
 

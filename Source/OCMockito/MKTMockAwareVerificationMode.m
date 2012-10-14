@@ -1,51 +1,53 @@
 //
 //  OCMockito - MKTMockAwareVerificationMode.m
-//  Copyright 2011 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2012 Jonathan M. Reid. See LICENSE.txt
+//
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
 #import "MKTMockAwareVerificationMode.h"
 
 
 @interface MKTMockAwareVerificationMode ()
-@property (nonatomic, retain) MKTClassMock *mock;
-@property (nonatomic, retain) id <MKTVerificationMode> mode;
+{
+    MKTObjectMock *_mock;
+    id <MKTVerificationMode> _mode;
+}
 @end
 
 
 @implementation MKTMockAwareVerificationMode
 
-@synthesize mock;
-@synthesize mode;
-
-+ (id)verificationWithMock:(MKTClassMock *)aMock mode:(id <MKTVerificationMode>)aMode
++ (id)verificationWithMock:(MKTObjectMock *)mock mode:(id <MKTVerificationMode>)mode
 {
-    return [[[self alloc] initWithMock:aMock mode:aMode] autorelease];
+    return [[[self alloc] initWithMock:mock mode:mode] autorelease];
 }
 
-- (id)initWithMock:(MKTClassMock *)aMock mode:(id <MKTVerificationMode>)aMode
+- (id)initWithMock:(MKTObjectMock *)mock mode:(id <MKTVerificationMode>)mode
 {
     self = [super init];
     if (self)
     {
-        mock = [aMock retain];
-        mode = [aMode retain];
+        _mock = [mock retain];
+        _mode = [mode retain];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [mock release];
-    [mode release];
+    [_mock release];
+    [_mode release];
     [super dealloc];
 }
 
 
-#pragma mark - MTVerificationMode
+#pragma mark MKTVerificationMode
 
 - (void)verifyData:(MKTVerificationData *)data
 {
-    [mode verifyData:data];
+    [_mode verifyData:data];
 }
 
 @end
