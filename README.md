@@ -16,21 +16,19 @@ Key differences from other mocking frameworks:
   failures. (It also keeps the pre-iOS 5 Simulator from crashing.)
 
 
-Mac and iOS
-===========
+Adding OCMockito to your project
+================================
 
-Rather than build OCMockito yourself, I recommend you use the pre-built release
-available in [Downloads](https://github.com/jonreid/OCMockito/downloads). This
-works for projects using Automatic Reference Counting (ARC) as well as for
-projects using traditional memory management.
+__Building:__
 
-(But if you still want to build OCMockito yourself, go into the Source folder
-and execute ``MakeDistribution.sh`` from Terminal.)
+If you want to build OCMockito yourself, cd to the Source folder, then
 
-The steps vary slightly depending on whether your project is a Mac project or an
-iOS project:
+    $ ./MakeDistribution.sh
 
-__Mac:__
+Or just use the pre-built release available in
+[Downloads](https://github.com/jonreid/OCMockito/downloads).
+
+__Mac Project Setup:__
 
 Add both OCHamcrest.framework and OCMockito.framework and to your project.
 
@@ -53,7 +51,7 @@ Note: If your Console shows
 
 double-check your Copy Files phase.
 
-__iOS:__
+__iOS Project Setup:__
 
 Add both OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
 
