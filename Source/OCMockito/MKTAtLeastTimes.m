@@ -13,14 +13,10 @@
 #import "MKTVerificationData.h"
 
 
-@interface MKTAtLeastTimes ()
+@implementation MKTAtLeastTimes
 {
     NSUInteger minimumExpectedCount;
 }
-@end
-
-
-@implementation MKTAtLeastTimes
 
 + (id)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
 {

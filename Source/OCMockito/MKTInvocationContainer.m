@@ -12,15 +12,15 @@
 
 
 @interface MKTInvocationContainer ()
-{
-    MKTMockingProgress *_mockingProgress;
-    NSMutableArray *_stubbed;
-}
 @property (nonatomic, retain) MKTStubbedInvocationMatcher *invocationMatcherForStubbing;
 @end
 
 
 @implementation MKTInvocationContainer
+{
+    MKTMockingProgress *_mockingProgress;
+    NSMutableArray *_stubbed;
+}
 
 @synthesize registeredInvocations = _registeredInvocations;
 @synthesize invocationMatcherForStubbing = _invocationMatcherForStubbing;

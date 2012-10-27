@@ -11,14 +11,10 @@
 #import "MKTInvocationContainer.h"
 
 
-@interface MKTOngoingStubbing ()
+@implementation MKTOngoingStubbing
 {
     MKTInvocationContainer *_invocationContainer;
 }
-@end
-
-
-@implementation MKTOngoingStubbing
 
 - (id)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
 {

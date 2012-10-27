@@ -9,14 +9,10 @@
 #import "MKTClassObjectMock.h"
 
 
-@interface MKTClassObjectMock ()
+@implementation MKTClassObjectMock
 {
     Class mockedClass;
 }
-@end
-
-
-@implementation MKTClassObjectMock
 
 + (id)mockForClass:(Class)aClass
 {

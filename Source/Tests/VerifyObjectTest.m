@@ -20,7 +20,9 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
-@interface TestObject : NSObject @end
+@interface TestObject : NSObject
+@end
+
 @implementation TestObject
 - (void)methodWithClassArg:(Class)class { return; }
 @end

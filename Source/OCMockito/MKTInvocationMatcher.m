@@ -21,16 +21,16 @@
 
 
 @interface MKTInvocationMatcher ()
-{
-    NSUInteger _numberOfArguments;
-    NSMutableArray *_argumentMatchers;
-}
 @property (nonatomic, retain) NSInvocation *expected;
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount;
 @end
 
 
 @implementation MKTInvocationMatcher
+{
+    NSUInteger _numberOfArguments;
+    NSMutableArray *_argumentMatchers;
+}
 
 @synthesize expected = _expected;
 

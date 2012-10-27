@@ -24,14 +24,10 @@
 @end
 
 
-@interface MKTExactTimes ()
+@implementation MKTExactTimes
 {
     NSUInteger expectedCount;
 }
-@end
-
-
-@implementation MKTExactTimes
 
 + (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations
 {

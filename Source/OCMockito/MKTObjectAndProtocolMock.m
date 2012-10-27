@@ -11,14 +11,10 @@
 #import <objc/runtime.h>
 
 
-@interface MKTObjectAndProtocolMock ()
+@implementation MKTObjectAndProtocolMock
 {
     Class mockedClass;
 }
-
-@end
-
-@implementation MKTObjectAndProtocolMock
 
 + (id)mockForClass:(Class)aClass protocol:(Protocol *)protocol
 {

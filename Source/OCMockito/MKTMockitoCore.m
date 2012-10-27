@@ -12,15 +12,10 @@
 #import "MKTVerificationMode.h"
 
 
-@interface MKTMockitoCore ()
+@implementation MKTMockitoCore
 {
     MKTMockingProgress *_mockingProgress;
 }
-- (MKTOngoingStubbing *)stub;
-@end
-
-
-@implementation MKTMockitoCore
 
 + (id)sharedCore
 {

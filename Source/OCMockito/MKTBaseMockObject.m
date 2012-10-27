@@ -17,15 +17,11 @@
 #import "MKTVerificationMode.h"
 
 
-@interface MKTBaseMockObject ()
+@implementation MKTBaseMockObject
 {
     MKTMockingProgress *_mockingProgress;
     MKTInvocationContainer *_invocationContainer;
 }
-@end
-
-
-@implementation MKTBaseMockObject
 
 - (id)init
 {

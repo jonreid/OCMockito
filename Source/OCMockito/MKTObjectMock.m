@@ -9,14 +9,10 @@
 #import "MKTObjectMock.h"
 
 
-@interface MKTObjectMock ()
+@implementation MKTObjectMock
 {
     Class mockedClass;
 }
-@end
-
-
-@implementation MKTObjectMock
 
 + (id)mockForClass:(Class)aClass
 {

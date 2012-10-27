@@ -9,15 +9,11 @@
 #import "MKTMockAwareVerificationMode.h"
 
 
-@interface MKTMockAwareVerificationMode ()
+@implementation MKTMockAwareVerificationMode
 {
     MKTObjectMock *_mock;
     id <MKTVerificationMode> _mode;
 }
-@end
-
-
-@implementation MKTMockAwareVerificationMode
 
 + (id)verificationWithMock:(MKTObjectMock *)mock mode:(id <MKTVerificationMode>)mode
 {
