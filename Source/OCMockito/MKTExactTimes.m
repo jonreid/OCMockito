@@ -61,8 +61,8 @@
     if (matchingCount != expectedCount)
     {
         NSString *plural = (expectedCount == 1) ? @"" : @"s";
-        NSString *description = [NSString stringWithFormat:@"Expected %d matching invocation%@, but received %d",
-                                 expectedCount, plural, matchingCount];
+        NSString *description = [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
+                                 (unsigned)expectedCount, plural, (unsigned)matchingCount];
         MKTFailTestLocation([data testLocation], description);
     }
 }

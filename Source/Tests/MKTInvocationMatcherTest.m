@@ -456,7 +456,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
 {
     // given
     NSInvocation *expected = [DummyObject invocationWithFloatArg:0];   // Argument will be ignored.
-    NSInvocation *actual = [DummyObject invocationWithFloatArg:3.14];
+    NSInvocation *actual = [DummyObject invocationWithFloatArg:3.14f];
     
     // when
     [invocationMatcher setMatcher:closeTo(3.5, 0.1) atIndex:2];
