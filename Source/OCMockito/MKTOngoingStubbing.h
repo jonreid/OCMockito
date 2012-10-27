@@ -22,6 +22,18 @@
 /// Stubs given object as return value.
 - (MKTOngoingStubbing *)willReturn:(id)object;
 
+/// Stubs given @c NSPoint as return value.
+- (MKTOngoingStubbing *)willReturnPoint:(NSPoint)value;
+
+/// Stubs given @c NSSize as return value.
+- (MKTOngoingStubbing *)willReturnSize:(NSSize)value;
+
+/// Stubs given @c NSRect as return value.
+- (MKTOngoingStubbing *)willReturnRect:(NSRect)value;
+
+/// Stubs given @c NSRange as return value.
+- (MKTOngoingStubbing *)willReturnRange:(NSRange)value;
+
 /// Stubs given @c BOOL as return value.
 - (MKTOngoingStubbing *)willReturnBool:(BOOL)value;
 

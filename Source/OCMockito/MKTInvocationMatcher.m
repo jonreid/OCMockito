@@ -73,7 +73,7 @@
     {
         [_argumentMatchers addObject:[NSNull null]];
         ++matchersCount;
-    } 
+    }
 }
 
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
@@ -93,13 +93,13 @@
         {
             id argument = nil;
             [_expected getArgument:&argument atIndex:argumentIndex];
-            
+
             id <HCMatcher> matcher;
             if (argument != nil)
                 matcher = HCWrapInMatcher(argument);
             else
                 matcher = nilValue();
-            
+
             [self setMatcher:matcher atIndex:argumentIndex];
         }
     }
@@ -112,6 +112,50 @@
     
     id <HCMatcher> matcher = [_argumentMatchers objectAtIndex:index];
     return ![matcher matches:actualArgument];
+}
+
+- (BOOL)argumentPointMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index {
+    NSPoint actualArgument;
+    [actual getArgument:&actualArgument atIndex:index];
+    id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];
+    if ([matcher isEqual:[NSNull null]]) {
+        NSPoint expectedArgument;
+        [expected getArgument:&expectedArgument atIndex:index];
+        return !NSEqualPoints(expectedArgument, actualArgument);
+    } else return ![matcher matches:[NSValue valueWithPoint:actualArgument]];
+}
+
+- (BOOL)argumentSizeMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index {
+    NSSize actualArgument;
+    [actual getArgument:&actualArgument atIndex:index];
+    id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];
+    if ([matcher isEqual:[NSNull null]]) {
+        NSSize expectedArgument;
+        [expected getArgument:&expectedArgument atIndex:index];
+        return !NSEqualSizes(expectedArgument, actualArgument);
+    } else return ![matcher matches:[NSValue valueWithSize:actualArgument]];
+}
+
+- (BOOL)argumentRectMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index {
+    NSRect actualArgument;
+    [actual getArgument:&actualArgument atIndex:index];
+    id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];
+    if ([matcher isEqual:[NSNull null]]) {
+        NSRect expectedArgument;
+        [expected getArgument:&expectedArgument atIndex:index];
+        return !NSEqualRects(expectedArgument, actualArgument);
+    } else return ![matcher matches:[NSValue valueWithRect:actualArgument]];
+}
+
+- (BOOL)argumentRangeMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index {
+    NSRange actualArgument;
+    [actual getArgument:&actualArgument atIndex:index];
+    id <HCMatcher> matcher = [argumentMatchers objectAtIndex:index];
+    if ([matcher isEqual:[NSNull null]]) {
+        NSRange expectedArgument;
+        [expected getArgument:&expectedArgument atIndex:index];
+        return !NSEqualRanges(expectedArgument, actualArgument);
+    } else return ![matcher matches:[NSValue valueWithRange:actualArgument]];
 }
 
 #define DEFINE_ARGUMENT_MISMATCH_METHOD(type, typeName)                                     \
@@ -165,6 +209,22 @@ DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
         if (MKTTypeEncodingIsObjectOrClass(argumentType))
         {
             if ([self argumentObjectClassMismatchInInvocation:actual atIndex:argumentIndex])
+                return NO;
+        }
+        else if (strcmp(argumentType, @encode(NSPoint)) == 0) {
+            if ([self argumentPointMismatchInInvocation:actual atIndex:argumentIndex])
+                return NO;
+        }
+        else if (strcmp(argumentType, @encode(NSSize)) == 0) {
+            if ([self argumentSizeMismatchInInvocation:actual atIndex:argumentIndex])
+                return NO;
+        }
+        else if (strcmp(argumentType, @encode(NSRect)) == 0) {
+            if ([self argumentRectMismatchInInvocation:actual atIndex:argumentIndex])
+                return NO;
+        }
+        else if (strcmp(argumentType, @encode(NSRange)) == 0) {
+            if ([self argumentRangeMismatchInInvocation:actual atIndex:argumentIndex])
                 return NO;
         }
         HANDLE_ARGUMENT_TYPE(char, Char)

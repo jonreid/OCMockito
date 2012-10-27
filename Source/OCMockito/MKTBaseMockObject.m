@@ -85,6 +85,10 @@
         id answer = [_invocationContainer findAnswerFor:anInvocation];
         [anInvocation setReturnValue:&answer];
     }
+    HANDLE_METHOD_RETURN_TYPE(NSPoint, point)
+    HANDLE_METHOD_RETURN_TYPE(NSSize, size)
+    HANDLE_METHOD_RETURN_TYPE(NSRect, rect)
+    HANDLE_METHOD_RETURN_TYPE(NSRange, range)
     HANDLE_METHOD_RETURN_TYPE(char, char)
     HANDLE_METHOD_RETURN_TYPE(int, int)
     HANDLE_METHOD_RETURN_TYPE(short, short)

@@ -47,6 +47,11 @@
 - (void)methodWithFloatArg:(float)arg {}
 - (void)methodWithDoubleArg:(double)arg {}
 
+- (void)methodWithPointArg:(NSPoint)arg {}
+- (void)methodWithSizeArg:(NSSize)arg {}
+- (void)methodWithRectArg:(NSRect)arg {}
+- (void)methodWithRangeArg:(NSRange)arg {}
+
 - (void)methodWithObjectArg:(id)arg1 intArg:(int)arg2 {}
 
 + (NSInvocation *)invocationWithSelector:(SEL)selector
@@ -67,6 +72,11 @@
         [invocation setArgument:&argument atIndex:2];                                               \
         return invocation;                                                                          \
     }
+
+DEFINE_INVOCATION_METHOD(NSPoint, Point)
+DEFINE_INVOCATION_METHOD(NSSize, Size)
+DEFINE_INVOCATION_METHOD(NSRect, Rect)
+DEFINE_INVOCATION_METHOD(NSRange, Range)
 
 DEFINE_INVOCATION_METHOD(id, Object)
 DEFINE_INVOCATION_METHOD(BOOL, Bool)

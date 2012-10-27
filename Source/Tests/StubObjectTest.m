@@ -47,6 +47,11 @@
 - (float)methodReturningFloat { return 0; }
 - (double)methodReturningDouble { return 0; }
 
+- (NSPoint)methodReturningPoint { return NSMakePoint(0, 0); }
+- (NSSize)methodReturningSize { return NSMakeSize(10, 10); }
+- (NSRect)methodReturningRect { return NSMakeRect(0, 0, 10, 10); }
+- (NSRange)methodReturningRange { return NSMakeRange(0, 0); }
+
 @end
 
 
@@ -356,4 +361,55 @@
     assertThatDouble([mockObject methodReturningDouble], equalToDouble(42));
 }
 
+- (void)testStubbedMethodShouldReturnGivenPoint
+{
+    // given
+    ReturningObject *mockObject = mock([ReturningObject class]);
+
+    // when
+    [given([mockObject methodReturningPoint]) willReturnPoint:NSMakePoint(10, 11)];
+
+    // then
+    NSPoint point = [mockObject methodReturningPoint];
+    assertThatBool(NSEqualPoints(point, NSMakePoint(10, 11)), equalToBool(YES));
+}
+
+- (void)testStubbedMethodShouldReturnGivenSize
+{
+    // given
+    ReturningObject *mockObject = mock([ReturningObject class]);
+
+    // when
+    [given([mockObject methodReturningSize]) willReturnSize:NSMakeSize(10, 11)];
+
+    // then
+    NSSize size = [mockObject methodReturningSize];
+    assertThatBool(NSEqualSizes(size, NSMakeSize(10, 11)), equalToBool(YES));
+}
+
+- (void)testStubbedMethodShouldReturnGivenRect
+{
+    // given
+    ReturningObject *mockObject = mock([ReturningObject class]);
+
+    // when
+    [given([mockObject methodReturningRect]) willReturnRect:NSMakeRect(1, 2, 3, 4)];
+
+    // then
+    NSRect rect = [mockObject methodReturningRect];
+    assertThatBool(NSEqualRects(rect, NSMakeRect(1,2,3,4)), equalToBool(YES));
+}
+
+- (void)testStubbedMethodShouldReturnGivenRange
+{
+    // given
+    ReturningObject *mockObject = mock([ReturningObject class]);
+
+    // when
+    [given([mockObject methodReturningRange]) willReturnRange:NSMakeRange(1, 2)];
+
+    // then
+    NSRange range = [mockObject methodReturningRange];
+    assertThatBool(NSEqualRanges(range, NSMakeRange(1, 2)), equalToBool(YES));
+}
 @end

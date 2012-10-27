@@ -40,6 +40,18 @@
     return self;
 }
 
+#define DEFINE_VALUE_RETURN_METHOD(type, typeName)                              \
+    - (MKTOngoingStubbing *)willReturn ## typeName:(type)value                  \
+    {                                                                           \
+        [invocationContainer addAnswer:[NSValue valueWith ## typeName:value]];  \
+        return self;                                                            \
+    }
+
+DEFINE_VALUE_RETURN_METHOD(NSPoint, Point)
+DEFINE_VALUE_RETURN_METHOD(NSSize, Size)
+DEFINE_VALUE_RETURN_METHOD(NSRect, Rect)
+DEFINE_VALUE_RETURN_METHOD(NSRange, Range)
+
 #define DEFINE_RETURN_METHOD(type, typeName)                                        \
     - (MKTOngoingStubbing *)willReturn ## typeName:(type)value                      \
     {                                                                               \
