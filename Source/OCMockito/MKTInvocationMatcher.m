@@ -22,7 +22,6 @@
 
 @interface MKTInvocationMatcher ()
 @property (nonatomic, retain) NSInvocation *expected;
-- (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount;
 @end
 
 
