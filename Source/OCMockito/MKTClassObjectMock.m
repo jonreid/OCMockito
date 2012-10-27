@@ -11,7 +11,7 @@
 
 @implementation MKTClassObjectMock
 {
-    Class mockedClass;
+    Class _mockedClass;
 }
 
 + (id)mockForClass:(Class)aClass
@@ -23,13 +23,13 @@
 {
     self = [super init];
     if (self)
-        mockedClass = aClass;
+        _mockedClass = aClass;
     return self;
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    return [mockedClass methodSignatureForSelector:aSelector];
+    return [_mockedClass methodSignatureForSelector:aSelector];
 }
 
 
@@ -37,7 +37,7 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return [mockedClass respondsToSelector:aSelector];
+    return [_mockedClass respondsToSelector:aSelector];
 }
 
 @end

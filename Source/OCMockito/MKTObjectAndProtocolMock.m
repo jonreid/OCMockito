@@ -13,7 +13,7 @@
 
 @implementation MKTObjectAndProtocolMock
 {
-    Class mockedClass;
+    Class _mockedClass;
 }
 
 + (id)mockForClass:(Class)aClass protocol:(Protocol *)protocol
@@ -25,14 +25,14 @@
 {
     self = [super initWithProtocol:protocol];
     if (self)
-        mockedClass = aClass;
+        _mockedClass = aClass;
     return self;
 }
 
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    NSMethodSignature *signature = [mockedClass instanceMethodSignatureForSelector:aSelector];
+    NSMethodSignature *signature = [_mockedClass instanceMethodSignatureForSelector:aSelector];
     
     if (signature)
         return signature;
@@ -44,7 +44,7 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return [mockedClass instancesRespondToSelector:aSelector] ||
+    return [_mockedClass instancesRespondToSelector:aSelector] ||
            [super respondsToSelector:aSelector];
 }
 

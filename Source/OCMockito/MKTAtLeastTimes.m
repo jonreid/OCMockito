@@ -15,7 +15,7 @@
 
 @implementation MKTAtLeastTimes
 {
-    NSUInteger minimumExpectedCount;
+    NSUInteger _minimumExpectedCount;
 }
 
 + (id)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
@@ -27,7 +27,7 @@
 {
     self = [super init];
     if (self)
-        minimumExpectedCount = minimumExpectedNumberOfInvocations;
+        _minimumExpectedCount = minimumExpectedNumberOfInvocations;
     return self;
 }
 
@@ -36,7 +36,7 @@
 
 - (void)verifyData:(MKTVerificationData *)data
 {
-    if (minimumExpectedCount == 0)
+    if (_minimumExpectedCount == 0)
         return;     // this always succeeds
     
     NSUInteger matchingCount = 0;
@@ -46,11 +46,11 @@
             ++matchingCount;
     }
     
-    if (matchingCount < minimumExpectedCount)
+    if (matchingCount < _minimumExpectedCount)
     {
-        NSString *plural = (minimumExpectedCount == 1) ? @"" : @"s";
+        NSString *plural = (_minimumExpectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
-                                 (unsigned)minimumExpectedCount, plural, (unsigned)matchingCount];
+                                 (unsigned)_minimumExpectedCount, plural, (unsigned)matchingCount];
         MKTFailTestLocation([data testLocation], description);
     }
 }

@@ -14,7 +14,7 @@
  */
 @interface MKTProtocolMock : MKTBaseMockObject
 
-+ (id)mockForProtocol:(Protocol *)aClass;
-- (id)initWithProtocol:(Protocol *)aClass;
++ (id)mockForProtocol:(Protocol *)aProtocol;
+- (id)initWithProtocol:(Protocol *)aProtocol;
 
 @end

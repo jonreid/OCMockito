@@ -11,7 +11,7 @@
 
 @implementation MKTObjectMock
 {
-    Class mockedClass;
+    Class _mockedClass;
 }
 
 + (id)mockForClass:(Class)aClass
@@ -23,13 +23,13 @@
 {
     self = [super init];
     if (self)
-        mockedClass = aClass;
+        _mockedClass = aClass;
     return self;
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    return [mockedClass instanceMethodSignatureForSelector:aSelector];
+    return [_mockedClass instanceMethodSignatureForSelector:aSelector];
 }
 
 
@@ -37,12 +37,12 @@
 
 - (BOOL)isKindOfClass:(Class)aClass
 {
-    return [mockedClass isSubclassOfClass:aClass];
+    return [_mockedClass isSubclassOfClass:aClass];
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return [mockedClass instancesRespondToSelector:aSelector];
+    return [_mockedClass instancesRespondToSelector:aSelector];
 }
 
 @end
