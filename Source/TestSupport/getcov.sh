@@ -18,7 +18,7 @@ mkdir lcov
 cd lcov
 
 # Gather coverage data
-"${LCOV_PATH}/lcov" -d "${OBJ_DIR}" --capture -o ${LCOV_INFO}
+"${LCOV_PATH}/lcov" -b "${SRCROOT}" -d "${OBJ_DIR}" --capture -o ${LCOV_INFO}
 
 # Exclude things we don't want to track
 "${LCOV_PATH}/lcov" -d "${OBJ_DIR}" --remove ${LCOV_INFO} "/Applications/Xcode.app/*" -o ${LCOV_INFO}
