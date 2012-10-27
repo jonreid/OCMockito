@@ -11,8 +11,6 @@
 
 @implementation MKTStubbedInvocationMatcher
 
-@synthesize answer = _answer;
-
 - (void)dealloc
 {
     [_answer release];

@@ -22,9 +22,6 @@
     NSMutableArray *_stubbed;
 }
 
-@synthesize registeredInvocations = _registeredInvocations;
-@synthesize invocationMatcherForStubbing = _invocationMatcherForStubbing;
-
 - (id)initWithMockingProgress:(MKTMockingProgress *)mockingProgress
 {
     self = [super init];

@@ -11,9 +11,6 @@
 
 @implementation MockTestCase
 
-@synthesize failureCount = _failureCount;
-@synthesize failureException = _failureException;
-
 - (void)dealloc
 {
     [_failureException release];

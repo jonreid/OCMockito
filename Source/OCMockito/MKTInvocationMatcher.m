@@ -31,8 +31,6 @@
     NSMutableArray *_argumentMatchers;
 }
 
-@synthesize expected = _expected;
-
 - (id)init
 {
     self = [super init];

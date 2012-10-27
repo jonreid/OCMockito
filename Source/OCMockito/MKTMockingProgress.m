@@ -21,11 +21,6 @@
 
 @implementation MKTMockingProgress
 
-@synthesize testLocation = _testLocation;
-@synthesize invocationMatcher = _invocationMatcher;
-@synthesize verificationMode = _verificationMode;
-@synthesize ongoingStubbing = _ongoingStubbing;
-
 + (id)sharedProgress
 {
     static id sharedProgress = nil;
