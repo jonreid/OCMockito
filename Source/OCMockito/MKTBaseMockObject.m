@@ -78,7 +78,7 @@
     const char* methodReturnType = [methodSignature methodReturnType];
     if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
     {
-        id answer = [_invocationContainer findAnswerFor:anInvocation];
+        __unsafe_unretained id answer = [_invocationContainer findAnswerFor:anInvocation];
         [anInvocation setReturnValue:&answer];
     }
     HANDLE_METHOD_RETURN_TYPE(char, char)

@@ -88,7 +88,7 @@
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
         if (MKTTypeEncodingIsObjectOrClass(argumentType))
         {
-            id argument = nil;
+            __unsafe_unretained id argument = nil;
             [_expected getArgument:&argument atIndex:argumentIndex];
             
             id <HCMatcher> matcher;
@@ -104,7 +104,7 @@
 
 - (BOOL)argumentObjectClassMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index
 {
-    id actualArgument;
+    __unsafe_unretained id actualArgument;
     [actual getArgument:&actualArgument atIndex:index];
     
     id <HCMatcher> matcher = [_argumentMatchers objectAtIndex:index];

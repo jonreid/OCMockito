@@ -11,7 +11,7 @@
 
 typedef struct
 {
-    id testCase;
+    __unsafe_unretained id testCase;
     const char *fileName;
     int lineNumber;
 } MKTTestLocation;

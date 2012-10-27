@@ -9,6 +9,7 @@
 #import "MKTMockingProgress.h"
 
 #import "MKTInvocationMatcher.h"
+#import "MKTOngoingStubbing.h"
 #import "MKTVerificationMode.h"
 
 
