@@ -2,7 +2,7 @@
 build/
 *.pbxuser
 *.perspectivev3
+project.xcworkspace/
 xcuserdata/
-Source/TestSupport/env.sh
-
 Source/TestSupport/environment.sh
+Source/TestSupport/lcov-1.9
