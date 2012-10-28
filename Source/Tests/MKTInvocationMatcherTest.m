@@ -115,7 +115,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
 
 - (void)tearDown
 {
-    [invocationMatcher release];
+	invocationMatcher = nil;
     [super tearDown];
 }
 

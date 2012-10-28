@@ -16,7 +16,7 @@
 
 + (id)mockForClass:(Class)aClass
 {
-    return [[[self alloc] initWithClass:aClass] autorelease];
+    return [[self alloc] initWithClass:aClass];
 }
 
 - (id)initWithClass:(Class)aClass

@@ -73,7 +73,7 @@
 {
     // given
     id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
-    PartialImplementor *realImplementor = [[[PartialImplementor alloc] init] autorelease];
+    PartialImplementor *realImplementor = [[PartialImplementor alloc] init];
     SEL selector = @selector(required);
     
     // when
@@ -87,7 +87,7 @@
 {
     // given
     id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
-    FullImplementor *realImplementor = [[[FullImplementor alloc] init] autorelease];
+    FullImplementor *realImplementor = [[FullImplementor alloc] init];
     SEL selector = @selector(optional);
     
     // when

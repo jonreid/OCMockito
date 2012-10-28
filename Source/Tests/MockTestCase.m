@@ -11,12 +11,6 @@
 
 @implementation MockTestCase
 
-- (void)dealloc
-{
-    [_failureException release];
-    [super dealloc];
-}
-
 - (void)failWithException:(NSException *)exception
 {
     ++_failureCount;

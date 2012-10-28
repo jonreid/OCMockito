@@ -10,11 +10,4 @@
 
 
 @implementation MKTStubbedInvocationMatcher
-
-- (void)dealloc
-{
-    [_answer release];
-    [super dealloc];
-}
-
 @end

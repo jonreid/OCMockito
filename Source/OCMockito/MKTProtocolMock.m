@@ -18,7 +18,7 @@
 
 + (id)mockForProtocol:(Protocol *)aProtocol
 {
-    return [[[self alloc] initWithProtocol:aProtocol] autorelease];
+    return [[self alloc] initWithProtocol:aProtocol];
 }
 
 - (id)initWithProtocol:(Protocol *)aProtocol

@@ -18,7 +18,7 @@
 
 + (id)mockForClass:(Class)aClass protocol:(Protocol *)protocol
 {
-    return [[[self alloc] initWithClass:aClass protocol:protocol] autorelease];
+    return [[self alloc] initWithClass:aClass protocol:protocol];
 }
 
 - (id)initWithClass:(Class)aClass protocol:(Protocol *)protocol
@@ -29,7 +29,6 @@
     return self;
 }
 
-
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     NSMethodSignature *signature = [_mockedClass instanceMethodSignatureForSelector:aSelector];
@@ -39,6 +38,7 @@
     else
         return [super methodSignatureForSelector:aSelector];
 }
+
 
 #pragma mark NSObject protocol
 

@@ -37,9 +37,9 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-    MKTVerificationData *emptyData = [[[MKTVerificationData alloc] init] autorelease];
-    emptyData.invocations = [[[MKTInvocationContainer alloc] initWithMockingProgress:nil] autorelease];
-    emptyData.wanted = [[[MKTInvocationMatcher alloc] init] autorelease];
+    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
+    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
+    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
     
     // when
     [emptyData.wanted setExpectedInvocation:[NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]]];
@@ -52,9 +52,9 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:2];
-    MKTVerificationData *emptyData = [[[MKTVerificationData alloc] init] autorelease];
-    emptyData.invocations = [[[MKTInvocationContainer alloc] initWithMockingProgress:nil] autorelease];
-    emptyData.wanted = [[[MKTInvocationMatcher alloc] init] autorelease];
+    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
+    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
+    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
     
     // when
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
@@ -69,9 +69,9 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:0];
-    MKTVerificationData *emptyData = [[[MKTVerificationData alloc] init] autorelease];
-    emptyData.invocations = [[[MKTInvocationContainer alloc] initWithMockingProgress:nil] autorelease];
-    emptyData.wanted = [[[MKTInvocationMatcher alloc] init] autorelease];
+    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
+    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
+    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
     
     // when
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
@@ -85,9 +85,9 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-    MKTVerificationData *emptyData = [[[MKTVerificationData alloc] init] autorelease];
-    emptyData.invocations = [[[MKTInvocationContainer alloc] initWithMockingProgress:nil] autorelease];
-    emptyData.wanted = [[[MKTInvocationMatcher alloc] init] autorelease];
+    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
+    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
+    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
     
     // when
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
@@ -102,9 +102,9 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-    MKTVerificationData *emptyData = [[[MKTVerificationData alloc] init] autorelease];
-    emptyData.invocations = [[[MKTInvocationContainer alloc] initWithMockingProgress:nil] autorelease];
-    emptyData.wanted = [[[MKTInvocationMatcher alloc] init] autorelease];
+    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
+    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
+    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
     
     // when
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];

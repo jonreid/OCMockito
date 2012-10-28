@@ -20,7 +20,7 @@
 
 + (id)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
 {
-    return [[[self alloc] initWithMinimumCount:minimumExpectedNumberOfInvocations] autorelease];
+    return [[self alloc] initWithMinimumCount:minimumExpectedNumberOfInvocations];
 }
 
 - (id)initWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations

@@ -39,7 +39,7 @@
 
 - (void)tearDown
 {
-    [mockingProgress release];
+	mockingProgress = nil;
     [super tearDown];
 }
 
@@ -51,10 +51,10 @@
 - (void)testPullOngoingStubbingWithStubbingReportedShouldReturnStubbing
 {
     // given
-    MKTInvocationContainer *invocationContainer = [[[MKTInvocationContainer alloc]
-                                                   initWithMockingProgress:mockingProgress] autorelease];
-    MKTOngoingStubbing *ongoingStubbing = [[[MKTOngoingStubbing alloc]
-                                           initWithInvocationContainer:invocationContainer] autorelease];
+    MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc]
+                                                   initWithMockingProgress:mockingProgress];
+    MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
+                                           initWithInvocationContainer:invocationContainer];
     
     // when
     [mockingProgress reportOngoingStubbing:ongoingStubbing];
@@ -66,10 +66,10 @@
 - (void)testPullOngoingStubbingShouldClearCurrentStubbing
 {
     // given
-    MKTInvocationContainer *invocationContainer = [[[MKTInvocationContainer alloc]
-                                                   initWithMockingProgress:mockingProgress] autorelease];
-    MKTOngoingStubbing *ongoingStubbing = [[[MKTOngoingStubbing alloc]
-                                           initWithInvocationContainer:invocationContainer] autorelease];
+    MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc]
+                                                   initWithMockingProgress:mockingProgress];
+    MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
+                                           initWithInvocationContainer:invocationContainer];
     
     // when
     [mockingProgress reportOngoingStubbing:ongoingStubbing];

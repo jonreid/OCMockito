@@ -72,7 +72,7 @@
 {
     // given
     TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    TestClass<TestProtocol> *obj = [[[TestSubclass alloc] init] autorelease];
+    TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
     SEL selector = @selector(instanceMethod);
     
     // when
@@ -117,7 +117,7 @@
 {
     // given
     TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    TestClass<TestProtocol> *obj = [[[TestSubclass alloc] init] autorelease];
+    TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
     SEL selector = @selector(requiredMethod);
     
     // when

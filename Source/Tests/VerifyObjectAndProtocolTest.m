@@ -44,7 +44,7 @@
     // given
     NSMutableArray <NSLocking> *mockLockingArray = mockObjectAndProtocol([NSMutableArray class],
                                                                          @protocol(NSLocking));
-    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
 
     // then
     [verifyWithMockTestCase(mockLockingArray) removeAllObjects];
@@ -69,7 +69,7 @@
     // given
     NSMutableArray <NSLocking> *mockLockingArray = mockObjectAndProtocol([NSMutableArray class],
                                                                          @protocol(NSLocking));
-    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
 
     // then
     [verifyWithMockTestCase(mockLockingArray) lock];

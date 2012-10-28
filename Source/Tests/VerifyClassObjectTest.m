@@ -42,7 +42,7 @@
 {
     // given
     Class mockStringClass = mockClass([NSString class]);
-    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     
     // then
     [verifyWithMockTestCase(mockStringClass) string];

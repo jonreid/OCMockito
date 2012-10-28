@@ -42,7 +42,7 @@
 {
     // given
     id <NSLocking> mockLock = mockProtocol(@protocol(NSLocking));
-    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     
     // then
     [verifyWithMockTestCase(mockLock) lock];
@@ -53,8 +53,8 @@
 {
     // given
     id <NSKeyedArchiverDelegate> mockDelegate = mockProtocol(@protocol(NSKeyedArchiverDelegate));
-    NSKeyedArchiver *archiver = [[[NSKeyedArchiver alloc]
-                                  initForWritingWithMutableData:[NSMutableData data]] autorelease];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]
+                                  initForWritingWithMutableData:[NSMutableData data]];
     
     // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
@@ -67,10 +67,10 @@
 {
     // given
     id <NSKeyedArchiverDelegate> mockDelegate = mockProtocol(@protocol(NSKeyedArchiverDelegate));
-    NSKeyedArchiver *archiver = [[[NSKeyedArchiver alloc]
-                                  initForWritingWithMutableData:[NSMutableData data]] autorelease];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]
+                                  initForWritingWithMutableData:[NSMutableData data]];
     
-    MockTestCase *mockTestCase = [[[MockTestCase alloc] init] autorelease];
+    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     
     // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
@@ -84,8 +84,8 @@
 {
     // given
     id <NSKeyedArchiverDelegate> mockDelegate = mockProtocol(@protocol(NSKeyedArchiverDelegate));
-    NSKeyedArchiver *archiver = [[[NSKeyedArchiver alloc]
-                                  initForWritingWithMutableData:[NSMutableData data]] autorelease];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]
+                                  initForWritingWithMutableData:[NSMutableData data]];
     
     // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];

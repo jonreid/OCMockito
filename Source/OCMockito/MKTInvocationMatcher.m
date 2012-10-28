@@ -21,7 +21,7 @@
 
 
 @interface MKTInvocationMatcher ()
-@property (nonatomic, retain) NSInvocation *expected;
+@property (nonatomic, strong) NSInvocation *expected;
 @end
 
 
@@ -37,13 +37,6 @@
     if (self)
         _argumentMatchers = [[NSMutableArray alloc] init];
     return self;
-}
-
-- (void)dealloc
-{
-    [_expected release];
-    [_argumentMatchers release];
-    [super dealloc];
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex

@@ -30,14 +30,8 @@
 {
     self = [super init];
     if (self)
-        _mockingProgress = [[MKTMockingProgress sharedProgress] retain];
+        _mockingProgress = [MKTMockingProgress sharedProgress];
     return self;
-}
-
-- (void)dealloc
-{
-    [_mockingProgress release];
-    [super dealloc];
 }
 
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location

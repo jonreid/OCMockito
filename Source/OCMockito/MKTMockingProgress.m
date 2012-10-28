@@ -14,9 +14,9 @@
 
 
 @interface MKTMockingProgress ()
-@property (nonatomic, retain) MKTInvocationMatcher *invocationMatcher;
-@property (nonatomic, retain) id <MKTVerificationMode> verificationMode;
-@property (nonatomic, retain) MKTOngoingStubbing *ongoingStubbing;
+@property (nonatomic, strong) MKTInvocationMatcher *invocationMatcher;
+@property (nonatomic, strong) id <MKTVerificationMode> verificationMode;
+@property (nonatomic, strong) MKTOngoingStubbing *ongoingStubbing;
 @end
 
 
@@ -31,14 +31,6 @@
     return sharedProgress;
 }
 
-- (void)dealloc
-{
-    [_invocationMatcher release];
-    [_verificationMode release];
-    [_ongoingStubbing release];
-    [super dealloc];
-}
-
 - (void)stubbingStartedAtLocation:(MKTTestLocation)location
 {
     [self setTestLocation:location];
@@ -51,9 +43,9 @@
 
 - (MKTOngoingStubbing *)pullOngoingStubbing
 {
-    MKTOngoingStubbing *result = [_ongoingStubbing retain];
+    MKTOngoingStubbing *result = _ongoingStubbing;
     [self setOngoingStubbing:nil];
-    return [result autorelease];
+    return result;
 }
 
 - (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location
@@ -64,9 +56,9 @@
 
 - (id <MKTVerificationMode>)pullVerificationMode
 {
-    id <MKTVerificationMode> result = [_verificationMode retain];
+    id <MKTVerificationMode> result = _verificationMode;
     [self setVerificationMode:nil];
-    return [result autorelease];
+    return result;
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
@@ -78,9 +70,9 @@
 
 - (MKTInvocationMatcher *)pullInvocationMatcher
 {
-    MKTInvocationMatcher *result = [_invocationMatcher retain];
+    MKTInvocationMatcher *result = _invocationMatcher;
     [self setInvocationMatcher:nil];
-    return [result autorelease];
+    return result;
 }
 
 @end

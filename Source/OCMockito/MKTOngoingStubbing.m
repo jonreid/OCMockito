@@ -20,14 +20,8 @@
 {
     self = [super init];
     if (self)
-        _invocationContainer = [invocationContainer retain];
+        _invocationContainer = invocationContainer;
     return self;
-}
-
-- (void)dealloc
-{
-    [_invocationContainer release];
-    [super dealloc];
 }
 
 - (MKTOngoingStubbing *)willReturn:(id)object

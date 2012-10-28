@@ -8,17 +8,6 @@
 
 #import "MKTVerificationData.h"
 
-#import "MKTInvocationContainer.h"
-#import "MKTInvocationMatcher.h"
-
 
 @implementation MKTVerificationData
-
-- (void)dealloc
-{
-    [_invocations release];
-    [_wanted release];
-    [super dealloc];
-}
-
 @end

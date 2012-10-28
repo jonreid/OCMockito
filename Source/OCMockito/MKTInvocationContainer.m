@@ -13,7 +13,7 @@
 
 
 @interface MKTInvocationContainer ()
-@property (nonatomic, retain) MKTStubbedInvocationMatcher *invocationMatcherForStubbing;
+@property (nonatomic, strong) MKTStubbedInvocationMatcher *invocationMatcherForStubbing;
 @end
 
 
@@ -29,21 +29,12 @@
     if (self)
     {
         _registeredInvocations = [[NSMutableArray alloc] init];
-        _mockingProgress = [mockingProgress retain];
+        _mockingProgress = mockingProgress;
         _stubbed = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_registeredInvocations release];
-    [_mockingProgress release];
-    [_invocationMatcherForStubbing release];
-    [_stubbed release];
-    
-    [super dealloc];
-}
 
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation
 {
@@ -53,7 +44,6 @@
     MKTStubbedInvocationMatcher *stubbedInvocationMatcher = [[MKTStubbedInvocationMatcher alloc] init];
     [stubbedInvocationMatcher setExpectedInvocation:invocation];
     [self setInvocationMatcherForStubbing:stubbedInvocationMatcher];
-    [stubbedInvocationMatcher release];
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex

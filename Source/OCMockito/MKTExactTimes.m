@@ -31,7 +31,7 @@
 
 + (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations
 {
-    return [[[self alloc] initWithCount:expectedNumberOfInvocations] autorelease];
+    return [[self alloc] initWithCount:expectedNumberOfInvocations];
 }
 
 - (id)initWithCount:(NSUInteger)expectedNumberOfInvocations
