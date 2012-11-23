@@ -15,11 +15,8 @@
                         atLine:(int)lineNumber
                         reason:(NSString *)reason
 {
-    NSNumber *line = [NSNumber numberWithInt:lineNumber];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                              fileName, @"SenTestFilenameKey",
-                              line, @"SenTestLineNumberKey",
-                              nil];
+    NSDictionary *userInfo = @{@"SenTestFilenameKey": fileName,
+                              @"SenTestLineNumberKey": @(lineNumber)};
     return [self exceptionWithName:@"SenTestFailureException" reason:reason userInfo:userInfo];
 }
 

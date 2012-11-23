@@ -288,7 +288,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
     NSInvocation *actual = [DummyObject invocationWithCharArg:'z'];
     
     // when
-    [invocationMatcher setMatcher:lessThan([NSNumber numberWithChar:'n']) atIndex:2];
+    [invocationMatcher setMatcher:lessThan(@'n') atIndex:2];
     [invocationMatcher setExpectedInvocation:expected];
     
     // then
@@ -315,7 +315,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
     NSInvocation *actual = [DummyObject invocationWithCharArg:51];
     
     // when
-    [invocationMatcher setMatcher:lessThan([NSNumber numberWithInt:50]) atIndex:2];
+    [invocationMatcher setMatcher:lessThan(@50) atIndex:2];
     [invocationMatcher setExpectedInvocation:expected];
     
     // then
@@ -487,7 +487,7 @@ DEFINE_INVOCATION_METHOD(double, Double)
     NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something" intArg:51];
     
     // when
-    [invocationMatcher setMatcher:greaterThan([NSNumber numberWithInt:50]) atIndex:3];
+    [invocationMatcher setMatcher:greaterThan(@50) atIndex:3];
     [invocationMatcher setExpectedInvocation:expected];
     
     // then

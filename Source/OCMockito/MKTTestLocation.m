@@ -22,7 +22,7 @@
 
 void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description)
 {
-    NSString *theFileName = [NSString stringWithCString:fileName encoding:NSUTF8StringEncoding];
+    NSString *theFileName = @(fileName);
     NSException *failure = [MKTException failureInFile:theFileName
                                                 atLine:lineNumber
                                                 reason:description];

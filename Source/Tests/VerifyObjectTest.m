@@ -129,7 +129,7 @@
     [mockArray removeObjectAtIndex:2];
     
     // then
-    [[verify(mockArray) withMatcher:greaterThan([NSNumber numberWithInt:1]) forArgument:0]
+    [[verify(mockArray) withMatcher:greaterThan(@1) forArgument:0]
      removeObjectAtIndex:0];
 }
 
@@ -142,7 +142,7 @@
     [mockArray removeObjectAtIndex:2];
     
     // then
-    [[verify(mockArray) withMatcher:greaterThan([NSNumber numberWithInt:1])] removeObjectAtIndex:0];
+    [[verify(mockArray) withMatcher:greaterThan(@1)] removeObjectAtIndex:0];
 }
 
 - (void)testVerifyTimesOneShouldFailForMethodNotInvoked

@@ -103,7 +103,7 @@
     
     // when
     [[given([mockProtocol methodReturningObjectWithIntArg:0])
-      withMatcher:greaterThan([NSNumber numberWithInt:1]) forArgument:0] willReturn:@"FOO"];
+      withMatcher:greaterThan(@1) forArgument:0] willReturn:@"FOO"];
     
     // then
     assertThat([mockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
@@ -116,7 +116,7 @@
     
     // when
     [[given([mockProtocol methodReturningObjectWithIntArg:0])
-      withMatcher:greaterThan([NSNumber numberWithInt:1])] willReturn:@"FOO"];
+      withMatcher:greaterThan(@1)] willReturn:@"FOO"];
     
     // then
     assertThat([mockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));

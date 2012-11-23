@@ -30,11 +30,11 @@
     return self;
 }
 
-#define DEFINE_RETURN_METHOD(type, typeName)                                        \
-    - (MKTOngoingStubbing *)willReturn ## typeName:(type)value                      \
-    {                                                                               \
-        [_invocationContainer addAnswer:[NSNumber numberWith ## typeName:value]];   \
-        return self;                                                                \
+#define DEFINE_RETURN_METHOD(type, typeName)                        \
+    - (MKTOngoingStubbing *)willReturn ## typeName:(type)value      \
+    {                                                               \
+        [_invocationContainer addAnswer:@(value)];                  \
+        return self;                                                \
     }
 
 DEFINE_RETURN_METHOD(BOOL, Bool)
