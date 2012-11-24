@@ -11,15 +11,17 @@
 		0817B5EC147ECA6700C5401D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817B5EB147ECA6700C5401D /* SenTestingKit.framework */; };
 		0846235F147DEA6500FEEDBE /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0846235E147DEA6500FEEDBE /* OCMockitoIOS.framework */; };
 		089B9DED1298DB1100D4F34F /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 089B9DEC1298DB1100D4F34F /* Example.m */; };
+		08A8DD2D16614BD80038A30D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A8DD2C16614BD80038A30D /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0817B5E9147ECA5300C5401D /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../../OCHamcrest-1.6/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
+		0817B5E9147ECA5300C5401D /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../../OCHamcrest-1.9/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		0817B5EB147ECA6700C5401D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0846235E147DEA6500FEEDBE /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockitoIOS.framework; path = ../../OCMockitoIOS.framework; sourceTree = "<group>"; };
 		089B9DC71298DA0B00D4F34F /* Example.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Example.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		089B9DC81298DA0B00D4F34F /* Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Example-Info.plist"; sourceTree = "<group>"; };
 		089B9DEC1298DB1100D4F34F /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; usesTabs = 0; };
+		08A8DD2C16614BD80038A30D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,9 +29,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0846235F147DEA6500FEEDBE /* OCMockitoIOS.framework in Frameworks */,
-				0817B5EA147ECA5300C5401D /* OCHamcrestIOS.framework in Frameworks */,
+				08A8DD2D16614BD80038A30D /* Foundation.framework in Frameworks */,
 				0817B5EC147ECA6700C5401D /* SenTestingKit.framework in Frameworks */,
+				0817B5EA147ECA5300C5401D /* OCHamcrestIOS.framework in Frameworks */,
+				0846235F147DEA6500FEEDBE /* OCMockitoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +61,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08A8DD2C16614BD80038A30D /* Foundation.framework */,
 				0817B5EB147ECA6700C5401D /* SenTestingKit.framework */,
 				0817B5E9147ECA5300C5401D /* OCHamcrestIOS.framework */,
 				0846235E147DEA6500FEEDBE /* OCMockitoIOS.framework */,
@@ -153,24 +157,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../..\"",
-					"\"$(SRCROOT)/../../OCHamcrest-1.6\"",
+					"\"$(SRCROOT)/../../OCHamcrest-1.9\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Example-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-lstdc++",
-					"-ObjC",
-				);
 				PRODUCT_NAME = Example;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -180,6 +179,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -187,16 +187,10 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../..\"",
-					"\"$(SRCROOT)/../../OCHamcrest-1.6\"",
+					"\"$(SRCROOT)/../../OCHamcrest-1.9\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Example-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-lstdc++",
-					"-ObjC",
-				);
 				PRODUCT_NAME = Example;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
@@ -213,7 +207,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphonesimulator5.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -226,7 +220,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphonesimulator5.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
