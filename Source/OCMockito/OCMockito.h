@@ -16,62 +16,64 @@
 #import <objc/objc-api.h>
 
 
+#define MKTMock(aClass) [MKTObjectMock mockForClass:aClass]
+
 /**
     Returns a mock object of a given class.
  
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c mock.
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTMock instead.)
  */
-#define MKTMock(aClass) [MKTObjectMock mockForClass:aClass]
-
 #ifdef MOCKITO_SHORTHAND
     #define mock(aClass) MKTMock(aClass)
 #endif
 
 
+#define MKTMockClass(aClass) [MKTClassObjectMock mockForClass:aClass]
+
 /**
     Returns a mock class object of a given class.
 
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c mock.
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTMockClass instead.)
  */
-#define MKTMockClass(aClass) [MKTClassObjectMock mockForClass:aClass]
-
 #ifdef MOCKITO_SHORTHAND
     #define mockClass(aClass) MKTMockClass(aClass)
 #endif
 
 
+#define MKTMockProtocol(aProtocol) [MKTProtocolMock mockForProtocol:aProtocol]
+
 /**
     Returns a mock object implementing a given protocol.
 
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c mockProtocol.
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTMockProtocol instead.)
  */
-#define MKTMockProtocol(aProtocol) [MKTProtocolMock mockForProtocol:aProtocol]
-
 #ifdef MOCKITO_SHORTHAND
     #define mockProtocol(aProtocol) MKTMockProtocol(aProtocol)
 #endif
 
 
-/**
-    Returns a mock object of a given class that also implements a given protocol.
- */
-
 #define MKTMockObjectAndProtocol(aClass, aProtocol) [MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol]
 
+/**
+    Returns a mock object of a given class that also implements a given protocol.
+
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTMockObjectAndProtocol instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #define mockObjectAndProtocol(aClass, aProtocol) MKTMockObjectAndProtocol(aClass, aProtocol)
 #endif
 
 OBJC_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
 
+
+#define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
+
 /**
     Enables method stubbing.
-
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c given.
 
     Use @c given when you want the mock to return particular value when particular method is called.
 
@@ -79,9 +81,10 @@ OBJC_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fi
     @li @ref [given([mockObject methodReturningString]) willReturn:@"foo"];
 
     See @ref MKTOngoingStubbing for other methods to stub different types of return values.
- */
-#define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
 
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTGiven instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #define given(methodCall) MKTGiven(methodCall)
 #endif
@@ -89,11 +92,10 @@ OBJC_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fi
 
 OBJC_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 
+#define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
+
 /**
     Verifies certain behavior happened once.
-
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c verify.
 
     @c verify checks that a method was invoked once, with arguments that match given OCHamcrest
     matchers. If an argument is not a matcher, it is implicitly wrapped in an @c equalTo matcher to
@@ -109,9 +111,10 @@ OBJC_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName,
 @code
 verifyCount(mockObject, times(1))
 @endcode
- */
-#define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTVerify instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #undef verify
     #define verify(mock) MKTVerify(mock)
@@ -120,11 +123,10 @@ verifyCount(mockObject, times(1))
 
 OBJC_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
 
+#define MKTVerifyCount(mock, mode) MKTVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
+
 /**
     Verifies certain behavior happened a given number of times.
-
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c verifyCount.
 
     Examples:
 @code
@@ -135,84 +137,85 @@ OBJC_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const c
     @c verifyCount checks that a method was invoked a given number of times, with arguments that
     match given OCHamcrest matchers. If an argument is not a matcher, it is implicitly wrapped in an
     @c equalTo matcher to check for equality.
- */
-#define MKTVerifyCount(mock, mode) MKTVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
 
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTVerifyCount instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #define verifyCount(mock, mode) MKTVerifyCount(mock, mode)
 #endif
 
 
+OBJC_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
+
 /**
     Verifies exact number of invocations.
-
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c times.
 
     Example:
 @code
 [verifyCount(mockObject, times(2)) someMethod:@"some arg"];
 @endcode
- */
-OBJC_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTTimes instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #define times(wantedNumberOfInvocations) MKTTimes(wantedNumberOfInvocations)
 #endif
 
 
+OBJC_EXPORT id MKTNever(void);
+
 /**
     Verifies that interaction did not happen.
-
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c never.
 
     Example:
     @code
     [verifyCount(mockObject, never()) someMethod:@"some arg"];
     @endcode
- */
-OBJC_EXPORT id MKTNever(void);
 
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTNever instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #define never() MKTNever()
 #endif
 
+
+OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
 
 /**
     Verifies minimum number of invocations.
 
     The verification will succeed if the specified invocation happened the number of times
     specified or more.
- 
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c atLeast.
 
     Example:
 @code
 [verifyCount(mockObject, atLeast(2)) someMethod:@"some arg"];
 @endcode
- */
-OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
 
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTAtLeast instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #define atLeast(minimumWantedNumberOfInvocations) MKTAtLeast(minimumWantedNumberOfInvocations)
 #endif
 
 
+OBJC_EXPORT id MKTAtLeastOnce(void);
+
 /**
     Verifies that interaction happened once or more.
-
-    Unless there is a name clash, you can \#define @c MOCKITO_SHORTHAND and use the synonym
-    @c atLeastOnce.
 
     Example:
 @code
 [verifyCount(mockObject, atLeastOnce()) someMethod:@"some arg"];
 @endcode
- */
-OBJC_EXPORT id MKTAtLeastOnce(void);
 
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTAtLeastOnce instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #define atLeastOnce() MKTAtLeastOnce()
 #endif
