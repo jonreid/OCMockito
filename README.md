@@ -81,8 +81,8 @@ Let's verify some behavior!
 Once created, the mock will remember all interactions. Then you can selectively
 verify whatever interactions you are interested in.
 
-(If Xcode complains about multiple methods with the same name, cast verify to
-the mocked class.)
+(If Xcode complains about multiple methods with the same name, cast ``verify``
+to the mocked class.)
 
 
 How about some stubbing?
