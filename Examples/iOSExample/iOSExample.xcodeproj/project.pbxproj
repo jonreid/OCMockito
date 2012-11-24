@@ -193,7 +193,6 @@
 				INFOPLIST_FILE = "Example-Info.plist";
 				PRODUCT_NAME = Example;
 				WRAPPER_EXTENSION = octest;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
