@@ -81,6 +81,9 @@ Let's verify some behavior!
 Once created, the mock will remember all interactions. Then you can selectively
 verify whatever interactions you are interested in.
 
+(If Xcode complains about multiple methods with the same name, cast verify to
+the mocked class.)
+
 
 How about some stubbing?
 ========================
@@ -141,6 +144,9 @@ flexibility is required, you can specify
 
 OCHamcrest matchers can be specified as arguments for both verification and
 stubbing.
+
+Typed arguments will issue a warning that the matcher is the wrong type. Just
+cast the matcher to ``id``.
 
 
 How do you specify matchers for primitive arguments?
