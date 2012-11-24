@@ -741,7 +741,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -786,7 +786,7 @@
 				DSTROOT = /tmp/libocmockito.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -825,7 +825,7 @@
 				DSTROOT = /tmp/libocmockito.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -843,7 +843,7 @@
 				DSTROOT = /tmp/libocmockito.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -942,7 +942,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_VERSION = A;
@@ -967,7 +967,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.8\"",
+					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_VERSION = A;

@@ -7,7 +7,7 @@
 //  Source: https://github.com/hamcrest/OCHamcrest
 //
 
-#import <OCHamcrest/HCSelfDescribing.h>
+#import "HCSelfDescribing.h"
 
 
 /**

@@ -40,7 +40,7 @@ OBJC_EXPORT id<HCMatcher> HC_greaterThan(id expected);
     @param aNumber  The @c NSNumber to compare against.
     
     Example:
-    @li @ref greaterThan([NSNumber numberWithInt:5])
+    @li @ref greaterThan(\@5)
 
     (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
     @c HC_greaterThan instead.)
@@ -61,7 +61,7 @@ OBJC_EXPORT id<HCMatcher> HC_greaterThanOrEqualTo(id expected);
     @param aNumber  The @c NSNumber to compare against.
     
     Example:
-    @li @ref greaterThanOrEqualTo([NSNumber numberWithInt:5])
+    @li @ref greaterThanOrEqualTo(\@5)
 
     (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
     @c HC_greaterThanOrEqualTo instead.)
@@ -82,7 +82,7 @@ OBJC_EXPORT id<HCMatcher> HC_lessThan(id expected);
     @param aNumber  The @c NSNumber to compare against.
     
     Example:
-    @li @ref lessThan([NSNumber numberWithInt:5])
+    @li @ref lessThan(\@5)
 
     (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
     @c HC_lessThan instead.)
@@ -103,7 +103,7 @@ OBJC_EXPORT id<HCMatcher> HC_lessThanOrEqualTo(id expected);
     @param aNumber  The @c NSNumber to compare against.
     
     Example:
-    @li @ref lessThanOrEqualTo([NSNumber numberWithInt:5])
+    @li @ref lessThanOrEqualTo(\@5)
 
     (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
     @c HC_lessThanOrEqualTo instead.)
