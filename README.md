@@ -25,8 +25,8 @@ If you want to build OCMockito yourself, cd to the Source folder, then
 
     $ ./MakeDistribution.sh
 
-Or just use the pre-built release available in
-[Downloads](https://github.com/jonreid/OCMockito/downloads).
+Or just use the pre-built release available at
+[QualityCoding.org](http://qualitycoding.org/resources/).
 
 __Mac Project Setup:__
 
