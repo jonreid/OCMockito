@@ -28,7 +28,19 @@ If you want to build OCMockito yourself, cd to the Source folder, then
 Or just use the pre-built release available at
 [QualityCoding.org](http://qualitycoding.org/resources/).
 
-__Mac Project Setup:__
+__iOS Project Setup:__
+
+Add both OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
+
+Add:
+
+    #define HC_SHORTHAND
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
+
+    #define MOCKITO_SHORTHAND
+    #import <OCMockitoIOS/OCMockitoIOS.h>
+
+__OS X Project Setup:__
 
 Add both OCHamcrest.framework and OCMockito.framework and to your project.
 
@@ -50,18 +62,6 @@ Note: If your Console shows
     otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument". Terminating temporary process.
 
 double-check your Copy Files phase.
-
-__iOS Project Setup:__
-
-Add both OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
-
-Add:
-
-    #define HC_SHORTHAND
-    #import <OCHamcrestIOS/OCHamcrestIOS.h>
-
-    #define MOCKITO_SHORTHAND
-    #import <OCMockitoIOS/OCMockitoIOS.h>
 
 
 Let's verify some behavior!
