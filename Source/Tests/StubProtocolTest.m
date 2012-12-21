@@ -37,7 +37,7 @@
 
 @implementation StubProtocolTest
 
-- (void)testStubbedMethoShouldReturnGivenObject
+- (void)testStubbedMethodShouldReturnGivenObject
 {
     // given
     id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
