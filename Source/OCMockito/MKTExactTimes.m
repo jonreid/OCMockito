@@ -12,7 +12,6 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTTestLocation.h"
 #import "MKTVerificationData.h"
-#import "MKTException.h"
 
 
 // As of 2010-09-09, the iPhone simulator has a bug where you can't catch exceptions when they are

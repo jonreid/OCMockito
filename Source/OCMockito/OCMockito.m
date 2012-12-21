@@ -11,7 +11,6 @@
 #import "MKTAtLeastTimes.h"
 #import "MKTExactTimes.h"
 #import "MKTMockitoCore.h"
-#import "MKTTestLocation.h"
 
 
 static BOOL isValidMock(id mock, id testCase, const char *fileName, int lineNumber, NSString *functionName)
