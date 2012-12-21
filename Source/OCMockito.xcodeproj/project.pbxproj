@@ -164,8 +164,6 @@
 		0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMockingProgress.m; sourceTree = "<group>"; };
 		0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTVerificationMode.h; sourceTree = "<group>"; };
 		0827E8551352BC1D00C39A57 /* MKTVerificationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTVerificationData.h; sourceTree = "<group>"; };
-		0827E8581352BDF800C39A57 /* MKTMockAwareVerificationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTMockAwareVerificationMode.h; sourceTree = "<group>"; };
-		0827E8591352BDF800C39A57 /* MKTMockAwareVerificationMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMockAwareVerificationMode.m; sourceTree = "<group>"; };
 		0827E8641352C50400C39A57 /* MKTTestLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTTestLocation.h; sourceTree = "<group>"; };
 		0827E8671352CC6400C39A57 /* MKTExactTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTExactTimes.h; sourceTree = "<group>"; };
 		0827E8681352CC6400C39A57 /* MKTExactTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTExactTimes.m; sourceTree = "<group>"; };
@@ -320,8 +318,6 @@
 				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
 				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
 				08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */,
-				0827E8581352BDF800C39A57 /* MKTMockAwareVerificationMode.h */,
-				0827E8591352BDF800C39A57 /* MKTMockAwareVerificationMode.m */,
 				0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */,
 				0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */,
 				0827E8461352B7BE00C39A57 /* MKTMockingProgress.h */,
