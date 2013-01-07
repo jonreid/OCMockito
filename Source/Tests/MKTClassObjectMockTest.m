@@ -32,7 +32,6 @@
 {
     [super setUp];
     mockStringClass = mockClass([NSString class]);
-
 }
 
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
