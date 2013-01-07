@@ -25,13 +25,18 @@
 @end
 
 @implementation VerifyObjectAndProtocolTest
+{
+    NSMutableArray <NSLocking> *mockLockingArray;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockLockingArray = mockObjectAndProtocol([NSMutableArray class], @protocol(NSLocking));
+}
 
 - (void)testInvokingClassInstanceMethodShouldPassVerify
 {
-    // given
-    NSMutableArray <NSLocking> *mockLockingArray = mockObjectAndProtocol([NSMutableArray class],
-                                                                         @protocol(NSLocking));
-    
     // when
     [mockLockingArray removeAllObjects];
     
@@ -42,9 +47,9 @@
 - (void)testNotInvokingClassInstanceMethodShouldFailVerify
 {
     // given
-    NSMutableArray <NSLocking> *mockLockingArray = mockObjectAndProtocol([NSMutableArray class],
-                                                                         @protocol(NSLocking));
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
+
+    // when nothing
 
     // then
     [verifyWithMockTestCase(mockLockingArray) removeAllObjects];
@@ -54,25 +59,23 @@
 - (void)testInvokingProtocolMethodShouldPassVerify
 {
     // given
-    NSMutableArray <NSLocking> *mockLockingArray = mockObjectAndProtocol([NSMutableArray class],
-                                                                         @protocol(NSLocking));
-    
-    // when
     [mockLockingArray lock];
     
-    // then
+    // when
     [verify(mockLockingArray) lock];
+
+    // then silently succeed
 }
 
 - (void)testNotInvokingProtocolMethodShouldFailVerify
 {
     // given
-    NSMutableArray <NSLocking> *mockLockingArray = mockObjectAndProtocol([NSMutableArray class],
-                                                                         @protocol(NSLocking));
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
 
-    // then
+    // when
     [verifyWithMockTestCase(mockLockingArray) lock];
+
+    // then
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
