@@ -99,13 +99,12 @@ DEFINE_INVOCATION_METHOD(double, Double)
 #pragma mark -
 
 @interface MKTInvocationMatcherTest : SenTestCase
+@end
+
+@implementation MKTInvocationMatcherTest
 {
     MKTInvocationMatcher *invocationMatcher;
 }
-@end
-
-
-@implementation MKTInvocationMatcherTest
 
 - (void)setUp
 {

@@ -23,13 +23,12 @@
 
 
 @interface MKTMockingProgressTest : SenTestCase
+@end
+
+@implementation MKTMockingProgressTest
 {
     MKTMockingProgress *mockingProgress;
 }
-@end
-
-
-@implementation MKTMockingProgressTest
 
 - (void)setUp
 {
