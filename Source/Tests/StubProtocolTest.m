@@ -33,15 +33,21 @@
 #pragma mark -
 
 @interface StubProtocolTest : SenTestCase
+{
+    id <ReturningProtocol> mockProtocol;
+}
 @end
 
 @implementation StubProtocolTest
 
+- (void)setUp
+{
+    [super setUp];
+    mockProtocol = mockProtocol(@protocol(ReturningProtocol));
+}
+
 - (void)testStubbedMethodShouldReturnGivenObject
 {
-    // given
-    id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
-    
     // when
     [given([mockProtocol methodReturningObject]) willReturn:@"STUBBED"];
     
@@ -51,18 +57,11 @@
 
 - (void)testUnstubbedMethodReturningObjectShouldReturnNil
 {
-    // given
-    id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
-    
-    // then
     assertThat([mockProtocol methodReturningObject], is(nilValue()));
 }
 
 - (void)testStubsWithDifferentArgsShouldHaveDifferentReturnValues
 {
-    // given
-    id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
-    
     // when
     [given([mockProtocol methodReturningObjectWithArg:@"foo"]) willReturn:@"FOO"];
     [given([mockProtocol methodReturningObjectWithArg:@"bar"]) willReturn:@"BAR"];
@@ -73,9 +72,6 @@
 
 - (void)testStubShouldAcceptArgumentMatchers
 {
-    // given
-    id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
-    
     // when
     [given([mockProtocol methodReturningObjectWithArg:equalTo(@"foo")]) willReturn:@"FOO"];
     
@@ -85,9 +81,6 @@
 
 - (void)testStubShouldReturnValueForMatchingNumericArgument
 {
-    // given
-    id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
-    
     // when
     [given([mockProtocol methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
     [given([mockProtocol methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
@@ -98,9 +91,6 @@
 
 - (void)testStubShouldAcceptMatcherForNumericArgument
 {
-    // given
-    id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
-    
     // when
     [[given([mockProtocol methodReturningObjectWithIntArg:0])
       withMatcher:greaterThan(@1) forArgument:0] willReturn:@"FOO"];
@@ -111,9 +101,6 @@
 
 - (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
-    // given
-    id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
-    
     // when
     [[given([mockProtocol methodReturningObjectWithIntArg:0])
       withMatcher:greaterThan(@1)] willReturn:@"FOO"];
@@ -124,9 +111,6 @@
 
 - (void)testStubbedMethodShouldReturnGivenShort
 {
-    // given
-    id <ReturningProtocol> mockProtocol = mockProtocol(@protocol(ReturningProtocol));
-    
     // when
     [given([mockProtocol methodReturningShort]) willReturnShort:42];
     
