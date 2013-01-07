@@ -30,10 +30,10 @@
 @end
 
 
-@interface PartialImplementor : NSObject <TestingProtocol>
+@interface PartialImplementer : NSObject <TestingProtocol>
 @end
 
-@implementation PartialImplementor
+@implementation PartialImplementer
 
 - (NSString *)required
 {
@@ -43,10 +43,10 @@
 @end
 
 
-@interface FullImplementor : NSObject <TestingProtocol>
+@interface FullImplementer : NSObject <TestingProtocol>
 @end
 
-@implementation FullImplementor
+@implementation FullImplementer
 
 - (NSString *)required
 {
@@ -69,42 +69,42 @@
 
 @implementation MKTProtocolMockTest
 
-- (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementor
+- (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsrealImplementer
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
-    PartialImplementor *realImplementor = [[PartialImplementor alloc] init];
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
+    PartialImplementer *realImplementer = [[PartialImplementer alloc] init];
     SEL selector = @selector(required);
     
     // when
-    NSMethodSignature *signature = [(id)mockImplementor methodSignatureForSelector:selector];
+    NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
     
     // then
-    HC_assertThat(signature, HC_equalTo([realImplementor methodSignatureForSelector:selector]));
+    HC_assertThat(signature, HC_equalTo([realImplementer methodSignatureForSelector:selector]));
 }
 
-- (void)testMockShouldAnswerSameMethodSignatureForOptionalSelectorAsRealImplementor
+- (void)testMockShouldAnswerSameMethodSignatureForOptionalSelectorAsRealImplementer
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
-    FullImplementor *realImplementor = [[FullImplementor alloc] init];
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
+    FullImplementer *realImplementer = [[FullImplementer alloc] init];
     SEL selector = @selector(optional);
     
     // when
-    NSMethodSignature *signature = [(id)mockImplementor methodSignatureForSelector:selector];
+    NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
     
     // then
-    HC_assertThat(signature, HC_equalTo([realImplementor methodSignatureForSelector:selector]));
+    HC_assertThat(signature, HC_equalTo([realImplementer methodSignatureForSelector:selector]));
 }
 
 - (void)testMethodSignatureForSelectorNotInProtocolShouldAnswerNil
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
     SEL selector = @selector(objectAtIndex:);
     
     // when
-    NSMethodSignature *signature = [(id)mockImplementor methodSignatureForSelector:selector];
+    NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
     
     // then
     HC_assertThat(signature, HC_nilValue());
@@ -113,55 +113,55 @@
 - (void)testMockShouldConformToItsOwnProtocol
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
     
     // then
-    STAssertTrue([mockImplementor conformsToProtocol:@protocol(TestingProtocol)], nil);
+    STAssertTrue([mockImplementer conformsToProtocol:@protocol(TestingProtocol)], nil);
 }
 
 - (void)testMockShouldConformToParentProtocol
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
     
     // then
-    STAssertTrue([mockImplementor conformsToProtocol:@protocol(NSObject)], nil);
+    STAssertTrue([mockImplementer conformsToProtocol:@protocol(NSObject)], nil);
 }
 
 - (void)testMockShouldNotConformToUnrelatedProtocol
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
     
     // then
-    STAssertFalse([mockImplementor conformsToProtocol:@protocol(NSCoding)], nil);
+    STAssertFalse([mockImplementer conformsToProtocol:@protocol(NSCoding)], nil);
 }
 
 - (void)testMockShouldRespondToRequiredSelector
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
     
     // then
-    STAssertTrue([mockImplementor respondsToSelector:@selector(required)], nil);
+    STAssertTrue([mockImplementer respondsToSelector:@selector(required)], nil);
 }
 
 - (void)testMockShouldRespondToOptionalSelector
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
     
     // then
-    STAssertTrue([mockImplementor respondsToSelector:@selector(optional)], nil);
+    STAssertTrue([mockImplementer respondsToSelector:@selector(optional)], nil);
 }
 
 - (void)testMockShouldNotRespondToUnrelatedSelector
 {
     // given
-    id <TestingProtocol> mockImplementor = mockProtocol(@protocol(TestingProtocol));
+    id <TestingProtocol> mockImplementer = mockProtocol(@protocol(TestingProtocol));
     
     // then
-    STAssertFalse([mockImplementor respondsToSelector:@selector(objectAtIndex:)], nil);
+    STAssertFalse([mockImplementer respondsToSelector:@selector(objectAtIndex:)], nil);
 }
 
 @end
