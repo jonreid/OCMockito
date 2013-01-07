@@ -26,23 +26,37 @@
 
 
 @interface MKTAtLeastTimesTest : SenTestCase
-{
-    BOOL _shouldPassAllExceptionsUp;
-}
 @end
 
 @implementation MKTAtLeastTimesTest
+{
+    BOOL shouldPassAllExceptionsUp;
+    MKTVerificationData *emptyData;
+    NSInvocation *invocation;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    emptyData = [[MKTVerificationData alloc] init];
+    [emptyData setInvocations:[[MKTInvocationContainer alloc] initWithMockingProgress:nil]];
+    [emptyData setWanted:[[MKTInvocationMatcher alloc] init]];
+    invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
+}
+
+- (void)tearDown
+{
+    emptyData = nil;
+    [super tearDown];
+}
 
 - (void)testVerificationShouldFailForEmptyDataIfCountIsNonzero
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
-    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
-    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
-    
+
     // when
-    [emptyData.wanted setExpectedInvocation:[NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]]];
+    [[emptyData wanted] setExpectedInvocation:invocation];
     
     // then
     STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should fail for empty data");
@@ -52,14 +66,10 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:2];
-    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
-    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
-    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
-    
+
     // when
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
-    [emptyData.wanted setExpectedInvocation:invocation];
-    [emptyData.invocations setInvocationForPotentialStubbing:invocation]; // 1 call to the expected method
+    [[emptyData wanted] setExpectedInvocation:invocation];
+    [[emptyData invocations] setInvocationForPotentialStubbing:invocation]; // 1 call, but expect 2
     
     // then
     STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should fail for too little invocations");
@@ -69,13 +79,9 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:0];
-    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
-    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
-    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
-    
+
     // when
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
-    [emptyData.wanted setExpectedInvocation:invocation];
+    [[emptyData wanted] setExpectedInvocation:invocation];
     
     // then
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for atLeast(0)");
@@ -85,14 +91,10 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
-    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
-    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
-    
+
     // when
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
-    [emptyData.wanted setExpectedInvocation:invocation];
-    [emptyData.invocations setInvocationForPotentialStubbing:invocation]; // 1 call to the expected method
+    [[emptyData wanted] setExpectedInvocation:invocation];
+    [[emptyData invocations] setInvocationForPotentialStubbing:invocation];
     
     // then
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for exact number of invocations matched");
@@ -102,15 +104,11 @@
 {
     // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-    MKTVerificationData *emptyData = [[MKTVerificationData alloc] init];
-    emptyData.invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
-    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
-    
+
     // when
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
-    [emptyData.wanted setExpectedInvocation:invocation];
-    [emptyData.invocations setInvocationForPotentialStubbing:invocation];
-    [emptyData.invocations setInvocationForPotentialStubbing:invocation]; // 2 calls to the expected method
+    [[emptyData wanted] setExpectedInvocation:invocation];
+    [[emptyData invocations] setInvocationForPotentialStubbing:invocation];
+    [[emptyData invocations] setInvocationForPotentialStubbing:invocation]; // 2 calls to the expected method
     
     // then
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for more invocations matched");
@@ -131,6 +129,18 @@
     [verifyCount(mockArray, atLeast(1)) removeAllObjects];
 }
 
+- (void)testAtLeastOnceInActionForExactCount
+{
+    // given
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+
+    // when
+    [mockArray removeAllObjects];
+
+    // then
+    [verifyCount(mockArray, atLeastOnce()) removeAllObjects];
+}
+
 - (void)testAtLeastInActionForExcessInvocations
 {
     // given
@@ -144,6 +154,20 @@
     // then
     [verifyCount(mockArray, atLeast(2)) addObject:@"foo"];
 }
+
+- (void)testAtLeastOnceInActionForExcessInvocations
+{
+    // given
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+
+    // when
+    [mockArray addObject:@"foo"];
+    [mockArray addObject:@"foo"];
+
+    // then
+    [verifyCount(mockArray, atLeastOnce()) addObject:@"foo"];
+}
+
 
 - (void)testAtLeastInActionForTooLittleInvocations
 {
@@ -163,12 +187,12 @@
 
 - (void)disableFailureHandler
 {
-    _shouldPassAllExceptionsUp = YES;
+    shouldPassAllExceptionsUp = YES;
 }
 
 - (void)failWithException:(NSException *)exception
 {
-    if (_shouldPassAllExceptionsUp)
+    if (shouldPassAllExceptionsUp)
         @throw exception;
     else
         [super failWithException:exception];
