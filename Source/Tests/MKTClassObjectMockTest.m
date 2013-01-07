@@ -24,11 +24,20 @@
 @end
 
 @implementation MKTClassObjectMockTest
+{
+    Class mockStringClass;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockStringClass = mockClass([NSString class]);
+
+}
 
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
     // given
-    Class mockStringClass = mockClass([NSString class]);
     Class realStringClass = [NSString class];
     SEL selector = @selector(string);
     
@@ -42,7 +51,6 @@
 - (void)testMethodSignatureForSelectorNotInClassShouldAnswerNil
 {
     // given
-    Class mockStringClass = mockClass([NSString class]);
     SEL selector = @selector(rangeOfString:options:);
     
     // when
@@ -54,19 +62,11 @@
 
 - (void)testMockShouldRespondToKnownSelector
 {
-    // given
-    Class mockStringClass = mockClass([NSString class]);
-    
-    // then
     STAssertTrue([mockStringClass respondsToSelector:@selector(pathWithComponents:)], nil);
 }
 
 - (void)testMockShouldNotRespondToUnknownSelector
 {
-    // given
-    Class mockStringClass = mockClass([NSString class]);
-    
-    // then
     STAssertFalse([mockStringClass respondsToSelector:@selector(pathExtension)], nil);
 }
 
