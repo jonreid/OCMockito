@@ -57,7 +57,7 @@
 
 @implementation StubObjectTest
 
-- (void)testStubbedMethoShouldReturnGivenObject
+- (void)testStubbedMethodShouldReturnGivenObject
 {
     // given
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -78,7 +78,7 @@
     assertThat([mockObject methodReturningObject], is(nilValue()));
 }
 
-- (void)testStubbedMethoShouldReturnGivenClass
+- (void)testStubbedMethodShouldReturnGivenClass
 {
     // given
     ReturningObject *mockObject = mock([ReturningObject class]);
@@ -99,7 +99,7 @@
     assertThat([mockObject methodReturningClass], is(nilValue()));
 }
 
-- (void)testStubbedMethodSouldReturnOnMatchingArgument
+- (void)testStubbedMethodShouldReturnOnMatchingArgument
 {
     // given
     ReturningObject *mockObject = mock([ReturningObject class]);
