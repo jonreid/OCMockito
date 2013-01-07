@@ -24,11 +24,18 @@
 @end
 
 @implementation MKTObjectMockTest
+{
+    NSString *mockString;
+}
 
+- (void)setUp
+{
+    [super setUp];
+    mockString = mock([NSString class]);
+}
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
     // given
-    NSString *mockString = mock([NSString class]);
     NSString *realString = [NSString string];
     SEL selector = @selector(rangeOfString:options:);
     
@@ -42,7 +49,6 @@
 - (void)testMethodSignatureForSelectorNotInClassShouldAnswerNil
 {
     // given
-    NSString *mockString = mock([NSString class]);
     SEL selector = @selector(objectAtIndex:);
     
     // when
@@ -54,46 +60,30 @@
 
 - (void)testMockShouldBeKindOfSameClass
 {
-    // given
-    NSString *mockString = mock([NSString class]);
-    
-    //then
     STAssertTrue([mockString isKindOfClass:[NSString class]], nil);
 }
 
 - (void)testMockShouldBeKindOfSubclass
 {
     // given
-    NSString *mockString = mock([NSMutableString class]);
-    
+    NSString *mockMutableString = mock([NSMutableString class]);
+
     //then
-    STAssertTrue([mockString isKindOfClass:[NSString class]], nil);
+    STAssertTrue([mockMutableString isKindOfClass:[NSString class]], nil);
 }
 
 - (void)testMockShouldNotBeKindOfDifferentClass
 {
-    // given
-    NSString *mockString = mock([NSString class]);
-    
-    //then
     STAssertFalse([mockString isKindOfClass:[NSArray class]], nil);
 }
 
 - (void)testMockShouldRespondToKnownSelector
 {
-    // given
-    NSString *mockString = mock([NSString class]);
-    
-    // then
     STAssertTrue([mockString respondsToSelector:@selector(substringFromIndex:)], nil);
 }
 
 - (void)testMockShouldNotRespondToUnknownSelector
 {
-    // given
-    NSString *mockString = mock([NSString class]);
-    
-    // then
     STAssertFalse([mockString respondsToSelector:@selector(removeAllObjects)], nil);
 }
 
