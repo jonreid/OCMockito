@@ -25,12 +25,32 @@
 @end
 
 @implementation VerifyProtocolTest
+{
+    id <NSLocking> mockLock;
+    id <NSKeyedArchiverDelegate> mockDelegate;
+    MockTestCase *mockTestCase;
+    NSKeyedArchiver *archiver;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockLock = mockProtocol(@protocol(NSLocking));
+    mockDelegate = mockProtocol(@protocol(NSKeyedArchiverDelegate));
+    mockTestCase = [[MockTestCase alloc] init];
+    archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:[NSMutableData data]];
+}
+
+- (void)tearDown
+{
+    mockTestCase = nil;
+    [archiver finishEncoding];
+    archiver = nil;
+    [super tearDown];
+}
 
 - (void)testInvokingMethodShouldPassVerify
 {
-    // given
-    id <NSLocking> mockLock = mockProtocol(@protocol(NSLocking));
-    
     // when
     [mockLock lock];
     
@@ -40,22 +60,15 @@
 
 - (void)testNotInvokingMethodShouldFailVerify
 {
-    // given
-    id <NSLocking> mockLock = mockProtocol(@protocol(NSLocking));
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
-    // then
+    // when
     [verifyWithMockTestCase(mockLock) lock];
+
+    // then
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
 - (void)testInvokingWithEqualObjectArgumentsShouldPassVerify
 {
-    // given
-    id <NSKeyedArchiverDelegate> mockDelegate = mockProtocol(@protocol(NSKeyedArchiverDelegate));
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]
-                                  initForWritingWithMutableData:[NSMutableData data]];
-    
     // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
     
@@ -65,13 +78,6 @@
 
 - (void)testInvokingWithDifferentObjectArgumentsShouldFailVerify
 {
-    // given
-    id <NSKeyedArchiverDelegate> mockDelegate = mockProtocol(@protocol(NSKeyedArchiverDelegate));
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]
-                                  initForWritingWithMutableData:[NSMutableData data]];
-    
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
     
@@ -82,11 +88,6 @@
 
 - (void)testInvokingWithArgumentMatcherSatisfiedShouldPassVerify
 {
-    // given
-    id <NSKeyedArchiverDelegate> mockDelegate = mockProtocol(@protocol(NSKeyedArchiverDelegate));
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]
-                                  initForWritingWithMutableData:[NSMutableData data]];
-    
     // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
 
