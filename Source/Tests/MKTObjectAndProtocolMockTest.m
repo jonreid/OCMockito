@@ -47,31 +47,29 @@
 @interface MKTObjectAndProtocolMockTest : SenTestCase
 @end
 
-
 @implementation MKTObjectAndProtocolMockTest
+{
+    TestClass<TestProtocol> *mock;
+}
 
+- (void)setUp
+{
+    [super setUp];
+    mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
+}
 - (void)testClassProtocolMockCanCallMethodFromClass
 {
-    // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    
-    // then
     STAssertNoThrow([mock instanceMethod],nil);
 }
 
 - (void)testClassProtocolMockCanCallMethodFromProtocol
 {
-    // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    
-    // then
     STAssertNoThrow([mock requiredMethod],nil);
 }
 
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
     // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
     SEL selector = @selector(instanceMethod);
     
@@ -85,7 +83,6 @@
 - (void)testMethodSignatureForSelectorNotInClassOrProtocolShouldAnswerNil
 {
     // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     SEL bogusSelector = @selector(objectAtIndex:);
     
     // when
@@ -97,26 +94,17 @@
 
 - (void)testMockShouldRespondToKnownSelector
 {
-    // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    
-    // then
     HC_assertThatBool([mock respondsToSelector:@selector(instanceMethod)], HC_equalToBool(YES));
 }
 
 - (void)testMockShouldNotRespondToUnknownSelector
 {
-    // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    
-    // then
     HC_assertThatBool([mock respondsToSelector:@selector(objectAtIndex:)], HC_equalToBool(NO));
 }
 
-- (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementor
+- (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementer
 {
     // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
     TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
     SEL selector = @selector(requiredMethod);
     
@@ -129,38 +117,21 @@
 
 - (void)testMockShouldConformToItsOwnProtocol
 {
-    // given
-    Protocol *protocol = @protocol(TestProtocol);
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], protocol);
-    
-    // then
-    STAssertTrue([mock conformsToProtocol:protocol],nil);
+    STAssertTrue([mock conformsToProtocol:@protocol(TestProtocol)],nil);
 }
 
 - (void)testMockShouldConformToParentProtocol
 {
-    // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    
-    // then
     STAssertTrue([mock conformsToProtocol:@protocol(NSObject)], nil);
 }
 
 - (void)testMockShouldNotConformToUnrelatedProtocol
 {
-    // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    
-    // then
     STAssertFalse([mock conformsToProtocol:@protocol(NSCoding)], nil);
 }
 
 - (void)testMockShouldRespondToRequiredSelector
 {
-    // given
-    TestClass<TestProtocol> *mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
-    
-    // then
     STAssertTrue([mock respondsToSelector:@selector(requiredMethod)], nil);
 }
 
