@@ -1,0 +1,3 @@
+[submodule "Source/XcodeCoverage"]
+	path = Source/XcodeCoverage
+	url = git://github.com/jonreid/XcodeCoverage.git

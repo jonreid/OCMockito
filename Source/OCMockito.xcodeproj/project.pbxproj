@@ -481,6 +481,7 @@
 				08BDD5A51350C59C00E5A443 /* Frameworks */,
 				08BDD5A61350C59C00E5A443 /* Headers */,
 				08BDD5A71350C59C00E5A443 /* Resources */,
+				08D9A4A3169A472F00D95213 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -581,7 +582,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = TestSupport/exportenv.sh;
+			shellScript = XcodeCoverage/exportenv.sh;
 		};
 		08BDD5BC1350C59C00E5A443 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -595,6 +596,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		08D9A4A3169A472F00D95213 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = XcodeCoverage/exportenv.sh;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -705,114 +719,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0840703A1466006E0006F568 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_WARN_OBJCPP_ARC_ABI = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "OCMockito-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = "";
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = YES;
-			};
-			name = Coverage;
-		};
-		0840703B1466006E0006F568 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
-					"\"$(SRCROOT)\"",
-				);
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = unsupported;
-				INFOPLIST_FILE = "OCMockito-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Coverage;
-		};
-		0840703C1466006E0006F568 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = unsupported;
-				INFOPLIST_FILE = "Tests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Coverage;
-		};
-		0840703D1466006E0006F568 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				DSTROOT = /tmp/libocmockito.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				PRODUCT_NAME = ocmockito;
-				SDKROOT = iphoneos;
-			};
-			name = Coverage;
-		};
-		0840703E1466006E0006F568 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-1.9\"",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Coverage;
-		};
 		085D30141351254000EBBE91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -899,6 +805,8 @@
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OCMockito-Prefix.pch";
@@ -1027,7 +935,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				085D30141351254000EBBE91 /* Debug */,
-				0840703D1466006E0006F568 /* Coverage */,
 				085D30151351254000EBBE91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1037,7 +944,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				085D30171351254000EBBE91 /* Debug */,
-				0840703E1466006E0006F568 /* Coverage */,
 				085D30181351254000EBBE91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1047,7 +953,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08BDD5CE1350C59C00E5A443 /* Debug */,
-				0840703A1466006E0006F568 /* Coverage */,
 				08BDD5CF1350C59C00E5A443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1057,7 +962,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08BDD5D11350C59C00E5A443 /* Debug */,
-				0840703B1466006E0006F568 /* Coverage */,
 				08BDD5D21350C59C00E5A443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1067,7 +971,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08BDD5D41350C59C00E5A443 /* Debug */,
-				0840703C1466006E0006F568 /* Coverage */,
 				08BDD5D51350C59C00E5A443 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

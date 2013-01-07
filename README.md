@@ -21,9 +21,11 @@ Adding OCMockito to your project
 
 __Building:__
 
-If you want to build OCMockito yourself, cd to the Source folder, then
+If you want to build OCMockito yourself, clone the repo, then
 
 ```sh
+$ git submodule update --init
+$ cd Source
 $ ./MakeDistribution.sh
 ```
 
