@@ -61,10 +61,8 @@
     // given
     [mockLockingArray lock];
     
-    // when
+    // then
     [verify(mockLockingArray) lock];
-
-    // then silently succeed
 }
 
 - (void)testNotInvokingProtocolMethodShouldFailVerify

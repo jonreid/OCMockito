@@ -32,12 +32,26 @@
 @end
 
 @implementation VerifyObjectTest
+{
+    NSMutableArray *mockArray;
+    MockTestCase *mockTestCase;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockArray = mock([NSMutableArray class]);
+    mockTestCase = [[MockTestCase alloc] init];
+}
+
+- (void)tearDown
+{
+    mockTestCase = nil;
+    [super tearDown];
+}
 
 - (void)testInvokingMethodShouldPassVerify
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
     // when
     [mockArray removeAllObjects];
     
@@ -47,20 +61,15 @@
 
 - (void)testNotInvokingMethodShouldFailVerify
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
-    // then
+    // when
     [verifyWithMockTestCase(mockArray) removeAllObjects];
+
+    // then
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
 - (void)testInvokingWithEqualObjectArgumentsShouldPassVerify
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
     // when
     [mockArray removeObject:@"same"];
     
@@ -70,10 +79,6 @@
 
 - (void)testInvokingWithDifferentObjectArgumentsShouldFailVerify
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // when
     [mockArray removeObject:@"same"];
     
@@ -84,9 +89,6 @@
 
 - (void)testInvokingWithArgumentMatcherSatisfiedShouldPassVerify
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
     // when
     [mockArray removeObject:@"same"];
 
@@ -96,9 +98,6 @@
 
 - (void)testInvokingWithEqualPrimitiveNumericArgumentsShouldPassVerify
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
     // then
     [mockArray removeObjectAtIndex:2];
     
@@ -108,10 +107,6 @@
 
 - (void)testInvokingWithDifferentPrimitiveNumericArgumentsShouldFailVerify
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // when
     [mockArray removeObjectAtIndex:2];
     [verifyWithMockTestCase(mockArray) removeObjectAtIndex:99];
@@ -122,9 +117,6 @@
 
 - (void)testMatcherSatisfiedWithNumericArgumentShouldPassVerify
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
     // when
     [mockArray removeObjectAtIndex:2];
     
@@ -135,9 +127,6 @@
 
 - (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
     // when
     [mockArray removeObjectAtIndex:2];
     
@@ -147,20 +136,15 @@
 
 - (void)testVerifyTimesOneShouldFailForMethodNotInvoked
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
-    // then
+    // when
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
+
+    // then
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
 - (void)testVerifyTimesOneShouldPassForMethodInvokedOnce
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
     // when
     [mockArray removeAllObjects];
     
@@ -170,10 +154,6 @@
 
 - (void)testVerifyTimesOneShouldFailForMethodInvokedTwice
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // when
     [mockArray removeAllObjects];
     [mockArray removeAllObjects];
@@ -185,10 +165,6 @@
 
 - (void)testVerifyTimesTwoShouldFailForMethodInvokedOnce
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // when
     [mockArray removeAllObjects];
     
@@ -199,9 +175,6 @@
 
 - (void)testVerifyTimesTwoShouldPassForMethodInvokedTwice
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
     // when
     [mockArray removeAllObjects];
     [mockArray removeAllObjects];
@@ -212,10 +185,6 @@
 
 - (void)testVerifyTimesTwoShouldFailForMethodInvokedThreeTimes
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // when
     [mockArray removeAllObjects];
     [mockArray removeAllObjects];
@@ -228,22 +197,16 @@
 
 - (void)testVerifyTimesOneFailureShouldStateExpectedNumberOfInvocations
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
-    // then
+    // when
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
+
+    // then
     assertThat([[mockTestCase failureException] description],
                is(@"Expected 1 matching invocation, but received 0"));
 }
 
 - (void)testVerifyTimesTwoFailureShouldStateExpectedNumberOfInvocations
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // when
     [mockArray removeAllObjects];
     
@@ -255,19 +218,11 @@
 
 - (void)testVerifyNeverShouldPassForMethodInvoked
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
-    // then
     [verifyCount(mockArray, never()) removeAllObjects];
 }
 
 - (void)testVerifyNeverShouldFailForInvokedMethod
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // when
     [mockArray removeAllObjects];
 
@@ -278,9 +233,6 @@
 
 - (void)testVerifyWithNilShouldGiveError
 {
-    // given
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // then
     [verifyWithMockTestCase(nil) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
@@ -289,9 +241,6 @@
 
 - (void)testVerifyCountWithNilShouldGiveError
 {
-    // given
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
     // then
     [verifyCountWithMockTestCase(nil, times(1)) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
@@ -302,8 +251,7 @@
 {
     // given
     NSMutableArray *realArray = [NSMutableArray array];
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
+
     // then
     [verifyWithMockTestCase(realArray) removeAllObjects];
     assertThat([[mockTestCase failureException] description],
@@ -314,8 +262,7 @@
 {
     // given
     NSMutableArray *realArray = [NSMutableArray array];
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    
+
     // then
     [verifyCountWithMockTestCase(realArray, times(1)) removeAllObjects];
     assertThat([[mockTestCase failureException] description],

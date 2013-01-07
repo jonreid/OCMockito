@@ -40,10 +40,8 @@
     // given
     [mockStringClass string];
     
-    // when
+    // then
     [verify(mockStringClass) string];
-
-    // then silently succeed
 }
 
 - (void)testNotInvokingClassMethodShouldFailVerify
