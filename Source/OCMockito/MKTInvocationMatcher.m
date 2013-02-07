@@ -48,7 +48,7 @@
         [_argumentMatchers addObject:matcher];
     }
     else
-        _argumentMatchers[argumentIndex] = matcher;
+        [_argumentMatchers replaceObjectAtIndex:argumentIndex withObject:matcher];
 }
 
 - (NSUInteger)argumentMatchersCount
