@@ -1,6 +1,6 @@
 //
 //  OCMockito - MKTTypeEncoding.h
-//  Copyright 2012 Jonathan M. Reid. All rights reserved.
+//  Copyright 2013 Jonathan M. Reid. All rights reserved.
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
 //  Source: https://github.com/jonreid/OCMockito
