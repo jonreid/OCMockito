@@ -15,17 +15,15 @@
 @implementation MKTInvocationContainer
 {
     MKTStubbedInvocationMatcher *_invocationMatcherForStubbing;
-    MKTMockingProgress *_mockingProgress;
     NSMutableArray *_stubbed;
 }
 
-- (id)initWithMockingProgress:(MKTMockingProgress *)mockingProgress
+- (id)init
 {
     self = [super init];
     if (self)
     {
         _registeredInvocations = [[NSMutableArray alloc] init];
-        _mockingProgress = mockingProgress;
         _stubbed = [[NSMutableArray alloc] init];
     }
     return self;

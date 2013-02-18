@@ -28,7 +28,7 @@
     if (self)
     {
         _mockingProgress = [MKTMockingProgress sharedProgress];
-        _invocationContainer = [[MKTInvocationContainer alloc] initWithMockingProgress:_mockingProgress];
+        _invocationContainer = [[MKTInvocationContainer alloc] init];
     }
     return self;
 }

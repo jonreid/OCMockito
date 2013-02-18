@@ -50,8 +50,7 @@
 - (void)testPullOngoingStubbingWithStubbingReportedShouldReturnStubbing
 {
     // given
-    MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc]
-                                                   initWithMockingProgress:mockingProgress];
+    MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc] init];
     MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer];
     
@@ -65,8 +64,7 @@
 - (void)testPullOngoingStubbingShouldClearCurrentStubbing
 {
     // given
-    MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc]
-                                                   initWithMockingProgress:mockingProgress];
+    MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc] init];
     MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer];
     

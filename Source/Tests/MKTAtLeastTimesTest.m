@@ -39,7 +39,7 @@
 {
     [super setUp];
     emptyData = [[MKTVerificationData alloc] init];
-    [emptyData setInvocations:[[MKTInvocationContainer alloc] initWithMockingProgress:nil]];
+    [emptyData setInvocations:[[MKTInvocationContainer alloc] init]];
     [emptyData setWanted:[[MKTInvocationMatcher alloc] init]];
     invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
 }
