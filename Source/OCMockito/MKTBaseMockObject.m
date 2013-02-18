@@ -29,42 +29,68 @@
     {
         _mockingProgress = [MKTMockingProgress sharedProgress];
         _invocationContainer = [[MKTInvocationContainer alloc] initWithMockingProgress:_mockingProgress];
-
     }
     return self;
 }
 
-#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                            \
-    else if (strcmp(methodReturnType, @encode(type)) == 0)                                   \
-    {                                                                                        \
-        type answer = [[_invocationContainer findAnswerFor:invocation] typeName ## Value]; \
-        [invocation setReturnValue:&answer];                                               \
-    }
-
 - (void)forwardInvocation:(NSInvocation *)invocation
+{
+    if ([self handlingVerifyOfInvocation:invocation])
+        return;
+    [self prepareInvocationForStubbing:invocation];
+    [self lookForExistingAnswerForInvocation:invocation];
+}
+
+- (BOOL)handlingVerifyOfInvocation:(NSInvocation *)invocation
 {
     id <MKTVerificationMode> verificationMode = [_mockingProgress pullVerificationMode];
     if (verificationMode)
-    {
-        MKTInvocationMatcher *invocationMatcher = [_mockingProgress pullInvocationMatcher];
-        if (!invocationMatcher)
-            invocationMatcher = [[MKTInvocationMatcher alloc] init];
-        [invocationMatcher setExpectedInvocation:invocation];
+        [self verifyInvocation:invocation usingVerificationMode:verificationMode];
+    return verificationMode != nil;
+ }
 
-        MKTVerificationData *data = [[MKTVerificationData alloc] init];
-        [data setInvocations:_invocationContainer];
-        [data setWanted:invocationMatcher];
-        [data setTestLocation:[_mockingProgress testLocation]];
-        [verificationMode verifyData:data];
+- (void)verifyInvocation:(NSInvocation *)invocation usingVerificationMode:(id <MKTVerificationMode>)verificationMode
+{
+    MKTInvocationMatcher *invocationMatcher = [self matcherWithInvocation:invocation];
+    MKTVerificationData *data = [self verificationDataWithMatcher:invocationMatcher];
+    [verificationMode verifyData:data];
+}
 
-        return;
-    }
+- (MKTInvocationMatcher *)matcherWithInvocation:(NSInvocation *)invocation
+{
+    MKTInvocationMatcher *invocationMatcher = [_mockingProgress pullInvocationMatcher];
+    if (!invocationMatcher)
+        invocationMatcher = [[MKTInvocationMatcher alloc] init];
+    [invocationMatcher setExpectedInvocation:invocation];
+    return invocationMatcher;
+}
 
+- (MKTVerificationData *)verificationDataWithMatcher:(MKTInvocationMatcher *)invocationMatcher
+{
+    MKTVerificationData *data = [[MKTVerificationData alloc] init];
+    [data setInvocations:_invocationContainer];
+    [data setWanted:invocationMatcher];
+    [data setTestLocation:[_mockingProgress testLocation]];
+    return data;
+}
+
+- (void)prepareInvocationForStubbing:(NSInvocation *)invocation
+{
     [_invocationContainer setInvocationForPotentialStubbing:invocation];
     MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
-                                           initWithInvocationContainer:_invocationContainer];
+            initWithInvocationContainer:_invocationContainer];
     [_mockingProgress reportOngoingStubbing:ongoingStubbing];
-    
+}
+
+#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                           \
+    else if (strcmp(methodReturnType, @encode(type)) == 0)                                  \
+    {                                                                                       \
+        type answer = [[_invocationContainer findAnswerFor:invocation] typeName ## Value];  \
+        [invocation setReturnValue:&answer];                                                \
+    }
+
+- (void)lookForExistingAnswerForInvocation:(NSInvocation *)invocation
+{
     NSMethodSignature *methodSignature = [invocation methodSignature];
     const char* methodReturnType = [methodSignature methodReturnType];
     if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
