@@ -13,12 +13,12 @@
 
 
 @interface MKTInvocationContainer ()
-@property (nonatomic, strong) MKTStubbedInvocationMatcher *invocationMatcherForStubbing;
 @end
 
 
 @implementation MKTInvocationContainer
 {
+    MKTStubbedInvocationMatcher *_invocationMatcherForStubbing;
     MKTMockingProgress *_mockingProgress;
     NSMutableArray *_stubbed;
 }
@@ -43,7 +43,7 @@
     
     MKTStubbedInvocationMatcher *stubbedInvocationMatcher = [[MKTStubbedInvocationMatcher alloc] init];
     [stubbedInvocationMatcher setExpectedInvocation:invocation];
-    [self setInvocationMatcherForStubbing:stubbedInvocationMatcher];
+    _invocationMatcherForStubbing = stubbedInvocationMatcher;
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex

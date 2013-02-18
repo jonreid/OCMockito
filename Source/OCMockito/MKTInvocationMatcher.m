@@ -21,12 +21,12 @@
 
 
 @interface MKTInvocationMatcher ()
-@property (nonatomic, strong) NSInvocation *expected;
 @end
 
 
 @implementation MKTInvocationMatcher
 {
+    NSInvocation *_expected;
     NSUInteger _numberOfArguments;
     NSMutableArray *_argumentMatchers;
 }
@@ -68,7 +68,7 @@
 
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
 {
-    [self setExpected:expectedInvocation];
+    _expected = expectedInvocation;
     [_expected retainArguments];
     
     NSMethodSignature *methodSignature = [_expected methodSignature];
