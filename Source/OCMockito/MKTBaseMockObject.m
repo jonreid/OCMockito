@@ -37,11 +37,11 @@
 #define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                            \
     else if (strcmp(methodReturnType, @encode(type)) == 0)                                   \
     {                                                                                        \
-        type answer = [[_invocationContainer findAnswerFor:anInvocation] typeName ## Value]; \
-        [anInvocation setReturnValue:&answer];                                               \
+        type answer = [[_invocationContainer findAnswerFor:invocation] typeName ## Value]; \
+        [invocation setReturnValue:&answer];                                               \
     }
 
-- (void)forwardInvocation:(NSInvocation *)anInvocation
+- (void)forwardInvocation:(NSInvocation *)invocation
 {
     id <MKTVerificationMode> verificationMode = [_mockingProgress pullVerificationMode];
     if (verificationMode)
@@ -49,28 +49,28 @@
         MKTInvocationMatcher *invocationMatcher = [_mockingProgress pullInvocationMatcher];
         if (!invocationMatcher)
             invocationMatcher = [[MKTInvocationMatcher alloc] init];
-        [invocationMatcher setExpectedInvocation:anInvocation];
-        
+        [invocationMatcher setExpectedInvocation:invocation];
+
         MKTVerificationData *data = [[MKTVerificationData alloc] init];
         [data setInvocations:_invocationContainer];
         [data setWanted:invocationMatcher];
         [data setTestLocation:[_mockingProgress testLocation]];
         [verificationMode verifyData:data];
-        
+
         return;
     }
-    
-    [_invocationContainer setInvocationForPotentialStubbing:anInvocation];
+
+    [_invocationContainer setInvocationForPotentialStubbing:invocation];
     MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
                                            initWithInvocationContainer:_invocationContainer];
     [_mockingProgress reportOngoingStubbing:ongoingStubbing];
     
-    NSMethodSignature *methodSignature = [anInvocation methodSignature];
+    NSMethodSignature *methodSignature = [invocation methodSignature];
     const char* methodReturnType = [methodSignature methodReturnType];
     if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
     {
-        __unsafe_unretained id answer = [_invocationContainer findAnswerFor:anInvocation];
-        [anInvocation setReturnValue:&answer];
+        __unsafe_unretained id answer = [_invocationContainer findAnswerFor:invocation];
+        [invocation setReturnValue:&answer];
     }
     HANDLE_METHOD_RETURN_TYPE(char, char)
     HANDLE_METHOD_RETURN_TYPE(int, int)
