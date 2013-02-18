@@ -16,12 +16,8 @@
 
 @interface MKTVerificationData : NSObject
 
-@property (nonatomic, strong, readonly) MKTInvocationContainer *invocations;
-@property (nonatomic, strong, readonly) MKTInvocationMatcher *wanted;
-@property (nonatomic, assign, readonly) MKTTestLocation testLocation;
-
-- (id)initWithInvocations:(MKTInvocationContainer *)invocations
-                   wanted:(MKTInvocationMatcher *)wanted
-             testLocation:(MKTTestLocation)testLocation;
+@property (nonatomic, strong) MKTInvocationContainer *invocations;
+@property (nonatomic, strong) MKTInvocationMatcher *wanted;
+@property (nonatomic, assign) MKTTestLocation testLocation;
 
 @end

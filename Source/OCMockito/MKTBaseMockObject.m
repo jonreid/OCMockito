@@ -51,9 +51,10 @@
             invocationMatcher = [[MKTInvocationMatcher alloc] init];
         [invocationMatcher setExpectedInvocation:anInvocation];
         
-        MKTVerificationData *data = [[MKTVerificationData alloc] initWithInvocations:_invocationContainer
-                                                                              wanted:invocationMatcher
-                                                                        testLocation:[_mockingProgress testLocation]];
+        MKTVerificationData *data = [[MKTVerificationData alloc] init];
+        [data setInvocations:_invocationContainer];
+        [data setWanted:invocationMatcher];
+        [data setTestLocation:[_mockingProgress testLocation]];
         [verificationMode verifyData:data];
         
         return;

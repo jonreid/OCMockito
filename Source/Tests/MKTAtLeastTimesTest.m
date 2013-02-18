@@ -38,10 +38,9 @@
 - (void)setUp
 {
     [super setUp];
-    MKTInvocationContainer *invocations = [[MKTInvocationContainer alloc] initWithMockingProgress:nil];
-    MKTInvocationMatcher *wanted = [[MKTInvocationMatcher alloc] init];
-    MKTTestLocation testLocation;
-    emptyData = [[[MKTVerificationData alloc] init] initWithInvocations:invocations wanted:wanted testLocation:testLocation];
+    emptyData = [[MKTVerificationData alloc] init];
+    [emptyData setInvocations:[[MKTInvocationContainer alloc] initWithMockingProgress:nil]];
+    [emptyData setWanted:[[MKTInvocationMatcher alloc] init]];
     invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
 }
 
