@@ -14,7 +14,7 @@
 
 @interface MKTInvocationContainer : NSObject
 
-@property (nonatomic, readonly) NSMutableArray *registeredInvocations;
+@property (strong, nonatomic, readonly) NSMutableArray *registeredInvocations;
 
 - (id)initWithMockingProgress:(MKTMockingProgress *)mockingProgress;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;

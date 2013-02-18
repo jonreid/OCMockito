@@ -18,7 +18,7 @@
 
 @interface MKTMockingProgress : NSObject
 
-@property (nonatomic, assign) MKTTestLocation testLocation;
+@property (assign, nonatomic) MKTTestLocation testLocation;
 
 + (id)sharedProgress;
 

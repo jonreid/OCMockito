@@ -12,10 +12,6 @@
 #import "MKTStubbedInvocationMatcher.h"
 
 
-@interface MKTInvocationContainer ()
-@end
-
-
 @implementation MKTInvocationContainer
 {
     MKTStubbedInvocationMatcher *_invocationMatcherForStubbing;
