@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class MKTStubbedInvocationMatcher;
 @protocol HCMatcher;
 
 
@@ -19,6 +20,6 @@
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id)answer;
-- (id)findAnswerFor:(NSInvocation *)invocation;
+- (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
 
 @end

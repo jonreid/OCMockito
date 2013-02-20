@@ -35,9 +35,9 @@
     [invocation retainArguments];
     [_registeredInvocations addObject:invocation];
     
-    MKTStubbedInvocationMatcher *stubbedInvocationMatcher = [[MKTStubbedInvocationMatcher alloc] init];
-    [stubbedInvocationMatcher setExpectedInvocation:invocation];
-    _invocationMatcherForStubbing = stubbedInvocationMatcher;
+    MKTStubbedInvocationMatcher *s = [[MKTStubbedInvocationMatcher alloc] init];
+    [s setExpectedInvocation:invocation];
+    _invocationMatcherForStubbing = s;
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
@@ -53,12 +53,11 @@
     [_stubbed insertObject:_invocationMatcherForStubbing atIndex:0];
 }
 
-- (id)findAnswerFor:(NSInvocation *)invocation
+- (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation
 {
-    for (MKTStubbedInvocationMatcher *stubbedInvocationMatcher in _stubbed)
-        if ([stubbedInvocationMatcher matches:invocation])
-            return [stubbedInvocationMatcher answer];
-    
+    for (MKTStubbedInvocationMatcher *s in _stubbed)
+        if ([s matches:invocation])
+            return s;
     return nil;
 }
 

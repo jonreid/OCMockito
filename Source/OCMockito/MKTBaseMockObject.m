@@ -12,21 +12,26 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTMockingProgress.h"
 #import "MKTOngoingStubbing.h"
+#import "MKTStubbedInvocationMatcher.h"
 #import "MKTTypeEncoding.h"
+#import "MKTMockSettings.h"
 #import "MKTVerificationData.h"
 #import "MKTVerificationMode.h"
+#import "MKTMockSettings.h"
 
 
 @implementation MKTBaseMockObject
 {
+    MKTMockSettings *_settings;
     MKTMockingProgress *_mockingProgress;
     MKTInvocationContainer *_invocationContainer;
 }
 
-- (id)init
+- (id)initWithSettings:(MKTMockSettings *)settings
 {
     if (self)
     {
+        _settings = settings;
         _mockingProgress = [MKTMockingProgress sharedProgress];
         _invocationContainer = [[MKTInvocationContainer alloc] init];
     }
@@ -82,20 +87,21 @@
     [_mockingProgress reportOngoingStubbing:ongoingStubbing];
 }
 
-#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                                           \
-    else if (strcmp(methodReturnType, @encode(type)) == 0)                                  \
-    {                                                                                       \
-        type answer = [[_invocationContainer findAnswerFor:invocation] typeName ## Value];  \
-        [invocation setReturnValue:&answer];                                                \
+#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                               \
+    else if (strcmp(methodReturnType, @encode(type)) == 0)                      \
+    {                                                                           \
+        type answer = [[stubbedInvocationMatcher answer] typeName ## Value];    \
+        [invocation setReturnValue:&answer];                                    \
     }
 
 - (void)lookForExistingAnswerForInvocation:(NSInvocation *)invocation
 {
     NSMethodSignature *methodSignature = [invocation methodSignature];
     const char* methodReturnType = [methodSignature methodReturnType];
+    MKTStubbedInvocationMatcher *stubbedInvocationMatcher = [_invocationContainer findAnswerFor:invocation];
     if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
     {
-        __unsafe_unretained id answer = [_invocationContainer findAnswerFor:invocation];
+        __unsafe_unretained id answer = [stubbedInvocationMatcher answer];
         [invocation setReturnValue:&answer];
     }
     HANDLE_METHOD_RETURN_TYPE(char, char)

@@ -10,8 +10,11 @@
 #import "MKTPrimitiveArgumentMatching.h"
 
 
+@class MKTMockSettings;
+
+
 @interface MKTBaseMockObject : NSProxy <MKTPrimitiveArgumentMatching>
 
-- (id)init;
+- (id)initWithSettings:(MKTMockSettings *)settings;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "MKTBaseMockObject.h"
 
+@class MKTMockSettings;
+
 
 /**
     Mock object of a given class.
@@ -15,6 +17,7 @@
 @interface MKTObjectMock : MKTBaseMockObject
 
 + (id)mockForClass:(Class)aClass;
-- (id)initWithClass:(Class)aClass;
+- (id)initWithClass:(Class)aClass settings:(MKTMockSettings *)settings;
++ (id)mockForClass:(Class)aClass withSettings:(MKTMockSettings *)settings;
 
 @end
