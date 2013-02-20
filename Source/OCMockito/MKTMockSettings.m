@@ -10,4 +10,17 @@
 
 
 @implementation MKTMockSettings
+
+- (void)useDefaultAnswerForInvocation:(NSInvocation *)invocation
+{
+    if (_spiedObject)
+        [self letSpiedObjectHandleInvocation:invocation];
+}
+
+- (void)letSpiedObjectHandleInvocation:(NSInvocation *)invocation
+{
+    [invocation setTarget:_spiedObject];
+    [invocation invoke];
+}
+
 @end

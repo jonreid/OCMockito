@@ -43,7 +43,7 @@
     if ([self handlingVerifyOfInvocation:invocation])
         return;
     [self prepareInvocationForStubbing:invocation];
-    [self lookForExistingAnswerForInvocation:invocation];
+    [self answerInvocation:invocation];
 }
 
 - (BOOL)handlingVerifyOfInvocation:(NSInvocation *)invocation
@@ -87,21 +87,29 @@
     [_mockingProgress reportOngoingStubbing:ongoingStubbing];
 }
 
-#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                               \
-    else if (strcmp(methodReturnType, @encode(type)) == 0)                      \
-    {                                                                           \
-        type answer = [[stubbedInvocationMatcher answer] typeName ## Value];    \
-        [invocation setReturnValue:&answer];                                    \
+- (void)answerInvocation:(NSInvocation *)invocation
+{
+    MKTStubbedInvocationMatcher *stubbedInvocation = [_invocationContainer findAnswerFor:invocation];
+    if (stubbedInvocation)
+        [self useExistingAnswerInStub:stubbedInvocation forInvocation:invocation];
+    else
+        [_settings useDefaultAnswerForInvocation:invocation];
+}
+
+#define HANDLE_METHOD_RETURN_TYPE(type, typeName)               \
+    else if (strcmp(methodReturnType, @encode(type)) == 0)      \
+    {                                                           \
+        type answer = [[stub answer] typeName ## Value];        \
+        [invocation setReturnValue:&answer];                    \
     }
 
-- (void)lookForExistingAnswerForInvocation:(NSInvocation *)invocation
+- (void)useExistingAnswerInStub:(MKTStubbedInvocationMatcher *)stub forInvocation:(NSInvocation *)invocation
 {
     NSMethodSignature *methodSignature = [invocation methodSignature];
     const char* methodReturnType = [methodSignature methodReturnType];
-    MKTStubbedInvocationMatcher *stubbedInvocationMatcher = [_invocationContainer findAnswerFor:invocation];
     if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
     {
-        __unsafe_unretained id answer = [stubbedInvocationMatcher answer];
+        __unsafe_unretained id answer = [stub answer];
         [invocation setReturnValue:&answer];
     }
     HANDLE_METHOD_RETURN_TYPE(char, char)

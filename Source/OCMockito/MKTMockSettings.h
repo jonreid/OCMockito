@@ -13,4 +13,5 @@
 
 @property (nonatomic, strong) id spiedObject;
 
+- (void)useDefaultAnswerForInvocation:(NSInvocation *)invocation;
 @end
