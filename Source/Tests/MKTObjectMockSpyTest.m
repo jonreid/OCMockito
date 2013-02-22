@@ -23,14 +23,14 @@
 
 
 @interface SpiedObject : NSObject
-@property (assign, nonatomic) int unstubbedMethodCount;
+@property (assign, nonatomic) int methodCount;
 @end
 
 @implementation SpiedObject
 
-- (void)unstubbedMethod
+- (void)method
 {
-    ++_unstubbedMethodCount;
+    ++_methodCount;
 }
 
 @end
@@ -43,20 +43,37 @@
 
 @implementation MKTObjectMockSpyTest
 
-- (void)testSettingsWithSpiedObjectShouldForwardInvocationsToIt
+- (void)testSettingsWithSpiedObjectShouldForwardUnstubbedMethodInvocationsToIt
 {
     // given
-    SpiedObject *spiedObject = [[SpiedObject  alloc] init];
+    SpiedObject *spiedObject = [[SpiedObject alloc] init];
     MKTMockSettings *settings = [[MKTMockSettings alloc] init];
     [settings setSpiedObject:spiedObject];
     id sut = [MKTObjectMock mockForClass:[spiedObject class] withSettings:settings];
 
     // when
-    [sut unstubbedMethod];
-    [sut unstubbedMethod];
+    [sut method];
+    [sut method];
 
     // then
-    assertThatInt([spiedObject unstubbedMethodCount], is(equalTo(@2)));
+    assertThatInt([spiedObject methodCount], is(equalTo(@2)));
+}
+
+- (void)testSettingsWithSpiedObjectShouldNotForwardDoNothingMethodInvocationsToIt
+{
+    // given
+    SpiedObject *spiedObject = [[SpiedObject alloc] init];
+    MKTMockSettings *settings = [[MKTMockSettings alloc] init];
+    [settings setSpiedObject:spiedObject];
+    id sut = [MKTObjectMock mockForClass:[spiedObject class] withSettings:settings];
+
+    // when
+    [[doNothing() when:sut] method];
+    [sut method];
+    [sut method];
+
+    // then
+    assertThatInt([spiedObject methodCount], is(equalTo(@0)));
 }
 
 @end

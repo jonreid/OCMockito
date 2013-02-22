@@ -16,5 +16,6 @@
 @interface MKTBaseMockObject : NSProxy <MKTPrimitiveArgumentMatching>
 
 - (id)initWithSettings:(MKTMockSettings *)settings;
+- (void)setAnswersForStubbing:(NSArray *)answers;
 
 @end

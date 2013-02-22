@@ -16,6 +16,7 @@
 {
     MKTStubbedInvocationMatcher *_invocationMatcherForStubbing;
     NSMutableArray *_stubbed;
+    NSMutableArray *_answersForStubbing;
 }
 
 - (id)init
@@ -25,6 +26,7 @@
     {
         _registeredInvocations = [[NSMutableArray alloc] init];
         _stubbed = [[NSMutableArray alloc] init];
+        _answersForStubbing = [[NSMutableArray  alloc] init];
     }
     return self;
 }
@@ -61,4 +63,13 @@
     return nil;
 }
 
+- (void)setAnswersForStubbing:(NSArray *)answers
+{
+    [_answersForStubbing addObjectsFromArray:answers];
+}
+
+- (BOOL)hasAnswersForStubbing
+{
+    return [_answersForStubbing count] != 0;
+}
 @end

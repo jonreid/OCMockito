@@ -13,6 +13,7 @@
 #import "MKTObjectAndProtocolMock.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTProtocolMock.h"
+#import "MKTStubber.h"
 #import <objc/objc-api.h>
 
 
@@ -66,6 +67,7 @@
 #ifdef MOCKITO_SHORTHAND
     #define mockObjectAndProtocol(aClass, aProtocol) MKTMockObjectAndProtocol(aClass, aProtocol)
 #endif
+
 
 OBJC_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
 #define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
@@ -214,4 +216,12 @@ OBJC_EXPORT id MKTAtLeastOnce(void);
  */
 #ifdef MOCKITO_SHORTHAND
     #define atLeastOnce() MKTAtLeastOnce()
+#endif
+
+
+OBJC_EXPORT MKTStubber *MKTDoNothingWithLocation(id testCase, const char *fileName, int lineNumber);
+#define MKTDoNothing() MKTDoNothingWithLocation(self, __FILE__, __LINE__)
+
+#ifdef MOCKITO_SHORTHAND
+    #define doNothing() MKTDoNothing()
 #endif

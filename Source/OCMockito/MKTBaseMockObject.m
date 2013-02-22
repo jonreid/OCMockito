@@ -38,8 +38,17 @@
     return self;
 }
 
+- (void)setAnswersForStubbing:(NSArray *)answers
+{
+    [_invocationContainer setAnswersForStubbing:answers];
+}
+
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
+    if ([_invocationContainer hasAnswersForStubbing])
+    {
+        return;
+    }
     if ([self handlingVerifyOfInvocation:invocation])
         return;
     [self prepareInvocationForStubbing:invocation];

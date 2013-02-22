@@ -126,7 +126,11 @@
 		638F68DE150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */; };
 		BB3332E21A29D5E14BEDE9BB /* MKTMockSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333B52C27E1EB1D28DD881 /* MKTMockSettings.m */; };
 		BB3333BE6F4F0DF803798FB4 /* MKTMockSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333B52C27E1EB1D28DD881 /* MKTMockSettings.m */; };
+		BB3334042FA555D4525E00C1 /* MKTStubber.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A074D46A180969CBEC5 /* MKTStubber.m */; };
+		BB333515EAD225BA672494D6 /* MKTStubber.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A074D46A180969CBEC5 /* MKTStubber.m */; };
+		BB33366CF1DC907A8149AA4F /* MKTStubber.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333394D507F53EE10245AB /* MKTStubber.h */; };
 		BB333BF6FA72C3BDCC233C22 /* MKTMockSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333602AE48D454CE65EDC0 /* MKTMockSettings.h */; };
+		BB333DBC1D678F8C1CF2C1CB /* MKTStubber.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333394D507F53EE10245AB /* MKTStubber.h */; };
 		BB333E8FEAA3E8E43EECF179 /* MKTMockSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333602AE48D454CE65EDC0 /* MKTMockSettings.h */; };
 /* End PBXBuildFile section */
 
@@ -226,7 +230,9 @@
 		638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTClassObjectMock.h; sourceTree = "<group>"; };
 		638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMock.m; sourceTree = "<group>"; };
 		638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMockTest.m; sourceTree = "<group>"; };
+		BB333394D507F53EE10245AB /* MKTStubber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStubber.h; sourceTree = "<group>"; };
 		BB333602AE48D454CE65EDC0 /* MKTMockSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTMockSettings.h; sourceTree = "<group>"; };
+		BB333A074D46A180969CBEC5 /* MKTStubber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStubber.m; sourceTree = "<group>"; };
 		BB333B52C27E1EB1D28DD881 /* MKTMockSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMockSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,6 +356,8 @@
 				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
 				BB333B52C27E1EB1D28DD881 /* MKTMockSettings.m */,
 				BB333602AE48D454CE65EDC0 /* MKTMockSettings.h */,
+				BB333A074D46A180969CBEC5 /* MKTStubber.m */,
+				BB333394D507F53EE10245AB /* MKTStubber.h */,
 			);
 			path = OCMockito;
 			sourceTree = "<group>";
@@ -416,6 +424,7 @@
 				361533C9153F276300BB982B /* MKTAtLeastTimes.h in Headers */,
 				08DE3F5615845BE100BE6F63 /* MKTTypeEncoding.h in Headers */,
 				BB333BF6FA72C3BDCC233C22 /* MKTMockSettings.h in Headers */,
+				BB33366CF1DC907A8149AA4F /* MKTStubber.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +453,7 @@
 				361533C6153F275800BB982B /* MKTAtLeastTimes.h in Headers */,
 				08DE3F5415845BC000BE6F63 /* MKTTypeEncoding.h in Headers */,
 				BB333E8FEAA3E8E43EECF179 /* MKTMockSettings.h in Headers */,
+				BB333DBC1D678F8C1CF2C1CB /* MKTStubber.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +659,7 @@
 				08E9DC261516738200BD7FB4 /* MKTObjectAndProtocolMock.m in Sources */,
 				361533CA153F276300BB982B /* MKTAtLeastTimes.m in Sources */,
 				BB3333BE6F4F0DF803798FB4 /* MKTMockSettings.m in Sources */,
+				BB3334042FA555D4525E00C1 /* MKTStubber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +707,7 @@
 				08E9DC251516738200BD7FB4 /* MKTObjectAndProtocolMock.m in Sources */,
 				361533C7153F275800BB982B /* MKTAtLeastTimes.m in Sources */,
 				BB3332E21A29D5E14BEDE9BB /* MKTMockSettings.m in Sources */,
+				BB333515EAD225BA672494D6 /* MKTStubber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

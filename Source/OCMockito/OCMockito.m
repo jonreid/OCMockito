@@ -6,7 +6,6 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import <Foundation/Foundation.h>
 #import "OCMockito.h"
 
 #import "MKTAtLeastTimes.h"
@@ -42,11 +41,9 @@ static BOOL reportedInvalidMock(id mock, id testCase, const char *fileName, int 
     return YES;
 }
 
-
 MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
 {
-    MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
-    return [mockitoCore stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
+    return [[MKTMockitoCore sharedCore] stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
 id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
@@ -61,11 +58,10 @@ id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileNam
 {
     if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"verifyCount()"))
         return nil;
-    
-    MKTMockitoCore *mockitoCore = [MKTMockitoCore sharedCore];
-    return [mockitoCore verifyMock:mock
-                          withMode:mode
-                        atLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
+
+    return [[MKTMockitoCore sharedCore] verifyMock:mock
+                                          withMode:mode
+                                        atLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
 id MKTTimes(NSUInteger wantedNumberOfInvocations)
@@ -86,4 +82,9 @@ id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations)
 id MKTAtLeastOnce()
 {
     return MKTAtLeast(1);
+}
+
+MKTStubber *MKTDoNothingWithLocation(id testCase, const char *fileName, int lineNumber)
+{
+    return [[MKTMockitoCore sharedCore] stubDoNothingAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
