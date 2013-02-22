@@ -23,7 +23,7 @@
 
 
 @interface SpiedObject : NSObject
-@property (assign, nonatomic) int methodCount;
+@property (nonatomic, assign) int methodCount;
 @end
 
 @implementation SpiedObject

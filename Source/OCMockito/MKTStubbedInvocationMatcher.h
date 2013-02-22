@@ -11,6 +11,6 @@
 
 @interface MKTStubbedInvocationMatcher : MKTInvocationMatcher
 
-@property (strong, nonatomic) id answer;
+@property (nonatomic, strong) id answer;
 
 @end

@@ -18,8 +18,8 @@
 
 @interface MockTestCase : NSObject
 
-@property (assign, nonatomic) NSUInteger failureCount;
-@property (strong, nonatomic) NSException *failureException;
+@property (nonatomic, assign) NSUInteger failureCount;
+@property (nonatomic, strong) NSException *failureException;
 
 - (void)failWithException:(NSException *)exception;
 
