@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class MKTInvocationMatcher;
 @class MKTStubbedInvocationMatcher;
 @protocol HCMatcher;
 
@@ -22,6 +23,6 @@
 - (void)addAnswer:(id)answer;
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
 - (void)setAnswersForStubbing:(NSArray *)answers;
-
 - (BOOL)hasAnswersForStubbing;
+- (void)setMethodForStubbing:(MKTInvocationMatcher *)invocationMatcher;
 @end

@@ -50,7 +50,7 @@
 - (void)addAnswer:(id)answer
 {
     [_registeredInvocations removeLastObject];
-    
+
     [_invocationMatcherForStubbing setAnswer:answer];
     [_stubbed insertObject:_invocationMatcherForStubbing atIndex:0];
 }
@@ -71,5 +71,11 @@
 - (BOOL)hasAnswersForStubbing
 {
     return [_answersForStubbing count] != 0;
+}
+
+- (void)setMethodForStubbing:(MKTInvocationMatcher *)invocationMatcher
+{
+//    _invocationMatcherForStubbing = invocationMatcher;
+    [_answersForStubbing removeAllObjects];
 }
 @end

@@ -23,14 +23,18 @@
 
 
 @interface SpiedObject : NSObject
-@property (nonatomic, assign) int methodCount;
+@property (nonatomic, assign) int methodACount;
 @end
 
 @implementation SpiedObject
 
-- (void)method
+- (void)methodA
 {
-    ++_methodCount;
+    ++_methodACount;
+}
+
+- (void)methodB
+{
 }
 
 @end
@@ -42,38 +46,52 @@
 @end
 
 @implementation MKTObjectMockSpyTest
+{
+    SpiedObject *spiedObject;
+    MKTMockSettings *settings;
+    id sut;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    spiedObject = [[SpiedObject alloc] init];
+    settings = [[MKTMockSettings alloc] init];
+    [settings setSpiedObject:spiedObject];
+    sut = [MKTObjectMock mockForClass:[spiedObject class] withSettings:settings];
+}
 
 - (void)testSettingsWithSpiedObjectShouldForwardUnstubbedMethodInvocationsToIt
 {
-    // given
-    SpiedObject *spiedObject = [[SpiedObject alloc] init];
-    MKTMockSettings *settings = [[MKTMockSettings alloc] init];
-    [settings setSpiedObject:spiedObject];
-    id sut = [MKTObjectMock mockForClass:[spiedObject class] withSettings:settings];
-
     // when
-    [sut method];
-    [sut method];
+    [sut methodA];
 
     // then
-    assertThatInt([spiedObject methodCount], is(equalTo(@2)));
+    assertThatInt([spiedObject methodACount], is(equalTo(@1)));
 }
 
 - (void)testSettingsWithSpiedObjectShouldNotForwardDoNothingMethodInvocationsToIt
 {
     // given
-    SpiedObject *spiedObject = [[SpiedObject alloc] init];
-    MKTMockSettings *settings = [[MKTMockSettings alloc] init];
-    [settings setSpiedObject:spiedObject];
-    id sut = [MKTObjectMock mockForClass:[spiedObject class] withSettings:settings];
+    [[doNothing() when:sut] methodA];
 
     // when
-    [[doNothing() when:sut] method];
-    [sut method];
-    [sut method];
+    [sut methodA];
 
     // then
-    assertThatInt([spiedObject methodCount], is(equalTo(@0)));
+    assertThatInt([spiedObject methodACount], is(equalTo(@0)));
+}
+
+- (void)testSettingsWithSpiedObjectShouldForwardMethodInvocationsDifferentFromDoNothingToIt
+{
+    // given
+    [[doNothing() when:sut] methodB];
+
+    // when
+    [sut methodA];
+
+    // then
+    assertThatInt([spiedObject methodACount], is(equalTo(@1)));
 }
 
 @end
