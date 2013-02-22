@@ -14,7 +14,7 @@
 
 @implementation MKTInvocationContainer
 {
-    MKTStubbedInvocationMatcher *_invocationMatcherForStubbing;
+    MKTStubbedInvocationMatcher *_invocationForStubbing;
     NSMutableArray *_stubbed;
     NSMutableArray *_answersForStubbing;
 }
@@ -39,20 +39,20 @@
     
     MKTStubbedInvocationMatcher *s = [[MKTStubbedInvocationMatcher alloc] init];
     [s setExpectedInvocation:invocation];
-    _invocationMatcherForStubbing = s;
+    _invocationForStubbing = s;
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
 {
-    [_invocationMatcherForStubbing setMatcher:matcher atIndex:argumentIndex];
+    [_invocationForStubbing setMatcher:matcher atIndex:argumentIndex];
 }
 
 - (void)addAnswer:(id)answer
 {
     [_registeredInvocations removeLastObject];
 
-    [_invocationMatcherForStubbing setAnswer:answer];
-    [_stubbed insertObject:_invocationMatcherForStubbing atIndex:0];
+    [_invocationForStubbing setAnswer:answer];
+    [_stubbed insertObject:_invocationForStubbing atIndex:0];
 }
 
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation
@@ -75,7 +75,10 @@
 
 - (void)setMethodForStubbing:(MKTInvocationMatcher *)invocationMatcher
 {
-//    _invocationMatcherForStubbing = invocationMatcher;
+    _invocationForStubbing = [[MKTStubbedInvocationMatcher alloc] initCopyingInvocationMatcher:invocationMatcher];
+    for (id answer in _answersForStubbing)
+        [self addAnswer:answer];
     [_answersForStubbing removeAllObjects];
 }
+
 @end

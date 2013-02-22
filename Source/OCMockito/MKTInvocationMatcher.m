@@ -10,6 +10,7 @@
 
 #import "MKTTypeEncoding.h"
 
+
 #define HC_SHORTHAND
 #if TARGET_OS_MAC
     #import <OCHamcrest/OCHamcrest.h>
@@ -25,11 +26,6 @@
 
 
 @implementation MKTInvocationMatcher
-{
-    NSInvocation *_expected;
-    NSUInteger _numberOfArguments;
-    NSMutableArray *_argumentMatchers;
-}
 
 - (id)init
 {
