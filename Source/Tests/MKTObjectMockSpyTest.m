@@ -56,9 +56,7 @@
 {
     [super setUp];
     spiedObject = [[SpiedObject alloc] init];
-    settings = [[MKTMockSettings alloc] init];
-    [settings setSpiedObject:spiedObject];
-    sut = [MKTObjectMock mockForClass:[spiedObject class] withSettings:settings];
+    sut = partialMock(spiedObject);
 }
 
 - (void)testSettingsWithSpiedObjectShouldForwardUnstubbedMethodInvocationsToIt

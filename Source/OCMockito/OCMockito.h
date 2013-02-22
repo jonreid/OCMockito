@@ -219,6 +219,12 @@ OBJC_EXPORT id MKTAtLeastOnce(void);
 #endif
 
 
+OBJC_EXPORT MKTObjectMock *MKTPartialMock(id spiedObject);
+
+#ifdef MOCKITO_SHORTHAND
+    #define partialMock(spiedObject) MKTPartialMock(spiedObject)
+#endif
+
 OBJC_EXPORT MKTStubber *MKTDoNothingWithLocation(id testCase, const char *fileName, int lineNumber);
 #define MKTDoNothing() MKTDoNothingWithLocation(self, __FILE__, __LINE__)
 
