@@ -225,9 +225,18 @@ OBJC_EXPORT MKTObjectMock *MKTPartialMock(id spiedObject);
     #define partialMock(spiedObject) MKTPartialMock(spiedObject)
 #endif
 
-OBJC_EXPORT MKTStubber *MKTDoNothingWithLocation(id testCase, const char *fileName, int lineNumber);
-#define MKTDoNothing() MKTDoNothingWithLocation(self, __FILE__, __LINE__)
+
+OBJC_EXPORT MKTStubber *MKTWillDoNothingWithLocation(id testCase, const char *fileName, int lineNumber);
+#define MKTWillDoNothing() MKTWillDoNothingWithLocation(self, __FILE__, __LINE__)
 
 #ifdef MOCKITO_SHORTHAND
-    #define doNothing() MKTDoNothing()
+    #define willDoNothing() MKTWillDoNothing()
+#endif
+
+
+OBJC_EXPORT MKTStubber *MKTWillReturnWithLocation(id obj, id testCase, const char *fileName, int lineNumber);
+#define MKTWillReturn(obj) MKTWillReturnWithLocation(obj, self, __FILE__, __LINE__)
+
+#ifdef MOCKITO_SHORTHAND
+    #define willReturn(obj) MKTWillReturn(obj)
 #endif

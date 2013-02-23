@@ -92,7 +92,13 @@ MKTObjectMock *MKTPartialMock(id spiedObject)
     return [MKTObjectMock mockForClass:[spiedObject class] withSettings:settings];
 }
 
-MKTStubber *MKTDoNothingWithLocation(id testCase, const char *fileName, int lineNumber)
+MKTStubber *MKTWillDoNothingWithLocation(id testCase, const char *fileName, int lineNumber)
 {
     return [[MKTMockitoCore sharedCore] stubDoNothingAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
+}
+
+OBJC_EXPORT MKTStubber *MKTWillReturnWithLocation(id obj, id testCase, const char *fileName, int lineNumber)
+{
+    return [[MKTMockitoCore sharedCore] stubDoReturn:obj
+                                          atLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }

@@ -53,6 +53,13 @@
     return stubber;
 }
 
+- (MKTStubber *)stubDoReturn:(id)obj atLocation:(MKTTestLocation)location
+{
+    MKTStubber *stubber = [[MKTStubber alloc] init];
+    [stubber doReturn:obj];
+    return stubber;
+}
+
 - (id)verifyMock:(MKTObjectMock *)mock
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location

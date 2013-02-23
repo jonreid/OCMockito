@@ -27,4 +27,5 @@
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location;
 
+- (MKTStubber *)stubDoReturn:(id)obj atLocation:(MKTTestLocation)location;
 @end

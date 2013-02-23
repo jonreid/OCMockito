@@ -35,4 +35,9 @@
     [_answers addObject:[NSNull null]];
 }
 
+- (void)doReturn:(id)obj
+{
+    [_answers addObject:obj];
+}
+
 @end

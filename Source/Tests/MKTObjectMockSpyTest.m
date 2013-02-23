@@ -37,6 +37,11 @@
 {
 }
 
+- (NSString *)fooString
+{
+    return @"foo";
+}
+
 @end
 
 
@@ -59,7 +64,7 @@
     sut = partialMock(spiedObject);
 }
 
-- (void)testSettingsWithSpiedObjectShouldForwardUnstubbedMethodInvocationsToIt
+- (void)testMethodInvocationsShouldBeForwardedToSpiedObject
 {
     // when
     [sut methodA];
@@ -68,10 +73,10 @@
     assertThatInt([spiedObject methodACount], is(equalTo(@1)));
 }
 
-- (void)testSettingsWithSpiedObjectShouldNotForwardDoNothingMethodInvocationsToIt
+- (void)testDoNothingShouldNotForwardThoseMethodInvocationsToSpiedObject
 {
     // given
-    [[doNothing() when:sut] methodA];
+    [[willDoNothing() when:sut] methodA];
 
     // when
     [sut methodA];
@@ -80,16 +85,25 @@
     assertThatInt([spiedObject methodACount], is(equalTo(@0)));
 }
 
-- (void)testSettingsWithSpiedObjectShouldForwardMethodInvocationsDifferentFromDoNothingToIt
+- (void)testDoNothingShouldForwardOtherMethodInvocationsToSpiedObject
 {
     // given
-    [[doNothing() when:sut] methodB];
+    [[willDoNothing() when:sut] methodB];
 
     // when
     [sut methodA];
 
     // then
     assertThatInt([spiedObject methodACount], is(equalTo(@1)));
+}
+
+- (void)testDoReturnShouldReturnGivenObjectWhenMethodIsInvoked
+{
+    // given
+    [[willReturn(@"bar") when:sut] fooString];
+
+    // then
+    assertThat([sut fooString], is(@"bar"));
 }
 
 @end

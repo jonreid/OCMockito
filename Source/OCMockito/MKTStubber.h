@@ -16,4 +16,5 @@
 - (id)when:(MKTBaseMockObject *)mock;
 - (void)doNothing;
 
+- (void)doReturn:(id)obj;
 @end
