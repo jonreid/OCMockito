@@ -67,4 +67,7 @@
 /// Stubs given @c double as return value.
 - (MKTOngoingStubbing *)willReturnDouble:(double)value;
 
+/// Stubs given <code>struct</code> as return value.
+- (MKTOngoingStubbing *)willReturnStruct:(void *)value;
+
 @end

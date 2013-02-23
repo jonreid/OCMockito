@@ -53,6 +53,12 @@ DEFINE_RETURN_METHOD(NSUInteger, UnsignedInteger)
 DEFINE_RETURN_METHOD(float, Float)
 DEFINE_RETURN_METHOD(double, Double)
 
+- (MKTOngoingStubbing *)willReturnStruct:(void *)value
+{
+  NSValue *answer = [NSValue valueWithBytes:value objCType:@encode(typeof(value))];
+  [_invocationContainer addAnswer:answer];
+  return self;
+}
 
 #pragma mark MKTPrimitiveArgumentMatching
 

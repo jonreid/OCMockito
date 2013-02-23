@@ -110,6 +110,14 @@
     HANDLE_METHOD_RETURN_TYPE(unsigned long long, unsignedLongLong)
     HANDLE_METHOD_RETURN_TYPE(float, float)
     HANDLE_METHOD_RETURN_TYPE(double, double)
+  else if ((strchr(methodReturnType,'{') - methodReturnType) == 0)
+    {
+    void *answer = malloc([methodSignature methodReturnLength]);
+    [[_invocationContainer findAnswerFor:invocation] getValue:answer];
+    [invocation setReturnValue:answer];
+    free(answer);
+    }
+
 }
 
 
