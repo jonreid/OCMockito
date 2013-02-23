@@ -42,6 +42,11 @@
     return @"foo";
 }
 
+- (NSString *)methodWithArg:(NSString *)arg
+{
+    return @"unstubbed";
+}
+
 @end
 
 
@@ -64,7 +69,7 @@
     sut = partialMock(spiedObject);
 }
 
-- (void)testMethodInvocationsShouldBeForwardedToSpiedObject
+- (void)testUnstubbedMethodInvocationsShouldBeForwardedToSpiedObject
 {
     // when
     [sut methodA];
@@ -73,7 +78,7 @@
     assertThatInt([spiedObject methodACount], is(equalTo(@1)));
 }
 
-- (void)testDoNothingShouldNotForwardThoseMethodInvocationsToSpiedObject
+- (void)testWillDoNothingShouldNotForwardThoseMethodInvocationsToSpiedObject
 {
     // given
     [[willDoNothing() when:sut] methodA];
@@ -85,7 +90,7 @@
     assertThatInt([spiedObject methodACount], is(equalTo(@0)));
 }
 
-- (void)testDoNothingShouldForwardOtherMethodInvocationsToSpiedObject
+- (void)testWillDoNothingShouldForwardOtherMethodInvocationsToSpiedObject
 {
     // given
     [[willDoNothing() when:sut] methodB];
@@ -97,13 +102,42 @@
     assertThatInt([spiedObject methodACount], is(equalTo(@1)));
 }
 
-- (void)testDoReturnShouldReturnGivenObjectWhenMethodIsInvoked
+- (void)testWillReturnShouldReturnGivenObjectWhenMethodIsInvoked
 {
     // given
     [[willReturn(@"bar") when:sut] fooString];
 
     // then
     assertThat([sut fooString], is(@"bar"));
+}
+
+- (void)testWillReturnValuesByMatchingMethodArgumentWithMatcher
+{
+    // given
+    [[willReturn(@"foo") when:sut] methodWithArg:equalTo(@"foo")];
+
+    // then
+    assertThat([sut methodWithArg:@"foo"], is(@"foo"));
+    assertThat([sut methodWithArg:@"bar"], is(@"unstubbed"));
+}
+
+- (void)testWillReturnValuesByMatchingMethodArgumentWithImplicitMatcher
+{
+    // given
+    [[willReturn(@"foo") when:sut] methodWithArg:@"foo"];
+
+    // then
+    assertThat([sut methodWithArg:@"foo"], is(@"foo"));
+    assertThat([sut methodWithArg:@"bar"], is(@"unstubbed"));
+}
+
+- (void)testWillReturnValuesMatchingAnyArgument
+{
+    // given
+    [[willReturn(@"foo") when:sut] methodWithArg:(id)anything()];
+
+    // then
+    assertThat([sut methodWithArg:@"bar"], is(@"foo"));
 }
 
 @end
