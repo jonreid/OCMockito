@@ -128,9 +128,9 @@
 		BB3333BE6F4F0DF803798FB4 /* MKTMockSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333B52C27E1EB1D28DD881 /* MKTMockSettings.m */; };
 		BB3334042FA555D4525E00C1 /* MKTStubber.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A074D46A180969CBEC5 /* MKTStubber.m */; };
 		BB333515EAD225BA672494D6 /* MKTStubber.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A074D46A180969CBEC5 /* MKTStubber.m */; };
-		BB33366CF1DC907A8149AA4F /* MKTStubber.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333394D507F53EE10245AB /* MKTStubber.h */; };
+		BB33366CF1DC907A8149AA4F /* MKTStubber.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333394D507F53EE10245AB /* MKTStubber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB333BF6FA72C3BDCC233C22 /* MKTMockSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333602AE48D454CE65EDC0 /* MKTMockSettings.h */; };
-		BB333DBC1D678F8C1CF2C1CB /* MKTStubber.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333394D507F53EE10245AB /* MKTStubber.h */; };
+		BB333DBC1D678F8C1CF2C1CB /* MKTStubber.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333394D507F53EE10245AB /* MKTStubber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB333E8FEAA3E8E43EECF179 /* MKTMockSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333602AE48D454CE65EDC0 /* MKTMockSettings.h */; };
 /* End PBXBuildFile section */
 
@@ -354,10 +354,10 @@
 				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
 				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
 				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
-				BB333B52C27E1EB1D28DD881 /* MKTMockSettings.m */,
 				BB333602AE48D454CE65EDC0 /* MKTMockSettings.h */,
-				BB333A074D46A180969CBEC5 /* MKTStubber.m */,
+				BB333B52C27E1EB1D28DD881 /* MKTMockSettings.m */,
 				BB333394D507F53EE10245AB /* MKTStubber.h */,
+				BB333A074D46A180969CBEC5 /* MKTStubber.m */,
 			);
 			path = OCMockito;
 			sourceTree = "<group>";

@@ -119,7 +119,7 @@
 - (void)testWillReturnValuesByMatchingMethodArgumentWithMatcher
 {
     // given
-    [[willReturn(@"foo") when:sut] methodWithArg:equalTo(@"foo")];
+    [[willReturn(@"foo") when:sut] methodWithArg:(id)equalTo(@"foo")];
 
     // then
     assertThat([sut methodWithArg:@"foo"], is(@"foo"));
