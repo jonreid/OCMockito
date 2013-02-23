@@ -47,6 +47,11 @@
     return @"unstubbed";
 }
 
+- (NSString *)methodWithInt:(int)arg
+{
+    return @"unstubbed";
+}
+
 @end
 
 
@@ -138,6 +143,16 @@
 
     // then
     assertThat([sut methodWithArg:@"bar"], is(@"foo"));
+}
+
+- (void)testWillReturnValuesMatchingPrimitiveArgument
+{
+    // given
+    [[willReturn(@"foo") when:sut] methodWithInt:0];
+
+    // then
+    assertThat([sut methodWithInt:0], is(@"foo"));
+    assertThat([sut methodWithInt:1], is(@"unstubbed"));
 }
 
 @end
