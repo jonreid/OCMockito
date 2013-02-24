@@ -1,6 +1,6 @@
 == NEXT VERSION IN PROGRESS
 
-* Added partialMock(spiedObject) along with willReturn(É) and willDoNothing().
+* Added spy(spiedObject) for partial mocking, along with willReturn(É) and willDoNothing().
 * Added -description to mock objects to help with debugging.
 
 
