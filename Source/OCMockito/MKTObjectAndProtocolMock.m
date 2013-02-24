@@ -31,7 +31,8 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"mock object of %@ implementing %@ protocol", NSStringFromClass(_mockedClass), NSStringFromProtocol(_mockedProtocol)];
+    return [NSString stringWithFormat:@"mock object of %@ implementing %@ protocol",
+            NSStringFromClass(_mockedClass), NSStringFromProtocol(_mockedProtocol)];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector

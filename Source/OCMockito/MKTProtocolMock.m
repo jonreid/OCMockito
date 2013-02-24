@@ -28,7 +28,8 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"mock implementer of %@ protocol",NSStringFromProtocol(_mockedProtocol)];
+    return [NSString stringWithFormat:@"mock implementer of %@ protocol",
+            NSStringFromProtocol(_mockedProtocol)];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
