@@ -71,7 +71,7 @@
 {
     [super setUp];
     spiedObject = [[SpiedObject alloc] init];
-    sut = partialMock(spiedObject);
+    sut = spy(spiedObject);
 }
 
 - (void)testUnstubbedMethodInvocationsShouldBeForwardedToSpiedObject

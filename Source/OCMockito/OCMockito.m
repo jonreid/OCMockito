@@ -85,7 +85,7 @@ id MKTAtLeastOnce()
     return MKTAtLeast(1);
 }
 
-id MKTPartialMock(id spiedObject)
+id MKTSpy(id spiedObject)
 {
     MKTMockSettings *settings = [[MKTMockSettings alloc] init];
     [settings setSpiedObject:spiedObject];
