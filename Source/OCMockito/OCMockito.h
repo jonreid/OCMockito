@@ -219,7 +219,7 @@ OBJC_EXPORT id MKTAtLeastOnce(void);
 #endif
 
 
-OBJC_EXPORT MKTObjectMock *MKTPartialMock(id spiedObject);
+OBJC_EXPORT id MKTPartialMock(id spiedObject);
 
 #ifdef MOCKITO_SHORTHAND
     #define partialMock(spiedObject) MKTPartialMock(spiedObject)
