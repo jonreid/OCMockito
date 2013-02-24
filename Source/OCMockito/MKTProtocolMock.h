@@ -13,6 +13,9 @@
     Mock object implementing a given protocol.
  */
 @interface MKTProtocolMock : MKTBaseMockObject
+{
+    Protocol *_mockedProtocol;
+}
 
 + (id)mockForProtocol:(Protocol *)aProtocol;
 - (id)initWithProtocol:(Protocol *)aProtocol;

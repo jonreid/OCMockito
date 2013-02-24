@@ -27,6 +27,11 @@
     return self;
 }
 
+- (NSString *)description
+{
+    return [@"mock class of " stringByAppendingString:NSStringFromClass(_mockedClass)];
+}
+
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     return [_mockedClass methodSignatureForSelector:aSelector];

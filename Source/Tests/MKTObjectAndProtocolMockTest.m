@@ -57,6 +57,12 @@
     [super setUp];
     mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
 }
+
+- (void)testDescription
+{
+    HC_assertThat([mock description], HC_is(@"mock object of TestClass implementing TestProtocol protocol"));
+}
+
 - (void)testClassProtocolMockCanCallMethodFromClass
 {
     STAssertNoThrow([mock instanceMethod],nil);

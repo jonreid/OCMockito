@@ -77,6 +77,10 @@
     mockImplementer = mockProtocol(@protocol(TestingProtocol));
 }
 
+- (void)testDescription
+{
+    HC_assertThat([mockImplementer description], HC_is(@"mock implementer of TestingProtocol protocol"));
+}
 
 - (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsrealImplementer
 {

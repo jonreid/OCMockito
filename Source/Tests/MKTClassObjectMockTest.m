@@ -34,6 +34,11 @@
     mockStringClass = mockClass([NSString class]);
 }
 
+- (void)testDescription
+{
+    assertThat([mockStringClass description], is(@"mock class of NSString"));
+}
+
 - (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
     // given

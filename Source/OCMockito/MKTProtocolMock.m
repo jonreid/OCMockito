@@ -12,9 +12,6 @@
 
 
 @implementation MKTProtocolMock
-{
-    Protocol *_mockedProtocol;
-}
 
 + (id)mockForProtocol:(Protocol *)aProtocol
 {
@@ -27,6 +24,11 @@
     if (self)
         _mockedProtocol = aProtocol;
     return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"mock implementer of %@ protocol",NSStringFromProtocol(_mockedProtocol)];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
