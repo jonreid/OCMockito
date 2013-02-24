@@ -12,6 +12,7 @@
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
 
+#define HC_SHORTHAND
 #if TARGET_OS_MAC
     #import <OCHamcrest/OCHamcrest.h>
 #else
@@ -60,7 +61,7 @@
 
 - (void)testDescription
 {
-    HC_assertThat([mock description], HC_is(@"mock object of TestClass implementing TestProtocol protocol"));
+    assertThat([mock description], is(@"mock object of TestClass implementing TestProtocol protocol"));
 }
 
 - (void)testClassProtocolMockCanCallMethodFromClass
@@ -83,7 +84,7 @@
     NSMethodSignature *mockSig = [mock methodSignatureForSelector:selector];
     
     // then
-    HC_assertThat(mockSig, HC_equalTo([obj methodSignatureForSelector:selector]));
+    assertThat(mockSig, equalTo([obj methodSignatureForSelector:selector]));
 }
 
 - (void)testMethodSignatureForSelectorNotInClassOrProtocolShouldAnswerNil
@@ -95,17 +96,17 @@
     NSMethodSignature *signature = [mock methodSignatureForSelector:bogusSelector];
     
     // then
-    HC_assertThat(signature, HC_nilValue());
+    assertThat(signature, is(nilValue()));
 }
 
 - (void)testMockShouldRespondToKnownSelector
 {
-    HC_assertThatBool([mock respondsToSelector:@selector(instanceMethod)], HC_equalToBool(YES));
+    assertThatBool([mock respondsToSelector:@selector(instanceMethod)], equalToBool(YES));
 }
 
 - (void)testMockShouldNotRespondToUnknownSelector
 {
-    HC_assertThatBool([mock respondsToSelector:@selector(objectAtIndex:)], HC_equalToBool(NO));
+    assertThatBool([mock respondsToSelector:@selector(objectAtIndex:)], equalToBool(NO));
 }
 
 - (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementer
@@ -118,7 +119,7 @@
     NSMethodSignature *signature = [mock methodSignatureForSelector:selector];
     
     // then
-    HC_assertThat(signature, HC_equalTo([obj methodSignatureForSelector:selector]));
+    assertThat(signature, equalTo([obj methodSignatureForSelector:selector]));
 }
 
 - (void)testMockShouldConformToItsOwnProtocol
