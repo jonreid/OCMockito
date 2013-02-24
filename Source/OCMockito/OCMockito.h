@@ -221,6 +221,16 @@ OBJC_EXPORT id MKTAtLeastOnce(void);
 
 OBJC_EXPORT id MKTPartialMock(id spiedObject);
 
+/**
+    Returns a partial mock object that forwards unstubbed methods to the spied object.
+ 
+    To stub partial mocks, use willReturn / willDoNothing:
+@code
+id mock = partialMock([[Foo alloc] init]);
+[[willReturn(@1) with:mock] methodReturningNumber];
+[[willDoNothing() with:mock] voidMethod];
+@endcode
+ */
 #ifdef MOCKITO_SHORTHAND
     #define partialMock(spiedObject) MKTPartialMock(spiedObject)
 #endif
@@ -229,6 +239,13 @@ OBJC_EXPORT id MKTPartialMock(id spiedObject);
 OBJC_EXPORT MKTStubber *MKTWillDoNothingWithLocation(id testCase, const char *fileName, int lineNumber);
 #define MKTWillDoNothing() MKTWillDoNothingWithLocation(self, __FILE__, __LINE__)
 
+/**
+    Stubs a void method of a partial mock.
+
+@code
+[[willDoNothing() with:partialMock] voidMethod];
+@endcode
+*/
 #ifdef MOCKITO_SHORTHAND
     #define willDoNothing() MKTWillDoNothing()
 #endif
@@ -237,6 +254,13 @@ OBJC_EXPORT MKTStubber *MKTWillDoNothingWithLocation(id testCase, const char *fi
 OBJC_EXPORT MKTStubber *MKTWillReturnWithLocation(id obj, id testCase, const char *fileName, int lineNumber);
 #define MKTWillReturn(obj) MKTWillReturnWithLocation(obj, self, __FILE__, __LINE__)
 
+/**
+    Stubs a method of a partial mock to return the given object.
+ 
+@code
+[[willReturn(@1) with:partialMock] methodReturningNumber];
+@endcode
+ */
 #ifdef MOCKITO_SHORTHAND
     #define willReturn(obj) MKTWillReturn(obj)
 #endif

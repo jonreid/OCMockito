@@ -1,3 +1,9 @@
+== NEXT VERSION IN PROGRESS
+
+* Added partialMock(spiedObject) along with willReturn(É) and willDoNothing().
+* Added -description to mock objects to help with debugging.
+
+
 == Version 0.23 ==
 
 23 Nov 2012
