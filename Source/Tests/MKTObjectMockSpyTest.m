@@ -155,4 +155,25 @@
     assertThat([sut methodWithInt:1], is(@"unstubbed"));
 }
 
+- (void)testShouldSupportVerificationOfUnstubbedMethod
+{
+    // when
+    [sut methodB];
+
+    // then
+    [verify(sut) methodB];
+}
+
+- (void)testShouldSupportVerificationOfStubbedMethod
+{
+    // given
+    [[willDoNothing() when:sut] methodA];
+
+    // when
+    [sut methodA];
+
+    // then
+    [verify(sut) methodA];
+}
+
 @end
