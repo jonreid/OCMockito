@@ -9,15 +9,15 @@ echo Preparing clean build
 rm -rf build
 mkdir build
 
-echo Building OCMockito - Debug
-xcodebuild -configuration Debug -target OCMockito
+echo Building OCMockito - Release
+xcodebuild -configuration Release -target OCMockito
 OUT=$?
 if [ "${OUT}" -ne "0" ]; then
     echo OCMockito release build failed
     exit ${OUT}
 fi
 
-echo Building OCMockitoIOS - Debug
+echo Building OCMockitoIOS - Release
 source MakeIOSFramework.sh
 OUT=$?
 if [ "${OUT}" -ne "0" ]; then
@@ -31,8 +31,8 @@ source MakeDocumentation.sh
 echo Assembling Distribution
 rm -rf "${DISTPATH}"
 mkdir "${DISTPATH}"
-cp -R "build/Debug/OCMockito.framework" "${DISTPATH}"
-cp -R "build/Debug/OCMockitoIOS.framework" "${DISTPATH}"
+cp -R "build/Release/OCMockito.framework" "${DISTPATH}"
+cp -R "build/Release/OCMockitoIOS.framework" "${DISTPATH}"
 cp "${PROJECTROOT}/README.md" "${DISTPATH}"
 cp "${PROJECTROOT}/CHANGES.txt" "${DISTPATH}"
 cp "${PROJECTROOT}/LICENSE.txt" "${DISTPATH}"
