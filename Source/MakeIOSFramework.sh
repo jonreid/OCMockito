@@ -1,18 +1,18 @@
 # First build the OS X framework to get its folder structure.
-xcodebuild -configuration Debug -target OCMockito -sdk macosx
+xcodebuild -configuration Release -target OCMockito -sdk macosx
 
 # We'll copy the OS X framework to a new location, then modify it in place.
-OSX_FRAMEWORK="build/Debug/OCMockito.framework/"
-IOS_FRAMEWORK="build/Debug/OCMockitoIOS.framework/"
+OSX_FRAMEWORK="build/Release/OCMockito.framework/"
+IOS_FRAMEWORK="build/Release/OCMockitoIOS.framework/"
 
 # Trigger builds of the static library for both the simulator and the device.
-xcodebuild -configuration Debug -target libocmockito -sdk iphoneos
+xcodebuild -configuration Release -target libocmockito -sdk iphoneos
 OUT=$?
 if [ "${OUT}" -ne "0" ]; then
     echo Device build failed
     exit ${OUT}
 fi
-xcodebuild -configuration Debug -target libocmockito -sdk iphonesimulator
+xcodebuild -configuration Release -target libocmockito -sdk iphonesimulator
 OUT=$?
 if [ "${OUT}" -ne "0" ]; then
     echo Simulator build failed
@@ -34,8 +34,8 @@ find "${IOS_FRAMEWORK}" -name '*.h' -print0 | xargs -0 perl -pi -e "${IMPORT_EXP
 rm "${IOS_FRAMEWORK}/OCMockito" "${IOS_FRAMEWORK}/Versions/Current/OCMockito"
 
 # Create a new library that is a fat library containing both static libraries.
-DEVICE_LIB="build/Debug-iphoneos/libocmockito.a"
-SIMULATOR_LIB="build/Debug-iphonesimulator/libocmockito.a"
+DEVICE_LIB="build/Release-iphoneos/libocmockito.a"
+SIMULATOR_LIB="build/Release-iphonesimulator/libocmockito.a"
 OUTPUT_LIB="${IOS_FRAMEWORK}/Versions/Current/OCMockitoIOS"
 
 lipo -create "${DEVICE_LIB}" -arch i386 "${SIMULATOR_LIB}" -o "${OUTPUT_LIB}"
