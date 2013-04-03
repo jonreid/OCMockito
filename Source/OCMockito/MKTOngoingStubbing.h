@@ -67,4 +67,7 @@
 /// Stubs given @c double as return value.
 - (MKTOngoingStubbing *)willReturnDouble:(double)value;
 
+/// Stubs given a block used to determine the return value.
+- (MKTOngoingStubbing *)willAnswer:(id (^)(NSInvocation *))invocation;
+
 @end

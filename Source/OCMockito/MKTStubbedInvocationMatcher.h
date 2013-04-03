@@ -11,7 +11,7 @@
 
 @interface MKTStubbedInvocationMatcher : MKTInvocationMatcher
 
-@property (nonatomic, strong) id answer;
+@property (nonatomic, copy) id (^answer)(NSInvocation *invocation);
 
 - (id)initCopyingInvocationMatcher:(MKTInvocationMatcher *)other;
 

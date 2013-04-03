@@ -17,7 +17,6 @@
 #import "MKTMockSettings.h"
 #import "MKTVerificationData.h"
 #import "MKTVerificationMode.h"
-#import "MKTMockSettings.h"
 
 
 @implementation MKTBaseMockObject
@@ -107,11 +106,11 @@
         [_settings useDefaultAnswerForInvocation:invocation];
 }
 
-#define HANDLE_METHOD_RETURN_TYPE(type, typeName)               \
-    else if (strcmp(methodReturnType, @encode(type)) == 0)      \
-    {                                                           \
-        type answer = [[stub answer] typeName ## Value];        \
-        [invocation setReturnValue:&answer];                    \
+#define HANDLE_METHOD_RETURN_TYPE(type, typeName)                    \
+    else if (strcmp(methodReturnType, @encode(type)) == 0)           \
+    {                                                                \
+        type answer = [[stub answer](invocation) typeName ## Value]; \
+        [invocation setReturnValue:&answer];                         \
     }
 
 - (void)useExistingAnswerInStub:(MKTStubbedInvocationMatcher *)stub forInvocation:(NSInvocation *)invocation
@@ -120,7 +119,7 @@
     const char* methodReturnType = [methodSignature methodReturnType];
     if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
     {
-        __unsafe_unretained id answer = [stub answer];
+        __unsafe_unretained id answer = [stub answer](invocation);
         [invocation setReturnValue:&answer];
     }
     HANDLE_METHOD_RETURN_TYPE(char, char)
