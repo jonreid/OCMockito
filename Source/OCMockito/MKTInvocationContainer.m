@@ -8,7 +8,6 @@
 
 #import "MKTInvocationContainer.h"
 
-#import "MKTMockingProgress.h"
 #import "MKTStubbedInvocationMatcher.h"
 
 
@@ -47,7 +46,7 @@
     [_invocationForStubbing setMatcher:matcher atIndex:argumentIndex];
 }
 
-- (void)addAnswer:(id)answer
+- (void)addAnswer:(id (^)(NSInvocation *))answer
 {
     [_registeredInvocations removeLastObject];
 

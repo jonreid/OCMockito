@@ -289,4 +289,31 @@
     assertThatDouble([mockObject methodReturningDouble], equalToDouble(42));
 }
 
+- (void)testStubbedMethodShouldAnswerUsingGivenBlock
+{
+    // when
+    [given([mockObject methodReturningObject]) willAnswer:^(NSInvocation *invocation)
+    {
+        return @"FOO";
+    }];
+
+    // then
+    assertThat([mockObject methodReturningObject], is(@"FOO"));
+}
+
+- (void)testStubbedMethodShouldNotStoreAnswerValue
+{
+    // when
+    NSMutableString *string = [@"FOO" mutableCopy];
+    [given([mockObject methodReturningObject]) willAnswer:^(NSInvocation *invocation)
+    {
+        return string;
+    }];
+    [mockObject methodReturningObject];
+    [string appendString:@"BAR"];
+
+    // then
+    assertThat([mockObject methodReturningObject], is(@"FOOBAR"));
+}
+
 @end

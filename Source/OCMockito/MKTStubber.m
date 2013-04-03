@@ -37,7 +37,15 @@
 
 - (void)doReturn:(id)obj
 {
-    [_answers addObject:obj];
+    [self doAnswer:^id(NSInvocation *invocation)
+    {
+        return obj;
+    }];
+}
+
+- (void)doAnswer:(id (^)(NSInvocation *))answer
+{
+    [_answers addObject:answer];
 }
 
 @end

@@ -26,15 +26,16 @@
 
 - (MKTOngoingStubbing *)willReturn:(id)object
 {
-    [_invocationContainer addAnswer:object];
-    return self;
+    return [self willAnswer:^(NSInvocation *invocation)
+    {
+        return object;
+    }];
 }
 
 #define DEFINE_RETURN_METHOD(type, typeName)                        \
     - (MKTOngoingStubbing *)willReturn ## typeName:(type)value      \
     {                                                               \
-        [_invocationContainer addAnswer:@(value)];                  \
-        return self;                                                \
+        return [self willReturn:@(value)];                          \
     }
 
 DEFINE_RETURN_METHOD(BOOL, Bool)
@@ -53,6 +54,11 @@ DEFINE_RETURN_METHOD(NSUInteger, UnsignedInteger)
 DEFINE_RETURN_METHOD(float, Float)
 DEFINE_RETURN_METHOD(double, Double)
 
+- (MKTOngoingStubbing *)willAnswer:(id (^)(NSInvocation *))answer
+{
+    [_invocationContainer addAnswer:answer];
+    return self;
+}
 
 #pragma mark MKTPrimitiveArgumentMatching
 
