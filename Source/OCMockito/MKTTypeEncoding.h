@@ -9,5 +9,5 @@
 
 static inline BOOL MKTTypeEncodingIsObjectOrClass(const char *type)
 {
-    return strcmp(type, @encode(id)) == 0 || strcmp(type, @encode(Class)) == 0;
+    return *type == @encode(id)[0] || *type == @encode(Class)[0];
 }

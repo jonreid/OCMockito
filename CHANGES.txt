@@ -1,6 +1,7 @@
 == NEXT VERSION IN PROGRESS
 
 * Added spy(spiedObject) for partial mocking, along with willReturn(É) and willDoNothing().
+* Added ability to match block arguments. Possible matchers: anything(), nilValue(), notNilValue()
 * Added -description to mock objects to help with debugging.
 
 
