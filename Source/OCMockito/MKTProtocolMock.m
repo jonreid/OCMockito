@@ -20,7 +20,7 @@
 
 - (id)initWithProtocol:(Protocol *)aProtocol
 {
-    self = [super initWithSettings:nil];
+    self = [super init];
     if (self)
         _mockedProtocol = aProtocol;
     return self;

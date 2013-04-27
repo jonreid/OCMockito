@@ -11,7 +11,6 @@
 #import "MKTAtLeastTimes.h"
 #import "MKTExactTimes.h"
 #import "MKTMockitoCore.h"
-#import "MKTMockSettings.h"
 
 
 static BOOL isValidMockClass(id mock)
@@ -83,22 +82,4 @@ id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations)
 id MKTAtLeastOnce()
 {
     return MKTAtLeast(1);
-}
-
-id MKTSpy(id spiedObject)
-{
-    MKTMockSettings *settings = [[MKTMockSettings alloc] init];
-    [settings setSpiedObject:spiedObject];
-    return [MKTObjectMock mockForClass:[spiedObject class] withSettings:settings];
-}
-
-MKTStubber *MKTWillDoNothingWithLocation(id testCase, const char *fileName, int lineNumber)
-{
-    return [[MKTMockitoCore sharedCore] stubDoNothingAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
-}
-
-OBJC_EXPORT MKTStubber *MKTWillReturnWithLocation(id obj, id testCase, const char *fileName, int lineNumber)
-{
-    return [[MKTMockitoCore sharedCore] stubDoReturn:obj
-                                          atLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }

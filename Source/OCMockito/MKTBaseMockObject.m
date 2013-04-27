@@ -14,33 +14,24 @@
 #import "MKTOngoingStubbing.h"
 #import "MKTStubbedInvocationMatcher.h"
 #import "MKTTypeEncoding.h"
-#import "MKTMockSettings.h"
 #import "MKTVerificationData.h"
 #import "MKTVerificationMode.h"
-#import "MKTMockSettings.h"
 
 
 @implementation MKTBaseMockObject
 {
-    MKTMockSettings *_settings;
     MKTMockingProgress *_mockingProgress;
     MKTInvocationContainer *_invocationContainer;
 }
 
-- (id)initWithSettings:(MKTMockSettings *)settings
+- (id)init
 {
     if (self)
     {
-        _settings = settings;
         _mockingProgress = [MKTMockingProgress sharedProgress];
         _invocationContainer = [[MKTInvocationContainer alloc] init];
     }
     return self;
-}
-
-- (void)setAnswersForStubbing:(NSArray *)answers
-{
-    [_invocationContainer setAnswersForStubbing:answers];
 }
 
 - (void)forwardInvocation:(NSInvocation *)invocation
@@ -103,8 +94,6 @@
     MKTStubbedInvocationMatcher *stubbedInvocation = [_invocationContainer findAnswerFor:invocation];
     if (stubbedInvocation)
         [self useExistingAnswerInStub:stubbedInvocation forInvocation:invocation];
-    else
-        [_settings useDefaultAnswerForInvocation:invocation];
 }
 
 #define HANDLE_METHOD_RETURN_TYPE(type, typeName)               \

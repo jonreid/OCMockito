@@ -13,7 +13,6 @@
 #import "MKTObjectAndProtocolMock.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTProtocolMock.h"
-#import "MKTStubber.h"
 #import <objc/objc-api.h>
 
 
@@ -216,51 +215,4 @@ OBJC_EXPORT id MKTAtLeastOnce(void);
  */
 #ifdef MOCKITO_SHORTHAND
     #define atLeastOnce() MKTAtLeastOnce()
-#endif
-
-
-OBJC_EXPORT id MKTSpy(id spiedObject);
-
-/**
-    Returns a spy object (partial mock) that forwards unstubbed methods to the spied object.
- 
-    To stub partial mocks, use willReturn / willDoNothing:
-@code
-id mock = spy([[Foo alloc] init]);
-[[willReturn(@1) with:mock] methodReturningNumber];
-[[willDoNothing() with:mock] voidMethod];
-@endcode
- */
-#ifdef MOCKITO_SHORTHAND
-    #define spy(spiedObject) MKTSpy(spiedObject)
-#endif
-
-
-OBJC_EXPORT MKTStubber *MKTWillDoNothingWithLocation(id testCase, const char *fileName, int lineNumber);
-#define MKTWillDoNothing() MKTWillDoNothingWithLocation(self, __FILE__, __LINE__)
-
-/**
-    Stubs a spy object's void method to do nothing.
-
-@code
-[[willDoNothing() with:spy] voidMethod];
-@endcode
-*/
-#ifdef MOCKITO_SHORTHAND
-    #define willDoNothing() MKTWillDoNothing()
-#endif
-
-
-OBJC_EXPORT MKTStubber *MKTWillReturnWithLocation(id obj, id testCase, const char *fileName, int lineNumber);
-#define MKTWillReturn(obj) MKTWillReturnWithLocation(obj, self, __FILE__, __LINE__)
-
-/**
-    Stubs a spy object's method to return the given object.
- 
-@code
-[[willReturn(@1) with:spy] methodReturningNumber];
-@endcode
- */
-#ifdef MOCKITO_SHORTHAND
-    #define willReturn(obj) MKTWillReturn(obj)
 #endif

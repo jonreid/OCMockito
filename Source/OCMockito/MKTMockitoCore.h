@@ -12,7 +12,6 @@
 
 @class MKTObjectMock;
 @class MKTOngoingStubbing;
-@class MKTStubber;
 @protocol MKTVerificationMode;
 
 
@@ -21,11 +20,9 @@
 + (id)sharedCore;
 
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location;
-- (MKTStubber *)stubDoNothingAtLocation:(MKTTestLocation)location;
 
 - (id)verifyMock:(MKTObjectMock *)mock
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location;
 
-- (MKTStubber *)stubDoReturn:(id)obj atLocation:(MKTTestLocation)location;
 @end

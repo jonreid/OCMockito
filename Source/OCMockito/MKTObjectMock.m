@@ -7,7 +7,6 @@
 //
 
 #import "MKTObjectMock.h"
-#import "MKTMockSettings.h"
 
 
 @implementation MKTObjectMock
@@ -17,17 +16,12 @@
 
 + (id)mockForClass:(Class)aClass
 {
-    return [[self alloc] initWithClass:aClass settings:nil];
+    return [[self alloc] initWithClass:aClass];
 }
 
-+ (id)mockForClass:(Class)aClass withSettings:(MKTMockSettings *)settings
+- (id)initWithClass:(Class)aClass
 {
-    return [[self alloc] initWithClass:aClass settings:settings];
-}
-
-- (id)initWithClass:(Class)aClass settings:(MKTMockSettings *)settings
-{
-    self = [super initWithSettings:settings];
+    self = [super init];
     if (self)
         _mockedClass = aClass;
     return self;

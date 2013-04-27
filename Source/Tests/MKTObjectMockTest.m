@@ -9,8 +9,6 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-#import "MKTMockSettings.h"
-
     // Test support
 #import <SenTestingKit/SenTestingKit.h>
 

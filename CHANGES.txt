@@ -1,6 +1,5 @@
 == NEXT VERSION IN PROGRESS
 
-* Added spy(spiedObject) for partial mocking, along with willReturn(É) and willDoNothing().
 * Added ability to match block arguments. Possible matchers: anything(), nilValue(), notNilValue()
 * Added -description to mock objects to help with debugging.
 
@@ -20,16 +19,16 @@
 == Version 0.22 ==
 
 18 Mar 2012
-* Added mockClass(É) which mocks a class object. Thanks to: David Hart
+* Added mockClass(ï¿½) which mocks a class object. Thanks to: David Hart
 * Added mockObjectAndProtocol(Class, Protocol) which mocks an object of a given class that also implements a given protocol. Thanks to: Kevin Lundberg
 
 
 == Version 0.21 ==
 
 09 Mar 2012
-* Added mockProtocol(É) which mocks an object implementing a given protocol.
-* given(É) now supports methods returning float or double. Thanks to: Markus Gasser
-* verify(É) and verifyCount(É) check that argument is a mock object.
+* Added mockProtocol(ï¿½) which mocks an object implementing a given protocol.
+* given(ï¿½) now supports methods returning float or double. Thanks to: Markus Gasser
+* verify(ï¿½) and verifyCount(ï¿½) check that argument is a mock object.
 * Eliminated givenPreviousCall.
 * Changed build configuration to Debug during initial development.
 

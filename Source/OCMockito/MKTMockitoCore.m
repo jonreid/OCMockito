@@ -10,7 +10,6 @@
 
 #import "MKTMockingProgress.h"
 #import "MKTVerificationMode.h"
-#import "MKTStubber.h"
 
 
 @implementation MKTMockitoCore
@@ -44,20 +43,6 @@
 - (MKTOngoingStubbing *)stub
 {
     return [_mockingProgress pullOngoingStubbing];
-}
-
-- (MKTStubber *)stubDoNothingAtLocation:(MKTTestLocation)location
-{
-    MKTStubber *stubber = [[MKTStubber alloc] init];
-    [stubber doNothing];
-    return stubber;
-}
-
-- (MKTStubber *)stubDoReturn:(id)obj atLocation:(MKTTestLocation)location
-{
-    MKTStubber *stubber = [[MKTStubber alloc] init];
-    [stubber doReturn:obj];
-    return stubber;
 }
 
 - (id)verifyMock:(MKTObjectMock *)mock
