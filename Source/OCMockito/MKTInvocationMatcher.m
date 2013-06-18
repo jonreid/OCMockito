@@ -24,6 +24,10 @@
 @interface MKTInvocationMatcher ()
 @end
 
+@interface NSObject ()
+- (BOOL)isBlock;
+@end
+
 
 @implementation MKTInvocationMatcher
 
@@ -82,7 +86,7 @@
             
             id <HCMatcher> matcher;
             if (argument != nil)
-                matcher = HCWrapInMatcher(argument);
+                matcher = HCWrapInMatcher([argument isBlock] ? [argument copy] : argument);
             else
                 matcher = nilValue();
             
