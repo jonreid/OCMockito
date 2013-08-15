@@ -1,5 +1,7 @@
-== NEXT VERSION IN PROGRESS
+== Version 0.24.0 ==
+This release adopts Semantic Versioning (http://semver.org). Thanks to: Jens Nerup
 
+13 Aug 2013
 * Added ability to match block arguments. Possible matchers: anything(), nilValue(), notNilValue()
 * Added -description to mock objects to help with debugging.
 
@@ -19,16 +21,16 @@
 == Version 0.22 ==
 
 18 Mar 2012
-* Added mockClass(�) which mocks a class object. Thanks to: David Hart
+* Added mockClass(...) which mocks a class object. Thanks to: David Hart
 * Added mockObjectAndProtocol(Class, Protocol) which mocks an object of a given class that also implements a given protocol. Thanks to: Kevin Lundberg
 
 
 == Version 0.21 ==
 
 09 Mar 2012
-* Added mockProtocol(�) which mocks an object implementing a given protocol.
-* given(�) now supports methods returning float or double. Thanks to: Markus Gasser
-* verify(�) and verifyCount(�) check that argument is a mock object.
+* Added mockProtocol(...) which mocks an object implementing a given protocol.
+* given(...) now supports methods returning float or double. Thanks to: Markus Gasser
+* verify(...) and verifyCount(...) check that argument is a mock object.
 * Eliminated givenPreviousCall.
 * Changed build configuration to Debug during initial development.
 
