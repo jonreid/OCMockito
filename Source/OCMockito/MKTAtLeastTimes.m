@@ -8,6 +8,7 @@
 
 #import "MKTAtLeastTimes.h"
 
+#import "OCMockito.h"
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
 #import "MKTVerificationData.h"
@@ -16,21 +17,36 @@
 @implementation MKTAtLeastTimes
 {
     NSUInteger _minimumExpectedCount;
+    BOOL _eventually;
 }
 
-+ (id)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
++ (id)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations eventually:(BOOL)eventually
 {
-    return [[self alloc] initWithMinimumCount:minimumExpectedNumberOfInvocations];
+    return [[self alloc] initWithMinimumCount:minimumExpectedNumberOfInvocations eventually:eventually];
 }
 
-- (id)initWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
+- (id)initWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations eventually:(BOOL)eventually
 {
     self = [super init];
     if (self)
+    {
         _minimumExpectedCount = minimumExpectedNumberOfInvocations;
+        _eventually = eventually;
+    }
     return self;
 }
 
+- (NSUInteger)matchingCountWithData:(MKTVerificationData *)data
+{
+    NSUInteger matchingCount = 0;
+    for (NSInvocation *invocation in [[data invocations] registeredInvocations])
+    {
+        if ([[data wanted] matches:invocation])
+            ++matchingCount;
+    }
+
+    return matchingCount;
+}
 
 #pragma mark MKTVerificationMode
 
@@ -38,14 +54,24 @@
 {
     if (_minimumExpectedCount == 0)
         return;     // this always succeeds
-    
-    NSUInteger matchingCount = 0;
-    for (NSInvocation *invocation in [[data invocations] registeredInvocations])
+
+    NSUInteger matchingCount;
+    if (_eventually)
     {
-        if ([[data wanted] matches:invocation])
-            ++matchingCount;
+        NSDate *expiryDate = [NSDate dateWithTimeIntervalSinceNow:MKT_eventuallyDefaultTimeout()];
+        while (1)
+        {
+            matchingCount = [self matchingCountWithData:data];
+            if (matchingCount >= _minimumExpectedCount || [(NSDate *)[NSDate date] compare:expiryDate] == NSOrderedDescending)
+                break;
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
+        }
     }
-    
+    else
+    {
+        matchingCount = [self matchingCountWithData:data];
+    }
+
     if (matchingCount < _minimumExpectedCount)
     {
         NSString *plural = (_minimumExpectedCount == 1) ? @"" : @"s";

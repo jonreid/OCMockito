@@ -8,6 +8,7 @@
 
 #import "MKTExactTimes.h"
 
+#import "OCMockito.h"
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
 #import "MKTTestLocation.h"
@@ -25,26 +26,27 @@
 
 @implementation MKTExactTimes
 {
-    NSUInteger expectedCount;
+    NSUInteger _expectedCount;
+    BOOL _eventually;
 }
 
-+ (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations
++ (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations eventually:(BOOL)eventually
 {
-    return [[self alloc] initWithCount:expectedNumberOfInvocations];
+    return [[self alloc] initWithCount:expectedNumberOfInvocations eventually:eventually];
 }
 
-- (id)initWithCount:(NSUInteger)expectedNumberOfInvocations
+- (id)initWithCount:(NSUInteger)expectedNumberOfInvocations eventually:(BOOL)eventually
 {
     self = [super init];
     if (self)
-        expectedCount = expectedNumberOfInvocations;
+    {
+        _expectedCount = expectedNumberOfInvocations;
+        _eventually = eventually;
+    }
     return self;
 }
 
-
-#pragma mark MKTVerificationMode
-
-- (void)verifyData:(MKTVerificationData *)data
+- (NSUInteger)matchingCountWithData:(MKTVerificationData *)data
 {
     NSUInteger matchingCount = 0;
     for (NSInvocation *invocation in [[data invocations] registeredInvocations])
@@ -52,12 +54,36 @@
         if ([[data wanted] matches:invocation])
             ++matchingCount;
     }
-    
-    if (matchingCount != expectedCount)
+
+    return matchingCount;
+}
+
+#pragma mark MKTVerificationMode
+
+- (void)verifyData:(MKTVerificationData *)data
+{
+    NSUInteger matchingCount;
+    if (_eventually)
     {
-        NSString *plural = (expectedCount == 1) ? @"" : @"s";
+        NSDate *expiryDate = [NSDate dateWithTimeIntervalSinceNow:MKT_eventuallyDefaultTimeout()];
+        while (1)
+        {
+            matchingCount = [self matchingCountWithData:data];
+            if (matchingCount > _expectedCount || [(NSDate *)[NSDate date] compare:expiryDate] == NSOrderedDescending)
+                break;
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
+        }
+    }
+    else
+    {
+        matchingCount = [self matchingCountWithData:data];
+    }
+
+    if (matchingCount != _expectedCount)
+    {
+        NSString *plural = (_expectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
-                                 (unsigned)expectedCount, plural, (unsigned)matchingCount];
+                                 (unsigned)_expectedCount, plural, (unsigned)matchingCount];
         MKTFailTestLocation([data testLocation], description);
     }
 }
