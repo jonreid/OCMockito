@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MKTVerificationData;
+@class MKTVerificationModeResult;
 
 
 @protocol MKTVerificationMode <NSObject>

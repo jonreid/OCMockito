@@ -1,12 +1,12 @@
 //
-//  OCMockito - MKTAtLeastTimesTest.m
+//  OCMockito - MKTExactTimesTest.m
 //  Copyright 2013 Jonathan M. Reid. See LICENSE.txt
 //  
-//  Created by Markus Gasser on 18.04.12.
+//  Created by Daniel Rodríguez Troitiño on 30.08.13.
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "MKTAtLeastTimes.h"
+#import "MKTExactTimes.h"
 
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
@@ -25,10 +25,10 @@
 #endif
 
 
-@interface MKTAtLeastTimesTest : SenTestCase
+@interface MKTExactTimesTest : SenTestCase
 @end
 
-@implementation MKTAtLeastTimesTest
+@implementation MKTExactTimesTest
 {
     BOOL shouldPassAllExceptionsUp;
     MKTVerificationData *emptyData;
@@ -59,107 +59,107 @@
 - (void)testVerificationShouldFailForEmptyDataIfCountIsNonzero
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1 eventually:NO];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:1 eventually:NO];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
     
     // then
-    STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should throw an exception for empty data");
+    STAssertThrows([exactTimes verifyData:emptyData], @"verify should throw an exception for empty data");
 }
 
 - (void)testVerificationShouldEventuallyFailForEmptyDataIfCountIsNonzero
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1 eventually:YES];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:1 eventually:YES];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
 
     // then
-    STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should eventually throw an exception for empty data");
+    STAssertThrows([exactTimes verifyData:emptyData], @"verify should eventually throw an exception for empty data");
 }
 
 - (void)testVerificationShouldFailForTooLittleInvocations
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:2 eventually:NO];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:2 eventually:NO];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
     [[emptyData invocations] setInvocationForPotentialStubbing:invocation]; // 1 call, but expect 2
     
     // then
-    STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should throw an exception for too little invocations");
+    STAssertThrows([exactTimes verifyData:emptyData], @"verify should throw an exception for too little invocations");
 }
 
 - (void)testVerificationShouldEventuallyFailForTooLittleInvocations
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:2 eventually:YES];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:2 eventually:YES];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
     [[emptyData invocations] setInvocationForPotentialStubbing:invocation]; // 1 call, but expect 2
 
     // then
-    STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should eventually throw an exception for too little invocations");
+    STAssertThrows([exactTimes verifyData:emptyData], @"verify should eventually throw an exception for too little invocations");
 }
 
 - (void)testVerificationShouldSucceedForMinimumCountZero
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:0 eventually:NO];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:0 eventually:NO];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
     
     // then
-    STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for atLeast(0)");
+    STAssertNoThrow([exactTimes verifyData:emptyData], @"verify should succeed for times(0)");
 }
 
 - (void)testVerificationShouldEventuallySucceedForMinimumCountZero
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:0 eventually:YES];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:0 eventually:YES];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
 
     // then
-    STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should eventually succeed for atLeast(0)");
+    STAssertNoThrow([exactTimes verifyData:emptyData], @"verify should eventually succeed for eventuallyTimes(0)");
 }
 
 - (void)testVerificationShouldSucceedForExactNumberOfInvocations
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1 eventually:NO];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:1 eventually:NO];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
     [[emptyData invocations] setInvocationForPotentialStubbing:invocation];
     
     // then
-    STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for exact number of invocations matched");
+    STAssertNoThrow([exactTimes verifyData:emptyData], @"verify should succeed for exact number of invocations matched");
 }
 
 - (void)testVerificationShouldEventuallySucceedForExactNumberOfInvocations
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1 eventually:YES];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:1 eventually:YES];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
     [[emptyData invocations] setInvocationForPotentialStubbing:invocation];
 
     // then
-    STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should eventually succeed for exact number of invocations matched");
+    STAssertNoThrow([exactTimes verifyData:emptyData], @"verify should eventually succeed for exact number of invocations matched");
 }
 
 - (void)testVerificationShouldAsynchronouslySucceedForExactNumberOfInvocations
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1 eventually:YES];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:1 eventually:YES];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
@@ -169,13 +169,13 @@
     });
 
     // then
-    STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should eventually succeed for exact number of invocations matched");
+    STAssertNoThrow([exactTimes verifyData:emptyData], @"verify should eventually succeed for exact number of invocations matched");
 }
 
-- (void)testVerificationShouldSucceedForMoreInvocations
+- (void)testVerificationShouldFailForMoreInvocations
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1 eventually:NO];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:1 eventually:NO];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
@@ -183,13 +183,13 @@
     [[emptyData invocations] setInvocationForPotentialStubbing:invocation]; // 2 calls to the expected method
     
     // then
-    STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for more invocations matched");
+    STAssertThrows([exactTimes verifyData:emptyData], @"verify should throw an exception for more invocations matched");
 }
 
-- (void)testVerificationShouldEventuallySucceedForMoreInvocations
+- (void)testVerificationShouldEventuallyFailForMoreInvocations
 {
     // given
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1 eventually:YES];
+    MKTExactTimes *exactTimes = [MKTExactTimes timesWithCount:1 eventually:YES];
 
     // when
     [[emptyData wanted] setExpectedInvocation:invocation];
@@ -197,25 +197,25 @@
     [[emptyData invocations] setInvocationForPotentialStubbing:invocation]; // 2 calls to the expected method
 
     // then
-    STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should eventually succeed for more invocations matched");
+    STAssertThrows([exactTimes verifyData:emptyData], @"verify should eventually throw an exception for more invocations matched");
 }
 
 
 #pragma mark - Test From Top-Level
 
-- (void)testAtLeastInActionForExactCount
+- (void)testTimesInActionForExactCount
 {
     // given
     NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
+
     // when
     [mockArray removeAllObjects];
-    
+
     // then
-    [verifyCount(mockArray, atLeast(1)) removeAllObjects];
+    [verifyCount(mockArray, times(1)) removeAllObjects];
 }
 
-- (void)testEventuallyAtLeastInActionForExactCount
+- (void)testEventuallyTimesInActionForExactCount
 {
     // given
     NSMutableArray *mockArray = mock([NSMutableArray class]);
@@ -227,110 +227,109 @@
     });
 
     // then
-    [verifyCount(mockArray, eventuallyAtLeast(1)) removeAllObjects];
+    [verifyCount(mockArray, eventuallyTimes(1)) removeAllObjects];
 }
 
-- (void)testAtLeastOnceInActionForExactCount
+- (void)testNeverInActionForExactCount
 {
     // given
     NSMutableArray *mockArray = mock([NSMutableArray class]);
 
     // when
-    [mockArray removeAllObjects];
+    // nothing
 
     // then
-    [verifyCount(mockArray, atLeastOnce()) removeAllObjects];
+    [verifyCount(mockArray, never()) removeAllObjects];
 }
 
-- (void)testEventuallyAtLeastOnceInActionForExactCount
+- (void)testEventuallyNeverInActionForExactCount
 {
     // given
     NSMutableArray *mockArray = mock([NSMutableArray class]);
 
     // when
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50*NSEC_PER_MSEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [mockArray removeAllObjects];
-    });
+    // nothing
 
     // then
-    [verifyCount(mockArray, eventuallyAtLeastOnce()) removeAllObjects];
+    [verifyCount(mockArray, eventuallyNever()) removeAllObjects];
 }
 
-- (void)testAtLeastInActionForExcessInvocations
-{
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
-    // when
-    [mockArray addObject:@"foo"];
-    [mockArray addObject:@"foo"];
-    [mockArray addObject:@"foo"];
-    
-    // then
-    [verifyCount(mockArray, atLeast(2)) addObject:@"foo"];
-}
-
-- (void)testEventuallyAtLeastInActionForExcessInvocations
-{
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-
-    // when
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50*NSEC_PER_MSEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [mockArray addObject:@"foo"];
-        [mockArray addObject:@"foo"];
-        [mockArray addObject:@"foo"];
-    });
-
-    // then
-    [verifyCount(mockArray, eventuallyAtLeast(2)) addObject:@"foo"];
-}
-
-- (void)testAtLeastOnceInActionForExcessInvocations
-{
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-
-    // when
-    [mockArray addObject:@"foo"];
-    [mockArray addObject:@"foo"];
-
-    // then
-    [verifyCount(mockArray, atLeastOnce()) addObject:@"foo"];
-}
-
-- (void)testEventuallyAtLeastOnceInActionForExcessInvocations
-{
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-
-    // when
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50*NSEC_PER_MSEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [mockArray addObject:@"foo"];
-        [mockArray addObject:@"foo"];
-    });
-
-    // then
-    [verifyCount(mockArray, eventuallyAtLeastOnce()) addObject:@"foo"];
-}
-
-- (void)testAtLeastInActionForTooLittleInvocations
+- (void)testTimesInActionForExcessInvocations
 {
     // given
     [self disableFailureHandler]; // enable the handler to catch the exception generated by verify()
     NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
+
     // when
     [mockArray addObject:@"foo"];
-    
+    [mockArray addObject:@"foo"];
+    [mockArray addObject:@"foo"];
+
     // then
-    STAssertThrows(([verifyCount(mockArray, atLeast(2)) addObject:@"foo"]), @"verifyCount() should have failed");
+    STAssertThrows(([verifyCount(mockArray, times(2)) addObject:@"foo"]), @"verifyCount() should have failed");
 }
 
-- (void)testEventuallyAtLeastInActionForTooLittleInvocations
+- (void)testEventuallyTimesInActionForExcessInvocations
+{
+    // given
+    [self disableFailureHandler]; // enable the handler to catch the exception generated by verify()
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+
+    // when
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 500*NSEC_PER_MSEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [mockArray addObject:@"foo"];
+        [mockArray addObject:@"foo"];
+        [mockArray addObject:@"foo"];
+    });
+
+    // then
+    STAssertThrows(([verifyCount(mockArray, eventuallyTimes(2)) addObject:@"foo"]), @"verifyCount() should have failed");
+}
+
+- (void)testNeverInActionForExcessInvocations
+{
+    // given
+    [self disableFailureHandler]; // enable the handler to catch the exception generated by verify()
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+
+    // when
+    [mockArray addObject:@"foo"];
+
+    // then
+    STAssertThrows(([verifyCount(mockArray, never()) addObject:@"foo"]), @"verifyCount() should have failed");
+}
+
+- (void)testEventuallyNeverInActionForExcessInvocations
+{
+    // given
+    [self disableFailureHandler]; // enable the handler to catch the exception generated by verify()
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+
+    // when
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50*NSEC_PER_MSEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [mockArray addObject:@"foo"];
+    });
+
+    // then
+    STAssertThrows(([verifyCount(mockArray, eventuallyNever()) addObject:@"foo"]), @"verifyCount() should have failed");
+}
+
+- (void)testTimesInActionForTooLittleInvocations
+{
+    // given
+    [self disableFailureHandler]; // enable the handler to catch the exception generated by verify()
+    NSMutableArray *mockArray = mock([NSMutableArray class]);
+
+    // when
+    [mockArray addObject:@"foo"];
+
+    // then
+    STAssertThrows(([verifyCount(mockArray, times(2)) addObject:@"foo"]), @"verifyCount() should have failed");
+}
+
+- (void)testEventuallyTimesInActionForTooLittleInvocations
 {
     // given
     [self disableFailureHandler]; // enable the handler to catch the exception generated by verify()
@@ -343,7 +342,7 @@
     });
 
     // then
-    STAssertThrows(([verifyCount(mockArray, eventuallyAtLeast(2)) addObject:@"foo"]), @"verifyCount() should have failed");
+    STAssertThrows(([verifyCount(mockArray, eventuallyTimes(2)) addObject:@"foo"]), @"verifyCount() should have failed");
 }
 
 

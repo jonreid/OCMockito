@@ -66,7 +66,12 @@ id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileNam
 
 id MKTTimes(NSUInteger wantedNumberOfInvocations)
 {
-    return [MKTExactTimes timesWithCount:wantedNumberOfInvocations];
+    return [MKTExactTimes timesWithCount:wantedNumberOfInvocations eventually:NO];
+}
+
+id MKTEventuallyTimes(NSUInteger wantedNumberOfInvocations)
+{
+    return [MKTExactTimes timesWithCount:wantedNumberOfInvocations eventually:YES];
 }
 
 id MKTNever()
@@ -74,12 +79,41 @@ id MKTNever()
     return MKTTimes(0);
 }
 
+id MKTEventuallyNever()
+{
+    return MKTEventuallyTimes(0);
+}
+
 id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations)
 {
-    return [MKTAtLeastTimes timesWithMinimumCount:minimumWantedNumberOfInvocations];
+    return [MKTAtLeastTimes timesWithMinimumCount:minimumWantedNumberOfInvocations eventually:NO];
+}
+
+id MKTEventuallyAtLeast(NSUInteger minimumWantedNumberOfInvocations)
+{
+    return [MKTAtLeastTimes timesWithMinimumCount:minimumWantedNumberOfInvocations eventually:YES];
 }
 
 id MKTAtLeastOnce()
 {
     return MKTAtLeast(1);
+}
+
+id MKTEventuallyAtLeastOnce()
+{
+    return MKTEventuallyAtLeast(1);
+}
+
+
+
+static NSTimeInterval sEventuallyDefaultTimeout = 1.0; // seconds
+
+NSTimeInterval MKT_eventuallyDefaultTimeout()
+{
+    return sEventuallyDefaultTimeout;
+}
+
+void MKT_setEventuallyDefaultTimeout(NSTimeInterval defaultTimeout)
+{
+    sEventuallyDefaultTimeout = defaultTimeout;
 }

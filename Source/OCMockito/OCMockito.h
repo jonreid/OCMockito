@@ -144,6 +144,7 @@ OBJC_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const c
 
 
 OBJC_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
+OBJC_EXPORT id MKTEventuallyTimes(NSUInteger wantedNumberOfInvocations);
 
 /**
     Verifies exact number of invocations.
@@ -160,8 +161,24 @@ OBJC_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
     #define times(wantedNumberOfInvocations) MKTTimes(wantedNumberOfInvocations)
 #endif
 
+/**
+    Verifies exact number of invocations now, or at some time in the near future.
+
+    Example:
+@code
+[verifyCount(mockObject, eventuallyTimes(2)) someMethod:@"some arg"];
+@endcode
+
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTEventuallyTimes instead.)
+ */
+#ifdef MOCKITO_SHORTHAND
+    #define eventuallyTimes(wantedNumberOfInvocations) MKTEventuallyTimes(wantedNumberOfInvocations)
+#endif
+
 
 OBJC_EXPORT id MKTNever(void);
+OBJC_EXPORT id MKTEventuallyNever(void);
 
 /**
     Verifies that interaction did not happen.
@@ -178,8 +195,24 @@ OBJC_EXPORT id MKTNever(void);
     #define never() MKTNever()
 #endif
 
+/**
+    Verifies that interaction did not happen now, or at some time in the near future.
+
+    Example:
+    @code
+    [verifyCount(mockObject, eventuallyNever()) someMethod:@"some arg"];
+    @endcode
+
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTEventuallyNever instead.)
+ */
+#ifdef MOCKITO_SHORTHAND
+    #define eventuallyNever() MKTEventuallyNever()
+#endif
+
 
 OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
+OBJC_EXPORT id MKTEventuallyAtLeast(NSUInteger minimumWantedNumberOfInvocations);
 
 /**
     Verifies minimum number of invocations.
@@ -199,8 +232,27 @@ OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
     #define atLeast(minimumWantedNumberOfInvocations) MKTAtLeast(minimumWantedNumberOfInvocations)
 #endif
 
+/**
+    Verifies minimum number of invocations now, or at some time in the near future.
+
+    The verification will succeed if the specified invocation happened the number of times
+    specified or more.
+
+    Example:
+@code
+[verifyCount(mockObject, eventuallyAtLeast(2)) someMethod:@"some arg"];
+@endcode
+
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTEventuallyAtLeast instead.)
+ */
+#ifdef MOCKITO_SHORTHAND
+    #define eventuallyAtLeast(minimumWantedNumberOfInvocations) MKTEventuallyAtLeast(minimumWantedNumberOfInvocations)
+#endif
+
 
 OBJC_EXPORT id MKTAtLeastOnce(void);
+OBJC_EXPORT id MKTEventuallyAtLeastOnce(void);
 
 /**
     Verifies that interaction happened once or more.
@@ -216,3 +268,33 @@ OBJC_EXPORT id MKTAtLeastOnce(void);
 #ifdef MOCKITO_SHORTHAND
     #define atLeastOnce() MKTAtLeastOnce()
 #endif
+
+/**
+    Verifies that interaction happened once or more now, or at some time in the near future.
+
+    Example:
+@code
+[verifyCount(mockObject, atLeastOnce()) someMethod:@"some arg"];
+@endcode
+
+    (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+    @c MKTEventuallyAtLeastOnce instead.)
+ */
+#ifdef MOCKITO_SHORTHAND
+    #define eventuallyAtLeastOnce() MKTEventuallyAtLeastOnce()
+#endif
+
+
+/**
+ Retrieves the default timeout used by @c eventuallyTimes, @c eventuallyNever,
+ @c eventuallyAtLeast and @c eventuallyAtLeastOnce.
+
+ The default value is 1 second.
+ */
+OBJC_EXPORT NSTimeInterval MKT_eventuallyDefaultTimeout(void);
+
+/**
+ Sets the default timeout used by @c eventuallyTimes, @c eventuallyNever,
+ @c eventuallyAtLeast and @c eventuallyAtLeastOnce.
+ */
+OBJC_EXPORT void MKT_setEventuallyDefaultTimeout(NSTimeInterval defaultTimeout);

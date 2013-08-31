@@ -84,7 +84,7 @@
 - (void)testPullVerificationModeWithVerificationStartedShouldReturnMode
 {
     // given
-    id <MKTVerificationMode> mode = [MKTExactTimes timesWithCount:42];
+    id <MKTVerificationMode> mode = [MKTExactTimes timesWithCount:42 eventually:NO];
     
     // when
     [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
@@ -96,7 +96,7 @@
 - (void)testPullVerificationModeShouldClearCurrentVerification
 {
     // given
-    id <MKTVerificationMode> mode = [MKTExactTimes timesWithCount:42];
+    id <MKTVerificationMode> mode = [MKTExactTimes timesWithCount:42 eventually:NO];
     
     // when
     [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
