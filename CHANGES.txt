@@ -1,7 +1,7 @@
-== Version 0.24.0 ==
+=== NEXT VERSION IN PROGRESS
+
 This release adopts Semantic Versioning (http://semver.org). Thanks to: Jens Nerup
 
-13 Aug 2013
 * Added ability to match block arguments. Possible matchers: anything(), nilValue(), notNilValue()
 * Added -description to mock objects to help with debugging.
 
