@@ -513,7 +513,7 @@
 		08BDD59F1350C59C00E5A443 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jonathan M. Reid";
 			};
 			buildConfigurationList = 08BDD5A21350C59C00E5A443 /* Build configuration list for PBXProject "OCMockito" */;
@@ -718,7 +718,6 @@
 		085D30141351254000EBBE91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/libocmockito.dst;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -736,7 +735,6 @@
 		085D30151351254000EBBE91 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/libocmockito.dst;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -754,7 +752,6 @@
 		085D30171351254000EBBE91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -775,7 +772,6 @@
 		085D30181351254000EBBE91 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
