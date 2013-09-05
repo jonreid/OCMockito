@@ -2,8 +2,10 @@
 
 This release adopts Semantic Versioning (http://semver.org). Thanks to: Jens Nerup
 
-* Added ability to match block arguments. Possible matchers: anything(), nilValue(), notNilValue()
-* Added -description to mock objects to help with debugging.
+* Requires OCHamcrest 3.0.0.
+* Added support for XCTest. Special thanks to Richard Clem for testing.
+* Added ability to match block arguments. Supported matchers: anything(), nilValue(), notNilValue()
+* Added -description to mock objects to help when debugging.
 
 
 == Version 0.23 ==
