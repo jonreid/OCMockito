@@ -31,7 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0817B5F8147ECC4E00C5401D /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../../OCHamcrest-1.9/OCHamcrest.framework"; sourceTree = "<group>"; };
+		0817B5F8147ECC4E00C5401D /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../../../../../Frameworks/OCHamcrest-3.0.0/OCHamcrest.framework"; sourceTree = "<group>"; };
 		0817B5FC147ECC9F00C5401D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0846234A147DE82200FEEDBE /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = ../../OCMockito.framework; sourceTree = "<group>"; };
 		08A8DD2616614B270038A30D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -199,7 +199,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"\"$(SRCROOT)/../..\"",
-					"\"$(SRCROOT)/../../OCHamcrest-1.9\"",
+					"\"$(SRCROOT)/../../OCHamcrest-3.0.0\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -224,7 +224,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"\"$(SRCROOT)/../..\"",
-					"\"$(SRCROOT)/../../OCHamcrest-1.9\"",
+					"\"$(SRCROOT)/../../OCHamcrest-3.0.0\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

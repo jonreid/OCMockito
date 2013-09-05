@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0817B5E9147ECA5300C5401D /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../../OCHamcrest-1.9/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
+		0817B5E9147ECA5300C5401D /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../../../../../Frameworks/OCHamcrest-3.0.0/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		0817B5EB147ECA6700C5401D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0846235E147DEA6500FEEDBE /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockitoIOS.framework; path = ../../OCMockitoIOS.framework; sourceTree = "<group>"; };
 		089B9DC71298DA0B00D4F34F /* Example.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Example.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,7 +164,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../..\"",
-					"\"$(SRCROOT)/../../OCHamcrest-1.9\"",
+					"\"$(SRCROOT)/../../OCHamcrest-3.0.0\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -187,7 +187,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)/../..\"",
-					"\"$(SRCROOT)/../../OCHamcrest-1.9\"",
+					"\"$(SRCROOT)/../../OCHamcrest-3.0.0\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Example-Info.plist";
