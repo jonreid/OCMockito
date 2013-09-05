@@ -1,6 +1,6 @@
-=== NEXT VERSION IN PROGRESS
-
+== Version 1.0.0 ==
 This release adopts Semantic Versioning (http://semver.org). Thanks to: Jens Nerup
+05 Sep 2013
 
 * Requires OCHamcrest 3.0.0.
 * Added support for XCTest. Special thanks to Richard Clem for testing.
