@@ -20,7 +20,7 @@
 
 @property (nonatomic, assign) MKTTestLocation testLocation;
 
-+ (id)sharedProgress;
++ (instancetype)sharedProgress;
 
 - (void)stubbingStartedAtLocation:(MKTTestLocation)location;
 - (void)reportOngoingStubbing:(MKTOngoingStubbing *)ongoingStubbing;

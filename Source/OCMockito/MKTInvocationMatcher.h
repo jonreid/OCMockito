@@ -18,7 +18,7 @@
     NSMutableArray *_argumentMatchers;
 }
 
-- (id)init;
+- (instancetype)init;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (NSUInteger)argumentMatchersCount;
 

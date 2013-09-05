@@ -20,10 +20,9 @@
     MKTOngoingStubbing *_ongoingStubbing;
 }
 
-+ (id)sharedProgress
++ (instancetype)sharedProgress
 {
     static id sharedProgress = nil;
-    
     if (!sharedProgress)
         sharedProgress = [[self alloc] init];
     return sharedProgress;

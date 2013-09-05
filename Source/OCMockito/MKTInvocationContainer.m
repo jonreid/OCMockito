@@ -19,7 +19,7 @@
     NSMutableArray *_answersForStubbing;
 }
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self)

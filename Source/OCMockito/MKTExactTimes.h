@@ -12,7 +12,7 @@
 
 @interface MKTExactTimes : NSObject <MKTVerificationMode>
 
-+ (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations;
-- (id)initWithCount:(NSUInteger)expectedNumberOfInvocations;
++ (instancetype)timesWithCount:(NSUInteger)expectedNumberOfInvocations;
+- (instancetype)initWithCount:(NSUInteger)expectedNumberOfInvocations;
 
 @end

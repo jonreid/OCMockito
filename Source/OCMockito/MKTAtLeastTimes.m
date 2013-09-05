@@ -18,12 +18,12 @@
     NSUInteger _minimumExpectedCount;
 }
 
-+ (id)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
++ (instancetype)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
 {
     return [[self alloc] initWithMinimumCount:minimumExpectedNumberOfInvocations];
 }
 
-- (id)initWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
+- (instancetype)initWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
 {
     self = [super init];
     if (self)

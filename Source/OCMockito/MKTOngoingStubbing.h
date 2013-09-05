@@ -17,7 +17,7 @@
  */
 @interface MKTOngoingStubbing : NSObject <MKTPrimitiveArgumentMatching>
 
-- (id)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer;
+- (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer;
 
 /// Stubs given object as return value.
 - (MKTOngoingStubbing *)willReturn:(id)object;

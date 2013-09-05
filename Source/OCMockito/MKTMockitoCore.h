@@ -17,7 +17,7 @@
 
 @interface MKTMockitoCore : NSObject
 
-+ (id)sharedCore;
++ (instancetype)sharedCore;
 
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location;
 

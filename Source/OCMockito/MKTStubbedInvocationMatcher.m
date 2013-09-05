@@ -12,7 +12,7 @@
 
 @implementation MKTStubbedInvocationMatcher
 
-- (id)initCopyingInvocationMatcher:(MKTInvocationMatcher *)other
+- (instancetype)initCopyingInvocationMatcher:(MKTInvocationMatcher *)other
 {
     self = [super init];
     if (self)

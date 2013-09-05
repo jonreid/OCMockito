@@ -16,7 +16,7 @@
     MKTInvocationContainer *_invocationContainer;
 }
 
-- (id)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
+- (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
 {
     self = [super init];
     if (self)

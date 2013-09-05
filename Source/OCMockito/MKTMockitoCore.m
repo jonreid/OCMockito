@@ -17,16 +17,15 @@
     MKTMockingProgress *_mockingProgress;
 }
 
-+ (id)sharedCore
++ (instancetype)sharedCore
 {
     static id sharedCore = nil;
-
     if (!sharedCore)
         sharedCore = [[self alloc] init];
     return sharedCore;
 }
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self)

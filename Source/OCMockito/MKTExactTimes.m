@@ -28,12 +28,12 @@
     NSUInteger expectedCount;
 }
 
-+ (id)timesWithCount:(NSUInteger)expectedNumberOfInvocations
++ (instancetype)timesWithCount:(NSUInteger)expectedNumberOfInvocations
 {
     return [[self alloc] initWithCount:expectedNumberOfInvocations];
 }
 
-- (id)initWithCount:(NSUInteger)expectedNumberOfInvocations
+- (instancetype)initWithCount:(NSUInteger)expectedNumberOfInvocations
 {
     self = [super init];
     if (self)
