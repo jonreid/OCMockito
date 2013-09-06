@@ -1,7 +1,7 @@
-DOXYGEN=/Applications/Doxygen.app/Contents/Resources/doxygen
+DOXYGEN=${DOXYGEN-/Applications/Doxygen.app/Contents/Resources/doxygen}
 
 if ! [ -f $DOXYGEN ]; then
-  echo :: error : Requires Doxygen in Applications folder
+  echo :: error : Requires Doxygen in the `dirname $DOXYGEN` folder
   exit 1
 fi
 

@@ -29,6 +29,14 @@ $ cd Source
 $ ./MakeDistribution.sh
 ```
 
+If you have doxygen installed somewhere other than the Applications folder use this instead:
+
+```sh
+$ git submodule update --init
+$ cd Source
+$ DOXYGEN=/usr/local/bin/doxygen ./MakeDistribution.sh
+```
+
 Or just use the pre-built release available at
 [QualityCoding.org](http://qualitycoding.org/resources/).
 
