@@ -1,13 +1,12 @@
-DOXYGEN=/Applications/Doxygen.app/Contents/Resources/doxygen
+DOXYGEN=${DOXYGEN-/Applications/Doxygen.app/Contents/Resources/doxygen}
 
 if ! [ -f $DOXYGEN ]; then
-  echo :: error : Requires Doxygen in Applications folder
-  exit 1
+  echo :: warning : No documentation generated\; requires Doxygen in the `dirname $DOXYGEN` folder
+else
+  $DOXYGEN "../Documentation/Doxyfile"
+
+  # Generate Xcode documentation set
+  pushd build/Documentation
+  make
+  popd
 fi
-
-$DOXYGEN "../Documentation/Doxyfile"
-
-# Generate Xcode documentation set
-pushd build/Documentation
-make
-popd

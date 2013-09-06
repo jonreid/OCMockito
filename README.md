@@ -29,6 +29,13 @@ $ cd Source
 $ ./MakeDistribution.sh
 ```
 
+If you have doxygen installed somewhere other than the Applications folder --
+in /usr/local/bin, for example -- use this as the build step:
+
+```sh
+$ DOXYGEN=/usr/local/bin/doxygen ./MakeDistribution.sh
+```
+
 Or just use the pre-built release available at
 [QualityCoding.org](http://qualitycoding.org/resources/).
 
