@@ -1,8 +1,11 @@
 == Version 1.0.0 ==
 This release adopts Semantic Versioning (http://semver.org). Thanks to: Jens Nerup
-05 Sep 2013
+06 Sep 2013
 
+New dependency:
 * Requires OCHamcrest 3.0.0.
+
+Features:
 * Added support for XCTest. Special thanks to Richard Clem for testing.
 * Added ability to match block arguments. Supported matchers: anything(), nilValue(), notNilValue()
 * Added -description to mock objects to help when debugging.
