@@ -67,6 +67,15 @@ Note: If your Console shows
 
 double-check your Copy Files phase.
 
+__Xcode 5 confused by verify:__
+
+Xcode 5 currently seems to get confused about #defines, and may complain
+"Ambiguous expansion of macro 'verify'". If this happens, add these two lines
+after importing the OCMockito header:
+
+    #undef verify
+    #define verify(mock) MKTVerify(mock)
+ 
 
 Let's verify some behavior!
 ===========================
