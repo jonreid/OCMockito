@@ -13,7 +13,7 @@ Key differences from other mocking frameworks:
 
 * Verification failures are reported as unit test failures, identifying specific
   lines instead of throwing exceptions. This makes it easier to identify
-  failures. (It also keeps the pre-iOS 5 Simulator from crashing.)
+  failures.
 
 
 Adding OCMockito to your project
