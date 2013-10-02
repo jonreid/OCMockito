@@ -58,35 +58,35 @@
 
 - (void)testVerificationShouldFailForEmptyDataIfCountIsNonzero
 {
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
+    MKTAtLeastTimes *atLeastTimes = [[MKTAtLeastTimes alloc] initWithMinimumCount:1];
     [self simulateInvocationCount:0];
     STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should fail for empty data");
 }
 
 - (void)testVerificationShouldFailForTooLittleInvocations
 {
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:2];
+    MKTAtLeastTimes *atLeastTimes = [[MKTAtLeastTimes alloc] initWithMinimumCount:2];
     [self simulateInvocationCount:1];
     STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should fail for too little invocations");
 }
 
 - (void)testVerificationShouldSucceedForMinimumCountZero
 {
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:0];
+    MKTAtLeastTimes *atLeastTimes = [[MKTAtLeastTimes alloc] initWithMinimumCount:0];
     [self simulateInvocationCount:0];
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for atLeast(0)");
 }
 
 - (void)testVerificationShouldSucceedForExactNumberOfInvocations
 {
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
+    MKTAtLeastTimes *atLeastTimes = [[MKTAtLeastTimes alloc] initWithMinimumCount:1];
     [self simulateInvocationCount:1];
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for exact number of invocations matched");
 }
 
 - (void)testVerificationShouldSucceedForMoreInvocations
 {
-    MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
+    MKTAtLeastTimes *atLeastTimes = [[MKTAtLeastTimes alloc] initWithMinimumCount:1];
     [self simulateInvocationCount:2];
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for more invocations matched");
 }

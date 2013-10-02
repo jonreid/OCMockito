@@ -12,7 +12,6 @@
 
 @interface MKTAtLeastTimes : NSObject <MKTVerificationMode>
 
-+ (instancetype)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations;
 - (instancetype)initWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations;
 
 @end

@@ -8,7 +8,6 @@
 
 #import "MKTInvocationContainer.h"
 
-#import "MKTMockingProgress.h"
 #import "MKTStubbedInvocationMatcher.h"
 
 
@@ -61,11 +60,6 @@
         if ([s matches:invocation])
             return s;
     return nil;
-}
-
-- (void)setAnswersForStubbing:(NSArray *)answers
-{
-    [_answersForStubbing addObjectsFromArray:answers];
 }
 
 - (BOOL)hasAnswersForStubbing

@@ -75,14 +75,14 @@
 
 - (void)testPullVerificationModeWithVerificationStarted_ShouldReturnMode
 {
-    id <MKTVerificationMode> mode = [MKTExactTimes timesWithCount:42];
+    id <MKTVerificationMode> mode = [[MKTExactTimes alloc] initWithCount:42];
     [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
     assertThat([mockingProgress pullVerificationMode], is(sameInstance(mode)));
 }
 
 - (void)testPullVerificationMode_ShouldClearCurrentVerification
 {
-    id <MKTVerificationMode> mode = [MKTExactTimes timesWithCount:42];
+    id <MKTVerificationMode> mode = [[MKTExactTimes alloc] initWithCount:42];
     [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
     [mockingProgress pullVerificationMode];
     assertThat([mockingProgress pullVerificationMode], is(nilValue()));

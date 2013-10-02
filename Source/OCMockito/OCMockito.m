@@ -66,7 +66,7 @@ id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileNam
 
 id MKTTimes(NSUInteger wantedNumberOfInvocations)
 {
-    return [MKTExactTimes timesWithCount:wantedNumberOfInvocations];
+    return [[MKTExactTimes alloc] initWithCount:wantedNumberOfInvocations];
 }
 
 id MKTNever()
@@ -76,7 +76,7 @@ id MKTNever()
 
 id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations)
 {
-    return [MKTAtLeastTimes timesWithMinimumCount:minimumWantedNumberOfInvocations];
+    return [[MKTAtLeastTimes alloc] initWithMinimumCount:minimumWantedNumberOfInvocations];
 }
 
 id MKTAtLeastOnce()
