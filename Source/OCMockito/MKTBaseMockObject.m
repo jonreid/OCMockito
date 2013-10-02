@@ -84,8 +84,7 @@
 - (void)prepareInvocationForStubbing:(NSInvocation *)invocation
 {
     [_invocationContainer setInvocationForPotentialStubbing:invocation];
-    MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
-            initWithInvocationContainer:_invocationContainer];
+    MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc] initWithInvocationContainer:_invocationContainer];
     [_mockingProgress reportOngoingStubbing:ongoingStubbing];
 }
 
