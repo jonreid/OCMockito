@@ -75,9 +75,9 @@
 - (MKTVerificationData *)verificationDataWithMatcher:(MKTInvocationMatcher *)invocationMatcher
 {
     MKTVerificationData *data = [[MKTVerificationData alloc] init];
-    [data setInvocations:_invocationContainer];
-    [data setWanted:invocationMatcher];
-    [data setTestLocation:[_mockingProgress testLocation]];
+    data.invocations = _invocationContainer;
+    data.wanted = invocationMatcher;
+    data.testLocation = _mockingProgress.testLocation;
     return data;
 }
 
@@ -99,7 +99,7 @@
 #define HANDLE_METHOD_RETURN_TYPE(type, typeName)               \
     else if (strcmp(methodReturnType, @encode(type)) == 0)      \
     {                                                           \
-        type answer = [[stub answer] typeName ## Value];        \
+        type answer = [stub.answer typeName ## Value];          \
         [invocation setReturnValue:&answer];                    \
     }
 
@@ -109,7 +109,7 @@
     const char* methodReturnType = [methodSignature methodReturnType];
     if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
     {
-        __unsafe_unretained id answer = [stub answer];
+        __unsafe_unretained id answer = stub.answer;
         [invocation setReturnValue:&answer];
     }
     HANDLE_METHOD_RETURN_TYPE(char, char)

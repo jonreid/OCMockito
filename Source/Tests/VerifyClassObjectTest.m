@@ -45,7 +45,7 @@
 {
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     [verifyWithMockTestCase(mockStringClass) string];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 @end

@@ -45,7 +45,7 @@
 {
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     [verifyWithMockTestCase(mockLockingArray) removeAllObjects];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testInvokingProtocolMethod_ShouldPassVerify
@@ -58,7 +58,7 @@
 {
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     [verifyWithMockTestCase(mockLockingArray) lock];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 @end

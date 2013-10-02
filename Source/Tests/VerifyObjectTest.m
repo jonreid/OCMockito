@@ -59,7 +59,7 @@
 - (void)testNotInvokingMethodShouldFailVerify
 {
     [verifyWithMockTestCase(mockArray) removeAllObjects];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testInvokingWithEqualObjectArgumentsShouldPassVerify
@@ -72,7 +72,7 @@
 {
     [mockArray removeObject:@"same"];
     [verifyWithMockTestCase(mockArray) removeObject:@"different"];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testInvokingWithArgumentMatcherSatisfiedShouldPassVerify
@@ -91,7 +91,7 @@
 {
     [mockArray removeObjectAtIndex:2];
     [verifyWithMockTestCase(mockArray) removeObjectAtIndex:99];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testMatcherSatisfiedWithNumericArgumentShouldPassVerify
@@ -110,7 +110,7 @@
 - (void)testVerifyTimesOneShouldFailForMethodNotInvoked
 {
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testVerifyTimesOneShouldPassForMethodInvokedOnce
@@ -124,14 +124,14 @@
     [mockArray removeAllObjects];
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testVerifyTimesTwoShouldFailForMethodInvokedOnce
 {
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testVerifyTimesTwoShouldPassForMethodInvokedTwice
@@ -147,13 +147,13 @@
     [mockArray removeAllObjects];
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testVerifyTimesOneFailureShouldStateExpectedNumberOfInvocations
 {
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
-    assertThat([[mockTestCase failureException] description],
+    assertThat([mockTestCase.failureException description],
                is(@"Expected 1 matching invocation, but received 0"));
 }
 
@@ -161,7 +161,7 @@
 {
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
-    assertThat([[mockTestCase failureException] description],
+    assertThat([mockTestCase.failureException description],
                is(@"Expected 2 matching invocations, but received 1"));
 }
 
@@ -174,20 +174,20 @@
 {
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, never()) removeAllObjects];
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 - (void)testVerifyWithNilShouldGiveError
 {
     [verifyWithMockTestCase(nil) removeAllObjects];
-    assertThat([[mockTestCase failureException] description],
+    assertThat([mockTestCase.failureException description],
                is(@"Argument passed to verify() should be a mock but is nil"));
 }
 
 - (void)testVerifyCountWithNilShouldGiveError
 {
     [verifyCountWithMockTestCase(nil, times(1)) removeAllObjects];
-    assertThat([[mockTestCase failureException] description],
+    assertThat([mockTestCase.failureException description],
                is(@"Argument passed to verifyCount() should be a mock but is nil"));
 }
 
@@ -195,7 +195,7 @@
 {
     NSMutableArray *realArray = [NSMutableArray array];
     [verifyWithMockTestCase(realArray) removeAllObjects];
-    assertThat([[mockTestCase failureException] description],
+    assertThat([mockTestCase.failureException description],
                startsWith(@"Argument passed to verify() should be a mock but is type "));
 }
 
@@ -203,7 +203,7 @@
 {
     NSMutableArray *realArray = [NSMutableArray array];
     [verifyCountWithMockTestCase(realArray, times(1)) removeAllObjects];
-    assertThat([[mockTestCase failureException] description],
+    assertThat([mockTestCase.failureException description],
                startsWith(@"Argument passed to verifyCount() should be a mock but is type "));
 }
 

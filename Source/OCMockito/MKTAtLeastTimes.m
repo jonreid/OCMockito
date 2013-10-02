@@ -40,9 +40,9 @@
         return;     // this always succeeds
     
     NSUInteger matchingCount = 0;
-    for (NSInvocation *invocation in [[data invocations] registeredInvocations])
+    for (NSInvocation *invocation in data.invocations.registeredInvocations)
     {
-        if ([[data wanted] matches:invocation])
+        if ([data.wanted matches:invocation])
             ++matchingCount;
     }
     
@@ -51,7 +51,7 @@
         NSString *plural = (_minimumExpectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
                                  (unsigned)_minimumExpectedCount, plural, (unsigned)matchingCount];
-        MKTFailTestLocation([data testLocation], description);
+        MKTFailTestLocation(data.testLocation, description);
     }
 }
 

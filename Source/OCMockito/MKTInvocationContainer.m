@@ -51,7 +51,7 @@
 {
     [_registeredInvocations removeLastObject];
 
-    [_invocationForStubbing setAnswer:answer];
+    _invocationForStubbing.answer = answer;
     [_stubbed insertObject:_invocationForStubbing atIndex:0];
 }
 
