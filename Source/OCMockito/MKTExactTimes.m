@@ -32,13 +32,7 @@
 
 - (void)verifyData:(MKTVerificationData *)data
 {
-    NSUInteger matchingCount = 0;
-    for (NSInvocation *invocation in data.invocations.registeredInvocations)
-    {
-        if ([data.wanted matches:invocation])
-            ++matchingCount;
-    }
-    
+    NSUInteger matchingCount = [data numberOfMatchingInvocations];
     if (matchingCount != expectedCount)
     {
         NSString *plural = (expectedCount == 1) ? @"" : @"s";

@@ -33,14 +33,8 @@
 {
     if (_minimumExpectedCount == 0)
         return;     // this always succeeds
-    
-    NSUInteger matchingCount = 0;
-    for (NSInvocation *invocation in data.invocations.registeredInvocations)
-    {
-        if ([data.wanted matches:invocation])
-            ++matchingCount;
-    }
-    
+
+    NSUInteger matchingCount = [data numberOfMatchingInvocations];
     if (matchingCount < _minimumExpectedCount)
     {
         NSString *plural = (_minimumExpectedCount == 1) ? @"" : @"s";
