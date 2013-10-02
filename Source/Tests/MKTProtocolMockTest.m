@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-    // Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -62,8 +62,6 @@
 @end
 
 
-#pragma mark -
-
 @interface MKTProtocolMockTest : SenTestCase
 @end
 
@@ -83,70 +81,55 @@
     assertThat([mockImplementer description], is(@"mock implementer of TestingProtocol protocol"));
 }
 
-- (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsrealImplementer
+- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorAsrealImplementer
 {
-    // given
     PartialImplementer *realImplementer = [[PartialImplementer alloc] init];
     SEL selector = @selector(required);
-    
-    // when
     NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
-    
-    // then
     assertThat(signature, equalTo([realImplementer methodSignatureForSelector:selector]));
 }
 
-- (void)testMockShouldAnswerSameMethodSignatureForOptionalSelectorAsRealImplementer
+- (void)testMock_ShouldAnswerSameMethodSignatureForOptionalSelectorAsRealImplementer
 {
-    // given
     FullImplementer *realImplementer = [[FullImplementer alloc] init];
     SEL selector = @selector(optional);
-    
-    // when
     NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
-    
-    // then
     assertThat(signature, equalTo([realImplementer methodSignatureForSelector:selector]));
 }
 
-- (void)testMethodSignatureForSelectorNotInProtocolShouldAnswerNil
+- (void)testMethodSignatureForSelectorNotInProtocol_ShouldAnswerNil
 {
-    // given
     SEL selector = @selector(objectAtIndex:);
-    
-    // when
     NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
-    
-    // then
     assertThat(signature, is(nilValue()));
 }
 
-- (void)testMockShouldConformToItsOwnProtocol
+- (void)testMock_ShouldConformToItsOwnProtocol
 {
     STAssertTrue([mockImplementer conformsToProtocol:@protocol(TestingProtocol)], nil);
 }
 
-- (void)testMockShouldConformToParentProtocol
+- (void)testMock_ShouldConformToParentProtocol
 {
     STAssertTrue([mockImplementer conformsToProtocol:@protocol(NSObject)], nil);
 }
 
-- (void)testMockShouldNotConformToUnrelatedProtocol
+- (void)testMock_ShouldNotConformToUnrelatedProtocol
 {
     STAssertFalse([mockImplementer conformsToProtocol:@protocol(NSCoding)], nil);
 }
 
-- (void)testMockShouldRespondToRequiredSelector
+- (void)testMock_ShouldRespondToRequiredSelector
 {
     STAssertTrue([mockImplementer respondsToSelector:@selector(required)], nil);
 }
 
-- (void)testMockShouldRespondToOptionalSelector
+- (void)testMock_ShouldRespondToOptionalSelector
 {
     STAssertTrue([mockImplementer respondsToSelector:@selector(optional)], nil);
 }
 
-- (void)testMockShouldNotRespondToUnrelatedSelector
+- (void)testMock_ShouldNotRespondToUnrelatedSelector
 {
     STAssertFalse([mockImplementer respondsToSelector:@selector(objectAtIndex:)], nil);
 }

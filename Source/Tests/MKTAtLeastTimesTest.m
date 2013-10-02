@@ -14,7 +14,7 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTVerificationData.h"
 
-    // Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -30,7 +30,6 @@
 
 @implementation MKTAtLeastTimesTest
 {
-    BOOL shouldPassAllExceptionsUp;
     MKTVerificationData *emptyData;
     NSInvocation *invocation;
 }
@@ -39,9 +38,10 @@
 {
     [super setUp];
     emptyData = [[MKTVerificationData alloc] init];
-    [emptyData setInvocations:[[MKTInvocationContainer alloc] init]];
-    [emptyData setWanted:[[MKTInvocationMatcher alloc] init]];
+    emptyData.invocations = [[MKTInvocationContainer alloc] init];
+    emptyData.wanted = [[MKTInvocationMatcher alloc] init];
     invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
+    [emptyData.wanted setExpectedInvocation:invocation];
 }
 
 - (void)tearDown
@@ -50,140 +50,101 @@
     [super tearDown];
 }
 
+- (void)simulateInvocationCount:(int)count
+{
+    for (int i = 0; i < count; ++i)
+        [emptyData.invocations setInvocationForPotentialStubbing:invocation];
+}
+
 - (void)testVerificationShouldFailForEmptyDataIfCountIsNonzero
 {
-    // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-
-    // when
-    [[emptyData wanted] setExpectedInvocation:invocation];
-    
-    // then
+    [self simulateInvocationCount:0];
     STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should fail for empty data");
 }
 
 - (void)testVerificationShouldFailForTooLittleInvocations
 {
-    // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:2];
-
-    // when
-    [[emptyData wanted] setExpectedInvocation:invocation];
-    [[emptyData invocations] setInvocationForPotentialStubbing:invocation]; // 1 call, but expect 2
-    
-    // then
+    [self simulateInvocationCount:1];
     STAssertThrows([atLeastTimes verifyData:emptyData], @"verify should fail for too little invocations");
 }
 
 - (void)testVerificationShouldSucceedForMinimumCountZero
 {
-    // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:0];
-
-    // when
-    [[emptyData wanted] setExpectedInvocation:invocation];
-    
-    // then
+    [self simulateInvocationCount:0];
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for atLeast(0)");
 }
 
 - (void)testVerificationShouldSucceedForExactNumberOfInvocations
 {
-    // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-
-    // when
-    [[emptyData wanted] setExpectedInvocation:invocation];
-    [[emptyData invocations] setInvocationForPotentialStubbing:invocation];
-    
-    // then
+    [self simulateInvocationCount:1];
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for exact number of invocations matched");
 }
 
 - (void)testVerificationShouldSucceedForMoreInvocations
 {
-    // given
     MKTAtLeastTimes *atLeastTimes = [MKTAtLeastTimes timesWithMinimumCount:1];
-
-    // when
-    [[emptyData wanted] setExpectedInvocation:invocation];
-    [[emptyData invocations] setInvocationForPotentialStubbing:invocation];
-    [[emptyData invocations] setInvocationForPotentialStubbing:invocation]; // 2 calls to the expected method
-    
-    // then
+    [self simulateInvocationCount:2];
     STAssertNoThrow([atLeastTimes verifyData:emptyData], @"verify should succeed for more invocations matched");
 }
 
+@end
 
-#pragma mark - Test From Top-Level
+
+@interface MKTAtLeastTimesAcceptanceTest : SenTestCase
+@end
+
+@implementation MKTAtLeastTimesAcceptanceTest
+{
+    BOOL shouldPassAllExceptionsUp;
+    NSMutableArray *mockArray;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockArray = mock([NSMutableArray class]);
+}
+
+- (void)callRemoveAllObjectsTimes:(int)count
+{
+    for (int i = 0; i < count; ++i)
+        [mockArray removeAllObjects];
+}
 
 - (void)testAtLeastInActionForExactCount
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
-    // when
-    [mockArray removeAllObjects];
-    
-    // then
+    [self callRemoveAllObjectsTimes:1];
     [verifyCount(mockArray, atLeast(1)) removeAllObjects];
 }
 
 - (void)testAtLeastOnceInActionForExactCount
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-
-    // when
-    [mockArray removeAllObjects];
-
-    // then
+    [self callRemoveAllObjectsTimes:1];
     [verifyCount(mockArray, atLeastOnce()) removeAllObjects];
 }
 
 - (void)testAtLeastInActionForExcessInvocations
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
-    // when
-    [mockArray addObject:@"foo"];
-    [mockArray addObject:@"foo"];
-    [mockArray addObject:@"foo"];
-    
-    // then
-    [verifyCount(mockArray, atLeast(2)) addObject:@"foo"];
+    [self callRemoveAllObjectsTimes:3];
+    [verifyCount(mockArray, atLeast(2)) removeAllObjects];
 }
 
 - (void)testAtLeastOnceInActionForExcessInvocations
 {
-    // given
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-
-    // when
-    [mockArray addObject:@"foo"];
-    [mockArray addObject:@"foo"];
-
-    // then
-    [verifyCount(mockArray, atLeastOnce()) addObject:@"foo"];
+    [self callRemoveAllObjectsTimes:2];
+    [verifyCount(mockArray, atLeastOnce()) removeAllObjects];
 }
-
 
 - (void)testAtLeastInActionForTooLittleInvocations
 {
-    // given
     [self disableFailureHandler]; // enable the handler to catch the exception generated by verify()
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
-    
-    // when
-    [mockArray addObject:@"foo"];
-    
-    // then
-    STAssertThrows(([verifyCount(mockArray, atLeast(2)) addObject:@"foo"]), @"verifyCount() should have failed");
+    [self callRemoveAllObjectsTimes:1];
+    STAssertThrows(([verifyCount(mockArray, atLeast(2)) removeAllObjects]), @"verifyCount() should have failed");
 }
-
-
-#pragma mark - Helper Methods
 
 - (void)disableFailureHandler
 {

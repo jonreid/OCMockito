@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-    // Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -30,8 +30,6 @@
 @end
 
 
-#pragma mark -
-
 @interface StubProtocolTest : SenTestCase
 {
     id <ReturningProtocol> mockProtocol;
@@ -46,75 +44,54 @@
     mockProtocol = mockProtocol(@protocol(ReturningProtocol));
 }
 
-- (void)testStubbedMethodShouldReturnGivenObject
+- (void)testStubbedMethod_ShouldReturnGivenObject
 {
-    // when
     [given([mockProtocol methodReturningObject]) willReturn:@"STUBBED"];
-    
-    // then
     assertThat([mockProtocol methodReturningObject], is(@"STUBBED"));
 }
 
-- (void)testUnstubbedMethodReturningObjectShouldReturnNil
+- (void)testUnstubbedMethodReturningObject_ShouldReturnNil
 {
     assertThat([mockProtocol methodReturningObject], is(nilValue()));
 }
 
-- (void)testStubsWithDifferentArgsShouldHaveDifferentReturnValues
+- (void)testStubsWithDifferentArgs_ShouldHaveDifferentReturnValues
 {
-    // when
     [given([mockProtocol methodReturningObjectWithArg:@"foo"]) willReturn:@"FOO"];
     [given([mockProtocol methodReturningObjectWithArg:@"bar"]) willReturn:@"BAR"];
-    
-    // then
     assertThat([mockProtocol methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
-- (void)testStubShouldAcceptArgumentMatchers
+- (void)testStub_ShouldAcceptArgumentMatchers
 {
-    // when
     [given([mockProtocol methodReturningObjectWithArg:equalTo(@"foo")]) willReturn:@"FOO"];
-    
-    // then
     assertThat([mockProtocol methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
-- (void)testStubShouldReturnValueForMatchingNumericArgument
+- (void)testStub_ShouldReturnValueForMatchingNumericArgument
 {
-    // when
     [given([mockProtocol methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
     [given([mockProtocol methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
-    
-    // then
     assertThat([mockProtocol methodReturningObjectWithIntArg:1], is(@"FOO"));
 }
 
-- (void)testStubShouldAcceptMatcherForNumericArgument
+- (void)testStub_ShouldAcceptMatcherForNumericArgument
 {
-    // when
     [[given([mockProtocol methodReturningObjectWithIntArg:0])
-      withMatcher:greaterThan(@1) forArgument:0] willReturn:@"FOO"];
-    
-    // then
+            withMatcher:greaterThan(@1) forArgument:0] willReturn:@"FOO"];
     assertThat([mockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
 - (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
-    // when
     [[given([mockProtocol methodReturningObjectWithIntArg:0])
-      withMatcher:greaterThan(@1)] willReturn:@"FOO"];
-    
-    // then
+            withMatcher:greaterThan(@1)] willReturn:@"FOO"];
     assertThat([mockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
-- (void)testStubbedMethodShouldReturnGivenShort
+- (void)testStubbedMethod_ShouldReturnGivenShort
 {
-    // when
     [given([mockProtocol methodReturningShort]) willReturnShort:42];
-    
-    // then
     assertThatShort([mockProtocol methodReturningShort], equalToShort(42));
 }
 

@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-    // Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -43,8 +43,6 @@
 @end
 
 
-#pragma mark -
-
 @interface MKTObjectAndProtocolMockTest : SenTestCase
 @end
 
@@ -74,70 +72,55 @@
     STAssertNoThrow([mock requiredMethod],nil);
 }
 
-- (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
+- (void)testMock_ShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
-    // given
     TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
     SEL selector = @selector(instanceMethod);
-    
-    // when
     NSMethodSignature *mockSig = [mock methodSignatureForSelector:selector];
-    
-    // then
     assertThat(mockSig, equalTo([obj methodSignatureForSelector:selector]));
 }
 
-- (void)testMethodSignatureForSelectorNotInClassOrProtocolShouldAnswerNil
+- (void)testMethodSignatureForSelectorNotInClassOrProtocol_ShouldAnswerNil
 {
-    // given
     SEL bogusSelector = @selector(objectAtIndex:);
-    
-    // when
     NSMethodSignature *signature = [mock methodSignatureForSelector:bogusSelector];
-    
-    // then
     assertThat(signature, is(nilValue()));
 }
 
-- (void)testMockShouldRespondToKnownSelector
+- (void)testMock_ShouldRespondToKnownSelector
 {
     assertThatBool([mock respondsToSelector:@selector(instanceMethod)], equalToBool(YES));
 }
 
-- (void)testMockShouldNotRespondToUnknownSelector
+- (void)testMock_ShouldNotRespondToUnknownSelector
 {
     assertThatBool([mock respondsToSelector:@selector(objectAtIndex:)], equalToBool(NO));
 }
 
-- (void)testMockShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementer
+- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementer
 {
-    // given
     TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
     SEL selector = @selector(requiredMethod);
-    
-    // when
     NSMethodSignature *signature = [mock methodSignatureForSelector:selector];
-    
-    // then
     assertThat(signature, equalTo([obj methodSignatureForSelector:selector]));
 }
 
-- (void)testMockShouldConformToItsOwnProtocol
+- (void)testMock_ShouldConformToItsOwnProtocol
 {
     STAssertTrue([mock conformsToProtocol:@protocol(TestProtocol)],nil);
 }
 
-- (void)testMockShouldConformToParentProtocol
+- (void)testMock_ShouldConformToParentProtocol
 {
     STAssertTrue([mock conformsToProtocol:@protocol(NSObject)], nil);
 }
 
-- (void)testMockShouldNotConformToUnrelatedProtocol
+- (void)testMock_ShouldNotConformToUnrelatedProtocol
 {
     STAssertFalse([mock conformsToProtocol:@protocol(NSCoding)], nil);
 }
 
-- (void)testMockShouldRespondToRequiredSelector
+- (void)testMock_ShouldRespondToRequiredSelector
 {
     STAssertTrue([mock respondsToSelector:@selector(requiredMethod)], nil);
 }

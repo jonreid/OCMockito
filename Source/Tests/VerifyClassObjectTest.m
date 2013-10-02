@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-	// Test support
+// Test support
 #import "MockTestCase.h"
 #import <SenTestingKit/SenTestingKit.h>
 
@@ -35,24 +35,16 @@
     mockStringClass = mockClass([NSString class]);
 }
 
-- (void)testInvokingClassMethodShouldPassVerify
+- (void)testInvokingClassMethod_ShouldPassVerify
 {
-    // given
     [mockStringClass string];
-    
-    // then
     [verify(mockStringClass) string];
 }
 
-- (void)testNotInvokingClassMethodShouldFailVerify
+- (void)testNotInvokingClassMethod_ShouldFailVerify
 {
-    // given
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-
-    // when
     [verifyWithMockTestCase(mockStringClass) string];
-
-    // then
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));
 }
 

@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-    // Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -39,56 +39,43 @@
     assertThat([mockString description], is(@"mock object of NSString"));
 }
 
-- (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
+- (void)testMock_ShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
-    // given
     NSString *realString = [NSString string];
     SEL selector = @selector(rangeOfString:options:);
-    
-    // when
     NSMethodSignature *signature = [mockString methodSignatureForSelector:selector];
-    
-    // then
     assertThat(signature, is(equalTo([realString methodSignatureForSelector:selector])));
 }
 
-- (void)testMethodSignatureForSelectorNotInClassShouldAnswerNil
+- (void)testMethodSignatureForSelectorNotInClass_ShouldAnswerNil
 {
-    // given
     SEL selector = @selector(objectAtIndex:);
-    
-    // when
     NSMethodSignature *signature = [mockString methodSignatureForSelector:selector];
-    
-    // then
     assertThat(signature, is(nilValue()));
 }
 
-- (void)testMockShouldBeKindOfSameClass
+- (void)testMock_ShouldBeKindOfSameClass
 {
     STAssertTrue([mockString isKindOfClass:[NSString class]], nil);
 }
 
-- (void)testMockShouldBeKindOfSubclass
+- (void)testMock_ShouldBeKindOfSubclass
 {
-    // given
     NSString *mockMutableString = mock([NSMutableString class]);
-
-    //then
     STAssertTrue([mockMutableString isKindOfClass:[NSString class]], nil);
 }
 
-- (void)testMockShouldNotBeKindOfDifferentClass
+- (void)testMock_ShouldNotBeKindOfDifferentClass
 {
     STAssertFalse([mockString isKindOfClass:[NSArray class]], nil);
 }
 
-- (void)testMockShouldRespondToKnownSelector
+- (void)testMock_ShouldRespondToKnownSelector
 {
     STAssertTrue([mockString respondsToSelector:@selector(substringFromIndex:)], nil);
 }
 
-- (void)testMockShouldNotRespondToUnknownSelector
+- (void)testMock_ShouldNotRespondToUnknownSelector
 {
     STAssertFalse([mockString respondsToSelector:@selector(removeAllObjects)], nil);
 }

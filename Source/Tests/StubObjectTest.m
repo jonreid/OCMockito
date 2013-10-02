@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-    // Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -50,8 +50,6 @@
 @end
 
 
-#pragma mark -
-
 @interface StubObjectTest : SenTestCase
 @end
 
@@ -66,226 +64,156 @@
     mockObject = mock([ReturningObject class]);
 }
 
-- (void)testStubbedMethodShouldReturnGivenObject
+- (void)testStubbedMethod_ShouldReturnGivenObject
 {
-    // when
     [given([mockObject methodReturningObject]) willReturn:@"STUBBED"];
-    
-    // then
     assertThat([mockObject methodReturningObject], is(@"STUBBED"));
 }
 
-- (void)testUnstubbedMethodReturningObjectShouldReturnNil
+- (void)testUnstubbedMethodReturningObject_ShouldReturnNil
 {
-    // then
     assertThat([mockObject methodReturningObject], is(nilValue()));
 }
 
-- (void)testStubbedMethodShouldReturnGivenClass
+- (void)testStubbedMethod_ShouldReturnGivenClass
 {
-    // when
     [given([mockObject methodReturningClass]) willReturn:[NSString class]];
-    
-    // then
     assertThat([mockObject methodReturningClass], is([NSString class]));
 }
 
-- (void)testUnstubbedMethodReturningClassShouldReturnNull
+- (void)testUnstubbedMethodReturningClass_ShouldReturnNull
 {
     assertThat([mockObject methodReturningClass], is(nilValue()));
 }
 
-- (void)testStubbedMethodShouldReturnOnMatchingArgument
+- (void)testStubbedMethod_ShouldReturnOnMatchingArgument
 {
-    // when
     [given([mockObject methodReturningClassWithClassArg:[NSString class]]) willReturn:[NSString class]];
-    
-    // then
     assertThat([mockObject methodReturningClassWithClassArg:[NSData class]], is(nilValue()));
     assertThat([mockObject methodReturningClassWithClassArg:[NSString class]], is([NSString class]));
 }
 
-- (void)testStubsWithDifferentArgsShouldHaveDifferentReturnValues
+- (void)testStubsWithDifferentArgs_ShouldHaveDifferentReturnValues
 {
-    // when
     [given([mockObject methodReturningObjectWithArg:@"foo"]) willReturn:@"FOO"];
     [given([mockObject methodReturningObjectWithArg:@"bar"]) willReturn:@"BAR"];
-    
-    // then
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
-- (void)testStubShouldAcceptArgumentMatchers
+- (void)testStub_ShouldAcceptArgumentMatchers
 {
-    // when
     [given([mockObject methodReturningObjectWithArg:equalTo(@"foo")]) willReturn:@"FOO"];
-    
-    // then
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
-- (void)testStubShouldReturnValueForMatchingNumericArgument
+- (void)testStub_ShouldReturnValueForMatchingNumericArgument
 {
-    // when
     [given([mockObject methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
     [given([mockObject methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
-    
-    // then
     assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
 }
 
-- (void)testStubShouldAcceptMatcherForNumericArgument
+- (void)testStub_ShouldAcceptMatcherForNumericArgument
 {
-    // when
     [[given([mockObject methodReturningObjectWithIntArg:0])
-      withMatcher:greaterThan(@1) forArgument:0] willReturn:@"FOO"];
-    
-    // then
+            withMatcher:greaterThan(@1) forArgument:0] willReturn:@"FOO"];
     assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
 - (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
-    // when
     [[given([mockObject methodReturningObjectWithIntArg:0])
-      withMatcher:greaterThan(@1)] willReturn:@"FOO"];
-    
-    // then
+            withMatcher:greaterThan(@1)] willReturn:@"FOO"];
     assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
-- (void)testStubbedMethodShouldReturnGivenBool
+- (void)testStubbedMethod_ShouldReturnGivenBool
 {
-    // when
     [given([mockObject methodReturningBool]) willReturnBool:YES];
-    
-    // then
     STAssertTrue([mockObject methodReturningBool], nil);
 }
 
-- (void)testStubbedMethodShouldReturnGivenChar
+- (void)testStubbedMethod_ShouldReturnGivenChar
 {
-    // when
     [given([mockObject methodReturningChar]) willReturnChar:'a'];
-    
-    // then
     assertThatChar([mockObject methodReturningChar], equalToChar('a'));
 }
 
-- (void)testStubbedMethodShouldReturnGivenInt
+- (void)testStubbedMethod_ShouldReturnGivenInt
 {
-    // when
     [given([mockObject methodReturningInt]) willReturnInt:42];
-    
-    // then
     assertThatInt([mockObject methodReturningInt], equalToInt(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenShort
+- (void)testStubbedMethod_ShouldReturnGivenShort
 {
-    // when
     [given([mockObject methodReturningShort]) willReturnShort:42];
-    
-    // then
     assertThatShort([mockObject methodReturningShort], equalToShort(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenLong
+- (void)testStubbedMethod_ShouldReturnGivenLong
 {
-    // when
     [given([mockObject methodReturningLong]) willReturnLong:42];
-    
-    // then
     assertThatLong([mockObject methodReturningLong], equalToLong(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenLongLong
+- (void)testStubbedMethod_ShouldReturnGivenLongLong
 {
-    // when
     [given([mockObject methodReturningLongLong]) willReturnLongLong:42];
-    
-    // then
     assertThatLongLong([mockObject methodReturningLongLong], equalToLongLong(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenInteger
+- (void)testStubbedMethod_ShouldReturnGivenInteger
 {
-    // when
     [given([mockObject methodReturningInteger]) willReturnInteger:42];
-    
-    // then
     assertThatInteger([mockObject methodReturningInteger], equalToInteger(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenUnsignedChar
+- (void)testStubbedMethod_ShouldReturnGivenUnsignedChar
 {
-    // when
     [given([mockObject methodReturningUnsignedChar]) willReturnUnsignedChar:'a'];
-    
-    // then
     assertThatUnsignedChar([mockObject methodReturningUnsignedChar], equalToUnsignedChar('a'));
 }
 
-- (void)testStubbedMethodShouldReturnGivenUnsignedInt
+- (void)testStubbedMethod_ShouldReturnGivenUnsignedInt
 {
-    // when
     [given([mockObject methodReturningUnsignedInt]) willReturnUnsignedInt:42];
-    
-    // then
     assertThatUnsignedInt([mockObject methodReturningUnsignedInt], equalToUnsignedInt(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenUnsignedShort
+- (void)testStubbedMethod_ShouldReturnGivenUnsignedShort
 {
-    // when
     [given([mockObject methodReturningUnsignedShort]) willReturnUnsignedShort:42];
-    
-    // then
     assertThatUnsignedShort([mockObject methodReturningUnsignedShort], equalToUnsignedShort(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenUnsignedLong
+- (void)testStubbedMethod_ShouldReturnGivenUnsignedLong
 {
-    // when
     [given([mockObject methodReturningUnsignedLong]) willReturnUnsignedLong:42];
-    
-    // then
     assertThatUnsignedLong([mockObject methodReturningUnsignedLong], equalToUnsignedLong(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenUnsignedLongLong
+- (void)testStubbedMethod_ShouldReturnGivenUnsignedLongLong
 {
-    // when
     [given([mockObject methodReturningUnsignedLongLong]) willReturnUnsignedLongLong:42];
-    
-    // then
     assertThatUnsignedLongLong([mockObject methodReturningUnsignedLongLong], equalToUnsignedLongLong(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenUnsignedInteger
+- (void)testStubbedMethod_ShouldReturnGivenUnsignedInteger
 {
-    // when
     [given([mockObject methodReturningUnsignedInteger]) willReturnUnsignedInteger:42];
-    
-    // then
     assertThatUnsignedInteger([mockObject methodReturningUnsignedInteger], equalToUnsignedInteger(42));
 }
 
-- (void)testStubbedMethodShouldReturnGivenFloat
+- (void)testStubbedMethod_ShouldReturnGivenFloat
 {
-    // when
     [given([mockObject methodReturningFloat]) willReturnFloat:42.5];
-    
-    // then
     assertThatFloat([mockObject methodReturningFloat], equalToFloat(42.5));
 }
 
-- (void)testStubbedMethodShouldReturnGivenDouble
+- (void)testStubbedMethod_ShouldReturnGivenDouble
 {
-    // when
     [given([mockObject methodReturningDouble]) willReturnDouble:42];
-    
-    // then
     assertThatDouble([mockObject methodReturningDouble], equalToDouble(42));
 }
 

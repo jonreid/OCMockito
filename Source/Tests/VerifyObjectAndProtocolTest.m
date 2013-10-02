@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-	// Test support
+// Test support
 #import "MockTestCase.h"
 #import <SenTestingKit/SenTestingKit.h>
 
@@ -35,46 +35,30 @@
     mockLockingArray = mockObjectAndProtocol([NSMutableArray class], @protocol(NSLocking));
 }
 
-- (void)testInvokingClassInstanceMethodShouldPassVerify
+- (void)testInvokingClassInstanceMethod_ShouldPassVerify
 {
-    // when
     [mockLockingArray removeAllObjects];
-    
-    // then
     [verify(mockLockingArray) removeAllObjects];
 }
 
-- (void)testNotInvokingClassInstanceMethodShouldFailVerify
+- (void)testNotInvokingClassInstanceMethod_ShouldFailVerify
 {
-    // given
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-
-    // when nothing
-
-    // then
     [verifyWithMockTestCase(mockLockingArray) removeAllObjects];
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-- (void)testInvokingProtocolMethodShouldPassVerify
+- (void)testInvokingProtocolMethod_ShouldPassVerify
 {
-    // given
     [mockLockingArray lock];
-    
-    // then
     [verify(mockLockingArray) lock];
 }
 
-- (void)testNotInvokingProtocolMethodShouldFailVerify
+- (void)testNotInvokingProtocolMethod_ShouldFailVerify
 {
-    // given
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-
-    // when
     [verifyWithMockTestCase(mockLockingArray) lock];
-
-    // then
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));
 }
 
 @end

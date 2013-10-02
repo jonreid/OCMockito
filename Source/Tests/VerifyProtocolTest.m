@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-	// Test support
+// Test support
 #import "MockTestCase.h"
 #import <SenTestingKit/SenTestingKit.h>
 
@@ -49,49 +49,34 @@
     [super tearDown];
 }
 
-- (void)testInvokingMethodShouldPassVerify
+- (void)testInvokingMethod_ShouldPassVerify
 {
-    // when
     [mockLock lock];
-    
-    // then
     [verify(mockLock) lock];
 }
 
-- (void)testNotInvokingMethodShouldFailVerify
+- (void)testNotInvokingMethod_ShouldFailVerify
 {
-    // when
     [verifyWithMockTestCase(mockLock) lock];
-
-    // then
-    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
+    assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));
 }
 
-- (void)testInvokingWithEqualObjectArgumentsShouldPassVerify
+- (void)testInvokingWithEqualObjectArguments_ShouldPassVerify
 {
-    // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
-    
-    // then
     [verify(mockDelegate) archiver:archiver willEncodeObject:@"same"];
 }
 
-- (void)testInvokingWithDifferentObjectArgumentsShouldFailVerify
+- (void)testInvokingWithDifferentObjectArguments_ShouldFailVerify
 {
-    // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
-    
-    // then
     [verifyWithMockTestCase(mockDelegate) archiver:archiver willEncodeObject:@"different"];
     assertThatUnsignedInteger([mockTestCase failureCount], is(equalToUnsignedInteger(1)));    
 }
 
-- (void)testInvokingWithArgumentMatcherSatisfiedShouldPassVerify
+- (void)testInvokingWithArgumentMatcherSatisfied_ShouldPassVerify
 {
-    // when
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
-
-    // then
     [verify(mockDelegate) archiver:archiver willEncodeObject:equalTo(@"same")];
 }
 

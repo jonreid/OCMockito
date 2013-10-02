@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-	// Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -39,37 +39,26 @@
     assertThat([mockStringClass description], is(@"mock class of NSString"));
 }
 
-- (void)testMockShouldAnswerSameMethodSignatureForSelectorAsRealObject
+- (void)testMock_ShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
-    // given
-    Class realStringClass = [NSString class];
     SEL selector = @selector(string);
-    
-    // when
     NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:selector];
-    
-    // then
-    assertThat(signature, is(equalTo([realStringClass methodSignatureForSelector:selector])));
+    assertThat(signature, is(equalTo([[NSString class] methodSignatureForSelector:selector])));
 }
 
-- (void)testMethodSignatureForSelectorNotInClassShouldAnswerNil
+- (void)testMethodSignatureForSelectorNotInClass_ShouldAnswerNil
 {
-    // given
     SEL selector = @selector(rangeOfString:options:);
-    
-    // when
     NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:selector];
-    
-    // then
     assertThat(signature, is(nilValue()));
 }
 
-- (void)testMockShouldRespondToKnownSelector
+- (void)testMock_ShouldRespondToKnownSelector
 {
     STAssertTrue([mockStringClass respondsToSelector:@selector(pathWithComponents:)], nil);
 }
 
-- (void)testMockShouldNotRespondToUnknownSelector
+- (void)testMock_ShouldNotRespondToUnknownSelector
 {
     STAssertFalse([mockStringClass respondsToSelector:@selector(pathExtension)], nil);
 }

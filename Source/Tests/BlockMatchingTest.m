@@ -9,7 +9,7 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-    // Test support
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
@@ -53,7 +53,6 @@
 {
     [given([m doBlock:(id)nilValue()]) willReturn:@"match nil"];
     [given([m doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
-    
     assertThat([m doBlock:nil], is(@"match nil"));
 }
 
@@ -61,7 +60,6 @@
 {
     [given([m doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
     [given([m doBlock:(id)nilValue()]) willReturn:@"match nil"];
-    
     assertThat([m doBlock:^NSString *{ return nil; }], is(@"match not nil"));
 }
 
