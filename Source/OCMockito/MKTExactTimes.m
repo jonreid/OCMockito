@@ -14,15 +14,6 @@
 #import "MKTVerificationData.h"
 
 
-// As of 2010-09-09, the iPhone simulator has a bug where you can't catch exceptions when they are
-// thrown across NSInvocation boundaries. (See http://openradar.appspot.com/8081169 ) So instead of
-// using an NSInvocation to call -failWithException: without linking in SenTestingKit, we simply
-// pretend it exists on NSObject.
-@interface NSObject (MTExceptionBugHack)
-- (void)failWithException:(NSException *)exception;
-@end
-
-
 @implementation MKTExactTimes
 {
     NSUInteger expectedCount;
