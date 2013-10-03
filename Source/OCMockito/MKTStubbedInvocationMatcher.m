@@ -24,4 +24,9 @@
     return self;
 }
 
+- (void)captureArgumentsFromInvocation:(NSInvocation *)invocation
+{
+
+}
+
 @end

@@ -92,7 +92,10 @@
 {
     MKTStubbedInvocationMatcher *stubbedInvocation = [_invocationContainer findAnswerFor:invocation];
     if (stubbedInvocation)
+    {
+        [stubbedInvocation captureArgumentsFromInvocation:invocation];
         [self useExistingAnswerInStub:stubbedInvocation forInvocation:invocation];
+    }
 }
 
 #define HANDLE_METHOD_RETURN_TYPE(type, typeName)               \

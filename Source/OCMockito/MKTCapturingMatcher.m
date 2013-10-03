@@ -41,7 +41,8 @@
 - (id)throwNoArgumentException
 {
     @throw [NSException exceptionWithName:@"NoArgument"
-                                       reason:@"No argument captured"
+                                       reason:@"No argument value was captured!\n"
+                                              "You might have forgotten to use [argument capture] in verify()"
                                      userInfo:nil];
 }
 

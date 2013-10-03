@@ -8,17 +8,31 @@
 
 #import "MKTArgumentCaptor.h"
 
+#import "MKTCapturingMatcher.h"
+
 
 @implementation MKTArgumentCaptor
+{
+    MKTCapturingMatcher *_matcher;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+        _matcher = [[MKTCapturingMatcher alloc] init];
+    return self;
+}
+
 
 - (id)capture
 {
-    return nil;
+    return _matcher;
 }
 
 - (id)value
 {
-    return nil;
+    return [_matcher getLastValue];
 }
 
 @end
