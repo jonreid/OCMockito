@@ -19,9 +19,9 @@
 
 #define HC_SHORTHAND
 #if TARGET_OS_MAC
-#import <OCHamcrest/OCHamcrest.h>
+    #import <OCHamcrest/OCHamcrest.h>
 #else
-#import <OCHamcrestIOS/OCHamcrestIOS.h>
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
 

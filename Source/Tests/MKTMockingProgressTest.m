@@ -19,7 +19,11 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
-#import <OCHamcrestIOS/OCHamcrestIOS.h>
+#if TARGET_OS_MAC
+    #import <OCHamcrest/OCHamcrest.h>
+#else
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
+#endif
 
 
 @interface MKTMockingProgressTest : SenTestCase
