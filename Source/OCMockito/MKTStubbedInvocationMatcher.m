@@ -17,9 +17,9 @@
     self = [super init];
     if (self)
     {
-        _expected = other->_expected;
-        _numberOfArguments = other->_numberOfArguments;
-        _argumentMatchers = [other->_argumentMatchers mutableCopy];
+        self.expected = other.expected;
+        self.numberOfArguments = other.numberOfArguments;
+        self.argumentMatchers = [other.argumentMatchers mutableCopy];
     }
     return self;
 }

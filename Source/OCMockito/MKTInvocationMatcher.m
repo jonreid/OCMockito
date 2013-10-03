@@ -37,48 +37,48 @@
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
 {
-    NSUInteger matchersCount = [_argumentMatchers count];
+    NSUInteger matchersCount = [self.argumentMatchers count];
     if (matchersCount <= argumentIndex)
     {
         [self trueUpArgumentMatchersToCount:argumentIndex];
-        [_argumentMatchers addObject:matcher];
+        [self.argumentMatchers addObject:matcher];
     }
     else
-        [_argumentMatchers replaceObjectAtIndex:argumentIndex withObject:matcher];
+        [self.argumentMatchers replaceObjectAtIndex:argumentIndex withObject:matcher];
 }
 
 - (NSUInteger)argumentMatchersCount
 {
-    return [_argumentMatchers count];
+    return [self.argumentMatchers count];
 }
 
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount
 {
-    NSUInteger matchersCount = [_argumentMatchers count];
+    NSUInteger matchersCount = [self.argumentMatchers count];
     while (matchersCount < desiredCount)
     {
-        [_argumentMatchers addObject:[NSNull null]];
+        [self.argumentMatchers addObject:[NSNull null]];
         ++matchersCount;
     } 
 }
 
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
 {
-    _expected = expectedInvocation;
-    [_expected retainArguments];
+    self.expected = expectedInvocation;
+    [self.expected retainArguments];
     
-    NSMethodSignature *methodSignature = [_expected methodSignature];
+    NSMethodSignature *methodSignature = [self.expected methodSignature];
     
-    _numberOfArguments = [[_expected methodSignature] numberOfArguments];
-    [self trueUpArgumentMatchersToCount:_numberOfArguments];
+    self.numberOfArguments = [[self.expected methodSignature] numberOfArguments];
+    [self trueUpArgumentMatchersToCount:self.numberOfArguments];
         
-    for (NSUInteger argumentIndex = 2; argumentIndex < _numberOfArguments; ++argumentIndex)
+    for (NSUInteger argumentIndex = 2; argumentIndex < self.numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
         if (MKTTypeEncodingIsObjectOrClass(argumentType))
         {
             __unsafe_unretained id argument = nil;
-            [_expected getArgument:&argument atIndex:argumentIndex];
+            [self.expected getArgument:&argument atIndex:argumentIndex];
             
             id <HCMatcher> matcher;
             if (argument != nil)
@@ -96,7 +96,7 @@
     __unsafe_unretained id actualArgument;
     [actual getArgument:&actualArgument atIndex:index];
     
-    id <HCMatcher> matcher = _argumentMatchers[index];
+    id <HCMatcher> matcher = self.argumentMatchers[index];
     return ![matcher matches:actualArgument];
 }
 
@@ -140,12 +140,12 @@ DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
 
 - (BOOL)matches:(NSInvocation *)actual
 {
-    if ([_expected selector] != [actual selector])
+    if ([self.expected selector] != [actual selector])
         return NO;
 
-    NSMethodSignature *methodSignature = [_expected methodSignature];
+    NSMethodSignature *methodSignature = [self.expected methodSignature];
 
-    for (NSUInteger argumentIndex = 2; argumentIndex < _numberOfArguments; ++argumentIndex)
+    for (NSUInteger argumentIndex = 2; argumentIndex < self.numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
         if (MKTTypeEncodingIsObjectOrClass(argumentType))
