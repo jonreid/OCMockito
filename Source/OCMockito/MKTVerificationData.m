@@ -6,6 +6,7 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
+#import <OCHamcrestIOS/OCHamcrestIOS.h>
 #import "MKTVerificationData.h"
 
 #import "MKTInvocationContainer.h"
@@ -23,6 +24,11 @@
             ++count;
     }
     return count;
+}
+
+- (void)captureArguments
+{
+    [self.wanted captureArgumentsFromInvocations:self.invocations.registeredInvocations];
 }
 
 @end

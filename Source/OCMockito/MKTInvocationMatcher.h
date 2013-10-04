@@ -20,8 +20,8 @@
 - (instancetype)init;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (NSUInteger)argumentMatchersCount;
-
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation;
 - (BOOL)matches:(NSInvocation *)actual;
+- (void)captureArgumentsFromInvocations:(NSArray *)invocations;
 
 @end

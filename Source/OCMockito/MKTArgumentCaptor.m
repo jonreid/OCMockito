@@ -24,7 +24,6 @@
     return self;
 }
 
-
 - (id)capture
 {
     return _matcher;

@@ -170,4 +170,21 @@ DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
     return YES;
 }
 
+- (void)captureArgumentsFromInvocations:(NSArray *)invocations
+{
+    for (NSUInteger argumentIndex = 2; argumentIndex < self.numberOfArguments; ++argumentIndex)
+    {
+        id <HCMatcher> m = self.argumentMatchers[argumentIndex];
+        if ([m respondsToSelector:@selector(captureArgument:)])
+        {
+            for (NSInvocation *invocation in invocations)
+            {
+                __unsafe_unretained id actualArgument;
+                [invocation getArgument:&actualArgument atIndex:argumentIndex];
+                [m performSelector:@selector(captureArgument:) withObject:actualArgument];
+            }
+        }
+    }
+}
+
 @end

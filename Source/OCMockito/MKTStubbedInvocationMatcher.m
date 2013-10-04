@@ -7,6 +7,8 @@
 //
 
 #import "MKTInvocationMatcher.h"
+
+#import "MKTCapturingMatcher.h"
 #import "MKTStubbedInvocationMatcher.h"
 
 
@@ -22,11 +24,6 @@
         self.argumentMatchers = [other.argumentMatchers mutableCopy];
     }
     return self;
-}
-
-- (void)captureArgumentsFromInvocation:(NSInvocation *)invocation
-{
-
 }
 
 @end
