@@ -62,7 +62,7 @@
 {
     if (!_invocationMatcher)
         _invocationMatcher = [[MKTInvocationMatcher alloc] init];
-    [_invocationMatcher setMatcher:matcher atIndex:index+2];
+    [_invocationMatcher setMatcher:matcher atIndex:index];
 }
 
 - (MKTInvocationMatcher *)pullInvocationMatcher

@@ -125,7 +125,7 @@
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
-    [_invocationContainer setMatcher:matcher atIndex:index+2];
+    [_invocationContainer setMatcher:matcher atIndex:index];
     return self;
 }
 

@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *argumentMatchers;
 
 - (instancetype)init;
-- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
+- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index;
 - (NSUInteger)argumentMatchersCount;
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation;
 - (BOOL)matches:(NSInvocation *)actual;

@@ -37,16 +37,15 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
     return self;
 }
 
-- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
+- (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index
 {
-    NSUInteger matchersCount = [self.argumentMatchers count];
-    if (matchersCount <= argumentIndex)
+    if ([self.argumentMatchers count] <= index)
     {
-        [self trueUpArgumentMatchersToCount:argumentIndex];
+        [self trueUpArgumentMatchersToCount:index];
         [self.argumentMatchers addObject:matcher];
     }
     else
-        [self.argumentMatchers replaceObjectAtIndex:argumentIndex withObject:matcher];
+        [self.argumentMatchers replaceObjectAtIndex:index withObject:matcher];
 }
 
 - (NSUInteger)argumentMatchersCount
@@ -72,7 +71,7 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
     NSMethodSignature *methodSignature = [self.expected methodSignature];
     
     self.numberOfArguments = [[self.expected methodSignature] numberOfArguments];
-    [self trueUpArgumentMatchersToCount:self.numberOfArguments];
+    [self trueUpArgumentMatchersToCount:self.numberOfArguments - 2];
         
     for (NSUInteger indexWithHiddenArgs = 2; indexWithHiddenArgs < self.numberOfArguments; ++indexWithHiddenArgs)
     {
@@ -88,7 +87,8 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
             else
                 matcher = nilValue();
 
-            [self setMatcher:matcher atIndex:indexWithHiddenArgs];
+            NSUInteger i = indexWithHiddenArgs - 2;
+            [self setMatcher:matcher atIndex:i];
         }
     }
 }
@@ -103,7 +103,7 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
     for (NSUInteger indexWithHiddenArgs = 2; indexWithHiddenArgs < self.numberOfArguments; ++indexWithHiddenArgs)
     {
         NSUInteger index = indexWithHiddenArgs - 2;
-        id <HCMatcher> matcher = self.argumentMatchers[indexWithHiddenArgs];
+        id <HCMatcher> matcher = self.argumentMatchers[index];
         if ([matcher isEqual:[NSNull null]])
             return [expectedArgs[index] isEqual:actualArgs[index]];
         else
@@ -122,7 +122,8 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
 {
     for (NSUInteger indexWithHiddenArgs = 2; indexWithHiddenArgs < self.numberOfArguments; ++indexWithHiddenArgs)
     {
-        id <HCMatcher> m = self.argumentMatchers[indexWithHiddenArgs];
+        NSUInteger i = indexWithHiddenArgs - 2;
+        id <HCMatcher> m = self.argumentMatchers[i];
         if ([m respondsToSelector:@selector(captureArgument:)])
         {
             for (NSInvocation *invocation in invocations)

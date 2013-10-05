@@ -101,8 +101,7 @@
 {
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
     MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
-    assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
-                                                        // 0:self, 1:_cmd, 2:argument0, 3:argument1
+    assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], is(equalTo(@2)));
 }
 
 - (void)testPullInvocationMatcher_ShouldClearCurrentMatcher
@@ -117,8 +116,7 @@
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:0];
     MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
-    assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalToUnsignedInteger(4));
-                                                        // 0:self, 1:_cmd, 2:argument0, 3:argument1
+    assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], is(equalTo(@2)));
 }
 
 @end
