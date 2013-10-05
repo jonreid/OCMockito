@@ -8,6 +8,7 @@
 
 #import "MKTInvocationMatcher.h"
 
+#import "MKTCapturingMatcher.h"
 #import "MKTTypeEncoding.h"
 
 
