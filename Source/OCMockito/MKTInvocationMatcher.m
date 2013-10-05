@@ -9,9 +9,7 @@
 #import "MKTInvocationMatcher.h"
 
 #import "MKTCapturingMatcher.h"
-#import "MKTTypeEncoding.h"
 #import "NSInvocation+TKAdditions.h"
-
 
 #define HC_SHORTHAND
 #if TARGET_OS_MAC
@@ -21,6 +19,12 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
     #import <OCHamcrestIOS/HCWrapInMatcher.h>
 #endif
+
+
+static inline BOOL typeEncodingIsObjectOrClass(const char *type)
+{
+    return *type == @encode(id)[0] || *type == @encode(Class)[0];
+}
 
 
 @implementation MKTInvocationMatcher
@@ -73,7 +77,7 @@
     for (NSUInteger argumentIndex = 2; argumentIndex < self.numberOfArguments; ++argumentIndex)
     {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (MKTTypeEncodingIsObjectOrClass(argumentType))
+        if (typeEncodingIsObjectOrClass(argumentType))
         {
             __unsafe_unretained id argument = nil;
             [self.expected getArgument:&argument atIndex:argumentIndex];
