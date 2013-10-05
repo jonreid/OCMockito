@@ -9,5 +9,6 @@
 @interface NSInvocation (TKAdditions)
 
 - (NSArray *)tk_arrayArguments;
+- (void)mkt_setReturnValue:(id)returnValue;
 
 @end

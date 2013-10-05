@@ -13,9 +13,9 @@
 #import "MKTMockingProgress.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTStubbedInvocationMatcher.h"
-#import "MKTTypeEncoding.h"
 #import "MKTVerificationData.h"
 #import "MKTVerificationMode.h"
+#import "NSInvocation+TKAdditions.h"
 
 
 @implementation MKTBaseMockObject
@@ -96,34 +96,9 @@
         [self useExistingAnswerInStub:stubbedInvocation forInvocation:invocation];
 }
 
-#define HANDLE_METHOD_RETURN_TYPE(type, typeName)               \
-    else if (strcmp(methodReturnType, @encode(type)) == 0)      \
-    {                                                           \
-        type answer = [stub.answer typeName ## Value];          \
-        [invocation setReturnValue:&answer];                    \
-    }
-
 - (void)useExistingAnswerInStub:(MKTStubbedInvocationMatcher *)stub forInvocation:(NSInvocation *)invocation
 {
-    NSMethodSignature *methodSignature = [invocation methodSignature];
-    const char* methodReturnType = [methodSignature methodReturnType];
-    if (MKTTypeEncodingIsObjectOrClass(methodReturnType))
-    {
-        __unsafe_unretained id answer = stub.answer;
-        [invocation setReturnValue:&answer];
-    }
-    HANDLE_METHOD_RETURN_TYPE(char, char)
-    HANDLE_METHOD_RETURN_TYPE(int, int)
-    HANDLE_METHOD_RETURN_TYPE(short, short)
-    HANDLE_METHOD_RETURN_TYPE(long, long)
-    HANDLE_METHOD_RETURN_TYPE(long long, longLong)
-    HANDLE_METHOD_RETURN_TYPE(unsigned char, unsignedChar)
-    HANDLE_METHOD_RETURN_TYPE(unsigned int, unsignedInt)
-    HANDLE_METHOD_RETURN_TYPE(unsigned short, unsignedShort)
-    HANDLE_METHOD_RETURN_TYPE(unsigned long, unsignedLong)
-    HANDLE_METHOD_RETURN_TYPE(unsigned long long, unsignedLongLong)
-    HANDLE_METHOD_RETURN_TYPE(float, float)
-    HANDLE_METHOD_RETURN_TYPE(double, double)
+    [invocation mkt_setReturnValue:stub.answer];
 }
 
 
