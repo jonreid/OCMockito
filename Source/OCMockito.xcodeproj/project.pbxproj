@@ -124,14 +124,18 @@
 		638F68DA150FC21A0081DEE6 /* MKTClassObjectMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */; };
 		638F68DD150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */; };
 		638F68DE150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */; };
+		BB33341789FA6BC5D8626099 /* NSInvocation+TKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */; };
 		BB33350FCF04694252E73AC0 /* MKTCapturingMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */; };
 		BB33358A201321406097DDB8 /* MKTArgumentCaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */; };
 		BB3339CA3DE2639D2CC6BBE5 /* MKTArgumentCaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */; };
 		BB3339CB07B7B9D7EB2DED24 /* MKTArgumentCaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */; };
 		BB333BBECB6490881B055192 /* MKTArgumentCaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */; };
 		BB333C34005EB2306795E562 /* MKTCapturingMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */; };
+		BB333C4EF1FE02209FD55817 /* NSInvocation+TKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+TKAdditions.h */; };
+		BB333D0D3FD6E3D3D9F1867B /* NSInvocation+TKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */; };
 		BB333DB79D3D3AD95D4CF047 /* MKTCapturingMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */; };
 		BB333EF99BA39A53A2F70A53 /* MKTCapturingMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */; };
+		BB333F04719B4E40829FB969 /* NSInvocation+TKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+TKAdditions.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +237,8 @@
 		638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMockTest.m; sourceTree = "<group>"; };
 		BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCapturingMatcher.m; sourceTree = "<group>"; };
 		BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTArgumentCaptor.h; sourceTree = "<group>"; };
+		BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+TKAdditions.m"; sourceTree = "<group>"; };
+		BB3336ACE4225D6B90159620 /* NSInvocation+TKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+TKAdditions.h"; sourceTree = "<group>"; };
 		BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTCapturingMatcher.h; sourceTree = "<group>"; };
 		BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTArgumentCaptor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -358,6 +364,8 @@
 				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
 				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
 				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
+				BB3336ACE4225D6B90159620 /* NSInvocation+TKAdditions.h */,
+				BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */,
 			);
 			path = OCMockito;
 			sourceTree = "<group>";
@@ -426,6 +434,7 @@
 				08DE3F5615845BE100BE6F63 /* MKTTypeEncoding.h in Headers */,
 				BB333BBECB6490881B055192 /* MKTArgumentCaptor.h in Headers */,
 				BB333EF99BA39A53A2F70A53 /* MKTCapturingMatcher.h in Headers */,
+				BB333C4EF1FE02209FD55817 /* NSInvocation+TKAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +463,7 @@
 				08DE3F5415845BC000BE6F63 /* MKTTypeEncoding.h in Headers */,
 				BB3339CB07B7B9D7EB2DED24 /* MKTArgumentCaptor.h in Headers */,
 				BB333C34005EB2306795E562 /* MKTCapturingMatcher.h in Headers */,
+				BB333F04719B4E40829FB969 /* NSInvocation+TKAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +669,7 @@
 				361533CA153F276300BB982B /* MKTAtLeastTimes.m in Sources */,
 				BB3339CA3DE2639D2CC6BBE5 /* MKTArgumentCaptor.m in Sources */,
 				BB333DB79D3D3AD95D4CF047 /* MKTCapturingMatcher.m in Sources */,
+				BB333D0D3FD6E3D3D9F1867B /* NSInvocation+TKAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +719,7 @@
 				361533C7153F275800BB982B /* MKTAtLeastTimes.m in Sources */,
 				BB33358A201321406097DDB8 /* MKTArgumentCaptor.m in Sources */,
 				BB33350FCF04694252E73AC0 /* MKTCapturingMatcher.m in Sources */,
+				BB33341789FA6BC5D8626099 /* NSInvocation+TKAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
