@@ -51,8 +51,8 @@
 
 + (NSInvocation *)invocationWithSelector:(SEL)selector
 {
-    NSMethodSignature *methodSignature = [self instanceMethodSignatureForSelector:selector];
-    return [NSInvocation invocationWithMethodSignature:methodSignature];
+    NSMethodSignature *sig = [self instanceMethodSignatureForSelector:selector];
+    return [NSInvocation invocationWithMethodSignature:sig];
 }
 
 + (NSInvocation *)invocationWithNoArgs
@@ -62,100 +62,100 @@
 
 + (NSInvocation *)invocationWithObjectArg:(__unsafe_unretained id)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithObjectArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithObjectArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithBoolArg:(BOOL)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithBoolArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithBoolArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithCharArg:(char)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithCharArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithCharArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithIntArg:(int)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithIntArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithIntArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithShortArg:(short)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithShortArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithShortArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithLongArg:(long)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithLongArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithLongArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithLongLongArg:(long long)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithLongLongArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithLongLongArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithIntegerArg:(NSInteger)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithIntegerArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithIntegerArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithUnsignedCharArg:(unsigned char)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithUnsignedCharArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedCharArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithUnsignedIntArg:(unsigned int)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithUnsignedIntArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedIntArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithUnsignedShortArg:(unsigned short)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithUnsignedShortArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedShortArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithUnsignedLongArg:(unsigned long)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithUnsignedLongArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedLongArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithUnsignedLongLongArg:(unsigned long long)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithUnsignedLongLongArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedLongLongArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithUnsignedIntegerArg:(NSUInteger)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithUnsignedIntegerArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedIntegerArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithFloatArg:(float)argument
@@ -167,17 +167,17 @@
 
 + (NSInvocation *)invocationWithDoubleArg:(double)argument
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithDoubleArg:)];
-    [invocation setArgument:&argument atIndex:2];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithDoubleArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
 }
 
 + (NSInvocation *)invocationWithObjectArg:(__unsafe_unretained id)argument1 intArg:(int)argument2
 {
-    NSInvocation *invocation = [self invocationWithSelector:@selector(methodWithObjectArg:intArg:)];
-    [invocation setArgument:&argument1 atIndex:2];
-    [invocation setArgument:&argument2 atIndex:3];
-    return invocation;
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithObjectArg:intArg:)];
+    [inv setArgument:&argument1 atIndex:2];
+    [inv setArgument:&argument2 atIndex:3];
+    return inv;
 }
 
 @end
