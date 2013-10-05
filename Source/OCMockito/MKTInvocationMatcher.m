@@ -67,30 +67,30 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
 {
     self.expected = expectedInvocation;
     [self.expected retainArguments];
-    
-    NSMethodSignature *methodSignature = [self.expected methodSignature];
-    
+
     self.numberOfArguments = [[self.expected methodSignature] numberOfArguments] - 2;
     [self trueUpArgumentMatchersToCount:self.numberOfArguments];
-        
+
+    NSMethodSignature *signature = [self.expected methodSignature];
     for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
     {
         NSUInteger indexWithHiddenArgs = index + 2;
-        const char *argumentType = [methodSignature getArgumentTypeAtIndex:indexWithHiddenArgs];
-        if (typeEncodingIsObjectOrClass(argumentType))
+        const char *argType = [signature getArgumentTypeAtIndex:indexWithHiddenArgs];
+        if (typeEncodingIsObjectOrClass(argType))
         {
             __unsafe_unretained id arg = nil;
             [self.expected getArgument:&arg atIndex:indexWithHiddenArgs];
-            
-            id <HCMatcher> matcher;
-            if (arg != nil)
-                matcher = HCWrapInMatcher(arg);
-            else
-                matcher = nilValue();
-
-            [self setMatcher:matcher atIndex:index];
+            [self setMatcher:[self matcherForArgument:arg] atIndex:index];
         }
     }
+}
+
+- (id <HCMatcher>)matcherForArgument:(id)arg
+{
+    if (arg != nil)
+        return HCWrapInMatcher(arg);
+    else
+        return nilValue();
 }
 
 - (BOOL)matches:(NSInvocation *)actual
@@ -125,10 +125,10 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
         if ([matcher respondsToSelector:@selector(captureArgument:)])
         {
             NSUInteger indexWithHiddenArgs = index + 2;
-            for (NSInvocation *invocation in invocations)
+            for (NSInvocation *inv in invocations)
             {
                 __unsafe_unretained id actualArg;
-                [invocation getArgument:&actualArg atIndex:indexWithHiddenArgs];
+                [inv getArgument:&actualArg atIndex:indexWithHiddenArgs];
                 [matcher performSelector:@selector(captureArgument:) withObject:actualArg];
             }
         }
