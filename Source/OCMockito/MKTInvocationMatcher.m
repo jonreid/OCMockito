@@ -74,21 +74,21 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
     self.numberOfArguments = [[self.expected methodSignature] numberOfArguments];
     [self trueUpArgumentMatchersToCount:self.numberOfArguments];
         
-    for (NSUInteger argumentIndex = 2; argumentIndex < self.numberOfArguments; ++argumentIndex)
+    for (NSUInteger indexWithHiddenArgs = 2; indexWithHiddenArgs < self.numberOfArguments; ++indexWithHiddenArgs)
     {
-        const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
+        const char *argumentType = [methodSignature getArgumentTypeAtIndex:indexWithHiddenArgs];
         if (typeEncodingIsObjectOrClass(argumentType))
         {
-            __unsafe_unretained id argument = nil;
-            [self.expected getArgument:&argument atIndex:argumentIndex];
+            __unsafe_unretained id arg = nil;
+            [self.expected getArgument:&arg atIndex:indexWithHiddenArgs];
             
             id <HCMatcher> matcher;
-            if (argument != nil)
-                matcher = HCWrapInMatcher(argument);
+            if (arg != nil)
+                matcher = HCWrapInMatcher(arg);
             else
                 matcher = nilValue();
-            
-            [self setMatcher:matcher atIndex:argumentIndex];
+
+            [self setMatcher:matcher atIndex:indexWithHiddenArgs];
         }
     }
 }
@@ -100,14 +100,15 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
 
     NSArray *expectedArgs = [self.expected tk_arrayArguments];
     NSArray *actualArgs = [actual tk_arrayArguments];
-    for (NSUInteger argumentIndex = 2; argumentIndex < self.numberOfArguments; ++argumentIndex)
+    for (NSUInteger indexWithHiddenArgs = 2; indexWithHiddenArgs < self.numberOfArguments; ++indexWithHiddenArgs)
     {
-        id <HCMatcher> matcher = self.argumentMatchers[argumentIndex];
+        NSUInteger index = indexWithHiddenArgs - 2;
+        id <HCMatcher> matcher = self.argumentMatchers[indexWithHiddenArgs];
         if ([matcher isEqual:[NSNull null]])
-            return [expectedArgs[argumentIndex - 2] isEqual:actualArgs[argumentIndex - 2]];
+            return [expectedArgs[index] isEqual:actualArgs[index]];
         else
         {
-            id arg = actualArgs[argumentIndex - 2];
+            id arg = actualArgs[index];
             if (arg == [NSNull null])
                 arg = nil;
             if (![matcher matches:arg])
@@ -119,16 +120,16 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
 
 - (void)captureArgumentsFromInvocations:(NSArray *)invocations
 {
-    for (NSUInteger argumentIndex = 2; argumentIndex < self.numberOfArguments; ++argumentIndex)
+    for (NSUInteger indexWithHiddenArgs = 2; indexWithHiddenArgs < self.numberOfArguments; ++indexWithHiddenArgs)
     {
-        id <HCMatcher> m = self.argumentMatchers[argumentIndex];
+        id <HCMatcher> m = self.argumentMatchers[indexWithHiddenArgs];
         if ([m respondsToSelector:@selector(captureArgument:)])
         {
             for (NSInvocation *invocation in invocations)
             {
-                __unsafe_unretained id actualArgument;
-                [invocation getArgument:&actualArgument atIndex:argumentIndex];
-                [m performSelector:@selector(captureArgument:) withObject:actualArgument];
+                __unsafe_unretained id actualArg;
+                [invocation getArgument:&actualArg atIndex:indexWithHiddenArgs];
+                [m performSelector:@selector(captureArgument:) withObject:actualArg];
             }
         }
     }
