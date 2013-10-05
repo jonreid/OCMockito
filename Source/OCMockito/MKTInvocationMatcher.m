@@ -10,6 +10,7 @@
 
 #import "MKTCapturingMatcher.h"
 #import "MKTTypeEncoding.h"
+#import "NSInvocation+TKAdditions.h"
 
 
 #define HC_SHORTHAND
@@ -20,10 +21,6 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
     #import <OCHamcrestIOS/HCWrapInMatcher.h>
 #endif
-
-
-@interface MKTInvocationMatcher ()
-@end
 
 
 @implementation MKTInvocationMatcher
@@ -92,82 +89,27 @@
     }
 }
 
-- (BOOL)argumentObjectClassMismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index
-{
-    __unsafe_unretained id actualArgument;
-    [actual getArgument:&actualArgument atIndex:index];
-    
-    id <HCMatcher> matcher = self.argumentMatchers[index];
-    return ![matcher matches:actualArgument];
-}
-
-#define DEFINE_ARGUMENT_MISMATCH_METHOD(type, typeName)                                     \
-    - (BOOL)argument ## typeName ## MismatchInInvocation:(NSInvocation *)actual atIndex:(NSUInteger)index \
-    {                                                                                       \
-        type actualArgument;                                                                \
-        [actual getArgument:&actualArgument atIndex:index];                                 \
-                                                                                            \
-        id <HCMatcher> matcher = _argumentMatchers[index];                                  \
-        if ([matcher isEqual:[NSNull null]])                                                \
-        {                                                                                   \
-            type expectedArgument;                                                          \
-            [_expected getArgument:&expectedArgument atIndex:index];                        \
-            return expectedArgument != actualArgument;                                      \
-        }                                                                                   \
-        else                                                                                \
-            return ![matcher matches:@(actualArgument)];                                    \
-    }
-
-DEFINE_ARGUMENT_MISMATCH_METHOD(char, Char)
-DEFINE_ARGUMENT_MISMATCH_METHOD(int, Int)
-DEFINE_ARGUMENT_MISMATCH_METHOD(short, Short)
-DEFINE_ARGUMENT_MISMATCH_METHOD(long, Long)
-DEFINE_ARGUMENT_MISMATCH_METHOD(long long, LongLong)
-DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned char, UnsignedChar)
-DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned int, UnsignedInt)
-DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned short, UnsignedShort)
-DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned long, UnsignedLong)
-DEFINE_ARGUMENT_MISMATCH_METHOD(unsigned long long, UnsignedLongLong)
-DEFINE_ARGUMENT_MISMATCH_METHOD(float, Float)
-DEFINE_ARGUMENT_MISMATCH_METHOD(double, Double)
-
-
-#define HANDLE_ARGUMENT_TYPE(type, typeName)                                                    \
-    else if (strcmp(argumentType, @encode(type)) == 0)                                          \
-    {                                                                                           \
-        if ([self argument ## typeName ## MismatchInInvocation:actual atIndex:argumentIndex])   \
-            return NO;                                                                          \
-    }
-
 - (BOOL)matches:(NSInvocation *)actual
 {
     if ([self.expected selector] != [actual selector])
         return NO;
 
-    NSMethodSignature *methodSignature = [self.expected methodSignature];
-
+    NSArray *expectedArgs = [self.expected tk_arrayArguments];
+    NSArray *actualArgs = [actual tk_arrayArguments];
     for (NSUInteger argumentIndex = 2; argumentIndex < self.numberOfArguments; ++argumentIndex)
     {
-        const char *argumentType = [methodSignature getArgumentTypeAtIndex:argumentIndex];
-        if (MKTTypeEncodingIsObjectOrClass(argumentType))
+        id <HCMatcher> matcher = self.argumentMatchers[argumentIndex];
+        if ([matcher isEqual:[NSNull null]])
+            return [expectedArgs[argumentIndex - 2] isEqual:actualArgs[argumentIndex - 2]];
+        else
         {
-            if ([self argumentObjectClassMismatchInInvocation:actual atIndex:argumentIndex])
+            id arg = actualArgs[argumentIndex - 2];
+            if (arg == [NSNull null])
+                arg = nil;
+            if (![matcher matches:arg])
                 return NO;
         }
-        HANDLE_ARGUMENT_TYPE(char, Char)
-        HANDLE_ARGUMENT_TYPE(int, Int)
-        HANDLE_ARGUMENT_TYPE(short, Short)
-        HANDLE_ARGUMENT_TYPE(long, Long)
-        HANDLE_ARGUMENT_TYPE(long long, LongLong)
-        HANDLE_ARGUMENT_TYPE(unsigned char, UnsignedChar)
-        HANDLE_ARGUMENT_TYPE(unsigned int, UnsignedInt)
-        HANDLE_ARGUMENT_TYPE(unsigned short, UnsignedShort)
-        HANDLE_ARGUMENT_TYPE(unsigned long, UnsignedLong)
-        HANDLE_ARGUMENT_TYPE(unsigned long long, UnsignedLongLong)
-        HANDLE_ARGUMENT_TYPE(float, Float)
-        HANDLE_ARGUMENT_TYPE(double, Double)
     }
-    
     return YES;
 }
 

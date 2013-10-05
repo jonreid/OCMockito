@@ -23,9 +23,9 @@
         
         argType = [sig getArgumentTypeAtIndex:i];
         NSUInteger ai = i-2;
-        
-        if(!strcmp(argType, @encode(id))) {
-            id arg = nil;
+
+        if (argType[0] == @encode(id)[0]) {
+            __unsafe_unretained id arg = nil;
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:arg?arg:[NSNull null] atIndex:ai];
         } else if(!strcmp(argType, @encode(SEL))) {
@@ -33,7 +33,7 @@
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:NSStringFromSelector(arg) atIndex:ai];
         } else if(!strcmp(argType, @encode(Class))) {
-            Class arg = nil;
+            __unsafe_unretained Class arg = nil;
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:arg atIndex:ai];
         } else if(!strcmp(argType, @encode(char))) {
