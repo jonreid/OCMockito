@@ -21,7 +21,7 @@
 #endif
 
 
-static inline BOOL typeEncodingIsObjectOrClass(const char *type)
+static inline BOOL typeIsObjectOrClassOrBlock(const char *type)
 {
     return *type == @encode(id)[0] || *type == @encode(Class)[0];
 }
@@ -73,15 +73,18 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
 
     NSMethodSignature *signature = [self.expected methodSignature];
     for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
+        [self setObjectMatcherAtArgumentIndex:index forSignature:signature];
+}
+
+- (void)setObjectMatcherAtArgumentIndex:(NSUInteger)index forSignature:(NSMethodSignature *)signature
+{
+    NSUInteger indexWithHiddenArgs = index + 2;
+    const char *argType = [signature getArgumentTypeAtIndex:indexWithHiddenArgs];
+    if (typeIsObjectOrClassOrBlock(argType))
     {
-        NSUInteger indexWithHiddenArgs = index + 2;
-        const char *argType = [signature getArgumentTypeAtIndex:indexWithHiddenArgs];
-        if (typeEncodingIsObjectOrClass(argType))
-        {
-            __unsafe_unretained id arg = nil;
-            [self.expected getArgument:&arg atIndex:indexWithHiddenArgs];
-            [self setMatcher:[self matcherForArgument:arg] atIndex:index];
-        }
+        __unsafe_unretained id arg = nil;
+        [self.expected getArgument:&arg atIndex:indexWithHiddenArgs];
+        [self setMatcher:[self matcherForArgument:arg] atIndex:index];
     }
 }
 
@@ -105,16 +108,17 @@ static inline BOOL typeEncodingIsObjectOrClass(const char *type)
         id <HCMatcher> matcher = self.argumentMatchers[index];
         if ([matcher isEqual:[NSNull null]])
             return [expectedArgs[index] isEqual:actualArgs[index]];
-        else
-        {
-            id arg = actualArgs[index];
-            if (arg == [NSNull null])
-                arg = nil;
-            if (![matcher matches:arg])
-                return NO;
-        }
+        else if ([self argument:actualArgs[index] isMismatchForMatcher:matcher])
+            return NO;
     }
     return YES;
+}
+
+- (BOOL)argument:(id)arg isMismatchForMatcher:(id <HCMatcher>)matcher
+{
+    if (arg == [NSNull null])
+        arg = nil;
+    return ![matcher matches:arg];
 }
 
 - (void)captureArgumentsFromInvocations:(NSArray *)invocations
