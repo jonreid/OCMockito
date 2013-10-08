@@ -216,10 +216,8 @@
 
 - (void)testShouldMatchNoArgumentInvocationsIfSelectorsMatch
 {
-    NSInvocation *expected = [DummyObject invocationWithNoArgs];
-    NSInvocation *actual = [DummyObject invocationWithNoArgs];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertTrue([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithNoArgs]];
+    STAssertTrue([invocationMatcher matches:[DummyObject invocationWithNoArgs]], nil);
 }
 
 - (void)testShouldNotMatchNoArgumentInvocationsIfSelectorsDiffer
@@ -235,26 +233,20 @@
 
 - (void)testShouldMatchIfObjectArgumentEqualsExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something"];
-    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something"];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertTrue([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithObjectArg:@"something"]];
+    STAssertTrue([invocationMatcher matches:[DummyObject invocationWithObjectArg:@"something"]], nil);
 }
 
 - (void)testShouldMatchIfObjectArgumentsAreNil
 {
-    NSInvocation *expected = [DummyObject invocationWithObjectArg:nil];
-    NSInvocation *actual = [DummyObject invocationWithObjectArg:nil];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertTrue([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithObjectArg:nil]];
+    STAssertTrue([invocationMatcher matches:[DummyObject invocationWithObjectArg:nil]], nil);
 }
 
 - (void)testShouldNotMatchIfObjectArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something"];
-    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"different"];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithObjectArg:@"something"]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithObjectArg:@"different"]], nil);
 }
 
 - (void)testShouldNotMatchIfArgumentsMatchButSelectorsDiffer
@@ -270,216 +262,157 @@
 
 - (void)testShouldMatchIfObjectArgumentSatisfiesArgumentExpectation
 {
-    id <HCMatcher> argumentExpectation = equalTo(@"something");
-    NSInvocation *expected = [DummyObject invocationWithObjectArg:argumentExpectation];
-    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something"];
-    
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertTrue([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithObjectArg:equalTo(@"something")]];
+    STAssertTrue([invocationMatcher matches:[DummyObject invocationWithObjectArg:@"something"]], nil);
 }
 
 - (void)testShouldNotMatchIfObjectArgumentDoesNotSatisfyArgumentExpectation
 {
-    id <HCMatcher> argumentExpectation = equalTo(@"something");
-    NSInvocation *expected = [DummyObject invocationWithObjectArg:argumentExpectation];
-    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"different"];
-    
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithObjectArg:equalTo(@"something")]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithObjectArg:@"different"]], nil);
 }
 
 - (void)testShouldMatchIfBoolArgumentEqualsExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithBoolArg:YES];
-    NSInvocation *actual = [DummyObject invocationWithBoolArg:YES];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertTrue([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithBoolArg:YES]];
+    STAssertTrue([invocationMatcher matches:[DummyObject invocationWithBoolArg:YES]], nil);
 }
 
 - (void)testShouldNotMatchIfBoolArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithBoolArg:NO];
-    NSInvocation *actual = [DummyObject invocationWithBoolArg:YES];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithBoolArg:NO]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithBoolArg:YES]], nil);
 }
 
 - (void)testShouldMatchIfCharArgumentEqualsExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithCharArg:'a'];
-    NSInvocation *actual = [DummyObject invocationWithCharArg:'a'];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertTrue([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithCharArg:'a']];
+    STAssertTrue([invocationMatcher matches:[DummyObject invocationWithCharArg:'a']], nil);
 }
 
 - (void)testShouldNotMatchIfCharArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithCharArg:'a'];
-    NSInvocation *actual = [DummyObject invocationWithCharArg:'z'];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithCharArg:'a']];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithCharArg:'z']], nil);
 }
 
 - (void)testNotShouldMatchIfCharArgumentConvertedToObjectDoesNotSatisfyOverrideMatcher
 {
-    NSInvocation *expected = [DummyObject invocationWithCharArg:0];   // Argument will be ignored.
-    NSInvocation *actual = [DummyObject invocationWithCharArg:'z'];
-    
     [invocationMatcher setMatcher:lessThan(@'n') atIndex:0];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithCharArg:0]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithCharArg:'z']], nil);
 }
 
 - (void)testShouldNotMatchIfIntArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithIntArg:42];
-    NSInvocation *actual = [DummyObject invocationWithIntArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithIntArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithIntArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfIntArgumentConvertedToObjectDoesNotSatisfyOverrideMatcher
 {
-    NSInvocation *expected = [DummyObject invocationWithCharArg:0];   // Argument will be ignored.
-    NSInvocation *actual = [DummyObject invocationWithCharArg:51];
-    
     [invocationMatcher setMatcher:lessThan(@50) atIndex:0];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithCharArg:0]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithCharArg:51]], nil);
 }
 
 - (void)testShouldNotMatchIfShortArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithShortArg:42];
-    NSInvocation *actual = [DummyObject invocationWithShortArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithShortArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithShortArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfLongArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithLongArg:42];
-    NSInvocation *actual = [DummyObject invocationWithLongArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithLongArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithLongArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfLongLongArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithLongLongArg:42];
-    NSInvocation *actual = [DummyObject invocationWithLongLongArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithLongLongArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithLongLongArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfIntegerArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithIntegerArg:42];
-    NSInvocation *actual = [DummyObject invocationWithIntegerArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithIntegerArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithIntegerArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfUnsignedCharArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithUnsignedCharArg:42];
-    NSInvocation *actual = [DummyObject invocationWithUnsignedCharArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithUnsignedCharArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithUnsignedCharArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfUnsignedIntArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithUnsignedIntArg:42];
-    NSInvocation *actual = [DummyObject invocationWithUnsignedIntArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithUnsignedIntArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithUnsignedIntArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfUnsignedShortArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithUnsignedShortArg:42];
-    NSInvocation *actual = [DummyObject invocationWithUnsignedShortArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithUnsignedShortArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithUnsignedShortArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfUnsignedLongArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithUnsignedLongArg:42];
-    NSInvocation *actual = [DummyObject invocationWithUnsignedLongArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithUnsignedLongArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithUnsignedLongArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfUnsignedLongLongArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithUnsignedLongLongArg:42];
-    NSInvocation *actual = [DummyObject invocationWithUnsignedLongLongArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithUnsignedLongLongArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithUnsignedLongLongArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfUnsignedIntegerArgumentDoesNotEqualExpectedArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithUnsignedIntegerArg:42];
-    NSInvocation *actual = [DummyObject invocationWithUnsignedIntegerArg:99];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithUnsignedIntegerArg:42]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithUnsignedIntegerArg:99]], nil);
 }
 
 - (void)testShouldNotMatchIfFloatArgumentConvertedToObjectDoesNotSatisfyOverrideMatcher
 {
-    NSInvocation *expected = [DummyObject invocationWithFloatArg:0];   // Argument will be ignored.
-    NSInvocation *actual = [DummyObject invocationWithFloatArg:3.14f];
-    
     [invocationMatcher setMatcher:closeTo(3.5, 0.1) atIndex:0];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithFloatArg:0]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithFloatArg:3.14f]], nil);
 }
 
 - (void)testShouldNotMatchIfDoubleArgumentConvertedToObjectDoesNotSatisfyOverrideMatcher
 {
-    NSInvocation *expected = [DummyObject invocationWithDoubleArg:0];   // Argument will be ignored.
-    NSInvocation *actual = [DummyObject invocationWithDoubleArg:3.14];
-    
     [invocationMatcher setMatcher:closeTo(3.5, 0.1) atIndex:0];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithDoubleArg:0]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithDoubleArg:3.14]], nil);
 }
 
 - (void)testShouldMatchOverrideMatcherSpecifiedForSecondPrimitiveArgument
 {
-    NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something" intArg:0];
-    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something" intArg:51];
-    
     [invocationMatcher setMatcher:greaterThan(@50) atIndex:1];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertTrue([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithObjectArg:@"something" intArg:0]];
+    STAssertTrue([invocationMatcher matches:[DummyObject invocationWithObjectArg:@"something" intArg:51]], nil);
 }
 
 - (void)testMultiplePrimitivesWithAllMatching_ShouldMatch
 {
-    NSInvocation *expected = [DummyObject invocationWithIntArg:0 floatArg:3.14f];
-    NSInvocation *actual = [DummyObject invocationWithIntArg:0 floatArg:3.14f];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertTrue([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithIntArg:0 floatArg:3.14f]];
+    STAssertTrue([invocationMatcher matches:[DummyObject invocationWithIntArg:0 floatArg:3.14f]], nil);
 }
 
 - (void)testMultiplePrimitivesWithFirstArgNotMatching_ShouldNotMatch
 {
-    NSInvocation *expected = [DummyObject invocationWithIntArg:0 floatArg:3.14f];
-    NSInvocation *actual = [DummyObject invocationWithIntArg:99 floatArg:3.14f];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithIntArg:0 floatArg:3.14f]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithIntArg:99 floatArg:3.14f]], nil);
 }
 
 - (void)testMultiplePrimitivesWithSecondArgNotMatching_ShouldNotMatch
 {
-    NSInvocation *expected = [DummyObject invocationWithIntArg:0 floatArg:3.14f];
-    NSInvocation *actual = [DummyObject invocationWithIntArg:0 floatArg:2.718f];
-    [invocationMatcher setExpectedInvocation:expected];
-    STAssertFalse([invocationMatcher matches:actual], nil);
+    [invocationMatcher setExpectedInvocation:[DummyObject invocationWithIntArg:0 floatArg:3.14f]];
+    STAssertFalse([invocationMatcher matches:[DummyObject invocationWithIntArg:0 floatArg:2.718f]], nil);
 }
 
 - (void)testArgumentMatchersCount_ShouldReflectLargestSetMatcherIndex
