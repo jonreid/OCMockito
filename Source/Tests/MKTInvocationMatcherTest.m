@@ -48,6 +48,7 @@
 - (void)methodWithDoubleArg:(double)arg {}
 
 - (void)methodWithObjectArg:(id)arg1 intArg:(int)arg2 {}
+- (void)methodWithIntArg:(int)arg1 floatArg:(float)arg2 {}
 
 + (NSInvocation *)invocationWithSelector:(SEL)selector
 {
@@ -180,18 +181,26 @@
     return inv;
 }
 
++ (NSInvocation *)invocationWithIntArg:(int)argument1 floatArg:(float)argument2
+{
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithIntArg:floatArg:)];
+    [inv setArgument:&argument1 atIndex:2];
+    [inv setArgument:&argument2 atIndex:3];
+    return inv;
+}
+
 @end
 
 
 #pragma mark -
 
 @interface MKTInvocationMatcherTest : SenTestCase
-@end
-
-@implementation MKTInvocationMatcherTest
 {
     MKTInvocationMatcher *invocationMatcher;
 }
+@end
+
+@implementation MKTInvocationMatcherTest
 
 - (void)setUp
 {
@@ -447,6 +456,30 @@
     [invocationMatcher setMatcher:greaterThan(@50) atIndex:1];
     [invocationMatcher setExpectedInvocation:expected];
     STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
+- (void)testMultiplePrimitivesWithAllMatching_ShouldMatch
+{
+    NSInvocation *expected = [DummyObject invocationWithIntArg:0 floatArg:3.14f];
+    NSInvocation *actual = [DummyObject invocationWithIntArg:0 floatArg:3.14f];
+    [invocationMatcher setExpectedInvocation:expected];
+    STAssertTrue([invocationMatcher matches:actual], nil);
+}
+
+- (void)testMultiplePrimitivesWithFirstArgNotMatching_ShouldNotMatch
+{
+    NSInvocation *expected = [DummyObject invocationWithIntArg:0 floatArg:3.14f];
+    NSInvocation *actual = [DummyObject invocationWithIntArg:99 floatArg:3.14f];
+    [invocationMatcher setExpectedInvocation:expected];
+    STAssertFalse([invocationMatcher matches:actual], nil);
+}
+
+- (void)testMultiplePrimitivesWithSecondArgNotMatching_ShouldNotMatch
+{
+    NSInvocation *expected = [DummyObject invocationWithIntArg:0 floatArg:3.14f];
+    NSInvocation *actual = [DummyObject invocationWithIntArg:0 floatArg:2.718f];
+    [invocationMatcher setExpectedInvocation:expected];
+    STAssertFalse([invocationMatcher matches:actual], nil);
 }
 
 - (void)testArgumentMatchersCount_ShouldReflectLargestSetMatcherIndex

@@ -107,7 +107,10 @@ static inline BOOL typeIsObjectOrClassOrBlock(const char *type)
     {
         id <HCMatcher> matcher = self.argumentMatchers[index];
         if ([matcher isEqual:[NSNull null]])
-            return [expectedArgs[index] isEqual:actualArgs[index]];
+        {
+            if (![expectedArgs[index] isEqual:actualArgs[index]])
+                return NO;
+        }
         else if ([self argument:actualArgs[index] isMismatchForMatcher:matcher])
             return NO;
     }
