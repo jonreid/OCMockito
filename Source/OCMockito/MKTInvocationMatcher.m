@@ -11,7 +11,6 @@
 #import "MKTCapturingMatcher.h"
 #import "NSInvocation+TKAdditions.h"
 
-#define HC_SHORTHAND
 #if TARGET_OS_MAC
     #import <OCHamcrest/OCHamcrest.h>
     #import <OCHamcrest/HCWrapInMatcher.h>
@@ -19,12 +18,6 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
     #import <OCHamcrestIOS/HCWrapInMatcher.h>
 #endif
-
-
-static inline BOOL typeIsObjectOrClassOrBlock(const char *type)
-{
-    return *type == @encode(id)[0] || *type == @encode(Class)[0];
-}
 
 
 @implementation MKTInvocationMatcher
@@ -39,13 +32,13 @@ static inline BOOL typeIsObjectOrClassOrBlock(const char *type)
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index
 {
-    if ([self.argumentMatchers count] <= index)
+    if (index < [self.argumentMatchers count])
+        [self.argumentMatchers replaceObjectAtIndex:index withObject:matcher];
+    else
     {
         [self trueUpArgumentMatchersToCount:index];
         [self.argumentMatchers addObject:matcher];
     }
-    else
-        [self.argumentMatchers replaceObjectAtIndex:index withObject:matcher];
 }
 
 - (NSUInteger)argumentMatchersCount
@@ -55,11 +48,11 @@ static inline BOOL typeIsObjectOrClassOrBlock(const char *type)
 
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount
 {
-    NSUInteger matchersCount = [self.argumentMatchers count];
-    while (matchersCount < desiredCount)
+    NSUInteger count = [self.argumentMatchers count];
+    while (count < desiredCount)
     {
-        [self.argumentMatchers addObject:[NSNull null]];
-        ++matchersCount;
+        [self.argumentMatchers addObject:[self placeholderForUnspecifiedMatcher]];
+        ++count;
     } 
 }
 
@@ -70,30 +63,29 @@ static inline BOOL typeIsObjectOrClassOrBlock(const char *type)
 
     self.numberOfArguments = [[self.expected methodSignature] numberOfArguments] - 2;
     [self trueUpArgumentMatchersToCount:self.numberOfArguments];
-
-    NSMethodSignature *signature = [self.expected methodSignature];
-    for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
-        [self setObjectMatcherAtArgumentIndex:index forSignature:signature];
+    [self replacePlaceholdersWithEqualityMatchersForArguments:[self.expected tk_arrayArguments]];
 }
 
-- (void)setObjectMatcherAtArgumentIndex:(NSUInteger)index forSignature:(NSMethodSignature *)signature
+- (void)replacePlaceholdersWithEqualityMatchersForArguments:(NSArray *)expectedArgs
 {
-    NSUInteger indexWithHiddenArgs = index + 2;
-    const char *argType = [signature getArgumentTypeAtIndex:indexWithHiddenArgs];
-    if (typeIsObjectOrClassOrBlock(argType))
+    for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
     {
-        __unsafe_unretained id arg = nil;
-        [self.expected getArgument:&arg atIndex:indexWithHiddenArgs];
-        [self setMatcher:[self matcherForArgument:arg] atIndex:index];
+        if (self.argumentMatchers[index] == [self placeholderForUnspecifiedMatcher])
+            [self.argumentMatchers replaceObjectAtIndex:index withObject:[self matcherForArgument:expectedArgs[index]]];
     }
+}
+
+- (id)placeholderForUnspecifiedMatcher
+{
+    return [NSNull null];
 }
 
 - (id <HCMatcher>)matcherForArgument:(id)arg
 {
-    if (arg != nil)
-        return HCWrapInMatcher(arg);
+    if (arg == [NSNull null])
+        return HC_nilValue();
     else
-        return nilValue();
+        return HCWrapInMatcher(arg);
 }
 
 - (BOOL)matches:(NSInvocation *)actual
@@ -101,23 +93,16 @@ static inline BOOL typeIsObjectOrClassOrBlock(const char *type)
     if ([self.expected selector] != [actual selector])
         return NO;
 
-    NSArray *expectedArgs = [self.expected tk_arrayArguments];
     NSArray *actualArgs = [actual tk_arrayArguments];
     for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
     {
-        id <HCMatcher> matcher = self.argumentMatchers[index];
-        if ([matcher isEqual:[NSNull null]])
-        {
-            if (![expectedArgs[index] isEqual:actualArgs[index]])
-                return NO;
-        }
-        else if ([self argument:actualArgs[index] isMismatchForMatcher:matcher])
+        if ([self argument:actualArgs[index] doesNotMatch:self.argumentMatchers[index]])
             return NO;
     }
     return YES;
 }
 
-- (BOOL)argument:(id)arg isMismatchForMatcher:(id <HCMatcher>)matcher
+- (BOOL)argument:(id)arg doesNotMatch:(id <HCMatcher>)matcher
 {
     if (arg == [NSNull null])
         arg = nil;
