@@ -52,4 +52,14 @@
     assertThat([argument value], is(@42));
 }
 
+- (void)testArgumentCaptor_ShouldCaptureBlock
+{
+    [mockArray sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1 compare:obj2 options:0];
+    }];
+    [verify(mockArray) sortUsingComparator:[argument capture]];
+    NSComparator block = [argument value];
+    assertThatInt(block(@"a", @"z"), equalToInt(NSOrderedAscending));
+}
+
 @end
