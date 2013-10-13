@@ -34,4 +34,9 @@
     return [_matcher lastValue];
 }
 
+- (NSArray *)allValues
+{
+    return [_matcher allValues];
+}
+
 @end

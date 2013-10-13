@@ -44,6 +44,14 @@
     assertThat([argument value], is(@"FOO"));
 }
 
+- (void)testArgumentCaptor_ShouldCaptureAllValuesFromInvocations
+{
+    [mockArray addObject:@"FOO"];
+    [mockArray addObject:@"BAR"];
+    [verifyCount(mockArray, times(2)) addObject:[argument capture]];
+    assertThat([argument allValues], contains(@"FOO", @"BAR", nil));
+}
+
 - (void)testArgumentCaptor_ShouldCapturePrimitive
 {
     [mockArray replaceObjectAtIndex:42 withObject:[NSNull null]];
