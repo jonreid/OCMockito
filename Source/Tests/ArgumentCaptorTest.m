@@ -12,6 +12,7 @@
 
 // Test support
 #import <SenTestingKit/SenTestingKit.h>
+#import "MockTestCase.h"
 
 #define HC_SHORTHAND
 #if TARGET_OS_MAC
@@ -50,6 +51,14 @@
     [mockArray addObject:@"BAR"];
     [verifyCount(mockArray, times(2)) addObject:[argument capture]];
     assertThat([argument allValues], contains(@"FOO", @"BAR", nil));
+}
+
+- (void)testInvocationsThatDoNotMatch_ShouldNotBeCaptured
+{
+    [mockArray addObject:@"FOO"];
+    [mockArray removeObject:@"BAR"];
+    [verifyCount(mockArray, atLeast(1)) addObject:[argument capture]];
+    assertThat([argument allValues], contains(@"FOO", nil));
 }
 
 - (void)testArgumentCaptor_ShouldCapturePrimitive

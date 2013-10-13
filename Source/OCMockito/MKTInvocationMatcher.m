@@ -125,8 +125,11 @@
 {
     for (NSInvocation *inv in invocations)
     {
-        NSArray *args = [inv tk_arrayArguments];
-        [capturingMatcher performSelector:@selector(captureArgument:) withObject:args[index]];
+        if ([self.expected selector] == [inv selector])
+        {
+            NSArray *args = [inv tk_arrayArguments];
+            [capturingMatcher performSelector:@selector(captureArgument:) withObject:args[index]];
+        }
     }
 }
 
