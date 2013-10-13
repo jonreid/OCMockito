@@ -2,7 +2,7 @@
 //  OCMockito - MKTArgumentCaptor.h
 //  Copyright 2013 Jonathan M. Reid. See LICENSE.txt
 //
-//  Created by Markus Gasser on 18.04.12.
+//  Created by: Jon Reid, http://qualitycoding.org/
 //  Source: https://github.com/jonreid/OCMockito
 //
 
