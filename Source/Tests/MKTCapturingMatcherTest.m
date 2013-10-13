@@ -54,33 +54,33 @@
 {
     [sut captureArgument:@"foo"];
     [sut captureArgument:@"bar"];
-    assertThat([sut getAllValues], contains(@"foo", @"bar", nil));
+    assertThat([sut allValues], contains(@"foo", @"bar", nil));
 }
 
 - (void)testCaptureArguments_ShouldHandleNilArgument
 {
     [sut captureArgument:@"foo"];
     [sut captureArgument:nil];
-    assertThat([sut getAllValues], contains(@"foo", [NSNull null], nil));
+    assertThat([sut allValues], contains(@"foo", [NSNull null], nil));
 }
 
 - (void)testMatcher_ShouldKnowLastCapturedValue
 {
     [sut captureArgument:@"foo"];
     [sut captureArgument:@"bar"];
-    assertThat([sut getLastValue], is(@"bar"));
+    assertThat([sut lastValue], is(@"bar"));
 }
 
-- (void)testGetLastValue_ShouldHandleNilArgument
+- (void)testLastValue_ShouldHandleNilArgument
 {
     [sut captureArgument:@"foo"];
     [sut captureArgument:nil];
-    assertThat([sut getLastValue], is(nilValue()));
+    assertThat([sut lastValue], is(nilValue()));
 }
 
 - (void)testMatcher_ShouldComplainWhenNothingYetCaptured
 {
-    STAssertThrows([sut getLastValue], @"getLastValue should fail when no argument value was captured");
+    STAssertThrows([sut lastValue], @"lastValue should fail when no argument value was captured");
 }
 
 @end

@@ -8,7 +8,7 @@
 @interface MKTCapturingMatcher : HCIsAnything
 
 - (void)captureArgument:(id)arg;
-- (NSArray *)getAllValues;
-- (id)getLastValue;
+- (NSArray *)allValues;
+- (id)lastValue;
 
 @end

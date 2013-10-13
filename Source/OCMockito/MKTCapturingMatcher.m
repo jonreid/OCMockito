@@ -21,12 +21,12 @@
     [_arguments addObject:arg];
 }
 
-- (NSArray *)getAllValues
+- (NSArray *)allValues
 {
     return _arguments;
 }
 
-- (id)getLastValue
+- (id)lastValue
 {
     if ([self noArgumentWasCaptured])
         return [self throwNoArgumentException];

@@ -31,7 +31,7 @@
 
 - (id)value
 {
-    return [_matcher getLastValue];
+    return [_matcher lastValue];
 }
 
 @end
