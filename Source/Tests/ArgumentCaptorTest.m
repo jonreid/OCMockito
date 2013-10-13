@@ -25,14 +25,31 @@
 @end
 
 @implementation ArgumentCaptorTest
-
-- (void)testArgumentCaptor_ShouldCaptureValue
 {
-    MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
-    NSMutableArray *mockArray = mock([NSMutableArray class]);
+    MKTArgumentCaptor *argument;
+    NSMutableArray *mockArray;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    argument = [[MKTArgumentCaptor alloc] init];
+    mockArray = mock([NSMutableArray class]);
+}
+
+- (void)testArgumentCaptor_ShouldCaptureObject
+{
     [mockArray addObject:@"FOO"];
     [verify(mockArray) addObject:[argument capture]];
     assertThat([argument value], is(@"FOO"));
+}
+
+- (void)testArgumentCaptor_ShouldCapturePrimitive
+{
+    [mockArray replaceObjectAtIndex:42 withObject:[NSNull null]];
+    [[verify(mockArray) withMatcher:[argument capture] forArgument:0]
+            replaceObjectAtIndex:0 withObject:anything()];
+    assertThat([argument value], is(@42));
 }
 
 @end

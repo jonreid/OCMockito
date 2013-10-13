@@ -115,15 +115,18 @@
     {
         id <HCMatcher> matcher = self.argumentMatchers[index];
         if ([matcher respondsToSelector:@selector(captureArgument:)])
-        {
-            NSUInteger indexWithHiddenArgs = index + 2;
-            for (NSInvocation *inv in invocations)
-            {
-                __unsafe_unretained id actualArg;
-                [inv getArgument:&actualArg atIndex:indexWithHiddenArgs];
-                [matcher performSelector:@selector(captureArgument:) withObject:actualArg];
-            }
-        }
+            [self captureArgumentsAtIndex:index acrossInvocations:invocations intoMatcher:matcher];
+    }
+}
+
+- (void)captureArgumentsAtIndex:(NSUInteger)index
+              acrossInvocations:(NSArray *)invocations
+                    intoMatcher:(id <HCMatcher>)capturingMatcher
+{
+    for (NSInvocation *inv in invocations)
+    {
+        NSArray *args = [inv tk_arrayArguments];
+        [capturingMatcher performSelector:@selector(captureArgument:) withObject:args[index]];
     }
 }
 
