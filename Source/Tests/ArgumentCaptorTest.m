@@ -57,7 +57,7 @@
 {
     [mockArray addObject:@"FOO"];
     [mockArray removeObject:@"BAR"];
-    [verifyCount(mockArray, atLeast(1)) addObject:[argument capture]];
+    [verifyCount(mockArray, atLeastOnce()) addObject:[argument capture]];
     assertThat([argument allValues], contains(@"FOO", nil));
 }
 
