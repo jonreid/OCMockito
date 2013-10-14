@@ -1,3 +1,13 @@
+Next Version
+============
+
+Added MKTArgumentCaptor to capture arguments:
+
+- Use ``capture`` to capture the argument. This must be used inside of verification.
+- Use ``value`` to return the captured value.
+- Use ``allValues`` to return an array of all captured values.
+
+
 Version 1.0.0
 =============
 _06 Sep 2013_
