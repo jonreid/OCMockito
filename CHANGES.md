@@ -1,11 +1,18 @@
 Next Version
 ============
 
-Added MKTArgumentCaptor to capture arguments:
+**Features:**
 
-- Use ``capture`` to capture the argument. This must be used inside of verification.
-- Use ``value`` to return the captured value.
-- Use ``allValues`` to return an array of all captured values.
+- Added MKTArgumentCaptor to capture arguments:
+  * Use ``capture`` to capture the argument. This must be used inside of
+    verification.
+  * Use ``value`` to return the captured value.
+  * Use ``allValues`` to return an array of all captured values.
+
+**Improvements:**
+
+- Convert primitive arguments to objects using NSInvocation+TKAdditions by Taras
+  Kalapun.
 
 
 Version 1.0.0
