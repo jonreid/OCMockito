@@ -232,10 +232,10 @@ Verifying exact number of invocations / at least x / never
 Capturing arguments for further assertions
 ==========================================
 
-OCMockito verifies argument values by asking the provided OCHamcrest matchers,
+OCMockito verifies argument values by using any provided OCHamcrest matchers,
 with the default matcher being ``equalTo`` to test for equality. This is the
-recommended way of matching arguments because it makes tests clean & simple. In
-some situations though, it is helpful to assert on certain arguments after the
+recommended way of matching arguments because it makes tests clean and simple.
+In some situations though, it's helpful to assert on certain arguments after the
 actual verification. For example:
 
 ```obj-c
@@ -244,8 +244,8 @@ MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
 assertThat([[argument value] nameAtIndex:0], is(@"Jon"));
 ```
 
-This is especially handy for block arguments, because you can capture the block,
-then invoke it within your test. For example:
+Capturing arguments is especially handy for block arguments. You can capture a
+block, then invoke it within your test:
 
 ```obj-c
 MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
