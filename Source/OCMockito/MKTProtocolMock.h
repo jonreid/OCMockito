@@ -10,7 +10,7 @@
 
 
 /**
-    Mock object implementing a given protocol.
+ Mock object implementing a given protocol.
  */
 @interface MKTProtocolMock : MKTBaseMockObject
 {

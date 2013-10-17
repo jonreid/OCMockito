@@ -10,7 +10,7 @@
 
 
 /**
-    Mock object of a given class.
+ Mock object of a given class.
  */
 @interface MKTObjectMock : MKTBaseMockObject
 
