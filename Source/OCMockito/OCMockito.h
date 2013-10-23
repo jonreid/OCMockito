@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MKTArgumentCaptor.h"
 #import "MKTClassObjectMock.h"
 #import "MKTObjectMock.h"
 #import "MKTObjectAndProtocolMock.h"

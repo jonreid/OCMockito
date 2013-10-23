@@ -126,8 +126,8 @@
 		BB33350FCF04694252E73AC0 /* MKTCapturingMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */; };
 		BB33358A201321406097DDB8 /* MKTArgumentCaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */; };
 		BB3339CA3DE2639D2CC6BBE5 /* MKTArgumentCaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */; };
-		BB3339CB07B7B9D7EB2DED24 /* MKTArgumentCaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */; };
-		BB333BBECB6490881B055192 /* MKTArgumentCaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */; };
+		BB3339CB07B7B9D7EB2DED24 /* MKTArgumentCaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB333BBECB6490881B055192 /* MKTArgumentCaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB333C34005EB2306795E562 /* MKTCapturingMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */; };
 		BB333C4EF1FE02209FD55817 /* NSInvocation+TKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+TKAdditions.h */; };
 		BB333D0D3FD6E3D3D9F1867B /* NSInvocation+TKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */; };
