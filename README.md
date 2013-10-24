@@ -17,7 +17,7 @@ Key differences from other mocking frameworks:
 
 
 Adding OCMockito to your project
-================================
+--------------------------------
 
 __Building:__
 
@@ -85,7 +85,7 @@ after importing the OCMockito header:
  
 
 Let's verify some behavior!
-===========================
+---------------------------
 
 ```obj-c
 // mock creation
@@ -108,7 +108,7 @@ to the mocked class.)
 
 
 How about some stubbing?
-========================
+------------------------
 
 ```obj-c
 // mock creation
@@ -123,7 +123,7 @@ NSLog(@"%@", [mockArray objectAtIndex:999]);
 
 
 How do you mock a class object?
-===============================
+-------------------------------
 
 ```obj-c
 Class mockStringClass = mockClass([NSString class]);
@@ -131,7 +131,7 @@ Class mockStringClass = mockClass([NSString class]);
 
 
 How do you mock a protocol?
-===========================
+---------------------------
 
 ```obj-c
 id <MyDelegate> delegate = mockProtocol(@protocol(MyDelegate));
@@ -139,7 +139,7 @@ id <MyDelegate> delegate = mockProtocol(@protocol(MyDelegate));
 
 
 How do you mock an object that also implements a protocol?
-==========================================================
+----------------------------------------------------------
 
 ```obj-c
 UIViewController <CustomProtocol> *controller =
@@ -148,7 +148,7 @@ UIViewController <CustomProtocol> *controller =
 
 
 How do you stub methods that return non-objects?
-================================================
+------------------------------------------------
 
 To stub methods that return non-object types, specify ``willReturn<type>``,
 like this:
@@ -159,7 +159,7 @@ like this:
 
 
 Argument matchers
-=================
+-----------------
 
 OCMockito verifies argument values by testing for equality. But when extra
 flexibility is required, you can specify
@@ -184,7 +184,7 @@ cast the matcher to ``id``.
 
 
 How do you specify matchers for primitive arguments?
-====================================================
+----------------------------------------------------
 
 To stub a method that takes a primitive argument but specify a matcher, invoke
 the method with a dummy argument, then call ``-withMatcher:forArgument:``
@@ -203,7 +203,7 @@ Use the shortcut ``-withMatcher:`` to specify a matcher for a single argument:
 
 
 Verifying exact number of invocations / at least x / never
-==========================================================
+----------------------------------------------------------
 
 ```obj-c
 // using mock
@@ -230,7 +230,7 @@ Verifying exact number of invocations / at least x / never
 
 
 Capturing arguments for further assertions
-==========================================
+------------------------------------------
 
 OCMockito verifies argument values by using any provided OCHamcrest matchers,
 with the default matcher being ``equalTo`` to test for equality. This is the
@@ -256,7 +256,7 @@ assertThatInt(block(@"a", @"z"), equalToInt(NSOrderedAscending));
 
 
 More resources
-==============
+--------------
 
 * [Sources](https://github.com/jonreid/OCMockito)
 * [OCHamcrest](https://github.com/hamcrest/OCHamcrest)
