@@ -36,12 +36,6 @@
 
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
-    if ([_invocationContainer hasAnswersForStubbing])
-    {
-        MKTInvocationMatcher *invocationMatcher = [self matcherWithInvocation:invocation];
-        [_invocationContainer setMethodForStubbing:invocationMatcher];
-        return;
-    }
     if ([self handlingVerifyOfInvocation:invocation])
         return;
     [self prepareInvocationForStubbing:invocation];

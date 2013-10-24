@@ -22,6 +22,4 @@
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id)answer;
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
-- (BOOL)hasAnswersForStubbing;
-- (void)setMethodForStubbing:(MKTInvocationMatcher *)invocationMatcher;
 @end
