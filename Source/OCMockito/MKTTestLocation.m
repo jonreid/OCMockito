@@ -8,12 +8,9 @@
 
 #import "MKTTestLocation.h"
 
-#if TARGET_OS_MAC
-    #import <OCHamcrest/OCHamcrest.h>
-#else
-    #import <OCHamcrestIOS/OCHamcrestIOS.h>
-#endif
-
+#import <OCHamcrest/HCTestFailure.h>
+#import <OCHamcrest/HCTestFailureHandler.h>
+#import <OCHamcrest/HCTestFailureHandlerChain.h>
 
 void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description)
 {

@@ -10,14 +10,8 @@
 
 #import "MKTCapturingMatcher.h"
 #import "NSInvocation+TKAdditions.h"
-
-#if TARGET_OS_MAC
-    #import <OCHamcrest/OCHamcrest.h>
-    #import <OCHamcrest/HCWrapInMatcher.h>
-#else
-    #import <OCHamcrestIOS/OCHamcrestIOS.h>
-    #import <OCHamcrestIOS/HCWrapInMatcher.h>
-#endif
+#import <OCHamcrest/HCIsNil.h>
+#import <OCHamcrest/HCWrapInMatcher.h>
 
 
 @implementation MKTInvocationMatcher
