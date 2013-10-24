@@ -52,9 +52,9 @@ The binaries are packaged as frameworks:
 * __OCMockitoIOS.framework__ for iOS development
 * __OCMockito.framework__ for Mac OS X development
 
-OCHamcrest comes in a similar scheme. Drag the appropriate frameworks into your
-project (both OCMockito and OCHamcrest), specifying "Copy items into destination
-group's folder".
+OCHamcrest comes in a similar scheme. Drag the appropriate frameworks for both
+both OCMockito and OCHamcrest into your project, specifying "Copy items into
+destination group's folder".
 
 #### iOS Development:
 
