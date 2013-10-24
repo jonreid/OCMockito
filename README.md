@@ -1,6 +1,6 @@
 ![mockito](http://docs.mockito.googlecode.com/hg/latest/org/mockito/logo.jpg)
 
-OCMockito is an Objective-C implementation of Mockito, supporting creation,
+OCMockito is an iOS and Mac OS X implementation of Mockito, supporting creation,
 verification and stubbing of mock objects.
 
 Key differences from other mocking frameworks:
@@ -16,51 +16,25 @@ Key differences from other mocking frameworks:
   failures.
 
 
-Adding OCMockito to your project
---------------------------------
+How do I add OCMockito to my project?
+-------------------------------------
 
-__Building:__
+The Examples folder shows projects using OCMockito either through CocoaPods or
+through the prebuilt frameworks, for iOS and Mac OS X development.
 
-If you want to build OCMockito yourself, clone the repo, then
+### CocoaPods
 
-```sh
-$ git submodule update --init
-$ cd Source
-$ ./MakeDistribution.sh
+If you want to add OCMockito using Cocoapods then add the following dependency
+to your Podfile. Most people will want OCMockito in their test targets, and not
+include any pods from their main targets:
+
+```ruby
+target :MyTests, :exclusive => true do
+    pod 'OCMockito', '~> 1.0'
+end
 ```
 
-If you have doxygen installed somewhere other than the Applications folder --
-in /usr/local/bin, for example -- use this as the build step:
-
-```sh
-$ DOXYGEN=/usr/local/bin/doxygen ./MakeDistribution.sh
-```
-
-Or just use the pre-built release available at
-[QualityCoding.org](http://qualitycoding.org/resources/).
-
-__iOS Project Setup:__
-
-Add both OCHamcrestIOS.framework and OCMockitoIOS.framework to your project.
-
-Add:
-
-    #define HC_SHORTHAND
-    #import <OCHamcrestIOS/OCHamcrestIOS.h>
-
-    #define MOCKITO_SHORTHAND
-    #import <OCMockitoIOS/OCMockitoIOS.h>
-
-__OS X Project Setup:__
-
-Add both OCHamcrest.framework and OCMockito.framework and to your project.
-
-Add a Copy Files build phase to copy both OCHamcrest.framework and
-OCMockito.framework and to your Products Directory. For unit test bundles, make
-sure this Copy Files phase comes before the Run Script phase that executes
-tests.
-
-Add:
+Use the following imports:
 
     #define HC_SHORTHAND
     #import <OCHamcrest/OCHamcrest.h>
@@ -68,20 +42,61 @@ Add:
     #define MOCKITO_SHORTHAND
     #import <OCMockito/OCMockito.h>
 
-Note: If your Console shows
+### Prebuilt Frameworks
 
-    otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument". Terminating temporary process.
+Prebuilt binaries are available on GitHub for
+[OCMockito](https://github.com/hamcrest/OCMockito/releases/). You will also need
+[OCHamcrest](https://github.com/hamcrest/OCHamcrest/releases/).
+The binaries are packaged as frameworks:
 
-double-check your Copy Files phase.
+* __OCMockitoIOS.framework__ for iOS development
+* __OCMockito.framework__ for Mac OS X development
 
-__Xcode 5 confused by verify:__
+OCHamcrest comes in a similar scheme. Drag the appropriate frameworks into your
+project (both OCMockito and OCHamcrest), specifying "Copy items into destination
+group's folder".
+
+#### iOS Development:
+
+Use the following imports:
+
+    #define HC_SHORTHAND
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
+    
+    #define MOCKITO_SHORTHAND
+    #import <OCMockitoIOS/OCMockitoIOS.h>
+
+
+#### Mac OS X Development:
+
+Add a "Copy Files" build phase to copy OCHamcrest.framework to your Products
+Directory.
+
+Use the following imports:
+
+    #define HC_SHORTHAND
+    #import <OCHamcrest/OCHamcrest.h>
+    
+    #define MOCKITO_SHORTHAND
+    #import <OCMockito/OCMockito.h>
+
+
+### Build Your Own
+
+If you want to build OCMockito yourself, clone the repo, copy OCHamcrest-3.0.0
+into the Frameworks folder, then
+
+```sh
+$ git submodule update --init
+$ cd Source
+$ ./MakeDistribution.sh
+```
+
+### Xcode 5 confused by verify:
 
 Xcode 5 currently seems to get confused about #defines, and may complain
-"Ambiguous expansion of macro 'verify'". If this happens, add these two lines
-after importing the OCMockito header:
-
-    #undef verify
-    #define verify(mock) MKTVerify(mock)
+"Ambiguous expansion of macro 'verify'". If this happens, change your Build
+Settings to set "Enable Modules" to No.
  
 
 Let's verify some behavior!

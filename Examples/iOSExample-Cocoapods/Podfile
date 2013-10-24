@@ -1,0 +1,6 @@
+platform :ios, :deployment_target => "7.0"
+requires_arc = true
+
+target :ExampleTests, :exclusive => true do
+    pod 'OCMockito', '~> 1.0'
+end
