@@ -103,7 +103,7 @@ NSMutableArray *mockArray = mock([NSMutableArray class]);
 Once created, the mock will remember all interactions. Then you can selectively
 verify whatever interactions you are interested in.
 
-(If Xcode complains about multiple methods with the same name, cast ``verify``
+(If Xcode complains about multiple methods with the same name, cast `verify`
 to the mocked class.)
 
 
@@ -150,7 +150,7 @@ UIViewController <CustomProtocol> *controller =
 How do you stub methods that return non-objects?
 ------------------------------------------------
 
-To stub methods that return non-object types, specify ``willReturn<type>``,
+To stub methods that return non-object types, specify `willReturn<type>`,
 like this:
 
 ```obj-c
@@ -180,21 +180,21 @@ OCHamcrest matchers can be specified as arguments for both verification and
 stubbing.
 
 Typed arguments will issue a warning that the matcher is the wrong type. Just
-cast the matcher to ``id``.
+cast the matcher to `id`.
 
 
 How do you specify matchers for primitive arguments?
 ----------------------------------------------------
 
 To stub a method that takes a primitive argument but specify a matcher, invoke
-the method with a dummy argument, then call ``-withMatcher:forArgument:``
+the method with a dummy argument, then call `-withMatcher:forArgument:`
 
 ```obj-c
 [[given([mockArray objectAtIndex:0]) withMatcher:anything() forArgument:0]
  willReturn:@"foo"];
 ```
 
-Use the shortcut ``-withMatcher:`` to specify a matcher for a single argument:
+Use the shortcut `-withMatcher:` to specify a matcher for a single argument:
 
 ```obj-c
 [[given([mockArray objectAtIndex:0]) withMatcher:anything()]
@@ -233,7 +233,7 @@ Capturing arguments for further assertions
 ------------------------------------------
 
 OCMockito verifies argument values by using any provided OCHamcrest matchers,
-with the default matcher being ``equalTo`` to test for equality. This is the
+with the default matcher being `equalTo` to test for equality. This is the
 recommended way of matching arguments because it makes tests clean and simple.
 In some situations though, it's helpful to assert on certain arguments after the
 actual verification. For example:
