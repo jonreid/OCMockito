@@ -45,7 +45,7 @@ Use the following imports:
 ### Prebuilt Frameworks
 
 Prebuilt binaries are available on GitHub for
-[OCMockito](https://github.com/hamcrest/OCMockito/releases/). You will also need
+[OCMockito](https://github.com/jonreid/OCMockito/releases/). You will also need
 [OCHamcrest](https://github.com/hamcrest/OCHamcrest/releases/).
 The binaries are packaged as frameworks:
 
