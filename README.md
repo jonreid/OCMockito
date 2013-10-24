@@ -69,8 +69,8 @@ Use the following imports:
 
 #### Mac OS X Development:
 
-Add a "Copy Files" build phase to copy OCHamcrest.framework to your Products
-Directory.
+Add a "Copy Files" build phase to copy OCMockito.framework and
+OCHamcrest.framework to your Products Directory.
 
 Use the following imports:
 
