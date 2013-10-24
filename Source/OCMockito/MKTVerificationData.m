@@ -6,7 +6,12 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import <OCHamcrestIOS/OCHamcrestIOS.h>
+#if TARGET_OS_MAC
+    #import <OCHamcrest/OCHamcrest.h>
+#else
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
+#endif
+
 #import "MKTVerificationData.h"
 
 #import "MKTInvocationContainer.h"
