@@ -1,5 +1,5 @@
 Next Version
-============
+------------
 
 **Features:**
 
@@ -16,7 +16,7 @@ Next Version
 
 
 Version 1.0.0
-=============
+-------------
 _06 Sep 2013_
 
 This release adopts Semantic Versioning (http://semver.org). _Thanks to: Jens Nerup_
@@ -36,7 +36,7 @@ This release adopts Semantic Versioning (http://semver.org). _Thanks to: Jens Ne
 
 
 Version 0.23
-============
+------------
 _23 Nov 2012_
 
 - Added ``atLeast(count)`` and ``atLeastOnce()`` for ``verifyCount()``. _Thanks to: Markus Gasser_
@@ -50,7 +50,7 @@ _23 Nov 2012_
 
 
 Version 0.22
-============
+------------
 _18 Mar 2012_
 
 - Added ``mockClass(…)`` which mocks a class object. _Thanks to: David Hart_
@@ -59,7 +59,7 @@ _18 Mar 2012_
 
 
 Version 0.21
-============
+------------
 _09 Mar 2012_
 
 - Added ``mockProtocol(…)`` which mocks an object implementing a given protocol.
@@ -70,5 +70,5 @@ _09 Mar 2012_
 
 
 Version 0.1
-===========
+-----------
 _24 Nov 2011 prerelease_
