@@ -40,6 +40,7 @@ This release adopts Semantic Versioning (http://semver.org). _Thanks to: Jens Ne
   * `anything()`
   * `nilValue()`
   * `notNilValue()`
+  * `sameInstance()`
 - Added `-description` to mock objects to help when debugging.
 
 
