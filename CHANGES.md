@@ -9,17 +9,18 @@ Next Version
   * Use `value` to return the captured value.
   * Use `allValues` to return an array of all captured values.
 
+**Improvements:**
+
+- Add support for 64-bit iOS devices.
+- Convert primitive arguments to objects using NSInvocation+TKAdditions by Taras
+  Kalapun.
+
 **Examples & Documentation:**
 
 - Updated examples so they are based on Apple's templates for main target vs. test target. Added
   CocoaPods examples.
 - Eliminated DocSet. Documentation will be in the main README and in the OCMockito wiki,
   https://github.com/jonreid/OCMockito/wiki/_pages
-
-**Improvements:**
-
-- Convert primitive arguments to objects using NSInvocation+TKAdditions by Taras
-  Kalapun.
 
 
 Version 1.0.0

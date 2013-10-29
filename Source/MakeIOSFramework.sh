@@ -38,7 +38,7 @@ DEVICE_LIB="build/Release-iphoneos/libocmockito.a"
 SIMULATOR_LIB="build/Release-iphonesimulator/libocmockito.a"
 OUTPUT_LIB="${IOS_FRAMEWORK}/Versions/Current/OCMockitoIOS"
 
-lipo -create "${DEVICE_LIB}" -arch i386 "${SIMULATOR_LIB}" -o "${OUTPUT_LIB}"
+lipo -create "${DEVICE_LIB}" "${SIMULATOR_LIB}" -o "${OUTPUT_LIB}"
 
 # Add a symlink, as required by the framework.
 ln -s Versions/Current/OCMockitoIOS "${IOS_FRAMEWORK}/OCMockitoIOS"
