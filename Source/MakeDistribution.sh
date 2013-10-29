@@ -3,7 +3,6 @@ OCHAMCRESTVERSION=3.0.0
 DISTFILE=OCMockito-${VERSION}
 DISTPATH=build/${DISTFILE}
 PROJECTROOT=..
-DOCSET=build/Documentation/org.mockito.OCMockito.docset
 
 echo Preparing clean build
 rm -rf build
@@ -25,9 +24,6 @@ if [ "${OUT}" -ne "0" ]; then
     exit ${OUT}
 fi
 
-echo Building Documentation
-source MakeDocumentation.sh
-
 echo Assembling Distribution
 rm -rf "${DISTPATH}"
 mkdir "${DISTPATH}"
@@ -39,10 +35,6 @@ cp "${PROJECTROOT}/LICENSE.txt" "${DISTPATH}"
 cp "${PROJECTROOT}/LICENSE-mockito.txt" "${DISTPATH}"
 cp -R "${PROJECTROOT}/Examples" "${DISTPATH}"
 cp -R "${PROJECTROOT}/Frameworks/OCHamcrest-${OCHAMCRESTVERSION}" "${DISTPATH}"
-mkdir "${DISTPATH}/Documentation"
-cp -R "${DOCSET}" "${DISTPATH}/Documentation"
-cp "${PROJECTROOT}/Documentation/Makefile" "${DISTPATH}/Documentation"
-cp "${PROJECTROOT}/Documentation/README.txt" "${DISTPATH}/Documentation"
 
 find "${DISTPATH}/Examples" -type d \( -name 'build' -or -name 'xcuserdata' -or -name '.svn' -or -name '.git' \) | while read DIR
 do
