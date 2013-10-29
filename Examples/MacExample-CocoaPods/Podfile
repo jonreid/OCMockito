@@ -1,6 +1,3 @@
-platform :osx, :deployment_target => "10.8"
-requires_arc = true
-
 target :ExampleTests, :exclusive => true do
-    pod 'OCMockito', '~> 1.0'
+  pod 'OCMockito', '~> 1.0'
 end
