@@ -1,5 +1,6 @@
-Next Version
-------------
+Version 1.1.0
+-------------
+_30 Oct 2013_
 
 **Features:**
 
@@ -11,7 +12,8 @@ Next Version
 
 **Improvements:**
 
-- Add support for 64-bit iOS devices.
+- Changed mock object factory methods to cast to `(id)` to eliminate AppCode warnings.
+- Added support for 64-bit iOS devices.
 - Convert primitive arguments to objects using NSInvocation+TKAdditions by Taras
   Kalapun.
 
