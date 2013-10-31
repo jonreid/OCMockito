@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'OCMockito'
-  s.version  = '1.0.0'
+  s.version  = '1.1.0'
   s.summary  = 'OCMockito is an Objective-C implementation of Mockito, supporting creation, verification and stubbing of mock objects.'
   s.description = <<-DESC
                     OCMockito is an Objective-C implementation of Mockito, supporting creation, 
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
-  s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'v1.0.0' }
+  s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'v1.1.0' }
   s.source_files = 'Source/OCMockito/OCMockito.h', 'Source/OCMockito/**/*.{h,m}'
   s.public_header_files = 'Source/OCMockito/OCMockito.h', 'Source/OCMockito/MKTArgumentCaptor.h', 'Source/OCMockito/MKTBaseMockObject.h', 'Source/OCMockito/MKTClassObjectMock.h', 'Source/OCMockito/MKTObjectMock.h', 'Source/OCMockito/MKTObjectAndProtocolMock.h', 'Source/OCMockito/MKTProtocolMock.h', 'Source/OCMockito/MKTOngoingStubbing.h', 'Source/OCMockito/MKTPrimitiveArgumentMatching.h'
   s.requires_arc = true
