@@ -268,12 +268,3 @@ MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
 NSComparator block = [argument value];
 assertThatInt(block(@"a", @"z"), equalToInt(NSOrderedAscending));
 ```
-
-
-More resources
---------------
-
-* [Sources](https://github.com/jonreid/OCMockito)
-* [OCHamcrest](https://github.com/hamcrest/OCHamcrest)
-* [Quality Coding](http://qualitycoding.org/) - Tools, tips &
-techniques for _building quality in_ to iOS development.
