@@ -13,17 +13,4 @@
 
 
 @implementation MKTStubbedInvocationMatcher
-
-- (instancetype)initCopyingInvocationMatcher:(MKTInvocationMatcher *)other
-{
-    self = [super init];
-    if (self)
-    {
-        self.expected = other.expected;
-        self.numberOfArguments = other.numberOfArguments;
-        self.argumentMatchers = [other.argumentMatchers mutableCopy];
-    }
-    return self;
-}
-
 @end

@@ -13,6 +13,4 @@
 
 @property (nonatomic, strong) id answer;
 
-- (instancetype)initCopyingInvocationMatcher:(MKTInvocationMatcher *)other;
-
 @end
