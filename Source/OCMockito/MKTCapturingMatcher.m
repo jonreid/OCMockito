@@ -14,7 +14,7 @@
     NSMutableArray *_arguments;
 }
 
-- (HCIsAnything *)init
+- (instancetype)init
 {
     self = [super initWithDescription:@"<Capturing argument>"];
     if (self)

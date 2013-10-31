@@ -14,12 +14,12 @@
     Class _mockedClass;
 }
 
-+ (id)mockForClass:(Class)aClass
++ (instancetype)mockForClass:(Class)aClass
 {
     return [[self alloc] initWithClass:aClass];
 }
 
-- (id)initWithClass:(Class)aClass
+- (instancetype)initWithClass:(Class)aClass
 {
     self = [super init];
     if (self)

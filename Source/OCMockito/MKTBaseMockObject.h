@@ -12,6 +12,6 @@
 
 @interface MKTBaseMockObject : NSProxy <MKTPrimitiveArgumentMatching>
 
-- (id)init;
+- (instancetype)init;
 
 @end

@@ -24,7 +24,7 @@
     MKTInvocationContainer *_invocationContainer;
 }
 
-- (id)init
+- (instancetype)init
 {
     if (self)
     {

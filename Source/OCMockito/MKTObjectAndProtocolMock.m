@@ -16,12 +16,12 @@
     Class _mockedClass;
 }
 
-+ (id)mockForClass:(Class)aClass protocol:(Protocol *)protocol
++ (instancetype)mockForClass:(Class)aClass protocol:(Protocol *)protocol
 {
     return [[self alloc] initWithClass:aClass protocol:protocol];
 }
 
-- (id)initWithClass:(Class)aClass protocol:(Protocol *)protocol
+- (instancetype)initWithClass:(Class)aClass protocol:(Protocol *)protocol
 {
     self = [super initWithProtocol:protocol];
     if (self)

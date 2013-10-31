@@ -13,12 +13,12 @@
 
 @implementation MKTProtocolMock
 
-+ (id)mockForProtocol:(Protocol *)aProtocol
++ (instancetype)mockForProtocol:(Protocol *)aProtocol
 {
     return [[self alloc] initWithProtocol:aProtocol];
 }
 
-- (id)initWithProtocol:(Protocol *)aProtocol
+- (instancetype)initWithProtocol:(Protocol *)aProtocol
 {
     self = [super init];
     if (self)
