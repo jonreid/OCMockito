@@ -17,7 +17,7 @@
 #import <objc/objc-api.h>
 
 
-#define MKTMock(aClass) [MKTObjectMock mockForClass:aClass]
+#define MKTMock(aClass) (id)[MKTObjectMock mockForClass:aClass]
 
 /**
  Returns a mock object of a given class.
@@ -30,7 +30,7 @@
 #endif
 
 
-#define MKTMockClass(aClass) [MKTClassObjectMock mockForClass:aClass]
+#define MKTMockClass(aClass) (id)[MKTClassObjectMock mockForClass:aClass]
 
 /**
  Returns a mock class object of a given class.
@@ -43,7 +43,7 @@
 #endif
 
 
-#define MKTMockProtocol(aProtocol) [MKTProtocolMock mockForProtocol:aProtocol]
+#define MKTMockProtocol(aProtocol) (id)[MKTProtocolMock mockForProtocol:aProtocol]
 
 /**
  Returns a mock object implementing a given protocol.
@@ -56,7 +56,7 @@
 #endif
 
 
-#define MKTMockObjectAndProtocol(aClass, aProtocol) [MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol]
+#define MKTMockObjectAndProtocol(aClass, aProtocol) (id)[MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol]
 
 /**
  Returns a mock object of a given class that also implements a given protocol.
@@ -65,7 +65,7 @@
  @c MKTMockObjectAndProtocol instead.)
  */
 #ifdef MOCKITO_SHORTHAND
-    #define mockObjectAndProtocol(aClass, aProtocol) MKTMockObjectAndProtocol(aClass, aProtocol)
+    #define mockObjectAndProtocol(aClass, aProtocol) (id)MKTMockObjectAndProtocol(aClass, aProtocol)
 #endif
 
 
