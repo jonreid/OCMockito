@@ -19,6 +19,9 @@
 
 - (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer;
 
+/// Stubs given NSNull as return value. Useful for partial mocks.
+- (MKTOngoingStubbing *)willDoNothing;
+
 /// Stubs given object as return value.
 - (MKTOngoingStubbing *)willReturn:(id)object;
 

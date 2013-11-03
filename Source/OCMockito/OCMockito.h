@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MKTClassObjectMock.h"
+#import "MKTPartialMock.h"
 #import "MKTObjectMock.h"
 #import "MKTObjectAndProtocolMock.h"
 #import "MKTOngoingStubbing.h"
@@ -215,4 +216,21 @@ OBJC_EXPORT id MKTAtLeastOnce(void);
  */
 #ifdef MOCKITO_SHORTHAND
     #define atLeastOnce() MKTAtLeastOnce()
+#endif
+
+
+#define MKTSpy(spiedObject) [MKTPartialMock mockForObject:spiedObject]
+
+/**
+ Returns a spy object (partial mock) that forwards unstubbed methods to the spied object.
+ 
+ To prepare object for use after stubbing, call disguise.
+ @code
+ id mock = spy([[Foo alloc] init]);
+ [given([spy methodReturningNumber]) willReturn:@1];
+ [spy disguise];
+ @endcode
+ */
+#ifdef MOCKITO_SHORTHAND
+#define spy(spiedObject) MKTSpy(spiedObject)
 #endif

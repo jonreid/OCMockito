@@ -14,4 +14,8 @@
 
 - (id)init;
 
+- (BOOL)answerStubbedInvocation:(NSInvocation *)invocation;
+- (BOOL)hasAnswerForSelector:(SEL)sel;
+- (void)prepareInvocationForStubbing:(NSInvocation *)invocation;
+
 @end
