@@ -98,6 +98,10 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
             void* arg;
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:(__bridge id)(arg) atIndex:ai];
+        } else if (!strcmp(argType, @encode(typeof(NSObject **)))) {
+          void *arg;
+          [invocation getArgument:&arg atIndex:i];
+          [args insertObject:[NSValue valueWithPointer:arg] atIndex:ai];
         } else {
             NSCAssert1(NO, @"-- Unhandled type: %s", argType);
         }
