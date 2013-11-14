@@ -5,6 +5,8 @@
 //  Created by Erik Blomqvist on 2013-10-20.
 //  Copyright (c) 2013 Erik Blomqvist. All rights reserved.
 //
+//  Portions of this code are based on OCMock, copyright (c) 2004-2013 Mulle Kybernetik. See license file for details.
+
 
 #import "MKTPartialMock.h"
 
