@@ -221,11 +221,18 @@
 {
   // given
   TestObject *testMock = mock([TestObject class]);
-	
   [testMock methodWithError:NULL];
-  
   [verify(testMock) methodWithError:NULL];
-	
 }
+
+- (void)testVerifyWithErrorArgAndObject
+{
+  // given
+  TestObject *testMock = mock([TestObject class]);
+  NSError *error;
+  [testMock methodWithError:&error];
+  [verify(testMock) methodWithError:&error];
+}
+
 
 @end
