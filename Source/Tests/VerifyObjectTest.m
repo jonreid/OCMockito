@@ -26,6 +26,7 @@
 @implementation TestObject
 - (void)methodWithClassArg:(Class)class { return; }
 - (id)methodWithError:(NSError **)error { return nil; }
+- (void)methodWithSelector:(SEL)selector { return; }
 @end
 
 
@@ -234,5 +235,28 @@
   [verify(testMock) methodWithError:&error];
 }
 
+- (void)testVerifyWithNilSelectorArg
+{
+    // given
+    TestObject *testMock = mock([TestObject class]);
+    
+    // when
+    [testMock methodWithSelector:nil];
+    
+    // then
+    [verify(testMock) methodWithSelector:nil];
+}
+
+- (void)testVerifyWithNotNilSelectorArg
+{
+    // given
+    TestObject *testMock = mock([TestObject class]);
+    
+    // when
+    [testMock methodWithSelector:_cmd];
+    
+    // then
+    [verify(testMock) methodWithSelector:_cmd];
+}
 
 @end

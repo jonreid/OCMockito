@@ -29,7 +29,7 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
         } else if(!strcmp(argType, @encode(SEL))) {
             SEL arg = nil;
             [invocation getArgument:&arg atIndex:i];
-            [args insertObject:NSStringFromSelector(arg) atIndex:ai];
+            [args insertObject:arg?NSStringFromSelector(arg):[NSNull null] atIndex:ai];
         } else if(!strcmp(argType, @encode(Class))) {
             __unsafe_unretained Class arg = nil;
             [invocation getArgument:&arg atIndex:i];
