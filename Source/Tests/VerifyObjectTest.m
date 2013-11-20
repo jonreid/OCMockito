@@ -26,6 +26,7 @@
 @implementation TestObject
 - (void)methodWithClassArg:(Class)class { return; }
 - (id)methodWithError:(NSError * __strong *)error { return nil; }
+- (void)methodWithSelector:(SEL)selector { return; }
 @end
 
 
@@ -240,6 +241,20 @@
     [testMock methodWithError:&err1];
     [verifyWithMockTestCase(testMock) methodWithError:&err2];
     assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+}
+
+- (void)testVerifyWithNilSelectorArg
+{
+    TestObject *testMock = mock([TestObject class]);
+    [testMock methodWithSelector:nil];
+    [verify(testMock) methodWithSelector:nil];
+}
+
+- (void)testVerifyWithNotNilSelectorArg
+{
+    TestObject *testMock = mock([TestObject class]);
+    [testMock methodWithSelector:_cmd];
+    [verify(testMock) methodWithSelector:_cmd];
 }
 
 @end
