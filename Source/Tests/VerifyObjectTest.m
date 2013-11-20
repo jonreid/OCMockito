@@ -25,7 +25,6 @@
 
 @implementation TestObject
 - (void)methodWithClassArg:(Class)class { return; }
-- (id)methodWithError:(NSError **)error { return nil; }
 @end
 
 
@@ -216,23 +215,5 @@
     [verify(testMock) methodWithClassArg:[NSString class]];
     [verify(testMock) methodWithClassArg:[NSData class]];
 }
-
-- (void)testVerifyWithErrorArg
-{
-  // given
-  TestObject *testMock = mock([TestObject class]);
-  [testMock methodWithError:NULL];
-  [verify(testMock) methodWithError:NULL];
-}
-
-- (void)testVerifyWithErrorArgAndObject
-{
-  // given
-  TestObject *testMock = mock([TestObject class]);
-  NSError *error;
-  [testMock methodWithError:&error];
-  [verify(testMock) methodWithError:&error];
-}
-
 
 @end
