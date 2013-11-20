@@ -4,6 +4,7 @@ Next version under development
 **Improvements:**
 
 - Added support for pointer arguments, including NSError **
+- Fix crash capturing nil selectors as method parameters. _Thanks to: Sergio_
 
 
 Version 1.1.0
