@@ -1,3 +1,11 @@
+Next version under development
+------------------------------
+
+**Improvements:**
+
+- Added support for pointer arguments, including NSError **
+
+
 Version 1.1.0
 -------------
 _30 Oct 2013_

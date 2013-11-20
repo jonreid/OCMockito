@@ -25,6 +25,7 @@
 
 @implementation TestObject
 - (void)methodWithClassArg:(Class)class { return; }
+- (id)methodWithError:(NSError * __strong *)error { return nil; }
 @end
 
 
@@ -214,6 +215,31 @@
     [testMock methodWithClassArg:[NSData class]];
     [verify(testMock) methodWithClassArg:[NSString class]];
     [verify(testMock) methodWithClassArg:[NSData class]];
+}
+
+- (void)testVerifyWithErrorHandleArgMatchingNull
+{
+    TestObject *testMock = mock([TestObject class]);
+    [testMock methodWithError:NULL];
+    [verify(testMock) methodWithError:NULL];
+}
+
+- (void)testVerifyWithErrorHandleArgMatchingValue
+{
+    TestObject *testMock = mock([TestObject class]);
+    NSError *err;
+    [testMock methodWithError:&err];
+    [verify(testMock) methodWithError:&err];
+}
+
+- (void)testVerifyWithErrorHandleArgNotMatching
+{
+    TestObject *testMock = mock([TestObject class]);
+    NSError *err1;
+    NSError *err2;
+    [testMock methodWithError:&err1];
+    [verifyWithMockTestCase(testMock) methodWithError:&err2];
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 @end
