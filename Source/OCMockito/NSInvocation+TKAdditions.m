@@ -6,13 +6,6 @@
 
 #import "NSInvocation+TKAdditions.h"
 
-// calculate size of struct - inspired in kiwi's KWObjCTypeLength
-NS_INLINE NSUInteger TKObjCTypeLength(const char *objCType) {
-    NSUInteger typeSize = 0;
-    NSGetSizeAndAlignment(objCType, &typeSize, NULL);
-    return typeSize;
-}
-
 NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
 {
     NSMethodSignature *sig = invocation.methodSignature;
@@ -138,10 +131,12 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
         }
         else if((argType[0] == '{')) // Struct
         {
-            NSUInteger structSize = TKObjCTypeLength(argType);
+            NSUInteger structSize = 0;
+            NSGetSizeAndAlignment(argType, &structSize, NULL);
             void *arg = malloc(structSize);
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:[NSValue valueWithBytes:&arg objCType:argType] atIndex:ai];
+            free(arg);
         }
         else
         {
