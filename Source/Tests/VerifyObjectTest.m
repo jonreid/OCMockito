@@ -20,6 +20,12 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
+struct Struct {
+    int anInt;
+    char aChar;
+};
+typedef struct Struct Struct;
+
 @interface TestObject : NSObject
 @end
 
@@ -27,6 +33,7 @@
 - (void)methodWithClassArg:(Class)class { return; }
 - (id)methodWithError:(NSError * __strong *)error { return nil; }
 - (void)methodWithSelector:(SEL)selector { return; }
+- (void)methodWithStruct:(Struct)aStruct { return; }
 @end
 
 
@@ -255,6 +262,30 @@
     TestObject *testMock = mock([TestObject class]);
     [testMock methodWithSelector:_cmd];
     [verify(testMock) methodWithSelector:_cmd];
+}
+
+- (void)testVerifyWithNotNilStructArgMatchingValue
+{
+    TestObject *testMock = mock([TestObject class]);
+    Struct aStruct;
+    aStruct.anInt = 10;
+    aStruct.aChar = 'p';
+    [testMock methodWithStruct:aStruct];
+    [verify(testMock) methodWithStruct:aStruct];
+}
+
+- (void)testVerifyWithNotNilStructArgNotMatching
+{
+    TestObject *testMock = mock([TestObject class]);
+    Struct aStruct;
+    Struct anotherStruct;
+    aStruct.anInt = 10;
+    aStruct.aChar = 'p';
+    anotherStruct.anInt = 1000;
+    anotherStruct.aChar = 'k';
+    [testMock methodWithStruct:aStruct];
+    [verifyWithMockTestCase(testMock) methodWithStruct:anotherStruct];
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 @end

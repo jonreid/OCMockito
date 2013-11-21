@@ -130,6 +130,12 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:[NSValue valueWithPointer:arg] atIndex:ai];
         }
+        else if((argType[0] == '{')) // Struct
+        {
+            void *arg = nil;
+            [invocation getArgument:&arg atIndex:i];
+            [args insertObject:[NSValue valueWithPointer:arg] atIndex:ai];
+        }
         else
         {
             NSCAssert1(NO, @"-- Unhandled type: %s", argType);
