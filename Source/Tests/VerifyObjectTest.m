@@ -293,12 +293,4 @@ typedef struct Struct Struct;
     assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
-//- (void)testoiuefhwoiwe
-//{
-//    TestObject *testMock = mock([TestObject class]);
-//    [testMock methodWithBlock:[^{
-//        [self description];
-//    } copy]];
-//}
-
 @end
