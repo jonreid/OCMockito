@@ -23,6 +23,7 @@
 struct Struct {
     int anInt;
     char aChar;
+    long aLong;
 };
 typedef struct Struct Struct;
 
@@ -34,6 +35,7 @@ typedef struct Struct Struct;
 - (id)methodWithError:(NSError * __strong *)error { return nil; }
 - (void)methodWithSelector:(SEL)selector { return; }
 - (void)methodWithStruct:(Struct)aStruct { return; }
+- (void)methodWithBlock:(dispatch_block_t)block { return; }
 @end
 
 
@@ -270,6 +272,7 @@ typedef struct Struct Struct;
     Struct aStruct;
     aStruct.anInt = 10;
     aStruct.aChar = 'p';
+    aStruct.aLong = 10;
     [testMock methodWithStruct:aStruct];
     [verify(testMock) methodWithStruct:aStruct];
 }
@@ -279,13 +282,23 @@ typedef struct Struct Struct;
     TestObject *testMock = mock([TestObject class]);
     Struct aStruct;
     Struct anotherStruct;
-    aStruct.anInt = 10;
-    aStruct.aChar = 'p';
-    anotherStruct.anInt = 1000;
-    anotherStruct.aChar = 'k';
+    aStruct.anInt = INT_MAX;
+    aStruct.aChar = 'z';
+    aStruct.aLong = LONG_MAX;
+    anotherStruct.anInt = 10;
+    anotherStruct.aChar = 'a';
+    anotherStruct.aLong = 0;
     [testMock methodWithStruct:aStruct];
     [verifyWithMockTestCase(testMock) methodWithStruct:anotherStruct];
     assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
+
+//- (void)testoiuefhwoiwe
+//{
+//    TestObject *testMock = mock([TestObject class]);
+//    [testMock methodWithBlock:[^{
+//        [self description];
+//    } copy]];
+//}
 
 @end
