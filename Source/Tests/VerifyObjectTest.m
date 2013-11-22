@@ -35,7 +35,6 @@ typedef struct Struct Struct;
 - (id)methodWithError:(NSError * __strong *)error { return nil; }
 - (void)methodWithSelector:(SEL)selector { return; }
 - (BOOL)methodWithStruct:(Struct)aStruct { return NO; }
-- (void)methodWithBlock:(dispatch_block_t)block { return; }
 @end
 
 
