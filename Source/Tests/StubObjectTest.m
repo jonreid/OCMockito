@@ -19,6 +19,12 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
+struct Struct {
+    int anInt;
+    char aChar;
+    long aLong;
+};
+typedef struct Struct Struct;
 
 @interface ReturningObject : NSObject
 @end
@@ -30,6 +36,7 @@
 - (Class)methodReturningClassWithClassArg:(Class)arg { return [self class]; }
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
+- (id)methodReturningObjectWithStruct:(Struct)arg { return NO; };
 
 - (BOOL)methodReturningBool { return NO; }
 - (char)methodReturningChar { return 0; }
@@ -111,6 +118,16 @@
     [given([mockObject methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
     [given([mockObject methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
     assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
+}
+
+- (void)testStub_ShouldReturnValueForMatchingStructArgument
+{
+    Struct aStruct;
+    aStruct.anInt = 1;
+    aStruct.aChar = 'a';
+    aStruct.aLong = 2;
+    [given([mockObject methodReturningObjectWithStruct:aStruct]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithStruct:aStruct], is(@"FOO"));
 }
 
 - (void)testStub_ShouldAcceptMatcherForNumericArgument

@@ -34,7 +34,7 @@ typedef struct Struct Struct;
 - (void)methodWithClassArg:(Class)class { return; }
 - (id)methodWithError:(NSError * __strong *)error { return nil; }
 - (void)methodWithSelector:(SEL)selector { return; }
-- (void)methodWithStruct:(Struct)aStruct { return; }
+- (BOOL)methodWithStruct:(Struct)aStruct { return NO; }
 - (void)methodWithBlock:(dispatch_block_t)block { return; }
 @end
 
@@ -266,7 +266,7 @@ typedef struct Struct Struct;
     [verify(testMock) methodWithSelector:_cmd];
 }
 
-- (void)testVerifyWithNotNilStructArgMatchingValue
+- (void)testVerifyWithNotNilStructArgMatchingValueSamePointer
 {
     TestObject *testMock = mock([TestObject class]);
     Struct aStruct;
@@ -277,7 +277,22 @@ typedef struct Struct Struct;
     [verify(testMock) methodWithStruct:aStruct];
 }
 
-- (void)testVerifyWithNotNilStructArgNotMatching
+- (void)testVerifyWithNotNilStructArgMatchingValueSameContent
+{
+    TestObject *testMock = mock([TestObject class]);
+    Struct aStruct;
+    Struct anotherStruct;
+    aStruct.anInt = 1;
+    aStruct.aChar = 'a';
+    aStruct.aLong = 2;
+    anotherStruct.anInt = 1;
+    anotherStruct.aChar = 'a';
+    anotherStruct.aLong = 2;
+    [testMock methodWithStruct:aStruct];
+    [verify(testMock) methodWithStruct:anotherStruct];
+}
+
+- (void)testVerifyWithNotNilStructArgNotMatchingDifferentContent
 {
     TestObject *testMock = mock([TestObject class]);
     Struct aStruct;
