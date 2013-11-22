@@ -22,7 +22,7 @@
 struct Struct {
     int anInt;
     char aChar;
-    long aLong;
+    double aDouble;
 };
 typedef struct Struct Struct;
 
@@ -36,7 +36,7 @@ typedef struct Struct Struct;
 - (Class)methodReturningClassWithClassArg:(Class)arg { return [self class]; }
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
-- (id)methodReturningObjectWithStructArg:(Struct)arg { return NO; };
+- (id)methodReturningObjectWithStruct:(Struct)arg { return NO; };
 
 - (BOOL)methodReturningBool { return NO; }
 - (char)methodReturningChar { return 0; }
@@ -125,7 +125,7 @@ typedef struct Struct Struct;
     Struct aStruct;
     aStruct.anInt = 1;
     aStruct.aChar = 'a';
-    aStruct.aLong = 2;
+    aStruct.aDouble = 2.0;
     [given([mockObject methodReturningObjectWithStruct:aStruct]) willReturn:@"FOO"];
     assertThat([mockObject methodReturningObjectWithStruct:aStruct], is(@"FOO"));
 }

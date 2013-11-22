@@ -134,8 +134,8 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
             NSUInteger structSize = 0;
             NSGetSizeAndAlignment(argType, &structSize, NULL);
             void *arg = malloc(structSize);
-            [invocation getArgument:&arg atIndex:i];
-            [args insertObject:[NSValue valueWithBytes:&arg objCType:argType] atIndex:ai];
+            [invocation getArgument:arg atIndex:i];
+            [args insertObject:[NSData dataWithBytes:arg length:structSize] atIndex:ai];
             free(arg);
         }
         else

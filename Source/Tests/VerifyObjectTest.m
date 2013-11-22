@@ -23,7 +23,7 @@
 struct Struct {
     int anInt;
     char aChar;
-    long aLong;
+    double aDouble;
 };
 typedef struct Struct Struct;
 
@@ -269,9 +269,9 @@ typedef struct Struct Struct;
 {
     TestObject *testMock = mock([TestObject class]);
     Struct aStruct;
-    aStruct.anInt = 1;
+    aStruct.anInt = 3;
     aStruct.aChar = 'a';
-    aStruct.aLong = 2;
+    aStruct.aDouble = 2.0;
     [testMock methodWithStruct:aStruct];
     [verify(testMock) methodWithStruct:aStruct];
 }
@@ -283,10 +283,10 @@ typedef struct Struct Struct;
     Struct anotherStruct;
     aStruct.anInt = 1;
     aStruct.aChar = 'a';
-    aStruct.aLong = 2;
+    aStruct.aDouble = 2.0;
     anotherStruct.anInt = 1;
     anotherStruct.aChar = 'a';
-    anotherStruct.aLong = 2;
+    anotherStruct.aDouble = 2.0;
     [testMock methodWithStruct:aStruct];
     [verify(testMock) methodWithStruct:anotherStruct];
 }
@@ -298,10 +298,10 @@ typedef struct Struct Struct;
     Struct anotherStruct;
     aStruct.anInt = 1;
     aStruct.aChar = 'a';
-    aStruct.aLong = 2;
+    aStruct.aDouble = 2.0;
     anotherStruct.anInt = INT_MAX;
     anotherStruct.aChar = 'z';
-    anotherStruct.aLong = LONG_MAX;
+    anotherStruct.aDouble = DBL_MAX;
     [testMock methodWithStruct:aStruct];
     [verifyWithMockTestCase(testMock) methodWithStruct:anotherStruct];
     assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
