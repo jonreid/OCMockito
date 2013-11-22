@@ -36,7 +36,7 @@ typedef struct Struct Struct;
 - (Class)methodReturningClassWithClassArg:(Class)arg { return [self class]; }
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
-- (id)methodReturningObjectWithStruct:(Struct)arg { return NO; };
+- (id)methodReturningObjectWithStructArg:(Struct)arg { return NO; };
 
 - (BOOL)methodReturningBool { return NO; }
 - (char)methodReturningChar { return 0; }
