@@ -22,9 +22,10 @@
 struct Struct {
     int anInt;
     char aChar;
-    double aDouble;
+    double *arrayOfDoubles;
 };
 typedef struct Struct Struct;
+#define allocDoubleArray() (double *)malloc(10*sizeof(double));
 
 @interface ReturningObject : NSObject
 @end
@@ -120,14 +121,31 @@ typedef struct Struct Struct;
     assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
 }
 
+- (void)testStub_ShouldReturnValueForSameStructArgument
+{
+    double *a = allocDoubleArray();
+    Struct struct1 = {1, 'a', a};
+    [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithStruct:struct1], is(@"FOO"));
+}
+
 - (void)testStub_ShouldReturnValueForMatchingStructArgument
 {
-    Struct aStruct;
-    aStruct.anInt = 1;
-    aStruct.aChar = 'a';
-    aStruct.aDouble = 2.0;
-    [given([mockObject methodReturningObjectWithStruct:aStruct]) willReturn:@"FOO"];
-    assertThat([mockObject methodReturningObjectWithStruct:aStruct], is(@"FOO"));
+    double *a = allocDoubleArray();
+    Struct struct1 = {1, 'a', a};
+    Struct struct2 = {1, 'a', a};
+    [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithStruct:struct2], is(@"FOO"));
+}
+
+- (void)testStub_ShoulReturnNilForNotMatchingStructArgument
+{
+    double *a = allocDoubleArray();
+    double *b = allocDoubleArray();
+    Struct struct1 = {1, 'a', a};
+    Struct struct2 = {1, 'a', b};
+    [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithStruct:struct2], is(nilValue()));
 }
 
 - (void)testStub_ShouldAcceptMatcherForNumericArgument
