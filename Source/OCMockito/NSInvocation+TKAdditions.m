@@ -6,6 +6,10 @@
 
 #import "NSInvocation+TKAdditions.h"
 
+struct MKTStruct {
+};
+typedef struct MKTStruct MKTStruct;
+
 NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
 {
     NSMethodSignature *sig = invocation.methodSignature;
@@ -129,7 +133,7 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:[NSValue valueWithPointer:arg] atIndex:ai];
         }
-        else if((argType[0] == '{')) // Struct
+        else if((argType[0] == @encode(MKTStruct)[0]))
         {
             NSUInteger structSize = 0;
             NSGetSizeAndAlignment(argType, &structSize, NULL);
