@@ -19,12 +19,12 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
-struct Struct {
+struct MKTStruct {
     int anInt;
     char aChar;
     double *arrayOfDoubles;
 };
-typedef struct Struct Struct;
+typedef struct MKTStruct MKTStruct;
 #define allocDoubleArray() (double *)malloc(10*sizeof(double));
 
 @interface ReturningObject : NSObject
@@ -37,7 +37,7 @@ typedef struct Struct Struct;
 - (Class)methodReturningClassWithClassArg:(Class)arg { return [self class]; }
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
-- (id)methodReturningObjectWithStruct:(Struct)arg { return NO; };
+- (id)methodReturningObjectWithStruct:(MKTStruct)arg { return NO; };
 
 - (BOOL)methodReturningBool { return NO; }
 - (char)methodReturningChar { return 0; }
@@ -124,7 +124,7 @@ typedef struct Struct Struct;
 - (void)testStub_ShouldReturnValueForSameStructArgument
 {
     double *a = allocDoubleArray();
-    Struct struct1 = {1, 'a', a};
+    MKTStruct struct1 = {1, 'a', a};
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
     assertThat([mockObject methodReturningObjectWithStruct:struct1], is(@"FOO"));
 }
@@ -132,8 +132,8 @@ typedef struct Struct Struct;
 - (void)testStub_ShouldReturnValueForMatchingStructArgument
 {
     double *a = allocDoubleArray();
-    Struct struct1 = {1, 'a', a};
-    Struct struct2 = {1, 'a', a};
+    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct2 = {1, 'a', a};
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
     assertThat([mockObject methodReturningObjectWithStruct:struct2], is(@"FOO"));
 }
@@ -142,8 +142,8 @@ typedef struct Struct Struct;
 {
     double *a = allocDoubleArray();
     double *b = allocDoubleArray();
-    Struct struct1 = {1, 'a', a};
-    Struct struct2 = {1, 'a', b};
+    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct2 = {1, 'a', b};
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
     assertThat([mockObject methodReturningObjectWithStruct:struct2], is(nilValue()));
 }

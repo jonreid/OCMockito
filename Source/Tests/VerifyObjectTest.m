@@ -20,12 +20,12 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
-struct Struct {
+struct MKTStruct {
     int anInt;
     char aChar;
     double *arrayOfDoubles;
 };
-typedef struct Struct Struct;
+typedef struct MKTStruct MKTStruct;
 #define allocDoubleArray() (double *)malloc(10*sizeof(double));
 
 @interface TestObject : NSObject
@@ -35,7 +35,7 @@ typedef struct Struct Struct;
 - (void)methodWithClassArg:(Class)class { return; }
 - (id)methodWithError:(NSError * __strong *)error { return nil; }
 - (void)methodWithSelector:(SEL)selector { return; }
-- (void)methodWithStruct:(Struct)aStruct { return; }
+- (void)methodWithStruct:(MKTStruct)aStruct { return; }
 @end
 
 
@@ -270,7 +270,7 @@ typedef struct Struct Struct;
 {
     TestObject *testMock = mock([TestObject class]);
     double *a = allocDoubleArray();
-    Struct struct1 = {1, 'a', a};
+    MKTStruct struct1 = {1, 'a', a};
     [testMock methodWithStruct:struct1];
     [verify(testMock) methodWithStruct:struct1];
 }
@@ -279,8 +279,8 @@ typedef struct Struct Struct;
 {
     TestObject *testMock = mock([TestObject class]);
     double *a = allocDoubleArray();
-    Struct struct1 = {1, 'a', a};
-    Struct struct2 = {1, 'a', a};
+    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct2 = {1, 'a', a};
     [testMock methodWithStruct:struct1];
     [verify(testMock) methodWithStruct:struct2];
 }
@@ -290,8 +290,8 @@ typedef struct Struct Struct;
     TestObject *testMock = mock([TestObject class]);
     double *a = allocDoubleArray();
     double *b = allocDoubleArray();
-    Struct struct1 = {1, 'a', a};
-    Struct struct2 = {1, 'a', b};
+    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct2 = {1, 'a', b};
     [testMock methodWithStruct:struct1];
     [verifyWithMockTestCase(testMock) methodWithStruct:struct2];
     assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
