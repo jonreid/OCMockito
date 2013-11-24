@@ -6,6 +6,7 @@
 
 #import "NSInvocation+TKAdditions.h"
 
+typedef void (^TKBlockType)(void);
 
 NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
 {
@@ -26,7 +27,15 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
         {
             __unsafe_unretained id arg = nil;
             [invocation getArgument:&arg atIndex:i];
-            [args insertObject:arg?arg:[NSNull null] atIndex:ai];
+            if (!strcmp(argType, @encode(TKBlockType)))
+            {
+                // Make sure blocks are copied
+                [args insertObject:(arg ? [arg copy] : [NSNull null]) atIndex:ai];
+            }
+            else
+            {
+                [args insertObject:(arg ? arg : [NSNull null]) atIndex:ai];
+            }
         }
         else if (strcmp(argType, @encode(SEL)) == 0)
         {
