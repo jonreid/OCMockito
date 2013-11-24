@@ -6,6 +6,7 @@
 
 #import "NSInvocation+TKAdditions.h"
 
+typedef struct MKTDummyStruct {} MKTDummyStruct;
 
 NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
 {
@@ -129,6 +130,15 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
             void *arg;
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:[NSValue valueWithPointer:arg] atIndex:ai];
+        }
+        else if((argType[0] == @encode(MKTDummyStruct)[0]))
+        {
+            NSUInteger structSize = 0;
+            NSGetSizeAndAlignment(argType, &structSize, NULL);
+            void *arg = calloc(1, structSize); // ignore aligment padding
+            [invocation getArgument:arg atIndex:i];
+            [args insertObject:[NSData dataWithBytes:arg length:structSize] atIndex:ai];
+            free(arg);
         }
         else
         {

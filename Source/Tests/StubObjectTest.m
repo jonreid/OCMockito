@@ -19,6 +19,13 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
+struct MKTStruct {
+    int anInt;
+    char aChar;
+    double *arrayOfDoubles;
+};
+typedef struct MKTStruct MKTStruct;
+#define allocDoubleArray() (double *)malloc(10*sizeof(double));
 
 @interface ReturningObject : NSObject
 @end
@@ -30,6 +37,7 @@
 - (Class)methodReturningClassWithClassArg:(Class)arg { return [self class]; }
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
+- (id)methodReturningObjectWithStruct:(MKTStruct)arg { return NO; };
 
 - (BOOL)methodReturningBool { return NO; }
 - (char)methodReturningChar { return 0; }
@@ -111,6 +119,33 @@
     [given([mockObject methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
     [given([mockObject methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
     assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
+}
+
+- (void)testStub_ShouldReturnValueForSameStructArgument
+{
+    double *a = allocDoubleArray();
+    MKTStruct struct1 = {1, 'a', a};
+    [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithStruct:struct1], is(@"FOO"));
+}
+
+- (void)testStub_ShouldReturnValueForMatchingStructArgument
+{
+    double *a = allocDoubleArray();
+    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct2 = {1, 'a', a};
+    [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithStruct:struct2], is(@"FOO"));
+}
+
+- (void)testStub_ShoulReturnNilForNotMatchingStructArgument
+{
+    double *a = allocDoubleArray();
+    double *b = allocDoubleArray();
+    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct2 = {1, 'a', b};
+    [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithStruct:struct2], is(nilValue()));
 }
 
 - (void)testStub_ShouldAcceptMatcherForNumericArgument

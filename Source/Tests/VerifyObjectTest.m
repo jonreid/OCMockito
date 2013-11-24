@@ -20,6 +20,14 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
+struct MKTStruct {
+    int anInt;
+    char aChar;
+    double *arrayOfDoubles;
+};
+typedef struct MKTStruct MKTStruct;
+#define allocDoubleArray() (double *)malloc(10*sizeof(double));
+
 @interface TestObject : NSObject
 @end
 
@@ -27,6 +35,7 @@
 - (void)methodWithClassArg:(Class)class { return; }
 - (id)methodWithError:(NSError * __strong *)error { return nil; }
 - (void)methodWithSelector:(SEL)selector { return; }
+- (void)methodWithStruct:(MKTStruct)aStruct { return; }
 @end
 
 
@@ -255,6 +264,37 @@
     TestObject *testMock = mock([TestObject class]);
     [testMock methodWithSelector:_cmd];
     [verify(testMock) methodWithSelector:_cmd];
+}
+
+- (void)testVerifyWithNotNilStructArgMatchingValueSamePointer
+{
+    TestObject *testMock = mock([TestObject class]);
+    double *a = allocDoubleArray();
+    MKTStruct struct1 = {1, 'a', a};
+    [testMock methodWithStruct:struct1];
+    [verify(testMock) methodWithStruct:struct1];
+}
+
+- (void)testVerifyWithNotNilStructArgMatchingValueSameContent
+{
+    TestObject *testMock = mock([TestObject class]);
+    double *a = allocDoubleArray();
+    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct2 = {1, 'a', a};
+    [testMock methodWithStruct:struct1];
+    [verify(testMock) methodWithStruct:struct2];
+}
+
+- (void)testVerifyWithNotNilStructArgNotMatchingDifferentContent
+{
+    TestObject *testMock = mock([TestObject class]);
+    double *a = allocDoubleArray();
+    double *b = allocDoubleArray();
+    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct2 = {1, 'a', b};
+    [testMock methodWithStruct:struct1];
+    [verifyWithMockTestCase(testMock) methodWithStruct:struct2];
+    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 
 @end
