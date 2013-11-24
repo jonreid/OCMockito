@@ -19,6 +19,7 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
+typedef void (^StubObjectBlockArgument)(void);
 
 @interface ReturningObject : NSObject
 @end
@@ -30,6 +31,7 @@
 - (Class)methodReturningClassWithClassArg:(Class)arg { return [self class]; }
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
+- (id)methodReturningObjectWithBlockArg:(StubObjectBlockArgument)arg { return self; }
 
 - (BOOL)methodReturningBool { return NO; }
 - (char)methodReturningChar { return 0; }
@@ -111,6 +113,36 @@
     [given([mockObject methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
     [given([mockObject methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
     assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
+}
+
+- (void)testStub_ShouldReturnValueForSameBlockArgument
+{
+    StubObjectBlockArgument block = ^{ };
+    [given([mockObject methodReturningObjectWithBlockArg:block]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithBlockArg:block], is(@"FOO"));
+}
+
+- (void)testStub_ShouldReturnNilForInlineBlockArgument
+{
+    [given([mockObject methodReturningObjectWithBlockArg:^{ }])
+     willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithBlockArg:^{ }], is(nilValue()));
+}
+
+- (void)testStub_ShouldReturnNilForInlineBlockArgumentCapturingScopeVariable
+{
+    NSNumber *someVariable = @0;
+    [given([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }])
+     willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }], is(nilValue()));
+}
+
+- (void)testStub_ShouldNotReturnValueForMatchingBlockArgument
+{
+    StubObjectBlockArgument emptyBlock = ^{ };
+    StubObjectBlockArgument anotherEmptyBlock = ^{ };
+    [given([mockObject methodReturningObjectWithBlockArg:emptyBlock]) willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithBlockArg:anotherEmptyBlock], isNot(@"FOO"));
 }
 
 - (void)testStub_ShouldAcceptMatcherForNumericArgument
