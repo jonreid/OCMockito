@@ -6,9 +6,7 @@
 
 #import "NSInvocation+TKAdditions.h"
 
-struct MKTStruct {
-};
-typedef struct MKTStruct MKTStruct;
+typedef struct MKTDummyStruct {} MKTDummyStruct;
 
 NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
 {
@@ -133,7 +131,7 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:[NSValue valueWithPointer:arg] atIndex:ai];
         }
-        else if((argType[0] == @encode(MKTStruct)[0]))
+        else if((argType[0] == @encode(MKTDummyStruct)[0]))
         {
             NSUInteger structSize = 0;
             NSGetSizeAndAlignment(argType, &structSize, NULL);
