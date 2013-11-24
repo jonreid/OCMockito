@@ -23,9 +23,10 @@
 struct Struct {
     int anInt;
     char aChar;
-    double aDouble;
+    double *arrayOfDoubles;
 };
 typedef struct Struct Struct;
+#define allocDoubleArray() (double *)malloc(10*sizeof(double));
 
 @interface TestObject : NSObject
 @end
@@ -268,42 +269,31 @@ typedef struct Struct Struct;
 - (void)testVerifyWithNotNilStructArgMatchingValueSamePointer
 {
     TestObject *testMock = mock([TestObject class]);
-    Struct aStruct;
-    aStruct.anInt = 3;
-    aStruct.aChar = 'a';
-    aStruct.aDouble = 2.0;
-    [testMock methodWithStruct:aStruct];
-    [verify(testMock) methodWithStruct:aStruct];
+    double *a = allocDoubleArray();
+    Struct struct1 = {1, 'a', a};
+    [testMock methodWithStruct:struct1];
+    [verify(testMock) methodWithStruct:struct1];
 }
 
 - (void)testVerifyWithNotNilStructArgMatchingValueSameContent
 {
     TestObject *testMock = mock([TestObject class]);
-    Struct aStruct;
-    Struct anotherStruct;
-    aStruct.anInt = 1;
-    aStruct.aChar = 'a';
-    aStruct.aDouble = 2.0;
-    anotherStruct.anInt = 1;
-    anotherStruct.aChar = 'a';
-    anotherStruct.aDouble = 2.0;
-    [testMock methodWithStruct:aStruct];
-    [verify(testMock) methodWithStruct:anotherStruct];
+    double *a = allocDoubleArray();
+    Struct struct1 = {1, 'a', a};
+    Struct struct2 = {1, 'a', a};
+    [testMock methodWithStruct:struct1];
+    [verify(testMock) methodWithStruct:struct2];
 }
 
 - (void)testVerifyWithNotNilStructArgNotMatchingDifferentContent
 {
     TestObject *testMock = mock([TestObject class]);
-    Struct aStruct;
-    Struct anotherStruct;
-    aStruct.anInt = 1;
-    aStruct.aChar = 'a';
-    aStruct.aDouble = 2.0;
-    anotherStruct.anInt = INT_MAX;
-    anotherStruct.aChar = 'z';
-    anotherStruct.aDouble = DBL_MAX;
-    [testMock methodWithStruct:aStruct];
-    [verifyWithMockTestCase(testMock) methodWithStruct:anotherStruct];
+    double *a = allocDoubleArray();
+    double *b = allocDoubleArray();
+    Struct struct1 = {1, 'a', a};
+    Struct struct2 = {1, 'a', b};
+    [testMock methodWithStruct:struct1];
+    [verifyWithMockTestCase(testMock) methodWithStruct:struct2];
     assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
 }
 

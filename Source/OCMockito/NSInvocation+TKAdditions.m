@@ -133,7 +133,7 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
         {
             NSUInteger structSize = 0;
             NSGetSizeAndAlignment(argType, &structSize, NULL);
-            void *arg = calloc(1, structSize);
+            void *arg = calloc(1, structSize); // ignore aligment padding
             [invocation getArgument:arg atIndex:i];
             [args insertObject:[NSData dataWithBytes:arg length:structSize] atIndex:ai];
             free(arg);
