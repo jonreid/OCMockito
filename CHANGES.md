@@ -5,6 +5,7 @@ Next version under development
 
 - Added support for pointer arguments, including NSError **
 - Fix crash capturing nil selectors as method parameters. _Thanks to: Sergio Padrino_
+- Fix crash capturing inline blocks as method parameters. _Thanks to: Sergio Padrino_
 
 
 Version 1.1.0
