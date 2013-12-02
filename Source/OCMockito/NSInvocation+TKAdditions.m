@@ -23,19 +23,17 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
         argType = [sig getArgumentTypeAtIndex:i];
         NSUInteger ai = i-2;
 
-        if (argType[0] == @encode(id)[0])
+        if (strcmp(argType, @encode(TKBlockType)) == 0)
         {
             __unsafe_unretained id arg = nil;
             [invocation getArgument:&arg atIndex:i];
-            if (!strcmp(argType, @encode(TKBlockType)))
-            {
-                // Make sure blocks are copied
-                [args insertObject:(arg ? [arg copy] : [NSNull null]) atIndex:ai];
-            }
-            else
-            {
-                [args insertObject:(arg ? arg : [NSNull null]) atIndex:ai];
-            }
+            [args insertObject:(arg ? [arg copy] : [NSNull null]) atIndex:ai];
+        }
+        else if (argType[0] == @encode(id)[0])
+        {
+            __unsafe_unretained id arg = nil;
+            [invocation getArgument:&arg atIndex:i];
+            [args insertObject:(arg ? arg : [NSNull null]) atIndex:ai];
         }
         else if (strcmp(argType, @encode(SEL)) == 0)
         {
