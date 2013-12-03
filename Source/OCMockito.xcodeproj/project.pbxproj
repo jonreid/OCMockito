@@ -122,6 +122,10 @@
 		638F68DA150FC21A0081DEE6 /* MKTClassObjectMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */; };
 		638F68DD150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */; };
 		638F68DE150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */; };
+		763694BB1813400100EEB2D5 /* MKTPartialMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 763694B91813400100EEB2D5 /* MKTPartialMock.h */; };
+		763694BC1813400100EEB2D5 /* MKTPartialMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 763694BA1813400100EEB2D5 /* MKTPartialMock.m */; };
+		763694BE1813418500EEB2D5 /* MKTPartialMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 763694BD1813418500EEB2D5 /* MKTPartialMockTest.m */; };
+		763694BF1813418500EEB2D5 /* MKTPartialMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 763694BD1813418500EEB2D5 /* MKTPartialMockTest.m */; };
 		BB33341789FA6BC5D8626099 /* NSInvocation+TKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */; };
 		BB33350FCF04694252E73AC0 /* MKTCapturingMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */; };
 		BB33358A201321406097DDB8 /* MKTArgumentCaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */; };
@@ -232,6 +236,9 @@
 		638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTClassObjectMock.h; sourceTree = "<group>"; };
 		638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMock.m; sourceTree = "<group>"; };
 		638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMockTest.m; sourceTree = "<group>"; };
+		763694B91813400100EEB2D5 /* MKTPartialMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPartialMock.h; sourceTree = "<group>"; };
+		763694BA1813400100EEB2D5 /* MKTPartialMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPartialMock.m; sourceTree = "<group>"; };
+		763694BD1813418500EEB2D5 /* MKTPartialMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPartialMockTest.m; sourceTree = "<group>"; };
 		BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCapturingMatcher.m; sourceTree = "<group>"; };
 		BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTArgumentCaptor.h; sourceTree = "<group>"; };
 		BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+TKAdditions.m"; sourceTree = "<group>"; };
@@ -332,6 +339,8 @@
 				BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */,
 				638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */,
 				638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */,
+				763694B91813400100EEB2D5 /* MKTPartialMock.h */,
+				763694BA1813400100EEB2D5 /* MKTPartialMock.m */,
 				085D2FB31351082800EBBE91 /* MKTObjectMock.h */,
 				085D2FB41351082800EBBE91 /* MKTObjectMock.m */,
 				08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */,
@@ -373,6 +382,7 @@
 				361533CB153F283800BB982B /* MKTAtLeastTimesTest.m */,
 				08C0A5AA17FD0DAA00E76992 /* MKTCapturingMatcherTest.m */,
 				638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */,
+				763694BD1813418500EEB2D5 /* MKTPartialMockTest.m */,
 				089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */,
 				08E9DC271516739A00BD7FB4 /* MKTObjectAndProtocolMockTest.m */,
 				085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */,
@@ -440,6 +450,7 @@
 				085D2FB51351082800EBBE91 /* MKTObjectMock.h in Headers */,
 				0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */,
 				0827E8421352B6FC00C39A57 /* MKTMockitoCore.h in Headers */,
+				763694BB1813400100EEB2D5 /* MKTPartialMock.h in Headers */,
 				0827E8481352B7BF00C39A57 /* MKTMockingProgress.h in Headers */,
 				0827E8531352BBBC00C39A57 /* MKTVerificationMode.h in Headers */,
 				0827E8561352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
@@ -677,6 +688,7 @@
 				089A8C3313555D0C003E7D27 /* StubObjectTest.m in Sources */,
 				08F189E41359661E00F76379 /* MKTMockingProgressTest.m in Sources */,
 				08F189FE135A6D1300F76379 /* MKTInvocationMatcherTest.m in Sources */,
+				763694BF1813418500EEB2D5 /* MKTPartialMockTest.m in Sources */,
 				085A8BC8150718E30018EC66 /* MKTProtocolMockTest.m in Sources */,
 				08FD4B211509A6C40004E1FA /* MockTestCase.m in Sources */,
 				08FD4B241509A93B0004E1FA /* VerifyProtocolTest.m in Sources */,
@@ -697,6 +709,7 @@
 			files = (
 				085D2FB61351082800EBBE91 /* MKTObjectMock.m in Sources */,
 				0827E8441352B6FC00C39A57 /* MKTMockitoCore.m in Sources */,
+				763694BC1813400100EEB2D5 /* MKTPartialMock.m in Sources */,
 				0827E84A1352B7BF00C39A57 /* MKTMockingProgress.m in Sources */,
 				0827E86B1352CC6400C39A57 /* MKTExactTimes.m in Sources */,
 				0827E86E1353E30400C39A57 /* MKTVerificationData.m in Sources */,
@@ -727,6 +740,7 @@
 				089A8C3213555D0C003E7D27 /* StubObjectTest.m in Sources */,
 				08F189E31359661E00F76379 /* MKTMockingProgressTest.m in Sources */,
 				08F189FD135A6D1300F76379 /* MKTInvocationMatcherTest.m in Sources */,
+				763694BE1813418500EEB2D5 /* MKTPartialMockTest.m in Sources */,
 				085A8BC7150718E30018EC66 /* MKTProtocolMockTest.m in Sources */,
 				08FD4B201509A6C40004E1FA /* MockTestCase.m in Sources */,
 				08FD4B231509A93B0004E1FA /* VerifyProtocolTest.m in Sources */,

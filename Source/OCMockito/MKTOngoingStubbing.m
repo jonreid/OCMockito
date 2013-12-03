@@ -24,6 +24,12 @@
     return self;
 }
 
+- (MKTOngoingStubbing *)willDoNothing
+{
+    [_invocationContainer addAnswer:[NSNull null]];
+    return self;
+}
+
 - (MKTOngoingStubbing *)willReturn:(id)object
 {
     [_invocationContainer addAnswer:object];
