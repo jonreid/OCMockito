@@ -22,6 +22,12 @@
 typedef void (^StubObjectBlockArgument)(void);
 
 @interface ReturningObject : NSObject
+
+typedef struct {
+  int anInt;
+  float aFloat;
+} aStruct;
+
 @end
 
 @implementation ReturningObject
@@ -48,6 +54,7 @@ typedef void (^StubObjectBlockArgument)(void);
 - (NSUInteger)methodReturningUnsignedInteger { return 0; }
 - (float)methodReturningFloat { return 0; }
 - (double)methodReturningDouble { return 0; }
+- (aStruct)methodReturningStruct { aStruct returnedStruct = {0, 0.f}; return returnedStruct; }
 
 @end
 
@@ -247,6 +254,21 @@ typedef void (^StubObjectBlockArgument)(void);
 {
     [given([mockObject methodReturningDouble]) willReturnDouble:42];
     assertThatDouble([mockObject methodReturningDouble], equalToDouble(42));
+}
+
+- (void)testStubbedMethodShouldReturnGivenStruct
+{
+  int anInt = 123;
+  float aFloat = 0.5f;
+  aStruct someStruct = { anInt, aFloat };
+
+  // when
+  [given([mockObject methodReturningStruct]) willReturnStruct:&someStruct objCType:@encode(typeof(aStruct))];
+  someStruct = [mockObject methodReturningStruct];
+
+  // then
+  assertThat(@(someStruct.anInt), is(@(anInt)));
+  assertThat(@(someStruct.aFloat), is(@(aFloat)));
 }
 
 @end
