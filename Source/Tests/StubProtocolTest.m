@@ -105,7 +105,7 @@ typedef struct {
   aStruct someStruct = { anInt };
 
   // when
-  [given([mockProtocol methodReturningStruct]) willReturnStruct:&someStruct];
+  [given([mockProtocol methodReturningStruct]) willReturnStruct:&someStruct objCType:@encode(typeof(aStruct))];
   someStruct = [mockProtocol methodReturningStruct];
 
   // then

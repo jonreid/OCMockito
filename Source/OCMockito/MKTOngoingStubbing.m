@@ -120,9 +120,9 @@
     return self;
 }
 
-- (MKTOngoingStubbing *)willReturnStruct:(void *)value
+- (MKTOngoingStubbing *)willReturnStruct:(const void *)value objCType:(const char *)type
 {
-  NSValue *answer = [NSValue valueWithBytes:value objCType:@encode(typeof(value))];
+  NSValue *answer = [NSValue valueWithBytes:value objCType:type];
   [_invocationContainer addAnswer:answer];
   return self;
 }
