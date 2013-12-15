@@ -120,6 +120,12 @@
     return self;
 }
 
+- (MKTOngoingStubbing *)willReturnStruct:(void *)value
+{
+  NSValue *answer = [NSValue valueWithBytes:value objCType:@encode(typeof(value))];
+  [_invocationContainer addAnswer:answer];
+  return self;
+}
 
 #pragma mark MKTPrimitiveArgumentMatching
 

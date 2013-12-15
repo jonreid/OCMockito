@@ -19,6 +19,9 @@
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #endif
 
+typedef struct {
+  int aMember;
+} aStruct;
 
 @protocol ReturningProtocol <NSObject>
 
@@ -26,6 +29,7 @@
 - (id)methodReturningObjectWithArg:(id)arg;
 - (id)methodReturningObjectWithIntArg:(int)arg;
 - (short)methodReturningShort;
+- (aStruct)methodReturningStruct;
 
 @end
 
@@ -95,4 +99,16 @@
     assertThatShort([mockProtocol methodReturningShort], equalToShort(42));
 }
 
+- (void)testStubbedMethodShouldReturnGivenStruct
+{
+  int anInt = 123;
+  aStruct someStruct = { anInt };
+
+  // when
+  [given([mockProtocol methodReturningStruct]) willReturnStruct:&someStruct];
+  someStruct = [mockProtocol methodReturningStruct];
+
+  // then
+  assertThat(@(someStruct.aMember), is(@(anInt)));
+}
 @end

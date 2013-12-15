@@ -220,4 +220,10 @@ void MKTSetReturnValueForInvocation(NSInvocation *invocation, id returnValue)
         double value = [returnValue doubleValue];
         [invocation setReturnValue:&value];
     }
+    else if (returnType[0] == '{')
+    {
+        NSMutableData *value = [NSMutableData dataWithLength:[methodSignature methodReturnLength]];
+        [returnValue getValue:value.mutableBytes];
+        [invocation setReturnValue:value.mutableBytes];
+    }
 }
