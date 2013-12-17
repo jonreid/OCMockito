@@ -160,6 +160,11 @@ void MKTSetReturnValueForInvocation(NSInvocation *invocation, id returnValue)
         __unsafe_unretained Class value = returnValue;
         [invocation setReturnValue:&value];
     }
+    else if (strcmp(returnType, @encode(BOOL)) == 0)
+    {
+        BOOL value = [returnValue boolValue];
+        [invocation setReturnValue:&value];
+    }
     else if (strcmp(returnType, @encode(char)) == 0)
     {
         char value = [returnValue charValue];
