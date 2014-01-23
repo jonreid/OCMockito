@@ -139,7 +139,7 @@ NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation)
             [invocation getArgument:&arg atIndex:i];
             [args insertObject:[NSValue valueWithPointer:arg] atIndex:ai];
         }
-        else if((argType[0] == @encode(MKTDummyStructure)[0]))
+        else if(argType[0] == @encode(MKTDummyStructure)[0])
         {
             NSUInteger structSize = 0;
             NSGetSizeAndAlignment(argType, &structSize, NULL);

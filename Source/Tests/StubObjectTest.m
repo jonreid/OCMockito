@@ -27,7 +27,11 @@ typedef struct {
     double *arrayOfDoubles;
 } MKTStruct;
 
+<<<<<<< HEAD
 double *createArrayOf10Doubles(void)
+=======
+static inline double *createArrayOf10Doubles(void)
+>>>>>>> Clean up contributed code, add attribution in changelog
 {
     return malloc(10*sizeof(double));
 }
