@@ -20,13 +20,18 @@
 #endif
 
 typedef void (^StubObjectBlockArgument)(void);
-struct MKTStruct {
+
+typedef struct {
     int anInt;
     char aChar;
     double *arrayOfDoubles;
-};
-typedef struct MKTStruct MKTStruct;
-#define allocDoubleArray() (double *)malloc(10*sizeof(double));
+} MKTStruct;
+
+double *createArrayOf10Doubles(void)
+{
+    return malloc(10*sizeof(double));
+}
+
 
 @interface ReturningObject : NSObject
 @end
@@ -155,29 +160,39 @@ typedef struct MKTStruct MKTStruct;
 
 - (void)testStub_ShouldReturnValueForSameStructArgument
 {
-    double *a = allocDoubleArray();
+    double *a = createArrayOf10Doubles();
     MKTStruct struct1 = {1, 'a', a};
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+
     assertThat([mockObject methodReturningObjectWithStruct:struct1], is(@"FOO"));
+
+    free(a);
 }
 
 - (void)testStub_ShouldReturnValueForMatchingStructArgument
 {
-    double *a = allocDoubleArray();
+    double *a = createArrayOf10Doubles();
     MKTStruct struct1 = {1, 'a', a};
     MKTStruct struct2 = {1, 'a', a};
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+
     assertThat([mockObject methodReturningObjectWithStruct:struct2], is(@"FOO"));
+
+    free(a);
 }
 
 - (void)testStub_ShoulReturnNilForNotMatchingStructArgument
 {
-    double *a = allocDoubleArray();
-    double *b = allocDoubleArray();
+    double *a = createArrayOf10Doubles();
+    double *b = createArrayOf10Doubles();
     MKTStruct struct1 = {1, 'a', a};
     MKTStruct struct2 = {1, 'a', b};
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
+
     assertThat([mockObject methodReturningObjectWithStruct:struct2], is(nilValue()));
+
+    free(a);
+    free(b);
 }
 
 - (void)testStub_ShouldAcceptMatcherForNumericArgument

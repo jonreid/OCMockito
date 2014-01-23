@@ -3,13 +3,14 @@ Next version under development
 
 **Improvements:**
 
-- Added support for pointer arguments, including NSError **
-- Fix crash capturing nil selectors as method parameters. _Thanks to: Sergio Padrino_
-- Fix crash capturing inline blocks as method parameters. _Thanks to: Sergio Padrino_
+- Added support for pointer arguments, including `NSError **`.
+- Added support for struct arguments. _Thanks to: César Estébanez Tascón_
 
 **Fixes:**
 
 - Drop support for 64-bit iOS because it requires targeting iOS 7.
+- Fix crash capturing nil selectors as method parameters. _Thanks to: Sergio Padrino_
+- Fix crash capturing inline blocks as method parameters. _Thanks to: Sergio Padrino_
 
 
 Version 1.1.0
