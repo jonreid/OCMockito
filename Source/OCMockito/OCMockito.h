@@ -14,7 +14,6 @@
 #import "MKTObjectAndProtocolMock.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTProtocolMock.h"
-#import <objc/objc-api.h>
 
 
 #define MKTMock(aClass) (id)[MKTObjectMock mockForClass:aClass]
@@ -69,7 +68,7 @@
 #endif
 
 
-OBJC_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
+FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
 #define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
 
 /**
@@ -90,7 +89,7 @@ OBJC_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fi
 #endif
 
 
-OBJC_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
+FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 #define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
 /**
@@ -120,7 +119,7 @@ OBJC_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName,
 #endif
 
 
-OBJC_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
+FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
 #define MKTVerifyCount(mock, mode) MKTVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
 
 /**
@@ -144,7 +143,7 @@ OBJC_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const c
 #endif
 
 
-OBJC_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
+FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 
 /**
  Verifies exact number of invocations.
@@ -162,7 +161,7 @@ OBJC_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 #endif
 
 
-OBJC_EXPORT id MKTNever(void);
+FOUNDATION_EXPORT id MKTNever(void);
 
 /**
  Verifies that interaction did not happen.
@@ -180,7 +179,7 @@ OBJC_EXPORT id MKTNever(void);
 #endif
 
 
-OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
+FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
 
 /**
  Verifies minimum number of invocations.
@@ -201,7 +200,7 @@ OBJC_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
 #endif
 
 
-OBJC_EXPORT id MKTAtLeastOnce(void);
+FOUNDATION_EXPORT id MKTAtLeastOnce(void);
 
 /**
  Verifies that interaction happened once or more.
