@@ -1,0 +1,11 @@
+language: objective-c
+
+before_install:
+  - sudo easy_install cpp-coveralls
+
+script:
+  - xcodebuild test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.0
+  - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx10.9
+
+after_success:
+  - ./coveralls.rb --exclude-folder Source/Tests
