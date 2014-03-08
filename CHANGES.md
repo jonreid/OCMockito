@@ -8,7 +8,6 @@ Next version under development
 
 **Fixes:**
 
-- Drop support for 64-bit iOS because it requires targeting iOS 7.
 - Fix crash capturing nil selectors as method parameters. _Thanks to: Sergio Padrino_
 - Fix crash capturing inline blocks as method parameters. _Thanks to: Sergio Padrino_
 
