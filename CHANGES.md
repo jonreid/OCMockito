@@ -5,6 +5,8 @@ Next version under development
 
 - Added support for pointer arguments, including `NSError **`.
 - Added support for struct arguments. _Thanks to: César Estébanez Tascón_
+- To build OCMockito without CocoaPods, execute the script Frameworks/gethamcrest first to get the
+  latest OCHamcrest release.
 
 **Fixes:**
 

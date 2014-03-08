@@ -1,2 +1,2 @@
-To build OCMockito without CocoaPods, place OCHamcrest-3.0.0 (containing OCHamcrest.framework and
-OCHamcrestIOS.framework) in this folder.
+To build OCMockito without CocoaPods, execute the script gethamcrest first to get the latest
+OCHamcrest release.
