@@ -12,6 +12,7 @@ Next version under development
 
 - Fix crash capturing nil selectors as method parameters. _Thanks to: Sergio Padrino_
 - Fix crash capturing inline blocks as method parameters. _Thanks to: Sergio Padrino_
+- Fix crash returning BOOL on 64-bit iOS. _Thanks to: Ullrich Schäfer_
 
 
 Version 1.1.0
