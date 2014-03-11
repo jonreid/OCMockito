@@ -25,6 +25,7 @@
 - (id)methodReturningObject;
 - (id)methodReturningObjectWithArg:(id)arg;
 - (id)methodReturningObjectWithIntArg:(int)arg;
+- (BOOL)methodReturningBOOL;
 - (short)methodReturningShort;
 
 @end
@@ -87,6 +88,12 @@
     [[given([mockProtocol methodReturningObjectWithIntArg:0])
             withMatcher:greaterThan(@1)] willReturn:@"FOO"];
     assertThat([mockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
+}
+
+- (void)testStubbedMethod_ShouldReturnGivenBool
+{
+    [given([mockProtocol methodReturningBOOL]) willReturnBool:YES];
+    assertThatBool([mockProtocol methodReturningBOOL], equalToBool(YES));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenShort

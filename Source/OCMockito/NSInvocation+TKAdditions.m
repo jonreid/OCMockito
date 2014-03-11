@@ -196,6 +196,11 @@ void MKTSetReturnValueForInvocation(NSInvocation *invocation, id returnValue)
         long long value = [returnValue longLongValue];
         [invocation setReturnValue:&value];
     }
+    else if(strcmp(returnType, @encode(BOOL)) == 0)
+    {
+        BOOL value = [returnValue boolValue];
+        [invocation setReturnValue:&value];
+    }
     else if (strcmp(returnType, @encode(unsigned char)) == 0)
     {
         unsigned char value = [returnValue unsignedCharValue];
