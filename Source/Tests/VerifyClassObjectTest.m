@@ -26,7 +26,7 @@
 
 @implementation VerifyClassObjectTest
 {
-    Class mockStringClass;
+    __strong Class mockStringClass;
 }
 
 - (void)setUp
