@@ -57,7 +57,7 @@
 
     self.numberOfArguments = [[self.expected methodSignature] numberOfArguments] - 2;
     [self trueUpArgumentMatchersToCount:self.numberOfArguments];
-    [self replacePlaceholdersWithEqualityMatchersForArguments:TKArrayArgumentsForInvocation(self.expected)];
+    [self replacePlaceholdersWithEqualityMatchersForArguments:[self.expected tk_arrayArguments]];
 }
 
 - (void)replacePlaceholdersWithEqualityMatchersForArguments:(NSArray *)expectedArgs
@@ -87,7 +87,7 @@
     if ([self.expected selector] != [actual selector])
         return NO;
 
-    NSArray *actualArgs = TKArrayArgumentsForInvocation(actual);
+    NSArray *actualArgs = [actual tk_arrayArguments];
     for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
     {
         if ([self argument:actualArgs[index] doesNotMatch:self.argumentMatchers[index]])
@@ -121,7 +121,7 @@
     {
         if ([self.expected selector] == [inv selector])
         {
-            NSArray *args = TKArrayArgumentsForInvocation(inv);
+            NSArray *args = [inv tk_arrayArguments];
             [capturingMatcher performSelector:@selector(captureArgument:) withObject:args[index]];
         }
     }

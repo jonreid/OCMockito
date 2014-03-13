@@ -6,6 +6,9 @@
 
 #import <Foundation/Foundation.h>
 
+@interface NSInvocation (TKAdditions)
 
-NSArray *TKArrayArgumentsForInvocation(NSInvocation *invocation);
-void MKTSetReturnValueForInvocation(NSInvocation *invocation, id returnValue);
+- (NSArray *)tk_arrayArguments;
+- (void)mkt_setReturnValue:(id)returnValue;
+
+@end

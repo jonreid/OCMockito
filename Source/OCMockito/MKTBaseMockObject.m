@@ -92,7 +92,7 @@
 
 - (void)useExistingAnswerInStub:(MKTStubbedInvocationMatcher *)stub forInvocation:(NSInvocation *)invocation
 {
-    MKTSetReturnValueForInvocation(invocation, stub.answer);
+    [invocation mkt_setReturnValue:stub.answer];
 }
 
 
