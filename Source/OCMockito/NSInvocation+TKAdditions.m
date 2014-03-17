@@ -6,6 +6,9 @@
 
 #import "NSInvocation+TKAdditions.h"
 
+#import "MKTReturnTypeHandlerChain.h"
+#import "MKTReturnTypeHandler.h"
+
 typedef void (^TKBlockType)(void);
 typedef struct {} MKTDummyStructure;
 
@@ -161,83 +164,9 @@ typedef struct {} MKTDummyStructure;
 
 - (void)mkt_setReturnValue:(id)returnValue
 {
-    NSMethodSignature *methodSignature = [self methodSignature];
-    const char *returnType = [methodSignature methodReturnType];
-    if (returnType[0] == @encode(id)[0])
-    {
-        __unsafe_unretained id value = returnValue;
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(Class)) == 0)
-    {
-        __unsafe_unretained Class value = returnValue;
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(char)) == 0)
-    {
-        char value = [returnValue charValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(int)) == 0)
-    {
-        int value = [returnValue intValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(short)) == 0)
-    {
-        int value = [returnValue shortValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(long)) == 0)
-    {
-        long value = [returnValue longValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(long long)) == 0)
-    {
-        long long value = [returnValue longLongValue];
-        [self setReturnValue:&value];
-    }
-    else if(strcmp(returnType, @encode(BOOL)) == 0)
-    {
-        BOOL value = [returnValue boolValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(unsigned char)) == 0)
-    {
-        unsigned char value = [returnValue unsignedCharValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(unsigned int)) == 0)
-    {
-        unsigned int value = [returnValue unsignedIntValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(unsigned short)) == 0)
-    {
-        unsigned short value = [returnValue unsignedShortValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(unsigned long)) == 0)
-    {
-        unsigned long value = [returnValue unsignedLongValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(unsigned long long)) == 0)
-    {
-        unsigned long long value = [returnValue unsignedLongLongValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(float)) == 0)
-    {
-        float value = [returnValue floatValue];
-        [self setReturnValue:&value];
-    }
-    else if (strcmp(returnType, @encode(double)) == 0)
-    {
-        double value = [returnValue doubleValue];
-        [self setReturnValue:&value];
-    }
+    MKTReturnTypeHandler *chain = MKTReturnTypeHandlerChain();
+    char const *returnType = [[self methodSignature] methodReturnType];
+    [chain setReturnValue:returnValue ofType:returnType onInvocation:self];
 }
 
 @end
