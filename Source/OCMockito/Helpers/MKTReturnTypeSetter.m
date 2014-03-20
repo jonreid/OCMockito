@@ -37,7 +37,7 @@
     if ([self handlesReturnType:type])
         [self setReturnValue:returnValue onInvocation:invocation];
     else
-        return [self.successor setReturnValue:returnValue ofType:type onInvocation:invocation];
+        [self.successor setReturnValue:returnValue ofType:type onInvocation:invocation];
 }
 
 @end
