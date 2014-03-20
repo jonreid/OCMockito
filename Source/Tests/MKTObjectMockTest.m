@@ -21,17 +21,27 @@
 
 
 @interface MKTObjectMockTest : SenTestCase
+
+@property (nonatomic) NSString* myProperty;
+@property (nonatomic, getter = getMyCustomProperty, setter = setterMyCustomProperty:) NSString* myCustomProperty;
+
 @end
 
 @implementation MKTObjectMockTest
 {
     NSString *mockString;
+    MKTObjectMockTest *mockDynamicObject;
 }
+
+@dynamic myProperty;
+@dynamic myCustomProperty;
 
 - (void)setUp
 {
     [super setUp];
+
     mockString = mock([NSString class]);
+    mockDynamicObject = mock([MKTObjectMockTest class]);
 }
 
 - (void)testDescription
@@ -78,6 +88,26 @@
 - (void)testMock_ShouldNotRespondToUnknownSelector
 {
     STAssertFalse([mockString respondsToSelector:@selector(removeAllObjects)], nil);
+}
+
+- (void)testMock_ShouldRespondToDynamicSetterSelector
+{
+    STAssertFalse([mockDynamicObject respondsToSelector:@selector(setMyProperty:)], nil);
+}
+
+- (void)testMock_ShouldRespondToDynamicGetterSelector
+{
+    STAssertFalse([mockDynamicObject respondsToSelector:@selector(myProperty)], nil);
+}
+
+- (void)testMock_ShouldRespondToDynamicSetterSelectorWithCustomName
+{
+    STAssertFalse([mockDynamicObject respondsToSelector:@selector(setterMyCustomProperty:)], nil);
+}
+
+- (void)testMock_ShouldRespondToDynamicGetterSelectorWithCustomName
+{
+    STAssertFalse([mockDynamicObject respondsToSelector:@selector(getMyCustomProperty)], nil);
 }
 
 @end
