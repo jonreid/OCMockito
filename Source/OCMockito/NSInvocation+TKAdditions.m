@@ -6,8 +6,8 @@
 
 #import "NSInvocation+TKAdditions.h"
 
-#import "MKTReturnTypeHandlerChain.h"
-#import "MKTReturnTypeHandler.h"
+#import "MKTReturnTypeSetterChain.h"
+#import "MKTReturnTypeSetter.h"
 
 typedef void (^TKBlockType)(void);
 typedef struct {} MKTDummyStructure;
@@ -164,7 +164,7 @@ typedef struct {} MKTDummyStructure;
 
 - (void)mkt_setReturnValue:(id)returnValue
 {
-    MKTReturnTypeHandler *chain = MKTReturnTypeHandlerChain();
+    MKTReturnTypeSetter *chain = MKTReturnTypeSetterChain();
     char const *returnType = [[self methodSignature] methodReturnType];
     [chain setReturnValue:returnValue ofType:returnType onInvocation:self];
 }
