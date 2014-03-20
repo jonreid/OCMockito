@@ -136,86 +136,170 @@
 		638F68DA150FC21A0081DEE6 /* MKTClassObjectMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */; };
 		638F68DD150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */; };
 		638F68DE150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */; };
-		BB33301838EC0523D0B69DFC /* MKTLongLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333150BB7A010A08C972B4 /* MKTLongLongReturnTypeSetter.h */; };
-		BB3330AE7EB041060081C1A0 /* MKTLongLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333150BB7A010A08C972B4 /* MKTLongLongReturnTypeSetter.h */; };
-		BB3330B39E79D7004CD1C3AB /* MKTUnsignedCharReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3335699E2BBA0EA1085C5F /* MKTUnsignedCharReturnTypeSetter.h */; };
-		BB3330B5E2B92C397E7A4CCD /* MKTReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333FCA6AA8699AD637D58E /* MKTReturnTypeSetter.m */; };
-		BB3330CE3DC21B93CA2D6731 /* MKTObjectReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3337FBFF72AEDA37B7209C /* MKTObjectReturnTypeSetter.h */; };
-		BB33312C0AF3EF96D95A3288 /* MKTUnsignedLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333B337D111C7300C9157A /* MKTUnsignedLongReturnTypeSetter.h */; };
-		BB333156C306A56233F89FC9 /* MKTUnsignedIntReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3330DF1C99FFA57B1C8644 /* MKTUnsignedIntReturnTypeSetter.m */; };
-		BB3331BF9450D6068E72434A /* MKTShortReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333890266AED82E4E13FD8 /* MKTShortReturnTypeSetter.h */; };
-		BB333241FACC698510A82729 /* MKTCharReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33376C70F8E62260D371A3 /* MKTCharReturnTypeSetter.m */; };
-		BB33327232B9815431082106 /* MKTShortReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333502F441A3E21E855B1F /* MKTShortReturnTypeSetter.m */; };
-		BB3332AF426702E5327C46E8 /* MKTUnsignedCharReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3335699E2BBA0EA1085C5F /* MKTUnsignedCharReturnTypeSetter.h */; };
-		BB3332F7CC774965627C770F /* MKTUnsignedIntReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333DE1CA1ABB79C95A8F36 /* MKTUnsignedIntReturnTypeSetter.h */; };
-		BB33333EF66BF7EA5B5A9D0E /* MKTLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333460C91157B40D3354DB /* MKTLongReturnTypeSetter.h */; };
-		BB33337ADC08B70144FA4F94 /* MKTIntReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333224D85C3AE359475246 /* MKTIntReturnTypeSetter.m */; };
-		BB3333F6BF5EFE9EC6155DE2 /* MKTLongLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3337D546F526B59371B0CD /* MKTLongLongReturnTypeSetter.m */; };
-		BB33340918CB94C88CEEE874 /* MKTCharReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333639EE3A64A9F9D48FCD /* MKTCharReturnTypeSetter.h */; };
+		BB3330214C3846E9460D3F76 /* MKTLongLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33394DC3C2318DFC67E532 /* MKTLongLongArgumentGetter.m */; };
+		BB33303C737C10CB109C7586 /* MKTUnsignedShortArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D5CA53AA1559BAFED7C /* MKTUnsignedShortArgumentGetter.h */; };
+		BB33303E8F5BF97044A5ADC5 /* MKTPointerArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33377157AAAE70D6CBD259 /* MKTPointerArgumentGetter.m */; };
+		BB333042E4ACFAF902B807A2 /* MKTObjectArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3339E05574FD44A71A206C /* MKTObjectArgumentGetter.m */; };
+		BB33305975536184513C3A5E /* MKTClassArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3338939032D6A0BE14A73D /* MKTClassArgumentGetter.m */; };
+		BB333067F3C9CAB7A9B98DDD /* MKTShortReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33371EB5265C9116108EBC /* MKTShortReturnTypeSetter.h */; };
+		BB33306FFE99C2CEC6BE193C /* MKTLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333C210E2494BACED97C12 /* MKTLongReturnTypeSetter.m */; };
+		BB33309F6082F2BB72E7BE12 /* MKTObjectArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D3D99928ADEF1068F1D /* MKTObjectArgumentGetter.h */; };
+		BB3330C5AFA936ECDFFB3B0E /* MKTArgumentGetterChain.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333B051B75463C1FF493EC /* MKTArgumentGetterChain.h */; };
+		BB3330C927DC08A73BD40088 /* MKTIntReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33321A9A63C2939AA8C4A1 /* MKTIntReturnTypeSetter.h */; };
+		BB33311082715F3DD32CED52 /* MKTBoolReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3339184C7860D46EFE51E7 /* MKTBoolReturnTypeSetter.h */; };
+		BB33311FB01A264055F57C51 /* MKTUnsignedShortArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D5CA53AA1559BAFED7C /* MKTUnsignedShortArgumentGetter.h */; };
+		BB333168ECC49EE74FA85925 /* MKTIntReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33338D977D4E4B25F0A063 /* MKTIntReturnTypeSetter.m */; };
+		BB33316D5A104A3D2B47A3E4 /* MKTUnsignedLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3335ED362C23BB2EB6A8F3 /* MKTUnsignedLongReturnTypeSetter.m */; };
+		BB33317704958DB03E136BFA /* MKTClassArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333BB4A995AB72361FFFA1 /* MKTClassArgumentGetter.h */; };
+		BB333186B298253F7FE26FA3 /* MKTShortArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33332F1B8B65A32213EE5C /* MKTShortArgumentGetter.m */; };
+		BB33318B490127AB5B0F3367 /* MKTStructArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333872564548F50E70AB57 /* MKTStructArgumentGetter.m */; };
+		BB33319F08C6D842723FD13D /* MKTClassReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33350CCA21125FF5538E80 /* MKTClassReturnTypeSetter.h */; };
+		BB3331F87FB445473A253773 /* MKTShortReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3338B3BFE877A24C83D101 /* MKTShortReturnTypeSetter.m */; };
+		BB3331FBF2582D8BB24F1508 /* MKTBoolArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333EE873B9816C65246570 /* MKTBoolArgumentGetter.h */; };
+		BB33320FA5169F4C34149C7C /* MKTArgumentGetterChain.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333C2239797EBD7FEF7E67 /* MKTArgumentGetterChain.m */; };
+		BB33321435A3BC91195463BD /* MKTArgumentGetterChain.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333C2239797EBD7FEF7E67 /* MKTArgumentGetterChain.m */; };
+		BB33326716EBED3A65826E51 /* MKTReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33331DE1382E843DAD3A17 /* MKTReturnTypeSetter.h */; };
+		BB33327DD867B2974C9D5BF5 /* MKTBoolReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3339184C7860D46EFE51E7 /* MKTBoolReturnTypeSetter.h */; };
+		BB33328B64A0C0DE1904ACE1 /* MKTBoolArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3337CAF1C8A9848BDE8EC1 /* MKTBoolArgumentGetter.m */; };
+		BB33329DCEB0A791C3EF8D89 /* MKTLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D982A42D6D2CB8E5C9B /* MKTLongReturnTypeSetter.h */; };
+		BB3332AD297628B80EF69B81 /* MKTDoubleArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D75F726FAAAE4328A93 /* MKTDoubleArgumentGetter.h */; };
+		BB33331F547507CEF712E374 /* MKTShortArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D6A8A81D9499AA51EA1 /* MKTShortArgumentGetter.h */; };
+		BB333346214706967521CEC8 /* MKTLongLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333C3834FAD2B81E577BED /* MKTLongLongReturnTypeSetter.h */; };
+		BB3333705ADF3524AB8E359E /* MKTIntReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33321A9A63C2939AA8C4A1 /* MKTIntReturnTypeSetter.h */; };
+		BB3333D343D1E3F83D09592F /* MKTUnsignedLongLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333E04F613EDF13E7A632D /* MKTUnsignedLongLongReturnTypeSetter.m */; };
+		BB3333DC67BAF6F8570F1023 /* MKTReturnTypeSetterChain.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3335F6E0149120BB1DAB36 /* MKTReturnTypeSetterChain.h */; };
+		BB3333DFC9130470929F408D /* MKTBlockArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333463491EB4BDEA293470 /* MKTBlockArgumentGetter.h */; };
+		BB3333E60A2623AAECC58341 /* MKTArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333D6D42B5F39C4D23534E /* MKTArgumentGetter.m */; };
+		BB33341554E15B4093958267 /* MKTUnsignedLongLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333AC0ECDF8D5A22181190 /* MKTUnsignedLongLongReturnTypeSetter.h */; };
 		BB33341789FA6BC5D8626099 /* NSInvocation+TKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */; };
-		BB3334214D2224551443AF7E /* MKTDoubleReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3333E466FD1FF9127817E1 /* MKTDoubleReturnTypeSetter.m */; };
-		BB33345DC2D9C606CF78C347 /* MKTUnsignedLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A0C67024D1545664010 /* MKTUnsignedLongReturnTypeSetter.m */; };
-		BB333465B341B510A87CCDCC /* MKTBoolReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33321273979EF9F6B2321C /* MKTBoolReturnTypeSetter.m */; };
-		BB33348D9E6815B0A2497522 /* MKTLongLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3337D546F526B59371B0CD /* MKTLongLongReturnTypeSetter.m */; };
-		BB333498F8B0B18759FD6BC0 /* MKTDoubleReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333487EA9F9BF88E93FB79 /* MKTDoubleReturnTypeSetter.h */; };
-		BB3334C587ECA9DCA1FD076C /* MKTObjectReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33318CD9B4A53C27835510 /* MKTObjectReturnTypeSetter.m */; };
-		BB3334E93C4D511748BE041D /* MKTReturnTypeSetterChain.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333AEDF4987C4F4B7CB1BD /* MKTReturnTypeSetterChain.m */; };
+		BB333418035210D6922CDA75 /* MKTShortArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33332F1B8B65A32213EE5C /* MKTShortArgumentGetter.m */; };
+		BB33342399D477D76C1ADB68 /* MKTUnsignedCharReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3334A29710C950B87B7460 /* MKTUnsignedCharReturnTypeSetter.h */; };
+		BB33344F8F26D1F4E9A7299B /* MKTClassArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3338939032D6A0BE14A73D /* MKTClassArgumentGetter.m */; };
+		BB333451989D8132C2C6C04E /* MKTUnsignedShortArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333143B2FB8B7C1C58C138 /* MKTUnsignedShortArgumentGetter.m */; };
+		BB333488B93AF62DE32DFC06 /* MKTLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D982A42D6D2CB8E5C9B /* MKTLongReturnTypeSetter.h */; };
+		BB33348F5F9A0FEC2E0BEB68 /* MKTUnsignedShortReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3338360DA62652FC916F02 /* MKTUnsignedShortReturnTypeSetter.m */; };
 		BB33350FCF04694252E73AC0 /* MKTCapturingMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */; };
+		BB33350FD846CD1DF62B364A /* MKTReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333D0AB8FE332DEE16F27D /* MKTReturnTypeSetter.m */; };
+		BB333528F6B7EAF8712D262A /* MKTBoolArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333EE873B9816C65246570 /* MKTBoolArgumentGetter.h */; };
+		BB333556422379A300EDBF9C /* MKTFloatReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333EFB169E06F2F7F516F9 /* MKTFloatReturnTypeSetter.m */; };
+		BB33356BB566881942FBECB5 /* MKTIntArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A61DA6B656DDE986976 /* MKTIntArgumentGetter.m */; };
+		BB333571E935269C9B8EEF1C /* MKTFloatArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333F2C1AD46036AA83C06E /* MKTFloatArgumentGetter.h */; };
 		BB33358A201321406097DDB8 /* MKTArgumentCaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */; };
-		BB33359BCB8130CF9ECB4EAC /* MKTReturnTypeSetterChain.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333AEDF4987C4F4B7CB1BD /* MKTReturnTypeSetterChain.m */; };
-		BB3335E051973BE2C07F11B7 /* MKTClassReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3331EC9BBF9FF018DC7934 /* MKTClassReturnTypeSetter.m */; };
-		BB333617DF387A6BF0998CA2 /* MKTIntReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3334FE994608C86B17981C /* MKTIntReturnTypeSetter.h */; };
-		BB3336529CEA619C84E6ACA1 /* MKTReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333FCA6AA8699AD637D58E /* MKTReturnTypeSetter.m */; };
-		BB3336736FB063BD2DC49FD7 /* MKTUnsignedLongLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33310F913F4F0BF055BB49 /* MKTUnsignedLongLongReturnTypeSetter.m */; };
-		BB33367E07D3D2158F6DF2F8 /* MKTUnsignedIntReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333DE1CA1ABB79C95A8F36 /* MKTUnsignedIntReturnTypeSetter.h */; };
-		BB3336BCB36D8531950BF3FD /* MKTUnsignedShortReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33393E64C3775C4F6579CE /* MKTUnsignedShortReturnTypeSetter.h */; };
-		BB3337257AF54B61757BD810 /* MKTUnsignedShortReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33383A81615F4936EE3C45 /* MKTUnsignedShortReturnTypeSetter.m */; };
-		BB33372EE56889073A302B1A /* MKTUnsignedShortReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33383A81615F4936EE3C45 /* MKTUnsignedShortReturnTypeSetter.m */; };
-		BB3337364881E3F6D370C1C4 /* MKTFloatReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333746A4A745DDEC304535 /* MKTFloatReturnTypeSetter.h */; };
-		BB33374A75150CA769D80F96 /* MKTFloatReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3331C67159D546C642C3AD /* MKTFloatReturnTypeSetter.m */; };
-		BB3337CAD884E75899D58E7C /* MKTUnsignedLongLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333862DE3C75AC641861EA /* MKTUnsignedLongLongReturnTypeSetter.h */; };
-		BB33384C209AE938401F16D0 /* MKTFloatReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3331C67159D546C642C3AD /* MKTFloatReturnTypeSetter.m */; };
-		BB3339004A8DAFD764242204 /* MKTBoolReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3338D6DF9B0127E8BDC2D7 /* MKTBoolReturnTypeSetter.h */; };
-		BB33393AECDF297A64F7C7D5 /* MKTIntReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3334FE994608C86B17981C /* MKTIntReturnTypeSetter.h */; };
-		BB33394D6D878C9DAE2405CC /* MKTClassReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3331EC9BBF9FF018DC7934 /* MKTClassReturnTypeSetter.m */; };
-		BB3339A5734E13839593347F /* MKTUnsignedLongLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33310F913F4F0BF055BB49 /* MKTUnsignedLongLongReturnTypeSetter.m */; };
-		BB3339A685BCFF006490C6C9 /* MKTReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333245F788797CEA6F9B5B /* MKTReturnTypeSetter.h */; };
+		BB33359B6B1EF46D601BB4BC /* MKTUnsignedLongLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333E04F613EDF13E7A632D /* MKTUnsignedLongLongReturnTypeSetter.m */; };
+		BB3335C07E12DAAC7637786E /* MKTDoubleArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33365F5934FEF83F9D66A8 /* MKTDoubleArgumentGetter.m */; };
+		BB3335D8DF78DC3368792FD7 /* MKTUnsignedCharArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A1C812565CADA8E1EF8 /* MKTUnsignedCharArgumentGetter.m */; };
+		BB3335EEB3283067A4C77450 /* MKTUnsignedLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A82188EF7C02B9BCD20 /* MKTUnsignedLongArgumentGetter.m */; };
+		BB33360E65C6489BEB0BBE53 /* MKTLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3336138AF895B2667491CB /* MKTLongArgumentGetter.m */; };
+		BB33366A1E9545C2ABD34A14 /* MKTUnsignedIntArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33372ECB6EE715A719E4FE /* MKTUnsignedIntArgumentGetter.m */; };
+		BB333686A015493DD9E09E43 /* MKTIntArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A61DA6B656DDE986976 /* MKTIntArgumentGetter.m */; };
+		BB333692C2926B5D153786B1 /* MKTStructArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33387FE6D368A199C48391 /* MKTStructArgumentGetter.h */; };
+		BB33369ABCD1A8D6112DE78E /* MKTClassReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333CC3852F098672D04CEA /* MKTClassReturnTypeSetter.m */; };
+		BB3336A986F40533D7B339DF /* MKTClassArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333BB4A995AB72361FFFA1 /* MKTClassArgumentGetter.h */; };
+		BB3336BF8D8DA85E5C809A8E /* MKTLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333C210E2494BACED97C12 /* MKTLongReturnTypeSetter.m */; };
+		BB3336CF2B704EF3DB489999 /* MKTBlockArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333FE07271D7D219CB54BC /* MKTBlockArgumentGetter.m */; };
+		BB33370CFFE7CC7F3B16A20D /* MKTUnsignedLongLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333AC0ECDF8D5A22181190 /* MKTUnsignedLongLongReturnTypeSetter.h */; };
+		BB3337187D2DEED3D8FC57E8 /* MKTObjectReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336EB81B4E21378D0CC80 /* MKTObjectReturnTypeSetter.h */; };
+		BB33372006035D75BD520BF9 /* MKTClassReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33350CCA21125FF5538E80 /* MKTClassReturnTypeSetter.h */; };
+		BB333725B93B21D437F3DB50 /* MKTObjectArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3339E05574FD44A71A206C /* MKTObjectArgumentGetter.m */; };
+		BB33378F682F73F30613B4A2 /* MKTReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33331DE1382E843DAD3A17 /* MKTReturnTypeSetter.h */; };
+		BB3337ACAA0E4830B231CD8D /* MKTDoubleArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D75F726FAAAE4328A93 /* MKTDoubleArgumentGetter.h */; };
+		BB3337C15FBC84EDDD0599CB /* MKTIntReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33338D977D4E4B25F0A063 /* MKTIntReturnTypeSetter.m */; };
+		BB3337C8C3FDB79CB05C34D9 /* MKTReturnTypeSetterChain.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3332D4E4AD05B1FB055B47 /* MKTReturnTypeSetterChain.m */; };
+		BB3337D07089083A25C0DDB7 /* MKTCharArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333B085B2032B2D46F381B /* MKTCharArgumentGetter.h */; };
+		BB3337EA0DDFD2FDC76E27D7 /* MKTObjectReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333851E09BF570A7786DA9 /* MKTObjectReturnTypeSetter.m */; };
+		BB3337F30BAAE95F1322CEEC /* MKTUnsignedIntReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333EEC1682A1C82CE7C4BF /* MKTUnsignedIntReturnTypeSetter.h */; };
+		BB3337F69DEA67E82809ADF3 /* MKTFloatArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333F151970E5752DAB5CFC /* MKTFloatArgumentGetter.m */; };
+		BB3337FFABAE83C34C1C4088 /* MKTReturnTypeSetterChain.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3332D4E4AD05B1FB055B47 /* MKTReturnTypeSetterChain.m */; };
+		BB333821D21866FC73D4D18C /* MKTShortReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33371EB5265C9116108EBC /* MKTShortReturnTypeSetter.h */; };
+		BB3338236BB4144F624D2481 /* MKTLongLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33394DC3C2318DFC67E532 /* MKTLongLongArgumentGetter.m */; };
+		BB333834FF1D500AD0D49735 /* MKTFloatArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333F151970E5752DAB5CFC /* MKTFloatArgumentGetter.m */; };
+		BB3338552631E9EE22460122 /* MKTUnsignedShortReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3338360DA62652FC916F02 /* MKTUnsignedShortReturnTypeSetter.m */; };
+		BB333857D1853B3CA3B87DB0 /* MKTLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3336138AF895B2667491CB /* MKTLongArgumentGetter.m */; };
+		BB33386E0CBCAE8081A2A01A /* MKTPointerArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3339297C45EE747C15492F /* MKTPointerArgumentGetter.h */; };
+		BB33386FB4AA3EC840ACAC09 /* MKTUnsignedIntArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33372ECB6EE715A719E4FE /* MKTUnsignedIntArgumentGetter.m */; };
+		BB33389D616998EF11D3E695 /* MKTUnsignedIntReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333EEC1682A1C82CE7C4BF /* MKTUnsignedIntReturnTypeSetter.h */; };
+		BB3338B3EC3F7A30C0571FD9 /* MKTBoolArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3337CAF1C8A9848BDE8EC1 /* MKTBoolArgumentGetter.m */; };
+		BB3338B94016408F85922140 /* MKTDoubleReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333443F1739E67D38156A6 /* MKTDoubleReturnTypeSetter.m */; };
+		BB3338DD86B332AD46A65DD0 /* MKTLongLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333C3834FAD2B81E577BED /* MKTLongLongReturnTypeSetter.h */; };
+		BB3338FE8B0433AB1AE5075D /* MKTUnsignedLongLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33398B1659D910F288EDF4 /* MKTUnsignedLongLongArgumentGetter.h */; };
+		BB333914281B6B7FE1610BE5 /* MKTUnsignedLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3335ED362C23BB2EB6A8F3 /* MKTUnsignedLongReturnTypeSetter.m */; };
+		BB333921C27A7B065A00C228 /* MKTFloatArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333F2C1AD46036AA83C06E /* MKTFloatArgumentGetter.h */; };
+		BB33394E3D2586B93A5045FE /* MKTLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333AA0F3DCE777612DDDB5 /* MKTLongArgumentGetter.h */; };
+		BB333960A8A44CD729706CC4 /* MKTStructArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333872564548F50E70AB57 /* MKTStructArgumentGetter.m */; };
+		BB3339628C9EE445045EDAF2 /* MKTDoubleReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333443F1739E67D38156A6 /* MKTDoubleReturnTypeSetter.m */; };
+		BB333978CB91FC9419B99229 /* MKTUnsignedLongLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333CC830CC94E6EB6AE397 /* MKTUnsignedLongLongArgumentGetter.m */; };
+		BB3339B7CF28CAA8A8530CDB /* MKTUnsignedCharReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3334A29710C950B87B7460 /* MKTUnsignedCharReturnTypeSetter.h */; };
 		BB3339CA3DE2639D2CC6BBE5 /* MKTArgumentCaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */; };
-		BB3339CA5B1C2B51FC4BA0BE /* MKTDoubleReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333487EA9F9BF88E93FB79 /* MKTDoubleReturnTypeSetter.h */; };
 		BB3339CB07B7B9D7EB2DED24 /* MKTArgumentCaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB333AE8BC976340153F06C8 /* MKTShortReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333890266AED82E4E13FD8 /* MKTShortReturnTypeSetter.h */; };
-		BB333B05C687E20170D72CA8 /* MKTLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333460C91157B40D3354DB /* MKTLongReturnTypeSetter.h */; };
-		BB333B3B816C31B4F9396057 /* MKTUnsignedLongLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333862DE3C75AC641861EA /* MKTUnsignedLongLongReturnTypeSetter.h */; };
-		BB333B4D7DA9957FD4AF7D43 /* MKTLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3339F55F313B661B90D148 /* MKTLongReturnTypeSetter.m */; };
-		BB333B6F38DC7B077DD09215 /* MKTReturnTypeSetterChain.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3333D152DE7D55720D1B1F /* MKTReturnTypeSetterChain.h */; };
+		BB3339D68FAA081C3D820A16 /* MKTCharReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A60AFB07B796BB2D010 /* MKTCharReturnTypeSetter.m */; };
+		BB3339F10C6E5D5AA27107B3 /* MKTDoubleArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33365F5934FEF83F9D66A8 /* MKTDoubleArgumentGetter.m */; };
+		BB333A0CC3EFC7AA4153B384 /* MKTArgumentGetterChain.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333B051B75463C1FF493EC /* MKTArgumentGetterChain.h */; };
+		BB333A267C611499C756DF08 /* MKTDoubleReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3339F41A62B3DF06B0C537 /* MKTDoubleReturnTypeSetter.h */; };
+		BB333A26F758415F19CEE3F7 /* MKTShortReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3338B3BFE877A24C83D101 /* MKTShortReturnTypeSetter.m */; };
+		BB333A28D3EFF5ACBA2B9315 /* MKTUnsignedLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3330D710C3E8671F5CF32A /* MKTUnsignedLongArgumentGetter.h */; };
+		BB333A562663221A050B56F6 /* MKTUnsignedShortArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333143B2FB8B7C1C58C138 /* MKTUnsignedShortArgumentGetter.m */; };
+		BB333A6978D0AE7DE61AA63F /* MKTArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333D6D42B5F39C4D23534E /* MKTArgumentGetter.m */; };
+		BB333A6BB7D4CCF4866A07F5 /* MKTPointerArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33377157AAAE70D6CBD259 /* MKTPointerArgumentGetter.m */; };
+		BB333AACF341E0DFA57F3C17 /* MKTSelectorArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3331D276BD87A3662A3E8E /* MKTSelectorArgumentGetter.m */; };
+		BB333AB1EE4ECB5E71549EC3 /* MKTCharReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333A189A730A44081299A3 /* MKTCharReturnTypeSetter.h */; };
+		BB333AB2D772227530D844F9 /* MKTUnsignedLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333C25F7D616F839161AD7 /* MKTUnsignedLongReturnTypeSetter.h */; };
+		BB333AFDDA34794E93CF7578 /* MKTUnsignedCharArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A1C812565CADA8E1EF8 /* MKTUnsignedCharArgumentGetter.m */; };
+		BB333B1A67AF2E9C9B69C685 /* MKTSelectorArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33333BFD554610756CB9B5 /* MKTSelectorArgumentGetter.h */; };
+		BB333B1B0F25505CA4DA636C /* MKTPointerArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3339297C45EE747C15492F /* MKTPointerArgumentGetter.h */; };
+		BB333B2498BB18F948051452 /* MKTUnsignedLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3330D710C3E8671F5CF32A /* MKTUnsignedLongArgumentGetter.h */; };
+		BB333B5ABF45C92FDB95273F /* MKTFloatReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333EFB169E06F2F7F516F9 /* MKTFloatReturnTypeSetter.m */; };
+		BB333B6FBD5C15AF545C0852 /* MKTArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333191129BB98EC63775DF /* MKTArgumentGetter.h */; };
+		BB333BADBE3ADE02D7FCCF8E /* MKTUnsignedIntReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33394CA4A9B6989B601FEC /* MKTUnsignedIntReturnTypeSetter.m */; };
+		BB333BB5EEC28EDE5D06555E /* MKTShortArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D6A8A81D9499AA51EA1 /* MKTShortArgumentGetter.h */; };
 		BB333BBECB6490881B055192 /* MKTArgumentCaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB333BEF5FFADAE2DF03DD1F /* MKTUnsignedIntReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3330DF1C99FFA57B1C8644 /* MKTUnsignedIntReturnTypeSetter.m */; };
-		BB333BEFFD619CAEFD9C5DC2 /* MKTUnsignedLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A0C67024D1545664010 /* MKTUnsignedLongReturnTypeSetter.m */; };
-		BB333C0D893A70A50899E7DE /* MKTUnsignedCharReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3339A5BB6AF7C5CC980A96 /* MKTUnsignedCharReturnTypeSetter.m */; };
-		BB333C1C220D166DAB0D3C91 /* MKTClassReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3335182FA81B1232BC8095 /* MKTClassReturnTypeSetter.h */; };
-		BB333C24FEC25600DC0A6436 /* MKTShortReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333502F441A3E21E855B1F /* MKTShortReturnTypeSetter.m */; };
+		BB333BC4740DFB33F8683DD7 /* MKTUnsignedCharReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333E39BB3CD69A89B4B026 /* MKTUnsignedCharReturnTypeSetter.m */; };
+		BB333BE703AA2EBE128FD2CD /* MKTIntArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33388E0F717CB923D3BB7B /* MKTIntArgumentGetter.h */; };
+		BB333C05D88D23BFB476CE39 /* MKTUnsignedCharReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333E39BB3CD69A89B4B026 /* MKTUnsignedCharReturnTypeSetter.m */; };
+		BB333C069A00D8B4DF1D3EA2 /* MKTBlockArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333FE07271D7D219CB54BC /* MKTBlockArgumentGetter.m */; };
+		BB333C130755E4C1AA587586 /* MKTCharReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333A189A730A44081299A3 /* MKTCharReturnTypeSetter.h */; };
 		BB333C34005EB2306795E562 /* MKTCapturingMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */; };
-		BB333C360CFB51FC825C423F /* MKTDoubleReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3333E466FD1FF9127817E1 /* MKTDoubleReturnTypeSetter.m */; };
+		BB333C4041060F3826C7D8DD /* MKTUnsignedLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333C25F7D616F839161AD7 /* MKTUnsignedLongReturnTypeSetter.h */; };
 		BB333C4EF1FE02209FD55817 /* NSInvocation+TKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+TKAdditions.h */; };
+		BB333C72CA3BBF105CC09683 /* MKTSelectorArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3331D276BD87A3662A3E8E /* MKTSelectorArgumentGetter.m */; };
+		BB333C9B049C9A40A0D55FC3 /* MKTObjectReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333851E09BF570A7786DA9 /* MKTObjectReturnTypeSetter.m */; };
+		BB333CC4A56FD3BC8DF65B16 /* MKTUnsignedIntArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333FCAE559ECC54EFD67CE /* MKTUnsignedIntArgumentGetter.h */; };
+		BB333CD91F7DFC6C6A687075 /* MKTSelectorArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33333BFD554610756CB9B5 /* MKTSelectorArgumentGetter.h */; };
+		BB333D00BCAACC6F9AC16F1E /* MKTBoolReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33310AFF0B97B500C38DC8 /* MKTBoolReturnTypeSetter.m */; };
+		BB333D00FD0861CB28D0C779 /* MKTUnsignedLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A82188EF7C02B9BCD20 /* MKTUnsignedLongArgumentGetter.m */; };
 		BB333D0D3FD6E3D3D9F1867B /* NSInvocation+TKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */; };
-		BB333DB37FE043816F0B0860 /* MKTCharReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33376C70F8E62260D371A3 /* MKTCharReturnTypeSetter.m */; };
+		BB333D39A855B3C66EC0CC27 /* MKTFloatReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333E5DEB0D68F628AFAE0C /* MKTFloatReturnTypeSetter.h */; };
+		BB333D48309D72496343ABD5 /* MKTLongLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33314DC357B4266D219FEE /* MKTLongLongReturnTypeSetter.m */; };
+		BB333D4BC6648A60DD1CD39C /* MKTClassReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333CC3852F098672D04CEA /* MKTClassReturnTypeSetter.m */; };
+		BB333D7C3105434622D7E86F /* MKTUnsignedShortReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3334F595432545F04CD580 /* MKTUnsignedShortReturnTypeSetter.h */; };
+		BB333D8D86D481AB45A0F3B4 /* MKTUnsignedCharArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33353E7A0029A6F3035934 /* MKTUnsignedCharArgumentGetter.h */; };
+		BB333DB3ECA2288A941274DF /* MKTLongLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33314DC357B4266D219FEE /* MKTLongLongReturnTypeSetter.m */; };
 		BB333DB79D3D3AD95D4CF047 /* MKTCapturingMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */; };
-		BB333E17F7B4E1DB715E607D /* MKTObjectReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3337FBFF72AEDA37B7209C /* MKTObjectReturnTypeSetter.h */; };
-		BB333E23F05637F21BBCD6F7 /* MKTUnsignedLongReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333B337D111C7300C9157A /* MKTUnsignedLongReturnTypeSetter.h */; };
-		BB333E2E1049AA9D5CA2224F /* MKTBoolReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3338D6DF9B0127E8BDC2D7 /* MKTBoolReturnTypeSetter.h */; };
-		BB333E33EC3B0959EBC649BA /* MKTObjectReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33318CD9B4A53C27835510 /* MKTObjectReturnTypeSetter.m */; };
-		BB333E440241A1B5AC318530 /* MKTLongReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3339F55F313B661B90D148 /* MKTLongReturnTypeSetter.m */; };
-		BB333E67C01C5B8C75F92458 /* MKTFloatReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333746A4A745DDEC304535 /* MKTFloatReturnTypeSetter.h */; };
-		BB333EB88C8B3448AF94A6A5 /* MKTBoolReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33321273979EF9F6B2321C /* MKTBoolReturnTypeSetter.m */; };
-		BB333EC01022448E534A9069 /* MKTIntReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333224D85C3AE359475246 /* MKTIntReturnTypeSetter.m */; };
-		BB333EC1DA2A0680A01428A2 /* MKTUnsignedCharReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3339A5BB6AF7C5CC980A96 /* MKTUnsignedCharReturnTypeSetter.m */; };
-		BB333EF5597E299147754137 /* MKTClassReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3335182FA81B1232BC8095 /* MKTClassReturnTypeSetter.h */; };
+		BB333DBDEC7441FF609BFDF0 /* MKTCharArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3330E2850D4F93238107D6 /* MKTCharArgumentGetter.m */; };
+		BB333DD833207D008EE633B3 /* MKTReturnTypeSetterChain.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3335F6E0149120BB1DAB36 /* MKTReturnTypeSetterChain.h */; };
+		BB333E3E64F21AC93AE5DB29 /* MKTObjectArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D3D99928ADEF1068F1D /* MKTObjectArgumentGetter.h */; };
+		BB333E94CE90115E46E018BD /* MKTObjectReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336EB81B4E21378D0CC80 /* MKTObjectReturnTypeSetter.h */; };
+		BB333EA25F525B24F769CD68 /* MKTUnsignedIntArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333FCAE559ECC54EFD67CE /* MKTUnsignedIntArgumentGetter.h */; };
+		BB333EB37136B5C98ED35327 /* MKTUnsignedLongLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333CC830CC94E6EB6AE397 /* MKTUnsignedLongLongArgumentGetter.m */; };
+		BB333EBC4CCCA6214B4CE63F /* MKTBoolReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33310AFF0B97B500C38DC8 /* MKTBoolReturnTypeSetter.m */; };
+		BB333EC317A619AE932A777A /* MKTFloatReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333E5DEB0D68F628AFAE0C /* MKTFloatReturnTypeSetter.h */; };
+		BB333ECB9F56D5F017784D48 /* MKTLongLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333DABAD2260742BCEC549 /* MKTLongLongArgumentGetter.h */; };
+		BB333EF3DD161C2E96A316D9 /* MKTUnsignedCharArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33353E7A0029A6F3035934 /* MKTUnsignedCharArgumentGetter.h */; };
 		BB333EF99BA39A53A2F70A53 /* MKTCapturingMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */; };
-		BB333EFF997F662EA053B408 /* MKTReturnTypeSetterChain.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3333D152DE7D55720D1B1F /* MKTReturnTypeSetterChain.h */; };
+		BB333EFD7672E43860FDD5CE /* MKTCharArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3330E2850D4F93238107D6 /* MKTCharArgumentGetter.m */; };
 		BB333F04719B4E40829FB969 /* NSInvocation+TKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+TKAdditions.h */; };
-		BB333F31368615996C516953 /* MKTReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333245F788797CEA6F9B5B /* MKTReturnTypeSetter.h */; };
-		BB333FBC883E9B83CBF89B05 /* MKTUnsignedShortReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33393E64C3775C4F6579CE /* MKTUnsignedShortReturnTypeSetter.h */; };
-		BB333FC4EA26BA9645104F1F /* MKTCharReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333639EE3A64A9F9D48FCD /* MKTCharReturnTypeSetter.h */; };
+		BB333F0602F824BE10C44E91 /* MKTUnsignedShortReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3334F595432545F04CD580 /* MKTUnsignedShortReturnTypeSetter.h */; };
+		BB333F5D861796A29881E588 /* MKTStructArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33387FE6D368A199C48391 /* MKTStructArgumentGetter.h */; };
+		BB333F5F1738B9B90F4C262D /* MKTUnsignedIntReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB33394CA4A9B6989B601FEC /* MKTUnsignedIntReturnTypeSetter.m */; };
+		BB333F7B2AC185643E111EC8 /* MKTCharReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A60AFB07B796BB2D010 /* MKTCharReturnTypeSetter.m */; };
+		BB333F85282B66C8D8FD28CD /* MKTReturnTypeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333D0AB8FE332DEE16F27D /* MKTReturnTypeSetter.m */; };
+		BB333F8E052E9D4799066E50 /* MKTBlockArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333463491EB4BDEA293470 /* MKTBlockArgumentGetter.h */; };
+		BB333F9B6FA8A26A4F2DF834 /* MKTArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333191129BB98EC63775DF /* MKTArgumentGetter.h */; };
+		BB333FA4460D86DA6E907212 /* MKTLongLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333DABAD2260742BCEC549 /* MKTLongLongArgumentGetter.h */; };
+		BB333FC76F86110774CA636C /* MKTIntArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33388E0F717CB923D3BB7B /* MKTIntArgumentGetter.h */; };
+		BB333FDEC5C3D4B4748BE19F /* MKTCharArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333B085B2032B2D46F381B /* MKTCharArgumentGetter.h */; };
+		BB333FE269C15C4BE810961D /* MKTLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333AA0F3DCE777612DDDB5 /* MKTLongArgumentGetter.h */; };
+		BB333FF163A150718490F9A6 /* MKTDoubleReturnTypeSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3339F41A62B3DF06B0C537 /* MKTDoubleReturnTypeSetter.h */; };
+		BB333FF825AC5563B0126191 /* MKTUnsignedLongLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33398B1659D910F288EDF4 /* MKTUnsignedLongLongArgumentGetter.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,45 +399,87 @@
 		638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMock.m; sourceTree = "<group>"; };
 		638F68DC150FC3210081DEE6 /* MKTClassObjectMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMockTest.m; sourceTree = "<group>"; };
 		BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCapturingMatcher.m; sourceTree = "<group>"; };
-		BB3330DF1C99FFA57B1C8644 /* MKTUnsignedIntReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedIntReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB33310F913F4F0BF055BB49 /* MKTUnsignedLongLongReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedLongLongReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB333150BB7A010A08C972B4 /* MKTLongLongReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLongLongReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB33318CD9B4A53C27835510 /* MKTObjectReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB3331C67159D546C642C3AD /* MKTFloatReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTFloatReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB3331EC9BBF9FF018DC7934 /* MKTClassReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB33321273979EF9F6B2321C /* MKTBoolReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBoolReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB333224D85C3AE359475246 /* MKTIntReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTIntReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB333245F788797CEA6F9B5B /* MKTReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB3330D710C3E8671F5CF32A /* MKTUnsignedLongArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedLongArgumentGetter.h; sourceTree = "<group>"; };
+		BB3330E2850D4F93238107D6 /* MKTCharArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCharArgumentGetter.m; sourceTree = "<group>"; };
+		BB33310AFF0B97B500C38DC8 /* MKTBoolReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBoolReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333143B2FB8B7C1C58C138 /* MKTUnsignedShortArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedShortArgumentGetter.m; sourceTree = "<group>"; };
+		BB33314DC357B4266D219FEE /* MKTLongLongReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLongLongReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333191129BB98EC63775DF /* MKTArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTArgumentGetter.h; sourceTree = "<group>"; };
+		BB3331D276BD87A3662A3E8E /* MKTSelectorArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTSelectorArgumentGetter.m; sourceTree = "<group>"; };
+		BB33321A9A63C2939AA8C4A1 /* MKTIntReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTIntReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB3332D4E4AD05B1FB055B47 /* MKTReturnTypeSetterChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTReturnTypeSetterChain.m; sourceTree = "<group>"; };
+		BB33331DE1382E843DAD3A17 /* MKTReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB33332F1B8B65A32213EE5C /* MKTShortArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTShortArgumentGetter.m; sourceTree = "<group>"; };
+		BB33333BFD554610756CB9B5 /* MKTSelectorArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTSelectorArgumentGetter.h; sourceTree = "<group>"; };
+		BB33338D977D4E4B25F0A063 /* MKTIntReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTIntReturnTypeSetter.m; sourceTree = "<group>"; };
 		BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTArgumentCaptor.h; sourceTree = "<group>"; };
-		BB3333D152DE7D55720D1B1F /* MKTReturnTypeSetterChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTReturnTypeSetterChain.h; sourceTree = "<group>"; };
-		BB3333E466FD1FF9127817E1 /* MKTDoubleReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTDoubleReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB333460C91157B40D3354DB /* MKTLongReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLongReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB333487EA9F9BF88E93FB79 /* MKTDoubleReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTDoubleReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB3334FE994608C86B17981C /* MKTIntReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTIntReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB333502F441A3E21E855B1F /* MKTShortReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTShortReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB3335182FA81B1232BC8095 /* MKTClassReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTClassReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB3335699E2BBA0EA1085C5F /* MKTUnsignedCharReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedCharReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB333639EE3A64A9F9D48FCD /* MKTCharReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTCharReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333443F1739E67D38156A6 /* MKTDoubleReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTDoubleReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333463491EB4BDEA293470 /* MKTBlockArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBlockArgumentGetter.h; sourceTree = "<group>"; };
+		BB3334A29710C950B87B7460 /* MKTUnsignedCharReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedCharReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB3334F595432545F04CD580 /* MKTUnsignedShortReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedShortReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB33350CCA21125FF5538E80 /* MKTClassReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTClassReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB33353E7A0029A6F3035934 /* MKTUnsignedCharArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedCharArgumentGetter.h; sourceTree = "<group>"; };
+		BB3335ED362C23BB2EB6A8F3 /* MKTUnsignedLongReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedLongReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB3335F6E0149120BB1DAB36 /* MKTReturnTypeSetterChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTReturnTypeSetterChain.h; sourceTree = "<group>"; };
+		BB3336138AF895B2667491CB /* MKTLongArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLongArgumentGetter.m; sourceTree = "<group>"; };
 		BB33364DC41A888C0E0DA542 /* NSInvocation+TKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+TKAdditions.m"; sourceTree = "<group>"; };
+		BB33365F5934FEF83F9D66A8 /* MKTDoubleArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTDoubleArgumentGetter.m; sourceTree = "<group>"; };
 		BB3336ACE4225D6B90159620 /* NSInvocation+TKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+TKAdditions.h"; sourceTree = "<group>"; };
-		BB333746A4A745DDEC304535 /* MKTFloatReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTFloatReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB33376C70F8E62260D371A3 /* MKTCharReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCharReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB3337D546F526B59371B0CD /* MKTLongLongReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLongLongReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB3337FBFF72AEDA37B7209C /* MKTObjectReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTObjectReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB33383A81615F4936EE3C45 /* MKTUnsignedShortReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedShortReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB3336EB81B4E21378D0CC80 /* MKTObjectReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTObjectReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB33371EB5265C9116108EBC /* MKTShortReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTShortReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB33372ECB6EE715A719E4FE /* MKTUnsignedIntArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedIntArgumentGetter.m; sourceTree = "<group>"; };
+		BB33377157AAAE70D6CBD259 /* MKTPointerArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPointerArgumentGetter.m; sourceTree = "<group>"; };
+		BB3337CAF1C8A9848BDE8EC1 /* MKTBoolArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBoolArgumentGetter.m; sourceTree = "<group>"; };
+		BB3338360DA62652FC916F02 /* MKTUnsignedShortReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedShortReturnTypeSetter.m; sourceTree = "<group>"; };
 		BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTCapturingMatcher.h; sourceTree = "<group>"; };
-		BB333862DE3C75AC641861EA /* MKTUnsignedLongLongReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedLongLongReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333851E09BF570A7786DA9 /* MKTObjectReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333872564548F50E70AB57 /* MKTStructArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStructArgumentGetter.m; sourceTree = "<group>"; };
+		BB33387FE6D368A199C48391 /* MKTStructArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStructArgumentGetter.h; sourceTree = "<group>"; };
 		BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTArgumentCaptor.m; sourceTree = "<group>"; };
-		BB333890266AED82E4E13FD8 /* MKTShortReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTShortReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB3338D6DF9B0127E8BDC2D7 /* MKTBoolReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBoolReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB33393E64C3775C4F6579CE /* MKTUnsignedShortReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedShortReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB3339A5BB6AF7C5CC980A96 /* MKTUnsignedCharReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedCharReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB3339F55F313B661B90D148 /* MKTLongReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLongReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB333A0C67024D1545664010 /* MKTUnsignedLongReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedLongReturnTypeSetter.m; sourceTree = "<group>"; };
-		BB333AEDF4987C4F4B7CB1BD /* MKTReturnTypeSetterChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTReturnTypeSetterChain.m; sourceTree = "<group>"; };
-		BB333B337D111C7300C9157A /* MKTUnsignedLongReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedLongReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB333DE1CA1ABB79C95A8F36 /* MKTUnsignedIntReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedIntReturnTypeSetter.h; sourceTree = "<group>"; };
-		BB333FCA6AA8699AD637D58E /* MKTReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB33388E0F717CB923D3BB7B /* MKTIntArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTIntArgumentGetter.h; sourceTree = "<group>"; };
+		BB3338939032D6A0BE14A73D /* MKTClassArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassArgumentGetter.m; sourceTree = "<group>"; };
+		BB3338B3BFE877A24C83D101 /* MKTShortReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTShortReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB3339184C7860D46EFE51E7 /* MKTBoolReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBoolReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB3339297C45EE747C15492F /* MKTPointerArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPointerArgumentGetter.h; sourceTree = "<group>"; };
+		BB33394CA4A9B6989B601FEC /* MKTUnsignedIntReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedIntReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB33394DC3C2318DFC67E532 /* MKTLongLongArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLongLongArgumentGetter.m; sourceTree = "<group>"; };
+		BB33398B1659D910F288EDF4 /* MKTUnsignedLongLongArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedLongLongArgumentGetter.h; sourceTree = "<group>"; };
+		BB3339E05574FD44A71A206C /* MKTObjectArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectArgumentGetter.m; sourceTree = "<group>"; };
+		BB3339F41A62B3DF06B0C537 /* MKTDoubleReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTDoubleReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333A189A730A44081299A3 /* MKTCharReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTCharReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333A1C812565CADA8E1EF8 /* MKTUnsignedCharArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedCharArgumentGetter.m; sourceTree = "<group>"; };
+		BB333A60AFB07B796BB2D010 /* MKTCharReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCharReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333A61DA6B656DDE986976 /* MKTIntArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTIntArgumentGetter.m; sourceTree = "<group>"; };
+		BB333A82188EF7C02B9BCD20 /* MKTUnsignedLongArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedLongArgumentGetter.m; sourceTree = "<group>"; };
+		BB333AA0F3DCE777612DDDB5 /* MKTLongArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLongArgumentGetter.h; sourceTree = "<group>"; };
+		BB333AC0ECDF8D5A22181190 /* MKTUnsignedLongLongReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedLongLongReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333B051B75463C1FF493EC /* MKTArgumentGetterChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTArgumentGetterChain.h; sourceTree = "<group>"; };
+		BB333B085B2032B2D46F381B /* MKTCharArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTCharArgumentGetter.h; sourceTree = "<group>"; };
+		BB333BB4A995AB72361FFFA1 /* MKTClassArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTClassArgumentGetter.h; sourceTree = "<group>"; };
+		BB333C210E2494BACED97C12 /* MKTLongReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLongReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333C2239797EBD7FEF7E67 /* MKTArgumentGetterChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTArgumentGetterChain.m; sourceTree = "<group>"; };
+		BB333C25F7D616F839161AD7 /* MKTUnsignedLongReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedLongReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333C3834FAD2B81E577BED /* MKTLongLongReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLongLongReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333CC3852F098672D04CEA /* MKTClassReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333CC830CC94E6EB6AE397 /* MKTUnsignedLongLongArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedLongLongArgumentGetter.m; sourceTree = "<group>"; };
+		BB333D0AB8FE332DEE16F27D /* MKTReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333D3D99928ADEF1068F1D /* MKTObjectArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTObjectArgumentGetter.h; sourceTree = "<group>"; };
+		BB333D5CA53AA1559BAFED7C /* MKTUnsignedShortArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedShortArgumentGetter.h; sourceTree = "<group>"; };
+		BB333D6A8A81D9499AA51EA1 /* MKTShortArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTShortArgumentGetter.h; sourceTree = "<group>"; };
+		BB333D6D42B5F39C4D23534E /* MKTArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTArgumentGetter.m; sourceTree = "<group>"; };
+		BB333D75F726FAAAE4328A93 /* MKTDoubleArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTDoubleArgumentGetter.h; sourceTree = "<group>"; };
+		BB333D982A42D6D2CB8E5C9B /* MKTLongReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLongReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333DABAD2260742BCEC549 /* MKTLongLongArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLongLongArgumentGetter.h; sourceTree = "<group>"; };
+		BB333E04F613EDF13E7A632D /* MKTUnsignedLongLongReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedLongLongReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333E39BB3CD69A89B4B026 /* MKTUnsignedCharReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedCharReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333E5DEB0D68F628AFAE0C /* MKTFloatReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTFloatReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333EE873B9816C65246570 /* MKTBoolArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBoolArgumentGetter.h; sourceTree = "<group>"; };
+		BB333EEC1682A1C82CE7C4BF /* MKTUnsignedIntReturnTypeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedIntReturnTypeSetter.h; sourceTree = "<group>"; };
+		BB333EFB169E06F2F7F516F9 /* MKTFloatReturnTypeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTFloatReturnTypeSetter.m; sourceTree = "<group>"; };
+		BB333F151970E5752DAB5CFC /* MKTFloatArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTFloatArgumentGetter.m; sourceTree = "<group>"; };
+		BB333F2C1AD46036AA83C06E /* MKTFloatArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTFloatArgumentGetter.h; sourceTree = "<group>"; };
+		BB333FCAE559ECC54EFD67CE /* MKTUnsignedIntArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedIntArgumentGetter.h; sourceTree = "<group>"; };
+		BB333FE07271D7D219CB54BC /* MKTBlockArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBlockArgumentGetter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,42 +648,92 @@
 		BB3338A6F173CED78B579087 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				BB333245F788797CEA6F9B5B /* MKTReturnTypeSetter.h */,
-				BB333FCA6AA8699AD637D58E /* MKTReturnTypeSetter.m */,
-				BB3333D152DE7D55720D1B1F /* MKTReturnTypeSetterChain.h */,
-				BB333AEDF4987C4F4B7CB1BD /* MKTReturnTypeSetterChain.m */,
-				BB3338D6DF9B0127E8BDC2D7 /* MKTBoolReturnTypeSetter.h */,
-				BB33321273979EF9F6B2321C /* MKTBoolReturnTypeSetter.m */,
-				BB333639EE3A64A9F9D48FCD /* MKTCharReturnTypeSetter.h */,
-				BB33376C70F8E62260D371A3 /* MKTCharReturnTypeSetter.m */,
-				BB3335182FA81B1232BC8095 /* MKTClassReturnTypeSetter.h */,
-				BB3331EC9BBF9FF018DC7934 /* MKTClassReturnTypeSetter.m */,
-				BB333487EA9F9BF88E93FB79 /* MKTDoubleReturnTypeSetter.h */,
-				BB3333E466FD1FF9127817E1 /* MKTDoubleReturnTypeSetter.m */,
-				BB333746A4A745DDEC304535 /* MKTFloatReturnTypeSetter.h */,
-				BB3331C67159D546C642C3AD /* MKTFloatReturnTypeSetter.m */,
-				BB333224D85C3AE359475246 /* MKTIntReturnTypeSetter.m */,
-				BB3334FE994608C86B17981C /* MKTIntReturnTypeSetter.h */,
-				BB333460C91157B40D3354DB /* MKTLongReturnTypeSetter.h */,
-				BB3339F55F313B661B90D148 /* MKTLongReturnTypeSetter.m */,
-				BB333150BB7A010A08C972B4 /* MKTLongLongReturnTypeSetter.h */,
-				BB3337D546F526B59371B0CD /* MKTLongLongReturnTypeSetter.m */,
-				BB3337FBFF72AEDA37B7209C /* MKTObjectReturnTypeSetter.h */,
-				BB33318CD9B4A53C27835510 /* MKTObjectReturnTypeSetter.m */,
-				BB333890266AED82E4E13FD8 /* MKTShortReturnTypeSetter.h */,
-				BB333502F441A3E21E855B1F /* MKTShortReturnTypeSetter.m */,
-				BB3335699E2BBA0EA1085C5F /* MKTUnsignedCharReturnTypeSetter.h */,
-				BB3339A5BB6AF7C5CC980A96 /* MKTUnsignedCharReturnTypeSetter.m */,
-				BB333DE1CA1ABB79C95A8F36 /* MKTUnsignedIntReturnTypeSetter.h */,
-				BB3330DF1C99FFA57B1C8644 /* MKTUnsignedIntReturnTypeSetter.m */,
-				BB333B337D111C7300C9157A /* MKTUnsignedLongReturnTypeSetter.h */,
-				BB333A0C67024D1545664010 /* MKTUnsignedLongReturnTypeSetter.m */,
-				BB333862DE3C75AC641861EA /* MKTUnsignedLongLongReturnTypeSetter.h */,
-				BB33310F913F4F0BF055BB49 /* MKTUnsignedLongLongReturnTypeSetter.m */,
-				BB33393E64C3775C4F6579CE /* MKTUnsignedShortReturnTypeSetter.h */,
-				BB33383A81615F4936EE3C45 /* MKTUnsignedShortReturnTypeSetter.m */,
+				BB333AB56D5D2BFD7B6F5A61 /* Return Type Setters */,
+				BB333872564548F50E70AB57 /* MKTStructArgumentGetter.m */,
+				BB33387FE6D368A199C48391 /* MKTStructArgumentGetter.h */,
+				BB33377157AAAE70D6CBD259 /* MKTPointerArgumentGetter.m */,
+				BB3339297C45EE747C15492F /* MKTPointerArgumentGetter.h */,
+				BB333D6D42B5F39C4D23534E /* MKTArgumentGetter.m */,
+				BB333191129BB98EC63775DF /* MKTArgumentGetter.h */,
+				BB333C2239797EBD7FEF7E67 /* MKTArgumentGetterChain.m */,
+				BB333B051B75463C1FF493EC /* MKTArgumentGetterChain.h */,
+				BB33398B1659D910F288EDF4 /* MKTUnsignedLongLongArgumentGetter.h */,
+				BB333CC830CC94E6EB6AE397 /* MKTUnsignedLongLongArgumentGetter.m */,
+				BB333A82188EF7C02B9BCD20 /* MKTUnsignedLongArgumentGetter.m */,
+				BB3330D710C3E8671F5CF32A /* MKTUnsignedLongArgumentGetter.h */,
+				BB33372ECB6EE715A719E4FE /* MKTUnsignedIntArgumentGetter.m */,
+				BB333FCAE559ECC54EFD67CE /* MKTUnsignedIntArgumentGetter.h */,
+				BB333DABAD2260742BCEC549 /* MKTLongLongArgumentGetter.h */,
+				BB33394DC3C2318DFC67E532 /* MKTLongLongArgumentGetter.m */,
+				BB333AA0F3DCE777612DDDB5 /* MKTLongArgumentGetter.h */,
+				BB3336138AF895B2667491CB /* MKTLongArgumentGetter.m */,
+				BB33365F5934FEF83F9D66A8 /* MKTDoubleArgumentGetter.m */,
+				BB333D75F726FAAAE4328A93 /* MKTDoubleArgumentGetter.h */,
+				BB333F151970E5752DAB5CFC /* MKTFloatArgumentGetter.m */,
+				BB333F2C1AD46036AA83C06E /* MKTFloatArgumentGetter.h */,
+				BB333143B2FB8B7C1C58C138 /* MKTUnsignedShortArgumentGetter.m */,
+				BB333D5CA53AA1559BAFED7C /* MKTUnsignedShortArgumentGetter.h */,
+				BB33332F1B8B65A32213EE5C /* MKTShortArgumentGetter.m */,
+				BB333D6A8A81D9499AA51EA1 /* MKTShortArgumentGetter.h */,
+				BB3337CAF1C8A9848BDE8EC1 /* MKTBoolArgumentGetter.m */,
+				BB333EE873B9816C65246570 /* MKTBoolArgumentGetter.h */,
+				BB333A61DA6B656DDE986976 /* MKTIntArgumentGetter.m */,
+				BB33388E0F717CB923D3BB7B /* MKTIntArgumentGetter.h */,
+				BB33353E7A0029A6F3035934 /* MKTUnsignedCharArgumentGetter.h */,
+				BB333A1C812565CADA8E1EF8 /* MKTUnsignedCharArgumentGetter.m */,
+				BB3330E2850D4F93238107D6 /* MKTCharArgumentGetter.m */,
+				BB333B085B2032B2D46F381B /* MKTCharArgumentGetter.h */,
+				BB333BB4A995AB72361FFFA1 /* MKTClassArgumentGetter.h */,
+				BB3338939032D6A0BE14A73D /* MKTClassArgumentGetter.m */,
+				BB3331D276BD87A3662A3E8E /* MKTSelectorArgumentGetter.m */,
+				BB33333BFD554610756CB9B5 /* MKTSelectorArgumentGetter.h */,
+				BB3339E05574FD44A71A206C /* MKTObjectArgumentGetter.m */,
+				BB333D3D99928ADEF1068F1D /* MKTObjectArgumentGetter.h */,
+				BB333FE07271D7D219CB54BC /* MKTBlockArgumentGetter.m */,
+				BB333463491EB4BDEA293470 /* MKTBlockArgumentGetter.h */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BB333AB56D5D2BFD7B6F5A61 /* Return Type Setters */ = {
+			isa = PBXGroup;
+			children = (
+				BB3339184C7860D46EFE51E7 /* MKTBoolReturnTypeSetter.h */,
+				BB33310AFF0B97B500C38DC8 /* MKTBoolReturnTypeSetter.m */,
+				BB333A189A730A44081299A3 /* MKTCharReturnTypeSetter.h */,
+				BB333A60AFB07B796BB2D010 /* MKTCharReturnTypeSetter.m */,
+				BB33350CCA21125FF5538E80 /* MKTClassReturnTypeSetter.h */,
+				BB333CC3852F098672D04CEA /* MKTClassReturnTypeSetter.m */,
+				BB3339F41A62B3DF06B0C537 /* MKTDoubleReturnTypeSetter.h */,
+				BB333443F1739E67D38156A6 /* MKTDoubleReturnTypeSetter.m */,
+				BB333E5DEB0D68F628AFAE0C /* MKTFloatReturnTypeSetter.h */,
+				BB333EFB169E06F2F7F516F9 /* MKTFloatReturnTypeSetter.m */,
+				BB33321A9A63C2939AA8C4A1 /* MKTIntReturnTypeSetter.h */,
+				BB33338D977D4E4B25F0A063 /* MKTIntReturnTypeSetter.m */,
+				BB333C3834FAD2B81E577BED /* MKTLongLongReturnTypeSetter.h */,
+				BB33314DC357B4266D219FEE /* MKTLongLongReturnTypeSetter.m */,
+				BB333D982A42D6D2CB8E5C9B /* MKTLongReturnTypeSetter.h */,
+				BB333C210E2494BACED97C12 /* MKTLongReturnTypeSetter.m */,
+				BB3336EB81B4E21378D0CC80 /* MKTObjectReturnTypeSetter.h */,
+				BB333851E09BF570A7786DA9 /* MKTObjectReturnTypeSetter.m */,
+				BB33331DE1382E843DAD3A17 /* MKTReturnTypeSetter.h */,
+				BB333D0AB8FE332DEE16F27D /* MKTReturnTypeSetter.m */,
+				BB3335F6E0149120BB1DAB36 /* MKTReturnTypeSetterChain.h */,
+				BB3332D4E4AD05B1FB055B47 /* MKTReturnTypeSetterChain.m */,
+				BB33371EB5265C9116108EBC /* MKTShortReturnTypeSetter.h */,
+				BB3338B3BFE877A24C83D101 /* MKTShortReturnTypeSetter.m */,
+				BB3334A29710C950B87B7460 /* MKTUnsignedCharReturnTypeSetter.h */,
+				BB333E39BB3CD69A89B4B026 /* MKTUnsignedCharReturnTypeSetter.m */,
+				BB333EEC1682A1C82CE7C4BF /* MKTUnsignedIntReturnTypeSetter.h */,
+				BB33394CA4A9B6989B601FEC /* MKTUnsignedIntReturnTypeSetter.m */,
+				BB333AC0ECDF8D5A22181190 /* MKTUnsignedLongLongReturnTypeSetter.h */,
+				BB333E04F613EDF13E7A632D /* MKTUnsignedLongLongReturnTypeSetter.m */,
+				BB333C25F7D616F839161AD7 /* MKTUnsignedLongReturnTypeSetter.h */,
+				BB3335ED362C23BB2EB6A8F3 /* MKTUnsignedLongReturnTypeSetter.m */,
+				BB3334F595432545F04CD580 /* MKTUnsignedShortReturnTypeSetter.h */,
+				BB3338360DA62652FC916F02 /* MKTUnsignedShortReturnTypeSetter.m */,
+			);
+			name = "Return Type Setters";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -588,23 +764,44 @@
 				BB333BBECB6490881B055192 /* MKTArgumentCaptor.h in Headers */,
 				BB333EF99BA39A53A2F70A53 /* MKTCapturingMatcher.h in Headers */,
 				BB333C4EF1FE02209FD55817 /* NSInvocation+TKAdditions.h in Headers */,
-				BB3339A685BCFF006490C6C9 /* MKTReturnTypeSetter.h in Headers */,
-				BB333E17F7B4E1DB715E607D /* MKTObjectReturnTypeSetter.h in Headers */,
-				BB333B6F38DC7B077DD09215 /* MKTReturnTypeSetterChain.h in Headers */,
-				BB333498F8B0B18759FD6BC0 /* MKTDoubleReturnTypeSetter.h in Headers */,
-				BB333E67C01C5B8C75F92458 /* MKTFloatReturnTypeSetter.h in Headers */,
-				BB333B3B816C31B4F9396057 /* MKTUnsignedLongLongReturnTypeSetter.h in Headers */,
-				BB33312C0AF3EF96D95A3288 /* MKTUnsignedLongReturnTypeSetter.h in Headers */,
-				BB3336BCB36D8531950BF3FD /* MKTUnsignedShortReturnTypeSetter.h in Headers */,
-				BB33367E07D3D2158F6DF2F8 /* MKTUnsignedIntReturnTypeSetter.h in Headers */,
-				BB3332AF426702E5327C46E8 /* MKTUnsignedCharReturnTypeSetter.h in Headers */,
-				BB3330AE7EB041060081C1A0 /* MKTLongLongReturnTypeSetter.h in Headers */,
-				BB333B05C687E20170D72CA8 /* MKTLongReturnTypeSetter.h in Headers */,
-				BB333AE8BC976340153F06C8 /* MKTShortReturnTypeSetter.h in Headers */,
-				BB33393AECDF297A64F7C7D5 /* MKTIntReturnTypeSetter.h in Headers */,
-				BB3339004A8DAFD764242204 /* MKTBoolReturnTypeSetter.h in Headers */,
-				BB333FC4EA26BA9645104F1F /* MKTCharReturnTypeSetter.h in Headers */,
-				BB333EF5597E299147754137 /* MKTClassReturnTypeSetter.h in Headers */,
+				BB33327DD867B2974C9D5BF5 /* MKTBoolReturnTypeSetter.h in Headers */,
+				BB333C130755E4C1AA587586 /* MKTCharReturnTypeSetter.h in Headers */,
+				BB33372006035D75BD520BF9 /* MKTClassReturnTypeSetter.h in Headers */,
+				BB333FF163A150718490F9A6 /* MKTDoubleReturnTypeSetter.h in Headers */,
+				BB333EC317A619AE932A777A /* MKTFloatReturnTypeSetter.h in Headers */,
+				BB3333705ADF3524AB8E359E /* MKTIntReturnTypeSetter.h in Headers */,
+				BB333346214706967521CEC8 /* MKTLongLongReturnTypeSetter.h in Headers */,
+				BB333488B93AF62DE32DFC06 /* MKTLongReturnTypeSetter.h in Headers */,
+				BB333E94CE90115E46E018BD /* MKTObjectReturnTypeSetter.h in Headers */,
+				BB33326716EBED3A65826E51 /* MKTReturnTypeSetter.h in Headers */,
+				BB3333DC67BAF6F8570F1023 /* MKTReturnTypeSetterChain.h in Headers */,
+				BB333067F3C9CAB7A9B98DDD /* MKTShortReturnTypeSetter.h in Headers */,
+				BB3339B7CF28CAA8A8530CDB /* MKTUnsignedCharReturnTypeSetter.h in Headers */,
+				BB3337F30BAAE95F1322CEEC /* MKTUnsignedIntReturnTypeSetter.h in Headers */,
+				BB33341554E15B4093958267 /* MKTUnsignedLongLongReturnTypeSetter.h in Headers */,
+				BB333C4041060F3826C7D8DD /* MKTUnsignedLongReturnTypeSetter.h in Headers */,
+				BB333D7C3105434622D7E86F /* MKTUnsignedShortReturnTypeSetter.h in Headers */,
+				BB333692C2926B5D153786B1 /* MKTStructArgumentGetter.h in Headers */,
+				BB33386E0CBCAE8081A2A01A /* MKTPointerArgumentGetter.h in Headers */,
+				BB333B6FBD5C15AF545C0852 /* MKTArgumentGetter.h in Headers */,
+				BB333A0CC3EFC7AA4153B384 /* MKTArgumentGetterChain.h in Headers */,
+				BB3338FE8B0433AB1AE5075D /* MKTUnsignedLongLongArgumentGetter.h in Headers */,
+				BB333B2498BB18F948051452 /* MKTUnsignedLongArgumentGetter.h in Headers */,
+				BB333EA25F525B24F769CD68 /* MKTUnsignedIntArgumentGetter.h in Headers */,
+				BB333ECB9F56D5F017784D48 /* MKTLongLongArgumentGetter.h in Headers */,
+				BB333FE269C15C4BE810961D /* MKTLongArgumentGetter.h in Headers */,
+				BB3337ACAA0E4830B231CD8D /* MKTDoubleArgumentGetter.h in Headers */,
+				BB333921C27A7B065A00C228 /* MKTFloatArgumentGetter.h in Headers */,
+				BB33303C737C10CB109C7586 /* MKTUnsignedShortArgumentGetter.h in Headers */,
+				BB333BB5EEC28EDE5D06555E /* MKTShortArgumentGetter.h in Headers */,
+				BB3331FBF2582D8BB24F1508 /* MKTBoolArgumentGetter.h in Headers */,
+				BB333BE703AA2EBE128FD2CD /* MKTIntArgumentGetter.h in Headers */,
+				BB333D8D86D481AB45A0F3B4 /* MKTUnsignedCharArgumentGetter.h in Headers */,
+				BB3337D07089083A25C0DDB7 /* MKTCharArgumentGetter.h in Headers */,
+				BB33317704958DB03E136BFA /* MKTClassArgumentGetter.h in Headers */,
+				BB333B1A67AF2E9C9B69C685 /* MKTSelectorArgumentGetter.h in Headers */,
+				BB333E3E64F21AC93AE5DB29 /* MKTObjectArgumentGetter.h in Headers */,
+				BB333F8E052E9D4799066E50 /* MKTBlockArgumentGetter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,23 +830,44 @@
 				BB3339CB07B7B9D7EB2DED24 /* MKTArgumentCaptor.h in Headers */,
 				BB333C34005EB2306795E562 /* MKTCapturingMatcher.h in Headers */,
 				BB333F04719B4E40829FB969 /* NSInvocation+TKAdditions.h in Headers */,
-				BB333F31368615996C516953 /* MKTReturnTypeSetter.h in Headers */,
-				BB3330CE3DC21B93CA2D6731 /* MKTObjectReturnTypeSetter.h in Headers */,
-				BB333EFF997F662EA053B408 /* MKTReturnTypeSetterChain.h in Headers */,
-				BB3339CA5B1C2B51FC4BA0BE /* MKTDoubleReturnTypeSetter.h in Headers */,
-				BB3337364881E3F6D370C1C4 /* MKTFloatReturnTypeSetter.h in Headers */,
-				BB3337CAD884E75899D58E7C /* MKTUnsignedLongLongReturnTypeSetter.h in Headers */,
-				BB333E23F05637F21BBCD6F7 /* MKTUnsignedLongReturnTypeSetter.h in Headers */,
-				BB333FBC883E9B83CBF89B05 /* MKTUnsignedShortReturnTypeSetter.h in Headers */,
-				BB3332F7CC774965627C770F /* MKTUnsignedIntReturnTypeSetter.h in Headers */,
-				BB3330B39E79D7004CD1C3AB /* MKTUnsignedCharReturnTypeSetter.h in Headers */,
-				BB33301838EC0523D0B69DFC /* MKTLongLongReturnTypeSetter.h in Headers */,
-				BB33333EF66BF7EA5B5A9D0E /* MKTLongReturnTypeSetter.h in Headers */,
-				BB3331BF9450D6068E72434A /* MKTShortReturnTypeSetter.h in Headers */,
-				BB333617DF387A6BF0998CA2 /* MKTIntReturnTypeSetter.h in Headers */,
-				BB333E2E1049AA9D5CA2224F /* MKTBoolReturnTypeSetter.h in Headers */,
-				BB33340918CB94C88CEEE874 /* MKTCharReturnTypeSetter.h in Headers */,
-				BB333C1C220D166DAB0D3C91 /* MKTClassReturnTypeSetter.h in Headers */,
+				BB33311082715F3DD32CED52 /* MKTBoolReturnTypeSetter.h in Headers */,
+				BB333AB1EE4ECB5E71549EC3 /* MKTCharReturnTypeSetter.h in Headers */,
+				BB33319F08C6D842723FD13D /* MKTClassReturnTypeSetter.h in Headers */,
+				BB333A267C611499C756DF08 /* MKTDoubleReturnTypeSetter.h in Headers */,
+				BB333D39A855B3C66EC0CC27 /* MKTFloatReturnTypeSetter.h in Headers */,
+				BB3330C927DC08A73BD40088 /* MKTIntReturnTypeSetter.h in Headers */,
+				BB3338DD86B332AD46A65DD0 /* MKTLongLongReturnTypeSetter.h in Headers */,
+				BB33329DCEB0A791C3EF8D89 /* MKTLongReturnTypeSetter.h in Headers */,
+				BB3337187D2DEED3D8FC57E8 /* MKTObjectReturnTypeSetter.h in Headers */,
+				BB33378F682F73F30613B4A2 /* MKTReturnTypeSetter.h in Headers */,
+				BB333DD833207D008EE633B3 /* MKTReturnTypeSetterChain.h in Headers */,
+				BB333821D21866FC73D4D18C /* MKTShortReturnTypeSetter.h in Headers */,
+				BB33342399D477D76C1ADB68 /* MKTUnsignedCharReturnTypeSetter.h in Headers */,
+				BB33389D616998EF11D3E695 /* MKTUnsignedIntReturnTypeSetter.h in Headers */,
+				BB33370CFFE7CC7F3B16A20D /* MKTUnsignedLongLongReturnTypeSetter.h in Headers */,
+				BB333AB2D772227530D844F9 /* MKTUnsignedLongReturnTypeSetter.h in Headers */,
+				BB333F0602F824BE10C44E91 /* MKTUnsignedShortReturnTypeSetter.h in Headers */,
+				BB333F5D861796A29881E588 /* MKTStructArgumentGetter.h in Headers */,
+				BB333B1B0F25505CA4DA636C /* MKTPointerArgumentGetter.h in Headers */,
+				BB333F9B6FA8A26A4F2DF834 /* MKTArgumentGetter.h in Headers */,
+				BB3330C5AFA936ECDFFB3B0E /* MKTArgumentGetterChain.h in Headers */,
+				BB333FF825AC5563B0126191 /* MKTUnsignedLongLongArgumentGetter.h in Headers */,
+				BB333A28D3EFF5ACBA2B9315 /* MKTUnsignedLongArgumentGetter.h in Headers */,
+				BB333CC4A56FD3BC8DF65B16 /* MKTUnsignedIntArgumentGetter.h in Headers */,
+				BB333FA4460D86DA6E907212 /* MKTLongLongArgumentGetter.h in Headers */,
+				BB33394E3D2586B93A5045FE /* MKTLongArgumentGetter.h in Headers */,
+				BB3332AD297628B80EF69B81 /* MKTDoubleArgumentGetter.h in Headers */,
+				BB333571E935269C9B8EEF1C /* MKTFloatArgumentGetter.h in Headers */,
+				BB33311FB01A264055F57C51 /* MKTUnsignedShortArgumentGetter.h in Headers */,
+				BB33331F547507CEF712E374 /* MKTShortArgumentGetter.h in Headers */,
+				BB333528F6B7EAF8712D262A /* MKTBoolArgumentGetter.h in Headers */,
+				BB333FC76F86110774CA636C /* MKTIntArgumentGetter.h in Headers */,
+				BB333EF3DD161C2E96A316D9 /* MKTUnsignedCharArgumentGetter.h in Headers */,
+				BB333FDEC5C3D4B4748BE19F /* MKTCharArgumentGetter.h in Headers */,
+				BB3336A986F40533D7B339DF /* MKTClassArgumentGetter.h in Headers */,
+				BB333CD91F7DFC6C6A687075 /* MKTSelectorArgumentGetter.h in Headers */,
+				BB33309F6082F2BB72E7BE12 /* MKTObjectArgumentGetter.h in Headers */,
+				BB3333DFC9130470929F408D /* MKTBlockArgumentGetter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,23 +1089,44 @@
 				BB3339CA3DE2639D2CC6BBE5 /* MKTArgumentCaptor.m in Sources */,
 				BB333DB79D3D3AD95D4CF047 /* MKTCapturingMatcher.m in Sources */,
 				BB333D0D3FD6E3D3D9F1867B /* NSInvocation+TKAdditions.m in Sources */,
-				BB3336529CEA619C84E6ACA1 /* MKTReturnTypeSetter.m in Sources */,
-				BB3334C587ECA9DCA1FD076C /* MKTObjectReturnTypeSetter.m in Sources */,
-				BB3334E93C4D511748BE041D /* MKTReturnTypeSetterChain.m in Sources */,
-				BB3334214D2224551443AF7E /* MKTDoubleReturnTypeSetter.m in Sources */,
-				BB33384C209AE938401F16D0 /* MKTFloatReturnTypeSetter.m in Sources */,
-				BB3336736FB063BD2DC49FD7 /* MKTUnsignedLongLongReturnTypeSetter.m in Sources */,
-				BB333BEFFD619CAEFD9C5DC2 /* MKTUnsignedLongReturnTypeSetter.m in Sources */,
-				BB3337257AF54B61757BD810 /* MKTUnsignedShortReturnTypeSetter.m in Sources */,
-				BB333BEF5FFADAE2DF03DD1F /* MKTUnsignedIntReturnTypeSetter.m in Sources */,
-				BB333C0D893A70A50899E7DE /* MKTUnsignedCharReturnTypeSetter.m in Sources */,
-				BB33348D9E6815B0A2497522 /* MKTLongLongReturnTypeSetter.m in Sources */,
-				BB333E440241A1B5AC318530 /* MKTLongReturnTypeSetter.m in Sources */,
-				BB333C24FEC25600DC0A6436 /* MKTShortReturnTypeSetter.m in Sources */,
-				BB333EC01022448E534A9069 /* MKTIntReturnTypeSetter.m in Sources */,
-				BB333EB88C8B3448AF94A6A5 /* MKTBoolReturnTypeSetter.m in Sources */,
-				BB333241FACC698510A82729 /* MKTCharReturnTypeSetter.m in Sources */,
-				BB3335E051973BE2C07F11B7 /* MKTClassReturnTypeSetter.m in Sources */,
+				BB333EBC4CCCA6214B4CE63F /* MKTBoolReturnTypeSetter.m in Sources */,
+				BB333F7B2AC185643E111EC8 /* MKTCharReturnTypeSetter.m in Sources */,
+				BB333D4BC6648A60DD1CD39C /* MKTClassReturnTypeSetter.m in Sources */,
+				BB3338B94016408F85922140 /* MKTDoubleReturnTypeSetter.m in Sources */,
+				BB333B5ABF45C92FDB95273F /* MKTFloatReturnTypeSetter.m in Sources */,
+				BB3337C15FBC84EDDD0599CB /* MKTIntReturnTypeSetter.m in Sources */,
+				BB333D48309D72496343ABD5 /* MKTLongLongReturnTypeSetter.m in Sources */,
+				BB33306FFE99C2CEC6BE193C /* MKTLongReturnTypeSetter.m in Sources */,
+				BB3337EA0DDFD2FDC76E27D7 /* MKTObjectReturnTypeSetter.m in Sources */,
+				BB333F85282B66C8D8FD28CD /* MKTReturnTypeSetter.m in Sources */,
+				BB3337FFABAE83C34C1C4088 /* MKTReturnTypeSetterChain.m in Sources */,
+				BB333A26F758415F19CEE3F7 /* MKTShortReturnTypeSetter.m in Sources */,
+				BB333C05D88D23BFB476CE39 /* MKTUnsignedCharReturnTypeSetter.m in Sources */,
+				BB333BADBE3ADE02D7FCCF8E /* MKTUnsignedIntReturnTypeSetter.m in Sources */,
+				BB33359B6B1EF46D601BB4BC /* MKTUnsignedLongLongReturnTypeSetter.m in Sources */,
+				BB33316D5A104A3D2B47A3E4 /* MKTUnsignedLongReturnTypeSetter.m in Sources */,
+				BB33348F5F9A0FEC2E0BEB68 /* MKTUnsignedShortReturnTypeSetter.m in Sources */,
+				BB33318B490127AB5B0F3367 /* MKTStructArgumentGetter.m in Sources */,
+				BB333A6BB7D4CCF4866A07F5 /* MKTPointerArgumentGetter.m in Sources */,
+				BB3333E60A2623AAECC58341 /* MKTArgumentGetter.m in Sources */,
+				BB33320FA5169F4C34149C7C /* MKTArgumentGetterChain.m in Sources */,
+				BB333EB37136B5C98ED35327 /* MKTUnsignedLongLongArgumentGetter.m in Sources */,
+				BB333D00FD0861CB28D0C779 /* MKTUnsignedLongArgumentGetter.m in Sources */,
+				BB33366A1E9545C2ABD34A14 /* MKTUnsignedIntArgumentGetter.m in Sources */,
+				BB3338236BB4144F624D2481 /* MKTLongLongArgumentGetter.m in Sources */,
+				BB33360E65C6489BEB0BBE53 /* MKTLongArgumentGetter.m in Sources */,
+				BB3339F10C6E5D5AA27107B3 /* MKTDoubleArgumentGetter.m in Sources */,
+				BB3337F69DEA67E82809ADF3 /* MKTFloatArgumentGetter.m in Sources */,
+				BB333451989D8132C2C6C04E /* MKTUnsignedShortArgumentGetter.m in Sources */,
+				BB333418035210D6922CDA75 /* MKTShortArgumentGetter.m in Sources */,
+				BB3338B3EC3F7A30C0571FD9 /* MKTBoolArgumentGetter.m in Sources */,
+				BB33356BB566881942FBECB5 /* MKTIntArgumentGetter.m in Sources */,
+				BB333AFDDA34794E93CF7578 /* MKTUnsignedCharArgumentGetter.m in Sources */,
+				BB333EFD7672E43860FDD5CE /* MKTCharArgumentGetter.m in Sources */,
+				BB33344F8F26D1F4E9A7299B /* MKTClassArgumentGetter.m in Sources */,
+				BB333C72CA3BBF105CC09683 /* MKTSelectorArgumentGetter.m in Sources */,
+				BB333042E4ACFAF902B807A2 /* MKTObjectArgumentGetter.m in Sources */,
+				BB3336CF2B704EF3DB489999 /* MKTBlockArgumentGetter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -938,23 +1177,44 @@
 				BB33358A201321406097DDB8 /* MKTArgumentCaptor.m in Sources */,
 				BB33350FCF04694252E73AC0 /* MKTCapturingMatcher.m in Sources */,
 				BB33341789FA6BC5D8626099 /* NSInvocation+TKAdditions.m in Sources */,
-				BB3330B5E2B92C397E7A4CCD /* MKTReturnTypeSetter.m in Sources */,
-				BB333E33EC3B0959EBC649BA /* MKTObjectReturnTypeSetter.m in Sources */,
-				BB33359BCB8130CF9ECB4EAC /* MKTReturnTypeSetterChain.m in Sources */,
-				BB333C360CFB51FC825C423F /* MKTDoubleReturnTypeSetter.m in Sources */,
-				BB33374A75150CA769D80F96 /* MKTFloatReturnTypeSetter.m in Sources */,
-				BB3339A5734E13839593347F /* MKTUnsignedLongLongReturnTypeSetter.m in Sources */,
-				BB33345DC2D9C606CF78C347 /* MKTUnsignedLongReturnTypeSetter.m in Sources */,
-				BB33372EE56889073A302B1A /* MKTUnsignedShortReturnTypeSetter.m in Sources */,
-				BB333156C306A56233F89FC9 /* MKTUnsignedIntReturnTypeSetter.m in Sources */,
-				BB333EC1DA2A0680A01428A2 /* MKTUnsignedCharReturnTypeSetter.m in Sources */,
-				BB3333F6BF5EFE9EC6155DE2 /* MKTLongLongReturnTypeSetter.m in Sources */,
-				BB333B4D7DA9957FD4AF7D43 /* MKTLongReturnTypeSetter.m in Sources */,
-				BB33327232B9815431082106 /* MKTShortReturnTypeSetter.m in Sources */,
-				BB33337ADC08B70144FA4F94 /* MKTIntReturnTypeSetter.m in Sources */,
-				BB333465B341B510A87CCDCC /* MKTBoolReturnTypeSetter.m in Sources */,
-				BB333DB37FE043816F0B0860 /* MKTCharReturnTypeSetter.m in Sources */,
-				BB33394D6D878C9DAE2405CC /* MKTClassReturnTypeSetter.m in Sources */,
+				BB333D00BCAACC6F9AC16F1E /* MKTBoolReturnTypeSetter.m in Sources */,
+				BB3339D68FAA081C3D820A16 /* MKTCharReturnTypeSetter.m in Sources */,
+				BB33369ABCD1A8D6112DE78E /* MKTClassReturnTypeSetter.m in Sources */,
+				BB3339628C9EE445045EDAF2 /* MKTDoubleReturnTypeSetter.m in Sources */,
+				BB333556422379A300EDBF9C /* MKTFloatReturnTypeSetter.m in Sources */,
+				BB333168ECC49EE74FA85925 /* MKTIntReturnTypeSetter.m in Sources */,
+				BB333DB3ECA2288A941274DF /* MKTLongLongReturnTypeSetter.m in Sources */,
+				BB3336BF8D8DA85E5C809A8E /* MKTLongReturnTypeSetter.m in Sources */,
+				BB333C9B049C9A40A0D55FC3 /* MKTObjectReturnTypeSetter.m in Sources */,
+				BB33350FD846CD1DF62B364A /* MKTReturnTypeSetter.m in Sources */,
+				BB3337C8C3FDB79CB05C34D9 /* MKTReturnTypeSetterChain.m in Sources */,
+				BB3331F87FB445473A253773 /* MKTShortReturnTypeSetter.m in Sources */,
+				BB333BC4740DFB33F8683DD7 /* MKTUnsignedCharReturnTypeSetter.m in Sources */,
+				BB333F5F1738B9B90F4C262D /* MKTUnsignedIntReturnTypeSetter.m in Sources */,
+				BB3333D343D1E3F83D09592F /* MKTUnsignedLongLongReturnTypeSetter.m in Sources */,
+				BB333914281B6B7FE1610BE5 /* MKTUnsignedLongReturnTypeSetter.m in Sources */,
+				BB3338552631E9EE22460122 /* MKTUnsignedShortReturnTypeSetter.m in Sources */,
+				BB333960A8A44CD729706CC4 /* MKTStructArgumentGetter.m in Sources */,
+				BB33303E8F5BF97044A5ADC5 /* MKTPointerArgumentGetter.m in Sources */,
+				BB333A6978D0AE7DE61AA63F /* MKTArgumentGetter.m in Sources */,
+				BB33321435A3BC91195463BD /* MKTArgumentGetterChain.m in Sources */,
+				BB333978CB91FC9419B99229 /* MKTUnsignedLongLongArgumentGetter.m in Sources */,
+				BB3335EEB3283067A4C77450 /* MKTUnsignedLongArgumentGetter.m in Sources */,
+				BB33386FB4AA3EC840ACAC09 /* MKTUnsignedIntArgumentGetter.m in Sources */,
+				BB3330214C3846E9460D3F76 /* MKTLongLongArgumentGetter.m in Sources */,
+				BB333857D1853B3CA3B87DB0 /* MKTLongArgumentGetter.m in Sources */,
+				BB3335C07E12DAAC7637786E /* MKTDoubleArgumentGetter.m in Sources */,
+				BB333834FF1D500AD0D49735 /* MKTFloatArgumentGetter.m in Sources */,
+				BB333A562663221A050B56F6 /* MKTUnsignedShortArgumentGetter.m in Sources */,
+				BB333186B298253F7FE26FA3 /* MKTShortArgumentGetter.m in Sources */,
+				BB33328B64A0C0DE1904ACE1 /* MKTBoolArgumentGetter.m in Sources */,
+				BB333686A015493DD9E09E43 /* MKTIntArgumentGetter.m in Sources */,
+				BB3335D8DF78DC3368792FD7 /* MKTUnsignedCharArgumentGetter.m in Sources */,
+				BB333DBDEC7441FF609BFDF0 /* MKTCharArgumentGetter.m in Sources */,
+				BB33305975536184513C3A5E /* MKTClassArgumentGetter.m in Sources */,
+				BB333AACF341E0DFA57F3C17 /* MKTSelectorArgumentGetter.m in Sources */,
+				BB333725B93B21D437F3DB50 /* MKTObjectArgumentGetter.m in Sources */,
+				BB333C069A00D8B4DF1D3EA2 /* MKTBlockArgumentGetter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
