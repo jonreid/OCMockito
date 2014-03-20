@@ -35,7 +35,7 @@
         NSMutableDictionary *propertySetters = [[NSMutableDictionary alloc] init];
 
         Class _class = [self class];
-        while (_class != [NSObject class])
+        while (_class != [NSObject class] && _class != nil)
         {
 
             unsigned int outCount, i;
@@ -150,7 +150,8 @@
     return [self isDynamicMethod:aSelector] || [_mockedClass instancesRespondToSelector:aSelector];
 }
 
-- (BOOL)isDynamicMethod:(SEL)aSelector {
+- (BOOL)isDynamicMethod:(SEL)aSelector
+{
     NSString *selectorString = NSStringFromSelector(aSelector);
     return [_propertyGetters objectForKey:selectorString] != nil ||
             [_propertySetters objectForKey:selectorString] != nil;
