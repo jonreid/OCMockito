@@ -6,14 +6,15 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "MKTObjectAndProtocolMock.h"
+#import <OCMockito/OCMockito.h>
 
 #import <objc/runtime.h>
 
 
 @implementation MKTObjectAndProtocolMock
 {
-    Class _mockedClass;
+    Protocol * _mockedProtocol;
+    NSString* _description;
 }
 
 + (instancetype)mockForClass:(Class)aClass protocol:(Protocol *)aProtocol
@@ -23,35 +24,44 @@
 
 - (instancetype)initWithClass:(Class)aClass protocol:(Protocol *)aProtocol
 {
-    self = [super initWithProtocol:aProtocol];
+    self = [super initWithClass:aClass];
     if (self)
-        _mockedClass = aClass;
+    {
+        _mockedProtocol = aProtocol;
+        _description = [NSString stringWithFormat:@"mock object of %@ implementing %@ protocol",
+                                                  NSStringFromClass(aClass), NSStringFromProtocol(aProtocol)];
+    }
     return self;
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"mock object of %@ implementing %@ protocol",
-            NSStringFromClass(_mockedClass), NSStringFromProtocol(_mockedProtocol)];
+    return _description;
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    NSMethodSignature *signature = [_mockedClass instanceMethodSignatureForSelector:aSelector];
-    
-    if (signature)
-        return signature;
+    struct objc_method_description methodDescription = protocol_getMethodDescription(_mockedProtocol, aSelector, YES, YES);
+    if (!methodDescription.name)
+        methodDescription = protocol_getMethodDescription(_mockedProtocol, aSelector, NO, YES);
+
+    if (methodDescription.name)
+        return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
     else
         return [super methodSignatureForSelector:aSelector];
 }
 
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    return [self methodSignatureForSelector:aSelector] != nil ||
+           [super respondsToSelector:aSelector];
+}
 
 #pragma mark NSObject protocol
 
-- (BOOL)respondsToSelector:(SEL)aSelector
+- (BOOL)conformsToProtocol:(Protocol *)aProtocol
 {
-    return [_mockedClass instancesRespondToSelector:aSelector] ||
-           [super respondsToSelector:aSelector];
+    return protocol_conformsToProtocol(_mockedProtocol, aProtocol);
 }
 
 @end

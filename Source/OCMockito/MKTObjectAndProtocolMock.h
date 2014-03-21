@@ -12,7 +12,7 @@
 /**
  Mock object of a given class that also implements a given protocol.
  */
-@interface MKTObjectAndProtocolMock : MKTProtocolMock
+@interface MKTObjectAndProtocolMock : MKTObjectMock
 
 + (instancetype)mockForClass:(Class)aClass protocol:(Protocol *)aProtocol;
 - (instancetype)initWithClass:(Class)aClass protocol:(Protocol *)aProtocol;
