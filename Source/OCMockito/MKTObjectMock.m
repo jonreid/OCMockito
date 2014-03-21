@@ -15,8 +15,7 @@
 {
     Class _mockedClass;
 
-    NSDictionary *_propertyGetters;
-    NSDictionary *_propertySetters;
+    NSDictionary *_propertySelectors;
 }
 
 + (instancetype)mockForClass:(Class)aClass
@@ -31,8 +30,7 @@
     {
         _mockedClass = aClass;
 
-        NSMutableDictionary *propertyGetters = [[NSMutableDictionary alloc] init];
-        NSMutableDictionary *propertySetters = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *propertySelectors = [[NSMutableDictionary alloc] init];
 
         Class _class = [self class];
         while (_class != [NSObject class] && _class != nil)
@@ -50,11 +48,12 @@
                 {
                     free(dynamic);
 
-                    NSString *propertyName = [self getNameFor:property];
-                    [propertyGetters setObject:propertyName forKey:[self getGetterFor:property]];
+                    [propertySelectors setObject:[self getGetterSignatureFor:property]
+                                          forKey:[self getGetterNameFor:property]];
                     if (![self isReadonly:property])
                     {
-                        [propertySetters setObject:propertyName forKey:[self getSetterFor:property]];
+                        [propertySelectors setObject:[self getSetterSignatureFor:property]
+                                              forKey:[self getSetterNameFor:property]];
                     }
                 }
             }
@@ -63,19 +62,45 @@
             _class = [_class superclass];
         }
 
-        _propertyGetters = propertyGetters;
-        _propertySetters = propertySetters;
+        _propertySelectors = propertySelectors;
     }
 
     return self;
 }
 
-- (NSString *)getNameFor:(objc_property_t)pProperty
+- (NSMethodSignature *)getSetterSignatureFor:(objc_property_t)aProperty
 {
-    return [NSString stringWithUTF8String:property_getName(pProperty)];
+    NSString *typeString= [self getTypeString:aProperty];
+
+    return [NSMethodSignature signatureWithObjCTypes:
+            [[NSString stringWithFormat:@"v@:%@", typeString] UTF8String]];
 }
 
-- (NSString *)getGetterFor:(objc_property_t)pProperty
+- (id)getGetterSignatureFor:(objc_property_t)aProperty
+{
+    NSString *typeString= [self getTypeString:aProperty];
+
+    return [NSMethodSignature signatureWithObjCTypes:
+            [[NSString stringWithFormat:@"%@@:", typeString] UTF8String]];
+}
+
+- (NSString *)getTypeString:(objc_property_t)aProperty
+{
+    char *type = property_copyAttributeValue(aProperty, "T");
+    NSString * typeString = @"";
+    if (type) {
+        typeString = [NSString stringWithUTF8String:type];
+        free(type);
+    }
+    return typeString;
+}
+
+- (NSString *)getNameFor:(objc_property_t)aProperty
+{
+    return [NSString stringWithUTF8String:property_getName(aProperty)];
+}
+
+- (NSString *)getGetterNameFor:(objc_property_t)pProperty
 {
     NSString *result;
     char *getterName = property_copyAttributeValue(pProperty, "G");
@@ -92,7 +117,7 @@
     return result;
 }
 
-- (NSString *)getSetterFor:(objc_property_t)pProperty
+- (NSString *)getSetterNameFor:(objc_property_t)pProperty
 {
     NSString *result;
     char *setterName = property_copyAttributeValue(pProperty, "S");
@@ -134,7 +159,12 @@
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    return [_mockedClass instanceMethodSignatureForSelector:aSelector];
+    NSMethodSignature *signature = [_propertySelectors objectForKey:NSStringFromSelector(aSelector)];
+
+    if (signature)
+        return signature;
+    else
+        return [_mockedClass instanceMethodSignatureForSelector:aSelector];
 }
 
 
@@ -147,14 +177,8 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return [self isDynamicMethod:aSelector] || [_mockedClass instancesRespondToSelector:aSelector];
-}
-
-- (BOOL)isDynamicMethod:(SEL)aSelector
-{
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    return [_propertyGetters objectForKey:selectorString] != nil ||
-            [_propertySetters objectForKey:selectorString] != nil;
+    return [_propertySelectors objectForKey:NSStringFromSelector(aSelector)] ||
+            [_mockedClass instancesRespondToSelector:aSelector];
 }
 
 @end
