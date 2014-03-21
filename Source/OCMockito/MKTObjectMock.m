@@ -32,7 +32,7 @@
 
         NSMutableDictionary *propertySelectors = [[NSMutableDictionary alloc] init];
 
-        Class _class = [self class];
+        Class _class = aClass;
         while (_class != [NSObject class] && _class != nil)
         {
 
