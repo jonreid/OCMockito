@@ -6,7 +6,7 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import <OCMockito/OCMockito.h>
+#import "MKTObjectAndProtocolMock.h"
 
 #import <objc/runtime.h>
 
