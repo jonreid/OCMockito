@@ -12,6 +12,9 @@
 
 
 @implementation MKTProtocolMock
+{
+    Protocol *_mockedProtocol;
+}
 
 + (instancetype)mockForProtocol:(Protocol *)aProtocol
 {
