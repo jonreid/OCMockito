@@ -142,13 +142,13 @@ static inline double *createArrayOf10Doubles(void)
     assertThat([mockObject methodReturningObjectWithBlockArg:^{ }], is(nilValue()));
 }
 
-//- (void)testStub_ShouldReturnNilForInlineBlockArgumentCapturingScopeVariable
-//{
-//    NSNumber *someVariable = @0;
-//    [given([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }])
-//     willReturn:@"FOO"];
-//    assertThat([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }], is(nilValue()));
-//}
+- (void)testStub_ShouldReturnNilForInlineBlockArgumentCapturingScopeVariable
+{
+    NSNumber *someVariable = @0;
+    [given([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }])
+     willReturn:@"FOO"];
+    assertThat([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }], is(nilValue()));
+}
 
 - (void)testStub_ShouldNotReturnValueForMatchingBlockArgument
 {
