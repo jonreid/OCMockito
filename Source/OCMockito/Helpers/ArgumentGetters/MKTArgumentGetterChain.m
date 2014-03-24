@@ -8,23 +8,24 @@
 
 #import "MKTArgumentGetterChain.h"
 
+#import "MKTObjectArgumentGetter.h"
+#import "MKTSelectorArgumentGetter.h"
 #import "MKTClassArgumentGetter.h"
 #import "MKTCharArgumentGetter.h"
 #import "MKTBoolArgumentGetter.h"
 #import "MKTIntArgumentGetter.h"
 #import "MKTShortArgumentGetter.h"
 #import "MKTLongArgumentGetter.h"
+#import "MKTLongLongArgumentGetter.h"
 #import "MKTUnsignedCharArgumentGetter.h"
 #import "MKTUnsignedIntArgumentGetter.h"
 #import "MKTUnsignedShortArgumentGetter.h"
 #import "MKTUnsignedLongArgumentGetter.h"
 #import "MKTUnsignedLongLongArgumentGetter.h"
-#import "MKTDoubleArgumentGetter.h"
 #import "MKTFloatArgumentGetter.h"
+#import "MKTDoubleArgumentGetter.h"
 #import "MKTPointerArgumentGetter.h"
 #import "MKTStructArgumentGetter.h"
-#import "MKTSelectorArgumentGetter.h"
-#import "MKTObjectArgumentGetter.h"
 
 
 MKTArgumentGetter *MKTArgumentGetterChain(void)
@@ -40,6 +41,7 @@ MKTArgumentGetter *MKTArgumentGetterChain(void)
         MKTArgumentGetter *intGetter = [[MKTIntArgumentGetter alloc] init];
         MKTArgumentGetter *shortGetter = [[MKTShortArgumentGetter alloc] init];
         MKTArgumentGetter *longGetter = [[MKTLongArgumentGetter alloc] init];
+        MKTArgumentGetter *longLongGetter = [[MKTLongLongArgumentGetter alloc] init];
         MKTArgumentGetter *unsignedCharGetter = [[MKTUnsignedCharArgumentGetter alloc] init];
         MKTArgumentGetter *unsignedIntGetter = [[MKTUnsignedIntArgumentGetter alloc] init];
         MKTArgumentGetter *unsignedShortGetter = [[MKTUnsignedShortArgumentGetter alloc] init];
@@ -58,7 +60,8 @@ MKTArgumentGetter *MKTArgumentGetterChain(void)
         boolGetter.successor = intGetter;
         intGetter.successor = shortGetter;
         shortGetter.successor = longGetter;
-        longGetter.successor = unsignedCharGetter;
+        longGetter.successor = longLongGetter;
+        longLongGetter.successor = unsignedCharGetter;
         unsignedCharGetter.successor = unsignedIntGetter;
         unsignedIntGetter.successor = unsignedShortGetter;
         unsignedShortGetter.successor = unsignedLongGetter;
