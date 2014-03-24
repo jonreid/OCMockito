@@ -1,10 +1,12 @@
 //
-//  NSInvocation+TKAdditions.m
+//  OCMockito - NSInvocation+Mockito.m
+//  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
-//  Created by Taras Kalapun
+//  Created by: Jon Reid, http://qualitycoding.org/
+//  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "NSInvocation+TKAdditions.h"
+#import "NSInvocation+Mockito.h"
 
 #import "MKTReturnSetter.h"
 #import "MKTReturnSetterChain.h"
@@ -12,18 +14,18 @@
 #import "MKTArgumentGetterChain.h"
 
 
-@implementation NSInvocation (TKAdditions)
+@implementation NSInvocation (Mockito)
 
-- (NSArray *)tk_arrayArguments
+- (NSArray *)mkt_arrayArguments     // Inspired by NSInvocation+TKAdditions by Taras Kalapun
 {
-    NSMethodSignature *sig = self.methodSignature;
-    NSUInteger numberOfArguments = [sig numberOfArguments];
-    NSMutableArray *args = [NSMutableArray arrayWithCapacity:numberOfArguments-2];
     MKTArgumentGetter *chain = MKTArgumentGetterChain();
+    NSMethodSignature *signature = self.methodSignature;
+    NSUInteger numberOfArguments = [signature numberOfArguments];
+    NSMutableArray *args = [NSMutableArray arrayWithCapacity:numberOfArguments-2];
 
     for (NSUInteger idx = 2; idx < numberOfArguments; ++idx) // self and _cmd are at index 0 and 1
     {
-        const char *argType = [sig getArgumentTypeAtIndex:idx];
+        const char *argType = [signature getArgumentTypeAtIndex:idx];
         id arg = [chain retrieveArgumentAtIndex:idx ofType:argType onInvocation:self];
         if (arg)
             [args addObject:arg];
