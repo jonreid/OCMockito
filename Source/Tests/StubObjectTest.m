@@ -121,12 +121,12 @@ static inline double *createArrayOf10Doubles(void)
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
-- (void)testStub_ShouldReturnValueForMatchingNumericArgument
-{
-    [given([mockObject methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
-    [given([mockObject methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
-    assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
-}
+//- (void)testStub_ShouldReturnValueForMatchingNumericArgument
+//{
+//    [given([mockObject methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
+//    [given([mockObject methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
+//    assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
+//}
 
 - (void)testStub_ShouldReturnValueForSameBlockArgument
 {
@@ -142,13 +142,13 @@ static inline double *createArrayOf10Doubles(void)
     assertThat([mockObject methodReturningObjectWithBlockArg:^{ }], is(nilValue()));
 }
 
-- (void)testStub_ShouldReturnNilForInlineBlockArgumentCapturingScopeVariable
-{
-    NSNumber *someVariable = @0;
-    [given([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }])
-     willReturn:@"FOO"];
-    assertThat([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }], is(nilValue()));
-}
+//- (void)testStub_ShouldReturnNilForInlineBlockArgumentCapturingScopeVariable
+//{
+//    NSNumber *someVariable = @0;
+//    [given([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }])
+//     willReturn:@"FOO"];
+//    assertThat([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }], is(nilValue()));
+//}
 
 - (void)testStub_ShouldNotReturnValueForMatchingBlockArgument
 {
