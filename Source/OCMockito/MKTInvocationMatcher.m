@@ -9,7 +9,7 @@
 #import "MKTInvocationMatcher.h"
 
 #import "MKTCapturingMatcher.h"
-#import "NSInvocation+TKAdditions.h"
+#import "NSInvocation+Mockito.h"
 #import <OCHamcrest/HCIsNil.h>
 #import <OCHamcrest/HCWrapInMatcher.h>
 
@@ -57,7 +57,7 @@
 
     self.numberOfArguments = [[self.expected methodSignature] numberOfArguments] - 2;
     [self trueUpArgumentMatchersToCount:self.numberOfArguments];
-    [self replacePlaceholdersWithEqualityMatchersForArguments:[self.expected tk_arrayArguments]];
+    [self replacePlaceholdersWithEqualityMatchersForArguments:[self.expected mkt_arrayArguments]];
 }
 
 - (void)replacePlaceholdersWithEqualityMatchersForArguments:(NSArray *)expectedArgs
@@ -87,7 +87,7 @@
     if ([self.expected selector] != [actual selector])
         return NO;
 
-    NSArray *actualArgs = [actual tk_arrayArguments];
+    NSArray *actualArgs = [actual mkt_arrayArguments];
     for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
     {
         if ([self argument:actualArgs[index] doesNotMatch:self.argumentMatchers[index]])
@@ -121,7 +121,7 @@
     {
         if ([self.expected selector] == [inv selector])
         {
-            NSArray *args = [inv tk_arrayArguments];
+            NSArray *args = [inv mkt_arrayArguments];
             [capturingMatcher performSelector:@selector(captureArgument:) withObject:args[index]];
         }
     }
