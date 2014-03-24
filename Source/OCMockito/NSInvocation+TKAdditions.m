@@ -6,8 +6,8 @@
 
 #import "NSInvocation+TKAdditions.h"
 
-#import "MKTReturnTypeSetter.h"
-#import "MKTReturnTypeSetterChain.h"
+#import "MKTReturnSetter.h"
+#import "MKTReturnSetterChain.h"
 #import "MKTArgumentGetter.h"
 #import "MKTArgumentGetterChain.h"
 
@@ -36,7 +36,7 @@
 
 - (void)mkt_setReturnValue:(id)returnValue
 {
-    MKTReturnTypeSetter *chain = MKTReturnTypeSetterChain();
+    MKTReturnSetter *chain = MKTReturnSetterChain();
     char const *returnType = [[self methodSignature] methodReturnType];
     [chain setReturnValue:returnValue ofType:returnType onInvocation:self];
 }
