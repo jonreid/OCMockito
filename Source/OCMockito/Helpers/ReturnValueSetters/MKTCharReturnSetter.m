@@ -11,9 +11,9 @@
 
 @implementation MKTCharReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(char)];
+    self = [super initWithType:@encode(char) successor:successor];
     return self;
 }
 

@@ -11,9 +11,9 @@
 
 @implementation MKTDoubleReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(double)];
+    self = [super initWithType:@encode(double) successor:successor];
     return self;
 }
 

@@ -11,9 +11,9 @@
 
 @implementation MKTShortReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(short)];
+    self = [super initWithType:@encode(short) successor:successor];
     return self;
 }
 

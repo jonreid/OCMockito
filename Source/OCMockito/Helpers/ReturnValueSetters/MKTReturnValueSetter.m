@@ -13,23 +13,28 @@
 - (void)setReturnValue:(id)returnValue onInvocation:(NSInvocation *)invocation;
 @end
 
+@interface MKTReturnValueSetter ()
+@property (nonatomic, readonly) char const *handlerType;
+@property (nonatomic, readonly) MKTReturnValueSetter *successor;
+@end
+
 
 @implementation MKTReturnValueSetter
-{
-    char const *_handlerType;
-}
 
-- (instancetype)initWithType:(char const *)handlerType
+- (instancetype)initWithType:(char const *)handlerType successor:(MKTReturnValueSetter *)successor
 {
     self = [super init];
     if (self)
+    {
         _handlerType = handlerType;
+        _successor = successor;
+    }
     return self;
 }
 
 - (BOOL)handlesReturnType:(char const *)returnType
 {
-    return strcmp(returnType, _handlerType) == 0;
+    return strcmp(returnType, self.handlerType) == 0;
 }
 
 - (void)setReturnValue:(id)returnValue ofType:(char const *)type onInvocation:(NSInvocation *)invocation

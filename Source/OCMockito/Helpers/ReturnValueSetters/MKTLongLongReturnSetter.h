@@ -10,4 +10,7 @@
 
 
 @interface MKTLongLongReturnSetter : MKTReturnValueSetter
+
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor;
+
 @end

@@ -11,9 +11,9 @@
 
 @implementation MKTObjectReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(id)];
+    self = [super initWithType:@encode(id) successor:successor];
     return self;
 }
 

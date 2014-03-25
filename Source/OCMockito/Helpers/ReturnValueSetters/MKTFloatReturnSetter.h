@@ -10,4 +10,7 @@
 
 
 @interface MKTFloatReturnSetter : MKTReturnValueSetter
+
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor;
+
 @end

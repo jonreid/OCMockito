@@ -9,7 +9,7 @@
 #import "NSInvocation+OCMockito.h"
 
 #import "MKTReturnValueSetter.h"
-#import "MKTReturnSetterChain.h"
+#import "MKTReturnValueSetterChain.h"
 #import "MKTArgumentGetter.h"
 #import "MKTArgumentGetterChain.h"
 
