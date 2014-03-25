@@ -11,9 +11,9 @@
 
 @implementation MKTFloatReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(float)];
+    self = [super initWithType:@encode(float) successor:successor];
     return self;
 }
 

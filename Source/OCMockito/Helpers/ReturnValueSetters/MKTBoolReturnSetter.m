@@ -11,9 +11,9 @@
 
 @implementation MKTBoolReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(BOOL)];
+    self = [super initWithType:@encode(BOOL) successor:successor];
     return self;
 }
 

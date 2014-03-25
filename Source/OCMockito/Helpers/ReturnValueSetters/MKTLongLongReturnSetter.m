@@ -11,9 +11,9 @@
 
 @implementation MKTLongLongReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(long long)];
+    self = [super initWithType:@encode(long long) successor:successor];
     return self;
 }
 

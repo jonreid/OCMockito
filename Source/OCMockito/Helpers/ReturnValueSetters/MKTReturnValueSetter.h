@@ -11,9 +11,7 @@
 
 @interface MKTReturnValueSetter : NSObject
 
-@property (nonatomic, strong) MKTReturnValueSetter *successor;
-
-- (instancetype)initWithType:(char const *)handlerType;
+- (instancetype)initWithType:(char const *)handlerType successor:(MKTReturnValueSetter *)successor;
 - (void)setReturnValue:(id)returnValue ofType:(char const *)type onInvocation:(NSInvocation *)invocation;
 
 @end

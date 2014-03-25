@@ -11,9 +11,9 @@
 
 @implementation MKTIntReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(int)];
+    self = [super initWithType:@encode(int) successor:successor];
     return self;
 }
 

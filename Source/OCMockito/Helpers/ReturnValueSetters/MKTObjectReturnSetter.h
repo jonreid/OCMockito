@@ -10,4 +10,7 @@
 
 
 @interface MKTObjectReturnSetter : MKTReturnValueSetter
+
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor;
+
 @end

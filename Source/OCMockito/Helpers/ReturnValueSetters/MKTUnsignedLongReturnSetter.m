@@ -11,9 +11,9 @@
 
 @implementation MKTUnsignedLongReturnSetter
 
-- (instancetype)init
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
 {
-    self = [super initWithType:@encode(unsigned long)];
+    self = [super initWithType:@encode(unsigned long) successor:successor];
     return self;
 }
 
