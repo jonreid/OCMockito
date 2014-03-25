@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTReturnSetter.h
+//  OCMockito - MKTReturnValueSetter.h
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MKTReturnSetter : NSObject
+@interface MKTReturnValueSetter : NSObject
 
-@property (nonatomic, strong) MKTReturnSetter *successor;
+@property (nonatomic, strong) MKTReturnValueSetter *successor;
 
 - (instancetype)initWithType:(char const *)handlerType;
 - (void)setReturnValue:(id)returnValue ofType:(char const *)type onInvocation:(NSInvocation *)invocation;

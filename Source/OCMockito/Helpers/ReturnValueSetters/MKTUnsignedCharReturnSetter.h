@@ -1,13 +1,13 @@
 //
-//  OCMockito - MKTUnsignedLongLongReturnSetter.h
+//  OCMockito - MKTUnsignedCharReturnSetter.h
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "MKTReturnSetter.h"
+#import "MKTReturnValueSetter.h"
 
 
-@interface MKTUnsignedLongLongReturnSetter : MKTReturnSetter
+@interface MKTUnsignedCharReturnSetter : MKTReturnValueSetter
 @end

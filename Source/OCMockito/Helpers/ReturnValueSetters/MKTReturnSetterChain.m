@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTReturnSetterChain.m
+//  OCMockito - MKTReturnValueSetterChain.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -25,26 +25,26 @@
 #import "MKTDoubleReturnSetter.h"
 
 
-MKTReturnSetter *MKTReturnSetterChain(void)
+MKTReturnValueSetter *MKTReturnValueSetterChain(void)
 {
-    static MKTReturnSetter *chain = nil;
+    static MKTReturnValueSetter *chain = nil;
     if (!chain)
     {
-        MKTReturnSetter *objectSetter = [[MKTObjectReturnSetter alloc] init];
-        MKTReturnSetter *classSetter = [[MKTClassReturnSetter alloc] init];
-        MKTReturnSetter *charSetter = [[MKTCharReturnSetter alloc] init];
-        MKTReturnSetter *boolSetter = [[MKTBoolReturnSetter alloc] init];
-        MKTReturnSetter *intSetter = [[MKTIntReturnSetter alloc] init];
-        MKTReturnSetter *shortSetter = [[MKTShortReturnSetter alloc] init];
-        MKTReturnSetter *longSetter = [[MKTLongReturnSetter alloc] init];
-        MKTReturnSetter *longLongSetter = [[MKTLongLongReturnSetter alloc] init];
-        MKTReturnSetter *unsignedCharSetter = [[MKTUnsignedCharReturnSetter alloc] init];
-        MKTReturnSetter *unsignedIntSetter = [[MKTUnsignedIntReturnSetter alloc] init];
-        MKTReturnSetter *unsignedShortSetter = [[MKTUnsignedShortReturnSetter alloc] init];
-        MKTReturnSetter *unsignedLongSetter = [[MKTUnsignedLongReturnSetter alloc] init];
-        MKTReturnSetter *unsignedLongLongSetter = [[MKTUnsignedLongLongReturnSetter alloc] init];
-        MKTReturnSetter *floatSetter = [[MKTFloatReturnSetter alloc] init];
-        MKTReturnSetter *doubleSetter = [[MKTDoubleReturnSetter alloc] init];
+        MKTReturnValueSetter *objectSetter = [[MKTObjectReturnSetter alloc] init];
+        MKTReturnValueSetter *classSetter = [[MKTClassReturnSetter alloc] init];
+        MKTReturnValueSetter *charSetter = [[MKTCharReturnSetter alloc] init];
+        MKTReturnValueSetter *boolSetter = [[MKTBoolReturnSetter alloc] init];
+        MKTReturnValueSetter *intSetter = [[MKTIntReturnSetter alloc] init];
+        MKTReturnValueSetter *shortSetter = [[MKTShortReturnSetter alloc] init];
+        MKTReturnValueSetter *longSetter = [[MKTLongReturnSetter alloc] init];
+        MKTReturnValueSetter *longLongSetter = [[MKTLongLongReturnSetter alloc] init];
+        MKTReturnValueSetter *unsignedCharSetter = [[MKTUnsignedCharReturnSetter alloc] init];
+        MKTReturnValueSetter *unsignedIntSetter = [[MKTUnsignedIntReturnSetter alloc] init];
+        MKTReturnValueSetter *unsignedShortSetter = [[MKTUnsignedShortReturnSetter alloc] init];
+        MKTReturnValueSetter *unsignedLongSetter = [[MKTUnsignedLongReturnSetter alloc] init];
+        MKTReturnValueSetter *unsignedLongLongSetter = [[MKTUnsignedLongLongReturnSetter alloc] init];
+        MKTReturnValueSetter *floatSetter = [[MKTFloatReturnSetter alloc] init];
+        MKTReturnValueSetter *doubleSetter = [[MKTDoubleReturnSetter alloc] init];
 
         chain = objectSetter;
         objectSetter.successor = classSetter;

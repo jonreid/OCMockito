@@ -1,5 +1,5 @@
 //
-//  OCMockito - NSInvocation+Mockito.h
+//  OCMockito - NSInvocation+OCMockito.h
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSInvocation (Mockito)
+@interface NSInvocation (OCMockito)
 
 - (NSArray *)mkt_arrayArguments;
 - (void)mkt_setReturnValue:(id)returnValue;
