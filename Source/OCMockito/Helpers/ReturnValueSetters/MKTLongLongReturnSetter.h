@@ -6,8 +6,8 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "MKTReturnSetter.h"
+#import "MKTReturnValueSetter.h"
 
 
-@interface MKTLongLongReturnSetter : MKTReturnSetter
+@interface MKTLongLongReturnSetter : MKTReturnValueSetter
 @end

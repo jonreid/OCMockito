@@ -9,7 +9,7 @@
 #import "MKTInvocationMatcher.h"
 
 #import "MKTCapturingMatcher.h"
-#import "NSInvocation+Mockito.h"
+#import "NSInvocation+OCMockito.h"
 #import <OCHamcrest/HCIsNil.h>
 #import <OCHamcrest/HCWrapInMatcher.h>
 

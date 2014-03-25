@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTReturnSetterChain.h
+//  OCMockito - MKTReturnValueSetterChain.h
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class MKTReturnSetter;
+@class MKTReturnValueSetter;
 
 
 /**
  Returns chain of return value handlers.
  */
-FOUNDATION_EXPORT MKTReturnSetter *MKTReturnSetterChain(void);
+FOUNDATION_EXPORT MKTReturnValueSetter *MKTReturnValueSetterChain(void);

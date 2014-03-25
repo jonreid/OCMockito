@@ -1,20 +1,20 @@
 //
-//  OCMockito - NSInvocation+Mockito.m
+//  OCMockito - NSInvocation+OCMockito.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "NSInvocation+Mockito.h"
+#import "NSInvocation+OCMockito.h"
 
-#import "MKTReturnSetter.h"
+#import "MKTReturnValueSetter.h"
 #import "MKTReturnSetterChain.h"
 #import "MKTArgumentGetter.h"
 #import "MKTArgumentGetterChain.h"
 
 
-@implementation NSInvocation (Mockito)
+@implementation NSInvocation (OCMockito)
 
 - (NSArray *)mkt_arrayArguments     // Inspired by NSInvocation+TKAdditions by Taras Kalapun
 {
@@ -38,9 +38,8 @@
 
 - (void)mkt_setReturnValue:(id)returnValue
 {
-    MKTReturnSetter *chain = MKTReturnSetterChain();
     char const *returnType = [[self methodSignature] methodReturnType];
-    [chain setReturnValue:returnValue ofType:returnType onInvocation:self];
+    [MKTReturnValueSetterChain() setReturnValue:returnValue ofType:returnType onInvocation:self];
 }
 
 @end

@@ -1,20 +1,20 @@
 //
-//  OCMockito - MKTReturnSetter.m
+//  OCMockito - MKTReturnValueSetter.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "MKTReturnSetter.h"
+#import "MKTReturnValueSetter.h"
 
 
-@interface MKTReturnSetter (SubclassResponsibility)
+@interface MKTReturnValueSetter (SubclassResponsibility)
 - (void)setReturnValue:(id)returnValue onInvocation:(NSInvocation *)invocation;
 @end
 
 
-@implementation MKTReturnSetter
+@implementation MKTReturnValueSetter
 {
     char const *_handlerType;
 }

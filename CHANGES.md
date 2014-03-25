@@ -33,7 +33,7 @@ _30 Oct 2013_
 
 - Changed mock object factory methods to cast to `(id)` to eliminate AppCode warnings.
 - Added support for 64-bit iOS devices.
-- Convert primitive arguments to objects using NSInvocation+Mockito by Taras
+- Convert primitive arguments to objects using NSInvocation+OCMockito by Taras
   Kalapun.
 
 **Examples & Documentation:**

@@ -15,7 +15,7 @@
 #import "MKTStubbedInvocationMatcher.h"
 #import "MKTVerificationData.h"
 #import "MKTVerificationMode.h"
-#import "NSInvocation+Mockito.h"
+#import "NSInvocation+OCMockito.h"
 
 
 @implementation MKTBaseMockObject
