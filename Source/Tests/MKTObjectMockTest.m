@@ -20,18 +20,55 @@
 #endif
 
 
+@interface PropertyHolder : NSObject
+
+@property (nonatomic) NSString* myProperty;
+
+@end
+
+@implementation PropertyHolder
+
+@dynamic myProperty;
+
+@end
+
+@interface CustomPropertyHolder : NSObject
+
+@property (nonatomic, getter = getMyCustomProperty, setter = setterMyCustomProperty:) NSString* myCustomProperty;
+
+@end
+
+@implementation CustomPropertyHolder
+
+@dynamic myCustomProperty;
+
+@end
+
+@interface StringPropertyHolder : NSObject
+@property (nonatomic) NSString* stringProperty;
+@end
+
+@implementation StringPropertyHolder
+@synthesize stringProperty;
+@end
+
 @interface MKTObjectMockTest : SenTestCase
 @end
 
 @implementation MKTObjectMockTest
 {
     NSString *mockString;
+    PropertyHolder *mockDynamicPropertyHolder;
+    CustomPropertyHolder *mockDynamicCustomPropertyHolder;
 }
 
 - (void)setUp
 {
     [super setUp];
+
     mockString = mock([NSString class]);
+    mockDynamicPropertyHolder = mock([PropertyHolder class]);
+    mockDynamicCustomPropertyHolder = mock([CustomPropertyHolder class]);
 }
 
 - (void)testDescription
@@ -78,6 +115,44 @@
 - (void)testMock_ShouldNotRespondToUnknownSelector
 {
     STAssertFalse([mockString respondsToSelector:@selector(removeAllObjects)], nil);
+}
+
+- (void)testMock_ShouldRespondToDynamicSetterSelector
+{
+    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(setMyProperty:)], nil);
+}
+
+- (void)testMock_ShouldRespondToDynamicGetterSelector
+{
+    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(myProperty)], nil);
+}
+
+- (void)testMock_ShouldRespondToDynamicSetterSelectorWithCustomName
+{
+    STAssertTrue([mockDynamicCustomPropertyHolder respondsToSelector:@selector(setterMyCustomProperty:)], nil);
+}
+
+- (void)testMock_ShouldRespondToDynamicGetterSelectorWithCustomName
+{
+    STAssertTrue([mockDynamicCustomPropertyHolder respondsToSelector:@selector(getMyCustomProperty)], nil);
+}
+
+- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorForGetter
+{
+    StringPropertyHolder *obj = [[StringPropertyHolder alloc] init];
+    SEL selector = @selector(stringProperty);
+
+    NSMethodSignature *signature = [mockDynamicPropertyHolder methodSignatureForSelector:@selector(myProperty)];
+    assertThat(signature, equalTo([obj methodSignatureForSelector:selector]));
+}
+
+- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorForSetter
+{
+    StringPropertyHolder *obj = [[StringPropertyHolder alloc] init];
+    SEL selector = @selector(setStringProperty:);
+    
+    NSMethodSignature *signature = [mockDynamicPropertyHolder methodSignatureForSelector:@selector(setMyProperty:)];
+    assertThat(signature, equalTo([obj methodSignatureForSelector:selector]));
 }
 
 @end

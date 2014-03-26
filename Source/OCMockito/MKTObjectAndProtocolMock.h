@@ -6,15 +6,15 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "MKTProtocolMock.h"
+#import "MKTObjectMock.h"
 
 
 /**
  Mock object of a given class that also implements a given protocol.
  */
-@interface MKTObjectAndProtocolMock : MKTProtocolMock
+@interface MKTObjectAndProtocolMock : MKTObjectMock
 
-+ (instancetype)mockForClass:(Class)aClass protocol:(Protocol *)protocol;
-- (instancetype)initWithClass:(Class)aClass protocol:(Protocol *)protocol;
++ (instancetype)mockForClass:(Class)aClass protocol:(Protocol *)aProtocol;
+- (instancetype)initWithClass:(Class)aClass protocol:(Protocol *)aProtocol;
 
 @end
