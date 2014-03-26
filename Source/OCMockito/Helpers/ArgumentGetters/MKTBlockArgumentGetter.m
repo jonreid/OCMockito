@@ -12,9 +12,9 @@ typedef void (^MKTBlockType)(void);
 
 @implementation MKTBlockArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(MKTBlockType)];
+    self = [super initWithType:@encode(MKTBlockType) successor:successor];
     return self;
 }
 

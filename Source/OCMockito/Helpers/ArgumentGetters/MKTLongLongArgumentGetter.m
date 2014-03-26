@@ -10,9 +10,9 @@
 
 @implementation MKTLongLongArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(long long)];
+    self = [super initWithType:@encode(long long) successor:successor];
     return self;
 }
 

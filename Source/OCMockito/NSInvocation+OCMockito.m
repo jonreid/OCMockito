@@ -8,17 +8,16 @@
 
 #import "NSInvocation+OCMockito.h"
 
-#import "MKTReturnValueSetter.h"
-#import "MKTReturnValueSetterChain.h"
 #import "MKTArgumentGetter.h"
 #import "MKTArgumentGetterChain.h"
+#import "MKTReturnValueSetter.h"
+#import "MKTReturnValueSetterChain.h"
 
 
 @implementation NSInvocation (OCMockito)
 
 - (NSArray *)mkt_arrayArguments     // Inspired by NSInvocation+TKAdditions by Taras Kalapun
 {
-    MKTArgumentGetter *chain = MKTArgumentGetterChain();
     NSMethodSignature *signature = self.methodSignature;
     NSUInteger numberOfArguments = [signature numberOfArguments];
     NSMutableArray *args = [NSMutableArray arrayWithCapacity:numberOfArguments-2];
@@ -26,7 +25,7 @@
     for (NSUInteger idx = 2; idx < numberOfArguments; ++idx) // self and _cmd are at index 0 and 1
     {
         const char *argType = [signature getArgumentTypeAtIndex:idx];
-        id arg = [chain retrieveArgumentAtIndex:idx ofType:argType onInvocation:self];
+        id arg = [MKTArgumentGetterChain() retrieveArgumentAtIndex:idx ofType:argType onInvocation:self];
         if (arg)
             [args addObject:arg];
         else

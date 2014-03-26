@@ -10,9 +10,9 @@
 
 @implementation MKTObjectArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(id)];
+    self = [super initWithType:@encode(id) successor:successor];
     return self;
 }
 

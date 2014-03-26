@@ -10,4 +10,7 @@
 
 
 @interface MKTBoolArgumentGetter : MKTArgumentGetter
+
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor;
+
 @end

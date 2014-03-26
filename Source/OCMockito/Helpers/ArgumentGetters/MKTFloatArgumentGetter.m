@@ -10,9 +10,9 @@
 
 @implementation MKTFloatArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(float)];
+    self = [super initWithType:@encode(float) successor:successor];
     return self;
 }
 

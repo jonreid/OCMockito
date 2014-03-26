@@ -10,4 +10,7 @@
 
 
 @interface MKTSelectorArgumentGetter : MKTArgumentGetter
+
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor;
+
 @end

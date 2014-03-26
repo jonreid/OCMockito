@@ -10,9 +10,9 @@
 
 @implementation MKTShortArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(short)];
+    self = [super initWithType:@encode(short) successor:successor];
     return self;
 }
 

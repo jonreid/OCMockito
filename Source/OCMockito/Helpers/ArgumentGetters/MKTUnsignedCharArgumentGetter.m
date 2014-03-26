@@ -10,9 +10,9 @@
 
 @implementation MKTUnsignedCharArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(unsigned char)];
+    self = [super initWithType:@encode(unsigned char) successor:successor];
     return self;
 }
 

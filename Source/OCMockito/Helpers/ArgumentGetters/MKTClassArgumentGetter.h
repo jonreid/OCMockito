@@ -10,4 +10,7 @@
 
 
 @interface MKTClassArgumentGetter : MKTArgumentGetter
+
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor;
+
 @end

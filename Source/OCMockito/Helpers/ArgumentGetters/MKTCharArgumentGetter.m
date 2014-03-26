@@ -10,9 +10,9 @@
 
 @implementation MKTCharArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(char)];
+    self = [super initWithType:@encode(char) successor:successor];
     return self;
 }
 

@@ -11,9 +11,9 @@
 
 @implementation MKTPointerArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(void *)];
+    self = [super initWithType:@encode(void *) successor:successor];
     return self;
 }
 

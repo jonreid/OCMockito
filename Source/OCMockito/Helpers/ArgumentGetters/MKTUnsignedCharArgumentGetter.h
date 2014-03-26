@@ -10,4 +10,7 @@
 
 
 @interface MKTUnsignedCharArgumentGetter : MKTArgumentGetter
+
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor;
+
 @end

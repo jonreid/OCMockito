@@ -3,9 +3,7 @@
 
 @interface MKTArgumentGetter : NSObject
 
-@property (nonatomic, strong) MKTArgumentGetter *successor;
-
-- (instancetype)initWithType:(char const *)handlerType;
+- (instancetype)initWithType:(char const *)handlerType successor:(MKTArgumentGetter *)successor;
 - (id)retrieveArgumentAtIndex:(NSInteger)idx ofType:(char const *)type onInvocation:(NSInvocation *)invocation;
 
 @end

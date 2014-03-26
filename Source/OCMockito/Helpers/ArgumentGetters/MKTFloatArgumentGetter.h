@@ -10,4 +10,7 @@
 
 
 @interface MKTFloatArgumentGetter : MKTArgumentGetter
+
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor;
+
 @end

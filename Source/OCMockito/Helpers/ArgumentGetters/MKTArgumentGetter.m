@@ -4,23 +4,29 @@
 - (id)getArgumentAtIndex:(NSInteger)idx ofType:(char const *)type onInvocation:(NSInvocation *)invocation;
 @end
 
+@interface MKTArgumentGetter ()
+@property (nonatomic, readonly) char const *handlerType;
+@property (nonatomic, readonly) MKTArgumentGetter *successor;
+@end
+
 
 @implementation MKTArgumentGetter
-{
-    char const *_handlerType;
-}
 
-- (instancetype)initWithType:(char const *)handlerType
+
+- (instancetype)initWithType:(char const *)handlerType successor:(MKTArgumentGetter *)successor
 {
     self = [super init];
     if (self)
+    {
         _handlerType = handlerType;
+        _successor = successor;
+    }
     return self;
 }
 
 - (BOOL)handlesArgumentType:(char const *)argType
 {
-    return argType[0] == _handlerType[0];
+    return argType[0] == self.handlerType[0];
 }
 
 - (id)retrieveArgumentAtIndex:(NSInteger)idx ofType:(char const *)type onInvocation:(NSInvocation *)invocation

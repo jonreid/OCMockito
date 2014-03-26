@@ -10,9 +10,9 @@
 
 @implementation MKTClassArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(Class)];
+    self = [super initWithType:@encode(Class) successor:successor];
     return self;
 }
 

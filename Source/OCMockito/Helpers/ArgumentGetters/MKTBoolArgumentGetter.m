@@ -10,9 +10,9 @@
 
 @implementation MKTBoolArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(BOOL)];
+    self = [super initWithType:@encode(BOOL) successor:successor];
     return self;
 }
 

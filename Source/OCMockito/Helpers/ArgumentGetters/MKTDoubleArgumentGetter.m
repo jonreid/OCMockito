@@ -10,9 +10,9 @@
 
 @implementation MKTDoubleArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(double)];
+    self = [super initWithType:@encode(double) successor:successor];
     return self;
 }
 

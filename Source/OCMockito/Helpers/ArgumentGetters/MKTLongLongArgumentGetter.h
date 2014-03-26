@@ -10,4 +10,6 @@
 
 
 @interface MKTLongLongArgumentGetter : MKTArgumentGetter
+
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor;
 @end

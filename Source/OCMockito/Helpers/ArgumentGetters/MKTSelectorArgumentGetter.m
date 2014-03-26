@@ -10,9 +10,9 @@
 
 @implementation MKTSelectorArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(SEL)];
+    self = [super initWithType:@encode(SEL) successor:successor];
     return self;
 }
 

@@ -10,4 +10,7 @@
 
 
 @interface MKTUnsignedShortArgumentGetter : MKTArgumentGetter
+
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor;
+
 @end

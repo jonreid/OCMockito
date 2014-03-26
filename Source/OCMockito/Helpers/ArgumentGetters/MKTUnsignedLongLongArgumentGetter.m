@@ -10,9 +10,9 @@
 
 @implementation MKTUnsignedLongLongArgumentGetter
 
-- (id)init
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
 {
-    self = [super initWithType:@encode(unsigned long long)];
+    self = [super initWithType:@encode(unsigned long long) successor:successor];
     return self;
 }
 
