@@ -56,7 +56,7 @@ The binaries are packaged as frameworks:
 
 OCHamcrest comes in a similar scheme. Drag the appropriate frameworks for both
 both OCMockito and OCHamcrest into your project, specifying "Copy items into
-destination group's folder".
+destination group's folder". Then specify `-ObjC` in your "Other Linker Flags".
 
 #### iOS Development:
 
