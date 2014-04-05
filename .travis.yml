@@ -5,9 +5,9 @@ before_install:
   - sudo easy_install cpp-coveralls
 
 script:
-  - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx10.9
   - xcodebuild test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.0  -destination "name=iPhone Retina (4-inch)"
   - xcodebuild test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.0  -destination "name=iPhone Retina (4-inch 64-bit)"
+  - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx10.9
 
 after_success:
   - ./coveralls.rb --exclude-folder Source/Tests --exclude-folder Frameworks --exclude-folder Examples
