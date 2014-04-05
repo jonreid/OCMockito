@@ -1,14 +1,18 @@
-Next version under development
-------------------------------
+Version 1.2.0
+-------------
+_5 Apr 2014_
 
-**Improvements:**
+If you're not using CocoaPods, please specify `-ObjC` in your "Other Linker Flags".
+
+**Features:**
 
 - Added support for pointer arguments, including `NSError **`.
 - Added support for struct arguments. _Thanks to: César Estébanez Tascón_
+
+**Improvements:**
+
 - To build OCMockito without CocoaPods, execute the script Frameworks/gethamcrest first to get the
   latest OCHamcrest release.
-- If you're not using CocoaPods, specify `-ObjC` in your "Other Linker Flags".
-
 
 **Fixes:**
 
