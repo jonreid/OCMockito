@@ -1,6 +1,6 @@
 ![mockito](http://docs.mockito.googlecode.com/hg/latest/org/mockito/logo.jpg)
 
-[![Build Status](https://travis-ci.org/jonreid/OCMockito.png?branch=master)](https://travis-ci.org/jonreid/OCMockito) [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.png?branch=master)](https://coveralls.io/r/jonreid/OCMockito?branch=master) [![Cocoapods Version](https://cocoapod-badges.herokuapp.com/v/OCMockito/badge.png)](http://cocoapods.org/?q=ocmockito)
+[![Build Status](https://travis-ci.org/jonreid/OCMockito.svg?branch=master)](https://travis-ci.org/jonreid/OCMockito) [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.png?branch=master)](https://coveralls.io/r/jonreid/OCMockito?branch=master) [![Cocoapods Version](https://cocoapod-badges.herokuapp.com/v/OCMockito/badge.png)](http://cocoapods.org/?q=ocmockito)
 
 OCMockito is an iOS and Mac OS X implementation of Mockito, supporting creation,
 verification and stubbing of mock objects.
