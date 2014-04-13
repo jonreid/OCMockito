@@ -12,6 +12,9 @@
 
 
 @implementation MKTProtocolMock
+{
+    Protocol *_mockedProtocol;
+}
 
 + (instancetype)mockForProtocol:(Protocol *)aProtocol
 {
@@ -39,7 +42,7 @@
         methodDescription = protocol_getMethodDescription(_mockedProtocol, aSelector, NO, YES);
     if (!methodDescription.name)
         return nil;
-	return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
+    return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
 }
 
 
