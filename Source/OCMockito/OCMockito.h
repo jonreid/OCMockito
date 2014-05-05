@@ -88,6 +88,16 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
     #define given(methodCall) MKTGiven(methodCall)
 #endif
 
+#define MKTStubProperty(instance, property, value) ({\
+    [given([instance property]) willReturn:value];\
+    [given([instance valueForKeyPath:@#property]) willReturn:value];\
+    [given([instance valueForKey:@#property]) willReturn:value];\
+})
+
+#ifdef MOCKITO_SHORTHAND
+    #define stubProperty(instance, property, value) MKTStubProperty(instance, property, value)
+#endif
+
 
 FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 #define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
