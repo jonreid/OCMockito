@@ -12,5 +12,6 @@
 
 - (NSArray *)mkt_arrayArguments;
 - (void)mkt_setReturnValue:(id)returnValue;
+- (void)mkt_retainArgumentsWithWeakTarget;
 
 @end

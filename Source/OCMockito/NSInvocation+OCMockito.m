@@ -12,6 +12,7 @@
 #import "MKTArgumentGetterChain.h"
 #import "MKTReturnValueSetter.h"
 #import "MKTReturnValueSetterChain.h"
+#import "TPWeakProxy.h"
 
 
 @implementation NSInvocation (OCMockito)
@@ -39,6 +40,13 @@
 {
     char const *returnType = [[self methodSignature] methodReturnType];
     [MKTReturnValueSetterChain() setReturnValue:returnValue ofType:returnType onInvocation:self];
+}
+
+- (void)mkt_retainArgumentsWithWeakTarget
+{
+    TPWeakProxy *proxy = [[TPWeakProxy alloc] initWithObject:[self target]];
+    [self setTarget:proxy];
+    [self retainArguments];
 }
 
 @end

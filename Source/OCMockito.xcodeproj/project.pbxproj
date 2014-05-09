@@ -68,6 +68,10 @@
 		085D30071351254000EBBE91 /* libocmockito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D2FF51351254000EBBE91 /* libocmockito.a */; };
 		085D301F1351267D00EBBE91 /* MKTObjectMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB41351082800EBBE91 /* MKTObjectMock.m */; };
 		085D3020135126BC00EBBE91 /* VerifyObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D2FB11351080400EBBE91 /* VerifyObjectTest.m */; };
+		085D76AE191D6A8200E11EFC /* TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D76AB191D6A8200E11EFC /* TPWeakProxy.h */; };
+		085D76AF191D6A8200E11EFC /* TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D76AB191D6A8200E11EFC /* TPWeakProxy.h */; };
+		085D76B0191D6A8200E11EFC /* TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D76AC191D6A8200E11EFC /* TPWeakProxy.m */; };
+		085D76B1191D6A8200E11EFC /* TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 085D76AC191D6A8200E11EFC /* TPWeakProxy.m */; };
 		085EECD9146A4D52001CF010 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
 		085EECDA146A4D53001CF010 /* OCMockito.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E83413526E7300C39A57 /* OCMockito.m */; };
 		086F86E8146A41350050F00E /* MKTObjectMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085D2FB31351082800EBBE91 /* MKTObjectMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -358,6 +362,9 @@
 		085D2FB41351082800EBBE91 /* MKTObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectMock.m; sourceTree = "<group>"; };
 		085D2FF51351254000EBBE91 /* libocmockito.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libocmockito.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		085D76AA191D6A8200E11EFC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		085D76AB191D6A8200E11EFC /* TPWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWeakProxy.h; sourceTree = "<group>"; };
+		085D76AC191D6A8200E11EFC /* TPWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWeakProxy.m; sourceTree = "<group>"; };
 		086C6D57163C5C7F00307026 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		089A8C2213552DE7003E7D27 /* MKTObjectMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectMockTest.m; sourceTree = "<group>"; };
 		089A8C3113555D0C003E7D27 /* StubObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubObjectTest.m; sourceTree = "<group>"; };
@@ -526,12 +533,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		085D76A8191D6A8200E11EFC /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				085D76A9191D6A8200E11EFC /* TPWeakProxy */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		085D76A9191D6A8200E11EFC /* TPWeakProxy */ = {
+			isa = PBXGroup;
+			children = (
+				085D76AA191D6A8200E11EFC /* LICENSE */,
+				085D76AB191D6A8200E11EFC /* TPWeakProxy.h */,
+				085D76AC191D6A8200E11EFC /* TPWeakProxy.m */,
+			);
+			path = TPWeakProxy;
+			sourceTree = "<group>";
+		};
 		08BDD59D1350C59C00E5A443 = {
 			isa = PBXGroup;
 			children = (
 				085CE8F8172A1DCA004D070D /* CHANGES.md */,
 				08BDD5B21350C59C00E5A443 /* OCMockito */,
 				08BDD5C31350C59C00E5A443 /* Tests */,
+				085D76A8191D6A8200E11EFC /* ThirdParty */,
 				08BED0781350DD8900CCBF76 /* Supporting Files */,
 				08BDD5AB1350C59C00E5A443 /* Frameworks */,
 				08BDD5AA1350C59C00E5A443 /* Products */,
@@ -756,6 +782,7 @@
 				0827E8491352B7BF00C39A57 /* MKTMockingProgress.h in Headers */,
 				0827E8541352BBBC00C39A57 /* MKTVerificationMode.h in Headers */,
 				0827E8571352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
+				085D76AF191D6A8200E11EFC /* TPWeakProxy.h in Headers */,
 				0827E8661352C50400C39A57 /* MKTTestLocation.h in Headers */,
 				0827E86A1352CC6400C39A57 /* MKTExactTimes.h in Headers */,
 				0827E8731353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
@@ -822,6 +849,7 @@
 				0827E8421352B6FC00C39A57 /* MKTMockitoCore.h in Headers */,
 				0827E8481352B7BF00C39A57 /* MKTMockingProgress.h in Headers */,
 				0827E8531352BBBC00C39A57 /* MKTVerificationMode.h in Headers */,
+				085D76AE191D6A8200E11EFC /* TPWeakProxy.h in Headers */,
 				0827E8561352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
 				0827E8651352C50400C39A57 /* MKTTestLocation.h in Headers */,
 				0827E8691352CC6400C39A57 /* MKTExactTimes.h in Headers */,
@@ -1132,6 +1160,7 @@
 				BB33324D672D4A557564B43D /* MKTShortReturnSetter.m in Sources */,
 				BB3338E483AE15D8699D697A /* MKTUnsignedCharReturnSetter.m in Sources */,
 				BB333A68102711EFF5143871 /* MKTUnsignedIntReturnSetter.m in Sources */,
+				085D76B1191D6A8200E11EFC /* TPWeakProxy.m in Sources */,
 				BB333A41A79C8271C3BEC779 /* MKTUnsignedLongLongReturnSetter.m in Sources */,
 				BB333DCC3666343033540DBE /* MKTUnsignedLongReturnSetter.m in Sources */,
 				BB333CD69520EBAF26591EBC /* MKTUnsignedShortReturnSetter.m in Sources */,
@@ -1220,6 +1249,7 @@
 				BB333C515BD2EC5BB5150BDC /* MKTShortReturnSetter.m in Sources */,
 				BB333D35B7F18436369CA263 /* MKTUnsignedCharReturnSetter.m in Sources */,
 				BB3338A5F1D8E9DF73B0805B /* MKTUnsignedIntReturnSetter.m in Sources */,
+				085D76B0191D6A8200E11EFC /* TPWeakProxy.m in Sources */,
 				BB333BDD50DD7A25085E3A7D /* MKTUnsignedLongLongReturnSetter.m in Sources */,
 				BB33336E0A40E0603BAECA8A /* MKTUnsignedLongReturnSetter.m in Sources */,
 				BB333ABB96F188008303371B /* MKTUnsignedShortReturnSetter.m in Sources */,

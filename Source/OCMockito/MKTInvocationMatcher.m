@@ -52,8 +52,8 @@
 
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
 {
+    [expectedInvocation mkt_retainArgumentsWithWeakTarget];
     self.expected = expectedInvocation;
-    [self.expected retainArguments];
 
     self.numberOfArguments = [[self.expected methodSignature] numberOfArguments] - 2;
     [self trueUpArgumentMatchersToCount:self.numberOfArguments];
