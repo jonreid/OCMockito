@@ -3,11 +3,14 @@ language: objective-c
 before_install:
   - Frameworks/gethamcrest
   - sudo easy_install cpp-coveralls
+  - brew unlink xctool
+  - brew update
+  - brew install xctool
 
 script:
   - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx10.9
-  - xcodebuild test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.0  -destination "name=iPhone Retina (4-inch)"
-  - xcodebuild test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.0  -destination "name=iPhone Retina (4-inch 64-bit)"
+  - xctool test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.1  -destination "name=iPhone Retina (4-inch)"
+  - xctool test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.1  -destination "name=iPhone Retina (4-inch 64-bit)"
 
 after_success:
   - ./coveralls.rb --exclude-folder Source/Tests --exclude-folder Frameworks --exclude-folder Examples
