@@ -44,6 +44,8 @@
 
 - (void)mkt_retainArgumentsWithWeakTarget
 {
+    if ([self argumentsRetained])
+        return;
     TPWeakProxy *proxy = [[TPWeakProxy alloc] initWithObject:[self target]];
     [self setTarget:proxy];
     [self retainArguments];

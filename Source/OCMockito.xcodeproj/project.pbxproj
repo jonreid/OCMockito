@@ -50,6 +50,8 @@
 		0827E8741353EAD900C39A57 /* MKTInvocationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */; };
 		0827E8751353EAD900C39A57 /* MKTInvocationContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */; };
 		084CC6BE18CBB63000A46AB3 /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 08D71AF017CDB8E300549C31 /* OCHamcrest.framework */; };
+		085750F9191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */; };
+		085750FA191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */; };
 		085A8BC7150718E30018EC66 /* MKTProtocolMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */; };
 		085A8BC8150718E30018EC66 /* MKTProtocolMockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */; };
 		085A8BCB15071F7B0018EC66 /* MKTProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -352,6 +354,7 @@
 		0827E86D1353E30400C39A57 /* MKTVerificationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTVerificationData.m; sourceTree = "<group>"; };
 		0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTInvocationContainer.h; sourceTree = "<group>"; };
 		0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocationContainer.m; sourceTree = "<group>"; };
+		085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+OCMockitoTests.m"; sourceTree = "<group>"; };
 		085A8BC6150718E30018EC66 /* MKTProtocolMockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMockTest.m; sourceTree = "<group>"; };
 		085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTProtocolMock.h; sourceTree = "<group>"; };
 		085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMock.m; sourceTree = "<group>"; };
@@ -650,6 +653,7 @@
 				085CE8F1172A0D43004D070D /* BlockMatchingTest.m */,
 				08FD4B1E1509A6C40004E1FA /* MockTestCase.h */,
 				08FD4B1F1509A6C40004E1FA /* MockTestCase.m */,
+				085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */,
 				089A8C3113555D0C003E7D27 /* StubObjectTest.m */,
 				08FD4B251509B8740004E1FA /* StubProtocolTest.m */,
 				08E9DC1B15163D4600BD7FB4 /* VerifyClassObjectTest.m */,
@@ -1180,6 +1184,7 @@
 				085A8BC8150718E30018EC66 /* MKTProtocolMockTest.m in Sources */,
 				08FD4B211509A6C40004E1FA /* MockTestCase.m in Sources */,
 				08FD4B241509A93B0004E1FA /* VerifyProtocolTest.m in Sources */,
+				085750FA191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m in Sources */,
 				08FD4B271509B8740004E1FA /* StubProtocolTest.m in Sources */,
 				638F68DE150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */,
 				08C0A5A917FBDF6C00E76992 /* ArgumentCaptorTest.m in Sources */,
@@ -1269,6 +1274,7 @@
 				085A8BC7150718E30018EC66 /* MKTProtocolMockTest.m in Sources */,
 				08FD4B201509A6C40004E1FA /* MockTestCase.m in Sources */,
 				08FD4B231509A93B0004E1FA /* VerifyProtocolTest.m in Sources */,
+				085750F9191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m in Sources */,
 				08FD4B261509B8740004E1FA /* StubProtocolTest.m in Sources */,
 				638F68DD150FC3210081DEE6 /* MKTClassObjectMockTest.m in Sources */,
 				08C0A5A817FBDF6C00E76992 /* ArgumentCaptorTest.m in Sources */,
