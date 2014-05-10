@@ -34,6 +34,12 @@
     return self;
 }
 
+- (void)reset
+{
+    [_mockingProgress reset];
+    _invocationContainer = [[MKTInvocationContainer alloc] init];
+}
+
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
     if ([self handlingVerifyOfInvocation:invocation])

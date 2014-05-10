@@ -28,6 +28,13 @@
     return sharedProgress;
 }
 
+- (void)reset
+{
+    _invocationMatcher = nil;
+    _verificationMode = nil;
+    _ongoingStubbing = nil;
+}
+
 - (void)stubbingStartedAtLocation:(MKTTestLocation)location
 {
     [self setTestLocation:location];
