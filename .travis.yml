@@ -2,6 +2,7 @@ language: objective-c
 
 before_install:
   - Frameworks/gethamcrest
+  - Frameworks/getweakproxy
   - sudo easy_install cpp-coveralls
   - brew unlink xctool
   - brew update

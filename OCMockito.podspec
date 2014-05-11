@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/jonreid/OCMockito'
   s.license  = 'MIT'
   s.author   = { 'Jon Reid' => 'jon@qualitycoding.org' }
+  s.social_media_url = 'https://twitter.com/qcoding'
     
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
@@ -27,4 +28,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Source/OCMockito/OCMockito.h', 'Source/OCMockito/MKTArgumentCaptor.h', 'Source/OCMockito/MKTBaseMockObject.h', 'Source/OCMockito/MKTClassObjectMock.h', 'Source/OCMockito/MKTObjectMock.h', 'Source/OCMockito/MKTObjectAndProtocolMock.h', 'Source/OCMockito/MKTProtocolMock.h', 'Source/OCMockito/MKTOngoingStubbing.h', 'Source/OCMockito/MKTPrimitiveArgumentMatching.h'
   s.requires_arc = true
   s.dependency 'OCHamcrest', '~> 4.0'
+  s.dependency 'TPWeakProxy', '~> 1.0'
 end

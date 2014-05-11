@@ -90,6 +90,8 @@ into the Frameworks folder, then
 
 ```sh
 $ git submodule update --init
+$ Frameworks/gethamcrest
+$ Frameworks/getweakproxy
 $ cd Source
 $ ./MakeDistribution.sh
 ```
