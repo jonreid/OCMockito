@@ -272,3 +272,10 @@ MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
 NSComparator block = [argument value];
 assertThatInt(block(@"a", @"z"), equalToInt(NSOrderedAscending));
 ```
+
+Fixing retain cycles
+--------------------
+
+If you have a situation where the `-dealloc` of your System Under Test is not
+called when you nil out your SUT, call `-reset` on your mock object (probably
+from `tearDown`).
