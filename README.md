@@ -48,7 +48,7 @@ Use the following imports:
 
 Prebuilt binaries are available on GitHub for
 [OCMockito](https://github.com/jonreid/OCMockito/releases/). You will also need
-[OCHamcrest](https://github.com/hamcrest/OCHamcrest/releases/).
+[OCHamcrest 3.0.1](https://github.com/hamcrest/OCHamcrest/releases/tag/v3.0.1).
 The binaries are packaged as frameworks:
 
 * __OCMockitoIOS.framework__ for iOS development
@@ -85,8 +85,7 @@ Use the following imports:
 
 ### Build Your Own
 
-If you want to build OCMockito yourself, clone the repo, copy OCHamcrest-3.0.0
-into the Frameworks folder, then
+If you want to build OCMockito yourself, clone the repo, then
 
 ```sh
 $ git submodule update --init
