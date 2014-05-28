@@ -25,7 +25,7 @@
 
 @implementation MKTClassObjectMockTest
 {
-    Class mockStringClass;
+    __strong Class mockStringClass;
 }
 
 - (void)setUp

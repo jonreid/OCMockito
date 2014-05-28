@@ -5,8 +5,11 @@ NEXT VERSION
   * Frameworks/gethamcrest
   * Frameworks/getweakproxy
 
+This version requires OCHamcrest 4.0.0.
+
 **Fixes:**
 
+- Fix `mockClass` crash on 64-bit runtime (Mac and iOS).
 - Fixed retain cycle between mocks and tests. The fix addresses most but not all cases. If the
   `-dealloc` of your System Under Test is not called when you nil out your SUT, call `-reset` on
   your mock object (probably from `tearDown`). _Thanks to ronak2121 for testing_

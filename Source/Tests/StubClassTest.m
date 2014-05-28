@@ -34,7 +34,7 @@
 
 @implementation StubClassTest
 {
-    Class mockClass;
+    __strong Class mockClass;
 }
 
 - (void)setUp

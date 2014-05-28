@@ -11,7 +11,7 @@
 
 @implementation MKTClassObjectMock
 {
-    Class _mockedClass;
+    __strong Class _mockedClass;
 }
 
 + (instancetype)mockForClass:(Class)aClass

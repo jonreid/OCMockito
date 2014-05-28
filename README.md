@@ -147,9 +147,6 @@ How do you mock a class object?
 Class mockStringClass = mockClass([NSString class]);
 ```
 
-*Unfortunately, this is currently broken on the 64-bit runtime, both Mac and iOS.
-http://stackoverflow.com/questions/23857846/nsproxy-pretending-to-be-class-doesnt-handle-respondstoselector-in-64-bit-runti describes the problem.*
-
 
 How do you mock a protocol?
 ---------------------------
