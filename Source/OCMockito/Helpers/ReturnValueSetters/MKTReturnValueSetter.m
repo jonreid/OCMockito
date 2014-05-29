@@ -34,7 +34,7 @@
 
 - (BOOL)handlesReturnType:(char const *)returnType
 {
-    return strcmp(returnType, self.handlerType) == 0;
+    return returnType[0] == self.handlerType[0];
 }
 
 - (void)setReturnValue:(id)returnValue ofType:(char const *)type onInvocation:(NSInvocation *)invocation

@@ -176,6 +176,16 @@ like this:
 ```
 
 
+How do you stub methods that return structs?
+--------------------------------------------
+
+Pass a pointer to your struct to `willReturnStruct:`
+
+```obj-c
+[given([mockObject methodReturningStruct]) willReturnStruct:&someStruct];
+```
+
+
 Argument matchers
 -----------------
 

@@ -23,6 +23,7 @@
 #import "MKTUnsignedLongLongReturnSetter.h"
 #import "MKTFloatReturnSetter.h"
 #import "MKTDoubleReturnSetter.h"
+#import "MKTStructReturnSetter.h"
 
 
 MKTReturnValueSetter *MKTReturnValueSetterChain(void)
@@ -30,7 +31,8 @@ MKTReturnValueSetter *MKTReturnValueSetterChain(void)
     static MKTReturnValueSetter *chain = nil;
     if (!chain)
     {
-        MKTReturnValueSetter *doubleSetter = [[MKTDoubleReturnSetter alloc] initWithSuccessor:nil];
+        MKTReturnValueSetter *structSetter = [[MKTStructReturnSetter alloc] initWithSuccessor:nil];
+        MKTReturnValueSetter *doubleSetter = [[MKTDoubleReturnSetter alloc] initWithSuccessor:structSetter];
         MKTReturnValueSetter *floatSetter = [[MKTFloatReturnSetter alloc] initWithSuccessor:doubleSetter];
         MKTReturnValueSetter *uLongLongSetter = [[MKTUnsignedLongLongReturnSetter alloc] initWithSuccessor:floatSetter];
         MKTReturnValueSetter *uLongSetter = [[MKTUnsignedLongReturnSetter alloc] initWithSuccessor:uLongLongSetter];

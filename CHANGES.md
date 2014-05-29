@@ -7,6 +7,11 @@ NEXT VERSION
 
 This version requires OCHamcrest 4.0.0.
 
+**Features:**
+
+- Stub methods that return structs with `willReturnStruct:`. _Thanks to
+  GWStuartClift and Yaron Inger_
+
 **Fixes:**
 
 - Fix `mockClass` crash on 64-bit runtime (Mac and iOS).

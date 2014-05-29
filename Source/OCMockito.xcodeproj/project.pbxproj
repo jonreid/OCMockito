@@ -130,6 +130,10 @@
 		08FD4B2B1509BEA90004E1FA /* MKTBaseMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08FD4B2C1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */; };
 		08FD4B2D1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */; };
+		31DDC1F875B4A778E4C7C6F4 /* MKTStructReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */; };
+		31DDC7F0FC02CC5B037D333F /* MKTStructReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */; };
+		31DDCA2A169C7866DA8F509C /* MKTStructReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */; };
+		31DDCAAE488D6FDD6BC4DE89 /* MKTStructReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */; };
 		361533C6153F275800BB982B /* MKTAtLeastTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 361533C4153F275800BB982B /* MKTAtLeastTimes.h */; };
 		361533C7153F275800BB982B /* MKTAtLeastTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 361533C5153F275800BB982B /* MKTAtLeastTimes.m */; };
 		361533C9153F276300BB982B /* MKTAtLeastTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 361533C4153F275800BB982B /* MKTAtLeastTimes.h */; };
@@ -403,6 +407,8 @@
 		08FD4B251509B8740004E1FA /* StubProtocolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubProtocolTest.m; sourceTree = "<group>"; };
 		08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBaseMockObject.h; sourceTree = "<group>"; };
 		08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBaseMockObject.m; sourceTree = "<group>"; };
+		31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStructReturnSetter.h; sourceTree = "<group>"; };
+		31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStructReturnSetter.m; sourceTree = "<group>"; };
 		361533C4153F275800BB982B /* MKTAtLeastTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAtLeastTimes.h; sourceTree = "<group>"; };
 		361533C5153F275800BB982B /* MKTAtLeastTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtLeastTimes.m; sourceTree = "<group>"; };
 		361533CB153F283800BB982B /* MKTAtLeastTimesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtLeastTimesTest.m; sourceTree = "<group>"; };
@@ -765,6 +771,8 @@
 				BB33303DA52B2D959F139FE2 /* MKTUnsignedLongReturnSetter.m */,
 				BB3334A5CF10AB308B8F8E3F /* MKTUnsignedShortReturnSetter.h */,
 				BB333C0AEC66E89816C0219C /* MKTUnsignedShortReturnSetter.m */,
+				31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */,
+				31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */,
 			);
 			path = ReturnValueSetters;
 			sourceTree = "<group>";
@@ -836,6 +844,7 @@
 				BB333C29890201B8B718937B /* MKTUnsignedLongLongReturnSetter.h in Headers */,
 				BB3330085137F72188E7CE75 /* MKTUnsignedLongReturnSetter.h in Headers */,
 				BB33389A3CABF0EF1B1D9917 /* MKTUnsignedShortReturnSetter.h in Headers */,
+				31DDC7F0FC02CC5B037D333F /* MKTStructReturnSetter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,6 +912,7 @@
 				BB333B0CBA018CAE0EA1FCDF /* MKTUnsignedLongLongReturnSetter.h in Headers */,
 				BB3332CF0EB5A0EB72D1DF3E /* MKTUnsignedLongReturnSetter.h in Headers */,
 				BB333833E4F7D8A27B9C2072 /* MKTUnsignedShortReturnSetter.h in Headers */,
+				31DDCA2A169C7866DA8F509C /* MKTStructReturnSetter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1163,6 +1173,7 @@
 				BB333A41A79C8271C3BEC779 /* MKTUnsignedLongLongReturnSetter.m in Sources */,
 				BB333DCC3666343033540DBE /* MKTUnsignedLongReturnSetter.m in Sources */,
 				BB333CD69520EBAF26591EBC /* MKTUnsignedShortReturnSetter.m in Sources */,
+				31DDCAAE488D6FDD6BC4DE89 /* MKTStructReturnSetter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1254,6 +1265,7 @@
 				BB333BDD50DD7A25085E3A7D /* MKTUnsignedLongLongReturnSetter.m in Sources */,
 				BB33336E0A40E0603BAECA8A /* MKTUnsignedLongReturnSetter.m in Sources */,
 				BB333ABB96F188008303371B /* MKTUnsignedShortReturnSetter.m in Sources */,
+				31DDC1F875B4A778E4C7C6F4 /* MKTStructReturnSetter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
