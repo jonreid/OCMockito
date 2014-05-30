@@ -32,10 +32,6 @@ static inline double *createArrayOf10Doubles(void)
     return malloc(10*sizeof(double));
 }
 
-typedef struct {
-    int aMember;
-} aStruct;
-
 
 @interface ReturningObject : NSObject
 @end
@@ -65,7 +61,7 @@ typedef struct {
 - (NSUInteger)methodReturningUnsignedInteger { return 0; }
 - (float)methodReturningFloat { return 0; }
 - (double)methodReturningDouble { return 0; }
-- (aStruct)methodReturningStruct { aStruct returnedStruct = {0}; return returnedStruct; }
+- (MKTStruct)methodReturningStruct { MKTStruct returnedStruct; return returnedStruct; }
 
 @end
 
@@ -306,12 +302,14 @@ typedef struct {
 
 - (void)testStubbedMethod_ShouldReturnGivenStruct
 {
-  aStruct someStruct = { 123 };
+    MKTStruct someStruct = { 123, 'a', NULL };
 
-  [given([mockObject methodReturningStruct]) willReturnStruct:&someStruct];
-  aStruct otherStruct = [mockObject methodReturningStruct];
+    [given([mockObject methodReturningStruct]) willReturnStruct:&someStruct
+                                                       objCType:@encode(typeof(MKTStruct))];
+    MKTStruct otherStruct = [mockObject methodReturningStruct];
 
-  assertThatInt(otherStruct.aMember, is(@123));
+    assertThatInt(otherStruct.anInt, is(@123));
+    assertThatFloat(otherStruct.aChar, is(@('a')));
 }
 
 @end

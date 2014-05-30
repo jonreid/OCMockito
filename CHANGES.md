@@ -9,7 +9,7 @@ This version requires OCHamcrest 4.0.0.
 
 **Features:**
 
-- Stub methods that return structs with `willReturnStruct:`. _Thanks to
+- Stub methods that return structs with `willReturnStruct:objCType:`. _Thanks to
   GWStuartClift and Yaron Inger_
 
 **Fixes:**
