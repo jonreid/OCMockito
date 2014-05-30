@@ -22,7 +22,7 @@
 
 typedef struct {
   int aMember;
-} aStruct;
+} SimpleStruct;
 
 @protocol ReturningProtocol <NSObject>
 
@@ -31,7 +31,7 @@ typedef struct {
 - (id)methodReturningObjectWithIntArg:(int)arg;
 - (BOOL)methodReturningBOOL;
 - (short)methodReturningShort;
-- (aStruct)methodReturningStruct;
+- (SimpleStruct)methodReturningStruct;
 
 @end
 
@@ -109,11 +109,13 @@ typedef struct {
 
 - (void)testStubbedMethod_ShouldReturnGivenStruct
 {
-  aStruct someStruct = { 123 };
+    SimpleStruct someStruct = { 123 };
 
-  [given([mockProtocol methodReturningStruct]) willReturnStruct:&someStruct];
-  aStruct otherStruct = [mockProtocol methodReturningStruct];
+    [given([mockProtocol methodReturningStruct]) willReturnStruct:&someStruct
+                                                         objCType:@encode(typeof(SimpleStruct))];
+    SimpleStruct otherStruct = [mockProtocol methodReturningStruct];
 
-  assertThatInt(otherStruct.aMember, is(@123));
+    assertThatInt(otherStruct.aMember, is(@123));
 }
+
 @end

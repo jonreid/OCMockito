@@ -179,10 +179,13 @@ like this:
 How do you stub methods that return structs?
 --------------------------------------------
 
-Pass a pointer to your struct to `willReturnStruct:`
+Use `willReturnStruct:objCType:` passing a pointer to your structure and the
+type created with the Objective-C `@encode()` compiler directive:
 
 ```obj-c
-[given([mockObject methodReturningStruct]) willReturnStruct:&someStruct];
+SomeStruct aStruct = {...};
+[given([mockObject methodReturningStruct]) willReturnStruct:&aStruct
+                                           objCType:@encode(typeof(SomeStruct))];
 ```
 
 
