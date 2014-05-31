@@ -70,7 +70,7 @@ typedef struct MKTStruct MKTStruct;
 - (void)testNotInvokingMethodShouldFailVerify
 {
     [verifyWithMockTestCase(mockArray) removeAllObjects];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testInvokingWithEqualObjectArgumentsShouldPassVerify
@@ -83,7 +83,7 @@ typedef struct MKTStruct MKTStruct;
 {
     [mockArray removeObject:@"same"];
     [verifyWithMockTestCase(mockArray) removeObject:@"different"];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testInvokingWithArgumentMatcherSatisfiedShouldPassVerify
@@ -102,7 +102,7 @@ typedef struct MKTStruct MKTStruct;
 {
     [mockArray removeObjectAtIndex:2];
     [verifyWithMockTestCase(mockArray) removeObjectAtIndex:99];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testMatcherSatisfiedWithNumericArgumentShouldPassVerify
@@ -121,7 +121,7 @@ typedef struct MKTStruct MKTStruct;
 - (void)testVerifyTimesOneShouldFailForMethodNotInvoked
 {
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testVerifyTimesOneShouldPassForMethodInvokedOnce
@@ -135,14 +135,14 @@ typedef struct MKTStruct MKTStruct;
     [mockArray removeAllObjects];
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testVerifyTimesTwoShouldFailForMethodInvokedOnce
 {
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testVerifyTimesTwoShouldPassForMethodInvokedTwice
@@ -158,7 +158,7 @@ typedef struct MKTStruct MKTStruct;
     [mockArray removeAllObjects];
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testVerifyTimesOneFailureShouldStateExpectedNumberOfInvocations
@@ -185,7 +185,7 @@ typedef struct MKTStruct MKTStruct;
 {
     [mockArray removeAllObjects];
     [verifyCountWithMockTestCase(mockArray, never()) removeAllObjects];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testVerifyWithNilShouldGiveError
@@ -249,7 +249,7 @@ typedef struct MKTStruct MKTStruct;
     NSError *err2;
     [testMock methodWithError:&err1];
     [verifyWithMockTestCase(testMock) methodWithError:&err2];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testVerifyWithNilSelectorArg
@@ -294,7 +294,7 @@ typedef struct MKTStruct MKTStruct;
     MKTStruct struct2 = {1, 'a', b};
     [testMock methodWithStruct:struct1];
     [verifyWithMockTestCase(testMock) methodWithStruct:struct2];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 @end

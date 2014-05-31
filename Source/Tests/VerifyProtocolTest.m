@@ -58,7 +58,7 @@
 - (void)testNotInvokingMethod_ShouldFailVerify
 {
     [verifyWithMockTestCase(mockLock) lock];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testInvokingWithEqualObjectArguments_ShouldPassVerify
@@ -71,7 +71,7 @@
 {
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
     [verifyWithMockTestCase(mockDelegate) archiver:archiver willEncodeObject:@"different"];
-    assertThatUnsignedInteger(mockTestCase.failureCount, is(equalTo(@1)));
+    assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testInvokingWithArgumentMatcherSatisfied_ShouldPassVerify

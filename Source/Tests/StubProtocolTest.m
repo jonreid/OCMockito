@@ -97,14 +97,14 @@ typedef struct {
 
 - (void)testStubbedMethod_ShouldReturnGivenBool
 {
-    [given([mockProtocol methodReturningBOOL]) willReturnBool:YES];
-    assertThatBool([mockProtocol methodReturningBOOL], equalToBool(YES));
+    [given([mockProtocol methodReturningBOOL]) willReturn:@YES];
+    assertThat(@([mockProtocol methodReturningBOOL]), is(@YES));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenShort
 {
-    [given([mockProtocol methodReturningShort]) willReturnShort:42];
-    assertThatShort([mockProtocol methodReturningShort], equalToShort(42));
+    [given([mockProtocol methodReturningShort]) willReturn:@42];
+    assertThat(@([mockProtocol methodReturningShort]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenStruct
@@ -115,7 +115,7 @@ typedef struct {
                                                          objCType:@encode(typeof(SimpleStruct))];
     SimpleStruct otherStruct = [mockProtocol methodReturningStruct];
 
-    assertThatInt(otherStruct.aMember, is(@123));
+    assertThat(@(otherStruct.aMember), is(@123));
 }
 
 @end

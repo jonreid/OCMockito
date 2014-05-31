@@ -76,7 +76,7 @@
     }];
     [verify(mockArray) sortUsingComparator:[argument capture]];
     NSComparator block = [argument value];
-    assertThatInt(block(@"a", @"z"), equalToInt(NSOrderedAscending));
+    assertThat(@(block(@"a", @"z")), is(@(NSOrderedAscending)));
 }
 
 @end

@@ -165,14 +165,13 @@ UIViewController <CustomProtocol> *controller =
 ```
 
 
-How do you stub methods that return non-objects?
-------------------------------------------------
+How do you stub methods that return primitives?
+-----------------------------------------------
 
-To stub methods that return non-object types, specify `willReturn<type>`,
-like this:
+To stub methods that return primitive scalars, box the scalars into NSValues:
 
 ```obj-c
-[given([mockArray count]) willReturnUnsignedInteger:3];
+[given([mockArray count]) willReturn:@3];
 ```
 
 
@@ -282,7 +281,7 @@ block, then invoke it within your test:
 MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
 [verify(mockArray) sortUsingComparator:[argument capture]];
 NSComparator block = [argument value];
-assertThatInt(block(@"a", @"z"), equalToInt(NSOrderedAscending));
+assertThat(@(block(@"a", @"z")), is(@(NSOrderedAscending)));
 ```
 
 Fixing retain cycles

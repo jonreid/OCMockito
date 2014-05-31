@@ -219,85 +219,85 @@ static inline double *createArrayOf10Doubles(void)
 - (void)testStubbedMethod_ShouldReturnGivenChar
 {
     [given([mockObject methodReturningChar]) willReturnChar:'a'];
-    assertThatChar([mockObject methodReturningChar], equalToChar('a'));
+    assertThat(@([mockObject methodReturningChar]), is(@'a'));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenInt
 {
     [given([mockObject methodReturningInt]) willReturnInt:42];
-    assertThatInt([mockObject methodReturningInt], equalToInt(42));
+    assertThat(@([mockObject methodReturningInt]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenShort
 {
     [given([mockObject methodReturningShort]) willReturnShort:42];
-    assertThatShort([mockObject methodReturningShort], equalToShort(42));
+    assertThat(@([mockObject methodReturningShort]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenLong
 {
     [given([mockObject methodReturningLong]) willReturnLong:42];
-    assertThatLong([mockObject methodReturningLong], equalToLong(42));
+    assertThat(@([mockObject methodReturningLong]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenLongLong
 {
     [given([mockObject methodReturningLongLong]) willReturnLongLong:42];
-    assertThatLongLong([mockObject methodReturningLongLong], equalToLongLong(42));
+    assertThat(@([mockObject methodReturningLongLong]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenInteger
 {
     [given([mockObject methodReturningInteger]) willReturnInteger:42];
-    assertThatInteger([mockObject methodReturningInteger], equalToInteger(42));
+    assertThat(@([mockObject methodReturningInteger]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenUnsignedChar
 {
     [given([mockObject methodReturningUnsignedChar]) willReturnUnsignedChar:'a'];
-    assertThatUnsignedChar([mockObject methodReturningUnsignedChar], equalToUnsignedChar('a'));
+    assertThat(@([mockObject methodReturningUnsignedChar]), is(@'a'));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenUnsignedInt
 {
     [given([mockObject methodReturningUnsignedInt]) willReturnUnsignedInt:42];
-    assertThatUnsignedInt([mockObject methodReturningUnsignedInt], equalToUnsignedInt(42));
+    assertThat(@([mockObject methodReturningUnsignedInt]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenUnsignedShort
 {
     [given([mockObject methodReturningUnsignedShort]) willReturnUnsignedShort:42];
-    assertThatUnsignedShort([mockObject methodReturningUnsignedShort], equalToUnsignedShort(42));
+    assertThat(@([mockObject methodReturningUnsignedShort]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenUnsignedLong
 {
     [given([mockObject methodReturningUnsignedLong]) willReturnUnsignedLong:42];
-    assertThatUnsignedLong([mockObject methodReturningUnsignedLong], equalToUnsignedLong(42));
+    assertThat(@([mockObject methodReturningUnsignedLong]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenUnsignedLongLong
 {
     [given([mockObject methodReturningUnsignedLongLong]) willReturnUnsignedLongLong:42];
-    assertThatUnsignedLongLong([mockObject methodReturningUnsignedLongLong], equalToUnsignedLongLong(42));
+    assertThat(@([mockObject methodReturningUnsignedLongLong]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenUnsignedInteger
 {
     [given([mockObject methodReturningUnsignedInteger]) willReturnUnsignedInteger:42];
-    assertThatUnsignedInteger([mockObject methodReturningUnsignedInteger], equalToUnsignedInteger(42));
+    assertThat(@([mockObject methodReturningUnsignedInteger]), is(@42));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenFloat
 {
-    [given([mockObject methodReturningFloat]) willReturnFloat:42.5];
-    assertThatFloat([mockObject methodReturningFloat], equalToFloat(42.5));
+    [given([mockObject methodReturningFloat]) willReturnFloat:42.5f];
+    assertThat(@([mockObject methodReturningFloat]), is(@42.5f));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenDouble
 {
-    [given([mockObject methodReturningDouble]) willReturnDouble:42];
-    assertThatDouble([mockObject methodReturningDouble], equalToDouble(42));
+    [given([mockObject methodReturningDouble]) willReturnDouble:42.0];
+    assertThat(@([mockObject methodReturningDouble]), is(@42.0));
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenStruct
@@ -308,8 +308,8 @@ static inline double *createArrayOf10Doubles(void)
                                                        objCType:@encode(typeof(MKTStruct))];
     MKTStruct otherStruct = [mockObject methodReturningStruct];
 
-    assertThatInt(otherStruct.anInt, is(@123));
-    assertThatFloat(otherStruct.aChar, is(@('a')));
+    assertThat(@(otherStruct.anInt), is(@123));
+    assertThat(@(otherStruct.aChar), is(@'a'));
 }
 
 @end

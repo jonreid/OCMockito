@@ -419,7 +419,7 @@
 {
     [invocationMatcher setMatcher:equalTo(@"irrelevant") atIndex:1];
     [invocationMatcher setMatcher:equalTo(@"irrelevant") atIndex:0];
-    assertThatUnsignedInteger([invocationMatcher argumentMatchersCount], equalTo(@2));
+    assertThat(@([invocationMatcher argumentMatchersCount]), is(@2));
 }
 
 @end
