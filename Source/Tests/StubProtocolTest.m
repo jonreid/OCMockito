@@ -95,6 +95,17 @@ typedef struct {
     assertThat([mockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
+- (void)testStubbedMethod_ShouldReturnGivenStruct
+{
+    SimpleStruct someStruct = { 123 };
+
+    [given([mockProtocol methodReturningStruct]) willReturnStruct:&someStruct
+                                                         objCType:@encode(SimpleStruct)];
+    SimpleStruct otherStruct = [mockProtocol methodReturningStruct];
+
+    assertThat(@(otherStruct.aMember), is(@123));
+}
+
 - (void)testStubbedMethod_ShouldReturnGivenBool
 {
     [given([mockProtocol methodReturningBOOL]) willReturn:@YES];
@@ -105,17 +116,6 @@ typedef struct {
 {
     [given([mockProtocol methodReturningShort]) willReturn:@42];
     assertThat(@([mockProtocol methodReturningShort]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenStruct
-{
-    SimpleStruct someStruct = { 123 };
-
-    [given([mockProtocol methodReturningStruct]) willReturnStruct:&someStruct
-                                                         objCType:@encode(typeof(SimpleStruct))];
-    SimpleStruct otherStruct = [mockProtocol methodReturningStruct];
-
-    assertThat(@(otherStruct.aMember), is(@123));
 }
 
 @end

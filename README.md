@@ -184,7 +184,7 @@ type created with the Objective-C `@encode()` compiler directive:
 ```obj-c
 SomeStruct aStruct = {...};
 [given([mockObject methodReturningStruct]) willReturnStruct:&aStruct
-                                                   objCType:@encode(typeof(SomeStruct))];
+                                                   objCType:@encode(SomeStruct)];
 ```
 
 

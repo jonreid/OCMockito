@@ -210,6 +210,18 @@ static inline double *createArrayOf10Doubles(void)
     assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
+- (void)testStubbedMethod_ShouldReturnGivenStruct
+{
+    MKTStruct someStruct = { 123, 'a', NULL };
+
+    [given([mockObject methodReturningStruct]) willReturnStruct:&someStruct
+                                                       objCType:@encode(MKTStruct)];
+    MKTStruct otherStruct = [mockObject methodReturningStruct];
+
+    assertThat(@(otherStruct.anInt), is(@123));
+    assertThat(@(otherStruct.aChar), is(@'a'));
+}
+
 - (void)testStubbedMethod_ShouldReturnGivenBool
 {
     [given([mockObject methodReturningBool]) willReturnBool:YES];
@@ -298,18 +310,6 @@ static inline double *createArrayOf10Doubles(void)
 {
     [given([mockObject methodReturningDouble]) willReturnDouble:42.0];
     assertThat(@([mockObject methodReturningDouble]), is(@42.0));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenStruct
-{
-    MKTStruct someStruct = { 123, 'a', NULL };
-
-    [given([mockObject methodReturningStruct]) willReturnStruct:&someStruct
-                                                       objCType:@encode(typeof(MKTStruct))];
-    MKTStruct otherStruct = [mockObject methodReturningStruct];
-
-    assertThat(@(otherStruct.anInt), is(@123));
-    assertThat(@(otherStruct.aChar), is(@'a'));
 }
 
 @end

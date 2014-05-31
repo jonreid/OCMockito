@@ -22,6 +22,10 @@
 /// Stubs given object as return value.
 - (MKTOngoingStubbing *)willReturn:(id)object;
 
+/// Stubs given struct as return value. Given @c type should match the Objective-C type of @c value.
+/// Type should be created with the Objective-C \@encode() compiler directive.
+- (MKTOngoingStubbing *)willReturnStruct:(const void *)value objCType:(const char *)type;
+
 /// Stubs given @c BOOL as return value.
 - (MKTOngoingStubbing *)willReturnBool:(BOOL)value;
 
@@ -66,9 +70,5 @@
 
 /// Stubs given @c double as return value.
 - (MKTOngoingStubbing *)willReturnDouble:(double)value;
-
-/// Stubs given struct as return value. Given @c type should match the Objective-C type of value.
-/// Type should be created with the Objective-C \@encode() compiler directive
-- (MKTOngoingStubbing *)willReturnStruct:(const void *)value objCType:(const char *)type;
 
 @end

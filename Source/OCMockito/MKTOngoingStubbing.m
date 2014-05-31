@@ -30,6 +30,13 @@
     return self;
 }
 
+- (MKTOngoingStubbing *)willReturnStruct:(const void *)value objCType:(const char *)type
+{
+    NSValue *answer = [NSValue valueWithBytes:value objCType:type];
+    [_invocationContainer addAnswer:answer];
+    return self;
+}
+
 - (MKTOngoingStubbing *)willReturnBool:(BOOL)value
 {
     [_invocationContainer addAnswer:@(value)];
@@ -117,13 +124,6 @@
 - (MKTOngoingStubbing *)willReturnDouble:(double)value
 {
     [_invocationContainer addAnswer:@(value)];
-    return self;
-}
-
-- (MKTOngoingStubbing *)willReturnStruct:(const void *)value objCType:(const char *)type
-{
-    NSValue *answer = [NSValue valueWithBytes:value objCType:type];
-    [_invocationContainer addAnswer:answer];
     return self;
 }
 
