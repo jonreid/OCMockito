@@ -188,6 +188,17 @@ SomeStruct aStruct = {...};
 ```
 
 
+How do you stub a property so that KVO works?
+---------------------------------------------
+
+Use `stubProperty(instance, property, value)`. For example:
+
+```obj-c
+SomeClass *obj = mock([SomeClass class]);   // Has integerValue property
+stubProperty(obj, integerValue, @42);
+```
+
+
 Argument matchers
 -----------------
 

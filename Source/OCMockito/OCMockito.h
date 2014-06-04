@@ -88,12 +88,20 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
     #define given(methodCall) MKTGiven(methodCall)
 #endif
 
-#define MKTStubProperty(instance, property, value) ({\
-    [given([instance property]) willReturn:value];\
-    [given([instance valueForKeyPath:@#property]) willReturn:value];\
-    [given([instance valueForKey:@#property]) willReturn:value];\
-})
 
+#define MKTStubProperty(instance, property, value)                          \
+    do {                                                                    \
+        [MKTGiven([instance property]) willReturn:value];                   \
+        [MKTGiven([instance valueForKey:@#property]) willReturn:value];     \
+        [MKTGiven([instance valueForKeyPath:@#property]) willReturn:value]; \
+    } while(0)
+
+/**
+ Stubs given property and its related KVO methods.
+
+ (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+ @c MKTStubProperty instead.)
+ */
 #ifdef MOCKITO_SHORTHAND
     #define stubProperty(instance, property, value) MKTStubProperty(instance, property, value)
 #endif

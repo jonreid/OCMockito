@@ -32,11 +32,14 @@ static inline double *createArrayOf10Doubles(void)
     return malloc(10*sizeof(double));
 }
 
+
 @interface PropertyObject : NSObject
-@property (nonatomic, assign) NSUInteger integerValue;
+@property (nonatomic, assign) int intValue;
 @end
+
 @implementation PropertyObject
 @end
+
 
 @interface ReturningObject : NSObject
 @end
@@ -317,60 +320,37 @@ static inline double *createArrayOf10Doubles(void)
     assertThat(@([mockObject methodReturningDouble]), is(@42.0));
 }
 
-- (void)testGivenProperty_DoesntWorkWithPredicate
+- (void)testStubProperty_ShouldStubValue
 {
     PropertyObject *obj = mock([PropertyObject class]);
-    [given([obj integerValue]) willReturn:@42];
-    assertThatUnsignedInteger([obj integerValue], equalToUnsignedInteger(42));
-    
-    NSArray *array = @[ obj ];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"integerValue == 42"];
-    array = [array filteredArrayUsingPredicate:predicate];
-    assertThat(array, isEmpty());
+    stubProperty(obj, intValue, @42);
+    assertThat(@([obj intValue]), is(@42));
 }
 
-- (void)testGivenProperty_DoesntWorkWithSortDescriptor
-{
-    NSMutableArray *sortedArray = [NSMutableArray array];
-    NSMutableSet *set = [NSMutableSet set];
-    for (NSUInteger i = 0; i < 100; ++i) {
-        PropertyObject *obj = mock([PropertyObject class]);
-        [given([obj integerValue]) willReturn:@(i)];
-        [set addObject:obj];
-        [sortedArray addObject:obj];
-    }
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"integerValue"
-                                                                     ascending:YES];
-    NSArray *array = [set sortedArrayUsingDescriptors:@[sortDescriptor]];
-    assertThat(sortedArray, isNot(equalTo(array)));
-}
-
-- (void)testStubProperty_WorksWithPredicate
+- (void)testStubProperty_ShouldStubValueForKey_SoPredicatesWork
 {
     PropertyObject *obj = mock([PropertyObject class]);
-    stubProperty(obj, integerValue, @42);
-    assertThatUnsignedInteger([obj integerValue], equalToUnsignedInteger(42));
-    
-    NSArray *array = @[ obj ];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"integerValue == 42"];
-    array = [array filteredArrayUsingPredicate:predicate];
+    stubProperty(obj, intValue, @42);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"intValue == 42"];
+
+    NSArray *array = [@[ obj ] filteredArrayUsingPredicate:predicate];
+
     assertThat(array, hasCountOf(1));
 }
 
-- (void)testStubProperty_WorksWithSortDescriptor
+- (void)testStubProperty_ShouldStubValueForKeyPath_SoSortDescriptorsWork
 {
-    NSMutableArray *sortedArray = [NSMutableArray array];
-    NSMutableSet *set = [NSMutableSet set];
-    for (NSUInteger i = 0; i < 100; ++i) {
-        PropertyObject *obj = mock([PropertyObject class]);
-        stubProperty(obj, integerValue, @(i));
-        [set addObject:obj];
-        [sortedArray addObject:obj];
-    }
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"integerValue"
+    PropertyObject *obj1 = mock([PropertyObject class]);
+    stubProperty(obj1, intValue, @1);
+    PropertyObject *obj2 = mock([PropertyObject class]);
+    stubProperty(obj2, intValue, @2);
+    NSArray *unsortedArray = @[obj2, obj1];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"intValue"
                                                                      ascending:YES];
-    NSArray *array = [set sortedArrayUsingDescriptors:@[sortDescriptor]];
-    assertThat(sortedArray, equalTo(array));
+
+    NSArray *sortedArray = [unsortedArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
+    assertThat(sortedArray, contains(sameInstance(obj1), sameInstance(obj2), nil));
 }
 
 @end

@@ -11,6 +11,8 @@ This version requires OCHamcrest 4.0.0.
 
 - Stub methods that return structs with `willReturnStruct:objCType:`. _Thanks to
   GWStuartClift and Yaron Inger_
+- `stubProperty(instance, property, value)` stubs a property, and its related
+  `getValueForKey:` and `valueForKeyPath:` KVO methods. _Thanks to Sasha Zats_
 
 **Fixes:**
 
