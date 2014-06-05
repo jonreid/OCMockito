@@ -27,6 +27,6 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/OCMockito/OCMockito.h', 'Source/OCMockito/**/*.{h,m}'
   s.public_header_files = 'Source/OCMockito/OCMockito.h', 'Source/OCMockito/MKTArgumentCaptor.h', 'Source/OCMockito/MKTBaseMockObject.h', 'Source/OCMockito/MKTClassObjectMock.h', 'Source/OCMockito/MKTObjectMock.h', 'Source/OCMockito/MKTObjectAndProtocolMock.h', 'Source/OCMockito/MKTProtocolMock.h', 'Source/OCMockito/MKTOngoingStubbing.h', 'Source/OCMockito/MKTPrimitiveArgumentMatching.h'
   s.requires_arc = true
-  s.dependency 'OCHamcrest', '~> 4.0.1'
-  s.dependency 'TPWeakProxy', '~> 1.0.0'
+  s.dependency 'OCHamcrest', '~> 4.0'
+  s.dependency 'TPWeakProxy', '~> 1.0'
 end
