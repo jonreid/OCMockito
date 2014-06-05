@@ -26,23 +26,19 @@
 @end
 
 
-@interface TestClass : NSObject
-@property (nonatomic) NSString* stringProperty;
+@interface TestClass : NSObject 
 - (void)instanceMethod;
 @end
 
 @implementation TestClass
-@dynamic stringProperty;
 - (void)instanceMethod {}
 @end
 
 
 @interface TestSubclass : TestClass <TestProtocol>
-@property (nonatomic) NSString* nonDynamicStringProperty;
 @end
 
 @implementation TestSubclass
-@synthesize nonDynamicStringProperty;
 - (void)requiredMethod {}
 @end
 
@@ -127,34 +123,6 @@
 - (void)testMock_ShouldRespondToRequiredSelector
 {
     STAssertTrue([mock respondsToSelector:@selector(requiredMethod)], nil);
-}
-
-- (void)testMock_ShouldRespondToDynamicSetterSelector
-{
-    STAssertTrue([mock respondsToSelector:@selector(setStringProperty:)], nil);
-}
-
-- (void)testMock_ShouldRespondToDynamicGetterSelector
-{
-    STAssertTrue([mock respondsToSelector:@selector(stringProperty)], nil);
-}
-
-- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorForGetter
-{
-    TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
-    SEL selector = @selector(nonDynamicStringProperty);
-
-    NSMethodSignature *signature = [mock methodSignatureForSelector:@selector(stringProperty)];
-    assertThat(signature, equalTo([obj methodSignatureForSelector:selector]));
-}
-
-- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorForSetter
-{
-    TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
-    SEL selector = @selector(setNonDynamicStringProperty:);
-
-    NSMethodSignature *signature = [mock methodSignatureForSelector:@selector(setStringProperty:)];
-    assertThat(signature, equalTo([obj methodSignatureForSelector:selector]));
 }
 
 @end
