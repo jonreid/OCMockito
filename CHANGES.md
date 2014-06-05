@@ -1,11 +1,12 @@
-NEXT VERSION
-------------
+Version 1.3.0
+-------------
+_4 Jun 2014_
+
+This version requires OCHamcrest 4.0.0.
 
 - To build OCMockito without CocoaPods, execute two scripts:
   * Frameworks/gethamcrest
   * Frameworks/getweakproxy
-
-This version requires OCHamcrest 4.0.0.
 
 **Features:**
 
