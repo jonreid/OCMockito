@@ -1,8 +1,8 @@
 Version 1.3.0
 -------------
-_4 Jun 2014_
+_04 Jun 2014_
 
-This version requires OCHamcrest 4.0.0.
+This version requires OCHamcrest 4.0.1 and TPWeakProxy 1.0.0.
 
 - To build OCMockito without CocoaPods, execute two scripts:
   * Frameworks/gethamcrest
@@ -15,9 +15,13 @@ This version requires OCHamcrest 4.0.0.
 - `stubProperty(instance, property, value)` stubs a property, and its related
   `getValueForKey:` and `valueForKeyPath:` KVO methods. _Thanks to Sasha Zats_
 
+**Project changes:**
+
+- Increased deployment targets to OS X 10.8, iOS 6.0.
+
 **Fixes:**
 
-- Fix `mockClass` crash on 64-bit runtime (Mac and iOS).
+- Fix `mockClass` crash on 64-bit runtime (OS X and iOS).
 - Fixed retain cycle between mocks and tests. The fix addresses most but not all cases. If the
   `-dealloc` of your System Under Test is not called when you nil out your SUT, call `-reset` on
   your mock object (probably from `tearDown`). _Thanks to ronak2121 for testing_
@@ -25,7 +29,7 @@ This version requires OCHamcrest 4.0.0.
 
 Version 1.2.0
 -------------
-_5 Apr 2014_
+_05 Apr 2014_
 
 If you're not using CocoaPods, please specify `-ObjC` in your "Other Linker Flags".
 
