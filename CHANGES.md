@@ -2,11 +2,19 @@ Version 1.3.0
 -------------
 _04 Jun 2014_
 
-This version requires OCHamcrest 4.0.1 and TPWeakProxy 1.0.0.
+This version requires OCHamcrest 4.0.1.
+TPWeakProxy 1.0.0 is also needed to build OCMockito.
 
 - To build OCMockito without CocoaPods, execute two scripts:
   * Frameworks/gethamcrest
   * Frameworks/getweakproxy
+
+**Fixes:**
+
+- Fix `mockClass` crash on 64-bit runtime (OS X and iOS).
+- Fixed retain cycle between mocks and tests. The fix addresses most but not all cases. If the
+  `-dealloc` of your System Under Test is not called when you nil out your SUT, call `-reset` on
+  your mock object (probably from `tearDown`). _Thanks to ronak2121 for testing_
 
 **Features:**
 
@@ -19,12 +27,6 @@ This version requires OCHamcrest 4.0.1 and TPWeakProxy 1.0.0.
 
 - Increased deployment targets to OS X 10.8, iOS 6.0.
 
-**Fixes:**
-
-- Fix `mockClass` crash on 64-bit runtime (OS X and iOS).
-- Fixed retain cycle between mocks and tests. The fix addresses most but not all cases. If the
-  `-dealloc` of your System Under Test is not called when you nil out your SUT, call `-reset` on
-  your mock object (probably from `tearDown`). _Thanks to ronak2121 for testing_
   
 
 Version 1.2.0
@@ -32,6 +34,12 @@ Version 1.2.0
 _05 Apr 2014_
 
 If you're not using CocoaPods, please specify `-ObjC` in your "Other Linker Flags".
+
+**Fixes:**
+
+- Fix crash capturing nil selectors as method parameters. _Thanks to: Sergio Padrino_
+- Fix crash capturing inline blocks as method parameters. _Thanks to: Sergio Padrino_
+- Fix crash returning BOOL on 64-bit iOS. _Thanks to: Ullrich Schäfer_
 
 **Features:**
 
@@ -42,12 +50,6 @@ If you're not using CocoaPods, please specify `-ObjC` in your "Other Linker Flag
 
 - To build OCMockito without CocoaPods, execute the script Frameworks/gethamcrest first to get the
   latest OCHamcrest release.
-
-**Fixes:**
-
-- Fix crash capturing nil selectors as method parameters. _Thanks to: Sergio Padrino_
-- Fix crash capturing inline blocks as method parameters. _Thanks to: Sergio Padrino_
-- Fix crash returning BOOL on 64-bit iOS. _Thanks to: Ullrich Schäfer_
 
 
 Version 1.1.0
@@ -83,7 +85,7 @@ _06 Sep 2013_
 
 This release adopts Semantic Versioning (http://semver.org). _Thanks to: Jens Nerup_
 
-**New dependency:**
+**New dependencies:**
 
 - Requires OCHamcrest 3.0.0.
 
