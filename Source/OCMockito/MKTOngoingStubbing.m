@@ -11,10 +11,14 @@
 #import "MKTInvocationContainer.h"
 
 
+@interface MKTOngoingStubbing ()
+
+@property (nonatomic, readonly) MKTInvocationContainer *invocationContainer;
+@end
+
+
 @implementation MKTOngoingStubbing
-{
-    MKTInvocationContainer *_invocationContainer;
-}
+
 
 - (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
 {
@@ -26,104 +30,104 @@
 
 - (MKTOngoingStubbing *)willReturn:(id)object
 {
-    [_invocationContainer addAnswer:object];
+    [self.invocationContainer addAnswer:object];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnStruct:(const void *)value objCType:(const char *)type
 {
     NSValue *answer = [NSValue valueWithBytes:value objCType:type];
-    [_invocationContainer addAnswer:answer];
+    [self.invocationContainer addAnswer:answer];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnBool:(BOOL)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnChar:(char)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnInt:(int)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnShort:(short)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnLong:(long)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnLongLong:(long long)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnInteger:(NSInteger)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedChar:(unsigned char)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedInt:(unsigned int)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedShort:(unsigned short)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedLong:(unsigned long)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedLongLong:(unsigned long long)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedInteger:(NSUInteger)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnFloat:(float)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnDouble:(double)value
 {
-    [_invocationContainer addAnswer:@(value)];
+    [self.invocationContainer addAnswer:@(value)];
     return self;
 }
 
@@ -132,7 +136,7 @@
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
-    [_invocationContainer setMatcher:matcher atIndex:index];
+    [self.invocationContainer setMatcher:matcher atIndex:index];
     return self;
 }
 

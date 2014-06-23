@@ -9,10 +9,11 @@
 #import "MKTClassObjectMock.h"
 
 
+@interface MKTClassObjectMock ()
+@property (nonatomic, strong, readonly) Class mockedClass;
+@end
+
 @implementation MKTClassObjectMock
-{
-    __strong Class _mockedClass;
-}
 
 + (instancetype)mockForClass:(Class)aClass
 {
@@ -29,12 +30,12 @@
 
 - (NSString *)description
 {
-    return [@"mock class of " stringByAppendingString:NSStringFromClass(_mockedClass)];
+    return [@"mock class of " stringByAppendingString:NSStringFromClass(self.mockedClass)];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    return [_mockedClass methodSignatureForSelector:aSelector];
+    return [self.mockedClass methodSignatureForSelector:aSelector];
 }
 
 
@@ -42,7 +43,7 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return [_mockedClass respondsToSelector:aSelector];
+    return [self.mockedClass respondsToSelector:aSelector];
 }
 
 @end

@@ -13,12 +13,13 @@
 #import "MKTVerificationMode.h"
 
 
+@interface MKTMockingProgress ()
+@property (nonatomic, strong) MKTInvocationMatcher *invocationMatcher;
+@property (nonatomic, strong) id <MKTVerificationMode> verificationMode;
+@property (nonatomic, strong) MKTOngoingStubbing *ongoingStubbing;
+@end
+
 @implementation MKTMockingProgress
-{
-    MKTInvocationMatcher *_invocationMatcher;
-    id <MKTVerificationMode> _verificationMode;
-    MKTOngoingStubbing *_ongoingStubbing;
-}
 
 + (instancetype)sharedProgress
 {
@@ -30,9 +31,9 @@
 
 - (void)reset
 {
-    _invocationMatcher = nil;
-    _verificationMode = nil;
-    _ongoingStubbing = nil;
+    self.invocationMatcher = nil;
+    self.verificationMode = nil;
+    self.ongoingStubbing = nil;
 }
 
 - (void)stubbingStartedAtLocation:(MKTTestLocation)location
@@ -42,40 +43,40 @@
 
 - (void)reportOngoingStubbing:(MKTOngoingStubbing *)ongoingStubbing
 {
-    _ongoingStubbing = ongoingStubbing;
+    self.ongoingStubbing = ongoingStubbing;
 }
 
 - (MKTOngoingStubbing *)pullOngoingStubbing
 {
-    MKTOngoingStubbing *result = _ongoingStubbing;
-    _ongoingStubbing = nil;
+    MKTOngoingStubbing *result = self.ongoingStubbing;
+    self.ongoingStubbing = nil;
     return result;
 }
 
 - (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location
 {
-    _verificationMode = mode;
+    self.verificationMode = mode;
     [self setTestLocation:location];
 }
 
 - (id <MKTVerificationMode>)pullVerificationMode
 {
-    id <MKTVerificationMode> result = _verificationMode;
-    _verificationMode = nil;
+    id <MKTVerificationMode> result = self.verificationMode;
+    self.verificationMode = nil;
     return result;
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
-    if (!_invocationMatcher)
-        _invocationMatcher = [[MKTInvocationMatcher alloc] init];
-    [_invocationMatcher setMatcher:matcher atIndex:index];
+    if (!self.invocationMatcher)
+        self.invocationMatcher = [[MKTInvocationMatcher alloc] init];
+    [self.invocationMatcher setMatcher:matcher atIndex:index];
 }
 
 - (MKTInvocationMatcher *)pullInvocationMatcher
 {
-    MKTInvocationMatcher *result = _invocationMatcher;
-    _invocationMatcher = nil;
+    MKTInvocationMatcher *result = self.invocationMatcher;
+    self.invocationMatcher = nil;
     return result;
 }
 

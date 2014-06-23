@@ -12,10 +12,14 @@
 #import "MKTVerificationMode.h"
 
 
+@interface MKTMockitoCore ()
+
+@property (nonatomic, readonly) MKTMockingProgress *mockingProgress;
+@end
+
+
 @implementation MKTMockitoCore
-{
-    MKTMockingProgress *_mockingProgress;
-}
+
 
 + (instancetype)sharedCore
 {
@@ -35,20 +39,20 @@
 
 - (MKTOngoingStubbing *)stubAtLocation:(MKTTestLocation)location
 {
-    [_mockingProgress stubbingStartedAtLocation:location];
+    [self.mockingProgress stubbingStartedAtLocation:location];
     return [self stub];
 }
 
 - (MKTOngoingStubbing *)stub
 {
-    return [_mockingProgress pullOngoingStubbing];
+    return [self.mockingProgress pullOngoingStubbing];
 }
 
 - (id)verifyMock:(MKTObjectMock *)mock
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location
 {
-    [_mockingProgress verificationStarted:mode atLocation:location];
+    [self.mockingProgress verificationStarted:mode atLocation:location];
     return mock;
 }
 

@@ -9,10 +9,11 @@
 #import "MKTCapturingMatcher.h"
 
 
+@interface MKTCapturingMatcher ()
+@property (nonatomic, readonly) NSMutableArray *arguments;
+@end
+
 @implementation MKTCapturingMatcher
-{
-    NSMutableArray *_arguments;
-}
 
 - (instancetype)init
 {
@@ -26,24 +27,24 @@
 {
     if (!arg)
         arg = [NSNull null];
-    [_arguments addObject:arg];
+    [self.arguments addObject:arg];
 }
 
 - (NSArray *)allValues
 {
-    return _arguments;
+    return self.arguments;
 }
 
 - (id)lastValue
 {
     if ([self noArgumentWasCaptured])
         return [self throwNoArgumentException];
-    return [self convertNilArgument:[_arguments lastObject]];
+    return [self convertNilArgument:[self.arguments lastObject]];
 }
 
 - (BOOL)noArgumentWasCaptured
 {
-    return [_arguments count] == 0;
+    return [self.arguments count] == 0;
 }
 
 - (id)throwNoArgumentException

@@ -29,14 +29,14 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"mock implementer of %@ protocol",
-            NSStringFromProtocol(_mockedProtocol)];
+            NSStringFromProtocol(self.mockedProtocol)];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    struct objc_method_description methodDescription = protocol_getMethodDescription(_mockedProtocol, aSelector, YES, YES);
+    struct objc_method_description methodDescription = protocol_getMethodDescription(self.mockedProtocol, aSelector, YES, YES);
     if (!methodDescription.name)
-        methodDescription = protocol_getMethodDescription(_mockedProtocol, aSelector, NO, YES);
+        methodDescription = protocol_getMethodDescription(self.mockedProtocol, aSelector, NO, YES);
     if (!methodDescription.name)
         return nil;
 	return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
@@ -47,7 +47,7 @@
 
 - (BOOL)conformsToProtocol:(Protocol *)aProtocol
 {
-    return protocol_conformsToProtocol(_mockedProtocol, aProtocol);
+    return protocol_conformsToProtocol(self.mockedProtocol, aProtocol);
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector

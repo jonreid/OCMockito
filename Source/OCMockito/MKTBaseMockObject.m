@@ -18,11 +18,12 @@
 #import "NSInvocation+OCMockito.h"
 
 
+@interface MKTBaseMockObject ()
+@property (nonatomic, readonly) MKTMockingProgress *mockingProgress;
+@property (nonatomic, strong) MKTInvocationContainer *invocationContainer;
+@end
+
 @implementation MKTBaseMockObject
-{
-    MKTMockingProgress *_mockingProgress;
-    MKTInvocationContainer *_invocationContainer;
-}
 
 - (instancetype)init
 {
@@ -36,8 +37,8 @@
 
 - (void)reset
 {
-    [_mockingProgress reset];
-    _invocationContainer = [[MKTInvocationContainer alloc] init];
+    [self.mockingProgress reset];
+    self.invocationContainer = [[MKTInvocationContainer alloc] init];
 }
 
 - (void)forwardInvocation:(NSInvocation *)invocation
@@ -50,7 +51,7 @@
 
 - (BOOL)handlingVerifyOfInvocation:(NSInvocation *)invocation
 {
-    id <MKTVerificationMode> verificationMode = [_mockingProgress pullVerificationMode];
+    id <MKTVerificationMode> verificationMode = [self.mockingProgress pullVerificationMode];
     if (verificationMode)
         [self verifyInvocation:invocation usingVerificationMode:verificationMode];
     return verificationMode != nil;
@@ -66,7 +67,7 @@
 
 - (MKTInvocationMatcher *)matcherWithInvocation:(NSInvocation *)invocation
 {
-    MKTInvocationMatcher *invocationMatcher = [_mockingProgress pullInvocationMatcher];
+    MKTInvocationMatcher *invocationMatcher = [self.mockingProgress pullInvocationMatcher];
     if (!invocationMatcher)
         invocationMatcher = [[MKTInvocationMatcher alloc] init];
     [invocationMatcher setExpectedInvocation:invocation];
@@ -76,22 +77,22 @@
 - (MKTVerificationData *)verificationDataWithMatcher:(MKTInvocationMatcher *)invocationMatcher
 {
     MKTVerificationData *data = [[MKTVerificationData alloc] init];
-    data.invocations = _invocationContainer;
+    data.invocations = self.invocationContainer;
     data.wanted = invocationMatcher;
-    data.testLocation = _mockingProgress.testLocation;
+    data.testLocation = self.mockingProgress.testLocation;
     return data;
 }
 
 - (void)prepareInvocationForStubbing:(NSInvocation *)invocation
 {
-    [_invocationContainer setInvocationForPotentialStubbing:invocation];
-    MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc] initWithInvocationContainer:_invocationContainer];
-    [_mockingProgress reportOngoingStubbing:ongoingStubbing];
+    [self.invocationContainer setInvocationForPotentialStubbing:invocation];
+    MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc] initWithInvocationContainer:self.invocationContainer];
+    [self.mockingProgress reportOngoingStubbing:ongoingStubbing];
 }
 
 - (void)answerInvocation:(NSInvocation *)invocation
 {
-    MKTStubbedInvocationMatcher *stubbedInvocation = [_invocationContainer findAnswerFor:invocation];
+    MKTStubbedInvocationMatcher *stubbedInvocation = [self.invocationContainer findAnswerFor:invocation];
     if (stubbedInvocation)
         [self useExistingAnswerInStub:stubbedInvocation forInvocation:invocation];
 }
@@ -106,7 +107,7 @@
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {
-    [_mockingProgress setMatcher:matcher forArgument:index];
+    [self.mockingProgress setMatcher:matcher forArgument:index];
     return self;
 }
 

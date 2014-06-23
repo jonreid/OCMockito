@@ -11,10 +11,11 @@
 #import "MKTCapturingMatcher.h"
 
 
+@interface MKTArgumentCaptor ()
+@property (nonatomic, readonly) MKTCapturingMatcher *matcher;
+@end
+
 @implementation MKTArgumentCaptor
-{
-    MKTCapturingMatcher *_matcher;
-}
 
 - (instancetype)init
 {
@@ -26,17 +27,17 @@
 
 - (id)capture
 {
-    return _matcher;
+    return self.matcher;
 }
 
 - (id)value
 {
-    return [_matcher lastValue];
+    return [self.matcher lastValue];
 }
 
 - (NSArray *)allValues
 {
-    return [_matcher allValues];
+    return [self.matcher allValues];
 }
 
 @end

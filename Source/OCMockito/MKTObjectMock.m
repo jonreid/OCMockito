@@ -9,10 +9,11 @@
 #import "MKTObjectMock.h"
 
 
+@interface MKTObjectMock ()
+@property (nonatomic, strong, readonly) Class mockedClass;
+@end
+
 @implementation MKTObjectMock
-{
-    Class _mockedClass;
-}
 
 + (instancetype)mockForClass:(Class)aClass
 {
@@ -29,12 +30,12 @@
 
 - (NSString *)description
 {
-    return [@"mock object of " stringByAppendingString:NSStringFromClass(_mockedClass)];
+    return [@"mock object of " stringByAppendingString:NSStringFromClass(self.mockedClass)];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    return [_mockedClass instanceMethodSignatureForSelector:aSelector];
+    return [self.mockedClass instanceMethodSignatureForSelector:aSelector];
 }
 
 
@@ -42,12 +43,12 @@
 
 - (BOOL)isKindOfClass:(Class)aClass
 {
-    return [_mockedClass isSubclassOfClass:aClass];
+    return [self.mockedClass isSubclassOfClass:aClass];
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return [_mockedClass instancesRespondToSelector:aSelector];
+    return [self.mockedClass instancesRespondToSelector:aSelector];
 }
 
 @end

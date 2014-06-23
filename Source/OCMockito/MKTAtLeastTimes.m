@@ -1,7 +1,7 @@
 //
 //  OCMockito - MKTAtLeastTimes.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
-//  
+//
 //  Created by Markus Gasser on 18.04.12.
 //  Source: https://github.com/jonreid/OCMockito
 //
@@ -13,10 +13,11 @@
 #import "MKTVerificationData.h"
 
 
+@interface MKTAtLeastTimes ()
+@property (nonatomic, readonly) NSUInteger minimumExpectedCount;
+@end
+
 @implementation MKTAtLeastTimes
-{
-    NSUInteger _minimumExpectedCount;
-}
 
 - (instancetype)initWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations
 {
@@ -31,15 +32,15 @@
 
 - (void)verifyData:(MKTVerificationData *)data
 {
-    if (_minimumExpectedCount == 0)
+    if (self.minimumExpectedCount == 0)
         return;     // this always succeeds
 
     NSUInteger matchingCount = [data numberOfMatchingInvocations];
-    if (matchingCount < _minimumExpectedCount)
+    if (matchingCount < self.minimumExpectedCount)
     {
-        NSString *plural = (_minimumExpectedCount == 1) ? @"" : @"s";
+        NSString *plural = (self.minimumExpectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
-                                 (unsigned)_minimumExpectedCount, plural, (unsigned)matchingCount];
+                                                           (unsigned)self.minimumExpectedCount, plural, (unsigned)matchingCount];
         MKTFailTestLocation(data.testLocation, description);
     }
 }

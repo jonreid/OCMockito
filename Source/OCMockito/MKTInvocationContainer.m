@@ -12,11 +12,13 @@
 #import "NSInvocation+OCMockito.h"
 
 
+@interface MKTInvocationContainer ()
+@property (nonatomic, strong) MKTStubbedInvocationMatcher *invocationForStubbing;
+@property (nonatomic, readonly) NSMutableArray *stubbed;
+@end
+
 @implementation MKTInvocationContainer
-{
-    MKTStubbedInvocationMatcher *_invocationForStubbing;
-    NSMutableArray *_stubbed;
-}
+
 
 - (instancetype)init
 {
@@ -34,28 +36,28 @@
 {
     [invocation mkt_retainArgumentsWithWeakTarget];
     [_registeredInvocations addObject:invocation];
-    
+
     MKTStubbedInvocationMatcher *s = [[MKTStubbedInvocationMatcher alloc] init];
     [s setExpectedInvocation:invocation];
-    _invocationForStubbing = s;
+    self.invocationForStubbing = s;
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex
 {
-    [_invocationForStubbing setMatcher:matcher atIndex:argumentIndex];
+    [self.invocationForStubbing setMatcher:matcher atIndex:argumentIndex];
 }
 
 - (void)addAnswer:(id)answer
 {
     [_registeredInvocations removeLastObject];
 
-    _invocationForStubbing.answer = answer;
-    [_stubbed insertObject:_invocationForStubbing atIndex:0];
+    self.invocationForStubbing.answer = answer;
+    [self.stubbed insertObject:self.invocationForStubbing atIndex:0];
 }
 
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation
 {
-    for (MKTStubbedInvocationMatcher *s in _stubbed)
+    for (MKTStubbedInvocationMatcher *s in self.stubbed)
         if ([s matches:invocation])
             return s;
     return nil;
