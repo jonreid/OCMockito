@@ -1,5 +1,5 @@
 //
-//  OCMockito - StubClassTest.m
+//  OCMockito - StubClassTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -29,10 +29,10 @@
 @end
 
 
-@interface StubClassTest : SenTestCase
+@interface StubClassTests : SenTestCase
 @end
 
-@implementation StubClassTest
+@implementation StubClassTests
 {
     __strong Class mockClass;
 }
@@ -46,7 +46,7 @@
 - (void)testStubbedMethod_ShouldReturnGivenObject
 {
     [given([mockClass methodReturningObject]) willReturn:@"STUBBED"];
-    
+
     assertThat([mockClass methodReturningObject], is(@"STUBBED"));
 }
 

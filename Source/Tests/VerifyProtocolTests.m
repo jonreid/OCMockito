@@ -1,5 +1,5 @@
 //
-//  OCMockito - VerifyProtocolTest.m
+//  OCMockito - VerifyProtocolTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -21,10 +21,10 @@
 #endif
 
 
-@interface VerifyProtocolTest : SenTestCase
+@interface VerifyProtocolTests : SenTestCase
 @end
 
-@implementation VerifyProtocolTest
+@implementation VerifyProtocolTests
 {
     id <NSLocking> mockLock;
     id <NSKeyedArchiverDelegate> mockDelegate;
@@ -43,40 +43,44 @@
 
 - (void)tearDown
 {
-    mockTestCase = nil;
     [archiver finishEncoding];
-    archiver = nil;
     [super tearDown];
 }
 
 - (void)testInvokingMethod_ShouldPassVerify
 {
     [mockLock lock];
+
     [verify(mockLock) lock];
 }
 
 - (void)testNotInvokingMethod_ShouldFailVerify
 {
     [verifyWithMockTestCase(mockLock) lock];
+
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testInvokingWithEqualObjectArguments_ShouldPassVerify
 {
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
+
     [verify(mockDelegate) archiver:archiver willEncodeObject:@"same"];
 }
 
 - (void)testInvokingWithDifferentObjectArguments_ShouldFailVerify
 {
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
+
     [verifyWithMockTestCase(mockDelegate) archiver:archiver willEncodeObject:@"different"];
+
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testInvokingWithArgumentMatcherSatisfied_ShouldPassVerify
 {
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
+
     [verify(mockDelegate) archiver:archiver willEncodeObject:equalTo(@"same")];
 }
 

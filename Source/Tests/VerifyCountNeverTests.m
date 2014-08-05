@@ -1,5 +1,5 @@
 //
-//  OCMockito - VerifyClassObjectTest.m
+//  OCMockito - VerifyCountNeverTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -21,30 +21,32 @@
 #endif
 
 
-@interface VerifyClassObjectTest : SenTestCase
+@interface VerifyCountNeverTests : SenTestCase
 @end
 
-@implementation VerifyClassObjectTest
+@implementation VerifyCountNeverTests
 {
-    __strong Class mockStringClass;
+    NSMutableArray *mockArray;
 }
 
 - (void)setUp
 {
     [super setUp];
-    mockStringClass = mockClass([NSString class]);
+    mockArray = mock([NSMutableArray class]);
 }
 
-- (void)testInvokingClassMethod_ShouldPassVerify
+- (void)testVerifyNever_WithMethodNotInvoked_ShouldPass
 {
-    [mockStringClass string];
-    [verify(mockStringClass) string];
+    [verifyCount(mockArray, never()) removeAllObjects];
 }
 
-- (void)testNotInvokingClassMethod_ShouldFailVerify
+- (void)testVerifyNever_WithMethodInvoked_ShouldFail
 {
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
-    [verifyWithMockTestCase(mockStringClass) string];
+    [mockArray removeAllObjects];
+
+    [verifyCountWithMockTestCase(mockArray, never()) removeAllObjects];
+
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 

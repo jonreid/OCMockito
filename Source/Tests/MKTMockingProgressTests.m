@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTMockingProgressTest.m
+//  OCMockito - MKTMockingProgressTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -26,10 +26,10 @@
 #endif
 
 
-@interface MKTMockingProgressTest : SenTestCase
+@interface MKTMockingProgressTests : SenTestCase
 @end
 
-@implementation MKTMockingProgressTest
+@implementation MKTMockingProgressTests
 {
     MKTMockingProgress *mockingProgress;
 }
@@ -46,18 +46,19 @@
     [super tearDown];
 }
 
-- (void)testPullOngoingStubbingWithoutStubbingReported_ShouldReturnNil
+- (void)testPullOngoingStubbing_WithoutStubbingReported_ShouldReturnNil
 {
     assertThat([mockingProgress pullOngoingStubbing], is(nilValue()));
 }
 
-- (void)testPullOngoingStubbingWithStubbingReported_ShouldReturnStubbing
+- (void)testPullOngoingStubbing_WithStubbingReported_ShouldReturnStubbing
 {
     MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc] init];
     MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer];
-    
+
     [mockingProgress reportOngoingStubbing:ongoingStubbing];
+
     assertThat([mockingProgress pullOngoingStubbing], is(sameInstance(ongoingStubbing)));
 }
 
@@ -66,56 +67,67 @@
     MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc] init];
     MKTOngoingStubbing *ongoingStubbing = [[MKTOngoingStubbing alloc]
                                            initWithInvocationContainer:invocationContainer];
-    
+
     [mockingProgress reportOngoingStubbing:ongoingStubbing];
     [mockingProgress pullOngoingStubbing];
+
     assertThat([mockingProgress pullOngoingStubbing], is(nilValue()));
 }
 
-- (void)testPullVerificationModeWithoutVerificationStarted_ShouldReturnNil
+- (void)testPullVerificationMode_WithoutVerificationStarted_ShouldReturnNil
 {
     assertThat([mockingProgress pullVerificationMode], is(nilValue()));
 }
 
-- (void)testPullVerificationModeWithVerificationStarted_ShouldReturnMode
+- (void)testPullVerificationMode_WithVerificationStarted_ShouldReturnMode
 {
     id <MKTVerificationMode> mode = [[MKTExactTimes alloc] initWithCount:42];
+
     [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
+
     assertThat([mockingProgress pullVerificationMode], is(sameInstance(mode)));
 }
 
 - (void)testPullVerificationMode_ShouldClearCurrentVerification
 {
     id <MKTVerificationMode> mode = [[MKTExactTimes alloc] initWithCount:42];
+
     [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
     [mockingProgress pullVerificationMode];
+
     assertThat([mockingProgress pullVerificationMode], is(nilValue()));
 }
 
-- (void)testPullInvocationMatcherWithoutSettingMatchers_ShouldBeNil
+- (void)testPullInvocationMatcher_WithoutSettingMatchers_ShouldReturnNil
 {
     assertThat([mockingProgress pullInvocationMatcher], is(nilValue()));
 }
 
-- (void)testPullInvocationMatcherAfterSetMatcher_ShouldHaveThoseMatchersForAllFunctionArguments
+- (void)testPullInvocationMatcher_AfterSetMatcher_ShouldHaveThoseMatchersForAllFunctionArguments
 {
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
+
     MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+
     assertThat(@([invocationMatcher argumentMatchersCount]), is(@2));
 }
 
 - (void)testPullInvocationMatcher_ShouldClearCurrentMatcher
 {
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:3];
+
     [mockingProgress pullInvocationMatcher];
+
     assertThat([mockingProgress pullInvocationMatcher], is(nilValue()));
 }
 
-- (void)testMoreThanOneSetMatcher_ShouldAccumulate
+- (void)testMultipleSetMatcherCalls_ShouldAccumulateInArgumentMatchersCount
 {
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
     [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:0];
+
     MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
+
     assertThat(@([invocationMatcher argumentMatchersCount]), is(@2));
 }
 

@@ -1,7 +1,7 @@
 //
-//  OCMockito - MKTObjectAndProtocolMockTest.m
+//  OCMockito - MKTObjectAndProtocolMockTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
-//  
+//
 //  Created by: Kevin Lundberg
 //  Source: https://github.com/jonreid/OCMockito
 //
@@ -26,7 +26,7 @@
 @end
 
 
-@interface TestClass : NSObject 
+@interface TestClass : NSObject
 - (void)instanceMethod;
 @end
 
@@ -43,10 +43,10 @@
 @end
 
 
-@interface MKTObjectAndProtocolMockTest : SenTestCase
+@interface MKTObjectAndProtocolMockTests : SenTestCase
 @end
 
-@implementation MKTObjectAndProtocolMockTest
+@implementation MKTObjectAndProtocolMockTests
 {
     TestClass<TestProtocol> *mock;
 }
@@ -62,12 +62,12 @@
     assertThat([mock description], is(@"mock object of TestClass implementing TestProtocol protocol"));
 }
 
-- (void)testClassProtocolMockCanCallMethodFromClass
+- (void)testMock_ShouldHandleInstanceMethod
 {
     STAssertNoThrow([mock instanceMethod],nil);
 }
 
-- (void)testClassProtocolMockCanCallMethodFromProtocol
+- (void)testMock_ShouldHandleRequiredProtocolMethod
 {
     STAssertNoThrow([mock requiredMethod],nil);
 }
@@ -77,13 +77,16 @@
     TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
     SEL selector = @selector(instanceMethod);
     NSMethodSignature *mockSig = [mock methodSignatureForSelector:selector];
+
     assertThat(mockSig, equalTo([obj methodSignatureForSelector:selector]));
 }
 
-- (void)testMethodSignatureForSelectorNotInClassOrProtocol_ShouldAnswerNil
+- (void)testMethodSignatureForSelectorNotInObjectOrProtocol_ShouldAnswerNil
 {
     SEL bogusSelector = @selector(objectAtIndex:);
+
     NSMethodSignature *signature = [mock methodSignatureForSelector:bogusSelector];
+
     assertThat(signature, is(nilValue()));
 }
 
@@ -102,6 +105,7 @@
     TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
     SEL selector = @selector(requiredMethod);
     NSMethodSignature *signature = [mock methodSignatureForSelector:selector];
+
     assertThat(signature, equalTo([obj methodSignatureForSelector:selector]));
 }
 

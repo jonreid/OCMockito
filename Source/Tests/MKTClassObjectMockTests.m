@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTClassObjectMockTest.m
+//  OCMockito - MKTClassObjectMockTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: David Hart
@@ -20,10 +20,10 @@
 #endif
 
 
-@interface MKTClassObjectMockTest : SenTestCase
+@interface MKTClassObjectMockTests : SenTestCase
 @end
 
-@implementation MKTClassObjectMockTest
+@implementation MKTClassObjectMockTests
 {
     __strong Class mockStringClass;
 }
@@ -42,14 +42,18 @@
 - (void)testMock_ShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
     SEL selector = @selector(string);
+
     NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:selector];
+
     assertThat(signature, is(equalTo([[NSString class] methodSignatureForSelector:selector])));
 }
 
 - (void)testMethodSignatureForSelectorNotInClass_ShouldAnswerNil
 {
     SEL selector = @selector(rangeOfString:options:);
+
     NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:selector];
+
     assertThat(signature, is(nilValue()));
 }
 

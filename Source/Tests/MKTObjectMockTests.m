@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTObjectMockTest.m
+//  OCMockito - MKTObjectMockTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -20,10 +20,10 @@
 #endif
 
 
-@interface MKTObjectMockTest : SenTestCase
+@interface MKTObjectMockTests : SenTestCase
 @end
 
-@implementation MKTObjectMockTest
+@implementation MKTObjectMockTests
 {
     NSString *mockString;
 }
@@ -47,7 +47,7 @@
     assertThat(signature, is(equalTo([realString methodSignatureForSelector:selector])));
 }
 
-- (void)testMethodSignatureForSelectorNotInClass_ShouldAnswerNil
+- (void)testMethodSignatureForSelectorNotInObject_ShouldAnswerNil
 {
     SEL selector = @selector(objectAtIndex:);
     NSMethodSignature *signature = [mockString methodSignatureForSelector:selector];

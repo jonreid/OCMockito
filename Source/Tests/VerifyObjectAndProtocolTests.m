@@ -1,5 +1,5 @@
 //
-//  OCMockito - VerifyObjectAndProtocolTest.m
+//  OCMockito - VerifyObjectAndProtocolTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -21,43 +21,47 @@
 #endif
 
 
-@interface VerifyObjectAndProtocolTest : SenTestCase
+@interface VerifyObjectAndProtocolTests : SenTestCase
 @end
 
-@implementation VerifyObjectAndProtocolTest
+@implementation VerifyObjectAndProtocolTests
 {
     NSMutableArray <NSLocking> *mockLockingArray;
+    MockTestCase *mockTestCase;
 }
 
 - (void)setUp
 {
     [super setUp];
     mockLockingArray = mockObjectAndProtocol([NSMutableArray class], @protocol(NSLocking));
+    mockTestCase = [[MockTestCase alloc] init];
 }
 
-- (void)testInvokingClassInstanceMethod_ShouldPassVerify
+- (void)testInvokingInstanceMethod_ShouldPass
 {
     [mockLockingArray removeAllObjects];
+
     [verify(mockLockingArray) removeAllObjects];
 }
 
-- (void)testNotInvokingClassInstanceMethod_ShouldFailVerify
+- (void)testVerify_WithInstanceMethodNotInvoked_ShouldFail
 {
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     [verifyWithMockTestCase(mockLockingArray) removeAllObjects];
+
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
-- (void)testInvokingProtocolMethod_ShouldPassVerify
+- (void)testVerify_WithProtocolMethodInvoked_ShouldPass
 {
     [mockLockingArray lock];
+
     [verify(mockLockingArray) lock];
 }
 
-- (void)testNotInvokingProtocolMethod_ShouldFailVerify
+- (void)testVerify_WithProtocolMethodNotInvoked_ShouldFail
 {
-    MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     [verifyWithMockTestCase(mockLockingArray) lock];
+
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 

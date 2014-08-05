@@ -1,8 +1,8 @@
 //
-//  OCMockito - MKTCapturingMatcherTest.m
+//  OCMockito - MKTCapturingMatcherTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
-//  Created by Markus Gasser on 18.04.12.
+//  Created by: Jon Reid, http://qualitycoding.org/
 //  Source: https://github.com/jonreid/OCMockito
 //
 
@@ -19,10 +19,10 @@
 #endif
 
 
-@interface MKTCapturingMatcherTest : SenTestCase
+@interface MKTCapturingMatcherTests : SenTestCase
 @end
 
-@implementation MKTCapturingMatcherTest
+@implementation MKTCapturingMatcherTests
 {
     MKTCapturingMatcher *sut;
 }
@@ -50,17 +50,19 @@
     assertThat([sut description], is(@"<Capturing argument>"));
 }
 
-- (void)testMatcher_ShouldCaptureArguments
+- (void)testAllValues_ShouldCaptureArgumentsInOrder
 {
     [sut captureArgument:@"foo"];
     [sut captureArgument:@"bar"];
+
     assertThat([sut allValues], contains(@"foo", @"bar", nil));
 }
 
-- (void)testCaptureArguments_ShouldHandleNilArgument
+- (void)testNilArgument_ShouldBeConvertedToNSNull
 {
     [sut captureArgument:@"foo"];
     [sut captureArgument:nil];
+
     assertThat([sut allValues], contains(@"foo", [NSNull null], nil));
 }
 
@@ -68,6 +70,7 @@
 {
     [sut captureArgument:@"foo"];
     [sut captureArgument:@"bar"];
+
     assertThat([sut lastValue], is(@"bar"));
 }
 
@@ -75,6 +78,7 @@
 {
     [sut captureArgument:@"foo"];
     [sut captureArgument:nil];
+
     assertThat([sut lastValue], is(nilValue()));
 }
 

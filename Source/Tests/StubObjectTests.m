@@ -1,5 +1,5 @@
 //
-//  OCMockito - StubObjectTest.m
+//  OCMockito - StubObjectTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -29,7 +29,7 @@ typedef struct {
 
 static inline double *createArrayOf10Doubles(void)
 {
-    return malloc(10*sizeof(double));
+    return malloc(10 * sizeof(double));
 }
 
 
@@ -52,7 +52,7 @@ static inline double *createArrayOf10Doubles(void)
 - (id)methodReturningObjectWithArg:(id)arg { return self; }
 - (id)methodReturningObjectWithIntArg:(int)arg { return self; }
 - (id)methodReturningObjectWithBlockArg:(StubObjectBlockArgument)arg { return self; }
-- (id)methodReturningObjectWithStruct:(MKTStruct)arg { return NO; };
+- (id)methodReturningObjectWithStruct:(MKTStruct)arg { return nil; };
 
 - (BOOL)methodReturningBool { return NO; }
 - (char)methodReturningChar { return 0; }
@@ -74,10 +74,10 @@ static inline double *createArrayOf10Doubles(void)
 @end
 
 
-@interface StubObjectTest : SenTestCase
+@interface StubObjectTests : SenTestCase
 @end
 
-@implementation StubObjectTest
+@implementation StubObjectTests
 {
     ReturningObject *mockObject;
 }
@@ -88,9 +88,10 @@ static inline double *createArrayOf10Doubles(void)
     mockObject = mock([ReturningObject class]);
 }
 
-- (void)testStubbedMethod_ShouldReturnGivenObject
+- (void)testStubbedMethodReturningObject_ShouldReturnGivenObject
 {
     [given([mockObject methodReturningObject]) willReturn:@"STUBBED"];
+
     assertThat([mockObject methodReturningObject], is(@"STUBBED"));
 }
 
@@ -99,78 +100,87 @@ static inline double *createArrayOf10Doubles(void)
     assertThat([mockObject methodReturningObject], is(nilValue()));
 }
 
-- (void)testStubbedMethod_ShouldReturnGivenClass
+- (void)testStubbedMethodReturningClass_ShouldReturnGivenClass
 {
     [given([mockObject methodReturningClass]) willReturn:[NSString class]];
+
     assertThat([mockObject methodReturningClass], is([NSString class]));
 }
 
-- (void)testUnstubbedMethodReturningClass_ShouldReturnNull
+- (void)testUnstubbedMethodReturningClass_ShouldReturnNil
 {
     assertThat([mockObject methodReturningClass], is(nilValue()));
 }
 
-- (void)testStubbedMethod_ShouldReturnOnMatchingArgument
-{
-    [given([mockObject methodReturningClassWithClassArg:[NSString class]]) willReturn:[NSString class]];
-    assertThat([mockObject methodReturningClassWithClassArg:[NSData class]], is(nilValue()));
-    assertThat([mockObject methodReturningClassWithClassArg:[NSString class]], is([NSString class]));
-}
-
-- (void)testStubsWithDifferentArgs_ShouldHaveDifferentReturnValues
+- (void)testStubbedMethodReturningObject_WithDifferentArgs_ShouldReturnValueForMatchingArgument
 {
     [given([mockObject methodReturningObjectWithArg:@"foo"]) willReturn:@"FOO"];
     [given([mockObject methodReturningObjectWithArg:@"bar"]) willReturn:@"BAR"];
+
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
+}
+
+- (void)testStubbedMethodReturningClass_WithDifferentClassArgs_ShouldReturnClassForMatchingArgument
+{
+    [given([mockObject methodReturningClassWithClassArg:[NSString class]]) willReturn:[NSString class]];
+    [given([mockObject methodReturningClassWithClassArg:[NSData class]]) willReturn:[NSData class]];
+
+    assertThat([mockObject methodReturningClassWithClassArg:[NSString class]], is([NSString class]));
 }
 
 - (void)testStub_ShouldAcceptArgumentMatchers
 {
     [given([mockObject methodReturningObjectWithArg:equalTo(@"foo")]) willReturn:@"FOO"];
+
     assertThat([mockObject methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
-- (void)testStub_ShouldReturnValueForMatchingNumericArgument
+- (void)testStubbedMethodWithPrimitiveNumericArg_ShouldReturnValueForMatchingArgument
 {
     [given([mockObject methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
     [given([mockObject methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
+
     assertThat([mockObject methodReturningObjectWithIntArg:1], is(@"FOO"));
 }
 
-- (void)testStub_ShouldReturnValueForSameBlockArgument
+- (void)testStubbedMethodWithBlockArg_WithSameBlockArg_ShouldReturnGivenValue
 {
     StubObjectBlockArgument block = ^{ };
     [given([mockObject methodReturningObjectWithBlockArg:block]) willReturn:@"FOO"];
+
     assertThat([mockObject methodReturningObjectWithBlockArg:block], is(@"FOO"));
 }
 
-- (void)testStub_ShouldReturnNilForInlineBlockArgument
-{
-    [given([mockObject methodReturningObjectWithBlockArg:^{ }])
-     willReturn:@"FOO"];
-    assertThat([mockObject methodReturningObjectWithBlockArg:^{ }], is(nilValue()));
-}
-
-//- (void)testStub_ShouldReturnNilForInlineBlockArgumentCapturingScopeVariable
-//{
-//    NSNumber *someVariable = @0;
-//    [given([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }])
-//     willReturn:@"FOO"];
-//    assertThat([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }], is(nilValue()));
-//}
-
-- (void)testStub_ShouldNotReturnValueForMatchingBlockArgument
+- (void)testStubbedMethodWithBlockArg_WithDifferentBlockArg_ShouldNotReturnGivenValue
 {
     StubObjectBlockArgument emptyBlock = ^{ };
     StubObjectBlockArgument anotherEmptyBlock = ^{ };
     [given([mockObject methodReturningObjectWithBlockArg:emptyBlock]) willReturn:@"FOO"];
+
     assertThat([mockObject methodReturningObjectWithBlockArg:anotherEmptyBlock], isNot(@"FOO"));
 }
 
-- (void)testStub_ShouldReturnValueForSameStructArgument
+- (void)testStubbedMethodWithBlockArg_WithInlineBlockArg_ShouldReturnNil
+{
+    [given([mockObject methodReturningObjectWithBlockArg:^{ }]) willReturn:@"FOO"];
+
+    assertThat([mockObject methodReturningObjectWithBlockArg:^{ }], is(nilValue()));
+}
+
+- (void)testStubbedMethodWithBlockArg_WithInlineBlockArgCapturingScopeVariable_ShouldReturnNilWithoutDying
+{
+    NSNumber *someVariable = @0;
+    [given([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }])
+           willReturn:@"FOO"];
+
+    assertThat([mockObject methodReturningObjectWithBlockArg:^{ [someVariable description]; }],
+               is(nilValue()));
+}
+
+- (void)testStubbedMethodWithStructArg_WithSameStruct_ShouldReturnGivenValue
 {
     double *a = createArrayOf10Doubles();
-    MKTStruct struct1 = {1, 'a', a};
+    MKTStruct struct1 = { 1, 'a', a };
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
 
     assertThat([mockObject methodReturningObjectWithStruct:struct1], is(@"FOO"));
@@ -178,11 +188,11 @@ static inline double *createArrayOf10Doubles(void)
     free(a);
 }
 
-- (void)testStub_ShouldReturnValueForMatchingStructArgument
+- (void)testStubbedMethodWithStructArg_WithEqualStruct_ShouldReturnGivenValue
 {
     double *a = createArrayOf10Doubles();
-    MKTStruct struct1 = {1, 'a', a};
-    MKTStruct struct2 = {1, 'a', a};
+    MKTStruct struct1 = { 1, 'a', a };
+    MKTStruct struct2 = { 1, 'a', a };
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
 
     assertThat([mockObject methodReturningObjectWithStruct:struct2], is(@"FOO"));
@@ -190,12 +200,12 @@ static inline double *createArrayOf10Doubles(void)
     free(a);
 }
 
-- (void)testStub_ShoulReturnNilForNotMatchingStructArgument
+- (void)testStubbedMethodWithStructArg_WithDifferentStruct_ShouldReturnNil
 {
     double *a = createArrayOf10Doubles();
     double *b = createArrayOf10Doubles();
-    MKTStruct struct1 = {1, 'a', a};
-    MKTStruct struct2 = {1, 'a', b};
+    MKTStruct struct1 = { 1, 'a', a };
+    MKTStruct struct2 = { 1, 'a', b };
     [given([mockObject methodReturningObjectWithStruct:struct1]) willReturn:@"FOO"];
 
     assertThat([mockObject methodReturningObjectWithStruct:struct2], is(nilValue()));
@@ -207,149 +217,170 @@ static inline double *createArrayOf10Doubles(void)
 - (void)testStub_ShouldAcceptMatcherForNumericArgument
 {
     [[given([mockObject methodReturningObjectWithIntArg:0])
-            withMatcher:greaterThan(@1) forArgument:0] willReturn:@"FOO"];
+            withMatcher:greaterThan(@1) forArgument:0]
+            willReturn:@"FOO"];
+
     assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
 - (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
     [[given([mockObject methodReturningObjectWithIntArg:0])
-            withMatcher:greaterThan(@1)] willReturn:@"FOO"];
+            withMatcher:greaterThan(@1)]
+            willReturn:@"FOO"];
+
     assertThat([mockObject methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
-- (void)testStubbedMethod_ShouldReturnGivenStruct
+- (void)testStubbedMethodReturningBool_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningBool]) willReturnBool:YES];
+
+    STAssertTrue([mockObject methodReturningBool], nil);
+}
+
+- (void)testStubbedMethodReturningChar_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningChar]) willReturnChar:'a'];
+
+    assertThat(@([mockObject methodReturningChar]), is(@'a'));
+}
+
+- (void)testStubbedMethodReturningInt_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningInt]) willReturnInt:42];
+
+    assertThat(@([mockObject methodReturningInt]), is(@42));
+}
+
+- (void)testStubbedMethodReturningShort_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningShort]) willReturnShort:42];
+
+    assertThat(@([mockObject methodReturningShort]), is(@42));
+}
+
+- (void)testStubbedMethodReturningLong_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningLong]) willReturnLong:42];
+
+    assertThat(@([mockObject methodReturningLong]), is(@42));
+}
+
+- (void)testStubbedMethodReturningLongLong_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningLongLong]) willReturnLongLong:42];
+
+    assertThat(@([mockObject methodReturningLongLong]), is(@42));
+}
+
+- (void)testStubbedMethodReturningInteger_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningInteger]) willReturnInteger:42];
+
+    assertThat(@([mockObject methodReturningInteger]), is(@42));
+}
+
+- (void)testStubbedMethodReturningUnsignedChar_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningUnsignedChar]) willReturnUnsignedChar:'a'];
+
+    assertThat(@([mockObject methodReturningUnsignedChar]), is(@'a'));
+}
+
+- (void)testStubbedMethodReturningUnsignedInt_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningUnsignedInt]) willReturnUnsignedInt:42];
+
+    assertThat(@([mockObject methodReturningUnsignedInt]), is(@42));
+}
+
+- (void)testStubbedMethodReturningUnsignedShort_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningUnsignedShort]) willReturnUnsignedShort:42];
+
+    assertThat(@([mockObject methodReturningUnsignedShort]), is(@42));
+}
+
+- (void)testStubbedMethodReturningUnsignedLong_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningUnsignedLong]) willReturnUnsignedLong:42];
+
+    assertThat(@([mockObject methodReturningUnsignedLong]), is(@42));
+}
+
+- (void)testStubbedMethodReturningUnsignedLongLong_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningUnsignedLongLong]) willReturnUnsignedLongLong:42];
+
+    assertThat(@([mockObject methodReturningUnsignedLongLong]), is(@42));
+}
+
+- (void)testStubbedMethodReturningUnsignedInteger_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningUnsignedInteger]) willReturnUnsignedInteger:42];
+
+    assertThat(@([mockObject methodReturningUnsignedInteger]), is(@42));
+}
+
+- (void)testStubbedMethodReturningFloat_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningFloat]) willReturnFloat:42.5f];
+
+    assertThat(@([mockObject methodReturningFloat]), is(@42.5f));
+}
+
+- (void)testStubbedMethodReturningDouble_ShouldReturnGivenValue
+{
+    [given([mockObject methodReturningDouble]) willReturnDouble:42.0];
+
+    assertThat(@([mockObject methodReturningDouble]), is(@42.0));
+}
+
+- (void)testStubbedMethodReturningStruct_ShouldReturnGivenValue
 {
     MKTStruct someStruct = { 123, 'a', NULL };
-
     [given([mockObject methodReturningStruct]) willReturnStruct:&someStruct
                                                        objCType:@encode(MKTStruct)];
+
     MKTStruct otherStruct = [mockObject methodReturningStruct];
 
     assertThat(@(otherStruct.anInt), is(@123));
     assertThat(@(otherStruct.aChar), is(@'a'));
 }
 
-- (void)testStubbedMethod_ShouldReturnGivenBool
-{
-    [given([mockObject methodReturningBool]) willReturnBool:YES];
-    STAssertTrue([mockObject methodReturningBool], nil);
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenChar
-{
-    [given([mockObject methodReturningChar]) willReturnChar:'a'];
-    assertThat(@([mockObject methodReturningChar]), is(@'a'));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenInt
-{
-    [given([mockObject methodReturningInt]) willReturnInt:42];
-    assertThat(@([mockObject methodReturningInt]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenShort
-{
-    [given([mockObject methodReturningShort]) willReturnShort:42];
-    assertThat(@([mockObject methodReturningShort]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenLong
-{
-    [given([mockObject methodReturningLong]) willReturnLong:42];
-    assertThat(@([mockObject methodReturningLong]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenLongLong
-{
-    [given([mockObject methodReturningLongLong]) willReturnLongLong:42];
-    assertThat(@([mockObject methodReturningLongLong]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenInteger
-{
-    [given([mockObject methodReturningInteger]) willReturnInteger:42];
-    assertThat(@([mockObject methodReturningInteger]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenUnsignedChar
-{
-    [given([mockObject methodReturningUnsignedChar]) willReturnUnsignedChar:'a'];
-    assertThat(@([mockObject methodReturningUnsignedChar]), is(@'a'));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenUnsignedInt
-{
-    [given([mockObject methodReturningUnsignedInt]) willReturnUnsignedInt:42];
-    assertThat(@([mockObject methodReturningUnsignedInt]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenUnsignedShort
-{
-    [given([mockObject methodReturningUnsignedShort]) willReturnUnsignedShort:42];
-    assertThat(@([mockObject methodReturningUnsignedShort]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenUnsignedLong
-{
-    [given([mockObject methodReturningUnsignedLong]) willReturnUnsignedLong:42];
-    assertThat(@([mockObject methodReturningUnsignedLong]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenUnsignedLongLong
-{
-    [given([mockObject methodReturningUnsignedLongLong]) willReturnUnsignedLongLong:42];
-    assertThat(@([mockObject methodReturningUnsignedLongLong]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenUnsignedInteger
-{
-    [given([mockObject methodReturningUnsignedInteger]) willReturnUnsignedInteger:42];
-    assertThat(@([mockObject methodReturningUnsignedInteger]), is(@42));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenFloat
-{
-    [given([mockObject methodReturningFloat]) willReturnFloat:42.5f];
-    assertThat(@([mockObject methodReturningFloat]), is(@42.5f));
-}
-
-- (void)testStubbedMethod_ShouldReturnGivenDouble
-{
-    [given([mockObject methodReturningDouble]) willReturnDouble:42.0];
-    assertThat(@([mockObject methodReturningDouble]), is(@42.0));
-}
-
-- (void)testStubProperty_ShouldStubValue
+- (void)testStubbingProperty_ShouldStubValue
 {
     PropertyObject *obj = mock([PropertyObject class]);
+
     stubProperty(obj, intValue, @42);
+
     assertThat(@([obj intValue]), is(@42));
 }
 
-- (void)testStubProperty_ShouldStubValueForKey_SoPredicatesWork
+- (void)testStubbingProperty_ShouldStubValueForKey_SoPredicatesWork
 {
     PropertyObject *obj = mock([PropertyObject class]);
     stubProperty(obj, intValue, @42);
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"intValue == 42"];
 
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"intValue == 42"];
     NSArray *array = [@[ obj ] filteredArrayUsingPredicate:predicate];
 
     assertThat(array, hasCountOf(1));
 }
 
-- (void)testStubProperty_ShouldStubValueForKeyPath_SoSortDescriptorsWork
+- (void)testStubbingProperty_ShouldStubValueForKeyPath_SoSortDescriptorsWork
 {
     PropertyObject *obj1 = mock([PropertyObject class]);
     stubProperty(obj1, intValue, @1);
     PropertyObject *obj2 = mock([PropertyObject class]);
     stubProperty(obj2, intValue, @2);
     NSArray *unsortedArray = @[obj2, obj1];
+
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"intValue"
                                                                      ascending:YES];
-
     NSArray *sortedArray = [unsortedArray sortedArrayUsingDescriptors:@[sortDescriptor]];
-    
+
     assertThat(sortedArray, contains(sameInstance(obj1), sameInstance(obj2), nil));
 }
 

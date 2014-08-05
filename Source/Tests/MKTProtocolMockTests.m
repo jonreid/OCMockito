@@ -1,5 +1,5 @@
 //
-//  OCMockito - MKTProtocolMockTest.m
+//  OCMockito - MKTProtocolMockTests.m
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
@@ -62,10 +62,10 @@
 @end
 
 
-@interface MKTProtocolMockTest : SenTestCase
+@interface MKTProtocolMockTests : SenTestCase
 @end
 
-@implementation MKTProtocolMockTest
+@implementation MKTProtocolMockTests
 {
     id <TestingProtocol> mockImplementer;
 }
@@ -81,11 +81,12 @@
     assertThat([mockImplementer description], is(@"mock implementer of TestingProtocol protocol"));
 }
 
-- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorAsrealImplementer
+- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementer
 {
     PartialImplementer *realImplementer = [[PartialImplementer alloc] init];
     SEL selector = @selector(required);
     NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
+
     assertThat(signature, equalTo([realImplementer methodSignatureForSelector:selector]));
 }
 
@@ -94,6 +95,7 @@
     FullImplementer *realImplementer = [[FullImplementer alloc] init];
     SEL selector = @selector(optional);
     NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
+
     assertThat(signature, equalTo([realImplementer methodSignatureForSelector:selector]));
 }
 
@@ -101,6 +103,7 @@
 {
     SEL selector = @selector(objectAtIndex:);
     NSMethodSignature *signature = [(id)mockImplementer methodSignatureForSelector:selector];
+
     assertThat(signature, is(nilValue()));
 }
 
