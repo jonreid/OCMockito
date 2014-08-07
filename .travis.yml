@@ -4,9 +4,6 @@ before_install:
   - Frameworks/gethamcrest
   - Frameworks/getweakproxy
   - sudo easy_install cpp-coveralls
-  - brew unlink xctool
-  - brew update
-  - brew install xctool
 
 script:
   - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx10.9
