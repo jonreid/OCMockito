@@ -14,6 +14,22 @@
 #import <OCHamcrest/HCWrapInMatcher.h>
 
 
+@interface MKTUnspecifiedArgumentPlaceholder : NSObject
+@end
+
+@implementation MKTUnspecifiedArgumentPlaceholder
+
++ (instancetype)sharedPlaceholder
+{
+    static MKTUnspecifiedArgumentPlaceholder *instance = nil;
+    if (!instance)
+        instance = [[[self class] alloc] init];
+    return instance;
+}
+
+@end
+
+
 @implementation MKTInvocationMatcher
 
 - (instancetype)init
@@ -47,7 +63,7 @@
     {
         [self.argumentMatchers addObject:[self placeholderForUnspecifiedMatcher]];
         ++count;
-    } 
+    }
 }
 
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation
@@ -71,7 +87,7 @@
 
 - (id)placeholderForUnspecifiedMatcher
 {
-    return [NSNull null];
+    return [MKTUnspecifiedArgumentPlaceholder sharedPlaceholder];
 }
 
 - (id <HCMatcher>)matcherForArgument:(id)arg
