@@ -38,7 +38,7 @@
     {
         NSString *plural = (self.expectedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
-                                                           (unsigned)self.expectedCount, plural, (unsigned)matchingCount];
+                                            (unsigned)self.expectedCount, plural, (unsigned)matchingCount];
         MKTFailTestLocation(data.testLocation, description);
     }
 }

@@ -94,8 +94,8 @@
 {
     if (arg == [NSNull null])
         return HC_nilValue();
-    else
-        return HCWrapInMatcher(arg);
+
+    return HCWrapInMatcher(arg);
 }
 
 - (BOOL)matches:(NSInvocation *)actual

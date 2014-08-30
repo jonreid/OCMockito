@@ -25,10 +25,9 @@ static BOOL isValidMockClass(id mock)
 static NSString *actualTypeName(id mock)
 {
     NSString *className = NSStringFromClass([mock class]);
-    if (className)
-        return [@"type " stringByAppendingString:className];
-    else
+    if (!className)
         return @"nil";
+    return [@"type " stringByAppendingString:className];
 }
 
 static BOOL reportedInvalidMock(id mock, id testCase, const char *fileName, int lineNumber, NSString *functionName)
@@ -50,7 +49,7 @@ id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNum
 {
     if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"verify()"))
         return nil;
-    
+
     return MKTVerifyCountWithLocation(mock, MKTTimes(1), testCase, fileName, lineNumber);
 }
 

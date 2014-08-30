@@ -33,8 +33,8 @@
 {
     if ([self handlesArgumentType:type])
         return [self getArgumentAtIndex:idx ofType:type onInvocation:invocation];
-    else
-        return [self.successor retrieveArgumentAtIndex:idx ofType:type onInvocation:invocation];
+
+    return [self.successor retrieveArgumentAtIndex:idx ofType:type onInvocation:invocation];
 }
 
 @end

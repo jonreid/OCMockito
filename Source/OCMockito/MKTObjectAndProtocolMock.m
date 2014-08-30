@@ -39,11 +39,10 @@
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     NSMethodSignature *signature = [self.mockedClass instanceMethodSignatureForSelector:aSelector];
-
     if (signature)
         return signature;
-    else
-        return [super methodSignatureForSelector:aSelector];
+
+    return [super methodSignatureForSelector:aSelector];
 }
 
 
