@@ -8,22 +8,12 @@
 
 #import "MKTAtLeastTimes.h"
 
-#define MOCKITO_SHORTHAND
-#import "OCMockito.h"
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
 #import "MKTVerificationData.h"
 
 // Test support
-#import "MockTestCase.h"
 #import <SenTestingKit/SenTestingKit.h>
-
-#define HC_SHORTHAND
-#if TARGET_OS_MAC
-    #import <OCHamcrest/OCHamcrest.h>
-#else
-    #import <OCHamcrestIOS/OCHamcrestIOS.h>
-#endif
 
 
 @interface MKTAtLeastTimesTests : SenTestCase

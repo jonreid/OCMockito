@@ -6,9 +6,6 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#import "MKTInvocationMatcher.h"
-
-#import "MKTCapturingMatcher.h"
 #import "MKTStubbedInvocationMatcher.h"
 
 
