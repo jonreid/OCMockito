@@ -73,9 +73,9 @@ id MKTNever()
     return MKTTimes(0);
 }
 
-id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations)
+id MKTAtLeast(NSUInteger minNumberOfInvocations)
 {
-    return [[MKTAtLeastTimes alloc] initWithMinimumCount:minimumWantedNumberOfInvocations];
+    return [[MKTAtLeastTimes alloc] initWithMinimumCount:minNumberOfInvocations];
 }
 
 id MKTAtLeastOnce()

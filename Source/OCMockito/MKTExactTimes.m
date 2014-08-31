@@ -15,16 +15,16 @@
 
 
 @interface MKTExactTimes ()
-@property (nonatomic, readonly) NSUInteger expectedCount;
+@property (nonatomic, readonly) NSUInteger wantedCount;
 @end
 
 @implementation MKTExactTimes
 
-- (instancetype)initWithCount:(NSUInteger)expectedNumberOfInvocations
+- (instancetype)initWithCount:(NSUInteger)wantedNumberOfInvocations
 {
     self = [super init];
     if (self)
-        _expectedCount = expectedNumberOfInvocations;
+        _wantedCount = wantedNumberOfInvocations;
     return self;
 }
 
@@ -34,11 +34,11 @@
 - (void)verifyData:(MKTVerificationData *)data
 {
     NSUInteger matchingCount = [data numberOfMatchingInvocations];
-    if (matchingCount != self.expectedCount)
+    if (matchingCount != self.wantedCount)
     {
-        NSString *plural = (self.expectedCount == 1) ? @"" : @"s";
+        NSString *plural = (self.wantedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
-                                            (unsigned)self.expectedCount, plural, (unsigned)matchingCount];
+                                                           (unsigned)self.wantedCount, plural, (unsigned)matchingCount];
         MKTFailTestLocation(data.testLocation, description);
     }
 }

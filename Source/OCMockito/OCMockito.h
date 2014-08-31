@@ -20,7 +20,7 @@
 
 /**
  Returns a mock object of a given class.
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTMock instead.)
  */
@@ -33,7 +33,7 @@
 
 /**
  Returns a mock class object of a given class.
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTMockClass instead.)
  */
@@ -46,7 +46,7 @@
 
 /**
  Returns a mock object implementing a given protocol.
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTMockProtocol instead.)
  */
@@ -59,7 +59,7 @@
 
 /**
  Returns a mock object of a given class that also implements a given protocol.
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTMockObjectAndProtocol instead.)
  */
@@ -73,14 +73,14 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
 
 /**
  Enables method stubbing.
- 
+
  Use @c given when you want the mock to return particular value when particular method is called.
- 
+
  Example:
  @li @ref [given([mockObject methodReturningString]) willReturn:@"foo"];
- 
+
  See @ref MKTOngoingStubbing for other methods to stub different types of return values.
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTGiven instead.)
  */
@@ -112,22 +112,22 @@ FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fil
 
 /**
  Verifies certain behavior happened once.
- 
+
  @c verify checks that a method was invoked once, with arguments that match given OCHamcrest
  matchers. If an argument is not a matcher, it is implicitly wrapped in an @c equalTo matcher to
  check for equality.
- 
+
  Examples:
  @code
  [verify(mockObject) someMethod:startsWith(@"foo")];
  [verify(mockObject) someMethod:@"bar"];
  @endcode
- 
+
  @c verify(mockObject) is equivalent to
  @code
  verifyCount(mockObject, times(1))
  @endcode
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTVerify instead.)
  */
@@ -142,17 +142,17 @@ FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, c
 
 /**
  Verifies certain behavior happened a given number of times.
- 
+
  Examples:
  @code
  [verifyCount(mockObject, times(5)) someMethod:@"was called five times"];
  [verifyCount(mockObject, never()) someMethod:@"was never called"];
  @endcode
- 
+
  @c verifyCount checks that a method was invoked a given number of times, with arguments that
  match given OCHamcrest matchers. If an argument is not a matcher, it is implicitly wrapped in an
  @c equalTo matcher to check for equality.
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTVerifyCount instead.)
  */
@@ -165,12 +165,12 @@ FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 
 /**
  Verifies exact number of invocations.
- 
+
  Example:
  @code
  [verifyCount(mockObject, times(2)) someMethod:@"some arg"];
  @endcode
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTTimes instead.)
  */
@@ -183,12 +183,12 @@ FOUNDATION_EXPORT id MKTNever(void);
 
 /**
  Verifies that interaction did not happen.
- 
+
  Example:
  @code
  [verifyCount(mockObject, never()) someMethod:@"some arg"];
  @endcode
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTNever instead.)
  */
@@ -197,24 +197,24 @@ FOUNDATION_EXPORT id MKTNever(void);
 #endif
 
 
-FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minimumWantedNumberOfInvocations);
+FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minNumberOfInvocations);
 
 /**
  Verifies minimum number of invocations.
- 
+
  The verification will succeed if the specified invocation happened the number of times
  specified or more.
- 
+
  Example:
  @code
  [verifyCount(mockObject, atLeast(2)) someMethod:@"some arg"];
  @endcode
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTAtLeast instead.)
  */
 #ifdef MOCKITO_SHORTHAND
-    #define atLeast(minimumWantedNumberOfInvocations) MKTAtLeast(minimumWantedNumberOfInvocations)
+    #define atLeast(minNumberOfInvocations) MKTAtLeast(minNumberOfInvocations)
 #endif
 
 
@@ -222,12 +222,12 @@ FOUNDATION_EXPORT id MKTAtLeastOnce(void);
 
 /**
  Verifies that interaction happened once or more.
- 
+
  Example:
  @code
  [verifyCount(mockObject, atLeastOnce()) someMethod:@"some arg"];
  @endcode
- 
+
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTAtLeastOnce instead.)
  */
