@@ -43,7 +43,7 @@
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index
 {
     if (index < [self.argumentMatchers count])
-        [self.argumentMatchers replaceObjectAtIndex:index withObject:matcher];
+        self.argumentMatchers[index] = matcher;
     else
     {
         [self trueUpArgumentMatchersToCount:index];
@@ -81,7 +81,7 @@
     for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
     {
         if (self.argumentMatchers[index] == [self placeholderForUnspecifiedMatcher])
-            [self.argumentMatchers replaceObjectAtIndex:index withObject:[self matcherForArgument:expectedArgs[index]]];
+            self.argumentMatchers[index] = [self matcherForArgument:expectedArgs[index]];
     }
 }
 
