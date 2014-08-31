@@ -26,14 +26,12 @@
 
 @implementation VerifyProgrammerErrorTests
 {
-    NSMutableArray *mockArray;
     MockTestCase *mockTestCase;
 }
 
 - (void)setUp
 {
     [super setUp];
-    mockArray = mock([NSMutableArray class]);
     mockTestCase = [[MockTestCase alloc] init];
 }
 
