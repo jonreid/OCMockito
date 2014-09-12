@@ -970,7 +970,7 @@
 			name = libocmockitoTests;
 			productName = libocmockitoTests;
 			productReference = 085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productType = "com.apple.product-type.bundle";
 		};
 		08BDD5A81350C59C00E5A443 /* OCMockito */ = {
 			isa = PBXNativeTarget;
@@ -1008,7 +1008,7 @@
 			name = OCMockitoTests;
 			productName = OCMockitoTests;
 			productReference = 08BDD5BE1350C59C00E5A443 /* OCMockitoTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -1432,11 +1432,6 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(SRCROOT)/../Frameworks/TPWeakProxy-1.0.0\"",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1458,11 +1453,6 @@
 				GCC_PREFIX_HEADER = "OCMockito-Prefix.pch";
 				GCC_VERSION = "";
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(SRCROOT)/../Frameworks/TPWeakProxy-1.0.0\"",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 			};
