@@ -90,7 +90,6 @@ If you want to build OCMockito yourself, clone the repo, then
 ```sh
 $ git submodule update --init
 $ Frameworks/gethamcrest
-$ Frameworks/getweakproxy
 $ cd Source
 $ ./MakeDistribution.sh
 ```

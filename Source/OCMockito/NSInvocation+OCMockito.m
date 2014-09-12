@@ -12,7 +12,7 @@
 #import "MKTArgumentGetterChain.h"
 #import "MKTReturnValueSetter.h"
 #import "MKTReturnValueSetterChain.h"
-#import "TPWeakProxy.h"
+#import "MKT_TPWeakProxy.h"
 
 
 @implementation NSInvocation (OCMockito)
@@ -49,7 +49,7 @@
 {
     if ([self argumentsRetained])
         return;
-    TPWeakProxy *proxy = [[TPWeakProxy alloc] initWithObject:[self target]];
+    MKT_TPWeakProxy *proxy = [[MKT_TPWeakProxy alloc] initWithObject:[self target]];
     [self setTarget:proxy];
     [self retainArguments];
 }

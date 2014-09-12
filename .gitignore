@@ -6,5 +6,4 @@ build/
 project.xcworkspace/
 xcuserdata/
 OCHamcrest*
-TPWeakProxy*
 compile_commands.json
