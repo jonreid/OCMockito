@@ -56,6 +56,10 @@
 		0859DCD7191F0D2100513490 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0859DCD6191F0D2100513490 /* OCHamcrestIOS.framework */; };
 		0859DCD8191F0D2100513490 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0859DCD6191F0D2100513490 /* OCHamcrestIOS.framework */; };
 		0859DCD9191F0E0E00513490 /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0859DCD3191F0D1600513490 /* OCHamcrest.framework */; };
+		0859DCE4191F13F500513490 /* MKT_TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0859DCDE191F13F500513490 /* MKT_TPWeakProxy.h */; };
+		0859DCE5191F13F500513490 /* MKT_TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0859DCDE191F13F500513490 /* MKT_TPWeakProxy.h */; };
+		0859DCE6191F13F500513490 /* MKT_TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0859DCDF191F13F500513490 /* MKT_TPWeakProxy.m */; };
+		0859DCE7191F13F500513490 /* MKT_TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0859DCDF191F13F500513490 /* MKT_TPWeakProxy.m */; };
 		085A8BC7150718E30018EC66 /* MKTProtocolMockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */; };
 		085A8BC8150718E30018EC66 /* MKTProtocolMockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */; };
 		085A8BCB15071F7B0018EC66 /* MKTProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -152,10 +156,6 @@
 		638F68DE150FC3210081DEE6 /* MKTClassObjectMockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68DC150FC3210081DEE6 /* MKTClassObjectMockTests.m */; };
 		7411E69E192AD3D100084CC8 /* StubClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7411E69D192AD3D100084CC8 /* StubClassTests.m */; };
 		7411E69F192AD3D100084CC8 /* StubClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7411E69D192AD3D100084CC8 /* StubClassTests.m */; };
-		74D8AE7E19C3460500BFD77F /* MKT_TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 74D8AE7819C3460500BFD77F /* MKT_TPWeakProxy.h */; };
-		74D8AE7F19C3460500BFD77F /* MKT_TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 74D8AE7819C3460500BFD77F /* MKT_TPWeakProxy.h */; };
-		74D8AE8019C3460500BFD77F /* MKT_TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D8AE7919C3460500BFD77F /* MKT_TPWeakProxy.m */; };
-		74D8AE8119C3460500BFD77F /* MKT_TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D8AE7919C3460500BFD77F /* MKT_TPWeakProxy.m */; };
 		BB3330085137F72188E7CE75 /* MKTUnsignedLongReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33324F2BE8DADF6F0E5390 /* MKTUnsignedLongReturnSetter.h */; };
 		BB333039B35D78F9DAE13CC6 /* MKTBoolArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333960BC18CA8AC49E35D1 /* MKTBoolArgumentGetter.h */; };
 		BB333056CD041DF834D427F2 /* MKTReturnValueSetterChain.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3332501CE8F77A2FCBCD12 /* MKTReturnValueSetterChain.h */; };
@@ -371,6 +371,8 @@
 		085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+OCMockitoTests.m"; sourceTree = "<group>"; };
 		0859DCD3191F0D1600513490 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-4.0.1/OCHamcrest.framework"; sourceTree = "<group>"; };
 		0859DCD6191F0D2100513490 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-4.0.1/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
+		0859DCDE191F13F500513490 /* MKT_TPWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKT_TPWeakProxy.h; sourceTree = "<group>"; };
+		0859DCDF191F13F500513490 /* MKT_TPWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKT_TPWeakProxy.m; sourceTree = "<group>"; };
 		085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMockTests.m; sourceTree = "<group>"; };
 		085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTProtocolMock.h; sourceTree = "<group>"; };
 		085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMock.m; sourceTree = "<group>"; };
@@ -426,8 +428,6 @@
 		638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMock.m; sourceTree = "<group>"; };
 		638F68DC150FC3210081DEE6 /* MKTClassObjectMockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMockTests.m; sourceTree = "<group>"; };
 		7411E69D192AD3D100084CC8 /* StubClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubClassTests.m; sourceTree = "<group>"; };
-		74D8AE7819C3460500BFD77F /* MKT_TPWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKT_TPWeakProxy.h; sourceTree = "<group>"; };
-		74D8AE7919C3460500BFD77F /* MKT_TPWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKT_TPWeakProxy.m; sourceTree = "<group>"; };
 		BB33301C3CD22FFA40C8F3C3 /* MKTObjectArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectArgumentGetter.m; sourceTree = "<group>"; };
 		BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCapturingMatcher.m; sourceTree = "<group>"; };
 		BB33302AB2FEE151EDCCE859 /* MKTUnsignedIntReturnSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedIntReturnSetter.m; sourceTree = "<group>"; };
@@ -556,6 +556,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0859DCDA191F13F500513490 /* TPWeakProxy-1.0.0 */ = {
+			isa = PBXGroup;
+			children = (
+				0859DCDE191F13F500513490 /* MKT_TPWeakProxy.h */,
+				0859DCDF191F13F500513490 /* MKT_TPWeakProxy.m */,
+			);
+			name = "TPWeakProxy-1.0.0";
+			path = "../Frameworks/TPWeakProxy-1.0.0";
+			sourceTree = "<group>";
+		};
 		08BDD59D1350C59C00E5A443 = {
 			isa = PBXGroup;
 			children = (
@@ -563,7 +573,6 @@
 				08BDD5B21350C59C00E5A443 /* OCMockito */,
 				08BDD5C31350C59C00E5A443 /* Tests */,
 				08BED0781350DD8900CCBF76 /* Supporting Files */,
-				74D8AE7419C3460500BFD77F /* ThirdParty */,
 				08BDD5AB1350C59C00E5A443 /* Frameworks */,
 				08BDD5AA1350C59C00E5A443 /* Products */,
 			);
@@ -584,6 +593,7 @@
 		08BDD5AB1350C59C00E5A443 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0859DCDA191F13F500513490 /* TPWeakProxy-1.0.0 */,
 				08BDD5B11350C59C00E5A443 /* Foundation.framework */,
 				08C61DB214E23938003D0843 /* SenTestingKit.framework */,
 				0859DCD3191F0D1600513490 /* OCHamcrest.framework */,
@@ -680,24 +690,6 @@
 				08BED0811350DE4900CCBF76 /* Tests-Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		74D8AE7419C3460500BFD77F /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				74D8AE7519C3460500BFD77F /* TPWeakProxy-1.0.0 */,
-			);
-			name = ThirdParty;
-			path = ../ThirdParty;
-			sourceTree = "<group>";
-		};
-		74D8AE7519C3460500BFD77F /* TPWeakProxy-1.0.0 */ = {
-			isa = PBXGroup;
-			children = (
-				74D8AE7819C3460500BFD77F /* MKT_TPWeakProxy.h */,
-				74D8AE7919C3460500BFD77F /* MKT_TPWeakProxy.m */,
-			);
-			path = "TPWeakProxy-1.0.0";
 			sourceTree = "<group>";
 		};
 		BB3337BC537B81F8BD1CFA74 /* ArgumentGetters */ = {
@@ -815,6 +807,7 @@
 				0827E8571352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
 				0827E8661352C50400C39A57 /* MKTTestLocation.h in Headers */,
 				0827E86A1352CC6400C39A57 /* MKTExactTimes.h in Headers */,
+				0859DCE5191F13F500513490 /* MKT_TPWeakProxy.h in Headers */,
 				0827E8731353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				089A8C371356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */,
 				08F18A02135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */,
@@ -833,7 +826,6 @@
 				BB333A5DFE703A1882E2830D /* MKTArgumentGetterChain.h in Headers */,
 				BB3332230F2D1C03D3756CD5 /* MKTBlockArgumentGetter.h in Headers */,
 				BB333039B35D78F9DAE13CC6 /* MKTBoolArgumentGetter.h in Headers */,
-				74D8AE7F19C3460500BFD77F /* MKT_TPWeakProxy.h in Headers */,
 				BB33380B69FC10DAA80D190D /* MKTCharArgumentGetter.h in Headers */,
 				BB3333A1510034D754E0947C /* MKTClassArgumentGetter.h in Headers */,
 				BB333D3427B143DFF5630DD4 /* MKTDoubleArgumentGetter.h in Headers */,
@@ -883,6 +875,7 @@
 				0827E8531352BBBC00C39A57 /* MKTVerificationMode.h in Headers */,
 				0827E8561352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
 				0827E8651352C50400C39A57 /* MKTTestLocation.h in Headers */,
+				0859DCE4191F13F500513490 /* MKT_TPWeakProxy.h in Headers */,
 				0827E8691352CC6400C39A57 /* MKTExactTimes.h in Headers */,
 				0827E8721353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				089A8C361356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */,
@@ -901,7 +894,6 @@
 				BB33362CA822D5D861F2B184 /* MKTArgumentGetterChain.h in Headers */,
 				BB33368C3296CF2E01996D03 /* MKTBlockArgumentGetter.h in Headers */,
 				BB333E5C9685C25DF71DDB5E /* MKTBoolArgumentGetter.h in Headers */,
-				74D8AE7E19C3460500BFD77F /* MKT_TPWeakProxy.h in Headers */,
 				BB333DBDD868DC57E7A15AC8 /* MKTCharArgumentGetter.h in Headers */,
 				BB33305B70FC77AEC3A74B3F /* MKTClassArgumentGetter.h in Headers */,
 				BB3339C6912270DE2DAB8FBF /* MKTDoubleArgumentGetter.h in Headers */,
@@ -1160,7 +1152,6 @@
 				BB333D0D3FD6E3D3D9F1867B /* NSInvocation+OCMockito.m in Sources */,
 				BB333891B1BA7D6DA324460A /* MKTArgumentGetter.m in Sources */,
 				BB3333E2E92AC07CA108B827 /* MKTArgumentGetterChain.m in Sources */,
-				74D8AE8119C3460500BFD77F /* MKT_TPWeakProxy.m in Sources */,
 				BB333AA85E3B9E3C629ADB6C /* MKTBlockArgumentGetter.m in Sources */,
 				BB33381F168BEA25F34F2B92 /* MKTBoolArgumentGetter.m in Sources */,
 				BB333689CD326D45152CCDC7 /* MKTCharArgumentGetter.m in Sources */,
@@ -1170,6 +1161,7 @@
 				BB333D50BB250AEE2734315F /* MKTIntArgumentGetter.m in Sources */,
 				BB333304766646DFCBC196CA /* MKTLongArgumentGetter.m in Sources */,
 				BB333559929EECBD7863658F /* MKTLongLongArgumentGetter.m in Sources */,
+				0859DCE7191F13F500513490 /* MKT_TPWeakProxy.m in Sources */,
 				BB333D5785FDBC85827562ED /* MKTObjectArgumentGetter.m in Sources */,
 				BB3339DFC526790013DB8F02 /* MKTPointerArgumentGetter.m in Sources */,
 				BB333C1792F50C530152CDF5 /* MKTSelectorArgumentGetter.m in Sources */,
@@ -1256,7 +1248,6 @@
 				BB33341789FA6BC5D8626099 /* NSInvocation+OCMockito.m in Sources */,
 				BB333E9947ADCDE6AF6F9D2F /* MKTArgumentGetter.m in Sources */,
 				BB333295AF960850DF155DCA /* MKTArgumentGetterChain.m in Sources */,
-				74D8AE8019C3460500BFD77F /* MKT_TPWeakProxy.m in Sources */,
 				BB333608E0F5F3C01CEA72C2 /* MKTBlockArgumentGetter.m in Sources */,
 				BB33311EE8EB35A69A97D2A3 /* MKTBoolArgumentGetter.m in Sources */,
 				BB333D8E8A37B9FB7332AA64 /* MKTCharArgumentGetter.m in Sources */,
@@ -1266,6 +1257,7 @@
 				BB333ADE3D2B4EEC02A57AED /* MKTIntArgumentGetter.m in Sources */,
 				BB33389A356C8E90E673D428 /* MKTLongArgumentGetter.m in Sources */,
 				BB333DF843B19B6DDA8F685F /* MKTLongLongArgumentGetter.m in Sources */,
+				0859DCE6191F13F500513490 /* MKT_TPWeakProxy.m in Sources */,
 				BB333CAF1ACFE36E5CAB44BB /* MKTObjectArgumentGetter.m in Sources */,
 				BB33386D6F2F8569368A9EB7 /* MKTPointerArgumentGetter.m in Sources */,
 				BB333200FF9B3ED72B073809 /* MKTSelectorArgumentGetter.m in Sources */,
@@ -1443,6 +1435,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/../Frameworks/TPWeakProxy-1.0.0\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -1468,6 +1461,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/../Frameworks/TPWeakProxy-1.0.0\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;

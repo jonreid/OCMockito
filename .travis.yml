@@ -10,4 +10,4 @@ script:
   - xctool test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.1  -destination "name=iPhone Retina (4-inch 64-bit)"
 
 after_success:
-  - ./coveralls.rb --exclude-folder Source/Tests --exclude-folder Frameworks --exclude-folder ThirdParty --exclude-folder Examples
+  - ./coveralls.rb --exclude-folder Source/Tests --exclude-folder Frameworks --exclude-folder Examples
