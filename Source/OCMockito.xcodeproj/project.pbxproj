@@ -56,10 +56,6 @@
 		0859DCD7191F0D2100513490 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0859DCD6191F0D2100513490 /* OCHamcrestIOS.framework */; };
 		0859DCD8191F0D2100513490 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0859DCD6191F0D2100513490 /* OCHamcrestIOS.framework */; };
 		0859DCD9191F0E0E00513490 /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0859DCD3191F0D1600513490 /* OCHamcrest.framework */; };
-		0859DCE4191F13F500513490 /* MKT_TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0859DCDE191F13F500513490 /* MKT_TPWeakProxy.h */; };
-		0859DCE5191F13F500513490 /* MKT_TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0859DCDE191F13F500513490 /* MKT_TPWeakProxy.h */; };
-		0859DCE6191F13F500513490 /* MKT_TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0859DCDF191F13F500513490 /* MKT_TPWeakProxy.m */; };
-		0859DCE7191F13F500513490 /* MKT_TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0859DCDF191F13F500513490 /* MKT_TPWeakProxy.m */; };
 		085A8BC7150718E30018EC66 /* MKTProtocolMockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */; };
 		085A8BC8150718E30018EC66 /* MKTProtocolMockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */; };
 		085A8BCB15071F7B0018EC66 /* MKTProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -133,14 +129,18 @@
 		31DDC1F875B4A778E4C7C6F4 /* MKTStructReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */; };
 		31DDC2022BADC31039928DFC /* VerifyCountAtLeastTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */; };
 		31DDC2D50684F76D5D666D5F /* VerifyProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */; };
+		31DDC600EBF67D147821D457 /* MKT_TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC6C256BBD6B16720FCFA /* MKT_TPWeakProxy.m */; };
 		31DDC737F6C72F81D4B27DBD /* VerifyCountAtLeastTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */; };
+		31DDC77F529A67B8F8CA8FE9 /* MKT_TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC5ADC52EB6D0B59D89B9 /* MKT_TPWeakProxy.h */; };
 		31DDC7F0FC02CC5B037D333F /* MKTStructReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */; };
 		31DDC88257494D79C5FE46F5 /* VerifyCountTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC796F993495BFD892496 /* VerifyCountTimesTests.m */; };
 		31DDC96FA35F98D8E3C97375 /* VerifyCountNeverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */; };
 		31DDC98DC4343955AF4770E4 /* VerifyCountTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC796F993495BFD892496 /* VerifyCountTimesTests.m */; };
 		31DDCA2A169C7866DA8F509C /* MKTStructReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */; };
 		31DDCAAE488D6FDD6BC4DE89 /* MKTStructReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */; };
+		31DDCC9813A64A652C11786C /* MKT_TPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC6C256BBD6B16720FCFA /* MKT_TPWeakProxy.m */; };
 		31DDCD8E266CFD1BA19C98CB /* VerifyCountNeverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */; };
+		31DDCEA9BA5F8F340856C8F1 /* MKT_TPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC5ADC52EB6D0B59D89B9 /* MKT_TPWeakProxy.h */; };
 		31DDCFA4C0656046525DFD9B /* VerifyProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */; };
 		361533C6153F275800BB982B /* MKTAtLeastTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 361533C4153F275800BB982B /* MKTAtLeastTimes.h */; };
 		361533C7153F275800BB982B /* MKTAtLeastTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 361533C5153F275800BB982B /* MKTAtLeastTimes.m */; };
@@ -371,8 +371,6 @@
 		085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+OCMockitoTests.m"; sourceTree = "<group>"; };
 		0859DCD3191F0D1600513490 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-4.0.1/OCHamcrest.framework"; sourceTree = "<group>"; };
 		0859DCD6191F0D2100513490 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-4.0.1/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
-		0859DCDE191F13F500513490 /* MKT_TPWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKT_TPWeakProxy.h; sourceTree = "<group>"; };
-		0859DCDF191F13F500513490 /* MKT_TPWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKT_TPWeakProxy.m; sourceTree = "<group>"; };
 		085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMockTests.m; sourceTree = "<group>"; };
 		085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTProtocolMock.h; sourceTree = "<group>"; };
 		085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMock.m; sourceTree = "<group>"; };
@@ -418,6 +416,8 @@
 		31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStructReturnSetter.h; sourceTree = "<group>"; };
 		31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStructReturnSetter.m; sourceTree = "<group>"; };
 		31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountAtLeastTimesTests.m; sourceTree = "<group>"; };
+		31DDC5ADC52EB6D0B59D89B9 /* MKT_TPWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKT_TPWeakProxy.h; sourceTree = "<group>"; };
+		31DDC6C256BBD6B16720FCFA /* MKT_TPWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKT_TPWeakProxy.m; sourceTree = "<group>"; };
 		31DDC796F993495BFD892496 /* VerifyCountTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountTimesTests.m; sourceTree = "<group>"; };
 		31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountNeverTests.m; sourceTree = "<group>"; };
 		31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyProgrammerErrorTests.m; sourceTree = "<group>"; };
@@ -556,16 +556,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0859DCDA191F13F500513490 /* TPWeakProxy-1.0.0 */ = {
-			isa = PBXGroup;
-			children = (
-				0859DCDE191F13F500513490 /* MKT_TPWeakProxy.h */,
-				0859DCDF191F13F500513490 /* MKT_TPWeakProxy.m */,
-			);
-			name = "TPWeakProxy-1.0.0";
-			path = "../Frameworks/TPWeakProxy-1.0.0";
-			sourceTree = "<group>";
-		};
 		08BDD59D1350C59C00E5A443 = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +565,7 @@
 				08BED0781350DD8900CCBF76 /* Supporting Files */,
 				08BDD5AB1350C59C00E5A443 /* Frameworks */,
 				08BDD5AA1350C59C00E5A443 /* Products */,
+				31DDCCD7D7D7FB304E6F3DD8 /* ThirdParty */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -593,7 +584,6 @@
 		08BDD5AB1350C59C00E5A443 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0859DCDA191F13F500513490 /* TPWeakProxy-1.0.0 */,
 				08BDD5B11350C59C00E5A443 /* Foundation.framework */,
 				08C61DB214E23938003D0843 /* SenTestingKit.framework */,
 				0859DCD3191F0D1600513490 /* OCHamcrest.framework */,
@@ -690,6 +680,23 @@
 				08BED0811350DE4900CCBF76 /* Tests-Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		31DDC92BCA969421ECAAA8B9 /* TPWeakProxy-1.0.0 */ = {
+			isa = PBXGroup;
+			children = (
+				31DDC5ADC52EB6D0B59D89B9 /* MKT_TPWeakProxy.h */,
+				31DDC6C256BBD6B16720FCFA /* MKT_TPWeakProxy.m */,
+			);
+			path = "TPWeakProxy-1.0.0";
+			sourceTree = "<group>";
+		};
+		31DDCCD7D7D7FB304E6F3DD8 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				31DDC92BCA969421ECAAA8B9 /* TPWeakProxy-1.0.0 */,
+			);
+			path = ThirdParty;
 			sourceTree = "<group>";
 		};
 		BB3337BC537B81F8BD1CFA74 /* ArgumentGetters */ = {
@@ -807,7 +814,6 @@
 				0827E8571352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
 				0827E8661352C50400C39A57 /* MKTTestLocation.h in Headers */,
 				0827E86A1352CC6400C39A57 /* MKTExactTimes.h in Headers */,
-				0859DCE5191F13F500513490 /* MKT_TPWeakProxy.h in Headers */,
 				0827E8731353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				089A8C371356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */,
 				08F18A02135A6D8D00F76379 /* MKTInvocationMatcher.h in Headers */,
@@ -861,6 +867,7 @@
 				BB3330085137F72188E7CE75 /* MKTUnsignedLongReturnSetter.h in Headers */,
 				BB33389A3CABF0EF1B1D9917 /* MKTUnsignedShortReturnSetter.h in Headers */,
 				31DDC7F0FC02CC5B037D333F /* MKTStructReturnSetter.h in Headers */,
+				31DDCEA9BA5F8F340856C8F1 /* MKT_TPWeakProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,7 +882,6 @@
 				0827E8531352BBBC00C39A57 /* MKTVerificationMode.h in Headers */,
 				0827E8561352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
 				0827E8651352C50400C39A57 /* MKTTestLocation.h in Headers */,
-				0859DCE4191F13F500513490 /* MKT_TPWeakProxy.h in Headers */,
 				0827E8691352CC6400C39A57 /* MKTExactTimes.h in Headers */,
 				0827E8721353EAD900C39A57 /* MKTInvocationContainer.h in Headers */,
 				089A8C361356A7BB003E7D27 /* MKTOngoingStubbing.h in Headers */,
@@ -929,6 +935,7 @@
 				BB3332CF0EB5A0EB72D1DF3E /* MKTUnsignedLongReturnSetter.h in Headers */,
 				BB333833E4F7D8A27B9C2072 /* MKTUnsignedShortReturnSetter.h in Headers */,
 				31DDCA2A169C7866DA8F509C /* MKTStructReturnSetter.h in Headers */,
+				31DDC77F529A67B8F8CA8FE9 /* MKT_TPWeakProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,7 +1168,6 @@
 				BB333D50BB250AEE2734315F /* MKTIntArgumentGetter.m in Sources */,
 				BB333304766646DFCBC196CA /* MKTLongArgumentGetter.m in Sources */,
 				BB333559929EECBD7863658F /* MKTLongLongArgumentGetter.m in Sources */,
-				0859DCE7191F13F500513490 /* MKT_TPWeakProxy.m in Sources */,
 				BB333D5785FDBC85827562ED /* MKTObjectArgumentGetter.m in Sources */,
 				BB3339DFC526790013DB8F02 /* MKTPointerArgumentGetter.m in Sources */,
 				BB333C1792F50C530152CDF5 /* MKTSelectorArgumentGetter.m in Sources */,
@@ -1190,6 +1196,7 @@
 				BB333DCC3666343033540DBE /* MKTUnsignedLongReturnSetter.m in Sources */,
 				BB333CD69520EBAF26591EBC /* MKTUnsignedShortReturnSetter.m in Sources */,
 				31DDCAAE488D6FDD6BC4DE89 /* MKTStructReturnSetter.m in Sources */,
+				31DDC600EBF67D147821D457 /* MKT_TPWeakProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1257,7 +1264,6 @@
 				BB333ADE3D2B4EEC02A57AED /* MKTIntArgumentGetter.m in Sources */,
 				BB33389A356C8E90E673D428 /* MKTLongArgumentGetter.m in Sources */,
 				BB333DF843B19B6DDA8F685F /* MKTLongLongArgumentGetter.m in Sources */,
-				0859DCE6191F13F500513490 /* MKT_TPWeakProxy.m in Sources */,
 				BB333CAF1ACFE36E5CAB44BB /* MKTObjectArgumentGetter.m in Sources */,
 				BB33386D6F2F8569368A9EB7 /* MKTPointerArgumentGetter.m in Sources */,
 				BB333200FF9B3ED72B073809 /* MKTSelectorArgumentGetter.m in Sources */,
@@ -1286,6 +1292,7 @@
 				BB33336E0A40E0603BAECA8A /* MKTUnsignedLongReturnSetter.m in Sources */,
 				BB333ABB96F188008303371B /* MKTUnsignedShortReturnSetter.m in Sources */,
 				31DDC1F875B4A778E4C7C6F4 /* MKTStructReturnSetter.m in Sources */,
+				31DDCC9813A64A652C11786C /* MKT_TPWeakProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
