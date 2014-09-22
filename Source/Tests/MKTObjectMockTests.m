@@ -81,3 +81,139 @@
 }
 
 @end
+
+
+@interface DynamicPropertyHolderSuperclass: NSObject
+@property (nonatomic, readonly) id superclassProperty;
+@end
+
+@implementation DynamicPropertyHolderSuperclass
+@dynamic superclassProperty;
+@end
+
+
+@interface DynamicPropertyHolder : DynamicPropertyHolderSuperclass
+@property (nonatomic, copy) id objectProperty;
+@property (nonatomic) int intProperty;
+@property (nonatomic, readonly) id readonlyProperty;
+@property (nonatomic, getter=customPropertyGetter, setter=customPropertySetter:) int customProperty;
+@end
+
+@implementation DynamicPropertyHolder
+@dynamic objectProperty;
+@dynamic intProperty;
+@dynamic readonlyProperty;
+@dynamic customProperty;
+@end
+
+
+@interface DynamicPropertyHolderWithMethods : DynamicPropertyHolder
+@end
+
+@implementation DynamicPropertyHolderWithMethods
+- (NSString *)objectProperty  { return nil; }
+- (void)setObjectProperty:(id)objectProperty  {}
+- (int)intProperty  { return 0; }
+- (void)setIntProperty:(int)intProperty  {}
+@end
+
+
+@interface MKTObjectMockDynamicPropertyTests : SenTestCase
+@end
+
+@implementation MKTObjectMockDynamicPropertyTests
+{
+    DynamicPropertyHolder *mockDynamicPropertyHolder;
+    DynamicPropertyHolder *realDynamicPropertyHolder;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockDynamicPropertyHolder = mock([DynamicPropertyHolder class]);
+    realDynamicPropertyHolder = [[DynamicPropertyHolderWithMethods alloc] init];
+}
+
+- (void)testShouldRespondToDynamicGetter
+{
+    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(objectProperty)], nil);
+}
+
+- (void)testShouldRespondToDynamicSetter
+{
+    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(setObjectProperty:)], nil);
+}
+
+- (void)testShouldRespondToSecondDynamicGetterInSameClass
+{
+    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(intProperty)], nil);
+}
+
+- (void)testShouldNotRespondToGetterForReadonlyProperty
+{
+    STAssertFalse([mockDynamicPropertyHolder respondsToSelector:@selector(setReadonlyProperty:)], nil);
+}
+
+- (void)testShouldRespondToDynamicGetterInSuperclass
+{
+    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(superclassProperty)], nil);
+}
+
+- (void)testShouldRespondToDynamicGetterWithCustomizedName
+{
+    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(customPropertyGetter)], nil);
+}
+
+- (void)testShouldRespondToDynamicSetterWithCustomizedName
+{
+    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(customPropertySetter:)], nil);
+}
+
+- (NSMethodSignature *)realSignatureForSelector:(SEL)sel
+{
+    NSMethodSignature *signature = [realDynamicPropertyHolder methodSignatureForSelector:sel];
+    assertThat(signature, is(notNilValue()));
+    return signature;
+}
+
+- (void)testMethodSignature_ForDynamicObjectPropertyGetter_ShouldBeSameAsRealObject
+{
+    SEL sel = @selector(objectProperty);
+    NSMethodSignature *realSignature = [self realSignatureForSelector:sel];
+
+    NSMethodSignature *mockSignature = [mockDynamicPropertyHolder methodSignatureForSelector:sel];
+
+    assertThat(mockSignature, is(equalTo(realSignature)));
+}
+
+- (void)testMethodSignature_ForDynamicIntGetterSelector_ShouldBeSameAsRealObject
+{
+    SEL sel = @selector(intProperty);
+    NSMethodSignature *realSignature = [self realSignatureForSelector:sel];
+
+    NSMethodSignature *mockSignature = [mockDynamicPropertyHolder methodSignatureForSelector:sel];
+
+    assertThat(mockSignature, is(equalTo(realSignature)));
+}
+
+- (void)testMethodSignature_ForDynamicObjectPropertySetter_ShouldBeSameAsRealObject
+{
+    SEL sel = @selector(setObjectProperty:);
+    NSMethodSignature *realSignature = [self realSignatureForSelector:sel];
+
+    NSMethodSignature *mockSignature = [mockDynamicPropertyHolder methodSignatureForSelector:sel];
+
+    assertThat(mockSignature, is(equalTo(realSignature)));
+}
+
+- (void)testMethodSignature_ForDynamicIntPropertySetter_ShouldBeSameAsRealObject
+{
+    SEL sel = @selector(setIntProperty:);
+    NSMethodSignature *realSignature = [self realSignatureForSelector:sel];
+
+    NSMethodSignature *mockSignature = [mockDynamicPropertyHolder methodSignatureForSelector:sel];
+
+    assertThat(mockSignature, is(equalTo(realSignature)));
+}
+
+@end

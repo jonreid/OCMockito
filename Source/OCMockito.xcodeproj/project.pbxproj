@@ -129,8 +129,10 @@
 		31DDC07A679FF558FB2E3069 /* MKT_TPDWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC358ECB610A3EEDF1DA9 /* MKT_TPDWeakProxy.h */; };
 		31DDC1F875B4A778E4C7C6F4 /* MKTStructReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */; };
 		31DDC2022BADC31039928DFC /* VerifyCountAtLeastTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */; };
+		31DDC21951A16B3E9899ED19 /* MKTDynamicProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC83D2A47C02EB9070523 /* MKTDynamicProperties.m */; };
 		31DDC2D50684F76D5D666D5F /* VerifyProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */; };
 		31DDC30C579E203788087153 /* MKT_TPDWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC358ECB610A3EEDF1DA9 /* MKT_TPDWeakProxy.h */; };
+		31DDC37FB11D5CF77669F21B /* MKTDynamicProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC32AF5BDFD1D3CFA8047 /* MKTDynamicProperties.h */; };
 		31DDC5F9C5951E0F7A3E0E58 /* MKT_TPDWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC079EF920524F16F93F2 /* MKT_TPDWeakProxy.m */; };
 		31DDC737F6C72F81D4B27DBD /* VerifyCountAtLeastTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */; };
 		31DDC7F0FC02CC5B037D333F /* MKTStructReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */; };
@@ -139,6 +141,8 @@
 		31DDC98DC4343955AF4770E4 /* VerifyCountTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC796F993495BFD892496 /* VerifyCountTimesTests.m */; };
 		31DDCA2A169C7866DA8F509C /* MKTStructReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */; };
 		31DDCAAE488D6FDD6BC4DE89 /* MKTStructReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */; };
+		31DDCABC1A0F5DFE11626E4B /* MKTDynamicProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DDC32AF5BDFD1D3CFA8047 /* MKTDynamicProperties.h */; };
+		31DDCCBF2930BCE23E4D27FD /* MKTDynamicProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC83D2A47C02EB9070523 /* MKTDynamicProperties.m */; };
 		31DDCD8E266CFD1BA19C98CB /* VerifyCountNeverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */; };
 		31DDCD9AE08B9154ABEB93F5 /* MKT_TPDWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC079EF920524F16F93F2 /* MKT_TPDWeakProxy.m */; };
 		31DDCFA4C0656046525DFD9B /* VerifyProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */; };
@@ -414,11 +418,13 @@
 		08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBaseMockObject.h; sourceTree = "<group>"; };
 		08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBaseMockObject.m; sourceTree = "<group>"; };
 		31DDC079EF920524F16F93F2 /* MKT_TPDWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKT_TPDWeakProxy.m; sourceTree = "<group>"; };
+		31DDC32AF5BDFD1D3CFA8047 /* MKTDynamicProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTDynamicProperties.h; sourceTree = "<group>"; };
 		31DDC358ECB610A3EEDF1DA9 /* MKT_TPDWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKT_TPDWeakProxy.h; sourceTree = "<group>"; };
 		31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStructReturnSetter.h; sourceTree = "<group>"; };
 		31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStructReturnSetter.m; sourceTree = "<group>"; };
 		31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountAtLeastTimesTests.m; sourceTree = "<group>"; };
 		31DDC796F993495BFD892496 /* VerifyCountTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountTimesTests.m; sourceTree = "<group>"; };
+		31DDC83D2A47C02EB9070523 /* MKTDynamicProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTDynamicProperties.m; sourceTree = "<group>"; };
 		31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountNeverTests.m; sourceTree = "<group>"; };
 		31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyProgrammerErrorTests.m; sourceTree = "<group>"; };
 		361533C4153F275800BB982B /* MKTAtLeastTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAtLeastTimes.h; sourceTree = "<group>"; };
@@ -761,6 +767,8 @@
 			children = (
 				BB3337BC537B81F8BD1CFA74 /* ArgumentGetters */,
 				BB333C25372397D3115556C6 /* ReturnValueSetters */,
+				31DDC83D2A47C02EB9070523 /* MKTDynamicProperties.m */,
+				31DDC32AF5BDFD1D3CFA8047 /* MKTDynamicProperties.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -876,6 +884,7 @@
 				BB33389A3CABF0EF1B1D9917 /* MKTUnsignedShortReturnSetter.h in Headers */,
 				31DDC7F0FC02CC5B037D333F /* MKTStructReturnSetter.h in Headers */,
 				31DDC07A679FF558FB2E3069 /* MKT_TPDWeakProxy.h in Headers */,
+				31DDC37FB11D5CF77669F21B /* MKTDynamicProperties.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +953,7 @@
 				BB333833E4F7D8A27B9C2072 /* MKTUnsignedShortReturnSetter.h in Headers */,
 				31DDCA2A169C7866DA8F509C /* MKTStructReturnSetter.h in Headers */,
 				31DDC30C579E203788087153 /* MKT_TPDWeakProxy.h in Headers */,
+				31DDCABC1A0F5DFE11626E4B /* MKTDynamicProperties.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,6 +1215,7 @@
 				BB333CD69520EBAF26591EBC /* MKTUnsignedShortReturnSetter.m in Sources */,
 				31DDCAAE488D6FDD6BC4DE89 /* MKTStructReturnSetter.m in Sources */,
 				31DDCD9AE08B9154ABEB93F5 /* MKT_TPDWeakProxy.m in Sources */,
+				31DDC21951A16B3E9899ED19 /* MKTDynamicProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1301,6 +1312,7 @@
 				BB333ABB96F188008303371B /* MKTUnsignedShortReturnSetter.m in Sources */,
 				31DDC1F875B4A778E4C7C6F4 /* MKTStructReturnSetter.m in Sources */,
 				31DDC5F9C5951E0F7A3E0E58 /* MKT_TPDWeakProxy.m in Sources */,
+				31DDCCBF2930BCE23E4D27FD /* MKTDynamicProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

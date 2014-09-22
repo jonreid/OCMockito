@@ -8,9 +8,12 @@
 
 #import "MKTObjectMock.h"
 
+#import "MKTDynamicProperties.h"
+
 
 @interface MKTObjectMock ()
 @property (nonatomic, strong, readonly) Class mockedClass;
+@property (nonatomic, strong) MKTDynamicProperties *dynamicProperties;
 @end
 
 @implementation MKTObjectMock
@@ -24,7 +27,10 @@
 {
     self = [super init];
     if (self)
+    {
         _mockedClass = aClass;
+        _dynamicProperties = [[MKTDynamicProperties alloc] initWithClass:aClass];
+    }
     return self;
 }
 
@@ -35,6 +41,9 @@
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
+    NSMethodSignature *dynamicPropertySignature = [self.dynamicProperties methodSignatureForSelector:aSelector];
+    if (dynamicPropertySignature)
+        return dynamicPropertySignature;
     return [self.mockedClass instanceMethodSignatureForSelector:aSelector];
 }
 
@@ -48,7 +57,8 @@
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-    return [self.mockedClass instancesRespondToSelector:aSelector];
+    return [self.dynamicProperties methodSignatureForSelector:aSelector] ||
+            [self.mockedClass instancesRespondToSelector:aSelector];
 }
 
 @end
