@@ -1,4 +1,4 @@
-# TPWeakProxy
+# TPDWeakProxy
 
 An NSProxy object for turning strong references into weak references.
 
@@ -7,7 +7,7 @@ An NSProxy object for turning strong references into weak references.
     // Create a weak proxy to the object which you would like to be weakly referenced.
     // For example, self.
 
-    TPWeakProxy *proxy = [[TPWeakProxy alloc] initWithObject:self];
+    TPDWeakProxy *proxy = [[TPDWeakProxy alloc] initWithObject:self];
     
     // Now, you can use proxy anywhere you'd normally use self,
     // except that self will have a weak reference to it where you use the proxy.
@@ -26,8 +26,8 @@ An NSProxy object for turning strong references into weak references.
 Easiest way: use Cocoapods. Otherwise, copy the .h and .m into your project.
 
     $ edit Podfile
-    platform :ios, '6.1'
-    pod 'TPWeakProxy', '~> 1.0.0'
+    platform :ios, '7.0'
+    pod 'TPDWeakProxy', '~> 1.1.0'
     
     $ pod install
     
@@ -35,7 +35,7 @@ Easiest way: use Cocoapods. Otherwise, copy the .h and .m into your project.
     
 ## Motivation
 
-TPWeakProxy solves the problem of object reference loops in Objective C. Reference loops can occur when an instantiated object keeps a strong reference to the object by which it was instantiated - making it impossible for the first object to be deallocated while the second object continues to exist.
+TPDWeakProxy solves the problem of object reference loops in Objective C. Reference loops can occur when an instantiated object keeps a strong reference to the object by which it was instantiated - making it impossible for the first object to be deallocated while the second object continues to exist.
 
 This can be a problem in the fairly common iOS pattern of using NSTimers. 
 
@@ -82,11 +82,11 @@ time from now, that at least wastes resources, and may actually cause
 subtle bugs. Unfortunately, the NSTimer API has been essentially 
 unchanged for over two decades; it's not likely
 Apple will provide an NSTimer with a weak reference to its target any
-time soon. So we fix it with TPWeakProxy, like so:
+time soon. So we fix it with TPDWeakProxy, like so:
 
     -(void)viewDidLoad {
         [super viewDidLoad];
-        TPWeakProxy *proxy = [[TPWeakProxy alloc] initWithObject:self];
+        TPDWeakProxy *proxy = [[TPDWeakProxy alloc] initWithObject:self];
         self.myTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
                                                         target:proxy
                                                       selector:@selector(myTimerFired:)
@@ -98,6 +98,13 @@ Now, the NSTimer won't prevent the UIViewController from being
 dealloc'd when it's popped off the stack, and the dealloc() will now
 invalidate the timer correctly.
 
+## Thanks
+
+This
+[article](https://mikeash.com/pyblog/friday-qa-2009-03-27-objective-c-message-forwarding.html)
+by Mike Ash was invaluable for understanding the Objective C message
+forwarding path.
+
 ## License
 
-TPWeakProxy is available under the MIT license. See the LICENSE file for more info.
+TPDWeakProxy is available under the MIT license. See the LICENSE file for more info.
