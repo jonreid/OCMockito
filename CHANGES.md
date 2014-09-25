@@ -1,10 +1,10 @@
 Version 1.3.1
 -------------
-_23 Sep 2014_
+_25 Sep 2014_
 
 This release simplifies non-CocoaPod use of OCMockito by directly including a
-copy of TPDWeakProxy. The TPDWeakProxy class and sources were prefixed with MKT
-in order to avoid collisions.
+copy of TPDWeakProxy instead of downloading it. The TPDWeakProxy sources are
+renamed to avoid collisions.
 
 
 Version 1.3.0
