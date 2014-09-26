@@ -985,7 +985,7 @@
 			name = libocmockitoTests;
 			productName = libocmockitoTests;
 			productReference = 085D2FFF1351254000EBBE91 /* libocmockitoTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		08BDD5A81350C59C00E5A443 /* OCMockito */ = {
 			isa = PBXNativeTarget;
@@ -1023,7 +1023,7 @@
 			name = OCMockitoTests;
 			productName = OCMockitoTests;
 			productReference = 08BDD5BE1350C59C00E5A443 /* OCMockitoTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
