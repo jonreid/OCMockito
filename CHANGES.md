@@ -1,10 +1,12 @@
 Version 1.3.1
 -------------
-_25 Sep 2014_
+_27 Sep 2014_
 
-This release simplifies non-CocoaPod use of OCMockito by directly including a
-copy of TPDWeakProxy instead of downloading it. The TPDWeakProxy sources are
-renamed to avoid collisions.
+TPWeakProxy changes:
+
+- Updated to from TPWeakProxy to TPDWeakProxy.
+- Directly include a renamed copy to simplify non-CocoaPod builds. Don't call the script
+  Frameworks/getweakproxy anymore.
 
 
 Version 1.3.0
@@ -36,7 +38,6 @@ TPWeakProxy 1.0.0 is also needed to build OCMockito.
 
 - Increased deployment targets to OS X 10.8, iOS 6.0.
 
-  
 
 Version 1.2.0
 -------------
