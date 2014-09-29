@@ -108,7 +108,7 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
 
 
 FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
-#define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
+#define MKTVerify(mock) (typeof(a))MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
 /**
  Verifies certain behavior happened once.
