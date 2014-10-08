@@ -46,7 +46,9 @@
     if ([self handlingVerifyOfInvocation:invocation])
         return;
     [self prepareInvocationForStubbing:invocation];
+    [self fulfillExpectation];
     [self answerInvocation:invocation];
+    
 }
 
 - (BOOL)handlingVerifyOfInvocation:(NSInvocation *)invocation
@@ -103,6 +105,11 @@
     [invocation mkt_setReturnValue:stub.answer];
 }
 
+- (void)fulfillExpectation
+{
+    if (self.invocationContainer.expectation)
+        [self.invocationContainer.expectation fulfill];
+}
 
 #pragma mark MKTPrimitiveArgumentMatching
 

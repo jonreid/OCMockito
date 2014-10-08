@@ -384,4 +384,14 @@ static inline double *createArrayOf10Doubles(void)
     assertThat(sortedArray, contains(sameInstance(obj1), sameInstance(obj2), nil));
 }
 
+- (void)testStubbedMethodFulfillExpectation_ShouldCallFulfill
+{
+    id expectation = mockProtocol(@protocol(MKTExpectation));
+    
+    [[given([mockObject methodReturningObject]) willReturn:@"STUBBED"] willFulfill:expectation];
+    assertThat([mockObject methodReturningObject], is(@"STUBBED"));
+    
+    [verifyCount(expectation, times(1)) fulfill];
+}
+
 @end

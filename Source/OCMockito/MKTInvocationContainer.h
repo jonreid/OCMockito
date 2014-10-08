@@ -11,11 +11,13 @@
 @class MKTInvocationMatcher;
 @class MKTStubbedInvocationMatcher;
 @protocol HCMatcher;
+@protocol MKTExpectation;
 
 
 @interface MKTInvocationContainer : NSObject
 
 @property (nonatomic, strong, readonly) NSMutableArray *registeredInvocations;
+@property (nonatomic, strong) id<MKTExpectation> expectation;
 
 - (instancetype)init;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
