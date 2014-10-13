@@ -7,10 +7,12 @@
 //
 
 #import "MKTInvocationMatcher.h"
+#import "MKTExpectation.h"
 
 
 @interface MKTStubbedInvocationMatcher : MKTInvocationMatcher
 
 @property (nonatomic, strong) id answer;
+@property (nonatomic, strong) id<MKTExpectation> expectation;
 
 @end

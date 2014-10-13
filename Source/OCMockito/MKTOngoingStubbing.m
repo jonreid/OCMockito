@@ -133,7 +133,7 @@
 
 - (MKTOngoingStubbing *)willFulfill:(id<MKTExpectation>)expectation
 {
-    self.invocationContainer.expectation = expectation;
+    [self.invocationContainer addExpectation:expectation];
     return self;
 }
 
