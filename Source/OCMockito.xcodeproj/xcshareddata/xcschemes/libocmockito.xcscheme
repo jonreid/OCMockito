@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "085D2FFE1351254000EBBE91"
+               BlueprintIdentifier = "74A3BDB219F76C5F006591C9"
                BuildableName = "libocmockitoTests.octest"
                BlueprintName = "libocmockitoTests"
                ReferencedContainer = "container:OCMockito.xcodeproj">
