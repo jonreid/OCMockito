@@ -7,7 +7,7 @@ before_install:
 script:
   - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx10.9
   - xctool test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.1  -destination "name=iPhone Retina (4-inch)"
-  - xctool test  -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator7.1  -destination "name=iPhone Retina (4-inch 64-bit)"
+  - xctool test  -project Source/OCMockito.xcodeproj -scheme libocmockito -destination "platform=iOS Simulator,name=iPhone Retina (4-inch 64-bit),OS=7.1"
 
 after_success:
   - ./coveralls.rb --exclude-folder Source/Tests --exclude-folder Source/ThirdParty --exclude-folder Frameworks --exclude-folder Examples
