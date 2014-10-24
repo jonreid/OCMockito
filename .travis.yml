@@ -1,13 +1,15 @@
 language: objective-c
 
 before_install:
+  - brew update
+  - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
   - Frameworks/gethamcrest
   - sudo easy_install cpp-coveralls
 
 script:
   - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx10.9
-  - xctool test  -project Source/OCMockito.xcodeproj -scheme libocmockito -destination "platform=iOS Simulator,name=iPhone 5,OS=7.1"
-  - xctool test  -project Source/OCMockito.xcodeproj -scheme libocmockito -destination "platform=iOS Simulator,name=iPhone 5s,OS=7.1"
+  - xctool test -project Source/OCMockito.xcodeproj -scheme libocmockito -destination "platform=iOS Simulator,name=iPhone 5,OS=7.1"
+  - xctool test -project Source/OCMockito.xcodeproj -scheme libocmockito -destination "platform=iOS Simulator,name=iPhone 5s,OS=7.1"
 
 after_success:
   - ./coveralls.rb --exclude-folder Source/Tests --exclude-folder Source/ThirdParty --exclude-folder Frameworks --exclude-folder Examples
