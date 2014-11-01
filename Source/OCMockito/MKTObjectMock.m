@@ -58,7 +58,7 @@
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
     return [self.dynamicProperties methodSignatureForSelector:aSelector] ||
-            [self.mockedClass instancesRespondToSelector:aSelector];
+           [self.mockedClass instancesRespondToSelector:aSelector];
 }
 
 @end

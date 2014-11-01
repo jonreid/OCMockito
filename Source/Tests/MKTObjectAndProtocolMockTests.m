@@ -27,11 +27,21 @@
 
 
 @interface TestClass : NSObject
+@property (nonatomic, readonly) id dynamicProperty;
 - (void)instanceMethod;
 @end
 
 @implementation TestClass
+@dynamic dynamicProperty;
 - (void)instanceMethod {}
+@end
+
+
+@interface TestClassWithMethods : TestClass
+@end
+
+@implementation TestClassWithMethods
+- (id)dynamicProperty { return nil; }
 @end
 
 
@@ -127,6 +137,29 @@
 - (void)testMock_ShouldRespondToRequiredSelector
 {
     STAssertTrue([mock respondsToSelector:@selector(requiredMethod)], nil);
+}
+
+- (NSMethodSignature *)realSignatureForSelector:(SEL)sel
+{
+    TestClassWithMethods *realDynamicPropertyHolder = [[TestClassWithMethods alloc] init];
+    NSMethodSignature *signature = [realDynamicPropertyHolder methodSignatureForSelector:sel];
+    assertThat(signature, is(notNilValue()));
+    return signature;
+}
+
+- (void)testShouldRespondToDynamicPropertySelector
+{
+    STAssertTrue([mock respondsToSelector:@selector(dynamicProperty)], nil);
+}
+
+- (void)testMethodSignature_ForDynamicProperty_ShouldBeSameAsRealObject
+{
+    SEL sel = @selector(dynamicProperty);
+    NSMethodSignature *realSignature = [self realSignatureForSelector:sel];
+
+    NSMethodSignature *mockSignature = [mock methodSignatureForSelector:sel];
+
+    assertThat(mockSignature, is(equalTo(realSignature)));
 }
 
 @end

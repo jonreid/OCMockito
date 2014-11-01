@@ -124,14 +124,12 @@
 @implementation MKTObjectMockDynamicPropertyTests
 {
     DynamicPropertyHolder *mockDynamicPropertyHolder;
-    DynamicPropertyHolder *realDynamicPropertyHolder;
 }
 
 - (void)setUp
 {
     [super setUp];
     mockDynamicPropertyHolder = mock([DynamicPropertyHolder class]);
-    realDynamicPropertyHolder = [[DynamicPropertyHolderWithMethods alloc] init];
 }
 
 - (void)testShouldRespondToDynamicGetter
@@ -171,6 +169,7 @@
 
 - (NSMethodSignature *)realSignatureForSelector:(SEL)sel
 {
+    DynamicPropertyHolderWithMethods *realDynamicPropertyHolder = [[DynamicPropertyHolderWithMethods alloc] init];
     NSMethodSignature *signature = [realDynamicPropertyHolder methodSignatureForSelector:sel];
     assertThat(signature, is(notNilValue()));
     return signature;
