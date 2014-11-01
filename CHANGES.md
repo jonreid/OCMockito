@@ -1,3 +1,9 @@
+NEXT VERSION
+------------
+
+- Added support for dynamic properties. _Thanks to Eugen Martynov for example code_
+
+
 Version 1.3.1
 -------------
 _27 Sep 2014_
