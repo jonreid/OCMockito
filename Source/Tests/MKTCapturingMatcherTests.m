@@ -52,31 +52,31 @@
 
 - (void)testAllValues_ShouldCaptureArgumentsInOrder
 {
-    [sut captureArgument:@"foo"];
-    [sut captureArgument:@"bar"];
+    [sut captureArgument:@"FOO"];
+    [sut captureArgument:@"BAR"];
 
-    assertThat([sut allValues], contains(@"foo", @"bar", nil));
+    assertThat([sut allValues], contains(@"FOO", @"BAR", nil));
 }
 
 - (void)testNilArgument_ShouldBeConvertedToNSNull
 {
-    [sut captureArgument:@"foo"];
+    [sut captureArgument:@"FOO"];
     [sut captureArgument:nil];
 
-    assertThat([sut allValues], contains(@"foo", [NSNull null], nil));
+    assertThat([sut allValues], contains(@"FOO", [NSNull null], nil));
 }
 
 - (void)testMatcher_ShouldKnowLastCapturedValue
 {
-    [sut captureArgument:@"foo"];
-    [sut captureArgument:@"bar"];
+    [sut captureArgument:@"FOO"];
+    [sut captureArgument:@"BAR"];
 
-    assertThat([sut lastValue], is(@"bar"));
+    assertThat([sut lastValue], is(@"BAR"));
 }
 
 - (void)testLastValue_ShouldHandleNilArgument
 {
-    [sut captureArgument:@"foo"];
+    [sut captureArgument:@"FOO"];
     [sut captureArgument:nil];
 
     assertThat([sut lastValue], is(nilValue()));

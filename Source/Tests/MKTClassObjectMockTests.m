@@ -41,28 +41,28 @@
 
 - (void)testMock_ShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
-    SEL selector = @selector(string);
+    SEL sel = @selector(string);
 
-    NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:selector];
+    NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:sel];
 
-    assertThat(signature, is(equalTo([[NSString class] methodSignatureForSelector:selector])));
+    assertThat(signature, is(equalTo([[NSString class] methodSignatureForSelector:sel])));
 }
 
 - (void)testMethodSignatureForSelectorNotInClass_ShouldAnswerNil
 {
-    SEL selector = @selector(rangeOfString:options:);
+    SEL sel = @selector(rangeOfString:options:);
 
-    NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:selector];
+    NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:sel];
 
     assertThat(signature, is(nilValue()));
 }
 
-- (void)testMock_ShouldRespondToKnownSelector
+- (void)testShouldRespondToKnownSelector
 {
     STAssertTrue([mockStringClass respondsToSelector:@selector(pathWithComponents:)], nil);
 }
 
-- (void)testMock_ShouldNotRespondToUnknownSelector
+- (void)testShouldNotRespondToUnknownSelector
 {
     STAssertFalse([mockStringClass respondsToSelector:@selector(pathExtension)], nil);
 }

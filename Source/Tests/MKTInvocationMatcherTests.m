@@ -444,8 +444,8 @@
 
 - (void)testArgumentMatchersCount_ShouldReflectLargestSetMatcherIndex
 {
-    [sut setMatcher:equalTo(@"irrelevant") atIndex:1];
-    [sut setMatcher:equalTo(@"irrelevant") atIndex:0];
+    [sut setMatcher:equalTo(@"IRRELEVANT") atIndex:1];
+    [sut setMatcher:equalTo(@"IRRELEVANT") atIndex:0];
 
     assertThat(@([sut argumentMatchersCount]), is(@2));
 }

@@ -105,7 +105,7 @@
 
 - (void)testPullInvocationMatcher_AfterSetMatcher_ShouldHaveThoseMatchersForAllFunctionArguments
 {
-    [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
+    [mockingProgress setMatcher:equalTo(@"IRRELEVANT") forArgument:1];
 
     MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
 
@@ -114,7 +114,7 @@
 
 - (void)testPullInvocationMatcher_ShouldClearCurrentMatcher
 {
-    [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:3];
+    [mockingProgress setMatcher:equalTo(@"IRRELEVANT") forArgument:3];
 
     [mockingProgress pullInvocationMatcher];
 
@@ -123,8 +123,8 @@
 
 - (void)testMultipleSetMatcherCalls_ShouldAccumulateInArgumentMatchersCount
 {
-    [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:1];
-    [mockingProgress setMatcher:equalTo(@"irrelevant") forArgument:0];
+    [mockingProgress setMatcher:equalTo(@"IRRELEVANT") forArgument:1];
+    [mockingProgress setMatcher:equalTo(@"IRRELEVANT") forArgument:0];
 
     MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
 

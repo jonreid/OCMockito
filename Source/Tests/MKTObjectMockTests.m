@@ -39,45 +39,51 @@
     assertThat([mockString description], is(@"mock object of NSString"));
 }
 
-- (void)testMock_ShouldAnswerSameMethodSignatureForSelectorAsRealObject
+- (void)testShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
     NSString *realString = [NSString string];
-    SEL selector = @selector(rangeOfString:options:);
-    NSMethodSignature *signature = [mockString methodSignatureForSelector:selector];
-    assertThat(signature, is(equalTo([realString methodSignatureForSelector:selector])));
+    SEL sel = @selector(rangeOfString:options:);
+
+    NSMethodSignature *signature = [mockString methodSignatureForSelector:sel];
+
+    assertThat(signature, is(equalTo([realString methodSignatureForSelector:sel])));
 }
 
 - (void)testMethodSignatureForSelectorNotInObject_ShouldAnswerNil
 {
-    SEL selector = @selector(objectAtIndex:);
-    NSMethodSignature *signature = [mockString methodSignatureForSelector:selector];
+    SEL sel = @selector(objectAtIndex:);
+
+    NSMethodSignature *signature = [mockString methodSignatureForSelector:sel];
+
     assertThat(signature, is(nilValue()));
 }
 
-- (void)testMock_ShouldBeKindOfSameClass
+- (void)testShouldBeKindOfSameClass
 {
     STAssertTrue([mockString isKindOfClass:[NSString class]], nil);
 }
 
-- (void)testMock_ShouldBeKindOfSubclass
+- (void)testShouldBeKindOfSubclass
 {
     NSString *mockMutableString = mock([NSMutableString class]);
     STAssertTrue([mockMutableString isKindOfClass:[NSString class]], nil);
 }
 
-- (void)testMock_ShouldNotBeKindOfDifferentClass
+- (void)testShouldNotBeKindOfDifferentClass
 {
     STAssertFalse([mockString isKindOfClass:[NSArray class]], nil);
 }
 
-- (void)testMock_ShouldRespondToKnownSelector
+- (void)testShouldRespondToKnownSelector
 {
     STAssertTrue([mockString respondsToSelector:@selector(substringFromIndex:)], nil);
 }
 
-- (void)testMock_ShouldNotRespondToUnknownSelector
+- (void)testShouldNotRespondToUnknownSelector
 {
-    STAssertFalse([mockString respondsToSelector:@selector(removeAllObjects)], nil);
+    SEL sel = @selector(removeAllObjects);
+
+    STAssertFalse([mockString respondsToSelector:sel], nil);
 }
 
 @end
@@ -149,7 +155,9 @@
 
 - (void)testShouldNotRespondToGetterForReadonlyProperty
 {
-    STAssertFalse([mockDynamicPropertyHolder respondsToSelector:@selector(setReadonlyProperty:)], nil);
+    SEL sel = NSSelectorFromString(@"setReadonlyProperty:");
+
+    STAssertFalse([mockDynamicPropertyHolder respondsToSelector:sel], nil);
 }
 
 - (void)testShouldRespondToDynamicGetterInSuperclass
@@ -169,8 +177,8 @@
 
 - (NSMethodSignature *)realSignatureForSelector:(SEL)sel
 {
-    DynamicPropertyHolderWithMethods *realDynamicPropertyHolder = [[DynamicPropertyHolderWithMethods alloc] init];
-    NSMethodSignature *signature = [realDynamicPropertyHolder methodSignatureForSelector:sel];
+    DynamicPropertyHolderWithMethods *realObjectWithMethods = [[DynamicPropertyHolderWithMethods alloc] init];
+    NSMethodSignature *signature = [realObjectWithMethods methodSignatureForSelector:sel];
     assertThat(signature, is(notNilValue()));
     return signature;
 }

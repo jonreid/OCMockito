@@ -72,23 +72,24 @@
     assertThat([mock description], is(@"mock object of TestClass implementing TestProtocol protocol"));
 }
 
-- (void)testMock_ShouldHandleInstanceMethod
+- (void)testShouldHandleInstanceMethod
 {
     STAssertNoThrow([mock instanceMethod],nil);
 }
 
-- (void)testMock_ShouldHandleRequiredProtocolMethod
+- (void)testShouldHandleRequiredProtocolMethod
 {
     STAssertNoThrow([mock requiredMethod],nil);
 }
 
-- (void)testMock_ShouldAnswerSameMethodSignatureForSelectorAsRealObject
+- (void)testShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
     TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
-    SEL selector = @selector(instanceMethod);
-    NSMethodSignature *mockSig = [mock methodSignatureForSelector:selector];
+    SEL sel = @selector(instanceMethod);
 
-    assertThat(mockSig, equalTo([obj methodSignatureForSelector:selector]));
+    NSMethodSignature *mockSig = [mock methodSignatureForSelector:sel];
+
+    assertThat(mockSig, equalTo([obj methodSignatureForSelector:sel]));
 }
 
 - (void)testMethodSignatureForSelectorNotInObjectOrProtocol_ShouldAnswerNil
@@ -100,56 +101,59 @@
     assertThat(signature, is(nilValue()));
 }
 
-- (void)testMock_ShouldRespondToKnownSelector
+- (void)testShouldRespondToKnownSelector
 {
     assertThatBool([mock respondsToSelector:@selector(instanceMethod)], equalToBool(YES));
 }
 
-- (void)testMock_ShouldNotRespondToUnknownSelector
+- (void)testShouldNotRespondToUnknownSelector
 {
-    assertThatBool([mock respondsToSelector:@selector(objectAtIndex:)], equalToBool(NO));
+    SEL sel = @selector(objectAtIndex:);
+
+    assertThatBool([mock respondsToSelector:sel], equalToBool(NO));
 }
 
-- (void)testMock_ShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementer
+- (void)testShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementer
 {
     TestClass<TestProtocol> *obj = [[TestSubclass alloc] init];
-    SEL selector = @selector(requiredMethod);
-    NSMethodSignature *signature = [mock methodSignatureForSelector:selector];
+    SEL sel = @selector(requiredMethod);
 
-    assertThat(signature, equalTo([obj methodSignatureForSelector:selector]));
+    NSMethodSignature *signature = [mock methodSignatureForSelector:sel];
+
+    assertThat(signature, equalTo([obj methodSignatureForSelector:sel]));
 }
 
-- (void)testMock_ShouldConformToItsOwnProtocol
+- (void)testShouldConformToItsOwnProtocol
 {
     STAssertTrue([mock conformsToProtocol:@protocol(TestProtocol)],nil);
 }
 
-- (void)testMock_ShouldConformToParentProtocol
+- (void)testShouldConformToParentProtocol
 {
     STAssertTrue([mock conformsToProtocol:@protocol(NSObject)], nil);
 }
 
-- (void)testMock_ShouldNotConformToUnrelatedProtocol
+- (void)testShouldNotConformToUnrelatedProtocol
 {
     STAssertFalse([mock conformsToProtocol:@protocol(NSCoding)], nil);
 }
 
-- (void)testMock_ShouldRespondToRequiredSelector
+- (void)testShouldRespondToRequiredSelector
 {
     STAssertTrue([mock respondsToSelector:@selector(requiredMethod)], nil);
-}
-
-- (NSMethodSignature *)realSignatureForSelector:(SEL)sel
-{
-    TestClassWithMethods *realDynamicPropertyHolder = [[TestClassWithMethods alloc] init];
-    NSMethodSignature *signature = [realDynamicPropertyHolder methodSignatureForSelector:sel];
-    assertThat(signature, is(notNilValue()));
-    return signature;
 }
 
 - (void)testShouldRespondToDynamicPropertySelector
 {
     STAssertTrue([mock respondsToSelector:@selector(dynamicProperty)], nil);
+}
+
+- (NSMethodSignature *)realSignatureForSelector:(SEL)sel
+{
+    TestClassWithMethods *realObjectWithMethods = [[TestClassWithMethods alloc] init];
+    NSMethodSignature *signature = [realObjectWithMethods methodSignatureForSelector:sel];
+    assertThat(signature, is(notNilValue()));
+    return signature;
 }
 
 - (void)testMethodSignature_ForDynamicProperty_ShouldBeSameAsRealObject
