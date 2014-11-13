@@ -143,8 +143,11 @@ How do you mock a class object?
 -------------------------------
 
 ```obj-c
-Class mockStringClass = mockClass([NSString class]);
+__strong Class mockStringClass = mockClass([NSString class]);
 ```
+
+(In the iOS 64-bit runtime, Class objects aren't strong by default. Either make
+it explicitly strong as shown above, or use `id` instead.)
 
 
 How do you mock a protocol?
