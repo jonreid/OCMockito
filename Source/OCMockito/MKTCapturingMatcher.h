@@ -6,11 +6,7 @@
 //  Source: https://github.com/jonreid/OCMockito
 //
 
-#if TARGET_OS_MAC
-    #import <OCHamcrest/HCIsAnything.h>
-#else
-    #import <OCHamcrestIOS/HCIsAnything.h>
-#endif
+#import <OCHamcrest/HCIsAnything.h>
 
 
 @interface MKTCapturingMatcher : HCIsAnything

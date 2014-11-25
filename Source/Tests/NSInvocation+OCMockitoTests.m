@@ -12,11 +12,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 #define HC_SHORTHAND
-#if TARGET_OS_MAC
-    #import <OCHamcrest/OCHamcrest.h>
-#else
-    #import <OCHamcrestIOS/OCHamcrestIOS.h>
-#endif
+#import <OCHamcrest/OCHamcrest.h>
 
 
 @interface NSInvocation_OCMockitoTests : SenTestCase
