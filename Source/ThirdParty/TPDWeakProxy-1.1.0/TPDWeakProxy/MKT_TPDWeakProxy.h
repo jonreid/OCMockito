@@ -2,7 +2,7 @@
 //  TPDWeakProxy.h
 //  TPDWeakProxy
 //
-//  Copyright © 2013 Tetherpad.
+//  Copyright 2013 Tetherpad.
 //
 
 #import <Foundation/Foundation.h>

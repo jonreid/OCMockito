@@ -2,7 +2,7 @@
 //  TPDWeakProxy.m
 //  TPDWeakProxy
 //
-//  Copyright © 2013 Tetherpad.
+//  Copyright 2013 Tetherpad.
 //
 
 #import "MKT_TPDWeakProxy.h"
