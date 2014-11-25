@@ -40,7 +40,7 @@
         methodDescription = protocol_getMethodDescription(self.mockedProtocol, aSelector, NO, YES);
     if (!methodDescription.name)
         return nil;
-	return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
+    return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
 }
 
 

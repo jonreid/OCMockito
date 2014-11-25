@@ -573,7 +573,9 @@
 				08BDD5AA1350C59C00E5A443 /* Products */,
 				31DDCCD7D7D7FB304E6F3DD8 /* ThirdParty */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 			usesTabs = 0;
 		};
 		08BDD5AA1350C59C00E5A443 /* Products */ = {

@@ -42,7 +42,7 @@
 
 - (void)tearDown
 {
-	mockingProgress = nil;
+    mockingProgress = nil;
     [super tearDown];
 }
 

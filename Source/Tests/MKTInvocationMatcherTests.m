@@ -207,7 +207,7 @@
 
 - (void)tearDown
 {
-	sut = nil;
+    sut = nil;
     [super tearDown];
 }
 
