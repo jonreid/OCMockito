@@ -14,7 +14,7 @@
  */
 @interface MKTProtocolMock : MKTBaseMockObject
 
-@property (nonatomic, readonly) Protocol *mockedProtocol;
+@property (readonly, nonatomic, strong) Protocol *mockedProtocol;
 
 + (instancetype)mockForProtocol:(Protocol *)aProtocol;
 - (instancetype)initWithProtocol:(Protocol *)aProtocol;

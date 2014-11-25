@@ -13,7 +13,7 @@
 
 
 @interface MKTObjectAndProtocolMock ()
-@property (nonatomic, strong, readonly) Class mockedClass;
+@property (readonly, nonatomic, strong) Class mockedClass;
 @property (nonatomic, strong) MKTDynamicProperties *dynamicProperties;
 @end
 

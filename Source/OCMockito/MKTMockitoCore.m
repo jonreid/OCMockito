@@ -14,7 +14,7 @@
 
 @interface MKTMockitoCore ()
 
-@property (nonatomic, readonly) MKTMockingProgress *mockingProgress;
+@property (readonly, nonatomic, strong) MKTMockingProgress *mockingProgress;
 @end
 
 

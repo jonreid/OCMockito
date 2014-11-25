@@ -12,13 +12,10 @@
 
 
 @interface MKTOngoingStubbing ()
-
-@property (nonatomic, readonly) MKTInvocationContainer *invocationContainer;
+@property (readonly, nonatomic, strong) MKTInvocationContainer *invocationContainer;
 @end
 
-
 @implementation MKTOngoingStubbing
-
 
 - (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
 {

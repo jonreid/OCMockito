@@ -5,8 +5,8 @@
 @end
 
 @interface MKTArgumentGetter ()
-@property (nonatomic, readonly) char const *handlerType;
-@property (nonatomic, readonly) MKTArgumentGetter *successor;
+@property (readonly, nonatomic, assign) char const *handlerType;
+@property (readonly, nonatomic, strong) MKTArgumentGetter *successor;
 @end
 
 

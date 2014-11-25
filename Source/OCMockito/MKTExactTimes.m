@@ -13,7 +13,7 @@
 
 
 @interface MKTExactTimes ()
-@property (nonatomic, readonly) NSUInteger wantedCount;
+@property (readonly, nonatomic, assign) NSUInteger wantedCount;
 @end
 
 @implementation MKTExactTimes

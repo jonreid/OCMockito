@@ -19,7 +19,7 @@
 
 
 @interface MKTBaseMockObject ()
-@property (nonatomic, readonly) MKTMockingProgress *mockingProgress;
+@property (readonly, nonatomic, strong) MKTMockingProgress *mockingProgress;
 @property (nonatomic, strong) MKTInvocationContainer *invocationContainer;
 @end
 

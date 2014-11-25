@@ -90,7 +90,7 @@
 
 
 @interface DynamicPropertyHolderSuperclass: NSObject
-@property (nonatomic, readonly) id superclassProperty;
+@property (readonly, nonatomic, strong) id superclassProperty;
 @end
 
 @implementation DynamicPropertyHolderSuperclass
@@ -100,8 +100,8 @@
 
 @interface DynamicPropertyHolder : DynamicPropertyHolderSuperclass
 @property (nonatomic, copy) id objectProperty;
-@property (nonatomic) int intProperty;
-@property (nonatomic, readonly) id readonlyProperty;
+@property (nonatomic, assign) int intProperty;
+@property (readonly, nonatomic, strong) id readonlyProperty;
 @property (nonatomic, getter=customPropertyGetter, setter=customPropertySetter:) int customProperty;
 @end
 

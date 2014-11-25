@@ -12,7 +12,7 @@
 
 
 @interface MKTAtLeastTimes ()
-@property (nonatomic, readonly) NSUInteger wantedCount;
+@property (readonly, nonatomic, assign) NSUInteger wantedCount;
 @end
 
 @implementation MKTAtLeastTimes

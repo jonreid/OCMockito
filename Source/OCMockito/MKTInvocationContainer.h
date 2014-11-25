@@ -15,7 +15,7 @@
 
 @interface MKTInvocationContainer : NSObject
 
-@property (nonatomic, strong, readonly) NSMutableArray *registeredInvocations;
+@property (readonly, nonatomic, strong) NSMutableArray *registeredInvocations;
 
 - (instancetype)init;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;

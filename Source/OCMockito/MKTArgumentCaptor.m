@@ -12,7 +12,7 @@
 
 
 @interface MKTArgumentCaptor ()
-@property (nonatomic, readonly) MKTCapturingMatcher *matcher;
+@property (readonly, nonatomic, strong) MKTCapturingMatcher *matcher;
 @end
 
 @implementation MKTArgumentCaptor
