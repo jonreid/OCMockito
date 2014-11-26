@@ -98,7 +98,7 @@
 @property (nonatomic, copy) id objectProperty;
 @property (nonatomic, assign) int intProperty;
 @property (readonly, nonatomic, strong) id readonlyProperty;
-@property (nonatomic, getter=customPropertyGetter, setter=customPropertySetter:) int customProperty;
+@property (nonatomic, getter=customPropertyGetter, setter=customPropertySetter:, assign) int customProperty;
 @end
 
 @implementation DynamicPropertyHolder
