@@ -1,7 +1,13 @@
 NEXT VERSION
 ------------
 
+**Features:**
+
 - Added support for dynamic properties. _Thanks to Eugen Martynov for example code_
+
+**Improvements:**
+
+- Updated project to make it run-path dependent.
 
 
 Version 1.3.1
