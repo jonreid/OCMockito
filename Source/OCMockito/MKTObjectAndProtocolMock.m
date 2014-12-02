@@ -1,10 +1,6 @@
-//
-//  OCMockito - MKTObjectAndProtocolMock.m
+//  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
-//
-//  Created by: Kevin Lundberg
-//  Source: https://github.com/jonreid/OCMockito
-//
+//  Contribution by Kevin Lundberg
 
 #import "MKTObjectAndProtocolMock.h"
 

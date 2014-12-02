@@ -1,10 +1,6 @@
-//
-//  OCMockito - VerifyCountAtLeastTimesTests.m
+//  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
-//
-//  Created by: Markus Gasser
-//  Source: https://github.com/jonreid/OCMockito
-//
+//  Contribution by Markus Gasser
 
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"

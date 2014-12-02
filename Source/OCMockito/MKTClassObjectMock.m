@@ -1,10 +1,6 @@
-//
-//  OCMockito - MKTClassObjectMock.m
+//  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
-//
-//  Created by: David Hart
-//  Source: https://github.com/jonreid/OCMockito
-//
+//  Contribution by David Hart
 
 #import "MKTClassObjectMock.h"
 

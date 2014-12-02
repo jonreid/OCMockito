@@ -1,10 +1,5 @@
-//
-//  OCMockito - MKTInvocationMatcherTests.m
+//  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2014 Jonathan M. Reid. See LICENSE.txt
-//
-//  Created by: Jon Reid, http://qualitycoding.org/
-//  Source: https://github.com/jonreid/OCMockito
-//
 
 // System under test
 #import "MKTInvocationMatcher.h"
