@@ -8,16 +8,27 @@
 
 @implementation MKTProtocolMock
 
-+ (instancetype)mockForProtocol:(Protocol *)aProtocol
-{
-    return [[self alloc] initWithProtocol:aProtocol];
++ (instancetype)mockForProtocol:(Protocol *)aProtocol {
+    return [self mockForProtocol:aProtocol includeOptionalMethods:YES];
 }
 
-- (instancetype)initWithProtocol:(Protocol *)aProtocol
++ (instancetype)mockForProtocol:(Protocol *)aProtocol includeOptionalMethods:(BOOL)includeOptionalMethods
+{
+    return [[self alloc] initWithProtocol:aProtocol includeOptionalMethods:includeOptionalMethods];
+}
+
+- (instancetype)initWithProtocol:(Protocol *)aProtocol {
+    return [self initWithProtocol:aProtocol includeOptionalMethods:YES];
+}
+
+- (instancetype)initWithProtocol:(Protocol *)aProtocol includeOptionalMethods:(BOOL)includeOptionalMethods
 {
     self = [super init];
-    if (self)
+    if (self) {
         _mockedProtocol = aProtocol;
+        _includeOptionalMethods = includeOptionalMethods;
+    }
+    
     return self;
 }
 
@@ -31,13 +42,12 @@
 {
     struct objc_method_description methodDescription =
             protocol_getMethodDescription(self.mockedProtocol, aSelector, YES, YES);
-    if (!methodDescription.name)
+    if (!methodDescription.name && self.includeOptionalMethods)
         methodDescription = protocol_getMethodDescription(self.mockedProtocol, aSelector, NO, YES);
     if (!methodDescription.name)
         return nil;
     return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
 }
-
 
 #pragma mark NSObject protocol
 
