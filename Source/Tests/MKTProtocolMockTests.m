@@ -101,9 +101,9 @@
     assertThat(signature, is(nilValue()));
 }
 
-- (void)testWhenOptionalMethodsAreNotIncludedShouldNotAnswerSignatureSelectorAsRealImplementer {
-    mockImplementer = (id<TestingProtocol>)[MKTProtocolMock mockForProtocol:@protocol(TestingProtocol) includeOptionalMethods:NO];
-
+- (void)testSignatureOfOptionalMethod_WhenOptionalMethodsAreNotIncluded_ShouldBeNil
+{
+    mockImplementer = mockProtocolNoOptionals(@protocol(TestingProtocol));
     SEL sel = @selector(optional);
 
     NSMethodSignature *signature = [(id) mockImplementer methodSignatureForSelector:sel];
@@ -111,9 +111,8 @@
     assertThat(signature, equalTo(nil));
 }
 
-- (void)testWhenOptionalMethodsArIncludedShouldAnswerSignatureSelectorAsRealImplementer {
-    mockImplementer = (id<TestingProtocol>)[MKTProtocolMock mockForProtocol:@protocol(TestingProtocol) includeOptionalMethods:YES];
-
+- (void)testSignatureOfOptionalMethod_WhenOptionalMethodsAreIncluded_ShouldAnswerSameSignatureAsRealImplementer
+{
     PartialImplementer *realImplementer = [[PartialImplementer alloc] init];
     SEL sel = @selector(optional);
 

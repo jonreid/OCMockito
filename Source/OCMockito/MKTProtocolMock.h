@@ -10,7 +10,6 @@
 @interface MKTProtocolMock : MKTBaseMockObject
 
 @property (readonly, nonatomic, strong) Protocol *mockedProtocol;
-@property (readonly, nonatomic) BOOL includeOptionalMethods;
 
 + (instancetype)mockForProtocol:(Protocol *)aProtocol;
 + (instancetype)mockForProtocol:(Protocol *)aProtocol includeOptionalMethods:(BOOL)includeOptionalMethods;

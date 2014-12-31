@@ -6,6 +6,10 @@
 #import <objc/runtime.h>
 
 
+@interface MKTProtocolMock ()
+@property (readonly, nonatomic, assign) BOOL includeOptionalMethods;
+@end
+
 @implementation MKTProtocolMock
 
 + (instancetype)mockForProtocol:(Protocol *)aProtocol {
@@ -24,11 +28,11 @@
 - (instancetype)initWithProtocol:(Protocol *)aProtocol includeOptionalMethods:(BOOL)includeOptionalMethods
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         _mockedProtocol = aProtocol;
         _includeOptionalMethods = includeOptionalMethods;
     }
-    
     return self;
 }
 

@@ -4,6 +4,8 @@ NEXT VERSION
 **Features:**
 
 - Added support for dynamic properties. _Thanks to Eugen Martynov for example code_
+- Added `mockProtocolNoOptionals(…)` which mocks an object implementing a given protocol, but
+  without mocking any optional methods. _Thanks to: Paweł Dudek_
 
 **Improvements:**
 
@@ -44,7 +46,7 @@ TPWeakProxy 1.0.0 is also needed to build OCMockito.
 - Stub methods that return structs with `willReturnStruct:objCType:`. _Thanks to
   GWStuartClift and Yaron Inger_
 - `stubProperty(instance, property, value)` stubs a property, and its related
-  `getValueForKey:` and `valueForKeyPath:` KVO methods. _Thanks to Sasha Zats_
+  `getValueForKey:` and `valueForKeyPath:` KVO methods. _Thanks to: Sasha Zats_
 
 **Project changes:**
 
