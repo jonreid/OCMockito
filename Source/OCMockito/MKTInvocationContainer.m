@@ -50,6 +50,14 @@
     [self.stubbed insertObject:self.invocationForStubbing atIndex:0];
 }
 
+- (void)addExpectation:(id<MKTExpectation>)expectation
+{
+    [_registeredInvocations removeLastObject];
+    
+    self.invocationForStubbing.expectation = expectation;
+    [self.stubbed insertObject:self.invocationForStubbing atIndex:0];
+}
+
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation
 {
     for (MKTStubbedInvocationMatcher *s in self.stubbed)

@@ -6,6 +6,7 @@
 @class MKTInvocationMatcher;
 @class MKTStubbedInvocationMatcher;
 @protocol HCMatcher;
+@protocol MKTExpectation;
 
 
 @interface MKTInvocationContainer : NSObject
@@ -16,5 +17,6 @@
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id)answer;
+- (void)addExpectation:(id<MKTExpectation>)expectation;
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
 @end

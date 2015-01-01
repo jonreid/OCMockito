@@ -3,6 +3,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MKTPrimitiveArgumentMatching.h"
+#import "MKTExpectation.h"
 
 @class MKTInvocationContainer;
 
@@ -65,5 +66,8 @@
 
 /// Stubs given @c double as return value.
 - (MKTOngoingStubbing *)willReturnDouble:(double)value;
+
+/// Add expectation matcher to the stub.
+- (MKTOngoingStubbing *)willFulfill:(id<MKTExpectation>)expectation;
 
 @end

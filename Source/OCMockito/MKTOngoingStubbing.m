@@ -123,6 +123,11 @@
     return self;
 }
 
+- (MKTOngoingStubbing *)willFulfill:(id<MKTExpectation>)expectation
+{
+    [self.invocationContainer addExpectation:expectation];
+    return self;
+}
 
 #pragma mark MKTPrimitiveArgumentMatching
 

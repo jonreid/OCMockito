@@ -324,6 +324,8 @@
 		BB333F57C54A0E34C3F7CDB8 /* MKTUnsignedIntArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33346EC07C56575E551305 /* MKTUnsignedIntArgumentGetter.h */; };
 		BB333F63D0F00C7A42A34088 /* MKTDoubleReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3333F97110B2D36E738BF6 /* MKTDoubleReturnSetter.h */; };
 		BB333FCE623D5D9B1AD438C5 /* MKTFloatArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333452F4E41AD2C02AF623 /* MKTFloatArgumentGetter.h */; };
+		F66B750019E5DDF700CFB1BF /* MKTExpectation.h in Headers */ = {isa = PBXBuildFile; fileRef = F66B74FF19E5DDF700CFB1BF /* MKTExpectation.h */; };
+		F66B750119E5DDF700CFB1BF /* MKTExpectation.h in Headers */ = {isa = PBXBuildFile; fileRef = F66B74FF19E5DDF700CFB1BF /* MKTExpectation.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -516,6 +518,7 @@
 		BB333F66536CCB4FDAF69E70 /* MKTUnsignedIntArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedIntArgumentGetter.m; sourceTree = "<group>"; };
 		BB333FD90D0AC9CC97708743 /* MKTShortReturnSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTShortReturnSetter.h; sourceTree = "<group>"; };
 		BB333FF000A3BE337BA9210D /* MKTUnsignedCharArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedCharArgumentGetter.m; sourceTree = "<group>"; };
+		F66B74FF19E5DDF700CFB1BF /* MKTExpectation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTExpectation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,6 +644,7 @@
 				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
 				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
 				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
+				F66B74FF19E5DDF700CFB1BF /* MKTExpectation.h */,
 				BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */,
 				BB33364DC41A888C0E0DA542 /* NSInvocation+OCMockito.m */,
 				BB3338A6F173CED78B579087 /* Helpers */,
@@ -853,6 +857,7 @@
 				BB33380B69FC10DAA80D190D /* MKTCharArgumentGetter.h in Headers */,
 				BB3333A1510034D754E0947C /* MKTClassArgumentGetter.h in Headers */,
 				BB333D3427B143DFF5630DD4 /* MKTDoubleArgumentGetter.h in Headers */,
+				F66B750119E5DDF700CFB1BF /* MKTExpectation.h in Headers */,
 				BB333B6C10A2C74C0E381F14 /* MKTFloatArgumentGetter.h in Headers */,
 				BB333D4E7022E1357B4D139E /* MKTIntArgumentGetter.h in Headers */,
 				BB3330A161621C7F164A4F54 /* MKTLongArgumentGetter.h in Headers */,
@@ -922,6 +927,7 @@
 				BB333DBDD868DC57E7A15AC8 /* MKTCharArgumentGetter.h in Headers */,
 				BB33305B70FC77AEC3A74B3F /* MKTClassArgumentGetter.h in Headers */,
 				BB3339C6912270DE2DAB8FBF /* MKTDoubleArgumentGetter.h in Headers */,
+				F66B750019E5DDF700CFB1BF /* MKTExpectation.h in Headers */,
 				BB333FCE623D5D9B1AD438C5 /* MKTFloatArgumentGetter.h in Headers */,
 				BB33323A9923F1CC2DF3BA52 /* MKTIntArgumentGetter.h in Headers */,
 				BB333725C1608C4EF5448E58 /* MKTLongArgumentGetter.h in Headers */,

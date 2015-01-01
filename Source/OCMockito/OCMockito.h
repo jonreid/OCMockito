@@ -242,3 +242,18 @@ FOUNDATION_EXPORT id MKTAtLeastOnce(void);
 #ifdef MOCKITO_SHORTHAND
     #define atLeastOnce() MKTAtLeastOnce()
 #endif
+
+
+// Enable support of expectation matching.
+#ifdef MOCKITO_EXPECTATION
+
+@interface XCTestExpectation () <MKTExpectation>
+@end
+
+#define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, ^{methodCall; return @YES;}())
+
+#ifdef MOCKITO_SHORTHAND
+#define expectation(message) [self expectationWithDescription:message]
+#endif
+
+#endif
