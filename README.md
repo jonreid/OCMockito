@@ -157,6 +157,12 @@ How do you mock a protocol?
 id <MyDelegate> delegate = mockProtocol(@protocol(MyDelegate));
 ```
 
+Or, if you don't want it to contain any optional methods:
+
+```obj-c
+id <MyDelegate> delegate = mockProtocolNoOptionals(@protocol(MyDelegate));
+```
+
 
 How do you mock an object that also implements a protocol?
 ----------------------------------------------------------
