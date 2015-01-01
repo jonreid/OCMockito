@@ -50,16 +50,16 @@
 #endif
 
 
-#define MKTMockProtocolNoOptionals(aProtocol) (id)[MKTProtocolMock mockForProtocol:aProtocol includeOptionalMethods:NO]
+#define MKTMockProtocolWithoutOptionals(aProtocol) (id)[MKTProtocolMock mockForProtocol:aProtocol includeOptionalMethods:NO]
 
 /**
  Returns a mock object implementing a given protocol, but with no optional methods.
 
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
- @c MKTMockProtocolNoOptionals instead.)
+ @c MKTMockProtocolWithoutOptionals instead.)
 */
 #ifdef MOCKITO_SHORTHAND
-    #define mockProtocolNoOptionals(aProtocol) MKTMockProtocolNoOptionals(aProtocol)
+    #define mockProtocolWithoutOptionals(aProtocol) MKTMockProtocolWithoutOptionals(aProtocol)
 #endif
 
 

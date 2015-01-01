@@ -160,7 +160,7 @@ id <MyDelegate> delegate = mockProtocol(@protocol(MyDelegate));
 Or, if you don't want it to contain any optional methods:
 
 ```obj-c
-id <MyDelegate> delegate = mockProtocolNoOptionals(@protocol(MyDelegate));
+id <MyDelegate> delegate = mockProtocolWithoutOptionals(@protocol(MyDelegate));
 ```
 
 

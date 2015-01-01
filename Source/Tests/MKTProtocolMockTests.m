@@ -103,7 +103,7 @@
 
 - (void)testSignatureOfOptionalMethod_WhenOptionalMethodsAreNotIncluded_ShouldBeNil
 {
-    mockImplementer = mockProtocolNoOptionals(@protocol(TestingProtocol));
+    mockImplementer = mockProtocolWithoutOptionals(@protocol(TestingProtocol));
     SEL sel = @selector(optional);
 
     NSMethodSignature *signature = [(id) mockImplementer methodSignatureForSelector:sel];

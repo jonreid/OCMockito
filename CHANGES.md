@@ -4,7 +4,7 @@ NEXT VERSION
 **Features:**
 
 - Added support for dynamic properties. _Thanks to Eugen Martynov for example code_
-- Added `mockProtocolNoOptionals(…)` which mocks an object implementing a given protocol, but
+- Added `mockProtocolWithoutOptionals(…)` which mocks an object implementing a given protocol, but
   without mocking any optional methods. _Thanks to: Paweł Dudek_
 
 **Improvements:**
