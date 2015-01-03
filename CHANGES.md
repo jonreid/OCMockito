@@ -3,6 +3,7 @@ NEXT VERSION
 
 **Features:**
 
+- Can now mock sequential returns by chaining `willReturn:`. 
 - Added support for dynamic properties. _Thanks to Eugen Martynov for example code_
 - Added `mockProtocolWithoutOptionals(…)` which mocks an object implementing a given protocol, but
   without mocking any optional methods. _Thanks to: Paweł Dudek_

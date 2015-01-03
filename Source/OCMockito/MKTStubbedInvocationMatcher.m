@@ -5,19 +5,32 @@
 
 
 @interface MKTStubbedInvocationMatcher ()
-@property (nonatomic, strong) id answers;
+@property (readonly, nonatomic, copy) NSMutableArray *answers;
+@property (nonatomic, assign) NSUInteger index;
 @end
 
 @implementation MKTStubbedInvocationMatcher
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+        _answers = [[NSMutableArray alloc] init];
+    return self;
+}
+
 - (void)addAnswer:(id)answer
 {
-    self.answers = answer;
+    [self.answers addObject:answer];
 }
 
 - (id)answer
 {
-    return self.answers;
+    id answer = self.answers[self.index];
+    NSUInteger bumpedIndex = self.index + 1;
+    if (bumpedIndex < self.answers.count)
+        self.index = bumpedIndex;
+    return answer;
 }
 
 @end
