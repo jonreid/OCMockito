@@ -46,7 +46,7 @@
 {
     [_registeredInvocations removeLastObject];
 
-    self.invocationForStubbing.answer = answer;
+    [self.invocationForStubbing addAnswer:answer];
     [self.stubbed insertObject:self.invocationForStubbing atIndex:0];
 }
 

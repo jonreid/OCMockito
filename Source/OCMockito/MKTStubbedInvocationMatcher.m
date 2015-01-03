@@ -4,5 +4,20 @@
 #import "MKTStubbedInvocationMatcher.h"
 
 
+@interface MKTStubbedInvocationMatcher ()
+@property (nonatomic, strong) id answers;
+@end
+
 @implementation MKTStubbedInvocationMatcher
+
+- (void)addAnswer:(id)answer
+{
+    self.answers = answer;
+}
+
+- (id)answer
+{
+    return self.answers;
+}
+
 @end

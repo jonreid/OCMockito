@@ -6,6 +6,7 @@
 
 @interface MKTStubbedInvocationMatcher : MKTInvocationMatcher
 
-@property (nonatomic, strong) id answer;
+- (void)addAnswer:(id)answer;
+- (id)answer;
 
 @end

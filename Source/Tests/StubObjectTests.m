@@ -375,4 +375,13 @@ static inline double *createArrayOf10Doubles(void)
     assertThat(sortedArray, contains(sameInstance(obj1), sameInstance(obj2), nil));
 }
 
+//- (void)testMultipleStubbedReturns_ShouldReturnEachThenRepeatLast
+//{
+//    [[given([mockObject methodReturningObject]) willReturn:@"A"] willReturn:@"B"];
+//
+//    assertThat([mockObject methodReturningObject], is(@"A"));
+//    assertThat([mockObject methodReturningObject], is(@"B"));
+//    assertThat([mockObject methodReturningObject], is(@"B"));
+//}
+
 @end
