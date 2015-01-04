@@ -3,6 +3,8 @@
 
 #import "MKTStubbedInvocationMatcher.h"
 
+#import "MKTReturns.h"
+
 
 @interface MKTStubbedInvocationMatcher ()
 @property (readonly, nonatomic, copy) NSMutableArray *answers;
@@ -21,16 +23,17 @@
 
 - (void)addAnswer:(id)answer
 {
-    [self.answers addObject:answer];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:answer];
+    [self.answers addObject:returns];
 }
 
 - (id)answer
 {
-    id answer = self.answers[self.index];
+    id <MKTAnswer> a = self.answers[self.index];
     NSUInteger bumpedIndex = self.index + 1;
     if (bumpedIndex < self.answers.count)
         self.index = bumpedIndex;
-    return answer;
+    return [a answer];
 }
 
 @end

@@ -72,4 +72,5 @@
 /// Sets a @c double to be returned when the method is called.
 - (MKTOngoingStubbing *)willReturnDouble:(double)value;
 
+- (MKTOngoingStubbing *)willThrow:(NSException *)exception;
 @end

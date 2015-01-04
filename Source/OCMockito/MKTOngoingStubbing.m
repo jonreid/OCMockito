@@ -123,6 +123,11 @@
     return self;
 }
 
+- (MKTOngoingStubbing *)willThrow:(NSException *)exception
+{
+    return self;
+}
+
 
 #pragma mark MKTPrimitiveArgumentMatching
 

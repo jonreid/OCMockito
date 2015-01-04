@@ -391,4 +391,13 @@ static inline double *createArrayOf10Doubles(void)
     assertThat([mockObject methodReturningObject], is(nilValue()));
 }
 
+//- (void)testStubbingThrow_ShouldThrow
+//{
+//    NSException *exception = [NSException exceptionWithName:nil reason:nil userInfo:nil];
+//    [given([mockObject methodReturningObject]) willThrow:exception];
+//
+//    assertThat(^{ [self->mockObject methodReturningObject]; },
+//               throwsException(sameInstance(exception)));
+//}
+
 @end
