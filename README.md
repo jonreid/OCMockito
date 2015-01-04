@@ -258,6 +258,9 @@ Use the shortcut `-withMatcher:` to specify a matcher for a single argument:
  willReturn:@"foo"];
 ```
 
+These methods are also available to specify matchers for verification. Just call
+them after `verify(…)` but before the invocation you want to verify.
+
 
 Verifying exact number of invocations / at least x / never
 ----------------------------------------------------------
