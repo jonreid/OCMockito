@@ -133,6 +133,15 @@ NSArray *mockArray = mock([NSArray class]);
 
 // stubbing
 [given([mockArray objectAtIndex:0]) willReturn:@"first"];
+[given([mockArray objectAtIndex:1]) willThrow:[NSException exceptionWithName:@"name"
+                                                                      reason:@"reason"
+                                                                    userInfo:nil]];
+
+// following prints "first"
+NSLog(@"%@", [mockArray objectAtIndex:0]);
+
+// follows throws exception
+NSLog(@"%@", [mockArray objectAtIndex:1]);
 
 // following prints "(null)" because objectAtIndex:999 was not stubbed
 NSLog(@"%@", [mockArray objectAtIndex:999]);
@@ -301,6 +310,44 @@ MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
 NSComparator block = [argument value];
 assertThat(@(block(@"a", @"z")), is(@(NSOrderedAscending)));
 ```
+
+
+Stubbing consecutive calls
+--------------------------
+
+```obj-c
+[[given([mockObject someMethod:@"some arg"])
+    willThrow:[NSException exceptionWithName:@"name" reason:@"reason" userInfo:nil]]
+    willReturn:@"foo"];
+
+// First call: throws exception
+[mockObject someMethod:@"some arg"];
+
+// Second call: prints "foo"
+NSLog(@"%@", [mockObject someMethod:@"some arg"]);
+
+// Any consecutive call: prints "foo" as well. (Last stubbing wins.)
+NSLog(@"%@", [mockObject someMethod:@"some arg"]);
+```
+
+
+Stubbing with blocks
+--------------------
+
+We recommend using simple stubbing with `willReturn:` or `willThrow:` only. But
+`willDo:` using a block can sometimes be helpful. The block can call
+`mkt_arguments` (from NSInvocation+OCMockito.h) on the invocation to get the
+arguments. Whatever the block returns will be used as the stubbed return value.
+
+```obj-c
+[[given([mockObject someMethod:anything()]) willDo:^id (NSInvocation *invocation){
+    NSArray *args = [invocation mkt_arguments];
+    return @([args[0] intValue] * 2);
+}];
+
+// Following prints 4
+NSLog(@"%@", [mockObject someMethod:@2]);
+
 
 Fixing retain cycles
 --------------------
