@@ -347,6 +347,7 @@ arguments. Whatever the block returns will be used as the stubbed return value.
 
 // Following prints 4
 NSLog(@"%@", [mockObject someMethod:@2]);
+```
 
 
 Fixing retain cycles
