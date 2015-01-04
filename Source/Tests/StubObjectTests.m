@@ -411,4 +411,15 @@ static inline double *createArrayOf10Doubles(void)
     assertThat([mockObject methodReturningObject], is(@"FOO"));
 }
 
+- (void)testStubbingWithBlock_ShouldBeAbleToAccessInvocationArguments
+{
+    [given([mockObject methodReturningObjectWithArg:anything()]) willDo:^id (NSInvocation *invocation){
+        NSArray *args = [invocation mkt_arguments];
+        return @([args[0] intValue] * 2);
+    }];
+
+    assertThat([mockObject methodReturningObjectWithArg:@2], is(@4));
+    assertThat([mockObject methodReturningObjectWithArg:@3], is(@6));
+}
+
 @end

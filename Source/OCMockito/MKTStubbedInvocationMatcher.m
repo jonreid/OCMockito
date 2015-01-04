@@ -30,7 +30,7 @@
     NSUInteger bumpedIndex = self.index + 1;
     if (bumpedIndex < self.answers.count)
         self.index = bumpedIndex;
-    return [a answerInvocation:nil];
+    return [a answerInvocation:invocation];
 }
 
 @end
