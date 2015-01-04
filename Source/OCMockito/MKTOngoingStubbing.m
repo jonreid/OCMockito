@@ -1,9 +1,12 @@
 //  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
+#import <OCHamcrest/OCHamcrest.h>
 #import "MKTOngoingStubbing.h"
 
 #import "MKTInvocationContainer.h"
+#import "MKTReturns.h"
+#import "MKTThrowsException.h"
 
 
 @interface MKTOngoingStubbing ()
@@ -22,109 +25,128 @@
 
 - (MKTOngoingStubbing *)willReturn:(id)object
 {
-    [self.invocationContainer addAnswer:object];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:object];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnStruct:(const void *)value objCType:(const char *)type
 {
     NSValue *answer = [NSValue valueWithBytes:value objCType:type];
-    [self.invocationContainer addAnswer:answer];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:answer];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnBool:(BOOL)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnChar:(char)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnInt:(int)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnShort:(short)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnLong:(long)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnLongLong:(long long)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnInteger:(NSInteger)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedChar:(unsigned char)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedInt:(unsigned int)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedShort:(unsigned short)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedLong:(unsigned long)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedLongLong:(unsigned long long)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnUnsignedInteger:(NSUInteger)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnFloat:(float)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willReturnDouble:(double)value
 {
-    [self.invocationContainer addAnswer:@(value)];
+    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:@(value)];
+    [self.invocationContainer addAnswer:returns];
     return self;
 }
 
 - (MKTOngoingStubbing *)willThrow:(NSException *)exception
 {
+    MKTThrowsException *throwsException = [[MKTThrowsException alloc] initWithException:exception];
+    [self.invocationContainer addAnswer:throwsException];
     return self;
 }
 

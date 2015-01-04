@@ -7,6 +7,6 @@
 
 @interface MKTStubbedInvocationMatcher : MKTInvocationMatcher <MKTAnswer>
 
-- (void)addAnswer:(id)answer;
+- (void)addAnswer:(id <MKTAnswer>)answer;
 
 @end

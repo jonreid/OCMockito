@@ -111,6 +111,10 @@
 		740018661A58E1BD00E9AC92 /* MKTReturns.m in Sources */ = {isa = PBXBuildFile; fileRef = 740018621A58E1BD00E9AC92 /* MKTReturns.m */; };
 		740018681A58E1E400E9AC92 /* MKTAnswer.h in Headers */ = {isa = PBXBuildFile; fileRef = 740018671A58E1E400E9AC92 /* MKTAnswer.h */; };
 		740018691A58E1E400E9AC92 /* MKTAnswer.h in Headers */ = {isa = PBXBuildFile; fileRef = 740018671A58E1E400E9AC92 /* MKTAnswer.h */; };
+		7400186C1A58E60200E9AC92 /* MKTThrowsException.h in Headers */ = {isa = PBXBuildFile; fileRef = 7400186A1A58E60200E9AC92 /* MKTThrowsException.h */; };
+		7400186D1A58E60200E9AC92 /* MKTThrowsException.h in Headers */ = {isa = PBXBuildFile; fileRef = 7400186A1A58E60200E9AC92 /* MKTThrowsException.h */; };
+		7400186E1A58E60200E9AC92 /* MKTThrowsException.m in Sources */ = {isa = PBXBuildFile; fileRef = 7400186B1A58E60200E9AC92 /* MKTThrowsException.m */; };
+		7400186F1A58E60200E9AC92 /* MKTThrowsException.m in Sources */ = {isa = PBXBuildFile; fileRef = 7400186B1A58E60200E9AC92 /* MKTThrowsException.m */; };
 		74A3BD8319F765E2006591C9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C61DB214E23938003D0843 /* SenTestingKit.framework */; };
 		74A3BD9219F76623006591C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
 		74A3BD9319F76626006591C9 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0859DCD3191F0D1600513490 /* OCHamcrest.framework */; };
@@ -440,6 +444,8 @@
 		740018611A58E1BD00E9AC92 /* MKTReturns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTReturns.h; sourceTree = "<group>"; };
 		740018621A58E1BD00E9AC92 /* MKTReturns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTReturns.m; sourceTree = "<group>"; };
 		740018671A58E1E400E9AC92 /* MKTAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAnswer.h; sourceTree = "<group>"; };
+		7400186A1A58E60200E9AC92 /* MKTThrowsException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTThrowsException.h; sourceTree = "<group>"; };
+		7400186B1A58E60200E9AC92 /* MKTThrowsException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTThrowsException.m; sourceTree = "<group>"; };
 		7411E69D192AD3D100084CC8 /* StubClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubClassTests.m; sourceTree = "<group>"; };
 		74A3BD8219F765E2006591C9 /* OCMockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A3BDB319F76C5F006591C9 /* libocmockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -646,6 +652,8 @@
 				08E1E749136289C70066B0C7 /* MKTStubbedInvocationMatcher.m */,
 				0827E8641352C50400C39A57 /* MKTTestLocation.h */,
 				08068ED11505A59700FA2D8F /* MKTTestLocation.m */,
+				7400186A1A58E60200E9AC92 /* MKTThrowsException.h */,
+				7400186B1A58E60200E9AC92 /* MKTThrowsException.m */,
 				0827E8671352CC6400C39A57 /* MKTExactTimes.h */,
 				0827E8681352CC6400C39A57 /* MKTExactTimes.m */,
 				361533C4153F275800BB982B /* MKTAtLeastTimes.h */,
@@ -899,6 +907,7 @@
 				BB33389A3CABF0EF1B1D9917 /* MKTUnsignedShortReturnSetter.h in Headers */,
 				31DDC7F0FC02CC5B037D333F /* MKTStructReturnSetter.h in Headers */,
 				740018691A58E1E400E9AC92 /* MKTAnswer.h in Headers */,
+				7400186D1A58E60200E9AC92 /* MKTThrowsException.h in Headers */,
 				31DDC07A679FF558FB2E3069 /* MKT_TPDWeakProxy.h in Headers */,
 				31DDC37FB11D5CF77669F21B /* MKTDynamicProperties.h in Headers */,
 			);
@@ -970,6 +979,7 @@
 				BB333833E4F7D8A27B9C2072 /* MKTUnsignedShortReturnSetter.h in Headers */,
 				31DDCA2A169C7866DA8F509C /* MKTStructReturnSetter.h in Headers */,
 				740018681A58E1E400E9AC92 /* MKTAnswer.h in Headers */,
+				7400186C1A58E60200E9AC92 /* MKTThrowsException.h in Headers */,
 				31DDC30C579E203788087153 /* MKT_TPDWeakProxy.h in Headers */,
 				31DDCABC1A0F5DFE11626E4B /* MKTDynamicProperties.h in Headers */,
 			);
@@ -1199,6 +1209,7 @@
 				BB33381F168BEA25F34F2B92 /* MKTBoolArgumentGetter.m in Sources */,
 				BB333689CD326D45152CCDC7 /* MKTCharArgumentGetter.m in Sources */,
 				BB333162FA0B539443E54811 /* MKTClassArgumentGetter.m in Sources */,
+				7400186F1A58E60200E9AC92 /* MKTThrowsException.m in Sources */,
 				BB3332DC5D5D5D901780EDDE /* MKTDoubleArgumentGetter.m in Sources */,
 				BB3333D794098C4C2DBBDCF7 /* MKTFloatArgumentGetter.m in Sources */,
 				BB333D50BB250AEE2734315F /* MKTIntArgumentGetter.m in Sources */,
@@ -1267,6 +1278,7 @@
 				BB33311EE8EB35A69A97D2A3 /* MKTBoolArgumentGetter.m in Sources */,
 				BB333D8E8A37B9FB7332AA64 /* MKTCharArgumentGetter.m in Sources */,
 				BB3339C57EC54455A51CC897 /* MKTClassArgumentGetter.m in Sources */,
+				7400186E1A58E60200E9AC92 /* MKTThrowsException.m in Sources */,
 				BB3336E60D0041F36DB8BA5D /* MKTDoubleArgumentGetter.m in Sources */,
 				BB333CB6FDECDC8AA6D1B0B3 /* MKTFloatArgumentGetter.m in Sources */,
 				BB333ADE3D2B4EEC02A57AED /* MKTIntArgumentGetter.m in Sources */,

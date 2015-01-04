@@ -3,8 +3,6 @@
 
 #import "MKTStubbedInvocationMatcher.h"
 
-#import "MKTReturns.h"
-
 
 @interface MKTStubbedInvocationMatcher ()
 @property (readonly, nonatomic, copy) NSMutableArray *answers;
@@ -21,10 +19,9 @@
     return self;
 }
 
-- (void)addAnswer:(id)answer
+- (void)addAnswer:(id <MKTAnswer>)answer
 {
-    MKTReturns *returns = [[MKTReturns alloc] initWithAnswer:answer];
-    [self.answers addObject:returns];
+    [self.answers addObject:answer];
 }
 
 - (id)answer

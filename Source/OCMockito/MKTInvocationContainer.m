@@ -5,6 +5,7 @@
 
 #import "MKTStubbedInvocationMatcher.h"
 #import "NSInvocation+OCMockito.h"
+#import "MKTAnswer.h"
 
 
 @interface MKTInvocationContainer ()
@@ -42,7 +43,7 @@
     [self.invocationForStubbing setMatcher:matcher atIndex:argumentIndex];
 }
 
-- (void)addAnswer:(id)answer
+- (void)addAnswer:(id <MKTAnswer>)answer
 {
     [_registeredInvocations removeLastObject];
 
