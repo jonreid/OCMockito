@@ -618,52 +618,11 @@
 		08BDD5B21350C59C00E5A443 /* OCMockito */ = {
 			isa = PBXGroup;
 			children = (
-				0827E83313526E7300C39A57 /* OCMockito.h */,
-				0827E83413526E7300C39A57 /* OCMockito.m */,
-				740018671A58E1E400E9AC92 /* MKTAnswer.h */,
-				BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */,
-				BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */,
-				08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */,
-				08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */,
-				BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */,
-				BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */,
-				638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */,
-				638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */,
-				085D2FB31351082800EBBE91 /* MKTObjectMock.h */,
-				085D2FB41351082800EBBE91 /* MKTObjectMock.m */,
-				08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */,
-				08E9DC221516738200BD7FB4 /* MKTObjectAndProtocolMock.m */,
-				085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */,
-				085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */,
-				0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */,
-				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
-				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
-				08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */,
-				0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */,
-				0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */,
-				0827E8461352B7BE00C39A57 /* MKTMockingProgress.h */,
-				0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */,
-				089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */,
-				089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */,
-				08E1E74E13633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h */,
-				740018611A58E1BD00E9AC92 /* MKTReturns.h */,
-				740018621A58E1BD00E9AC92 /* MKTReturns.m */,
-				08E1E748136289C70066B0C7 /* MKTStubbedInvocationMatcher.h */,
-				08E1E749136289C70066B0C7 /* MKTStubbedInvocationMatcher.m */,
-				0827E8641352C50400C39A57 /* MKTTestLocation.h */,
-				08068ED11505A59700FA2D8F /* MKTTestLocation.m */,
-				7400186A1A58E60200E9AC92 /* MKTThrowsException.h */,
-				7400186B1A58E60200E9AC92 /* MKTThrowsException.m */,
-				0827E8671352CC6400C39A57 /* MKTExactTimes.h */,
-				0827E8681352CC6400C39A57 /* MKTExactTimes.m */,
-				361533C4153F275800BB982B /* MKTAtLeastTimes.h */,
-				361533C5153F275800BB982B /* MKTAtLeastTimes.m */,
-				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
-				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
-				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
-				BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */,
-				BB33364DC41A888C0E0DA542 /* NSInvocation+OCMockito.m */,
+				740018731A58E89800E9AC92 /* Core */,
 				BB3338A6F173CED78B579087 /* Helpers */,
+				740018701A58E71D00E9AC92 /* Mocking */,
+				740018711A58E72500E9AC92 /* Stubbing */,
+				740018721A58E72D00E9AC92 /* Verifying */,
 			);
 			path = OCMockito;
 			sourceTree = "<group>";
@@ -671,30 +630,10 @@
 		08BDD5C31350C59C00E5A443 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				08C0A5A717FBDF6C00E76992 /* ArgumentCaptorTests.m */,
-				361533CB153F283800BB982B /* MKTAtLeastTimesTests.m */,
-				08C0A5AA17FD0DAA00E76992 /* MKTCapturingMatcherTests.m */,
-				638F68DC150FC3210081DEE6 /* MKTClassObjectMockTests.m */,
-				089A8C2213552DE7003E7D27 /* MKTObjectMockTests.m */,
-				08E9DC271516739A00BD7FB4 /* MKTObjectAndProtocolMockTests.m */,
-				085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */,
-				08F189FC135A6D1300F76379 /* MKTInvocationMatcherTests.m */,
-				08F189E21359661E00F76379 /* MKTMockingProgressTests.m */,
-				085CE8F1172A0D43004D070D /* BlockMatchingTests.m */,
-				08FD4B1E1509A6C40004E1FA /* MockTestCase.h */,
-				08FD4B1F1509A6C40004E1FA /* MockTestCase.m */,
-				085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */,
-				7411E69D192AD3D100084CC8 /* StubClassTests.m */,
-				089A8C3113555D0C003E7D27 /* StubObjectTests.m */,
-				08FD4B251509B8740004E1FA /* StubProtocolTests.m */,
-				08E9DC1B15163D4600BD7FB4 /* VerifyClassObjectTests.m */,
-				08FD4B221509A93B0004E1FA /* VerifyProtocolTests.m */,
-				085D2FB11351080400EBBE91 /* VerifyObjectTests.m */,
-				08E9DC2D1516777100BD7FB4 /* VerifyObjectAndProtocolTests.m */,
-				31DDC796F993495BFD892496 /* VerifyCountTimesTests.m */,
-				31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */,
-				31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */,
-				31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */,
+				740018771A58E99D00E9AC92 /* Core */,
+				740018761A58E95100E9AC92 /* Mocking */,
+				740018741A58E8EF00E9AC92 /* Stubbing */,
+				740018751A58E8F800E9AC92 /* Verifying */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -733,6 +672,131 @@
 				31DDC079EF920524F16F93F2 /* MKT_TPDWeakProxy.m */,
 			);
 			path = TPDWeakProxy;
+			sourceTree = "<group>";
+		};
+		740018701A58E71D00E9AC92 /* Mocking */ = {
+			isa = PBXGroup;
+			children = (
+				08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */,
+				08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */,
+				638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */,
+				638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */,
+				085D2FB31351082800EBBE91 /* MKTObjectMock.h */,
+				085D2FB41351082800EBBE91 /* MKTObjectMock.m */,
+				08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */,
+				08E9DC221516738200BD7FB4 /* MKTObjectAndProtocolMock.m */,
+				08E1E74E13633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h */,
+				085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */,
+				085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */,
+			);
+			name = Mocking;
+			sourceTree = "<group>";
+		};
+		740018711A58E72500E9AC92 /* Stubbing */ = {
+			isa = PBXGroup;
+			children = (
+				740018671A58E1E400E9AC92 /* MKTAnswer.h */,
+				089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */,
+				089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */,
+				740018611A58E1BD00E9AC92 /* MKTReturns.h */,
+				740018621A58E1BD00E9AC92 /* MKTReturns.m */,
+				7400186A1A58E60200E9AC92 /* MKTThrowsException.h */,
+				7400186B1A58E60200E9AC92 /* MKTThrowsException.m */,
+			);
+			name = Stubbing;
+			sourceTree = "<group>";
+		};
+		740018721A58E72D00E9AC92 /* Verifying */ = {
+			isa = PBXGroup;
+			children = (
+				BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */,
+				BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */,
+				361533C4153F275800BB982B /* MKTAtLeastTimes.h */,
+				361533C5153F275800BB982B /* MKTAtLeastTimes.m */,
+				BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */,
+				BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */,
+				0827E8671352CC6400C39A57 /* MKTExactTimes.h */,
+				0827E8681352CC6400C39A57 /* MKTExactTimes.m */,
+			);
+			name = Verifying;
+			sourceTree = "<group>";
+		};
+		740018731A58E89800E9AC92 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0827E83313526E7300C39A57 /* OCMockito.h */,
+				0827E83413526E7300C39A57 /* OCMockito.m */,
+				0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */,
+				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
+				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
+				08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */,
+				0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */,
+				0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */,
+				0827E8461352B7BE00C39A57 /* MKTMockingProgress.h */,
+				0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */,
+				08E1E748136289C70066B0C7 /* MKTStubbedInvocationMatcher.h */,
+				08E1E749136289C70066B0C7 /* MKTStubbedInvocationMatcher.m */,
+				0827E8641352C50400C39A57 /* MKTTestLocation.h */,
+				08068ED11505A59700FA2D8F /* MKTTestLocation.m */,
+				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
+				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
+				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
+				BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */,
+				BB33364DC41A888C0E0DA542 /* NSInvocation+OCMockito.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		740018741A58E8EF00E9AC92 /* Stubbing */ = {
+			isa = PBXGroup;
+			children = (
+				08C0A5A717FBDF6C00E76992 /* ArgumentCaptorTests.m */,
+				7411E69D192AD3D100084CC8 /* StubClassTests.m */,
+				089A8C3113555D0C003E7D27 /* StubObjectTests.m */,
+				08FD4B251509B8740004E1FA /* StubProtocolTests.m */,
+			);
+			name = Stubbing;
+			sourceTree = "<group>";
+		};
+		740018751A58E8F800E9AC92 /* Verifying */ = {
+			isa = PBXGroup;
+			children = (
+				361533CB153F283800BB982B /* MKTAtLeastTimesTests.m */,
+				08C0A5AA17FD0DAA00E76992 /* MKTCapturingMatcherTests.m */,
+				08FD4B1E1509A6C40004E1FA /* MockTestCase.h */,
+				08FD4B1F1509A6C40004E1FA /* MockTestCase.m */,
+				08E9DC1B15163D4600BD7FB4 /* VerifyClassObjectTests.m */,
+				08FD4B221509A93B0004E1FA /* VerifyProtocolTests.m */,
+				085D2FB11351080400EBBE91 /* VerifyObjectTests.m */,
+				08E9DC2D1516777100BD7FB4 /* VerifyObjectAndProtocolTests.m */,
+				31DDC796F993495BFD892496 /* VerifyCountTimesTests.m */,
+				31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */,
+				31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */,
+				31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */,
+			);
+			name = Verifying;
+			sourceTree = "<group>";
+		};
+		740018761A58E95100E9AC92 /* Mocking */ = {
+			isa = PBXGroup;
+			children = (
+				638F68DC150FC3210081DEE6 /* MKTClassObjectMockTests.m */,
+				089A8C2213552DE7003E7D27 /* MKTObjectMockTests.m */,
+				08E9DC271516739A00BD7FB4 /* MKTObjectAndProtocolMockTests.m */,
+				085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */,
+			);
+			name = Mocking;
+			sourceTree = "<group>";
+		};
+		740018771A58E99D00E9AC92 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				085CE8F1172A0D43004D070D /* BlockMatchingTests.m */,
+				08F189FC135A6D1300F76379 /* MKTInvocationMatcherTests.m */,
+				08F189E21359661E00F76379 /* MKTMockingProgressTests.m */,
+				085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		BB3337BC537B81F8BD1CFA74 /* ArgumentGetters */ = {
