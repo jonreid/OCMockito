@@ -296,7 +296,7 @@
 		BB333C34005EB2306795E562 /* MKTCapturingMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */; };
 		BB333C42DB017B89F113F330 /* MKTLongLongReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333D79A452FDAE6D88C9D7 /* MKTLongLongReturnSetter.h */; };
 		BB333C4CD6C3A84BE24F6E23 /* MKTLongLongArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33398D04756B504E6D603E /* MKTLongLongArgumentGetter.h */; };
-		BB333C4EF1FE02209FD55817 /* NSInvocation+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */; };
+		BB333C4EF1FE02209FD55817 /* NSInvocation+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB333C515BD2EC5BB5150BDC /* MKTShortReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333A79ED41CA335A3524D0 /* MKTShortReturnSetter.m */; };
 		BB333C68932C7366C594C15D /* MKTReturnValueSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3332B1D4EE9B19FE9E12B3 /* MKTReturnValueSetter.m */; };
 		BB333C984F7A477E85618DD0 /* MKTUnsignedLongArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333E7ACE4D4E07C66C6280 /* MKTUnsignedLongArgumentGetter.m */; };
@@ -331,7 +331,7 @@
 		BB333E5C9685C25DF71DDB5E /* MKTBoolArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333960BC18CA8AC49E35D1 /* MKTBoolArgumentGetter.h */; };
 		BB333E9947ADCDE6AF6F9D2F /* MKTArgumentGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333EBDCB5F4E5828CCD98E /* MKTArgumentGetter.m */; };
 		BB333EF99BA39A53A2F70A53 /* MKTCapturingMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */; };
-		BB333F04719B4E40829FB969 /* NSInvocation+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */; };
+		BB333F04719B4E40829FB969 /* NSInvocation+OCMockito.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB333F0B0F5EE9DBF6A2FD29 /* MKTBoolReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333B0BFA1B962C5CDC2496 /* MKTBoolReturnSetter.m */; };
 		BB333F2EAC61CD6B64236C54 /* MKTFloatReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333E8595B1FA8E60A219D4 /* MKTFloatReturnSetter.h */; };
 		BB333F44DCE6C43C7A2B53C6 /* MKTObjectReturnSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB333D480CE6F4751101BC1E /* MKTObjectReturnSetter.m */; };
