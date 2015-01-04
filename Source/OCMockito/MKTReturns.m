@@ -18,7 +18,7 @@
     return self;
 }
 
-- (id)answer
+- (id)answerInvocation:(NSInvocation *)invocation
 {
     return self.value;
 }

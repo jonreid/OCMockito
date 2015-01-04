@@ -24,13 +24,13 @@
     [self.answers addObject:answer];
 }
 
-- (id)answer
+- (id)answerInvocation:(NSInvocation *)invocation
 {
     id <MKTAnswer> a = self.answers[self.index];
     NSUInteger bumpedIndex = self.index + 1;
     if (bumpedIndex < self.answers.count)
         self.index = bumpedIndex;
-    return [a answer];
+    return [a answerInvocation:nil];
 }
 
 @end

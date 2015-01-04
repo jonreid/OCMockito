@@ -4,6 +4,8 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
+#import "NSInvocation+OCMockito.h"
+
 // Test support
 #import <SenTestingKit/SenTestingKit.h>
 
@@ -398,6 +400,15 @@ static inline double *createArrayOf10Doubles(void)
 
     assertThat(^{ [self->mockObject methodReturningObject]; },
                throwsException(sameInstance(exception)));
+}
+
+- (void)testStubbingWithBlock_ShouldReturnWhatBlockReturns
+{
+    [given([mockObject methodReturningObject]) willDo:^id (NSInvocation *invocation){
+        return @"FOO";
+    }];
+
+    assertThat([mockObject methodReturningObject], is(@"FOO"));
 }
 
 @end

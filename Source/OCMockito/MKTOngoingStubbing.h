@@ -72,5 +72,13 @@
 /// Sets a @c double to be returned when the method is called.
 - (MKTOngoingStubbing *)willReturnDouble:(double)value;
 
+/// Sets @c NSException to be thrown when the method is called.
 - (MKTOngoingStubbing *)willThrow:(NSException *)exception;
+
+/** Sets block to be executed when the method is called.
+
+ The return value of block is returned when the method is called.
+ */
+- (MKTOngoingStubbing *)willDo:(id (^)(NSInvocation *))block;
+
 @end

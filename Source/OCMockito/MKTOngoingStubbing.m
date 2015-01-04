@@ -7,6 +7,7 @@
 #import "MKTInvocationContainer.h"
 #import "MKTReturns.h"
 #import "MKTThrowsException.h"
+#import "MKTExecutesBlock.h"
 
 
 @interface MKTOngoingStubbing ()
@@ -147,6 +148,13 @@
 {
     MKTThrowsException *throwsException = [[MKTThrowsException alloc] initWithException:exception];
     [self.invocationContainer addAnswer:throwsException];
+    return self;
+}
+
+- (MKTOngoingStubbing *)willDo:(id (^)(NSInvocation *))block
+{
+    MKTExecutesBlock *executesBlock = [[MKTExecutesBlock alloc] initWithBlock:block];
+    [self.invocationContainer addAnswer:executesBlock];
     return self;
 }
 

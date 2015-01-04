@@ -6,6 +6,6 @@
 
 @protocol MKTAnswer <NSObject>
 
-- (id)answer;
+- (id)answerInvocation:(NSInvocation *)invocation;
 
 @end
