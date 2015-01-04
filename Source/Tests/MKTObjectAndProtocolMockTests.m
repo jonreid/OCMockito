@@ -95,14 +95,14 @@
 
 - (void)testShouldRespondToKnownSelector
 {
-    assertThatBool([mock respondsToSelector:@selector(instanceMethod)], equalToBool(YES));
+    assertThatBool([mock respondsToSelector:@selector(instanceMethod)], isTrue());
 }
 
 - (void)testShouldNotRespondToUnknownSelector
 {
     SEL sel = @selector(objectAtIndex:);
 
-    assertThatBool([mock respondsToSelector:sel], equalToBool(NO));
+    assertThatBool([mock respondsToSelector:sel], isFalse());
 }
 
 - (void)testShouldAnswerSameMethodSignatureForRequiredSelectorAsRealImplementer
