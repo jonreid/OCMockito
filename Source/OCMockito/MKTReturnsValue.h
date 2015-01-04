@@ -4,8 +4,8 @@
 #import "MKTAnswer.h"
 
 
-@interface MKTReturns : NSObject <MKTAnswer>
+@interface MKTReturnsValue : NSObject <MKTAnswer>
 
-- (instancetype)initWithAnswer:(id)answer;
+- (instancetype)initWithValue:(id)value;
 
 @end

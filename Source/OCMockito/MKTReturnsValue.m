@@ -1,20 +1,20 @@
 //  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
-#import "MKTReturns.h"
+#import "MKTReturnsValue.h"
 
 
-@interface MKTReturns ()
+@interface MKTReturnsValue ()
 @property (readonly, nonatomic, strong) id value;
 @end
 
-@implementation MKTReturns
+@implementation MKTReturnsValue
 
-- (instancetype)initWithAnswer:(id)answer
+- (instancetype)initWithValue:(id)value
 {
     self = [super init];
     if (self)
-        _value = answer;
+        _value = value;
     return self;
 }
 

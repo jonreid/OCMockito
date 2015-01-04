@@ -105,10 +105,10 @@
 		638F68D8150FC21A0081DEE6 /* MKTClassObjectMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		638F68D9150FC21A0081DEE6 /* MKTClassObjectMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */; };
 		638F68DA150FC21A0081DEE6 /* MKTClassObjectMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */; };
-		740018631A58E1BD00E9AC92 /* MKTReturns.h in Headers */ = {isa = PBXBuildFile; fileRef = 740018611A58E1BD00E9AC92 /* MKTReturns.h */; };
-		740018641A58E1BD00E9AC92 /* MKTReturns.h in Headers */ = {isa = PBXBuildFile; fileRef = 740018611A58E1BD00E9AC92 /* MKTReturns.h */; };
-		740018651A58E1BD00E9AC92 /* MKTReturns.m in Sources */ = {isa = PBXBuildFile; fileRef = 740018621A58E1BD00E9AC92 /* MKTReturns.m */; };
-		740018661A58E1BD00E9AC92 /* MKTReturns.m in Sources */ = {isa = PBXBuildFile; fileRef = 740018621A58E1BD00E9AC92 /* MKTReturns.m */; };
+		740018631A58E1BD00E9AC92 /* MKTReturnsValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 740018611A58E1BD00E9AC92 /* MKTReturnsValue.h */; };
+		740018641A58E1BD00E9AC92 /* MKTReturnsValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 740018611A58E1BD00E9AC92 /* MKTReturnsValue.h */; };
+		740018651A58E1BD00E9AC92 /* MKTReturnsValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 740018621A58E1BD00E9AC92 /* MKTReturnsValue.m */; };
+		740018661A58E1BD00E9AC92 /* MKTReturnsValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 740018621A58E1BD00E9AC92 /* MKTReturnsValue.m */; };
 		740018681A58E1E400E9AC92 /* MKTAnswer.h in Headers */ = {isa = PBXBuildFile; fileRef = 740018671A58E1E400E9AC92 /* MKTAnswer.h */; };
 		740018691A58E1E400E9AC92 /* MKTAnswer.h in Headers */ = {isa = PBXBuildFile; fileRef = 740018671A58E1E400E9AC92 /* MKTAnswer.h */; };
 		7400186C1A58E60200E9AC92 /* MKTThrowsException.h in Headers */ = {isa = PBXBuildFile; fileRef = 7400186A1A58E60200E9AC92 /* MKTThrowsException.h */; };
@@ -445,8 +445,8 @@
 		638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTClassObjectMock.h; sourceTree = "<group>"; };
 		638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMock.m; sourceTree = "<group>"; };
 		638F68DC150FC3210081DEE6 /* MKTClassObjectMockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMockTests.m; sourceTree = "<group>"; };
-		740018611A58E1BD00E9AC92 /* MKTReturns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTReturns.h; sourceTree = "<group>"; };
-		740018621A58E1BD00E9AC92 /* MKTReturns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTReturns.m; sourceTree = "<group>"; };
+		740018611A58E1BD00E9AC92 /* MKTReturnsValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTReturnsValue.h; sourceTree = "<group>"; };
+		740018621A58E1BD00E9AC92 /* MKTReturnsValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTReturnsValue.m; sourceTree = "<group>"; };
 		740018671A58E1E400E9AC92 /* MKTAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAnswer.h; sourceTree = "<group>"; };
 		7400186A1A58E60200E9AC92 /* MKTThrowsException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTThrowsException.h; sourceTree = "<group>"; };
 		7400186B1A58E60200E9AC92 /* MKTThrowsException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTThrowsException.m; sourceTree = "<group>"; };
@@ -706,8 +706,8 @@
 				748491911A5919EC006A7579 /* MKTExecutesBlock.m */,
 				089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */,
 				089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */,
-				740018611A58E1BD00E9AC92 /* MKTReturns.h */,
-				740018621A58E1BD00E9AC92 /* MKTReturns.m */,
+				740018611A58E1BD00E9AC92 /* MKTReturnsValue.h */,
+				740018621A58E1BD00E9AC92 /* MKTReturnsValue.m */,
 				7400186A1A58E60200E9AC92 /* MKTThrowsException.h */,
 				7400186B1A58E60200E9AC92 /* MKTThrowsException.m */,
 			);
@@ -971,7 +971,7 @@
 				BB333C2541A0F4B58718EF5E /* MKTObjectReturnSetter.h in Headers */,
 				BB33394E23B42337471865C6 /* MKTReturnValueSetter.h in Headers */,
 				BB333CDC8F628FBBB28F0404 /* MKTReturnValueSetterChain.h in Headers */,
-				740018641A58E1BD00E9AC92 /* MKTReturns.h in Headers */,
+				740018641A58E1BD00E9AC92 /* MKTReturnsValue.h in Headers */,
 				BB33337A6EDB05791FD1E02C /* MKTShortReturnSetter.h in Headers */,
 				BB33357CAF28AB8D9B8C58EC /* MKTUnsignedCharReturnSetter.h in Headers */,
 				BB333A9458B5041E979EE851 /* MKTUnsignedIntReturnSetter.h in Headers */,
@@ -1044,7 +1044,7 @@
 				BB333B16B6F3C98AC641A080 /* MKTObjectReturnSetter.h in Headers */,
 				BB3338ACC251FB1DE5705B0E /* MKTReturnValueSetter.h in Headers */,
 				BB333056CD041DF834D427F2 /* MKTReturnValueSetterChain.h in Headers */,
-				740018631A58E1BD00E9AC92 /* MKTReturns.h in Headers */,
+				740018631A58E1BD00E9AC92 /* MKTReturnsValue.h in Headers */,
 				BB333E4429BC9AD0FE60DCBC /* MKTShortReturnSetter.h in Headers */,
 				BB333C9DF4F64FE856BF4426 /* MKTUnsignedCharReturnSetter.h in Headers */,
 				BB3337E38EA3C5888A2624DB /* MKTUnsignedIntReturnSetter.h in Headers */,
@@ -1304,7 +1304,7 @@
 				BB3335CE408A642021E19B99 /* MKTClassReturnSetter.m in Sources */,
 				BB333431FD18226C2F11D570 /* MKTDoubleReturnSetter.m in Sources */,
 				BB333224E49564F236592170 /* MKTFloatReturnSetter.m in Sources */,
-				740018661A58E1BD00E9AC92 /* MKTReturns.m in Sources */,
+				740018661A58E1BD00E9AC92 /* MKTReturnsValue.m in Sources */,
 				BB333CF36976ED4E40B6AE93 /* MKTIntReturnSetter.m in Sources */,
 				748491951A5919EC006A7579 /* MKTExecutesBlock.m in Sources */,
 				BB3337E28DF96A6C5D7363C1 /* MKTLongLongReturnSetter.m in Sources */,
@@ -1374,7 +1374,7 @@
 				BB333D3C32794AF7B3424283 /* MKTClassReturnSetter.m in Sources */,
 				BB333071B9B36D66AB7C7D00 /* MKTDoubleReturnSetter.m in Sources */,
 				BB333ABB8BD2C2FE6BBBB4F2 /* MKTFloatReturnSetter.m in Sources */,
-				740018651A58E1BD00E9AC92 /* MKTReturns.m in Sources */,
+				740018651A58E1BD00E9AC92 /* MKTReturnsValue.m in Sources */,
 				BB3336390879927E5421BA3E /* MKTIntReturnSetter.m in Sources */,
 				748491941A5919EC006A7579 /* MKTExecutesBlock.m in Sources */,
 				BB333CA3C0C7DE9DCAF50348 /* MKTLongLongReturnSetter.m in Sources */,
