@@ -1,5 +1,6 @@
-NEXT VERSION
-------------
+Version 1.4.0
+-------------
+_04 Jan 2015_
 
 **Features:**
 
