@@ -5,7 +5,6 @@
 
 #import "MKTStubbedInvocationMatcher.h"
 #import "NSInvocation+OCMockito.h"
-#import "MKTAnswer.h"
 
 
 @interface MKTInvocationContainer ()
