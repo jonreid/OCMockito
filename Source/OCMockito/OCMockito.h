@@ -76,8 +76,8 @@
 #endif
 
 
-FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
-#define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
+FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)());
+#define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, ^{ methodCall; })
 
 /**
  Enables method stubbing.
