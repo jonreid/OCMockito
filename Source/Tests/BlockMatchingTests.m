@@ -42,16 +42,16 @@
 
 - (void)testMethodWithBlockArg_WithNilValueMatcher_ShouldMatchNil
 {
-    [given([obj doBlock:(id)nilValue()]) willReturn:@"match nil"];
-    [given([obj doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
+    [given([self->obj doBlock:(id)nilValue()]) willReturn:@"match nil"];
+    [given([self->obj doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
 
     assertThat([obj doBlock:nil], is(@"match nil"));
 }
 
 - (void)testMethodWithBlockArg_WithNotNilValueMatcher_ShouldMatchBlock
 {
-    [given([obj doBlock:(id)nilValue()]) willReturn:@"match nil"];
-    [given([obj doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
+    [given([self->obj doBlock:(id)nilValue()]) willReturn:@"match nil"];
+    [given([self->obj doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
 
     NSString *(^anyBlock)() = ^NSString *{ return nil; };
 
