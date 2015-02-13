@@ -6,7 +6,7 @@
 #import "MKTVerificationMode.h"
 
 
-@interface MKTLessThanTimes : NSObject <MKTVerificationMode>
+@interface MKTAtMostTimes : NSObject <MKTVerificationMode>
 
 - (instancetype)initWithMaximumCount:(NSUInteger)maxNumberOfInvocations;
 

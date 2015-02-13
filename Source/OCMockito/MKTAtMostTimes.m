@@ -2,15 +2,15 @@
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 //  Contribution by Emile Cantin
 
-#import "MKTLessThanTimes.h"
+#import "MKTAtMostTimes.h"
 #import "MKTVerificationData.h"
 
 
-@interface MKTLessThanTimes ()
+@interface MKTAtMostTimes ()
 @property (readonly, nonatomic, assign) NSUInteger wantedCount;
 @end
 
-@implementation MKTLessThanTimes
+@implementation MKTAtMostTimes
 
 - (instancetype)initWithMaximumCount:(NSUInteger)maxNumberOfInvocations
 {
