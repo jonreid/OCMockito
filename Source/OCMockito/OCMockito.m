@@ -35,7 +35,12 @@ static BOOL reportedInvalidMock(id mock, id testCase, const char *fileName, int 
     return YES;
 }
 
-MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)())
+MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
+{
+    return [[MKTMockitoCore sharedCore] stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
+}
+
+MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)())
 {
     methodCallWrapper();
     return [[MKTMockitoCore sharedCore] stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];

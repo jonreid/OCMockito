@@ -427,9 +427,9 @@ static inline double *createArrayOf10Doubles(void)
 
 - (void)testStubbingWithBlock_shouldAllowMethodsWithoutReturnValue
 {
-    // this test verifies that given([self->mockObject methodReturningNothing]) is not a compiler error
+    // this test verifies that givenVoid([self->mockObject methodReturningNothing]) is not a compiler error
     
-    [given([self->mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
+    [givenVoid([self->mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
         return nil;
     }];
     
@@ -439,7 +439,7 @@ static inline double *createArrayOf10Doubles(void)
 - (void)testStubbingWithBlock_shouldPerformSideEffects
 {
     __block NSUInteger counter = 0;
-    [given([self->mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
+    [givenVoid([self->mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
         ++counter;
         return nil;
     }];

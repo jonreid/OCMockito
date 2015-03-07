@@ -76,8 +76,8 @@
 #endif
 
 
-FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)());
-#define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, ^{ methodCall; })
+FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
+#define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
 
 /**
  Enables method stubbing.
@@ -88,12 +88,36 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
  @li @ref [given([mockObject methodReturningString]) willReturn:@"foo"];
 
  See @ref MKTOngoingStubbing for other methods to stub different types of return values.
+ 
+ See @ref givenVoid for stubbing methods retuning void.
 
  (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
  @c MKTGiven instead.)
  */
 #ifdef MOCKITO_SHORTHAND
     #define given(methodCall) MKTGiven(methodCall)
+#endif
+
+
+FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)());
+#define MKTGivenVoid(methodCall) MKTGivenVoidWithLocation(self, __FILE__, __LINE__, ^{ methodCall; })
+
+/**
+ Enables method stubbing of methods returning @c void.
+
+ Use @c givenVoid in combination with @c willDo: when you want the mock to execute particular
+ code when particular method is called.
+
+ Example:
+ @li @ref [givenVoid([mockObject methodReturningVoid]) willDo:^{ magic(); }];
+
+ See @ref given for stubbing non-void methods in order to return a particular value.
+
+ (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+ @c MKTGiven instead.)
+ */
+#ifdef MOCKITO_SHORTHAND
+    #define givenVoid(methodCall) MKTGivenVoid(methodCall)
 #endif
 
 
