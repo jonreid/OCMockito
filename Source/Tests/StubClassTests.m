@@ -36,7 +36,7 @@
 
 - (void)testStubbedMethod_ShouldReturnGivenObject
 {
-    [given([self->mockClass methodReturningObject]) willReturn:@"STUBBED"];
+    [given([mockClass methodReturningObject]) willReturn:@"STUBBED"];
 
     assertThat([mockClass methodReturningObject], is(@"STUBBED"));
 }
