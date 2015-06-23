@@ -40,6 +40,12 @@ MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int 
     return [[MKTMockitoCore sharedCore] stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
+MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)())
+{
+    methodCallWrapper();
+    return [[MKTMockitoCore sharedCore] stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
+}
+
 id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
     if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"verify()"))

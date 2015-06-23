@@ -39,6 +39,8 @@ static inline double *createArrayOf10Doubles(void)
 
 @implementation ReturningObject
 
+- (void)methodReturningNothing {}
+
 - (id)methodReturningObject { return self; }
 - (Class)methodReturningClass { return [self class]; }
 - (Class)methodReturningClassWithClassArg:(Class)arg { return [self class]; }
@@ -421,6 +423,29 @@ static inline double *createArrayOf10Doubles(void)
 
     assertThat([mockObject methodReturningObjectWithArg:@2], is(@4));
     assertThat([mockObject methodReturningObjectWithArg:@3], is(@6));
+}
+
+- (void)testStubbingWithBlock_shouldAllowMethodsWithoutReturnValue
+{
+    // this test verifies that givenVoid([self->mockObject methodReturningNothing]) is not a compiler error
+    
+    [givenVoid([self->mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
+        return nil;
+    }];
+    
+    [mockObject methodReturningNothing];
+}
+
+- (void)testStubbingWithBlock_shouldPerformSideEffects
+{
+    __block NSUInteger counter = 0;
+    [givenVoid([self->mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
+        ++counter;
+        return nil;
+    }];
+    
+    [mockObject methodReturningNothing];
+    assertThat(@(counter), is(@1));
 }
 
 @end
