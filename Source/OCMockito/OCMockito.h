@@ -249,6 +249,25 @@ FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minNumberOfInvocations);
     #define atLeast(minNumberOfInvocations) MKTAtLeast(minNumberOfInvocations)
 #endif
 
+FOUNDATION_EXPORT id MKTAtMost(NSUInteger maxNumberOfInvocations);
+
+/**
+ Verifies maximum number of invocations.
+ 
+ The verification will succeed if the specified invocation happened the number of times
+ specified or less.
+ 
+ Example:
+ @code
+ [verifyCount(mockObject, atMost(2)) someMethod:@"some arg"];
+ @endcode
+ 
+ (In the event of a name clash, don't \#define @c MOCKITO_SHORTHAND and use the synonym
+ @c MKTAtLeast instead.)
+ */
+#ifdef MOCKITO_SHORTHAND
+    #define atMost(maxNumberOfInvocations) MKTAtMost(maxNumberOfInvocations)
+#endif
 
 FOUNDATION_EXPORT id MKTAtLeastOnce(void);
 

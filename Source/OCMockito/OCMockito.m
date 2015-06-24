@@ -4,6 +4,7 @@
 #import "OCMockito.h"
 
 #import "MKTAtLeastTimes.h"
+#import "MKTAtMostTimes.h"
 #import "MKTExactTimes.h"
 #import "MKTMockitoCore.h"
 
@@ -82,4 +83,9 @@ id MKTAtLeast(NSUInteger minNumberOfInvocations)
 id MKTAtLeastOnce()
 {
     return MKTAtLeast(1);
+}
+
+id MKTAtMost(NSUInteger maxNumberOfInvocations)
+{
+    return [[MKTAtMostTimes alloc] initWithMaximumCount:maxNumberOfInvocations];
 }
