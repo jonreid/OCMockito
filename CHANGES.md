@@ -4,6 +4,7 @@ NEXT VERSION
 **Features:**
 
 - Stub void methods with `givenVoid(…)`. _Thanks to: Lysann Schlegel_
+- Added `atMost(count)` for `verifyCount()`. _Thanks to: Emile Cantin_
 
 
 Version 1.4.0

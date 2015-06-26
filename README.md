@@ -283,9 +283,10 @@ Verifying exact number of invocations / at least x / never
 // verify using never(), which is an alias for times(0)
 [verifyCount(mockArray, never()) addObject:@"never happened"];
 
-// verify using atLeast
+// verify using atLeast()/atMost()
 [verifyCount(mockArray, atLeastOnce()) addObject:@"at least once"];
 [verifyCount(mockArray, atLeast(2)) addObject:@"at least twice"];
+[verifyCount(mockArray, atMost(5)) addObject:@"at most five times"];
 ```
 
 
