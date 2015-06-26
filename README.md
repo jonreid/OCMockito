@@ -352,6 +352,8 @@ arguments. Whatever the block returns will be used as the stubbed return value.
 NSLog(@"%@", [mockObject someMethod:@2]);
 ```
 
+You can stub a void method with a block by using `givenVoid` instead of `given`.
+
 
 Fixing retain cycles
 --------------------

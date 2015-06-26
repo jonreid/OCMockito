@@ -401,7 +401,7 @@ static inline double *createArrayOf10Doubles(void)
     NSException *exception = [NSException exceptionWithName:nil reason:nil userInfo:nil];
     [given([mockObject methodReturningObject]) willThrow:exception];
 
-    assertThat(^{ [self->mockObject methodReturningObject]; },
+    assertThat(^{ [mockObject methodReturningObject]; },
                throwsException(sameInstance(exception)));
 }
 
@@ -425,26 +425,16 @@ static inline double *createArrayOf10Doubles(void)
     assertThat([mockObject methodReturningObjectWithArg:@3], is(@6));
 }
 
-- (void)testStubbingWithBlock_shouldAllowMethodsWithoutReturnValue
-{
-    // this test verifies that givenVoid([self->mockObject methodReturningNothing]) is not a compiler error
-    
-    [givenVoid([self->mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
-        return nil;
-    }];
-    
-    [mockObject methodReturningNothing];
-}
-
-- (void)testStubbingWithBlock_shouldPerformSideEffects
+- (void)testStubbingWithBlock_OnMethodWithoutReturnValue_ShouldPerformSideEffects
 {
     __block NSUInteger counter = 0;
-    [givenVoid([self->mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
+    [givenVoid([mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
         ++counter;
         return nil;
     }];
-    
+
     [mockObject methodReturningNothing];
+
     assertThat(@(counter), is(@1));
 }
 

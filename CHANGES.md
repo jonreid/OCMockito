@@ -1,3 +1,11 @@
+NEXT VERSION
+------------
+
+**Features:**
+
+- Stub void methods with `givenVoid(…)`. _Thanks to: Lysann Schlegel_
+
+
 Version 1.4.0
 -------------
 _04 Jan 2015_
@@ -6,7 +14,7 @@ _04 Jan 2015_
 
 - Stub sequential returns by chaining `willReturn:`.
 - Stub throwing exceptions with `willThrow:`.
-- Stub execution of a block with `willDo:`. 
+- Stub execution of a block with `willDo:`.
 - Added support for dynamic properties. _Thanks to Eugen Martynov for example code_
 - Added `mockProtocolWithoutOptionals(…)` which mocks an object implementing a given protocol, but
   without mocking any optional methods. _Thanks to: Paweł Dudek_
