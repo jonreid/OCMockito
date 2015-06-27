@@ -399,9 +399,10 @@ static inline double *createArrayOf10Doubles(void)
 - (void)testStubbingThrow_ShouldThrow
 {
     NSException *exception = [NSException exceptionWithName:nil reason:nil userInfo:nil];
-    [given([mockObject methodReturningObject]) willThrow:exception];
+    ReturningObject *mockObj = mockObject;
+    [given([mockObj methodReturningObject]) willThrow:exception];
 
-    assertThat(^{ [mockObject methodReturningObject]; },
+    assertThat(^{ [mockObj methodReturningObject]; },
                throwsException(sameInstance(exception)));
 }
 
@@ -428,12 +429,13 @@ static inline double *createArrayOf10Doubles(void)
 - (void)testStubbingWithBlock_OnMethodWithoutReturnValue_ShouldPerformSideEffects
 {
     __block NSUInteger counter = 0;
-    [givenVoid([mockObject methodReturningNothing]) willDo:^id (NSInvocation *invocation){
+    ReturningObject *mockObj = mockObject;
+    [givenVoid([mockObj methodReturningNothing]) willDo:^id (NSInvocation *invocation){
         ++counter;
         return nil;
     }];
 
-    [mockObject methodReturningNothing];
+    [mockObj methodReturningNothing];
 
     assertThat(@(counter), is(@1));
 }
