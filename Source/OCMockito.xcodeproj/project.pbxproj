@@ -439,13 +439,13 @@
 		2AD030D51A8E4D7E001B43DC /* MKTAtMostTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtMostTimes.m; sourceTree = "<group>"; };
 		2AD030DA1A8E4EA0001B43DC /* VerifyCountAtMostTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountAtMostTimesTests.m; sourceTree = "<group>"; };
 		31DDC079EF920524F16F93F2 /* MKT_TPDWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKT_TPDWeakProxy.m; sourceTree = "<group>"; };
-		31DDC32AF5BDFD1D3CFA8047 /* MKTDynamicProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTDynamicProperties.h; sourceTree = "<group>"; };
+		31DDC32AF5BDFD1D3CFA8047 /* MKTDynamicProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKTDynamicProperties.h; path = Helpers/MKTDynamicProperties.h; sourceTree = "<group>"; };
 		31DDC358ECB610A3EEDF1DA9 /* MKT_TPDWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKT_TPDWeakProxy.h; sourceTree = "<group>"; };
 		31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStructReturnSetter.h; sourceTree = "<group>"; };
 		31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStructReturnSetter.m; sourceTree = "<group>"; };
 		31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountAtLeastTimesTests.m; sourceTree = "<group>"; };
 		31DDC796F993495BFD892496 /* VerifyCountTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountTimesTests.m; sourceTree = "<group>"; };
-		31DDC83D2A47C02EB9070523 /* MKTDynamicProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTDynamicProperties.m; sourceTree = "<group>"; };
+		31DDC83D2A47C02EB9070523 /* MKTDynamicProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKTDynamicProperties.m; path = Helpers/MKTDynamicProperties.m; sourceTree = "<group>"; };
 		31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountNeverTests.m; sourceTree = "<group>"; };
 		31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyProgrammerErrorTests.m; sourceTree = "<group>"; };
 		361533C4153F275800BB982B /* MKTAtLeastTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAtLeastTimes.h; sourceTree = "<group>"; };
@@ -635,6 +635,8 @@
 			children = (
 				740018731A58E89800E9AC92 /* Core */,
 				BB3338A6F173CED78B579087 /* Helpers */,
+				0E2AF2441B3E1B920031E201 /* Invocation */,
+				0E2AF2451B3E1C080031E201 /* Matchers */,
 				740018701A58E71D00E9AC92 /* Mocking */,
 				740018711A58E72500E9AC92 /* Stubbing */,
 				740018721A58E72D00E9AC92 /* Verifying */,
@@ -662,6 +664,28 @@
 				08BED0811350DE4900CCBF76 /* Tests-Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0E2AF2441B3E1B920031E201 /* Invocation */ = {
+			isa = PBXGroup;
+			children = (
+				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
+				08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */,
+				BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */,
+				BB33364DC41A888C0E0DA542 /* NSInvocation+OCMockito.m */,
+			);
+			name = Invocation;
+			sourceTree = "<group>";
+		};
+		0E2AF2451B3E1C080031E201 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */,
+				BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */,
+				BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */,
+				BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */,
+			);
+			name = Matchers;
 			sourceTree = "<group>";
 		};
 		31DDC3D6375FBF130E53553B /* TPDWeakProxy-1.1.0 */ = {
@@ -696,6 +720,8 @@
 				08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */,
 				638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */,
 				638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */,
+				31DDC32AF5BDFD1D3CFA8047 /* MKTDynamicProperties.h */,
+				31DDC83D2A47C02EB9070523 /* MKTDynamicProperties.m */,
 				085D2FB31351082800EBBE91 /* MKTObjectMock.h */,
 				085D2FB41351082800EBBE91 /* MKTObjectMock.m */,
 				08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */,
@@ -713,10 +739,14 @@
 				740018671A58E1E400E9AC92 /* MKTAnswer.h */,
 				748491901A5919EC006A7579 /* MKTExecutesBlock.h */,
 				748491911A5919EC006A7579 /* MKTExecutesBlock.m */,
+				0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */,
+				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
 				089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */,
 				089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */,
 				740018611A58E1BD00E9AC92 /* MKTReturnsValue.h */,
 				740018621A58E1BD00E9AC92 /* MKTReturnsValue.m */,
+				08E1E748136289C70066B0C7 /* MKTStubbedInvocationMatcher.h */,
+				08E1E749136289C70066B0C7 /* MKTStubbedInvocationMatcher.m */,
 				7400186A1A58E60200E9AC92 /* MKTThrowsException.h */,
 				7400186B1A58E60200E9AC92 /* MKTThrowsException.m */,
 			);
@@ -726,16 +756,15 @@
 		740018721A58E72D00E9AC92 /* Verifying */ = {
 			isa = PBXGroup;
 			children = (
-				BB33338EB72A442ED6C94F84 /* MKTArgumentCaptor.h */,
-				BB33388DA6D7EA90B1B5897C /* MKTArgumentCaptor.m */,
 				361533C4153F275800BB982B /* MKTAtLeastTimes.h */,
 				361533C5153F275800BB982B /* MKTAtLeastTimes.m */,
 				2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */,
 				2AD030D51A8E4D7E001B43DC /* MKTAtMostTimes.m */,
-				BB33384612B12F9C14B9CA07 /* MKTCapturingMatcher.h */,
-				BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */,
 				0827E8671352CC6400C39A57 /* MKTExactTimes.h */,
 				0827E8681352CC6400C39A57 /* MKTExactTimes.m */,
+				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
+				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
+				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
 			);
 			name = Verifying;
 			sourceTree = "<group>";
@@ -745,23 +774,12 @@
 			children = (
 				0827E83313526E7300C39A57 /* OCMockito.h */,
 				0827E83413526E7300C39A57 /* OCMockito.m */,
-				0827E8701353EAD900C39A57 /* MKTInvocationContainer.h */,
-				0827E8711353EAD900C39A57 /* MKTInvocationContainer.m */,
-				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
-				08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */,
 				0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */,
 				0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */,
-				0827E8461352B7BE00C39A57 /* MKTMockingProgress.h */,
-				0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */,
-				08E1E748136289C70066B0C7 /* MKTStubbedInvocationMatcher.h */,
-				08E1E749136289C70066B0C7 /* MKTStubbedInvocationMatcher.m */,
 				0827E8641352C50400C39A57 /* MKTTestLocation.h */,
 				08068ED11505A59700FA2D8F /* MKTTestLocation.m */,
-				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
-				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
-				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
-				BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */,
-				BB33364DC41A888C0E0DA542 /* NSInvocation+OCMockito.m */,
+				0827E8461352B7BE00C39A57 /* MKTMockingProgress.h */,
+				0827E8471352B7BF00C39A57 /* MKTMockingProgress.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -873,8 +891,6 @@
 			children = (
 				BB3337BC537B81F8BD1CFA74 /* ArgumentGetters */,
 				BB333C25372397D3115556C6 /* ReturnValueSetters */,
-				31DDC83D2A47C02EB9070523 /* MKTDynamicProperties.m */,
-				31DDC32AF5BDFD1D3CFA8047 /* MKTDynamicProperties.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
