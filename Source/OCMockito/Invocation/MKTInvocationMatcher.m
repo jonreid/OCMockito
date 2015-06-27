@@ -18,7 +18,7 @@
 {
     static MKTUnspecifiedArgumentPlaceholder *instance = nil;
     if (!instance)
-        instance = [[[self class] alloc] init];
+        instance = [[self alloc] init];
     return instance;
 }
 
