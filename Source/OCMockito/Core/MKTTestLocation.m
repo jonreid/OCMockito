@@ -4,8 +4,8 @@
 #import "MKTTestLocation.h"
 
 #import <OCHamcrest/HCTestFailure.h>
-#import <OCHamcrest/HCTestFailureHandler.h>
-#import <OCHamcrest/HCTestFailureHandlerChain.h>
+#import <OCHamcrest/HCTestFailureReporter.h>
+#import <OCHamcrest/HCTestFailureReporterChain.h>
 
 void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description)
 {
@@ -13,8 +13,8 @@ void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *de
                                                             fileName:[NSString stringWithUTF8String:fileName]
                                                           lineNumber:(NSUInteger)lineNumber
                                                               reason:description];
-    HCTestFailureHandler *chain = HC_testFailureHandlerChain();
-    [chain handleFailure:failure];
+    HCTestFailureReporter *failureReporter = [HCTestFailureReporterChain reporterChain];
+    [failureReporter handleFailure:failure];
 }
 
 void MKTFailTestLocation(MKTTestLocation testLocation, NSString *description)

@@ -44,7 +44,7 @@
 
     [invocation mkt_retainArgumentsWithWeakTarget];
 
-    assertThat([invocation target], hasDescription(containsString(@"WeakProxy")));
+    assertThat([invocation target], hasDescription(containsSubstring(@"WeakProxy")));
 }
 
 - (void)testRetainArgumentsWithWeakTarget_ShouldNotReplaceTargetOnSecondCall
