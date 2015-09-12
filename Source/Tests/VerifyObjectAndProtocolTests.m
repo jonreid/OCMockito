@@ -6,13 +6,13 @@
 
 // Test support
 #import "MockTestCase.h"
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface VerifyObjectAndProtocolTests : SenTestCase
+@interface VerifyObjectAndProtocolTests : XCTestCase
 @end
 
 @implementation VerifyObjectAndProtocolTests

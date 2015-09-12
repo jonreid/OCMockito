@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "74A3BDB219F76C5F006591C9"
-               BuildableName = "libocmockitoTests.octest"
+               BuildableName = "libocmockitoTests.xctest"
                BlueprintName = "libocmockitoTests"
                ReferencedContainer = "container:OCMockito.xcodeproj">
             </BuildableReference>

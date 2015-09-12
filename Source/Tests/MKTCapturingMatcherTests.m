@@ -4,13 +4,13 @@
 #import "MKTCapturingMatcher.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface MKTCapturingMatcherTests : SenTestCase
+@interface MKTCapturingMatcherTests : XCTestCase
 @end
 
 @implementation MKTCapturingMatcherTests
@@ -32,8 +32,8 @@
 
 - (void)testMatcher_ShouldAlwaysEvaluateToTrue
 {
-    STAssertTrue([sut matches:nil], nil);
-    STAssertTrue([sut matches:[[NSObject alloc] init]], nil);
+    XCTAssertTrue([sut matches:nil]);
+    XCTAssertTrue([sut matches:[[NSObject alloc] init]]);
 }
 
 - (void)testMatcherDescription
@@ -75,7 +75,7 @@
 
 - (void)testMatcher_ShouldComplainWhenNothingYetCaptured
 {
-    STAssertThrows([sut lastValue], @"lastValue should fail when no argument value was captured");
+    XCTAssertThrows([sut lastValue], @"lastValue should fail when no argument value was captured");
 }
 
 @end

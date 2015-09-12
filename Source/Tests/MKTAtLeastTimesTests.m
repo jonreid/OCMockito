@@ -9,10 +9,10 @@
 #import "MKTVerificationData.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 
-@interface MKTAtLeastTimesTests : SenTestCase
+@interface MKTAtLeastTimesTests : XCTestCase
 @end
 
 @implementation MKTAtLeastTimesTests
@@ -43,7 +43,7 @@
 
     [self simulateInvocationCount:0];
 
-    STAssertThrows([sut verifyData:verification], nil);
+    XCTAssertThrows([sut verifyData:verification]);
 }
 
 - (void)testVerifyData_WithTooFewInvocations_ShouldFail
@@ -52,7 +52,7 @@
 
     [self simulateInvocationCount:1];
 
-    STAssertThrows([sut verifyData:verification], nil);
+    XCTAssertThrows([sut verifyData:verification]);
 }
 
 - (void)testVerifyAtLeastZero_WithNoInvocations_ShouldSucceed
@@ -61,7 +61,7 @@
 
     [self simulateInvocationCount:0];
 
-    STAssertNoThrow([sut verifyData:verification], nil);
+    XCTAssertNoThrow([sut verifyData:verification]);
 }
 
 - (void)testVerifyData_WithExactNumberOfInvocations_ShouldSucceed
@@ -70,7 +70,7 @@
 
     [self simulateInvocationCount:1];
 
-    STAssertNoThrow([sut verifyData:verification], nil);
+    XCTAssertNoThrow([sut verifyData:verification]);
 }
 
 - (void)testVerifyData_WithMoreInvocations_ShouldSucceed
@@ -79,7 +79,7 @@
 
     [self simulateInvocationCount:2];
 
-    STAssertNoThrow([sut verifyData:verification], nil);
+    XCTAssertNoThrow([sut verifyData:verification]);
 }
 
 @end

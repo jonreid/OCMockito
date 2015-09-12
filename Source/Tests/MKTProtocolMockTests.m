@@ -5,7 +5,7 @@
 #import "OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
@@ -53,7 +53,7 @@
 @end
 
 
-@interface MKTProtocolMockTests : SenTestCase
+@interface MKTProtocolMockTests : XCTestCase
 @end
 
 @implementation MKTProtocolMockTests
@@ -123,32 +123,32 @@
 
 - (void)testShouldConformToItsOwnProtocol
 {
-    STAssertTrue([mockImplementer conformsToProtocol:@protocol(TestingProtocol)], nil);
+    XCTAssertTrue([mockImplementer conformsToProtocol:@protocol(TestingProtocol)]);
 }
 
 - (void)testShouldConformToParentProtocol
 {
-    STAssertTrue([mockImplementer conformsToProtocol:@protocol(NSObject)], nil);
+    XCTAssertTrue([mockImplementer conformsToProtocol:@protocol(NSObject)]);
 }
 
 - (void)testShouldNotConformToUnrelatedProtocol
 {
-    STAssertFalse([mockImplementer conformsToProtocol:@protocol(NSCoding)], nil);
+    XCTAssertFalse([mockImplementer conformsToProtocol:@protocol(NSCoding)]);
 }
 
 - (void)testShouldRespondToRequiredSelector
 {
-    STAssertTrue([mockImplementer respondsToSelector:@selector(required)], nil);
+    XCTAssertTrue([mockImplementer respondsToSelector:@selector(required)]);
 }
 
 - (void)testShouldRespondToOptionalSelector
 {
-    STAssertTrue([mockImplementer respondsToSelector:@selector(optional)], nil);
+    XCTAssertTrue([mockImplementer respondsToSelector:@selector(optional)]);
 }
 
 - (void)testShouldNotRespondToUnrelatedSelector
 {
-    STAssertFalse([mockImplementer respondsToSelector:@selector(objectAtIndex:)], nil);
+    XCTAssertFalse([mockImplementer respondsToSelector:@selector(objectAtIndex:)]);
 }
 
 @end

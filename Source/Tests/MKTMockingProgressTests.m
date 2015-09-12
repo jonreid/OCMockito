@@ -11,13 +11,13 @@
 #import "MKTOngoingStubbing.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface MKTMockingProgressTests : SenTestCase
+@interface MKTMockingProgressTests : XCTestCase
 @end
 
 @implementation MKTMockingProgressTests

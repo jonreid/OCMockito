@@ -6,7 +6,7 @@
 
 // Test support
 #import "MockTestCase.h"
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
@@ -35,7 +35,7 @@ static inline double *createArrayOf10Doubles(void)
 @end
 
 
-@interface VerifyObjectTests : SenTestCase
+@interface VerifyObjectTests : XCTestCase
 @end
 
 @implementation VerifyObjectTests

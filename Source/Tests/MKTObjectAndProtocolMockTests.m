@@ -6,7 +6,7 @@
 #import "OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
@@ -45,7 +45,7 @@
 @end
 
 
-@interface MKTObjectAndProtocolMockTests : SenTestCase
+@interface MKTObjectAndProtocolMockTests : XCTestCase
 @end
 
 @implementation MKTObjectAndProtocolMockTests
@@ -66,12 +66,12 @@
 
 - (void)testShouldHandleInstanceMethod
 {
-    STAssertNoThrow([mock instanceMethod],nil);
+    XCTAssertNoThrow([mock instanceMethod]);
 }
 
 - (void)testShouldHandleRequiredProtocolMethod
 {
-    STAssertNoThrow([mock requiredMethod],nil);
+    XCTAssertNoThrow([mock requiredMethod]);
 }
 
 - (void)testShouldAnswerSameMethodSignatureForSelectorAsRealObject
@@ -117,27 +117,27 @@
 
 - (void)testShouldConformToItsOwnProtocol
 {
-    STAssertTrue([mock conformsToProtocol:@protocol(TestProtocol)],nil);
+    XCTAssertTrue([mock conformsToProtocol:@protocol(TestProtocol)]);
 }
 
 - (void)testShouldConformToParentProtocol
 {
-    STAssertTrue([mock conformsToProtocol:@protocol(NSObject)], nil);
+    XCTAssertTrue([mock conformsToProtocol:@protocol(NSObject)]);
 }
 
 - (void)testShouldNotConformToUnrelatedProtocol
 {
-    STAssertFalse([mock conformsToProtocol:@protocol(NSCoding)], nil);
+    XCTAssertFalse([mock conformsToProtocol:@protocol(NSCoding)]);
 }
 
 - (void)testShouldRespondToRequiredSelector
 {
-    STAssertTrue([mock respondsToSelector:@selector(requiredMethod)], nil);
+    XCTAssertTrue([mock respondsToSelector:@selector(requiredMethod)]);
 }
 
 - (void)testShouldRespondToDynamicPropertySelector
 {
-    STAssertTrue([mock respondsToSelector:@selector(dynamicProperty)], nil);
+    XCTAssertTrue([mock respondsToSelector:@selector(dynamicProperty)]);
 }
 
 - (NSMethodSignature *)realSignatureForSelector:(SEL)sel

@@ -4,13 +4,13 @@
 #import "NSInvocation+OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface NSInvocation_OCMockitoTests : SenTestCase
+@interface NSInvocation_OCMockitoTests : XCTestCase
 @end
 
 @implementation NSInvocation_OCMockitoTests
@@ -35,7 +35,7 @@
 
     [invocation mkt_retainArgumentsWithWeakTarget];
 
-    STAssertTrue([invocation argumentsRetained], nil);
+    XCTAssertTrue([invocation argumentsRetained]);
 }
 
 - (void)testRetainArgumentsWithWeakTarget_ShouldReplaceTargetWithWeakProxy

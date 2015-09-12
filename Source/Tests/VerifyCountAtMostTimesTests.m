@@ -7,13 +7,13 @@
 
 // Test support
 #import "MockTestCase.h"
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface VerifyCountAtMostTimesTests : SenTestCase
+@interface VerifyCountAtMostTimesTests : XCTestCase
 @end
 
 @implementation VerifyCountAtMostTimesTests

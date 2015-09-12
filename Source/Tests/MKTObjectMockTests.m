@@ -5,13 +5,13 @@
 #import "OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface MKTObjectMockTests : SenTestCase
+@interface MKTObjectMockTests : XCTestCase
 @end
 
 @implementation MKTObjectMockTests
@@ -51,30 +51,30 @@
 
 - (void)testShouldBeKindOfSameClass
 {
-    STAssertTrue([mockString isKindOfClass:[NSString class]], nil);
+    XCTAssertTrue([mockString isKindOfClass:[NSString class]]);
 }
 
 - (void)testShouldBeKindOfSubclass
 {
     NSString *mockMutableString = mock([NSMutableString class]);
-    STAssertTrue([mockMutableString isKindOfClass:[NSString class]], nil);
+    XCTAssertTrue([mockMutableString isKindOfClass:[NSString class]]);
 }
 
 - (void)testShouldNotBeKindOfDifferentClass
 {
-    STAssertFalse([mockString isKindOfClass:[NSArray class]], nil);
+    XCTAssertFalse([mockString isKindOfClass:[NSArray class]]);
 }
 
 - (void)testShouldRespondToKnownSelector
 {
-    STAssertTrue([mockString respondsToSelector:@selector(substringFromIndex:)], nil);
+    XCTAssertTrue([mockString respondsToSelector:@selector(substringFromIndex:)]);
 }
 
 - (void)testShouldNotRespondToUnknownSelector
 {
     SEL sel = @selector(removeAllObjects);
 
-    STAssertFalse([mockString respondsToSelector:sel], nil);
+    XCTAssertFalse([mockString respondsToSelector:sel]);
 }
 
 @end
@@ -115,7 +115,7 @@
 @end
 
 
-@interface MKTObjectMockDynamicPropertyTests : SenTestCase
+@interface MKTObjectMockDynamicPropertyTests : XCTestCase
 @end
 
 @implementation MKTObjectMockDynamicPropertyTests
@@ -131,39 +131,39 @@
 
 - (void)testShouldRespondToDynamicGetter
 {
-    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(objectProperty)], nil);
+    XCTAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(objectProperty)]);
 }
 
 - (void)testShouldRespondToDynamicSetter
 {
-    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(setObjectProperty:)], nil);
+    XCTAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(setObjectProperty:)]);
 }
 
 - (void)testShouldRespondToSecondDynamicGetterInSameClass
 {
-    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(intProperty)], nil);
+    XCTAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(intProperty)]);
 }
 
 - (void)testShouldNotRespondToGetterForReadonlyProperty
 {
     SEL sel = NSSelectorFromString(@"setReadonlyProperty:");
 
-    STAssertFalse([mockDynamicPropertyHolder respondsToSelector:sel], nil);
+    XCTAssertFalse([mockDynamicPropertyHolder respondsToSelector:sel]);
 }
 
 - (void)testShouldRespondToDynamicGetterInSuperclass
 {
-    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(superclassProperty)], nil);
+    XCTAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(superclassProperty)]);
 }
 
 - (void)testShouldRespondToDynamicGetterWithCustomizedName
 {
-    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(customPropertyGetter)], nil);
+    XCTAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(customPropertyGetter)]);
 }
 
 - (void)testShouldRespondToDynamicSetterWithCustomizedName
 {
-    STAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(customPropertySetter:)], nil);
+    XCTAssertTrue([mockDynamicPropertyHolder respondsToSelector:@selector(customPropertySetter:)]);
 }
 
 - (NSMethodSignature *)realSignatureForSelector:(SEL)sel

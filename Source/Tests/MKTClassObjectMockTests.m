@@ -6,13 +6,13 @@
 #import "OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface MKTClassObjectMockTests : SenTestCase
+@interface MKTClassObjectMockTests : XCTestCase
 @end
 
 @implementation MKTClassObjectMockTests
@@ -51,12 +51,12 @@
 
 - (void)testShouldRespondToKnownSelector
 {
-    STAssertTrue([mockStringClass respondsToSelector:@selector(pathWithComponents:)], nil);
+    XCTAssertTrue([mockStringClass respondsToSelector:@selector(pathWithComponents:)]);
 }
 
 - (void)testShouldNotRespondToUnknownSelector
 {
-    STAssertFalse([mockStringClass respondsToSelector:@selector(pathExtension)], nil);
+    XCTAssertFalse([mockStringClass respondsToSelector:@selector(pathExtension)]);
 }
 
 @end

@@ -6,13 +6,13 @@
 
 // Test support
 #import "MockTestCase.h"
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface VerifyCountTimesTest : SenTestCase
+@interface VerifyCountTimesTest : XCTestCase
 @end
 
 @implementation VerifyCountTimesTest
@@ -90,7 +90,7 @@
 
     [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
 
-    assertThat([mockTestCase.failureException description],
+    assertThat(mockTestCase.failureDescription,
                is(@"Expected 1 matching invocation, but received 0"));
 }
 
@@ -100,7 +100,7 @@
 
     [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
 
-    assertThat([mockTestCase.failureException description],
+    assertThat(mockTestCase.failureDescription,
                is(@"Expected 2 matching invocations, but received 1"));
 }
 

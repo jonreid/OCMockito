@@ -7,7 +7,7 @@
 #import "NSInvocation+OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
@@ -69,7 +69,7 @@ static inline double *createArrayOf10Doubles(void)
 @end
 
 
-@interface StubObjectTests : SenTestCase
+@interface StubObjectTests : XCTestCase
 @end
 
 @implementation StubObjectTests
@@ -231,7 +231,7 @@ static inline double *createArrayOf10Doubles(void)
 {
     [given([mockObject methodReturningBool]) willReturnBool:YES];
 
-    STAssertTrue([mockObject methodReturningBool], nil);
+    XCTAssertTrue([mockObject methodReturningBool]);
 }
 
 - (void)testStubbedMethodReturningChar_ShouldReturnGivenValue

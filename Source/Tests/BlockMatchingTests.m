@@ -5,7 +5,7 @@
 #import "OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
@@ -26,7 +26,7 @@
 @end
 
 
-@interface BlockMatchingTests : SenTestCase
+@interface BlockMatchingTests : XCTestCase
 @end
 
 @implementation BlockMatchingTests

@@ -5,7 +5,7 @@
 #import "OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
@@ -20,7 +20,7 @@
 @end
 
 
-@interface StubClassTests : SenTestCase
+@interface StubClassTests : XCTestCase
 @end
 
 @implementation StubClassTests

@@ -6,13 +6,13 @@
 
 // Test support
 #import "MockTestCase.h"
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface VerifyProgrammerErrorTests : SenTestCase
+@interface VerifyProgrammerErrorTests : XCTestCase
 @end
 
 @implementation VerifyProgrammerErrorTests
@@ -30,7 +30,7 @@
 {
     [verifyWithMockTestCase(nil) removeAllObjects];
 
-    assertThat([mockTestCase.failureException description],
+    assertThat(mockTestCase.failureDescription,
                is(@"Argument passed to verify() should be a mock but is nil"));
 }
 
@@ -38,7 +38,7 @@
 {
     [verifyCountWithMockTestCase(nil, times(1)) removeAllObjects];
 
-    assertThat([mockTestCase.failureException description],
+    assertThat(mockTestCase.failureDescription,
                is(@"Argument passed to verifyCount() should be a mock but is nil"));
 }
 
@@ -48,7 +48,7 @@
 
     [verifyWithMockTestCase(realArray) removeAllObjects];
 
-    assertThat([mockTestCase.failureException description],
+    assertThat(mockTestCase.failureDescription,
                startsWith(@"Argument passed to verify() should be a mock but is type "));
 }
 
@@ -58,7 +58,7 @@
 
     [verifyCountWithMockTestCase(realArray, times(1)) removeAllObjects];
 
-    assertThat([mockTestCase.failureException description],
+    assertThat(mockTestCase.failureDescription,
                startsWith(@"Argument passed to verifyCount() should be a mock but is type "));
 }
 

@@ -125,7 +125,6 @@
 		748491931A5919EC006A7579 /* MKTExecutesBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 748491901A5919EC006A7579 /* MKTExecutesBlock.h */; };
 		748491941A5919EC006A7579 /* MKTExecutesBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 748491911A5919EC006A7579 /* MKTExecutesBlock.m */; };
 		748491951A5919EC006A7579 /* MKTExecutesBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 748491911A5919EC006A7579 /* MKTExecutesBlock.m */; };
-		74A3BD8319F765E2006591C9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C61DB214E23938003D0843 /* SenTestingKit.framework */; };
 		74A3BD9219F76623006591C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
 		74A3BD9319F76626006591C9 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0859DCD3191F0D1600513490 /* OCHamcrest.framework */; };
 		74A3BD9419F76630006591C9 /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5A91350C59C00E5A443 /* OCMockito.framework */; };
@@ -153,7 +152,6 @@
 		74A3BDAC19F767B8006591C9 /* VerifyCountNeverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */; };
 		74A3BDAD19F767B8006591C9 /* VerifyProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */; };
 		74A3BDAE19F767B8006591C9 /* VerifyCountAtLeastTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */; };
-		74A3BDB419F76C5F006591C9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C61DB214E23938003D0843 /* SenTestingKit.framework */; };
 		74A3BDB519F76C5F006591C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BDD5B11350C59C00E5A443 /* Foundation.framework */; };
 		74A3BDC619F76C8C006591C9 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0859DCD6191F0D2100513490 /* OCHamcrestIOS.framework */; };
 		74A3BDC719F76C97006591C9 /* libocmockito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085D2FF51351254000EBBE91 /* libocmockito.a */; };
@@ -416,7 +414,6 @@
 		08BED0811350DE4900CCBF76 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		08C0A5A717FBDF6C00E76992 /* ArgumentCaptorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgumentCaptorTests.m; sourceTree = "<group>"; };
 		08C0A5AA17FD0DAA00E76992 /* MKTCapturingMatcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCapturingMatcherTests.m; sourceTree = "<group>"; };
-		08C61DB214E23938003D0843 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		08E1E748136289C70066B0C7 /* MKTStubbedInvocationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStubbedInvocationMatcher.h; sourceTree = "<group>"; };
 		08E1E749136289C70066B0C7 /* MKTStubbedInvocationMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStubbedInvocationMatcher.m; sourceTree = "<group>"; };
 		08E1E74E13633BC10066B0C7 /* MKTPrimitiveArgumentMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPrimitiveArgumentMatching.h; sourceTree = "<group>"; };
@@ -462,8 +459,8 @@
 		7411E69D192AD3D100084CC8 /* StubClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubClassTests.m; sourceTree = "<group>"; };
 		748491901A5919EC006A7579 /* MKTExecutesBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTExecutesBlock.h; sourceTree = "<group>"; };
 		748491911A5919EC006A7579 /* MKTExecutesBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTExecutesBlock.m; sourceTree = "<group>"; };
-		74A3BD8219F765E2006591C9 /* OCMockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		74A3BDB319F76C5F006591C9 /* libocmockitoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74A3BD8219F765E2006591C9 /* OCMockitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74A3BDB319F76C5F006591C9 /* libocmockitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB33301C3CD22FFA40C8F3C3 /* MKTObjectArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectArgumentGetter.m; sourceTree = "<group>"; };
 		BB33301F87D4AF0798945D04 /* MKTCapturingMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCapturingMatcher.m; sourceTree = "<group>"; };
 		BB33302AB2FEE151EDCCE859 /* MKTUnsignedIntReturnSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedIntReturnSetter.m; sourceTree = "<group>"; };
@@ -574,7 +571,6 @@
 				74A3BD9419F76630006591C9 /* OCMockito.framework in Frameworks */,
 				74A3BD9319F76626006591C9 /* OCHamcrest.framework in Frameworks */,
 				74A3BD9219F76623006591C9 /* Foundation.framework in Frameworks */,
-				74A3BD8319F765E2006591C9 /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,7 +580,6 @@
 			files = (
 				74A3BDC719F76C97006591C9 /* libocmockito.a in Frameworks */,
 				74A3BDC619F76C8C006591C9 /* OCHamcrestIOS.framework in Frameworks */,
-				74A3BDB419F76C5F006591C9 /* SenTestingKit.framework in Frameworks */,
 				74A3BDB519F76C5F006591C9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,8 +608,8 @@
 			children = (
 				08BDD5A91350C59C00E5A443 /* OCMockito.framework */,
 				085D2FF51351254000EBBE91 /* libocmockito.a */,
-				74A3BD8219F765E2006591C9 /* OCMockitoTests.octest */,
-				74A3BDB319F76C5F006591C9 /* libocmockitoTests.octest */,
+				74A3BD8219F765E2006591C9 /* OCMockitoTests.xctest */,
+				74A3BDB319F76C5F006591C9 /* libocmockitoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -623,7 +618,6 @@
 			isa = PBXGroup;
 			children = (
 				08BDD5B11350C59C00E5A443 /* Foundation.framework */,
-				08C61DB214E23938003D0843 /* SenTestingKit.framework */,
 				0859DCD3191F0D1600513490 /* OCHamcrest.framework */,
 				0859DCD6191F0D2100513490 /* OCHamcrestIOS.framework */,
 			);
@@ -1145,8 +1139,8 @@
 			);
 			name = OCMockitoTests;
 			productName = OCMockitoTests;
-			productReference = 74A3BD8219F765E2006591C9 /* OCMockitoTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = 74A3BD8219F765E2006591C9 /* OCMockitoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		74A3BDB219F76C5F006591C9 /* libocmockitoTests */ = {
 			isa = PBXNativeTarget;
@@ -1163,8 +1157,8 @@
 			);
 			name = libocmockitoTests;
 			productName = libocmockitoTests;
-			productReference = 74A3BDB319F76C5F006591C9 /* libocmockitoTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = 74A3BDB319F76C5F006591C9 /* libocmockitoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1172,7 +1166,7 @@
 		08BDD59F1350C59C00E5A443 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastTestingUpgradeCheck = 0510;
+				LastTestingUpgradeCheck = 0640;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Jonathan M. Reid";
 				TargetAttributes = {
@@ -1638,9 +1632,12 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1655,9 +1652,12 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -1667,15 +1667,17 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1685,14 +1687,16 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

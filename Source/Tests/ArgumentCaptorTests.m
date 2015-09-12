@@ -5,13 +5,13 @@
 #import "OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 
 
-@interface ArgumentCaptorTests : SenTestCase
+@interface ArgumentCaptorTests : XCTestCase
 @end
 
 @implementation ArgumentCaptorTests

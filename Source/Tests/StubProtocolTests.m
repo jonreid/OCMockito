@@ -5,7 +5,7 @@
 #import "OCMockito.h"
 
 // Test support
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
@@ -27,7 +27,7 @@ typedef struct {
 @end
 
 
-@interface StubProtocolTests : SenTestCase
+@interface StubProtocolTests : XCTestCase
 {
     id <ReturningProtocol> mockProtocol;
 }
