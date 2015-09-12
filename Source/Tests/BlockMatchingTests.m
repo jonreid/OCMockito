@@ -10,12 +10,14 @@
 #import <OCHamcrest/OCHamcrest.h>
 
 
+typedef NSString *(^BlockReturningString)(void);
+
 @interface ObjectWithBlockArg : NSObject
 @end
 
 @implementation ObjectWithBlockArg
 
-- (NSString *)doBlock:(NSString *(^)(void))block
+- (NSString *)doBlock:(BlockReturningString)block
 {
     if (block)
         return block();
@@ -30,31 +32,44 @@
 
 @implementation BlockMatchingTests
 {
-    ObjectWithBlockArg *obj;
+    ObjectWithBlockArg *mockObj;
 }
 
 - (void)setUp
 {
     [super setUp];
-    obj = mock([ObjectWithBlockArg class]);
+    mockObj = mock([ObjectWithBlockArg class]);
 }
 
-- (void)testMethodWithBlockArg_WithNilValueMatcher_ShouldMatchNil
+- (void)testMockingMethodWithBlockArg_WithNilValueMatcher_ShouldMatchNil
 {
-    [given([obj doBlock:(id)nilValue()]) willReturn:@"match nil"];
-    [given([obj doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
+    [given([mockObj doBlock:(id)nilValue()]) willReturn:@"match nil"];
+    [given([mockObj doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
 
-    assertThat([obj doBlock:nil], is(@"match nil"));
+    assertThat([mockObj doBlock:nil], is(@"match nil"));
 }
 
-- (void)testMethodWithBlockArg_WithNotNilValueMatcher_ShouldMatchBlock
+- (void)testMockingMethodWithBlockArg_WithNotNilValueMatcher_ShouldMatchBlock
 {
-    [given([obj doBlock:(id)nilValue()]) willReturn:@"match nil"];
-    [given([obj doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
+    [given([mockObj doBlock:(id)nilValue()]) willReturn:@"match nil"];
+    [given([mockObj doBlock:(id)notNilValue()]) willReturn:@"match not nil"];
 
-    NSString *(^anyBlock)() = ^NSString *{ return nil; };
+    BlockReturningString anyBlock = ^NSString *{ return @"DUMMY"; };
 
-    assertThat([obj doBlock:anyBlock], is(@"match not nil"));
+    assertThat([mockObj doBlock:anyBlock], is(@"match not nil"));
+}
+
+- (void)testMockingMethodWithBlockArg_WithArgumentCaptor_ShouldLetYouExecuteCapturedBlock
+{
+    MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
+
+    [mockObj doBlock:^NSString * {
+        return @"SUCCESS";
+    }];
+    [verify(mockObj) doBlock:[argument capture]];
+
+    BlockReturningString block = [argument value];
+    assertThat(block(), is(@"SUCCESS"));
 }
 
 @end
