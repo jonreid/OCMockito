@@ -8,7 +8,6 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTVerificationData.h"
 
-// Test support
 #import <XCTest/XCTest.h>
 
 

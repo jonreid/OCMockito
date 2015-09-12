@@ -1,10 +1,8 @@
 //  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
-// System under test
 #import "MKTInvocationMatcher.h"
 
-// Test support
 #import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND

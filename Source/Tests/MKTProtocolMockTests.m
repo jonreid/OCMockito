@@ -4,7 +4,6 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-// Test support
 #import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND

@@ -3,7 +3,6 @@
 
 #import "MKTCapturingMatcher.h"
 
-// Test support
 #import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND

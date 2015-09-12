@@ -5,7 +5,6 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-// Test support
 #import "MockTestCase.h"
 #import <XCTest/XCTest.h>
 
