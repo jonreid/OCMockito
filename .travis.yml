@@ -1,8 +1,6 @@
 language: objective-c
 
 before_install:
-  - brew update
-  - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
   - Frameworks/gethamcrest
   - sudo easy_install cpp-coveralls
 
