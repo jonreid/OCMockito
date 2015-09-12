@@ -18,7 +18,7 @@
 
 
 @interface TestClass : NSObject
-@property (readonly, nonatomic, strong) id dynamicProperty;
+@property (nonatomic, strong, readonly) id dynamicProperty;
 - (void)instanceMethod;
 @end
 

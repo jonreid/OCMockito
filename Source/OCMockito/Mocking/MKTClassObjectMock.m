@@ -6,7 +6,7 @@
 
 
 @interface MKTClassObjectMock ()
-@property (readonly, nonatomic, strong) Class mockedClass;
+@property (nonatomic, strong, readonly) Class mockedClass;
 @end
 
 @implementation MKTClassObjectMock

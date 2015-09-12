@@ -11,7 +11,7 @@
 
 
 @interface MKTOngoingStubbing ()
-@property (readonly, nonatomic, strong) MKTInvocationContainer *invocationContainer;
+@property (nonatomic, strong, readonly) MKTInvocationContainer *invocationContainer;
 @end
 
 @implementation MKTOngoingStubbing

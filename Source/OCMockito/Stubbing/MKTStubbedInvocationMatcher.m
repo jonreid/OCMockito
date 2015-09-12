@@ -5,7 +5,7 @@
 
 
 @interface MKTStubbedInvocationMatcher ()
-@property (readonly, nonatomic, copy) NSMutableArray *answers;
+@property (nonatomic, copy, readonly) NSMutableArray *answers;
 @property (nonatomic, assign) NSUInteger index;
 @end
 

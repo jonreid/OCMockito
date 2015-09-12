@@ -7,7 +7,7 @@
 
 
 @interface MKTAtMostTimes ()
-@property (readonly, nonatomic, assign) NSUInteger wantedCount;
+@property (nonatomic, assign, readonly) NSUInteger wantedCount;
 @end
 
 @implementation MKTAtMostTimes

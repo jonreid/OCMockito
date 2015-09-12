@@ -9,8 +9,8 @@
 @end
 
 @interface MKTReturnValueSetter ()
-@property (readonly, nonatomic, assign) char const *handlerType;
-@property (readonly, nonatomic, strong) MKTReturnValueSetter *successor;
+@property (nonatomic, assign, readonly) char const *handlerType;
+@property (nonatomic, strong, readonly) MKTReturnValueSetter *successor;
 @end
 
 

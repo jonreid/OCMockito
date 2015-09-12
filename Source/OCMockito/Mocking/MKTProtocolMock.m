@@ -7,7 +7,7 @@
 
 
 @interface MKTProtocolMock ()
-@property (readonly, nonatomic, assign) BOOL includeOptionalMethods;
+@property (nonatomic, assign, readonly) BOOL includeOptionalMethods;
 @end
 
 @implementation MKTProtocolMock

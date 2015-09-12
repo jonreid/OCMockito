@@ -5,7 +5,7 @@
 
 
 @interface MKTReturnsValue ()
-@property (readonly, nonatomic, strong) id value;
+@property (nonatomic, strong, readonly) id value;
 @end
 
 @implementation MKTReturnsValue

@@ -5,7 +5,7 @@
 
 
 @interface MKTThrowsException ()
-@property (readonly, nonatomic, strong) NSException *exception;
+@property (nonatomic, strong, readonly) NSException *exception;
 @end
 
 @implementation MKTThrowsException

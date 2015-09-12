@@ -8,7 +8,7 @@
 
 
 @interface MKTExactTimes ()
-@property (readonly, nonatomic, assign) NSUInteger wantedCount;
+@property (nonatomic, assign, readonly) NSUInteger wantedCount;
 @end
 
 @implementation MKTExactTimes

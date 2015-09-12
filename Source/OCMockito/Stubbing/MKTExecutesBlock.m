@@ -5,7 +5,7 @@
 
 
 @interface MKTExecutesBlock ()
-@property (readonly, nonatomic, copy) id (^block)(NSInvocation *);
+@property (nonatomic, copy, readonly) id (^block)(NSInvocation *);
 @end
 
 @implementation MKTExecutesBlock

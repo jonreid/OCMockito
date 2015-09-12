@@ -5,7 +5,7 @@
 
 
 @interface MKTCapturingMatcher ()
-@property (readonly, nonatomic, strong) NSMutableArray *arguments;
+@property (nonatomic, strong, readonly) NSMutableArray *arguments;
 @end
 
 @implementation MKTCapturingMatcher

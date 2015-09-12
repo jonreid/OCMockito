@@ -9,7 +9,7 @@
 
 @interface MKTInvocationContainer ()
 @property (nonatomic, strong) MKTStubbedInvocationMatcher *invocationForStubbing;
-@property (readonly, nonatomic, strong) NSMutableArray *stubbed;
+@property (nonatomic, strong, readonly) NSMutableArray *stubbed;
 @end
 
 @implementation MKTInvocationContainer
