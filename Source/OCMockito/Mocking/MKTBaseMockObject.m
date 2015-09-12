@@ -30,11 +30,6 @@
     return self;
 }
 
-- (void)reset
-{
-    [self mkt_resetMock];
-}
-
 - (void)mkt_resetMock
 {
     [self.mockingProgress reset];
