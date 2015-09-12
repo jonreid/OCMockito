@@ -1,6 +1,10 @@
 NEXT VERSION
 ------------
 
+**Fixes:**
+
+- Fixed crash when multiple mock objects are at play on multiple threads.
+
 **Features:**
 
 - Stub void methods with `givenVoid(…)`. _Thanks to: Lysann Schlegel_
