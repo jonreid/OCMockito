@@ -32,6 +32,11 @@
 
 - (void)reset
 {
+    [self mkt_resetMock];
+}
+
+- (void)mkt_resetMock
+{
     [self.mockingProgress reset];
     self.invocationContainer = [[MKTInvocationContainer alloc] init];
 }

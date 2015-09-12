@@ -360,5 +360,5 @@ Fixing retain cycles
 --------------------
 
 If you have a situation where the `-dealloc` of your System Under Test is not
-called when you nil out your SUT, call `-reset` on your mock object (probably
+called when you nil out your SUT, call `-mkt_resetMock` on your mock object (probably
 from `tearDown`).

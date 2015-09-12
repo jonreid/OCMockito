@@ -10,6 +10,11 @@ NEXT VERSION
 - Stub void methods with `givenVoid(…)`. _Thanks to: Lysann Schlegel_
 - Added `atMost(count)` for `verifyCount()`. _Thanks to: Emile Cantin_
 
+**Deprecated:**
+
+- Deprecated `reset` since it is far too likely to clash with a mocked method. Use `mkt_resetMock`
+  instead.
+
 
 Version 1.4.0
 -------------

@@ -8,6 +8,7 @@
 @interface MKTBaseMockObject : NSProxy <MKTPrimitiveArgumentMatching>
 
 - (instancetype)init;
-- (void)reset;
+- (void)reset __attribute__((deprecated));
+- (void)mkt_resetMock;
 
 @end
