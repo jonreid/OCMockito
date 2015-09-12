@@ -75,4 +75,12 @@
     return result;
 }
 
+- (void)setOngoingStubbing:(MKTOngoingStubbing *)ongoingStubbing
+{
+    @synchronized (self)
+    {
+        _ongoingStubbing = ongoingStubbing;
+    }
+}
+
 @end
