@@ -4,8 +4,6 @@
 #define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
-#import "NSInvocation+OCMockito.h"
-
 #import <XCTest/XCTest.h>
 
 #define HC_SHORTHAND

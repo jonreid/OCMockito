@@ -9,6 +9,7 @@
 #import "MKTObjectAndProtocolMock.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTProtocolMock.h"
+#import "NSInvocation+OCMockito.h"
 
 
 #define MKTMock(aClass) (id)[MKTObjectMock mockForClass:aClass]

@@ -14,6 +14,10 @@ NEXT VERSION - breaking change
 - Stub void methods with `givenVoid(…)`. _Thanks to: Lysann Schlegel_
 - Added `atMost(count)` for `verifyCount()`. _Thanks to: Emile Cantin_
 
+**Improvements:**
+
+- NSInvocation+OCMockito.h is now imported by OCMockito.h, so it no longer needs a separate import.
+
 
 Version 1.4.0
 -------------
