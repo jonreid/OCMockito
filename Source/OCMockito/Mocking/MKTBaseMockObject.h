@@ -2,10 +2,10 @@
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
 #import <Foundation/Foundation.h>
-#import "MKTPrimitiveArgumentMatching.h"
+#import "MKTNonObjectArgumentMatching.h"
 
 
-@interface MKTBaseMockObject : NSProxy <MKTPrimitiveArgumentMatching>
+@interface MKTBaseMockObject : NSProxy <MKTNonObjectArgumentMatching>
 
 - (instancetype)init;
 - (void)mkt_resetMock;

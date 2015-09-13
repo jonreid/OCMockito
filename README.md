@@ -195,8 +195,8 @@ To stub methods that return primitive scalars, box the scalars into NSValues:
 How do you stub methods that return structs?
 --------------------------------------------
 
-Use `willReturnStruct:objCType:` passing a pointer to your structure and the
-type created with the Objective-C `@encode()` compiler directive:
+Use `willReturnStruct:objCType:` passing a pointer to your structure and its
+type from the Objective-C `@encode()` compiler directive:
 
 ```obj-c
 SomeStruct aStruct = {...};
@@ -240,10 +240,10 @@ Typed arguments will issue a warning that the matcher is the wrong type. Just
 cast the matcher to `id`.
 
 
-How do you specify matchers for primitive arguments?
-----------------------------------------------------
+How do you specify matchers for non-object arguments?
+-----------------------------------------------------
 
-To stub a method that takes a primitive argument but specify a matcher, invoke
+To stub a method that takes a non-object argument but specify a matcher, invoke
 the method with a dummy argument, then call `-withMatcher:forArgument:`
 
 ```obj-c
@@ -259,7 +259,11 @@ Use the shortcut `-withMatcher:` to specify a matcher for a single argument:
 ```
 
 These methods are also available to specify matchers for verification. Just call
-them after `verify(…)` but before the invocation you want to verify.
+them after `verify(…)` but before the invocation you want to verify:
+
+```obj-c
+[[verify(mockArray) withMatcher:greaterThan(@5])] removeObjectAtIndex:0];
+```
 
 
 Verifying exact number of invocations / at least x / never

@@ -2,7 +2,7 @@
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
 #import <Foundation/Foundation.h>
-#import "MKTPrimitiveArgumentMatching.h"
+#import "MKTNonObjectArgumentMatching.h"
 
 @class MKTInvocationContainer;
 
@@ -11,7 +11,7 @@
  * @abstract Methods to invoke on <code>given(methodCall)</code> to return stubbed values.
  * @discussion The methods return <code>self</code> to allow stubbing consecutive calls.
  */
-@interface MKTOngoingStubbing : NSObject <MKTPrimitiveArgumentMatching>
+@interface MKTOngoingStubbing : NSObject <MKTNonObjectArgumentMatching>
 
 - (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer;
 
