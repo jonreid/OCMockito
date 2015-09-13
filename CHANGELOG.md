@@ -17,8 +17,8 @@ NEXT VERSION - breaking change
 **Improvements:**
 
 - Use `stopMocking(…)` if a `-dealloc` of your System Under Test is trying to message an object that
-  is mocked. It disables message handling on the mock and frees retained arguments. This prevents
-  retain cycles and crashes during test clean-up. See StopMockingTests.m for an example.
+  is mocked. It disables message handling on the mock and frees its retained arguments. This
+  prevents retain cycles and crashes during test clean-up. See StopMockingTests.m for an example.
 - NSInvocation+OCMockito.h is now imported by OCMockito.h, so it no longer needs a separate import.
 
 

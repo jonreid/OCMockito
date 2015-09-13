@@ -368,9 +368,10 @@ NSLog(@"%@", [mockObject someMethod:@2]);
 You can stub a void method with a block by using `givenVoid` instead of `given`.
 
 
-Fixing retain cycles
---------------------
+Problems with dealloc
+---------------------
 
-If you have a situation where the `-dealloc` of your System Under Test is not
-called when you nil out your SUT, call `-mkt_resetMock` on your mock object
-(probably from `tearDown`).
+Use `stopMocking(…)` if a `-dealloc` of your System Under Test is trying to
+message an object that is mocked. It disables message handling on the mock and
+frees its retained arguments. This prevents retain cycles and crashes during
+test clean-up. See StopMockingTests.m for an example.
