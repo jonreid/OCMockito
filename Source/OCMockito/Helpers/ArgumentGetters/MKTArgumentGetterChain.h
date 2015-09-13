@@ -6,7 +6,7 @@
 @class MKTArgumentGetter;
 
 
-/**
- Returns chain of argument getters.
+/*!
+ * @abstract Returns chain of argument getters.
  */
 FOUNDATION_EXPORT MKTArgumentGetter *MKTArgumentGetterChain(void);

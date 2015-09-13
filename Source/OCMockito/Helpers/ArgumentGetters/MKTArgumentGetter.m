@@ -15,7 +15,6 @@
 
 @implementation MKTArgumentGetter
 
-
 - (instancetype)initWithType:(char const *)handlerType successor:(MKTArgumentGetter *)successor
 {
     self = [super init];

@@ -5,8 +5,8 @@
 #import "MKTProtocolMock.h"
 
 
-/**
- Mock object of a given class that also implements a given protocol.
+/*!
+ * @abstract Mock object of a given class that also implements a given protocol.
  */
 @interface MKTObjectAndProtocolMock : MKTProtocolMock
 

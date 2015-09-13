@@ -4,8 +4,8 @@
 #import "MKTBaseMockObject.h"
 
 
-/**
- Mock object implementing a given protocol.
+/*!
+ * @abstract Mock object implementing a given protocol.
  */
 @interface MKTProtocolMock : MKTBaseMockObject
 

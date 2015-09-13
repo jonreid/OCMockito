@@ -5,8 +5,8 @@
 #import "MKTBaseMockObject.h"
 
 
-/**
- Mock object of a given class object.
+/*!
+ * @abstract Mock object of a given class object.
  */
 @interface MKTClassObjectMock : MKTBaseMockObject
 

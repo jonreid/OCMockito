@@ -6,7 +6,7 @@
 @class MKTReturnValueSetter;
 
 
-/**
- Returns chain of return value handlers.
+/*!
+ * @abstract Returns chain of return value handlers.
  */
 FOUNDATION_EXPORT MKTReturnValueSetter *MKTReturnValueSetterChain(void);
