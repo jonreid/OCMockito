@@ -44,6 +44,14 @@ Use the following imports:
     #define MOCKITO_SHORTHAND
     #import <OCMockito/OCMockito.h>
 
+Note: If you want to use the latest pre-release changes, use
+
+```ruby
+target :MyTests, :exclusive => true do
+  pod 'OCMockito', :git => 'https://github.com/jonreid/OCMockito.git'
+end
+```
+
 ### Prebuilt Frameworks
 
 Prebuilt binaries are available on GitHub for
