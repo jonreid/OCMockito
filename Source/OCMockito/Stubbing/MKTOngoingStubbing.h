@@ -75,8 +75,9 @@
 
 /*!
  * @abstract Sets block to be executed when the method is called.
- * @discussion The block is evaluated when the method is called. See @ref NSInvocation+OCMockito for
- * helper methods that manipulate the NSInvocation block argument.
+ * @discussion The block is evaluated when the method is called. The block can easily access
+ * invocation arguments by calling @ref mkt_arguments. Whatever the block returns will be used as
+ * the stubbed return value.
  */
 - (MKTOngoingStubbing *)willDo:(id (^)(NSInvocation *))block;
 

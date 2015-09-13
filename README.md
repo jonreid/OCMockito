@@ -343,9 +343,9 @@ Stubbing with blocks
 --------------------
 
 We recommend using simple stubbing with `willReturn:` or `willThrow:` only. But
-`willDo:` using a block can sometimes be helpful. The block can call
-`mkt_arguments` (from NSInvocation+OCMockito.h) on the invocation to get the
-arguments. Whatever the block returns will be used as the stubbed return value.
+`willDo:` using a block can sometimes be helpful. The block can easily access
+invocation arguments by calling `mkt_arguments` from NSInvocation+OCMockito.h.
+Whatever the block returns will be used as the stubbed return value.
 
 ```obj-c
 [[given([mockObject someMethod:anything()]) willDo:^id (NSInvocation *invocation){
@@ -364,5 +364,5 @@ Fixing retain cycles
 --------------------
 
 If you have a situation where the `-dealloc` of your System Under Test is not
-called when you nil out your SUT, call `-mkt_resetMock` on your mock object (probably
-from `tearDown`).
+called when you nil out your SUT, call `-mkt_resetMock` on your mock object
+(probably from `tearDown`).
