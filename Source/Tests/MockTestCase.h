@@ -10,6 +10,9 @@
 #define verifyCountWithMockTestCase(mock, mode)  \
     MKTVerifyCountWithLocation(mock, mode, mockTestCase, __FILE__, __LINE__)
 
+#define stopMockingWithMockTestCase(mock)  \
+    MKTStopMockingWithLocation(mock, mockTestCase, __FILE__, __LINE__)
+
 
 @interface MockTestCase : NSObject
 

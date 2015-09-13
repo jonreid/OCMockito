@@ -3,7 +3,7 @@ NEXT VERSION - breaking change
 
 **Compatibility-breaking Change:**
 
-- Renamed `reset` to `mkt_resetMock` since it is far too likely to clash with a mocked method.
+- Eliminated `-reset` since it was likely to clash with mocked methods. Call `stopMocking(…)` instead.
 
 **Fixes:**
 
@@ -16,6 +16,9 @@ NEXT VERSION - breaking change
 
 **Improvements:**
 
+- Use `stopMocking(…)` if a `-dealloc` of your System Under Test is trying to message an object that
+  is mocked. It disables message handling on the mock and frees retained arguments. This prevents
+  retain cycles and crashes during test clean-up. See StopMockingTests.m for an example.
 - NSInvocation+OCMockito.h is now imported by OCMockito.h, so it no longer needs a separate import.
 
 

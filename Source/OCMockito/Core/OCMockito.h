@@ -295,3 +295,21 @@ FOUNDATION_EXPORT id MKTAtMost(NSUInteger maxNumberOfInvocations);
  */
 #define atMost(maxNumberOfInvocations) MKTAtMost(maxNumberOfInvocations)
 #endif
+
+
+FOUNDATION_EXPORT void MKTStopMockingWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
+#define MKTStopMocking(mock) MKTStopMockingWithLocation(mock, self, __FILE__, __LINE__)
+
+#ifdef MOCKITO_SHORTHAND
+/*!
+ * @abstract Stops mocking and releases arguments.
+ * @discussion Mock objects normally retain all message arguments. This is not a problem for most
+ * tests, but can sometimes cause retain cycles. In such cases, call stopMocking to tell the mock
+ * to release its arguments, and to stop accepting messages. See StopMockingTests.m for an example.
+ *
+ * @attribute Name Clash
+ * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * MKTStopMocking instead.
+ */
+#define stopMocking(mock) MKTStopMocking(mock)
+#endif
