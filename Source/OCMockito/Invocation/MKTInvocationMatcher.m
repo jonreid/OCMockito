@@ -114,28 +114,4 @@
     return ![matcher matches:arg];
 }
 
-- (void)captureArgumentsFromInvocations:(NSArray *)invocations
-{
-    for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
-    {
-        id <HCMatcher> matcher = self.argumentMatchers[index];
-        if ([matcher respondsToSelector:@selector(captureArgument:)])
-            [self captureArgumentsAtIndex:index acrossInvocations:invocations intoMatcher:matcher];
-    }
-}
-
-- (void)captureArgumentsAtIndex:(NSUInteger)index
-              acrossInvocations:(NSArray *)invocations
-                    intoMatcher:(id <HCMatcher>)capturingMatcher
-{
-    for (NSInvocation *inv in invocations)
-    {
-        if ([self.expected selector] == [inv selector])
-        {
-            NSArray *args = [inv mkt_arguments];
-            [capturingMatcher performSelector:@selector(captureArgument:) withObject:args[index]];
-        }
-    }
-}
-
 @end

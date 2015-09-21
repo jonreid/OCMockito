@@ -18,11 +18,16 @@
     return self;
 }
 
-- (void)captureArgument:(id)arg
+- (BOOL)matches:(id)item
 {
-    if (!arg)
-        arg = [NSNull null];
-    [self.arguments addObject:arg];
+    [self capture:item];
+    return [super matches:item];
+}
+
+- (void)capture:(id)item
+{
+    id object = item ?: [NSNull null];
+    [self.arguments addObject:object];
 }
 
 - (NSArray *)allValues
@@ -32,29 +37,18 @@
 
 - (id)lastValue
 {
-    if ([self noArgumentWasCaptured])
+    if ([self.arguments count] == 0)
         return [self throwNoArgumentException];
-    return [self convertNilArgument:[self.arguments lastObject]];
-}
-
-- (BOOL)noArgumentWasCaptured
-{
-    return [self.arguments count] == 0;
+    id value = [self.arguments lastObject];
+    return value == [NSNull null] ? nil : value;
 }
 
 - (id)throwNoArgumentException
 {
     @throw [NSException exceptionWithName:@"NoArgument"
-                                       reason:@"No argument value was captured!\n"
-                                              "You might have forgotten to use [argument capture] in verify()"
-                                     userInfo:nil];
-}
-
-- (id)convertNilArgument:(id)arg
-{
-    if (arg == [NSNull null])
-        arg = nil;
-    return arg;
+                                   reason:@"No argument value was captured!\n"
+                                           "You might have forgotten to use [argument capture] in verify()"
+                                 userInfo:nil];
 }
 
 @end

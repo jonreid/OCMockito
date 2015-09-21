@@ -17,6 +17,5 @@
 - (NSUInteger)argumentMatchersCount;
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation;
 - (BOOL)matches:(NSInvocation *)actual;
-- (void)captureArgumentsFromInvocations:(NSArray *)invocations;
 
 @end

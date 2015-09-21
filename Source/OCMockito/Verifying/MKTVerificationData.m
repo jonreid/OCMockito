@@ -20,9 +20,4 @@
     return count;
 }
 
-- (void)captureArguments
-{
-    [self.wanted captureArgumentsFromInvocations:self.invocations.registeredInvocations];
-}
-
 @end

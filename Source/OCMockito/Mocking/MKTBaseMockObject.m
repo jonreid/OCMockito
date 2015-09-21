@@ -60,7 +60,6 @@
 {
     MKTInvocationMatcher *invocationMatcher = [self matcherWithInvocation:invocation];
     MKTVerificationData *data = [self verificationDataWithMatcher:invocationMatcher];
-    [data captureArguments];
     [verificationMode verifyData:data];
 }
 
