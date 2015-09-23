@@ -1087,7 +1087,6 @@
 				085D2FF11351254000EBBE91 /* Sources */,
 				085D2FF21351254000EBBE91 /* Frameworks */,
 				085D2FF31351254000EBBE91 /* Headers */,
-				08AEC30E1468E668008731C7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1106,7 +1105,6 @@
 				08BDD5A51350C59C00E5A443 /* Frameworks */,
 				08BDD5A61350C59C00E5A443 /* Headers */,
 				08BDD5A71350C59C00E5A443 /* Resources */,
-				08D9A4A3169A472F00D95213 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1214,32 +1212,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
 			shellScript = "source ~/.zshrc\ncd ${SRCROOT}\n\"${XCTOOL_HOME}/xctool.sh\" -project OCMockito.xcodeproj -scheme OCMockito clean > /dev/null\n\"${XCTOOL_HOME}/xctool.sh\" -project OCMockito.xcodeproj -scheme OCMockito -reporter json-compilation-database:compile_commands.json build\n\"${OCLINT_HOME}/bin/oclint-json-compilation-database\" -- -rc=LONG_LINE=120 -rc=SHORT_VARIABLE_NAME=0 | sed 's/\\(.*\\.\\m\\{1,2\\}:[0-9]*:[0-9]*:\\)/\\1 warning:/'\n";
-		};
-		08AEC30E1468E668008731C7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = XcodeCoverage/exportenv.sh;
-		};
-		08D9A4A3169A472F00D95213 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = XcodeCoverage/exportenv.sh;
 		};
 /* End PBXShellScriptBuildPhase section */
 

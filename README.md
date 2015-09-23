@@ -96,7 +96,6 @@ Use the following imports:
 If you want to build OCMockito yourself, clone the repo, then
 
 ```sh
-$ git submodule update --init
 $ Frameworks/gethamcrest
 $ cd Source
 $ ./MakeDistribution.sh
