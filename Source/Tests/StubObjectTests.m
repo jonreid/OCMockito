@@ -395,7 +395,7 @@ static inline double *createArrayOf10Doubles(void)
 
 - (void)testStubbingThrow_ShouldThrow
 {
-    NSException *exception = [NSException exceptionWithName:nil reason:nil userInfo:nil];
+    NSException *exception = [NSException exceptionWithName:@"" reason:nil userInfo:nil];
     ReturningObject *mockObj = mockObject;
     [given([mockObj methodReturningObject]) willThrow:exception];
 
