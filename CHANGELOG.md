@@ -3,7 +3,8 @@ NEXT VERSION - breaking change
 
 **Compatibility-breaking Change:**
 
-- Eliminated `-reset` since it was likely to clash with mocked methods. Call `stopMocking(…)` instead.
+- Eliminated `reset(mock)` since `reset` was likely to clash with mocked methods. Call
+  `stopMocking(mock)` instead.
 
 **Fixes:**
 
