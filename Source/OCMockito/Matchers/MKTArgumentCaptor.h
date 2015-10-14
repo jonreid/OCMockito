@@ -10,7 +10,10 @@
 __attribute__ ((deprecated))
 @interface MKTArgumentCaptor : NSObject
 
-- (id)capture;
+/*! When switching to HCArgumentCaptor, replace <code>[argument capture]</code> with
+ * <code>(id)argument</code>. */
+- (id)capture __attribute__ ((deprecated));
+
 - (id)value;
 - (NSArray *)allValues;
 

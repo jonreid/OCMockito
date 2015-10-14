@@ -23,8 +23,9 @@ NEXT VERSION - breaking change
 
 **Deprecated:**
 
-- Deprecated MKTArgumentCaptor and MKTCapturingMatcher; use HCArgumentCaptor from OCHamcrest for
-  capturing arguments.
+- Deprecated MKTCapturingMatcher and MKTArgumentCaptor; use HCArgumentCaptor from OCHamcrest for
+  capturing arguments. There is no need to call -capture to get a matcher to use as the argument, as
+  was done with MKTCapturingMatcher. Instead, just cast the HCArgumentCaptor instance to (id).
 
 
 Version 1.4.0
