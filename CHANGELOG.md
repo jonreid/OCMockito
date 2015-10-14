@@ -21,6 +21,11 @@ NEXT VERSION - breaking change
   prevents retain cycles and crashes during test clean-up. See StopMockingTests.m for an example.
 - NSInvocation+OCMockito.h is now imported by OCMockito.h, so it no longer needs a separate import.
 
+**Deprecated:**
+
+- Deprecated MKTArgumentCaptor and MKTCapturingMatcher; use HCArgumentCaptor from OCHamcrest for
+  capturing arguments.
+
 
 Version 1.4.0
 -------------

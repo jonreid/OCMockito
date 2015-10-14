@@ -4,6 +4,10 @@
 #import <Foundation/Foundation.h>
 
 
+/*!
+ * @deprecated Version 2.0.0 Use HCArgumentCaptor instead.
+ */
+__attribute__ ((deprecated))
 @interface MKTArgumentCaptor : NSObject
 
 - (id)capture;

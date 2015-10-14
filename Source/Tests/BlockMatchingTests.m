@@ -61,14 +61,14 @@ typedef NSString *(^BlockReturningString)(void);
 
 - (void)testMockingMethodWithBlockArg_WithArgumentCaptor_ShouldLetYouExecuteCapturedBlock
 {
-    MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
+    HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
 
     [mockObj doBlock:^NSString * {
         return @"SUCCESS";
     }];
-    [verify(mockObj) doBlock:[argument capture]];
+    [verify(mockObj) doBlock:(id)argument];
 
-    BlockReturningString block = [argument value];
+    BlockReturningString block = argument.value;
     assertThat(block(), is(@"SUCCESS"));
 }
 

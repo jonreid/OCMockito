@@ -311,18 +311,18 @@ In some situations though, it's helpful to assert on certain arguments after the
 actual verification. For example:
 
 ```obj-c
-MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
-[verify(mockObject) doSomething:[argument capture]];
-assertThat([[argument value] nameAtIndex:0], is(@"Jon"));
+HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
+[verify(mockObject) doSomething:(id)argument];
+assertThat([argument.value nameAtIndex:0], is(@"Jon"));
 ```
 
 Capturing arguments is especially handy for block arguments. You can capture a
 block, then invoke it within your test:
 
 ```obj-c
-MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
-[verify(mockArray) sortUsingComparator:[argument capture]];
-NSComparator block = [argument value];
+HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
+[verify(mockArray) sortUsingComparator:(id)argument];
+NSComparator block = argument.value;
 assertThat(@(block(@"a", @"z")), is(@(NSOrderedAscending)));
 ```
 

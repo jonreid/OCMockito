@@ -4,6 +4,10 @@
 #import <OCHamcrest/HCIsAnything.h>
 
 
+/*!
+ * @deprecated Version 2.0.0 Use HCArgumentCaptor instead.
+ */
+__attribute__ ((deprecated))
 @interface MKTCapturingMatcher : HCIsAnything
 
 - (NSArray *)allValues;
