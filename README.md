@@ -304,11 +304,17 @@ Verifying exact number of invocations / at least x / never
 Capturing arguments for further assertions
 ------------------------------------------
 
-OCMockito verifies argument values by using any provided OCHamcrest matchers,
-with the default matcher being `equalTo` to test for equality. This is the
-recommended way of matching arguments because it makes tests clean and simple.
-In some situations though, it's helpful to assert on certain arguments after the
-actual verification. For example:
+OCMockito verifies argument values using OCHamcrest matchers; non-matcher
+arguments are implicitly wrapped in the `equalTo` matcher to test for equality.
+In some situations though, it's helpful to capture an argument so you can send
+it another message.
+
+OCHamcrest provides a special matcher for this purpose: HCArgumentCaptor.
+Specify it as an argument, then query it with either the `value` or `allValues`
+properties.
+
+For example, you may want to send the captured argument a message to query its
+state:
 
 ```obj-c
 HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
@@ -316,8 +322,9 @@ HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
 assertThat([argument.value nameAtIndex:0], is(@"Jon"));
 ```
 
-Capturing arguments is especially handy for block arguments. You can capture a
-block, then invoke it within your test:
+Capturing arguments is especially handy for block arguments. Capture the
+argument, cast it to the block type, then invoke the block directly to simulate
+the ways it will be called by production code:
 
 ```obj-c
 HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
