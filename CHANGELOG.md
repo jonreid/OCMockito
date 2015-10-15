@@ -29,6 +29,10 @@ _14 Oct 2015_
   There is no need to call -capture to get a matcher to use as the argument, since HCArgumentCaptor
   is a matcher.
 
+**Project changes:**
+
+- Updated project settings to Xcode 7, with tests now run by XCTest.
+
 
 Version 1.4.0
 -------------
