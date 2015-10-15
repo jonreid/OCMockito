@@ -414,7 +414,7 @@
 		08C0A5AA17FD0DAA00E76992 /* MKTCapturingMatcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCapturingMatcherTests.m; sourceTree = "<group>"; };
 		08E1E748136289C70066B0C7 /* MKTStubbedInvocationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStubbedInvocationMatcher.h; sourceTree = "<group>"; };
 		08E1E749136289C70066B0C7 /* MKTStubbedInvocationMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStubbedInvocationMatcher.m; sourceTree = "<group>"; };
-		08E1E74E13633BC10066B0C7 /* MKTNonObjectArgumentMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKTNonObjectArgumentMatching.h; path = ../Mocking/MKTNonObjectArgumentMatching.h; sourceTree = "<group>"; };
+		08E1E74E13633BC10066B0C7 /* MKTNonObjectArgumentMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTNonObjectArgumentMatching.h; sourceTree = "<group>"; };
 		08E9DC1B15163D4600BD7FB4 /* VerifyClassObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyClassObjectTests.m; sourceTree = "<group>"; };
 		08E9DC211516738200BD7FB4 /* MKTObjectAndProtocolMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTObjectAndProtocolMock.h; sourceTree = "<group>"; };
 		08E9DC221516738200BD7FB4 /* MKTObjectAndProtocolMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectAndProtocolMock.m; sourceTree = "<group>"; };
