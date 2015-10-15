@@ -1,5 +1,6 @@
-NEXT VERSION - breaking change
-------------
+Version 2.0.0
+-------------
+_14 Oct 2015_
 
 **Compatibility-breaking Change:**
 
