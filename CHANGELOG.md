@@ -1,3 +1,13 @@
+Version 2.0.2
+-------------
+_24 Oct 2015_
+
+**Project changes:**
+
+- Remove debug symbols from Release configuration, which bloated the libraries and kept folks from
+  using the prebuilt iOS framework.
+
+
 Version 2.0.1
 -------------
 _14 Oct 2015_
