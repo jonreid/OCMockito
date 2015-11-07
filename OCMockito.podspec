@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
   s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'v2.0.1' }
   s.source_files = 'Source/OCMockito/**/*.{h,m}', 'Source/ThirdParty/**/*.{h,m}'
-  s.public_header_files = 'Source/OCMockito/Core/MKTNonObjectArgumentMatching.h', 'Source/OCMockito/Core/OCMockito.h', 'Source/OCMockito/Invocation/NSInvocation+OCMockito.h', 'Source/OCMockito/Matchers/MKTArgumentCaptor.h', 'Source/OCMockito/Mocking/MKTBaseMockObject.h', 'Source/OCMockito/Mocking/MKTClassObjectMock.h', 'Source/OCMockito/Mocking/MKTObjectAndProtocolMock.h', 'Source/OCMockito/Mocking/MKTObjectMock.h', 'Source/OCMockito/Mocking/MKTProtocolMock.h', 'Source/OCMockito/Stubbing/MKTOngoingStubbing.h'
+  s.public_header_files = 'Source/OCMockito/Core/MKTNonObjectArgumentMatching.h', 'Source/OCMockito/Core/OCMockito.h', 'Source/OCMockito/Invocation/NSInvocation+OCMockito.h', 'Source/OCMockito/Mocking/MKTBaseMockObject.h', 'Source/OCMockito/Mocking/MKTClassObjectMock.h', 'Source/OCMockito/Mocking/MKTObjectAndProtocolMock.h', 'Source/OCMockito/Mocking/MKTObjectMock.h', 'Source/OCMockito/Mocking/MKTProtocolMock.h', 'Source/OCMockito/Stubbing/MKTOngoingStubbing.h'
   s.requires_arc = true
   s.dependency 'OCHamcrest', '~> 4.0'
 end
