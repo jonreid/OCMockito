@@ -8,10 +8,8 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTOngoingStubbing.h"
 
-#import <XCTest/XCTest.h>
-
-#define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
+#import <XCTest/XCTest.h>
 
 
 @interface MKTMockingProgressTests : XCTestCase

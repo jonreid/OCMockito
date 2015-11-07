@@ -6,10 +6,8 @@
 #import "OCMockito.h"
 
 #import "MockTestCase.h"
-#import <XCTest/XCTest.h>
-
-#define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
+#import <XCTest/XCTest.h>
 
 
 @interface VerifyCountAtLeastTimesTests : XCTestCase

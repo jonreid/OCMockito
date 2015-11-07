@@ -3,10 +3,8 @@
 
 #import "MKTCapturingMatcher.h"
 
-#import <XCTest/XCTest.h>
-
-#define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
+#import <XCTest/XCTest.h>
 
 
 @interface MKTCapturingMatcherTests : XCTestCase

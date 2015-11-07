@@ -3,10 +3,8 @@
 
 #import "NSInvocation+OCMockito.h"
 
-#import <XCTest/XCTest.h>
-
-#define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
+#import <XCTest/XCTest.h>
 
 
 @interface NSInvocation_OCMockitoTests : XCTestCase
