@@ -1,3 +1,13 @@
+Version 2.0.3
+-------------
+_06 Nov 2015_
+
+**Project changes:**
+
+- Enabling "Symbols hidden by default" in 2.0.2 was overkill, preventing people from using the
+  prebuilt Mac framework.
+
+
 Version 2.0.2
 -------------
 _24 Oct 2015_
