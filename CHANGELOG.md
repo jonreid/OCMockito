@@ -1,6 +1,13 @@
 Compatibility-breaking change
 -------------
 
+CocoaPods users: This pod now declares a dependency on OCHamcrest v5, so those changes also apply.
+
+**Features:**
+
+- Instead of enabling short syntax by defining MOCKITO_SHORTHAND, short syntax is now enabled by
+  default. To disable it, #define MOCKITO_DISABLE_SHORT_SYNTAX.
+
 **Deleted:**
 
 - `MKTCapturingMatcher` (deprecated in 2.0.1)

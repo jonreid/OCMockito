@@ -13,12 +13,12 @@
 
 #define MKTMock(aClass) (id)[MKTObjectMock mockForClass:aClass]
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Returns a mock object of a given class.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMock instead.
  */
 #define mock(aClass) MKTMock(aClass)
@@ -27,12 +27,12 @@
 
 #define MKTMockClass(aClass) (id)[MKTClassObjectMock mockForClass:aClass]
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Returns a mock class object of a given class.
  * 
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockClass instead.
  */
 #define mockClass(aClass) MKTMockClass(aClass)
@@ -41,12 +41,12 @@
 
 #define MKTMockProtocol(aProtocol) (id)[MKTProtocolMock mockForProtocol:aProtocol]
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Returns a mock object implementing a given protocol.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockProtocol instead.
  */
 #define mockProtocol(aProtocol) MKTMockProtocol(aProtocol)
@@ -55,12 +55,12 @@
 
 #define MKTMockProtocolWithoutOptionals(aProtocol) (id)[MKTProtocolMock mockForProtocol:aProtocol includeOptionalMethods:NO]
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Returns a mock object implementing a given protocol, but with no optional methods.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockProtocolWithoutOptionals instead.
 */
 #define mockProtocolWithoutOptionals(aProtocol) MKTMockProtocolWithoutOptionals(aProtocol)
@@ -69,12 +69,12 @@
 
 #define MKTMockObjectAndProtocol(aClass, aProtocol) (id)[MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol]
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Returns a mock object of a given class that also implements a given protocol.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockObjectAndProtocol instead.
  */
 #define mockObjectAndProtocol(aClass, aProtocol) (id)MKTMockObjectAndProtocol(aClass, aProtocol)
@@ -84,7 +84,7 @@
 FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
 #define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Enables method stubbing.
  * @discussion Use "given" when you want the mock to return particular value when particular method
@@ -100,7 +100,7 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
  * See @ref givenVoid for stubbing methods returning void.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTGiven instead.
  */
 #define given(methodCall) MKTGiven(methodCall)
@@ -110,7 +110,7 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
 FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)());
 #define MKTGivenVoid(methodCall) MKTGivenVoidWithLocation(self, __FILE__, __LINE__, ^{ methodCall; })
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Enables method stubbing of methods returning <code>void</code>.
  * @discussion Use "givenVoid" in combination with <code>willDo:</code> when you want the mock to
@@ -124,7 +124,7 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
  * See @ref given for stubbing non-void methods in order to return a particular value.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTGiven instead.
  */
 #define givenVoid(methodCall) MKTGivenVoid(methodCall)
@@ -138,12 +138,12 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
         [MKTGiven([instance valueForKeyPath:@#property]) willReturn:value]; \
     } while(0)
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Stubs given property and its related KVO methods.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTStubProperty instead.
  */
 #define stubProperty(instance, property, value) MKTStubProperty(instance, property, value)
@@ -153,7 +153,7 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
 FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 #define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 #undef verify
 /*!
  * @abstract Verifies certain behavior happened once.
@@ -170,7 +170,7 @@ FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fil
  * <code>verify(mockObject)</code> is equivalent to <code>verifyCount(mockObject, times(1))</code>
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTVerify instead.
  */
 #define verify(mock) MKTVerify(mock)
@@ -180,7 +180,7 @@ FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fil
 FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
 #define MKTVerifyCount(mock, mode) MKTVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Verifies certain behavior happened a given number of times.
  * @discussion Examples:
@@ -193,7 +193,7 @@ FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, c
  * <code>equalTo</code> matcher to check for equality.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTVerifyCount instead.
  */
 #define verifyCount(mock, mode) MKTVerifyCount(mock, mode)
@@ -202,7 +202,7 @@ FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, c
 
 FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Verifies exact number of invocations.
  * @discussion Example:
@@ -211,7 +211,7 @@ FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
  * </ul>
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTTimes instead.
  */
 #define times(wantedNumberOfInvocations) MKTTimes(wantedNumberOfInvocations)
@@ -220,7 +220,7 @@ FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 
 FOUNDATION_EXPORT id MKTNever(void);
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Verifies that interaction did not happen.
  * @discussion Example:
@@ -229,7 +229,7 @@ FOUNDATION_EXPORT id MKTNever(void);
  * </ul>
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTNever instead.
  */
 #define never() MKTNever()
@@ -238,7 +238,7 @@ FOUNDATION_EXPORT id MKTNever(void);
 
 FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minNumberOfInvocations);
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Verifies minimum number of invocations.
  * @discussion The verification will succeed if the specified invocation happened the number of
@@ -250,7 +250,7 @@ FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minNumberOfInvocations);
  * </ul>
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeast instead.
  */
 #define atLeast(minNumberOfInvocations) MKTAtLeast(minNumberOfInvocations)
@@ -259,7 +259,7 @@ FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minNumberOfInvocations);
 
 FOUNDATION_EXPORT id MKTAtLeastOnce(void);
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Verifies that interaction happened once or more.
  * @discussion Example:
@@ -268,7 +268,7 @@ FOUNDATION_EXPORT id MKTAtLeastOnce(void);
  * </ul>
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeastOnce instead.
  */
 #define atLeastOnce() MKTAtLeastOnce()
@@ -277,7 +277,7 @@ FOUNDATION_EXPORT id MKTAtLeastOnce(void);
 
 FOUNDATION_EXPORT id MKTAtMost(NSUInteger maxNumberOfInvocations);
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Verifies maximum number of invocations.
  * @discussion The verification will succeed if the specified invocation happened the number of
@@ -289,7 +289,7 @@ FOUNDATION_EXPORT id MKTAtMost(NSUInteger maxNumberOfInvocations);
  * </ul>
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeast instead.
  */
 #define atMost(maxNumberOfInvocations) MKTAtMost(maxNumberOfInvocations)
@@ -299,7 +299,7 @@ FOUNDATION_EXPORT id MKTAtMost(NSUInteger maxNumberOfInvocations);
 FOUNDATION_EXPORT void MKTStopMockingWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 #define MKTStopMocking(mock) MKTStopMockingWithLocation(mock, self, __FILE__, __LINE__)
 
-#ifdef MOCKITO_SHORTHAND
+#ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Stops mocking and releases arguments.
  * @discussion Mock objects normally retain all message arguments. This is not a problem for most
@@ -307,7 +307,7 @@ FOUNDATION_EXPORT void MKTStopMockingWithLocation(id mock, id testCase, const ch
  * to release its arguments, and to stop accepting messages. See StopMockingTests.m for an example.
  *
  * @attribute Name Clash
- * In the event of a name clash, don't <code>#define MOCKITO_SHORTHAND</code> and use the synonym
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTStopMocking instead.
  */
 #define stopMocking(mock) MKTStopMocking(mock)

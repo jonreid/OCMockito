@@ -38,10 +38,7 @@ end
 
 Use the following imports:
 
-    #define HC_SHORTHAND
     #import <OCHamcrest/OCHamcrest.h>
-
-    #define MOCKITO_SHORTHAND
     #import <OCMockito/OCMockito.h>
 
 Note: If you want to use the latest pre-release changes, use
@@ -56,7 +53,7 @@ end
 
 Prebuilt binaries are available on GitHub for
 [OCMockito](https://github.com/jonreid/OCMockito/releases/). You will also need
-[OCHamcrest 4.2.0](https://github.com/hamcrest/OCHamcrest/releases/tag/v4.2.0).
+[OCHamcrest](https://github.com/hamcrest/OCHamcrest/releases/).
 The binaries are packaged as frameworks:
 
 * __OCMockitoIOS.framework__ for iOS development
@@ -70,10 +67,7 @@ destination group's folder". Then specify `-ObjC` in your "Other Linker Flags".
 
 Use the following imports:
 
-    #define HC_SHORTHAND
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
-    
-    #define MOCKITO_SHORTHAND
     #import <OCMockitoIOS/OCMockitoIOS.h>
 
 
@@ -84,10 +78,7 @@ OCHamcrest.framework to your Products Directory.
 
 Use the following imports:
 
-    #define HC_SHORTHAND
     #import <OCHamcrest/OCHamcrest.h>
-    
-    #define MOCKITO_SHORTHAND
     #import <OCMockito/OCMockito.h>
 
 

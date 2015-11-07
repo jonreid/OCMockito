@@ -2,7 +2,6 @@
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 //  Contribution by David Hart
 
-#define MOCKITO_SHORTHAND
 #import "OCMockito.h"
 
 #import <OCHamcrest/OCHamcrest.h>
