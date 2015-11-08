@@ -25,7 +25,7 @@ typedef struct {
 
 @interface StubProtocolTests : XCTestCase
 {
-    id <ReturningProtocol> mockProtocol;
+    id <ReturningProtocol> myMockProtocol;
 }
 @end
 
@@ -34,79 +34,79 @@ typedef struct {
 - (void)setUp
 {
     [super setUp];
-    mockProtocol = mockProtocol(@protocol(ReturningProtocol));
+    myMockProtocol = mockProtocol(@protocol(ReturningProtocol));
 }
 
 - (void)testStubbedMethodReturningObject_ShouldReturnGivenObject
 {
-    [given([mockProtocol methodReturningObject]) willReturn:@"STUBBED"];
+    [given([myMockProtocol methodReturningObject]) willReturn:@"STUBBED"];
 
-    assertThat([mockProtocol methodReturningObject], is(@"STUBBED"));
+    assertThat([myMockProtocol methodReturningObject], is(@"STUBBED"));
 }
 
 - (void)testUnstubbedMethodReturningObject_ShouldReturnNil
 {
-    assertThat([mockProtocol methodReturningObject], is(nilValue()));
+    assertThat([myMockProtocol methodReturningObject], is(nilValue()));
 }
 
 - (void)testStubbedMethodReturningObject_WithDifferentArgs_ShouldReturnValueForMatchingArgument
 {
-    [given([mockProtocol methodReturningObjectWithArg:@"foo"]) willReturn:@"FOO"];
-    [given([mockProtocol methodReturningObjectWithArg:@"bar"]) willReturn:@"BAR"];
+    [given([myMockProtocol methodReturningObjectWithArg:@"foo"]) willReturn:@"FOO"];
+    [given([myMockProtocol methodReturningObjectWithArg:@"bar"]) willReturn:@"BAR"];
 
-    assertThat([mockProtocol methodReturningObjectWithArg:@"foo"], is(@"FOO"));
+    assertThat([myMockProtocol methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
 - (void)testStub_ShouldAcceptArgumentMatchers
 {
-    [given([mockProtocol methodReturningObjectWithArg:equalTo(@"foo")]) willReturn:@"FOO"];
-    assertThat([mockProtocol methodReturningObjectWithArg:@"foo"], is(@"FOO"));
+    [given([myMockProtocol methodReturningObjectWithArg:equalTo(@"foo")]) willReturn:@"FOO"];
+    assertThat([myMockProtocol methodReturningObjectWithArg:@"foo"], is(@"FOO"));
 }
 
 - (void)testStubbedMethodWithPrimitiveNumericArg_ShouldReturnValueForMatchingArgument
 {
-    [given([mockProtocol methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
-    [given([mockProtocol methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
+    [given([myMockProtocol methodReturningObjectWithIntArg:1]) willReturn:@"FOO"];
+    [given([myMockProtocol methodReturningObjectWithIntArg:2]) willReturn:@"BAR"];
 
-    assertThat([mockProtocol methodReturningObjectWithIntArg:1], is(@"FOO"));
+    assertThat([myMockProtocol methodReturningObjectWithIntArg:1], is(@"FOO"));
 }
 
 - (void)testStub_ShouldAcceptMatcherForNumericArgument
 {
-    [[given([mockProtocol methodReturningObjectWithIntArg:0])
+    [[given([myMockProtocol methodReturningObjectWithIntArg:0])
             withMatcher:greaterThan(@1) forArgument:0] willReturn:@"FOO"];
 
-    assertThat([mockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
+    assertThat([myMockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
 - (void)testShouldSupportShortcutForSpecifyingMatcherForFirstArgument
 {
-    [[given([mockProtocol methodReturningObjectWithIntArg:0])
+    [[given([myMockProtocol methodReturningObjectWithIntArg:0])
             withMatcher:greaterThan(@1)]
             willReturn:@"FOO"];
 
-    assertThat([mockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
+    assertThat([myMockProtocol methodReturningObjectWithIntArg:2], is(@"FOO"));
 }
 
 - (void)testStubbedMethodReturningBool_ShouldReturnGivenValue
 {
-    [given([mockProtocol methodReturningBOOL]) willReturn:@YES];
-    assertThat(@([mockProtocol methodReturningBOOL]), is(@YES));
+    [given([myMockProtocol methodReturningBOOL]) willReturn:@YES];
+    assertThat(@([myMockProtocol methodReturningBOOL]), is(@YES));
 }
 
 - (void)testStubbedMethodReturningShort_ShouldReturnGivenValue
 {
-    [given([mockProtocol methodReturningShort]) willReturn:@42];
-    assertThat(@([mockProtocol methodReturningShort]), is(@42));
+    [given([myMockProtocol methodReturningShort]) willReturn:@42];
+    assertThat(@([myMockProtocol methodReturningShort]), is(@42));
 }
 
 - (void)testStubbedMethodReturningStruct_ShouldReturnGivenValue
 {
     SimpleStruct someStruct = { 123 };
-    [given([mockProtocol methodReturningStruct]) willReturnStruct:&someStruct
-                                                         objCType:@encode(SimpleStruct)];
+    [given([myMockProtocol methodReturningStruct]) willReturnStruct:&someStruct
+                                                           objCType:@encode(SimpleStruct)];
 
-    SimpleStruct otherStruct = [mockProtocol methodReturningStruct];
+    SimpleStruct otherStruct = [myMockProtocol methodReturningStruct];
 
     assertThat(@(otherStruct.aMember), is(@123));
 }

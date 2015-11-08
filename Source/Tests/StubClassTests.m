@@ -21,20 +21,20 @@
 
 @implementation StubClassTests
 {
-    __strong Class mockClass;
+    __strong Class myMockClass;
 }
 
 - (void)setUp
 {
     [super setUp];
-    mockClass = mockClass([ClassMethodsReturningObject class]);
+    myMockClass = mockClass([ClassMethodsReturningObject class]);
 }
 
 - (void)testStubbedMethod_ShouldReturnGivenObject
 {
-    [given([mockClass methodReturningObject]) willReturn:@"STUBBED"];
+    [given([myMockClass methodReturningObject]) willReturn:@"STUBBED"];
 
-    assertThat([mockClass methodReturningObject], is(@"STUBBED"));
+    assertThat([myMockClass methodReturningObject], is(@"STUBBED"));
 }
 
 @end

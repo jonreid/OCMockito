@@ -11,73 +11,105 @@
 #import "NSInvocation+OCMockito.h"
 
 
-#define MKTMock(aClass) (id)[MKTObjectMock mockForClass:aClass]
+static inline id MKTMock(Class aClass)
+static inline id MKTMock(Class aClass)
+{
+    return [MKTObjectMock mockForClass:aClass];
+}
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Returns a mock object of a given class.
- *
- * @attribute Name Clash
+ * @abstract Creates a mock object of a given class.
+ * @discussion
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMock instead.
  */
-#define mock(aClass) MKTMock(aClass)
+static inline id mock(Class aClass)
+{
+    return MKTMock(aClass);
+}
 #endif
 
 
-#define MKTMockClass(aClass) (id)[MKTClassObjectMock mockForClass:aClass]
+static inline id MKTMockClass(Class aClass)
+{
+    return [MKTClassObjectMock mockForClass:aClass];
+}
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Returns a mock class object of a given class.
- * 
- * @attribute Name Clash
+ * @abstract Creates a mock class object of a given class.
+ * @discussion
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockClass instead.
  */
-#define mockClass(aClass) MKTMockClass(aClass)
+static inline id mockClass(Class aClass)
+{
+    return MKTMockClass(aClass);
+}
 #endif
 
 
-#define MKTMockProtocol(aProtocol) (id)[MKTProtocolMock mockForProtocol:aProtocol]
+static inline id MKTMockProtocol(Protocol *aProtocol)
+{
+    return [MKTProtocolMock mockForProtocol:aProtocol];
+}
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Returns a mock object implementing a given protocol.
- *
- * @attribute Name Clash
+ * @abstract Creates a mock object implementing a given protocol.
+ * @discussion
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockProtocol instead.
  */
-#define mockProtocol(aProtocol) MKTMockProtocol(aProtocol)
+static inline id mockProtocol(Protocol *aProtocol)
+{
+    return MKTMockProtocol(aProtocol);
+}
 #endif
 
 
-#define MKTMockProtocolWithoutOptionals(aProtocol) (id)[MKTProtocolMock mockForProtocol:aProtocol includeOptionalMethods:NO]
+static inline id MKTMockProtocolWithoutOptionals(Protocol *aProtocol)
+{
+    return [MKTProtocolMock mockForProtocol:aProtocol includeOptionalMethods:NO];
+}
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Returns a mock object implementing a given protocol, but with no optional methods.
- *
- * @attribute Name Clash
+ * @abstract Creates a mock object implementing a given protocol, but with no optional methods.
+ * @discussion
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockProtocolWithoutOptionals instead.
 */
-#define mockProtocolWithoutOptionals(aProtocol) MKTMockProtocolWithoutOptionals(aProtocol)
+static inline id mockProtocolWithoutOptionals(Protocol *aProtocol)
+{
+    return MKTMockProtocolWithoutOptionals(aProtocol);
+}
 #endif
 
 
-#define MKTMockObjectAndProtocol(aClass, aProtocol) (id)[MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol]
+static inline id MKTMockObjectAndProtocol(Class aClass, Protocol *aProtocol)
+{
+    return [MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol];
+}
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Returns a mock object of a given class that also implements a given protocol.
- *
- * @attribute Name Clash
+ * @abstract Creates a mock object of a given class that also implements a given protocol.
+ * @discussion
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockObjectAndProtocol instead.
  */
-#define mockObjectAndProtocol(aClass, aProtocol) (id)MKTMockObjectAndProtocol(aClass, aProtocol)
+//#define mockObjectAndProtocol(aClass, aProtocol) (id)MKTMockObjectAndProtocol(aClass, aProtocol)
+static inline id mockObjectAndProtocol(Class aClass, Protocol *aProtocol)
+{
+    return MKTMockObjectAndProtocol(aClass, aProtocol);
+}
 #endif
 
 
@@ -91,15 +123,13 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
  * is called.
  *
  * Example:
- * <ul>
- *   <li><code>[given([mockObject methodReturningString]) willReturn:@"foo"];</code></li>
- * </ul>
+ * <pre>[given([mockObject methodReturningString]) willReturn:\@"foo"];</pre>
  *
- * See @ref MKTOngoingStubbing for other methods to stub different types of return values.
+ * See MKTOngoingStubbing for other methods to stub different types of return values.
  *
- * See @ref givenVoid for stubbing methods returning void.
+ * See <code>givenVoid</code> for stubbing methods returning void.
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTGiven instead.
  */
@@ -117,13 +147,11 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
  * execute arbitrary code when a method is called.
  *
  * Example:
- * <ul>
- *   <li><code>[givenVoid([mockObject methodReturningVoid]) willDo:^{ magic(); }];</code></li>
- * </ul>
+ * <pre>[givenVoid([mockObject methodReturningVoid]) willDo:^{ magic(); }];</pre>
  *
- * See @ref given for stubbing non-void methods in order to return a particular value.
+ * See <code>given</code> for stubbing non-void methods in order to return a particular value.
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTGiven instead.
  */
@@ -141,8 +169,8 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Stubs given property and its related KVO methods.
- *
- * @attribute Name Clash
+ * @discussion
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTStubProperty instead.
  */
@@ -162,14 +190,12 @@ FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fil
  * <code>equalTo</code> matcher to check for equality.
  *
  * Examples:
- * <ul>
- *   <li><code>[verify(mockObject) someMethod:startsWith(@"foo")];</code></li>
- *   <li><code>[verify(mockObject) someMethod:@"bar"];</code></li>
- * </ul>
+ * <pre>[verify(mockObject) someMethod:startsWith(\@"foo")];</pre>
+ * <pre>[verify(mockObject) someMethod:\@"bar"];</pre>
  *
  * <code>verify(mockObject)</code> is equivalent to <code>verifyCount(mockObject, times(1))</code>
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTVerify instead.
  */
@@ -184,15 +210,13 @@ FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, c
 /*!
  * @abstract Verifies certain behavior happened a given number of times.
  * @discussion Examples:
- * <ul>
- *   <li><code>[verifyCount(mockObject, times(5)) someMethod:@"was called five times"];</code></li>
- *   <li><code>[verifyCount(mockObject, never()) someMethod:@"was never called"];<code></li>
- * </ul>
- * verifyCount checks that a method was invoked a given number of times, with arguments that match
- * given OCHamcrest matchers. If an argument is not a matcher, it is implicitly wrapped in an
+ * <pre>[verifyCount(mockObject, times(5)) someMethod:\@"was called five times"];</pre>
+ * <pre>[verifyCount(mockObject, never()) someMethod:\@"was never called"];</pre>
+ * verifyCount checks that a method was invoked the specified number of times, with arguments that
+ * match given OCHamcrest matchers. If an argument is not a matcher, it is implicitly wrapped in an
  * <code>equalTo</code> matcher to check for equality.
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTVerifyCount instead.
  */
@@ -204,17 +228,19 @@ FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Verifies exact number of invocations.
+ * @abstract Creates <code>verifyCount</code> mode to verify the specified exact number of
+ * invocations.
  * @discussion Example:
- * <ul>
- *   <li><code>[verifyCount(mockObject, times(2)) someMethod:@"some arg"];</code></li>
- * </ul>
+ * <pre>[verifyCount(mockObject, times(2)) someMethod:\@"some arg"];</pre>
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTTimes instead.
  */
-#define times(wantedNumberOfInvocations) MKTTimes(wantedNumberOfInvocations)
+static inline id times(NSUInteger wantedNumberOfInvocations)
+{
+    return MKTTimes(wantedNumberOfInvocations);
+}
 #endif
 
 
@@ -222,17 +248,18 @@ FOUNDATION_EXPORT id MKTNever(void);
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Verifies that interaction did not happen.
+ * @abstract Creates <code>verifyCount</code> mode to verify that an interaction did not happen.
  * @discussion Example:
- * <ul>
- *   <li><code>[verifyCount(mockObject, never()) someMethod:@"some arg"];</code></li>
- * </ul>
+ * <pre>[verifyCount(mockObject, never()) someMethod:\@"some arg"];</pre>
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTNever instead.
  */
-#define never() MKTNever()
+static inline id never(void)
+{
+    return MKTNever();
+}
 #endif
 
 
@@ -240,20 +267,22 @@ FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minNumberOfInvocations);
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Verifies minimum number of invocations.
+ * @abstract Creates <code>verifyCount</code> mode to verify the specified minimum number of
+ * invocations.
  * @discussion The verification will succeed if the specified invocation happened the number of
  * times specified or more.
  *
  * Example:
- * <ul>
- *   <li><code>[verifyCount(mockObject, atLeast(2)) someMethod:@"some arg"];</code></li>
- * </ul>
+ * <pre>[verifyCount(mockObject, atLeast(2)) someMethod:\@"some arg"];</pre>
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeast instead.
  */
-#define atLeast(minNumberOfInvocations) MKTAtLeast(minNumberOfInvocations)
+static inline id atLeast(NSUInteger minNumberOfInvocations)
+{
+    return MKTAtLeast(minNumberOfInvocations);
+}
 #endif
 
 
@@ -261,17 +290,19 @@ FOUNDATION_EXPORT id MKTAtLeastOnce(void);
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Verifies that interaction happened once or more.
+ * @abstract Creates <code>verifyCount</code> mode to verify that an interaction happened once or
+ * more.
  * @discussion Example:
- * <ul>
- *   <li><code>[verifyCount(mockObject, atLeastOnce()) someMethod:@"some arg"];</code></li>
- * </ul>
+ * <pre>[verifyCount(mockObject, atLeastOnce()) someMethod:\@"some arg"];</pre>
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeastOnce instead.
  */
-#define atLeastOnce() MKTAtLeastOnce()
+static inline id atLeastOnce(void)
+{
+    return MKTAtLeastOnce();
+}
 #endif
 
 
@@ -279,20 +310,22 @@ FOUNDATION_EXPORT id MKTAtMost(NSUInteger maxNumberOfInvocations);
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Verifies maximum number of invocations.
+ * @abstract Creates <code>verifyCount</code> mode to verify the specified  maximum number of
+ * invocations.
  * @discussion The verification will succeed if the specified invocation happened the number of
  * times specified or less.
  *
  * Example:
- * <ul>
- *   <li><code>[verifyCount(mockObject, atMost(2)) someMethod:@"some arg"];</code></li>
- * </ul>
+ * <pre>[verifyCount(mockObject, atMost(2)) someMethod:\@"some arg"];</pre>
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeast instead.
  */
-#define atMost(maxNumberOfInvocations) MKTAtMost(maxNumberOfInvocations)
+static inline id atMost(NSUInteger maxNumberOfInvocations)
+{
+    return MKTAtMost(maxNumberOfInvocations);
+}
 #endif
 
 
@@ -306,7 +339,7 @@ FOUNDATION_EXPORT void MKTStopMockingWithLocation(id mock, id testCase, const ch
  * tests, but can sometimes cause retain cycles. In such cases, call stopMocking to tell the mock
  * to release its arguments, and to stop accepting messages. See StopMockingTests.m for an example.
  *
- * @attribute Name Clash
+ * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTStopMocking instead.
  */
