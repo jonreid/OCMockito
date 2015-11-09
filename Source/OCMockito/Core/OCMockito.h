@@ -11,108 +11,149 @@
 #import "NSInvocation+OCMockito.h"
 
 
-static inline id MKTMock(Class aClass)
-static inline id MKTMock(Class aClass)
+static inline id MKTMock(Class classToMock)
 {
-    return [MKTObjectMock mockForClass:aClass];
+    return [MKTObjectMock mockForClass:classToMock];
 }
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates a mock object of a given class.
- * @discussion
+ * @abstract Creates mock object of given class.
+ * @param classToMock The class for which to mock instance methods.
+ * @discussion The mock object will handle all instance methods of <code>classToMock</code>. Methods
+ * return 0 by default.<br />
+ * Use <code>given</code> to stub different return values or behaviors.<br />
+ * Use <code>givenVoid</code> to stub behaviors of void methods.
+ *
  * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMock instead.
  */
-static inline id mock(Class aClass)
+static inline id mock(Class classToMock)
 {
-    return MKTMock(aClass);
+    return MKTMock(classToMock);
 }
 #endif
 
 
-static inline id MKTMockClass(Class aClass)
+static inline id MKTMockClass(Class classToMock)
 {
-    return [MKTClassObjectMock mockForClass:aClass];
+    return [MKTClassObjectMock mockForClass:classToMock];
 }
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates a mock class object of a given class.
- * @discussion
+ * @abstract Creates mock class object of given class.
+ * @param classToMock The class for which to mock class methods.
+ * @discussion The mock object will handle all class methods of <code>classToMock</code>. Methods
+ * return 0 by default.<br />
+ * Use <code>given</code> to stub different return values or behaviors.<br />
+ * Use <code>givenVoid</code> to stub behaviors of void methods.
+ *
  * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockClass instead.
  */
-static inline id mockClass(Class aClass)
+static inline id mockClass(Class classToMock)
 {
-    return MKTMockClass(aClass);
+    return MKTMockClass(classToMock);
 }
 #endif
 
 
-static inline id MKTMockProtocol(Protocol *aProtocol)
+static inline id MKTMockProtocol(Protocol *protocolToMock)
 {
-    return [MKTProtocolMock mockForProtocol:aProtocol];
+    return [MKTProtocolMock mockForProtocol:protocolToMock];
 }
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates a mock object implementing a given protocol.
- * @discussion
+ * @abstract Creates mock object of given protocol.
+ * @param protocolToMock The protocol to mock.
+ * @discussion The mock object will handle all methods of <code>protocolToMock</code>. Methods
+ * return 0 by default.<br />
+ * Use <code>given</code> to stub different return values or behaviors.<br />
+ * Use <code>givenVoid</code> to stub behaviors of void methods.
+ *
  * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockProtocol instead.
  */
-static inline id mockProtocol(Protocol *aProtocol)
+static inline id mockProtocol(Protocol *protocolToMock)
 {
-    return MKTMockProtocol(aProtocol);
+    return MKTMockProtocol(protocolToMock);
 }
 #endif
 
 
-static inline id MKTMockProtocolWithoutOptionals(Protocol *aProtocol)
+static inline id MKTMockProtocolWithoutOptionals(Protocol *protocolToMock)
 {
-    return [MKTProtocolMock mockForProtocol:aProtocol includeOptionalMethods:NO];
+    return [MKTProtocolMock mockForProtocol:protocolToMock includeOptionalMethods:NO];
 }
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates a mock object implementing a given protocol, but with no optional methods.
- * @discussion
+ * @abstract Creates mock object of given protocol, but without optional methods.
+ * @param protocolToMock The protocol to mock.
+ * @discussion The mock object will handle only required methods of <code>protocolToMock</code>. It
+ * will <b>not</b> respond to the protocol's optional methods. Methods return 0 by default.<br />
+ * Use <code>given</code> to stub different return values or behaviors.<br />
+ * Use <code>givenVoid</code> to stub behaviors of void methods.
+ *
  * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockProtocolWithoutOptionals instead.
 */
-static inline id mockProtocolWithoutOptionals(Protocol *aProtocol)
+static inline id mockProtocolWithoutOptionals(Protocol *protocolToMock)
 {
-    return MKTMockProtocolWithoutOptionals(aProtocol);
+    return MKTMockProtocolWithoutOptionals(protocolToMock);
 }
 #endif
 
 
-static inline id MKTMockObjectAndProtocol(Class aClass, Protocol *aProtocol)
+static inline id MKTMockObjectAndProtocol(Class classToMock, Protocol *protocolToMock)
 {
-    return [MKTObjectAndProtocolMock mockForClass:aClass protocol:aProtocol];
+    return [MKTObjectAndProtocolMock mockForClass:classToMock protocol:protocolToMock];
 }
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates a mock object of a given class that also implements a given protocol.
- * @discussion
+ * @abstract Creates mock object of given class that also implements given protocol.
+ * @param classToMock The class to mock.
+ * @param protocolToMock The protocol to mock.
+ * @discussion The mock object will handle all instance methods of <code>classToMock</code>, along
+ * with all methods of <code>protocolToMock</code>. Methods return 0 by default.<br />
+ * Use <code>given</code> to stub different return values or behaviors.<br />
+ * Use <code>givenVoid</code> to stub behaviors of void methods.
+ *
  * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTMockObjectAndProtocol instead.
  */
-//#define mockObjectAndProtocol(aClass, aProtocol) (id)MKTMockObjectAndProtocol(aClass, aProtocol)
-static inline id mockObjectAndProtocol(Class aClass, Protocol *aProtocol)
+static inline id mockObjectAndProtocol(Class classToMock, Protocol *protocolToMock)
 {
-    return MKTMockObjectAndProtocol(aClass, aProtocol);
+    return MKTMockObjectAndProtocol(classToMock, protocolToMock);
 }
 #endif
 
 
+/*!
+ * @abstract Enables method stubbing.
+ * @discussion
+ * Use "given" when you want the mock to return particular value when particular method
+ * is called.
+ *
+ * Example:
+ * <pre>[given([mockObject methodReturningString]) willReturn:\@"foo"];</pre>
+ *
+ * See MKTOngoingStubbing for other methods to stub different types of return values.
+ *
+ * See <code>givenVoid</code> for stubbing methods returning void.
+ *
+ * <b>Name Clash</b><br />
+ * In the event of a name clash, <code>#define MOCKITO_DISABLE_SHORT_SYNTAX</code> and use the synonym
+ * MKTGiven instead.
+ */
 FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...);
 #define MKTGiven(methodCall) MKTGivenWithLocation(self, __FILE__, __LINE__, methodCall)
 
@@ -212,7 +253,7 @@ FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, c
  * @discussion Examples:
  * <pre>[verifyCount(mockObject, times(5)) someMethod:\@"was called five times"];</pre>
  * <pre>[verifyCount(mockObject, never()) someMethod:\@"was never called"];</pre>
- * verifyCount checks that a method was invoked the specified number of times, with arguments that
+ * verifyCount checks that a method was invoked the given number of times, with arguments that
  * match given OCHamcrest matchers. If an argument is not a matcher, it is implicitly wrapped in an
  * <code>equalTo</code> matcher to check for equality.
  *
@@ -228,7 +269,7 @@ FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
 
 #ifndef MOCKITO_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates <code>verifyCount</code> mode to verify the specified exact number of
+ * @abstract Creates <code>verifyCount</code> mode to verify the given exact number of
  * invocations.
  * @discussion Example:
  * <pre>[verifyCount(mockObject, times(2)) someMethod:\@"some arg"];</pre>
