@@ -211,15 +211,14 @@ FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fil
 #undef verify
 /*!
  * @abstract Verifies certain behavior happened once.
- * @discussion verify checks that a method was invoked once, with arguments that match given
- * OCHamcrest matchers. If an argument is not a matcher, it is implicitly wrapped in an
- * <code>equalTo</code> matcher to check for equality.
+ * @discussion Equivalent to <code>verifyCount(mock, times(1))</code>.
+ *
+ * Method arguments are matched with specified OCHamcrest matchers. Any argument that is
+ * not a matcher is implicitly wrapped in <code>equalTo</code> to match for equality.
  *
  * Examples:
  * <pre>[verify(mockObject) someMethod:startsWith(\@"foo")];</pre>
  * <pre>[verify(mockObject) someMethod:\@"bar"];</pre>
- *
- * <code>verify(mockObject)</code> is equivalent to <code>verifyCount(mockObject, times(1))</code>
  *
  * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MKT_DISABLE_SHORT_SYNTAX</code> and use the synonym
@@ -235,7 +234,9 @@ FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id <MKTVerificationMode
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
  * @abstract Verifies certain behavior happened a given number of times.
- * @discussion Examples:
+ * @discussion Method arguments are matched with specified OCHamcrest matchers. Any argument that is
+ * not a matcher is implicitly wrapped in <code>equalTo</code> to match for equality.
+ * Examples:
  * <pre>[verifyCount(mockObject, times(5)) someMethod:\@"was called five times"];</pre>
  * <pre>[verifyCount(mockObject, never()) someMethod:\@"was never called"];</pre>
  * verifyCount checks that a method was invoked the given number of times, with arguments that
