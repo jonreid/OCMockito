@@ -10,6 +10,8 @@
 #import "MKTProtocolMock.h"
 #import "NSInvocation+OCMockito.h"
 
+@protocol MKTVerificationMode;
+
 
 static inline id MKTMock(Class classToMock)
 {
@@ -227,7 +229,7 @@ FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fil
 #endif
 
 
-FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileName, int lineNumber);
+FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id <MKTVerificationMode> mode, id testCase, const char *fileName, int lineNumber);
 #define MKTVerifyCount(mock, mode) MKTVerifyCountWithLocation(mock, mode, self, __FILE__, __LINE__)
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
@@ -248,12 +250,11 @@ FOUNDATION_EXPORT id MKTVerifyCountWithLocation(id mock, id mode, id testCase, c
 #endif
 
 
-FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
+FOUNDATION_EXPORT id <MKTVerificationMode> MKTTimes(NSUInteger wantedNumberOfInvocations);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates <code>verifyCount</code> mode to verify the given exact number of
- * invocations.
+ * @abstract Creates <code>verifyCount</code> mode verifying an exact number of invocations.
  * @discussion Example:
  * <pre>[verifyCount(mockObject, times(2)) someMethod:\@"some arg"];</pre>
  *
@@ -261,18 +262,18 @@ FOUNDATION_EXPORT id MKTTimes(NSUInteger wantedNumberOfInvocations);
  * In the event of a name clash, <code>#define MKT_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTTimes instead.
  */
-static inline id times(NSUInteger wantedNumberOfInvocations)
+static inline id <MKTVerificationMode> times(NSUInteger wantedNumberOfInvocations)
 {
     return MKTTimes(wantedNumberOfInvocations);
 }
 #endif
 
 
-FOUNDATION_EXPORT id MKTNever(void);
+FOUNDATION_EXPORT id <MKTVerificationMode> MKTNever(void);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates <code>verifyCount</code> mode to verify that an interaction did not happen.
+ * @abstract Creates <code>verifyCount</code> mode verifying that an interaction did not happen.
  * @discussion Example:
  * <pre>[verifyCount(mockObject, never()) someMethod:\@"some arg"];</pre>
  *
@@ -280,22 +281,20 @@ FOUNDATION_EXPORT id MKTNever(void);
  * In the event of a name clash, <code>#define MKT_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTNever instead.
  */
-static inline id never(void)
+static inline id <MKTVerificationMode> never(void)
 {
     return MKTNever();
 }
 #endif
 
 
-FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minNumberOfInvocations);
+FOUNDATION_EXPORT id <MKTVerificationMode> MKTAtLeast(NSUInteger minNumberOfInvocations);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates <code>verifyCount</code> mode to verify the specified minimum number of
- * invocations.
- * @discussion The verification will succeed if the specified invocation happened the number of
- * times specified or more.
- *
+ * @abstract Creates <code>verifyCount</code> mode verifying that an interaction happened at least
+ * the given number of times.
+ * @discussion
  * Example:
  * <pre>[verifyCount(mockObject, atLeast(2)) someMethod:\@"some arg"];</pre>
  *
@@ -303,42 +302,42 @@ FOUNDATION_EXPORT id MKTAtLeast(NSUInteger minNumberOfInvocations);
  * In the event of a name clash, <code>#define MKT_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeast instead.
  */
-static inline id atLeast(NSUInteger minNumberOfInvocations)
+static inline id <MKTVerificationMode> atLeast(NSUInteger minNumberOfInvocations)
 {
     return MKTAtLeast(minNumberOfInvocations);
 }
 #endif
 
 
-FOUNDATION_EXPORT id MKTAtLeastOnce(void);
+FOUNDATION_EXPORT id <MKTVerificationMode> MKTAtLeastOnce(void);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates <code>verifyCount</code> mode to verify that an interaction happened once or
- * more.
- * @discussion Example:
+ * @abstract Creates <code>verifyCount</code> mode verifying that an interaction happened at least
+ * once.
+ * @discussion Same as <code>atLeast(1)</code>.
+ *
+ * Example:
  * <pre>[verifyCount(mockObject, atLeastOnce()) someMethod:\@"some arg"];</pre>
  *
  * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MKT_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeastOnce instead.
  */
-static inline id atLeastOnce(void)
+static inline id <MKTVerificationMode> atLeastOnce(void)
 {
     return MKTAtLeastOnce();
 }
 #endif
 
 
-FOUNDATION_EXPORT id MKTAtMost(NSUInteger maxNumberOfInvocations);
+FOUNDATION_EXPORT id <MKTVerificationMode> MKTAtMost(NSUInteger maxNumberOfInvocations);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
- * @abstract Creates <code>verifyCount</code> mode to verify the specified  maximum number of
- * invocations.
- * @discussion The verification will succeed if the specified invocation happened the number of
- * times specified or less.
- *
+ * @abstract Creates <code>verifyCount</code> mode verifying that an interaction happened at most
+ * the given number of times.
+ * @discussion
  * Example:
  * <pre>[verifyCount(mockObject, atMost(2)) someMethod:\@"some arg"];</pre>
  *
@@ -346,7 +345,7 @@ FOUNDATION_EXPORT id MKTAtMost(NSUInteger maxNumberOfInvocations);
  * In the event of a name clash, <code>#define MKT_DISABLE_SHORT_SYNTAX</code> and use the synonym
  * MKTAtLeast instead.
  */
-static inline id atMost(NSUInteger maxNumberOfInvocations)
+static inline id <MKTVerificationMode> atMost(NSUInteger maxNumberOfInvocations)
 {
     return MKTAtMost(maxNumberOfInvocations);
 }

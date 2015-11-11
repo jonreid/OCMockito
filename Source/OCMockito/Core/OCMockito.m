@@ -7,6 +7,7 @@
 #import "MKTAtMostTimes.h"
 #import "MKTExactTimes.h"
 #import "MKTMockitoCore.h"
+#import "MKTVerificationMode.h"
 
 
 static BOOL isValidMockClass(id mock)
@@ -65,27 +66,27 @@ id MKTVerifyCountWithLocation(id mock, id mode, id testCase, const char *fileNam
                                         atLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
-id MKTTimes(NSUInteger wantedNumberOfInvocations)
+id <MKTVerificationMode> MKTTimes(NSUInteger wantedNumberOfInvocations)
 {
     return [[MKTExactTimes alloc] initWithCount:wantedNumberOfInvocations];
 }
 
-id MKTNever()
+id <MKTVerificationMode> MKTNever()
 {
     return MKTTimes(0);
 }
 
-id MKTAtLeast(NSUInteger minNumberOfInvocations)
+id <MKTVerificationMode> MKTAtLeast(NSUInteger minNumberOfInvocations)
 {
     return [[MKTAtLeastTimes alloc] initWithMinimumCount:minNumberOfInvocations];
 }
 
-id MKTAtLeastOnce()
+id <MKTVerificationMode> MKTAtLeastOnce()
 {
     return MKTAtLeast(1);
 }
 
-id MKTAtMost(NSUInteger maxNumberOfInvocations)
+id <MKTVerificationMode> MKTAtMost(NSUInteger maxNumberOfInvocations)
 {
     return [[MKTAtMostTimes alloc] initWithMaximumCount:maxNumberOfInvocations];
 }
