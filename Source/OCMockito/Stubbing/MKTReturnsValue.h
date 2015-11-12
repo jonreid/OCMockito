@@ -4,6 +4,9 @@
 #import "MKTAnswer.h"
 
 
+/*!
+ * @abstract Method answer that returns a value.
+ */
 @interface MKTReturnsValue : NSObject <MKTAnswer>
 
 - (instancetype)initWithValue:(id)value;

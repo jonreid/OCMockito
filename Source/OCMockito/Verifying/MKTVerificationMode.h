@@ -6,6 +6,10 @@
 @class MKTVerificationData;
 
 
+/*!
+ * @abstract Allows verifying that certain behavior happened at least once / exact number of times /
+ * never.
+ */
 @protocol MKTVerificationMode <NSObject>
 
 - (void)verifyData:(MKTVerificationData *)data;

@@ -3,7 +3,9 @@
 
 #import "MKTAnswer.h"
 
-
+/*!
+ * @abstract Method answer that executes a block.
+ */
 @interface MKTExecutesBlock : NSObject <MKTAnswer>
 
 - (instancetype)initWithBlock:(id (^)(NSInvocation *))block;

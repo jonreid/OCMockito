@@ -4,6 +4,9 @@
 #import "MKTAnswer.h"
 
 
+/*!
+ * @abstract Method answer that throws an exception.
+ */
 @interface MKTThrowsException : NSObject <MKTAnswer>
 
 - (instancetype)initWithException:(NSException *)exception;
