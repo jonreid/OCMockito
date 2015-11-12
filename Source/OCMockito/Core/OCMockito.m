@@ -5,9 +5,11 @@
 
 #import "MKTAtLeastTimes.h"
 #import "MKTAtMostTimes.h"
+#import "MKTClassObjectMock.h"
 #import "MKTExactTimes.h"
 #import "MKTMockitoCore.h"
-#import "MKTVerificationMode.h"
+#import "MKTObjectAndProtocolMock.h"
+#import "MKTObjectMock.h"
 
 
 static BOOL isValidMockClass(id mock)
@@ -35,6 +37,31 @@ static BOOL reportedInvalidMock(id mock, id testCase, const char *fileName, int 
                                                        functionName, actualTypeName(mock)];
     MKTFailTest(testCase, fileName, lineNumber, description);
     return YES;
+}
+
+id MKTMock(Class classToMock)
+{
+    return [MKTObjectMock mockForClass:classToMock];
+}
+
+id MKTMockClass(Class classToMock)
+{
+    return [MKTClassObjectMock mockForClass:classToMock];
+}
+
+id MKTMockProtocol(Protocol *protocolToMock)
+{
+    return [MKTProtocolMock mockForProtocol:protocolToMock];
+}
+
+id MKTMockProtocolWithoutOptionals(Protocol *protocolToMock)
+{
+    return [MKTProtocolMock mockForProtocol:protocolToMock includeOptionalMethods:NO];
+}
+
+id MKTMockObjectAndProtocol(Class classToMock, Protocol *protocolToMock)
+{
+    return [MKTObjectAndProtocolMock mockForClass:classToMock protocol:protocolToMock];
 }
 
 MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)

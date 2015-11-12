@@ -3,20 +3,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MKTClassObjectMock.h"
-#import "MKTObjectMock.h"
-#import "MKTObjectAndProtocolMock.h"
 #import "MKTOngoingStubbing.h"
-#import "MKTProtocolMock.h"
 #import "NSInvocation+OCMockito.h"
 
 @protocol MKTVerificationMode;
 
 
-static inline id MKTMock(Class classToMock)
-{
-    return [MKTObjectMock mockForClass:classToMock];
-}
+FOUNDATION_EXPORT id MKTMock(Class classToMock);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
@@ -38,10 +31,7 @@ static inline id mock(Class classToMock)
 #endif
 
 
-static inline id MKTMockClass(Class classToMock)
-{
-    return [MKTClassObjectMock mockForClass:classToMock];
-}
+FOUNDATION_EXPORT id MKTMockClass(Class classToMock);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
@@ -63,10 +53,7 @@ static inline id mockClass(Class classToMock)
 #endif
 
 
-static inline id MKTMockProtocol(Protocol *protocolToMock)
-{
-    return [MKTProtocolMock mockForProtocol:protocolToMock];
-}
+FOUNDATION_EXPORT id MKTMockProtocol(Protocol *protocolToMock);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
@@ -88,10 +75,7 @@ static inline id mockProtocol(Protocol *protocolToMock)
 #endif
 
 
-static inline id MKTMockProtocolWithoutOptionals(Protocol *protocolToMock)
-{
-    return [MKTProtocolMock mockForProtocol:protocolToMock includeOptionalMethods:NO];
-}
+FOUNDATION_EXPORT id MKTMockProtocolWithoutOptionals(Protocol *protocolToMock);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
@@ -113,10 +97,7 @@ static inline id mockProtocolWithoutOptionals(Protocol *protocolToMock)
 #endif
 
 
-static inline id MKTMockObjectAndProtocol(Class classToMock, Protocol *protocolToMock)
-{
-    return [MKTObjectAndProtocolMock mockForClass:classToMock protocol:protocolToMock];
-}
+FOUNDATION_EXPORT id MKTMockObjectAndProtocol(Class classToMock, Protocol *protocolToMock);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
