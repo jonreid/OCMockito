@@ -41,27 +41,27 @@ static BOOL reportedInvalidMock(id mock, id testCase, const char *fileName, int 
 
 id MKTMock(Class classToMock)
 {
-    return [MKTObjectMock mockForClass:classToMock];
+    return [[MKTObjectMock alloc] initWithClass:classToMock];
 }
 
 id MKTMockClass(Class classToMock)
 {
-    return [MKTClassObjectMock mockForClass:classToMock];
+    return [[MKTClassObjectMock alloc] initWithClass:classToMock];
 }
 
 id MKTMockProtocol(Protocol *protocolToMock)
 {
-    return [MKTProtocolMock mockForProtocol:protocolToMock];
+    return [[MKTProtocolMock alloc] initWithProtocol:protocolToMock includeOptionalMethods:YES];
 }
 
 id MKTMockProtocolWithoutOptionals(Protocol *protocolToMock)
 {
-    return [MKTProtocolMock mockForProtocol:protocolToMock includeOptionalMethods:NO];
+    return [[MKTProtocolMock alloc] initWithProtocol:protocolToMock includeOptionalMethods:NO];
 }
 
 id MKTMockObjectAndProtocol(Class classToMock, Protocol *protocolToMock)
 {
-    return [MKTObjectAndProtocolMock mockForClass:classToMock protocol:protocolToMock];
+    return [[MKTObjectAndProtocolMock alloc] initWithClass:classToMock protocol:protocolToMock];
 }
 
 MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)

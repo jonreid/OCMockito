@@ -15,14 +15,9 @@
 
 @implementation MKTObjectAndProtocolMock
 
-+ (instancetype)mockForClass:(Class)aClass protocol:(Protocol *)protocol
-{
-    return [[self alloc] initWithClass:aClass protocol:protocol];
-}
-
 - (instancetype)initWithClass:(Class)aClass protocol:(Protocol *)protocol
 {
-    self = [super initWithProtocol:protocol];
+    self = [super initWithProtocol:protocol includeOptionalMethods:YES];
     if (self)
     {
         _mockedClass = aClass;

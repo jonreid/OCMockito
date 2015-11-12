@@ -12,20 +12,8 @@
 
 @implementation MKTProtocolMock
 
-+ (instancetype)mockForProtocol:(Protocol *)aProtocol {
-    return [self mockForProtocol:aProtocol includeOptionalMethods:YES];
-}
-
-+ (instancetype)mockForProtocol:(Protocol *)aProtocol includeOptionalMethods:(BOOL)includeOptionalMethods
-{
-    return [[self alloc] initWithProtocol:aProtocol includeOptionalMethods:includeOptionalMethods];
-}
-
-- (instancetype)initWithProtocol:(Protocol *)aProtocol {
-    return [self initWithProtocol:aProtocol includeOptionalMethods:YES];
-}
-
-- (instancetype)initWithProtocol:(Protocol *)aProtocol includeOptionalMethods:(BOOL)includeOptionalMethods
+- (instancetype)initWithProtocol:(Protocol *)aProtocol
+          includeOptionalMethods:(BOOL)includeOptionalMethods
 {
     self = [super init];
     if (self)

@@ -11,11 +11,6 @@
 
 @implementation MKTClassObjectMock
 
-+ (instancetype)mockForClass:(Class)aClass
-{
-    return [[self alloc] initWithClass:aClass];
-}
-
 - (instancetype)initWithClass:(Class)aClass
 {
     self = [super init];
