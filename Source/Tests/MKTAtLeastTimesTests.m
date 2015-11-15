@@ -18,6 +18,7 @@
 {
     MKTVerificationData *verification;
     NSInvocation *invocation;
+    MKTTestLocation dummyTestLocation;
 }
 
 - (void)setUp
@@ -41,7 +42,7 @@
 
     [self simulateInvocationCount:0];
 
-    XCTAssertThrows([sut verifyData:verification]);
+    XCTAssertThrows([sut verifyData:verification testLocation:dummyTestLocation]);
 }
 
 - (void)testVerifyData_WithTooFewInvocations_ShouldFail
@@ -50,7 +51,7 @@
 
     [self simulateInvocationCount:1];
 
-    XCTAssertThrows([sut verifyData:verification]);
+    XCTAssertThrows([sut verifyData:verification testLocation:dummyTestLocation]);
 }
 
 - (void)testVerifyAtLeastZero_WithNoInvocations_ShouldSucceed
@@ -59,7 +60,7 @@
 
     [self simulateInvocationCount:0];
 
-    XCTAssertNoThrow([sut verifyData:verification]);
+    XCTAssertNoThrow([sut verifyData:verification testLocation:dummyTestLocation]);
 }
 
 - (void)testVerifyData_WithExactNumberOfInvocations_ShouldSucceed
@@ -68,7 +69,7 @@
 
     [self simulateInvocationCount:1];
 
-    XCTAssertNoThrow([sut verifyData:verification]);
+    XCTAssertNoThrow([sut verifyData:verification testLocation:dummyTestLocation]);
 }
 
 - (void)testVerifyData_WithMoreInvocations_ShouldSucceed
@@ -77,7 +78,7 @@
 
     [self simulateInvocationCount:2];
 
-    XCTAssertNoThrow([sut verifyData:verification]);
+    XCTAssertNoThrow([sut verifyData:verification testLocation:dummyTestLocation]);
 }
 
 @end

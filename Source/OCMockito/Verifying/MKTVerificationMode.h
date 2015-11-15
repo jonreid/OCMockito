@@ -2,6 +2,7 @@
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
 #import <Foundation/Foundation.h>
+#import "MKTTestLocation.h"
 
 @class MKTVerificationData;
 
@@ -12,6 +13,6 @@
  */
 @protocol MKTVerificationMode <NSObject>
 
-- (void)verifyData:(MKTVerificationData *)data;
+- (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation;
 
 @end

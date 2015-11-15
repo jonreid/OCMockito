@@ -60,7 +60,7 @@
 {
     MKTInvocationMatcher *invocationMatcher = [self matcherWithInvocation:invocation];
     MKTVerificationData *data = [self verificationDataWithMatcher:invocationMatcher];
-    [verificationMode verifyData:data];
+    [verificationMode verifyData:data testLocation:self.mockingProgress.testLocation];
 }
 
 - (MKTInvocationMatcher *)matcherWithInvocation:(NSInvocation *)invocation
@@ -74,10 +74,8 @@
 
 - (MKTVerificationData *)verificationDataWithMatcher:(MKTInvocationMatcher *)invocationMatcher
 {
-    MKTVerificationData *data = [[MKTVerificationData alloc] initWithInvocationContainer:self.invocationContainer
-                                                                       invocationMatcher:invocationMatcher];
-    data.testLocation = self.mockingProgress.testLocation;
-    return data;
+    return [[MKTVerificationData alloc] initWithInvocationContainer:self.invocationContainer
+                                                  invocationMatcher:invocationMatcher];
 }
 
 - (void)prepareInvocationForStubbing:(NSInvocation *)invocation

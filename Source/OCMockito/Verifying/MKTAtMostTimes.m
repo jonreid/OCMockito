@@ -23,7 +23,7 @@
 
 #pragma mark MKTVerificationMode
 
-- (void)verifyData:(MKTVerificationData *)data
+- (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation
 {
     if (self.wantedCount == 0)
         return;     // this always succeeds
@@ -34,7 +34,7 @@
         NSString *plural = (self.wantedCount == 1) ? @"" : @"s";
         NSString *description = [NSString stringWithFormat:@"Expected less than %u matching invocation%@, but received %u",
                                  (unsigned)self.wantedCount, plural, (unsigned)matchingCount];
-        MKTFailTestLocation(data.testLocation, description);
+        MKTFailTestLocation(testLocation, description);
     }
 }
 
