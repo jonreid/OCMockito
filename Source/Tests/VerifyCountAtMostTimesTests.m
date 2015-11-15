@@ -31,7 +31,14 @@
         [mockArray removeAllObjects];
 }
 
-- (void)testLessThan_WithTooManyInvocations_ShouldFail
+- (void)testAtMostZero_WithNoInvocations_ShouldPass
+{
+    [self callRemoveAllObjectsTimes:0];
+
+    [verifyCountWithMockTestCase(mockArray, atMost(0), mockTestCase) removeAllObjects];
+}
+
+- (void)testAtMost_WithTooManyInvocations_ShouldFail
 {
     [self callRemoveAllObjectsTimes:3];
     
@@ -40,14 +47,14 @@
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
-- (void)testLessThan_WithExactCount_ShouldPass
+- (void)testAtMost_WithExactCount_ShouldPass
 {
     [self callRemoveAllObjectsTimes:1];
     
     [verifyCount(mockArray, atMost(1)) removeAllObjects];
 }
 
-- (void)testLessThan_WithLessInvocations_ShouldPass
+- (void)testAtMost_WithFewerInvocations_ShouldPass
 {
     [self callRemoveAllObjectsTimes:2];
     
