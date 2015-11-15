@@ -31,13 +31,6 @@
         [mockArray removeAllObjects];
 }
 
-- (void)testAtMostZero_WithNoInvocations_ShouldPass
-{
-    [self callRemoveAllObjectsTimes:0];
-
-    [verifyCountWithMockTestCase(mockArray, atMost(0), mockTestCase) removeAllObjects];
-}
-
 - (void)testAtMost_WithTooManyInvocations_ShouldFail
 {
     [self callRemoveAllObjectsTimes:3];

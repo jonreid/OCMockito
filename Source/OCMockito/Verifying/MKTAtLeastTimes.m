@@ -26,9 +26,6 @@
 
 - (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation
 {
-    if (self.wantedCount == 0)
-        return;     // this always succeeds
-
     NSUInteger matchingCount = [data numberOfMatchingInvocations];
     if (matchingCount < self.wantedCount)
     {
