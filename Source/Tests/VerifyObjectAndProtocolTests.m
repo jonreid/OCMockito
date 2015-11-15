@@ -33,7 +33,7 @@
 
 - (void)testVerify_WithInstanceMethodNotInvoked_ShouldFail
 {
-    [verifyWithMockTestCase(mockLockingArray) removeAllObjects];
+    [verifyWithMockTestCase(mockLockingArray, mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -47,7 +47,7 @@
 
 - (void)testVerify_WithProtocolMethodNotInvoked_ShouldFail
 {
-    [verifyWithMockTestCase(mockLockingArray) lock];
+    [verifyWithMockTestCase(mockLockingArray, mockTestCase) lock];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }

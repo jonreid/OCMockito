@@ -34,7 +34,7 @@
 {
     [self callRemoveAllObjectsTimes:0];
 
-    [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, times(1), mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -50,7 +50,7 @@
 {
     [self callRemoveAllObjectsTimes:2];
 
-    [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, times(1), mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -59,7 +59,7 @@
 {
     [self callRemoveAllObjectsTimes:1];
 
-    [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, times(2), mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -75,7 +75,7 @@
 {
     [self callRemoveAllObjectsTimes:3];
 
-    [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, times(2), mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -84,7 +84,7 @@
 {
     [self callRemoveAllObjectsTimes:0];
 
-    [verifyCountWithMockTestCase(mockArray, times(1)) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, times(1), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
                is(@"Expected 1 matching invocation, but received 0"));
@@ -94,7 +94,7 @@
 {
     [self callRemoveAllObjectsTimes:1];
 
-    [verifyCountWithMockTestCase(mockArray, times(2)) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, times(2), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
                is(@"Expected 2 matching invocations, but received 1"));

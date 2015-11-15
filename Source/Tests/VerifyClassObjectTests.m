@@ -33,7 +33,7 @@
 {
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
 
-    [verifyWithMockTestCase(mockStringClass) string];
+    [verifyWithMockTestCase(mockStringClass, mockTestCase) string];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }

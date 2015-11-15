@@ -24,7 +24,7 @@
 
 - (void)testVerify_WithNil_ShouldGiveError
 {
-    [verifyWithMockTestCase(nil) removeAllObjects];
+    [verifyWithMockTestCase(nil, mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
                is(@"Argument passed to verify() should be a mock but is nil"));
@@ -32,7 +32,7 @@
 
 - (void)testVerifyCount_WithNil_ShouldGiveError
 {
-    [verifyCountWithMockTestCase(nil, times(1)) removeAllObjects];
+    [verifyCountWithMockTestCase(nil, times(1), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
                is(@"Argument passed to verifyCount() should be a mock but is nil"));
@@ -42,7 +42,7 @@
 {
     NSMutableArray *realArray = [NSMutableArray array];
 
-    [verifyWithMockTestCase(realArray) removeAllObjects];
+    [verifyWithMockTestCase(realArray, mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
                startsWith(@"Argument passed to verify() should be a mock but is type "));
@@ -52,7 +52,7 @@
 {
     NSMutableArray *realArray = [NSMutableArray array];
 
-    [verifyCountWithMockTestCase(realArray, times(1)) removeAllObjects];
+    [verifyCountWithMockTestCase(realArray, times(1), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
                startsWith(@"Argument passed to verifyCount() should be a mock but is type "));

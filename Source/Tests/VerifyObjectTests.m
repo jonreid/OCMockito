@@ -56,7 +56,7 @@ static inline double *createArrayOf10Doubles(void)
 
 - (void)testVerify_WithMethodNotInvoked_ShouldFail
 {
-    [verifyWithMockTestCase(mockArray) removeAllObjects];
+    [verifyWithMockTestCase(mockArray, mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -72,7 +72,7 @@ static inline double *createArrayOf10Doubles(void)
 {
     [mockArray removeObject:@"same"];
 
-    [verifyWithMockTestCase(mockArray) removeObject:@"different"];
+    [verifyWithMockTestCase(mockArray, mockTestCase) removeObject:@"different"];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -95,7 +95,7 @@ static inline double *createArrayOf10Doubles(void)
 {
     [mockArray removeObjectAtIndex:2];
 
-    [verifyWithMockTestCase(mockArray) removeObjectAtIndex:99];
+    [verifyWithMockTestCase(mockArray, mockTestCase) removeObjectAtIndex:99];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -152,7 +152,7 @@ static inline double *createArrayOf10Doubles(void)
     NSError *err2;
 
     [testMock methodWithError:&err1];
-    [verifyWithMockTestCase(testMock) methodWithError:&err2];
+    [verifyWithMockTestCase(testMock, mockTestCase) methodWithError:&err2];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -180,7 +180,7 @@ static inline double *createArrayOf10Doubles(void)
     TestObject *testMock = mock([TestObject class]);
     [testMock methodWithSelector:@selector(lastObject)];
 
-    [verifyWithMockTestCase(testMock) methodWithSelector:@selector(removeAllObjects)];
+    [verifyWithMockTestCase(testMock, mockTestCase) methodWithSelector:@selector(removeAllObjects)];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -221,7 +221,7 @@ static inline double *createArrayOf10Doubles(void)
     MKTStruct struct2 = {1, 'a', b};
     [testMock methodWithStruct:struct1];
 
-    [verifyWithMockTestCase(testMock) methodWithStruct:struct2];
+    [verifyWithMockTestCase(testMock, mockTestCase) methodWithStruct:struct2];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 

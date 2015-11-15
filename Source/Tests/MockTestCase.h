@@ -4,13 +4,13 @@
 #import <Foundation/Foundation.h>
 
 
-#define verifyWithMockTestCase(mock)  \
+#define verifyWithMockTestCase(mock, mockTestCase)  \
     MKTVerifyWithLocation(mock, mockTestCase, __FILE__, __LINE__)
 
-#define verifyCountWithMockTestCase(mock, mode)  \
+#define verifyCountWithMockTestCase(mock, mode, mockTestCase)  \
     MKTVerifyCountWithLocation(mock, mode, mockTestCase, __FILE__, __LINE__)
 
-#define stopMockingWithMockTestCase(mock)  \
+#define stopMockingWithMockTestCase(mock, mockTestCase)  \
     MKTStopMockingWithLocation(mock, mockTestCase, __FILE__, __LINE__)
 
 

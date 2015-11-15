@@ -43,7 +43,7 @@
 
 - (void)testNotInvokingMethod_ShouldFailVerify
 {
-    [verifyWithMockTestCase(mockLock) lock];
+    [verifyWithMockTestCase(mockLock, mockTestCase) lock];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -59,7 +59,7 @@
 {
     [mockDelegate archiver:archiver willEncodeObject:@"same"];
 
-    [verifyWithMockTestCase(mockDelegate) archiver:archiver willEncodeObject:@"different"];
+    [verifyWithMockTestCase(mockDelegate, mockTestCase) archiver:archiver willEncodeObject:@"different"];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }

@@ -35,7 +35,7 @@
 {
     [self callRemoveAllObjectsTimes:1];
 
-    [verifyCountWithMockTestCase(mockArray, atLeast(2)) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, atLeast(2), mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
@@ -58,7 +58,7 @@
 {
     [self callRemoveAllObjectsTimes:0];
 
-    [verifyCountWithMockTestCase(mockArray, atLeastOnce()) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, atLeastOnce(), mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }

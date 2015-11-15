@@ -32,7 +32,7 @@
     MockTestCase *mockTestCase = [[MockTestCase alloc] init];
     [mockArray removeAllObjects];
 
-    [verifyCountWithMockTestCase(mockArray, never()) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, never(), mockTestCase) removeAllObjects];
 
     assertThat(@(mockTestCase.failureCount), is(@1));
 }

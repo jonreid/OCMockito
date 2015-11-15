@@ -102,7 +102,7 @@
 
 - (void)testStopMocking_WithNil_ShouldGiveError
 {
-    stopMockingWithMockTestCase(nil);
+    stopMockingWithMockTestCase(nil, mockTestCase);
 
     assertThat(mockTestCase.failureDescription,
             is(@"Argument passed to stopMocking() should be a mock but is nil"));
@@ -112,7 +112,7 @@
 {
     NSMutableArray *realArray = [NSMutableArray array];
 
-    stopMockingWithMockTestCase(realArray);
+    stopMockingWithMockTestCase(realArray, mockTestCase);
 
     assertThat(mockTestCase.failureDescription,
             startsWith(@"Argument passed to stopMocking() should be a mock but is type "));
