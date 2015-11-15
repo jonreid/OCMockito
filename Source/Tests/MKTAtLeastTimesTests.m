@@ -23,9 +23,8 @@
 - (void)setUp
 {
     [super setUp];
-    verification = [[MKTVerificationData alloc] init];
-    verification.invocations = [[MKTInvocationContainer alloc] init];
-    verification.wanted = [[MKTInvocationMatcher alloc] init];
+    verification = [[MKTVerificationData alloc] initWithInvocationContainer:[[MKTInvocationContainer alloc] init]
+                                                          invocationMatcher:[[MKTInvocationMatcher alloc] init]];
     invocation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:"v@:"]];
     [verification.wanted setExpectedInvocation:invocation];
 }

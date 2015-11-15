@@ -74,9 +74,8 @@
 
 - (MKTVerificationData *)verificationDataWithMatcher:(MKTInvocationMatcher *)invocationMatcher
 {
-    MKTVerificationData *data = [[MKTVerificationData alloc] init];
-    data.invocations = self.invocationContainer;
-    data.wanted = invocationMatcher;
+    MKTVerificationData *data = [[MKTVerificationData alloc] initWithInvocationContainer:self.invocationContainer
+                                                                       invocationMatcher:invocationMatcher];
     data.testLocation = self.mockingProgress.testLocation;
     return data;
 }

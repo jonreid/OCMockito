@@ -9,6 +9,18 @@
 
 @implementation MKTVerificationData
 
+- (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocations
+                          invocationMatcher:(MKTInvocationMatcher *)wanted;
+{
+    self = [super init];
+    if (self)
+    {
+        _invocations = invocations;
+        _wanted = wanted;
+    }
+    return self;
+}
+
 - (NSUInteger)numberOfMatchingInvocations
 {
     NSUInteger count = 0;
