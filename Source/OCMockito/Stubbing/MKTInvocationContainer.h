@@ -11,11 +11,12 @@
 
 @interface MKTInvocationContainer : NSObject
 
-@property (nonatomic, strong, readonly) NSMutableArray *registeredInvocations;
+@property (nonatomic, copy, readonly) NSArray *registeredInvocations;
 
 - (instancetype)init;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id <MKTAnswer>)answer;
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
+
 @end

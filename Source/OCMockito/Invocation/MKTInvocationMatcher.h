@@ -8,9 +8,8 @@
 
 @interface MKTInvocationMatcher : NSObject
 
-@property (nonatomic, strong) NSInvocation *expected;
-@property (nonatomic, assign) NSUInteger numberOfArguments;
-@property (nonatomic, strong) NSMutableArray *argumentMatchers;
+@property (nonatomic, strong, readonly) NSInvocation *expected;
+@property (nonatomic, assign, readonly) NSUInteger numberOfArguments;
 
 - (instancetype)init;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index;

@@ -9,6 +9,7 @@
 
 
 @interface MKTMockingProgress ()
+@property (nonatomic, assign, readwrite) MKTTestLocation testLocation;
 @property (nonatomic, strong) MKTInvocationMatcher *invocationMatcher;
 @property (nonatomic, strong) id <MKTVerificationMode> verificationMode;
 @property (nonatomic, strong) MKTOngoingStubbing *ongoingStubbing;

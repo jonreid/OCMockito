@@ -8,13 +8,10 @@
 
 
 @interface MKTMockitoCore ()
-
 @property (nonatomic, strong, readonly) MKTMockingProgress *mockingProgress;
 @end
 
-
 @implementation MKTMockitoCore
-
 
 + (instancetype)sharedCore
 {

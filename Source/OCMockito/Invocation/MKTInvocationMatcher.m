@@ -24,6 +24,12 @@
 @end
 
 
+@interface MKTInvocationMatcher ()
+@property (nonatomic, strong, readwrite) NSInvocation *expected;
+@property (nonatomic, assign, readwrite) NSUInteger numberOfArguments;
+@property (nonatomic, strong, readonly) NSMutableArray *argumentMatchers;
+@end
+
 @implementation MKTInvocationMatcher
 
 - (instancetype)init
@@ -36,7 +42,7 @@
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index
 {
-    if (index < [self.argumentMatchers count])
+    if (index < self.argumentMatchers.count)
         self.argumentMatchers[index] = matcher;
     else
     {
@@ -52,7 +58,7 @@
 
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount
 {
-    NSUInteger count = [self.argumentMatchers count];
+    NSUInteger count = self.argumentMatchers.count;
     while (count < desiredCount)
     {
         [self.argumentMatchers addObject:[self placeholderForUnspecifiedMatcher]];
