@@ -11,6 +11,7 @@
     self = [super init];
     if (self) {
         _invocation = invocation;
+        _callStackSymbols = [NSThread callStackSymbols];
     }
     return self;
 }
