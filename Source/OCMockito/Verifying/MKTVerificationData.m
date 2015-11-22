@@ -5,6 +5,7 @@
 
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
+#import "MKTInvocation.h"
 
 
 @implementation MKTVerificationData
@@ -24,9 +25,9 @@
 - (NSUInteger)numberOfMatchingInvocations
 {
     NSUInteger count = 0;
-    for (NSInvocation *invocation in self.invocations.registeredInvocations)
+    for (MKTInvocation *invocation in self.invocations.registeredInvocations)
     {
-        if ([self.wanted matches:invocation])
+        if ([self.wanted matches:invocation.invocation])
             ++count;
     }
     return count;

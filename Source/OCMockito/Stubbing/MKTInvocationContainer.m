@@ -5,6 +5,7 @@
 
 #import "MKTStubbedInvocationMatcher.h"
 #import "NSInvocation+OCMockito.h"
+#import "MKTInvocation.h"
 
 
 @interface MKTInvocationContainer ()
@@ -35,7 +36,8 @@
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation
 {
     [invocation mkt_retainArgumentsWithWeakTarget];
-    [self.mutableRegisteredInvocations addObject:invocation];
+    MKTInvocation *wrappedInvocation = [[MKTInvocation alloc] initWithInvocation:invocation];
+    [self.mutableRegisteredInvocations addObject:wrappedInvocation];
 
     MKTStubbedInvocationMatcher *s = [[MKTStubbedInvocationMatcher alloc] init];
     [s setExpectedInvocation:invocation];
