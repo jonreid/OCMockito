@@ -1,14 +1,12 @@
 //  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
-#import "MKTCallStackParser.h"
+#import "MKTParseCallStack.h"
 
 #import "MKTCallStackElement.h"
 
 
-@implementation MKTCallStackParser
-
-- (NSArray *)parse:(NSArray *)callStackSymbols
+NSArray *MKTParseCallStack(NSArray *callStackSymbols)
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     for (NSString *rawElement in callStackSymbols)
@@ -18,5 +16,3 @@
     }
     return result;
 }
-
-@end

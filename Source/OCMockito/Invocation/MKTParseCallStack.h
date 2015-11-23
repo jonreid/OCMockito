@@ -3,9 +3,4 @@
 
 #import <Foundation/Foundation.h>
 
-
-@interface MKTCallStackParser : NSObject
-
-- (NSArray *)parse:(NSArray *)callStackSymbols;
-
-@end
+NSArray *MKTParseCallStack(NSArray *callStackSymbols);
