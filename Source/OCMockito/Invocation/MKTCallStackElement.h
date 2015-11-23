@@ -9,6 +9,6 @@
 @property (nonatomic, copy, readonly) NSString *moduleName;
 @property (nonatomic, copy, readonly) NSString *instruction;
 
-- (id)initWithSymbols:(NSString *)rawElement;
+- (instancetype)initWithSymbols:(NSString *)element;
 
 @end

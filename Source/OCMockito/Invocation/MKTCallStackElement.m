@@ -4,18 +4,35 @@
 #import "MKTCallStackElement.h"
 
 
+static NSRange trimTrailingSpacesFromRange(NSString *string, NSRange range)
+{
+    while ([string characterAtIndex:range.location + range.length - 1] == ' ')
+        range.length -= 1;
+    return range;
+}
+
+static NSString *extractModuleName(NSString *element)
+{
+    NSRange range = trimTrailingSpacesFromRange(element, NSMakeRange(6, 33));
+    return [element substringWithRange:range];
+}
+
+static NSString *extractInstruction(NSString *element)
+{
+    NSRange range = NSMakeRange(61, element.length - 61);
+    return [element substringWithRange:range];
+}
+
+
 @implementation MKTCallStackElement
 
-- (id)initWithSymbols:(NSString *)rawElement
+- (instancetype)initWithSymbols:(NSString *)element
 {
     self = [super init];
     if (self)
     {
-        NSRange range = NSMakeRange(6, 33);
-        while ([rawElement characterAtIndex:range.location + range.length - 1] == ' ')
-            range.length -= 1;
-        _moduleName = [rawElement substringWithRange:range];
-        _instruction = [rawElement substringWithRange:NSMakeRange(61, rawElement.length - 61)];
+        _moduleName = extractModuleName(element);
+        _instruction = extractInstruction(element);
     }
     return self;
 }
