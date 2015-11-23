@@ -15,6 +15,7 @@
         while ([rawElement characterAtIndex:range.location + range.length - 1] == ' ')
             range.length -= 1;
         _moduleName = [rawElement substringWithRange:range];
+        _instruction = [rawElement substringWithRange:NSMakeRange(61, rawElement.length - 61)];
     }
     return self;
 }
