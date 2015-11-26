@@ -6,14 +6,20 @@
 #import "MKTInvocationMatcher.h"
 
 
+@interface MKTInvocationsFinder ()
+@property (nonatomic, copy) NSArray *invocations;
+@end
+
 @implementation MKTInvocationsFinder
 
-+ (NSArray *)findInvocationsInList:(NSArray *)array matching:(MKTInvocationMatcher *)wanted
++ (MKTInvocationsFinder *)findInvocationsInList:(NSArray *)array matching:(MKTInvocationMatcher *)wanted
 {
-    return [array filteredArrayUsingPredicate:
+    MKTInvocationsFinder *finder = [[MKTInvocationsFinder alloc] init];
+    finder.invocations = [array filteredArrayUsingPredicate:
             [NSPredicate predicateWithBlock:^BOOL(id invocation, NSDictionary *bindings) {
                 return [wanted matches:invocation];
             }]];
+    return finder;
 }
 
 @end

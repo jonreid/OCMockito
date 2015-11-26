@@ -8,6 +8,6 @@
 
 @interface MKTInvocationsFinder : NSObject
 
-+ (NSArray *)findInvocationsInList:(NSArray *)array matching:(MKTInvocationMatcher *)wanted;
++ (MKTInvocationsFinder *)findInvocationsInList:(NSArray *)array matching:(MKTInvocationMatcher *)wanted;
 
 @end

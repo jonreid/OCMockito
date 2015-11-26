@@ -9,6 +9,11 @@
 #import <XCTest/XCTest.h>
 
 
+@interface MKTInvocationsFinder (Testing)
+@property (nonatomic, copy) NSArray *invocations;
+@end
+
+
 @interface MKTInvocationsFinderTests : XCTestCase
 @end
 
@@ -22,7 +27,7 @@
     return invocation;
 }
 
-- (void)testFindInvocationsInList
+- (void)testFindInvocationsInList_ShouldCreateFinderWithMatchingInvocations
 {
     NSArray *target = [[NSArray alloc] init];
     NSInvocation *simpleMethodInvocation = [self invocationOnTarget:target withSelector:@selector(count)];
@@ -31,10 +36,10 @@
     NSArray *invocations = @[ simpleMethodInvocation, simpleMethodInvocationTwo, differentMethodInvocation ];
     MKTInvocationMatcher *wanted = [[MKTInvocationMatcher alloc] init];
     [wanted setExpectedInvocation:simpleMethodInvocation];
+    
+    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations matching:wanted];
 
-    NSArray *actual = [MKTInvocationsFinder findInvocationsInList:invocations matching:wanted];
-
-    assertThat(actual, containsIn(@[ simpleMethodInvocation, simpleMethodInvocationTwo ]));
+    assertThat(sut.invocations, containsIn(@[ simpleMethodInvocation, simpleMethodInvocationTwo ]));
 }
 
 @end
