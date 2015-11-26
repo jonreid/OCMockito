@@ -3,6 +3,7 @@
 
 #import "MKTInvocationsFinder.h"
 
+#import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
 
 #import <OCHamcrest/OCHamcrest.h>
@@ -18,28 +19,63 @@
 @end
 
 @implementation MKTInvocationsFinderTests
+{
+    NSArray *target;
+    MKTInvocation *simpleMethodInvocation;
+    MKTInvocation *simpleMethodInvocationTwo;
+    MKTInvocation *differentMethodInvocation;
+    MKTInvocationMatcher *wanted;
+}
 
-- (NSInvocation *)invocationOnTarget:(id)target withSelector:(SEL)selector
+- (void)setUp
+{
+    [super setUp];
+    target = [[NSArray alloc] init];
+    simpleMethodInvocation = [self invocationWithSelector:@selector(count)];
+    simpleMethodInvocationTwo = [self invocationWithSelector:@selector(count)];
+    differentMethodInvocation = [self invocationWithSelector:@selector(lastObject)];
+    wanted = [[MKTInvocationMatcher alloc] init];
+}
+
+- (MKTInvocation *)invocationWithSelector:(SEL)selector
 {
     NSMethodSignature *signature = [target methodSignatureForSelector:selector];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     [invocation setSelector:selector];
-    return invocation;
+    return [[MKTInvocation alloc] initWithInvocation:invocation];
 }
 
 - (void)testFindInvocationsInList_ShouldCreateFinderWithMatchingInvocations
 {
-    NSArray *target = [[NSArray alloc] init];
-    NSInvocation *simpleMethodInvocation = [self invocationOnTarget:target withSelector:@selector(count)];
-    NSInvocation *simpleMethodInvocationTwo = [self invocationOnTarget:target withSelector:@selector(count)];
-    NSInvocation *differentMethodInvocation = [self invocationOnTarget:target withSelector:@selector(lastObject)];
-    NSArray *invocations = @[ simpleMethodInvocation, simpleMethodInvocationTwo, differentMethodInvocation ];
-    MKTInvocationMatcher *wanted = [[MKTInvocationMatcher alloc] init];
-    [wanted setExpectedInvocation:simpleMethodInvocation];
+    NSArray *invocations = @[
+            simpleMethodInvocation,
+            simpleMethodInvocationTwo,
+            differentMethodInvocation,
+    ];
+    [wanted setExpectedInvocation:simpleMethodInvocation.invocation];
     
-    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations matching:wanted];
+    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations
+                                                                   matching:wanted];
+    NSArray *found = sut.invocations;
+    
+    assertThat(found, containsIn(@[
+            sameInstance(simpleMethodInvocation), sameInstance(simpleMethodInvocationTwo) ]));
+}
 
-    assertThat(sut.invocations, containsIn(@[ simpleMethodInvocation, simpleMethodInvocationTwo ]));
+- (void)testCount_ShouldReturnNumberOfMatchingInvocations
+{
+    NSArray *invocations = @[
+            simpleMethodInvocation,
+            simpleMethodInvocationTwo,
+            differentMethodInvocation,
+    ];
+    [wanted setExpectedInvocation:simpleMethodInvocation.invocation];
+
+    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations
+                                                                   matching:wanted];
+    NSUInteger count = sut.count;
+    
+    assertThat(@(count), is(@2));
 }
 
 @end

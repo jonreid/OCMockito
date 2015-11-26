@@ -3,6 +3,7 @@
 
 #import "MKTInvocationsFinder.h"
 
+#import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
 
 
@@ -12,14 +13,23 @@
 
 @implementation MKTInvocationsFinder
 
-+ (MKTInvocationsFinder *)findInvocationsInList:(NSArray *)array matching:(MKTInvocationMatcher *)wanted
+@dynamic count;
+
++ (MKTInvocationsFinder *)findInvocationsInList:(NSArray *)invocations
+                                       matching:(MKTInvocationMatcher *)wanted
 {
     MKTInvocationsFinder *finder = [[MKTInvocationsFinder alloc] init];
-    finder.invocations = [array filteredArrayUsingPredicate:
-            [NSPredicate predicateWithBlock:^BOOL(id invocation, NSDictionary *bindings) {
-                return [wanted matches:invocation];
+    finder.invocations = [invocations filteredArrayUsingPredicate:
+            [NSPredicate predicateWithBlock:^BOOL(id obj, NSDictionary *bindings) {
+                MKTInvocation *invocation = obj;
+                return [wanted matches:invocation.invocation];
             }]];
     return finder;
+}
+
+- (NSUInteger)count
+{
+    return self.invocations.count;
 }
 
 @end
