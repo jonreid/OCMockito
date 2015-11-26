@@ -26,14 +26,20 @@
 
 - (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation
 {
+    NSString *failureDescription = [self check:data];
+    if (failureDescription)
+        MKTFailTestLocation(testLocation, failureDescription);
+}
+
+- (NSString *)check:(MKTVerificationData *)data
+{
     NSUInteger matchingCount = [data numberOfMatchingInvocations];
-    if (matchingCount < self.wantedCount)
-    {
-        NSString *plural = (self.wantedCount == 1) ? @"" : @"s";
-        NSString *description = [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
-                                                           (unsigned)self.wantedCount, plural, (unsigned)matchingCount];
-        MKTFailTestLocation(testLocation, description);
-    }
+    if (matchingCount >= self.wantedCount)
+        return nil;
+
+    NSString *plural = (self.wantedCount == 1) ? @"" : @"s";
+    return [NSString stringWithFormat:@"Expected %u matching invocation%@, but received %u",
+                                      (unsigned)self.wantedCount, plural, (unsigned)matchingCount];
 }
 
 @end
