@@ -78,4 +78,52 @@
     assertThat(@(count), is(@2));
 }
 
+- (void)testCallStackOfInvocationAtIndex_WithIndex0
+{
+    NSArray *invocations = @[
+            simpleMethodInvocation,
+            simpleMethodInvocationTwo,
+            differentMethodInvocation,
+    ];
+    [wanted setExpectedInvocation:simpleMethodInvocation.invocation];
+
+    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations
+                                                                   matching:wanted];
+    NSArray *callStack = [sut callStackOfInvocationAtIndex:0];
+
+    assertThat(callStack, is(sameInstance(simpleMethodInvocation.callStackSymbols)));
+}
+
+- (void)testCallStackOfInvocationAtIndex_WithIndex1
+{
+    NSArray *invocations = @[
+            simpleMethodInvocation,
+            simpleMethodInvocationTwo,
+            differentMethodInvocation,
+    ];
+    [wanted setExpectedInvocation:simpleMethodInvocation.invocation];
+
+    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations
+                                                                   matching:wanted];
+    NSArray *callStack = [sut callStackOfInvocationAtIndex:1];
+
+    assertThat(callStack, is(sameInstance(simpleMethodInvocationTwo.callStackSymbols)));
+}
+
+- (void)testCallStackOfLastInvocation
+{
+    NSArray *invocations = @[
+            simpleMethodInvocation,
+            simpleMethodInvocationTwo,
+            differentMethodInvocation,
+    ];
+    [wanted setExpectedInvocation:simpleMethodInvocation.invocation];
+
+    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations
+                                                                   matching:wanted];
+    NSArray *callStack = [sut callStackOfLastInvocation];
+
+    assertThat(callStack, is(sameInstance(simpleMethodInvocationTwo.callStackSymbols)));
+}
+
 @end

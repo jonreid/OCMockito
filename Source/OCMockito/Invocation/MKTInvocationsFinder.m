@@ -32,4 +32,16 @@
     return self.invocations.count;
 }
 
+- (NSArray *)callStackOfInvocationAtIndex:(NSUInteger)index
+{
+    MKTInvocation *invocation = self.invocations[index];
+    return invocation.callStackSymbols;
+}
+
+- (NSArray *)callStackOfLastInvocation
+{
+    MKTInvocation *invocation = self.invocations.lastObject;
+    return invocation.callStackSymbols;
+}
+
 @end

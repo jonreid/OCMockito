@@ -4,10 +4,6 @@
 #import "MKTInvocation.h"
 
 
-@interface MKTInvocation ()
-@property (nonatomic, copy, readonly) NSArray *callStackSymbols;
-@end
-
 @implementation MKTInvocation
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation
