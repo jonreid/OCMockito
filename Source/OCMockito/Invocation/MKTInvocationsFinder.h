@@ -8,7 +8,7 @@
 
 @interface MKTInvocationsFinder : NSObject
 
-@property (nonatomic, assign) NSUInteger count;
+@property (nonatomic, assign, readonly) NSUInteger count;
 
 + (MKTInvocationsFinder *)findInvocationsInList:(NSArray *)invocations
                                        matching:(MKTInvocationMatcher *)wanted;
