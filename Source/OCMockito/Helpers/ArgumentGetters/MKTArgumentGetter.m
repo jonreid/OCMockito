@@ -3,6 +3,7 @@
 
 #import "MKTArgumentGetter.h"
 
+
 @interface MKTArgumentGetter (SubclassResponsibility)
 - (id)getArgumentAtIndex:(NSInteger)idx ofType:(char const *)type onInvocation:(NSInvocation *)invocation;
 @end
@@ -11,7 +12,6 @@
 @property (nonatomic, assign, readonly) char const *handlerType;
 @property (nonatomic, strong, readonly) MKTArgumentGetter *successor;
 @end
-
 
 @implementation MKTArgumentGetter
 
