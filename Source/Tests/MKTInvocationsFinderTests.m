@@ -31,16 +31,15 @@
 - (void)setUp
 {
     [super setUp];
-    simpleMethodInvocation = [MKTInvocationBuilder invocationBuilder].simpleMethod.buildMKTInvocation;
-    simpleMethodInvocationTwo = [MKTInvocationBuilder invocationBuilder].simpleMethod.buildMKTInvocation;
-    differentMethodInvocation = [MKTInvocationBuilder invocationBuilder].differentMethod.buildMKTInvocation;
+    simpleMethodInvocation = [[MKTInvocationBuilder invocationBuilder].simpleMethod buildMKTInvocation];
+    simpleMethodInvocationTwo = [[MKTInvocationBuilder invocationBuilder].simpleMethod buildMKTInvocation];
+    differentMethodInvocation = [[MKTInvocationBuilder invocationBuilder].differentMethod buildMKTInvocation];
     invocations = @[
             simpleMethodInvocation,
             simpleMethodInvocationTwo,
             differentMethodInvocation,
     ];
-    wanted = [[MKTInvocationMatcher alloc] init];
-    [wanted setExpectedInvocation:simpleMethodInvocation.invocation];
+    wanted = [[MKTInvocationBuilder invocationBuilder].simpleMethod buildInvocationMatcher];
 }
 
 - (void)testFindInvocationsInList_ShouldCreateFinderWithMatchingInvocations

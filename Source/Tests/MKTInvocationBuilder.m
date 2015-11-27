@@ -4,6 +4,7 @@
 #import "MKTInvocationBuilder.h"
 
 #import "MKTInvocation.h"
+#import "MKTInvocationMatcher.h"
 
 
 @interface MKTMethods : NSObject
@@ -26,7 +27,9 @@
 
 + (instancetype)invocationBuilder
 {
-    return [[MKTInvocationBuilder alloc] init];
+    MKTInvocationBuilder *builder = [[MKTInvocationBuilder alloc] init];
+    [builder theSelector:@selector(simpleMethod)];  // Default if we don't care which method is invoked.
+    return builder;
 }
 
 - (MKTInvocationBuilder *)simpleMethod
@@ -57,6 +60,14 @@
 {
     NSInvocation *invocation = [self buildNSInvocation];
     return [[MKTInvocation alloc] initWithInvocation:invocation];
+}
+
+- (MKTInvocationMatcher *)buildInvocationMatcher
+{
+    NSInvocation *invocation = [self buildNSInvocation];
+    MKTInvocationMatcher *matcher = [[MKTInvocationMatcher alloc] init];
+    [matcher setExpectedInvocation:invocation];
+    return matcher;
 }
 
 @end

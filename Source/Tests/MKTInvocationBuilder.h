@@ -4,6 +4,7 @@
 #import <Foundation/Foundation.h>
 
 @class MKTInvocation;
+@class MKTInvocationMatcher;
 
 
 @interface MKTInvocationBuilder : NSObject
@@ -13,5 +14,6 @@
 - (MKTInvocationBuilder *)differentMethod;
 - (NSInvocation *)buildNSInvocation;
 - (MKTInvocation *)buildMKTInvocation;
+- (MKTInvocationMatcher *)buildInvocationMatcher;
 
 @end
