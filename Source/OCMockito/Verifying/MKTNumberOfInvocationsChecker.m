@@ -3,17 +3,11 @@
 
 #import "MKTNumberOfInvocationsChecker.h"
 
-#import "MKTInvocationsFinder.h"
-#import "MKTInvocationMatcher.h"
-#import "MKTParseCallStack.h"
 #import "MKTFilterCallStack.h"
-#import "MKTCallStackElement.h"
+#import "MKTInvocationMatcher.h"
+#import "MKTInvocationsFinder.h"
+#import "MKTParseCallStack.h"
 
-
-static NSString *pluralizeTimes(NSUInteger count)
-{
-    return count == 1 ? @"1 time" : [NSString stringWithFormat:@"%d times", count];
-}
 
 @implementation MKTNumberOfInvocationsChecker
 
@@ -31,49 +25,67 @@ static NSString *pluralizeTimes(NSUInteger count)
 {
     [self.invocationsFinder findInvocationsInList:invocations matching:wanted];
     NSUInteger actualCount = self.invocationsFinder.count;
-    NSMutableString *description;
+    NSString *description;
     if (wantedCount > actualCount)
-    {
-        description = [NSMutableString stringWithFormat:@"Wanted %@ but was called %@.",
-                                                        pluralizeTimes(wantedCount),
-                                                        pluralizeTimes(actualCount)];
-        NSArray *callStack = [self.invocationsFinder callStackOfLastInvocation];
-        if (callStack) {
-            [description appendString:@" Last invocation:"];
-            NSArray *filteredCallStack = MKTFilterCallStack(MKTParseCallStack(callStack));
-            for (MKTCallStackElement *element in filteredCallStack) {
-                [description appendFormat:@"\n%@", element];
-            }
-        }
-    }
+        description = [self tooLittleActual:actualCount wantedCount:wantedCount];
     else if (wantedCount == 0 && actualCount > 0)
-    {
-        description = [NSMutableString stringWithFormat:@"Never wanted but was called %@.",
-                                                        pluralizeTimes(actualCount)];
-        NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:wantedCount];
-        if (callStack) {
-            [description appendString:@" Undesired invocation:"];
-            NSArray *filteredCallStack = MKTFilterCallStack(MKTParseCallStack(callStack));
-            for (MKTCallStackElement *element in filteredCallStack) {
-                [description appendFormat:@"\n%@", element];
-            }
-        }
-    }
+        description = [self neverWantedButActual:actualCount];
     else if (wantedCount < actualCount)
-    {
-        description = [NSMutableString stringWithFormat:@"Wanted %@ but was called %@.",
-                                                        pluralizeTimes(wantedCount),
-                                                        pluralizeTimes(actualCount)];
-        NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:wantedCount];
-        if (callStack) {
-            [description appendString:@" Undesired invocation:"];
-            NSArray *filteredCallStack = MKTFilterCallStack(MKTParseCallStack(callStack));
-            for (MKTCallStackElement *element in filteredCallStack) {
-                [description appendFormat:@"\n%@", element];
-            }
-        }
-    }
+        description = [self tooManyActual:actualCount wantedCount:wantedCount];
     return description;
+}
+
+- (NSString *)tooLittleActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount
+{
+    NSString *problem = [self describeWanted:wantedCount butWasCalled:actualCount];
+    NSArray *callStack = [self.invocationsFinder callStackOfLastInvocation];
+    return [self joinProblem:problem callStack:callStack label:@"Last invocation:"];
+}
+
+- (NSString *)neverWantedButActual:(NSUInteger)actualCount
+{
+    NSString *problem = [self describeNeverWantedButWasCalled:actualCount];
+    NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:0];
+    return [self joinProblem:problem callStack:callStack label:@"Undesired invocation:"];
+}
+
+- (NSString *)tooManyActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount
+{
+    NSString *problem = [self describeWanted:wantedCount butWasCalled:actualCount];
+    NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:wantedCount];
+    return [self joinProblem:problem callStack:callStack label:@"Undesired invocation:"];
+}
+
+- (NSString *)joinProblem:(NSString *)problem callStack:(NSArray *)callStack label:(NSString *)label
+{
+    if (!callStack)
+        return problem;
+    else
+        return [problem stringByAppendingString:[self reportCallStack:callStack label:label]];
+}
+
+- (NSString *)describeWanted:(NSUInteger)wantedCount butWasCalled:(NSUInteger)actualCount
+{
+    return [NSString stringWithFormat:@"Wanted %@ but was called %@.",
+                                      [self pluralizeTimes:wantedCount],
+                                      [self pluralizeTimes:actualCount]];
+}
+
+- (NSString *)describeNeverWantedButWasCalled:(NSUInteger)actualCount
+{
+    return [NSString stringWithFormat:@"Never wanted but was called %@.",
+                                      [self pluralizeTimes:actualCount]];
+}
+
+- (NSString *)pluralizeTimes:(NSUInteger)count
+{
+    return count == 1 ? @"1 time" : [NSString stringWithFormat:@"%lu times", (unsigned long)count];
+}
+
+- (NSString *)reportCallStack:(NSArray *)callStack label:(NSString *)label
+{
+    NSArray *stack = MKTFilterCallStack(MKTParseCallStack(callStack));
+    return [NSString stringWithFormat:@" %@\n%@", label, [stack componentsJoinedByString:@"\n"]];
 }
 
 @end
