@@ -50,6 +50,24 @@
 @end
 
 @implementation MKTNumberOfInvocationsCheckerTests
+{
+    MockInvocationsFinder *mockInvocationsFinder;
+    MKTNumberOfInvocationsChecker *sut;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockInvocationsFinder = [[MockInvocationsFinder alloc] init];
+    sut = [[MKTNumberOfInvocationsChecker alloc] init];
+    sut.invocationsFinder = mockInvocationsFinder;
+}
+
+- (void)tearDown
+{
+    sut = nil;
+    [super tearDown];
+}
 
 - (void)testInvocationsFinder_Default
 {
@@ -64,14 +82,38 @@
 {
     NSArray *invocations = @[ [[MKTInvocationBuilder invocationBuilder] buildMKTInvocation] ];
     MKTInvocationMatcher *wanted = [[MKTInvocationBuilder invocationBuilder] buildInvocationMatcher];
-    MockInvocationsFinder *mockInvocationsFinder = [[MockInvocationsFinder alloc] init];
-    MKTNumberOfInvocationsChecker *sut = [[MKTNumberOfInvocationsChecker alloc] init];
-    sut.invocationsFinder = mockInvocationsFinder;
 
-    [sut checkInvocations:invocations wanted:wanted wantedCount:100];
+    [sut checkInvocations:invocations wanted:wanted wantedCount:1];
 
-    XCTAssertEqual(mockInvocationsFinder.capturedInvocations, invocations);
-    XCTAssertEqual(mockInvocationsFinder.capturedWanted, wanted);
+    assertThat(mockInvocationsFinder.capturedInvocations, is(sameInstance(invocations)));
+    assertThat(mockInvocationsFinder.capturedWanted, is(sameInstance(wanted)));
+}
+
+- (void)testCheckInvocations_WithMatchingCount_ShouldReturnNil
+{
+    mockInvocationsFinder.stubbedCount = 100;
+
+    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
+
+    assertThat(description, is(nilValue()));
+}
+
+- (void)testCheckInvocations_ShouldReportTooLittleActual
+{
+    mockInvocationsFinder.stubbedCount = 1;
+
+    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
+
+    assertThat(description, is(@"Wanted 100 times but was called 1 time"));
+}
+
+- (void)testCheckInvocations_ShouldReportTooManyActual
+{
+    mockInvocationsFinder.stubbedCount = 100;
+
+    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:1];
+
+    assertThat(description, is(@"Wanted 1 time but was called 100 times"));
 }
 
 @end

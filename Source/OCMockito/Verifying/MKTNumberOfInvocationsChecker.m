@@ -7,6 +7,11 @@
 #import "MKTInvocationMatcher.h"
 
 
+static NSString *pluralizeTimes(NSUInteger count)
+{
+    return count == 1 ? @"1 time" : [NSString stringWithFormat:@"%d times", count];
+}
+
 @implementation MKTNumberOfInvocationsChecker
 
 - (MKTInvocationsFinder *)invocationsFinder
@@ -22,7 +27,15 @@
                    wantedCount:(NSUInteger)wantedCount
 {
     [self.invocationsFinder findInvocationsInList:invocations matching:wanted];
-    return nil;
+    NSUInteger actualCount = self.invocationsFinder.count;
+    NSString *description;
+    if (wantedCount != actualCount)
+    {
+        description = [NSString stringWithFormat:@"Wanted %@ but was called %@",
+                                                 pluralizeTimes(wantedCount),
+                                                 pluralizeTimes(actualCount)];
+    }
+    return description;
 }
 
 @end
