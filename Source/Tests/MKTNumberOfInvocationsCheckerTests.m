@@ -127,7 +127,7 @@
     return [callStackPreamble arrayByAddingObjectsFromArray:callStack];
 }
 
-- (void)testCheckInvocations_WithTooLittleActual_ShouldReturnFilteredStackTraceOfLastInvocation
+- (void)testCheckInvocations_WithTooLittleActual_ShouldIncludeFilteredStackTraceOfLastInvocation
 {
     mockInvocationsFinder.stubbedCount = 2;
     mockInvocationsFinder.stubbedCallStackOfLastInvocation = [self generateCallStack:@[
@@ -138,9 +138,26 @@
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
 
     assertThat(description, containsSubstring(
-            @"Last invocation at:\n"
-            "ExampleTests CALLER\n"
-            "ExampleTests PREVIOUS"));
+            @"Last invocation:\n"
+                    "ExampleTests CALLER\n"
+                    "ExampleTests PREVIOUS"));
+}
+
+- (void)testCheckInvocations_WithTooManyActual_ShouldIncludeFilteredStackTraceOfUndesiredInvocation
+{
+    mockInvocationsFinder.stubbedCount = 2;
+    mockInvocationsFinder.stubbedCallStackOfInvocationAtIndex = [self generateCallStack:@[
+            @"  6   ExampleTests                        0x0000000118430edc CALLER",
+            @"  7   ExampleTests                        0x0000000118430edc PREVIOUS",
+    ]];
+
+    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:1];
+
+    assertThat(@(mockInvocationsFinder.capturedInvocationIndex), is(@1));
+    assertThat(description, containsSubstring(
+            @"Undesired invocation:\n"
+                    "ExampleTests CALLER\n"
+                    "ExampleTests PREVIOUS"));
 }
 
 @end
