@@ -15,16 +15,13 @@
 
 @dynamic count;
 
-+ (instancetype)findInvocationsInList:(NSArray *)invocations
-                             matching:(MKTInvocationMatcher *)wanted
+- (void)findInvocationsInList:(NSArray *)invocations matching:(MKTInvocationMatcher *)wanted
 {
-    MKTInvocationsFinder *finder = [[MKTInvocationsFinder alloc] init];
-    finder.invocations = [invocations filteredArrayUsingPredicate:
+    self.invocations = [invocations filteredArrayUsingPredicate:
             [NSPredicate predicateWithBlock:^BOOL(id obj, NSDictionary *bindings) {
                 MKTInvocation *invocation = obj;
                 return [wanted matches:invocation.invocation];
             }]];
-    return finder;
 }
 
 - (NSUInteger)count

@@ -26,6 +26,7 @@
     MKTInvocation *differentMethodInvocation;
     NSArray *invocations;
     MKTInvocationMatcher *wanted;
+    MKTInvocationsFinder *sut;
 }
 
 - (void)setUp
@@ -40,11 +41,12 @@
             differentMethodInvocation,
     ];
     wanted = [[MKTInvocationBuilder invocationBuilder].simpleMethod buildInvocationMatcher];
+    sut = [[MKTInvocationsFinder alloc] init];
 }
 
 - (void)testFindInvocationsInList_ShouldCreateFinderWithMatchingInvocations
 {
-    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations matching:wanted];
+    [sut findInvocationsInList:invocations matching:wanted];
 
     NSArray *found = sut.invocations;
     
@@ -54,7 +56,7 @@
 
 - (void)testCount_ShouldReturnNumberOfMatchingInvocations
 {
-    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations matching:wanted];
+    [sut findInvocationsInList:invocations matching:wanted];
 
     NSUInteger count = sut.count;
     
@@ -63,7 +65,7 @@
 
 - (void)testCallStackOfInvocationAtIndex_WithIndex0
 {
-    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations matching:wanted];
+    [sut findInvocationsInList:invocations matching:wanted];
 
     NSArray *callStack = [sut callStackOfInvocationAtIndex:0];
 
@@ -72,7 +74,7 @@
 
 - (void)testCallStackOfInvocationAtIndex_WithIndex1
 {
-    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations matching:wanted];
+    [sut findInvocationsInList:invocations matching:wanted];
 
     NSArray *callStack = [sut callStackOfInvocationAtIndex:1];
 
@@ -81,7 +83,7 @@
 
 - (void)testCallStackOfLastInvocation
 {
-    MKTInvocationsFinder *sut = [MKTInvocationsFinder findInvocationsInList:invocations matching:wanted];
+    [sut findInvocationsInList:invocations matching:wanted];
 
     NSArray *callStack = [sut callStackOfLastInvocation];
 
