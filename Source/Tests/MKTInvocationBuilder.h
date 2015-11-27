@@ -8,7 +8,10 @@
 
 @interface MKTInvocationBuilder : NSObject
 
-+ (MKTInvocation *)simpleMethod;
-+ (MKTInvocation *)differentMethod;
++ (instancetype)invocationBuilder;
+- (MKTInvocationBuilder *)simpleMethod;
+- (MKTInvocationBuilder *)differentMethod;
+- (NSInvocation *)buildNSInvocation;
+- (MKTInvocation *)buildMKTInvocation;
 
 @end

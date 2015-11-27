@@ -17,23 +17,45 @@
 @end
 
 
+@interface MKTInvocationBuilder ()
+@property (nonatomic, assign) SEL aSelector;
+@property (nonatomic, strong) NSMethodSignature *signature;
+@end
+
 @implementation MKTInvocationBuilder
 
-+ (MKTInvocation *)simpleMethod
++ (instancetype)invocationBuilder
 {
-    return [self invocationWithSelector:@selector(simpleMethod)];
+    return [[MKTInvocationBuilder alloc] init];
 }
 
-+ (MKTInvocation *)differentMethod
+- (MKTInvocationBuilder *)simpleMethod
 {
-    return [self invocationWithSelector:@selector(differentMethod)];
+    return [self theSelector:@selector(simpleMethod)];
 }
 
-+ (MKTInvocation *)invocationWithSelector:(SEL)selector
+- (MKTInvocationBuilder *)differentMethod
 {
-    NSMethodSignature *signature = [[MKTMethods class] instanceMethodSignatureForSelector:selector];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-    [invocation setSelector:selector];
+    return [self theSelector:@selector(differentMethod)];
+}
+
+- (MKTInvocationBuilder *)theSelector:(SEL)selector
+{
+    self.aSelector = selector;
+    self.signature = [[MKTMethods class] instanceMethodSignatureForSelector:selector];
+    return self;
+}
+
+- (NSInvocation *)buildNSInvocation
+{
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:self.signature];
+    [invocation setSelector:self.aSelector];
+    return invocation;
+}
+
+- (MKTInvocation *)buildMKTInvocation
+{
+    NSInvocation *invocation = [self buildNSInvocation];
     return [[MKTInvocation alloc] initWithInvocation:invocation];
 }
 

@@ -31,9 +31,9 @@
 - (void)setUp
 {
     [super setUp];
-    simpleMethodInvocation = [MKTInvocationBuilder simpleMethod];
-    simpleMethodInvocationTwo = [MKTInvocationBuilder simpleMethod];
-    differentMethodInvocation = [MKTInvocationBuilder differentMethod];
+    simpleMethodInvocation = [MKTInvocationBuilder invocationBuilder].simpleMethod.buildMKTInvocation;
+    simpleMethodInvocationTwo = [MKTInvocationBuilder invocationBuilder].simpleMethod.buildMKTInvocation;
+    differentMethodInvocation = [MKTInvocationBuilder invocationBuilder].differentMethod.buildMKTInvocation;
     invocations = @[
             simpleMethodInvocation,
             simpleMethodInvocationTwo,
