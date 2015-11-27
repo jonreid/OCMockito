@@ -5,6 +5,9 @@
 
 #import "MKTInvocationsFinder.h"
 #import "MKTInvocationMatcher.h"
+#import "MKTParseCallStack.h"
+#import "MKTFilterCallStack.h"
+#import "MKTCallStackElement.h"
 
 
 static NSString *pluralizeTimes(NSUInteger count)
@@ -28,12 +31,20 @@ static NSString *pluralizeTimes(NSUInteger count)
 {
     [self.invocationsFinder findInvocationsInList:invocations matching:wanted];
     NSUInteger actualCount = self.invocationsFinder.count;
-    NSString *description;
+    NSMutableString *description;
     if (wantedCount != actualCount)
     {
-        description = [NSString stringWithFormat:@"Wanted %@ but was called %@",
-                                                 pluralizeTimes(wantedCount),
-                                                 pluralizeTimes(actualCount)];
+        description = [NSMutableString stringWithFormat:@"Wanted %@ but was called %@.",
+                                                        pluralizeTimes(wantedCount),
+                                                        pluralizeTimes(actualCount)];
+        NSArray *callStack = [self.invocationsFinder callStackOfLastInvocation];
+        if (callStack) {
+            [description appendString:@" Last invocation at:"];
+            NSArray *filteredCallStack = MKTFilterCallStack(MKTParseCallStack(callStack));
+            for (MKTCallStackElement *element in filteredCallStack) {
+                [description appendFormat:@"\n%@", element];
+            }
+        }
     }
     return description;
 }

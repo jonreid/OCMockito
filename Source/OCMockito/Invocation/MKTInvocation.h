@@ -7,7 +7,7 @@
 @interface MKTInvocation : NSObject
 
 @property (nonatomic, strong, readonly) NSInvocation *invocation;
-@property (nonatomic, copy, readonly) NSArray *callStackSymbols;
+@property (nonatomic, copy) NSArray *callStackSymbols;
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation;
 

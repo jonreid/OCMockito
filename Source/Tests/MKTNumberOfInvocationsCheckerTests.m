@@ -3,6 +3,7 @@
 
 #import "MKTNumberOfInvocationsChecker.h"
 
+#import "MKTInvocation.h"
 #import "MKTInvocationsFinder.h"
 
 #import "MKTInvocationBuilder.h"
@@ -53,6 +54,7 @@
 {
     MockInvocationsFinder *mockInvocationsFinder;
     MKTNumberOfInvocationsChecker *sut;
+    NSArray *callStackPreamble;
 }
 
 - (void)setUp
@@ -61,6 +63,10 @@
     mockInvocationsFinder = [[MockInvocationsFinder alloc] init];
     sut = [[MKTNumberOfInvocationsChecker alloc] init];
     sut.invocationsFinder = mockInvocationsFinder;
+    callStackPreamble = @[
+            @"  3   ExampleTests                        0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91",
+            @"  4   CoreFoundation                      0x000000010e9f9d07 ___forwarding___ + 487",
+            @"  5   CoreFoundation                      0x000000010e9f9a98 _CF_forwarding_prep_0 + 120" ];
 }
 
 - (void)tearDown
@@ -104,7 +110,7 @@
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
 
-    assertThat(description, is(@"Wanted 100 times but was called 1 time"));
+    assertThat(description, containsSubstring(@"Wanted 100 times but was called 1 time."));
 }
 
 - (void)testCheckInvocations_ShouldReportTooManyActual
@@ -113,7 +119,28 @@
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:1];
 
-    assertThat(description, is(@"Wanted 1 time but was called 100 times"));
+    assertThat(description, containsSubstring(@"Wanted 1 time but was called 100 times."));
+}
+
+- (NSArray *)generateCallStack:(NSArray *)callStack
+{
+    return [callStackPreamble arrayByAddingObjectsFromArray:callStack];
+}
+
+- (void)testCheckInvocations_WithTooLittleActual_ShouldReturnFilteredStackTraceOfLastInvocation
+{
+    mockInvocationsFinder.stubbedCount = 2;
+    mockInvocationsFinder.stubbedCallStackOfLastInvocation = [self generateCallStack:@[
+            @"  6   ExampleTests                        0x0000000118430edc CALLER",
+            @"  7   ExampleTests                        0x0000000118430edc PREVIOUS",
+    ]];
+
+    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
+
+    assertThat(description, containsSubstring(
+            @"Last invocation at:\n"
+            "ExampleTests CALLER\n"
+            "ExampleTests PREVIOUS"));
 }
 
 @end
