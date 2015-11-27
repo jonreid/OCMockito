@@ -46,6 +46,19 @@ static NSString *pluralizeTimes(NSUInteger count)
             }
         }
     }
+    else if (wantedCount == 0 && actualCount > 0)
+    {
+        description = [NSMutableString stringWithFormat:@"Never wanted but was called %@.",
+                                                        pluralizeTimes(actualCount)];
+        NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:wantedCount];
+        if (callStack) {
+            [description appendString:@" Undesired invocation:"];
+            NSArray *filteredCallStack = MKTFilterCallStack(MKTParseCallStack(callStack));
+            for (MKTCallStackElement *element in filteredCallStack) {
+                [description appendFormat:@"\n%@", element];
+            }
+        }
+    }
     else if (wantedCount < actualCount)
     {
         description = [NSMutableString stringWithFormat:@"Wanted %@ but was called %@.",
