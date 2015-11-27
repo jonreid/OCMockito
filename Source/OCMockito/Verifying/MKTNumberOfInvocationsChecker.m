@@ -4,6 +4,7 @@
 #import "MKTNumberOfInvocationsChecker.h"
 
 #import "MKTInvocationsFinder.h"
+#import "MKTInvocationMatcher.h"
 
 
 @implementation MKTNumberOfInvocationsChecker
@@ -14,6 +15,14 @@
         _invocationsFinder = [[MKTInvocationsFinder alloc] init];
     }
     return _invocationsFinder;
+}
+
+- (NSString *)checkInvocations:(NSArray *)invocations
+                        wanted:(MKTInvocationMatcher *)wanted
+                   wantedCount:(NSUInteger)wantedCount
+{
+    [self.invocationsFinder findInvocationsInList:invocations matching:wanted];
+    return nil;
 }
 
 @end

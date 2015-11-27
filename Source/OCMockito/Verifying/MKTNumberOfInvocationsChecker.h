@@ -4,10 +4,15 @@
 #import <Foundation/Foundation.h>
 
 @class MKTInvocationsFinder;
+@class MKTInvocationMatcher;
 
 
 @interface MKTNumberOfInvocationsChecker : NSObject
 
 @property (nonatomic, strong) MKTInvocationsFinder *invocationsFinder;
+
+- (NSString *)checkInvocations:(NSArray *)invocations
+                        wanted:(MKTInvocationMatcher *)wanted
+                   wantedCount:(NSUInteger)wantedCount;
 
 @end

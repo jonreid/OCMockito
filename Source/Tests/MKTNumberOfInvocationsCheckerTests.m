@@ -3,32 +3,28 @@
 
 #import "MKTNumberOfInvocationsChecker.h"
 
-#import "MKTInvocationContainer.h"
-#import "MKTInvocationMatcher.h"
 #import "MKTInvocationsFinder.h"
-#import "MKTVerificationData.h"
 
+#import "MKTInvocationBuilder.h"
 #import <XCTest/XCTest.h>
 #import <OCHamcrest/OCHamcrest.h>
 
 
 @interface MockInvocationsFinder : MKTInvocationsFinder
-@property (nonatomic, copy) NSArray *invocations;
-@property (nonatomic, strong) MKTInvocationMatcher *wanted;
+@property (nonatomic, copy) NSArray *capturedInvocations;
+@property (nonatomic, strong) MKTInvocationMatcher *capturedWanted;
 @property (nonatomic, assign) NSUInteger stubbedCount;
-@property (nonatomic, assign) NSUInteger invocationIndex;
+@property (nonatomic, assign) NSUInteger capturedInvocationIndex;
 @property (nonatomic, copy) NSArray *stubbedCallStackOfInvocationAtIndex;
 @property (nonatomic, copy) NSArray *stubbedCallStackOfLastInvocation;
 @end
 
 @implementation MockInvocationsFinder
 
-+ (instancetype)findInvocationsInList:(NSArray *)invocations matching:(MKTInvocationMatcher *)wanted
+- (void)findInvocationsInList:(NSArray *)invocations matching:(MKTInvocationMatcher *)wanted
 {
-    MockInvocationsFinder *finder = [[MockInvocationsFinder alloc] init];
-    finder.invocations = invocations;
-    finder.wanted = wanted;
-    return finder;
+    self.capturedInvocations = invocations;
+    self.capturedWanted = wanted;
 }
 
 - (NSUInteger)count
@@ -38,7 +34,7 @@
 
 - (NSArray *)callStackOfInvocationAtIndex:(NSUInteger)index
 {
-    self.invocationIndex = index;
+    self.capturedInvocationIndex = index;
     return self.stubbedCallStackOfInvocationAtIndex;
 }
 
@@ -64,15 +60,18 @@
     assertThat(finder, isA([MKTInvocationsFinder class]));
 }
 
-- (void)testShouldReportTooLittleActual
+- (void)testCheckInvocations_ShouldAskInvocationsFinderToFindMatchingInvocationsInList
 {
-    MKTInvocationContainer *invocationContainer = [[MKTInvocationContainer alloc] init];
-    MKTInvocationMatcher *invocationMatcher = [[MKTInvocationMatcher alloc] init];
-    MKTVerificationData *data = [[MKTVerificationData alloc] initWithInvocationContainer:invocationContainer invocationMatcher:invocationMatcher];
+    NSArray *invocations = @[ [[MKTInvocationBuilder invocationBuilder] buildMKTInvocation] ];
+    MKTInvocationMatcher *wanted = [[MKTInvocationBuilder invocationBuilder] buildInvocationMatcher];
     MockInvocationsFinder *mockInvocationsFinder = [[MockInvocationsFinder alloc] init];
-
     MKTNumberOfInvocationsChecker *sut = [[MKTNumberOfInvocationsChecker alloc] init];
     sut.invocationsFinder = mockInvocationsFinder;
+
+    [sut checkInvocations:invocations wanted:wanted wantedCount:100];
+
+    XCTAssertEqual(mockInvocationsFinder.capturedInvocations, invocations);
+    XCTAssertEqual(mockInvocationsFinder.capturedWanted, wanted);
 }
 
 @end
