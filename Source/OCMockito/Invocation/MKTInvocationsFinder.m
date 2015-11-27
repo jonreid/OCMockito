@@ -15,8 +15,8 @@
 
 @dynamic count;
 
-+ (MKTInvocationsFinder *)findInvocationsInList:(NSArray *)invocations
-                                       matching:(MKTInvocationMatcher *)wanted
++ (instancetype)findInvocationsInList:(NSArray *)invocations
+                             matching:(MKTInvocationMatcher *)wanted
 {
     MKTInvocationsFinder *finder = [[MKTInvocationsFinder alloc] init];
     finder.invocations = [invocations filteredArrayUsingPredicate:
