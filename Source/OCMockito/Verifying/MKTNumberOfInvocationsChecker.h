@@ -1,15 +1,12 @@
 //  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
-#import <Foundation/Foundation.h>
+#import "MKTInvocationsChecker.h"
 
-@class MKTInvocationsFinder;
 @class MKTInvocationMatcher;
 
 
-@interface MKTNumberOfInvocationsChecker : NSObject
-
-@property (nonatomic, strong) MKTInvocationsFinder *invocationsFinder;
+@interface MKTNumberOfInvocationsChecker : MKTInvocationsChecker
 
 - (NSString *)checkInvocations:(NSArray *)invocations
                         wanted:(MKTInvocationMatcher *)wanted
