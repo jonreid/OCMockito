@@ -7,6 +7,7 @@ CocoaPods users: This pod now declares a dependency on OCHamcrest v5, so those c
 
 - Instead of enabling short syntax by defining MOCKITO_SHORTHAND, short syntax is now enabled by
   default. To disable it, #define MKT_DISABLE_SHORT_SYNTAX.
+- More detailed failure information, including stack trace relevant to the unmet expectation.
 
 **Fixes:**
 
