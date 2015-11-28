@@ -54,4 +54,14 @@
     [verifyCount(mockArray, atMost(3)) removeAllObjects];
 }
 
+- (void)testAtMostOneFailure_ShouldStateExpectedNumberOfInvocations
+{
+    [self callRemoveAllObjectsTimes:3];
+
+    [verifyCountWithMockTestCase(mockArray, atMost(1), mockTestCase) removeAllObjects];
+
+    assertThat(mockTestCase.failureDescription,
+            startsWith(@"Wanted at most 1 time but was called 3 times."));
+}
+
 @end

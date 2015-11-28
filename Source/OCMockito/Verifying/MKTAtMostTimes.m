@@ -3,6 +3,9 @@
 //  Contribution by Emile Cantin
 
 #import "MKTAtMostTimes.h"
+
+#import "MKTAtMostNumberOfInvocationsChecker.h"
+#import "MKTInvocationContainer.h"
 #import "MKTVerificationData.h"
 
 
@@ -25,20 +28,12 @@
 
 - (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation
 {
-    NSString *failureDescription = [self check:data];
+    MKTAtMostNumberOfInvocationsChecker *checker = [[MKTAtMostNumberOfInvocationsChecker alloc] init];
+    NSString *failureDescription = [checker checkInvocations:data.invocations.registeredInvocations
+                                                      wanted:data.wanted
+                                                 wantedCount:self.wantedCount];
     if (failureDescription)
         MKTFailTestLocation(testLocation, failureDescription);
-}
-
-- (NSString *)check:(MKTVerificationData *)data
-{
-    NSUInteger matchingCount = [data numberOfMatchingInvocations];
-    if (matchingCount <= self.wantedCount)
-        return nil;
-
-    NSString *plural = (self.wantedCount == 1) ? @"" : @"s";
-    return [NSString stringWithFormat:@"Expected less than %u matching invocation%@, but received %u",
-                                      (unsigned)self.wantedCount, plural, (unsigned)matchingCount];
 }
 
 @end

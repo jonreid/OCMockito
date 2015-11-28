@@ -77,4 +77,14 @@
     [verifyCount(mockArray, atLeastOnce()) removeAllObjects];
 }
 
+- (void)testAtLastTwoFailure_ShouldStateExpectedNumberOfInvocations
+{
+    [self callRemoveAllObjectsTimes:1];
+
+    [verifyCountWithMockTestCase(mockArray, atLeast(2), mockTestCase) removeAllObjects];
+
+    assertThat(mockTestCase.failureDescription,
+            startsWith(@"Wanted at least 2 times but was called 1 time."));
+}
+
 @end
