@@ -1,17 +1,13 @@
-//  OCMockito by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
+#import "MKTAtMostNumberOfInvocationsChecker.h"
 
-#import "MKTNumberOfInvocationsChecker.h"
-
-#import "MKTInvocationMatcher.h"
 #import "MKTInvocationsFinder.h"
 
 
-@implementation MKTNumberOfInvocationsChecker
+@implementation MKTAtMostNumberOfInvocationsChecker
 
 - (instancetype)init
 {
-    self = [super initWithWantedDescription:@"Wanted"];
+    self = [super initWithWantedDescription:@"Wanted at most"];
     return self;
 }
 
@@ -22,9 +18,7 @@
     [self.invocationsFinder findInvocationsInList:invocations matching:wanted];
     NSUInteger actualCount = self.invocationsFinder.count;
     NSString *description;
-    if (wantedCount > actualCount)
-        description = [self tooLittleActual:actualCount wantedCount:wantedCount];
-    else if (wantedCount == 0 && actualCount > 0)
+    if (wantedCount == 0 && actualCount > 0)
         description = [self neverWantedButActual:actualCount];
     else if (wantedCount < actualCount)
         description = [self tooManyActual:actualCount wantedCount:wantedCount];

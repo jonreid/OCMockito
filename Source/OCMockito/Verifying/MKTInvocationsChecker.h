@@ -10,13 +10,11 @@
 
 @interface MKTInvocationsChecker : NSObject
 
-@property (nonatomic, copy, readonly) NSString *wantedDescription;
 @property (nonatomic, strong) MKTInvocationsFinder *invocationsFinder;
 
 - (instancetype)initWithWantedDescription:(NSString *)wantedDescription;
 - (NSString *)tooLittleActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount;
-- (NSString *)describeWanted:(NSUInteger)wantedCount butWasCalled:(NSUInteger)actualCount;
-- (NSString *)pluralizeTimes:(NSUInteger)count;
-- (NSString *)joinProblem:(NSString *)problem callStack:(NSArray *)callStack label:(NSString *)label;
+- (NSString *)tooManyActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount;
+- (NSString *)neverWantedButActual:(NSUInteger)actualCount;
 
 @end

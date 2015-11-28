@@ -100,6 +100,12 @@
 		0E75D8BA1C041B940079C41F /* MKTFilterCallStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E75D8B81C041B940079C41F /* MKTFilterCallStackTests.m */; };
 		0EEDEB021C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB011C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m */; };
 		0EEDEB031C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB011C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m */; };
+		0EEDEB051C0966BB0078A8F0 /* MKTAtMostNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB041C0966BB0078A8F0 /* MKTAtMostNumberOfInvocationsCheckerTests.m */; };
+		0EEDEB061C0966BB0078A8F0 /* MKTAtMostNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB041C0966BB0078A8F0 /* MKTAtMostNumberOfInvocationsCheckerTests.m */; };
+		0EEDEB091C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EEDEB071C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.h */; };
+		0EEDEB0A1C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EEDEB071C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.h */; };
+		0EEDEB0B1C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB081C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.m */; };
+		0EEDEB0C1C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB081C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.m */; };
 		2AD030D61A8E4D7E001B43DC /* MKTAtMostTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */; };
 		2AD030D71A8E4D7E001B43DC /* MKTAtMostTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */; };
 		2AD030D81A8E4D7E001B43DC /* MKTAtMostTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD030D51A8E4D7E001B43DC /* MKTAtMostTimes.m */; };
@@ -465,6 +471,9 @@
 		0E75D8B21C0418390079C41F /* MKTParseCallStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTParseCallStackTests.m; sourceTree = "<group>"; };
 		0E75D8B81C041B940079C41F /* MKTFilterCallStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTFilterCallStackTests.m; sourceTree = "<group>"; };
 		0EEDEB011C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtLeastNumberOfInvocationsCheckerTests.m; sourceTree = "<group>"; };
+		0EEDEB041C0966BB0078A8F0 /* MKTAtMostNumberOfInvocationsCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtMostNumberOfInvocationsCheckerTests.m; sourceTree = "<group>"; };
+		0EEDEB071C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAtMostNumberOfInvocationsChecker.h; sourceTree = "<group>"; };
+		0EEDEB081C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtMostNumberOfInvocationsChecker.m; sourceTree = "<group>"; };
 		2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAtMostTimes.h; sourceTree = "<group>"; };
 		2AD030D51A8E4D7E001B43DC /* MKTAtMostTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtMostTimes.m; sourceTree = "<group>"; };
 		2AD030DA1A8E4EA0001B43DC /* VerifyCountAtMostTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountAtMostTimesTests.m; sourceTree = "<group>"; };
@@ -813,6 +822,8 @@
 				361533C5153F275800BB982B /* MKTAtLeastTimes.m */,
 				609E99B8FAAE2EE35FE587DC /* MKTAtLeastNumberOfInvocationsChecker.h */,
 				609E96CF71F73917EACABEC0 /* MKTAtLeastNumberOfInvocationsChecker.m */,
+				0EEDEB071C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.h */,
+				0EEDEB081C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.m */,
 				2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */,
 				2AD030D51A8E4D7E001B43DC /* MKTAtMostTimes.m */,
 				0827E8671352CC6400C39A57 /* MKTExactTimes.h */,
@@ -858,6 +869,7 @@
 			isa = PBXGroup;
 			children = (
 				0EEDEB011C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m */,
+				0EEDEB041C0966BB0078A8F0 /* MKTAtMostNumberOfInvocationsCheckerTests.m */,
 				0E6B77481C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m */,
 				609E909442C62BF97AD50CEC /* MockInvocationsFinder.h */,
 				609E943B7B6000A939756478 /* MockInvocationsFinder.m */,
@@ -1056,6 +1068,7 @@
 				BB33394E23B42337471865C6 /* MKTReturnValueSetter.h in Headers */,
 				BB333CDC8F628FBBB28F0404 /* MKTReturnValueSetterChain.h in Headers */,
 				740018641A58E1BD00E9AC92 /* MKTReturnsValue.h in Headers */,
+				0EEDEB0A1C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.h in Headers */,
 				BB33337A6EDB05791FD1E02C /* MKTShortReturnSetter.h in Headers */,
 				BB33357CAF28AB8D9B8C58EC /* MKTUnsignedCharReturnSetter.h in Headers */,
 				BB333A9458B5041E979EE851 /* MKTUnsignedIntReturnSetter.h in Headers */,
@@ -1135,6 +1148,7 @@
 				BB3338ACC251FB1DE5705B0E /* MKTReturnValueSetter.h in Headers */,
 				BB333056CD041DF834D427F2 /* MKTReturnValueSetterChain.h in Headers */,
 				740018631A58E1BD00E9AC92 /* MKTReturnsValue.h in Headers */,
+				0EEDEB091C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.h in Headers */,
 				BB333E4429BC9AD0FE60DCBC /* MKTShortReturnSetter.h in Headers */,
 				BB333C9DF4F64FE856BF4426 /* MKTUnsignedCharReturnSetter.h in Headers */,
 				BB3337E38EA3C5888A2624DB /* MKTUnsignedIntReturnSetter.h in Headers */,
@@ -1324,6 +1338,7 @@
 				BB333162FA0B539443E54811 /* MKTClassArgumentGetter.m in Sources */,
 				7400186F1A58E60200E9AC92 /* MKTThrowsException.m in Sources */,
 				BB3332DC5D5D5D901780EDDE /* MKTDoubleArgumentGetter.m in Sources */,
+				0EEDEB0C1C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.m in Sources */,
 				BB3333D794098C4C2DBBDCF7 /* MKTFloatArgumentGetter.m in Sources */,
 				BB333D50BB250AEE2734315F /* MKTIntArgumentGetter.m in Sources */,
 				BB333304766646DFCBC196CA /* MKTLongArgumentGetter.m in Sources */,
@@ -1400,6 +1415,7 @@
 				BB3339C57EC54455A51CC897 /* MKTClassArgumentGetter.m in Sources */,
 				7400186E1A58E60200E9AC92 /* MKTThrowsException.m in Sources */,
 				BB3336E60D0041F36DB8BA5D /* MKTDoubleArgumentGetter.m in Sources */,
+				0EEDEB0B1C09672A0078A8F0 /* MKTAtMostNumberOfInvocationsChecker.m in Sources */,
 				BB333CB6FDECDC8AA6D1B0B3 /* MKTFloatArgumentGetter.m in Sources */,
 				BB333ADE3D2B4EEC02A57AED /* MKTIntArgumentGetter.m in Sources */,
 				BB33389A356C8E90E673D428 /* MKTLongArgumentGetter.m in Sources */,
@@ -1460,6 +1476,7 @@
 				0EEDEB021C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */,
 				74A3BDA819F767B8006591C9 /* VerifyProtocolTests.m in Sources */,
 				0E6B77491C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m in Sources */,
+				0EEDEB051C0966BB0078A8F0 /* MKTAtMostNumberOfInvocationsCheckerTests.m in Sources */,
 				74A3BDA019F767AD006591C9 /* MKTMockingProgressTests.m in Sources */,
 				0E75D8B01C04182C0079C41F /* MKTInvocationsFinderTests.m in Sources */,
 				0E75D8B31C0418390079C41F /* MKTParseCallStackTests.m in Sources */,
@@ -1496,6 +1513,7 @@
 				0EEDEB031C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */,
 				74A3BDDA19F76DF0006591C9 /* VerifyProtocolTests.m in Sources */,
 				0E6B774A1C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m in Sources */,
+				0EEDEB061C0966BB0078A8F0 /* MKTAtMostNumberOfInvocationsCheckerTests.m in Sources */,
 				74A3BDD219F76DEA006591C9 /* MKTMockingProgressTests.m in Sources */,
 				0E75D8B11C04182C0079C41F /* MKTInvocationsFinderTests.m in Sources */,
 				0E75D8B41C0418390079C41F /* MKTParseCallStackTests.m in Sources */,

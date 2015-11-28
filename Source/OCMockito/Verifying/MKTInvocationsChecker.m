@@ -1,3 +1,4 @@
+#import "MKTNumberOfInvocationsChecker.h"
 #import "MKTInvocationsChecker.h"
 
 #import "MKTFilterCallStack.h"
@@ -6,7 +7,7 @@
 
 
 @interface MKTInvocationsChecker ()
-@property (nonatomic, copy, readwrite) NSString *wantedDescription;
+@property (nonatomic, copy) NSString *wantedDescription;
 @end
 
 @implementation MKTInvocationsChecker
@@ -34,11 +35,31 @@
     return [self joinProblem:problem callStack:callStack label:@"Last invocation:"];
 }
 
+- (NSString *)tooManyActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount
+{
+    NSString *problem = [self describeWanted:wantedCount butWasCalled:actualCount];
+    NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:wantedCount];
+    return [self joinProblem:problem callStack:callStack label:@"Undesired invocation:"];
+}
+
+- (NSString *)neverWantedButActual:(NSUInteger)actualCount
+{
+    NSString *problem = [self describeNeverWantedButWasCalled:actualCount];
+    NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:0];
+    return [self joinProblem:problem callStack:callStack label:@"Undesired invocation:"];
+}
+
 - (NSString *)describeWanted:(NSUInteger)wantedCount butWasCalled:(NSUInteger)actualCount
 {
     return [NSString stringWithFormat:@"%@ %@ but was called %@.",
                                       [self wantedDescription],
                                       [self pluralizeTimes:wantedCount],
+                                      [self pluralizeTimes:actualCount]];
+}
+
+- (NSString *)describeNeverWantedButWasCalled:(NSUInteger)actualCount
+{
+    return [NSString stringWithFormat:@"Never wanted but was called %@.",
                                       [self pluralizeTimes:actualCount]];
 }
 
