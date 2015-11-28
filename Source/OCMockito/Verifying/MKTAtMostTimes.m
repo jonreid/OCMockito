@@ -5,7 +5,6 @@
 #import "MKTAtMostTimes.h"
 
 #import "MKTAtMostNumberOfInvocationsChecker.h"
-#import "MKTInvocationContainer.h"
 #import "MKTVerificationData.h"
 
 
@@ -29,7 +28,7 @@
 - (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation
 {
     MKTAtMostNumberOfInvocationsChecker *checker = [[MKTAtMostNumberOfInvocationsChecker alloc] init];
-    NSString *failureDescription = [checker checkInvocations:data.invocations.registeredInvocations
+    NSString *failureDescription = [checker checkInvocations:data.invocations
                                                       wanted:data.wanted
                                                  wantedCount:self.wantedCount];
     if (failureDescription)

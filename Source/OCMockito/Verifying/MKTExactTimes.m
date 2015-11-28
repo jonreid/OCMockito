@@ -3,7 +3,6 @@
 
 #import "MKTExactTimes.h"
 
-#import "MKTInvocationContainer.h"
 #import "MKTNumberOfInvocationsChecker.h"
 #import "MKTVerificationData.h"
 
@@ -28,7 +27,7 @@
 - (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation
 {
     MKTNumberOfInvocationsChecker *checker = [[MKTNumberOfInvocationsChecker alloc] init];
-    NSString *failureDescription = [checker checkInvocations:data.invocations.registeredInvocations
+    NSString *failureDescription = [checker checkInvocations:data.invocations
                                                       wanted:data.wanted
                                                  wantedCount:self.wantedCount];
     if (failureDescription)

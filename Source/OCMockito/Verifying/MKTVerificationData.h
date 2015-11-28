@@ -11,11 +11,10 @@
 
 @interface MKTVerificationData : NSObject
 
-@property (nonatomic, strong, readonly) MKTInvocationContainer *invocations;
+@property (nonatomic, copy, readonly) NSArray *invocations;
 @property (nonatomic, strong, readonly) MKTInvocationMatcher *wanted;
 
-- (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocations
+- (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
                           invocationMatcher:(MKTInvocationMatcher *)wanted;
-- (NSUInteger)numberOfMatchingInvocations;
 
 @end
