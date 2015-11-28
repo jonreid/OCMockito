@@ -4,47 +4,11 @@
 #import "MKTNumberOfInvocationsChecker.h"
 
 #import "MKTInvocation.h"
-#import "MKTInvocationsFinder.h"
 
+#import "MockInvocationsFinder.h"
 #import "MKTInvocationBuilder.h"
 #import <XCTest/XCTest.h>
 #import <OCHamcrest/OCHamcrest.h>
-
-
-@interface MockInvocationsFinder : MKTInvocationsFinder
-@property (nonatomic, copy) NSArray *capturedInvocations;
-@property (nonatomic, strong) MKTInvocationMatcher *capturedWanted;
-@property (nonatomic, assign) NSUInteger stubbedCount;
-@property (nonatomic, assign) NSUInteger capturedInvocationIndex;
-@property (nonatomic, copy) NSArray *stubbedCallStackOfInvocationAtIndex;
-@property (nonatomic, copy) NSArray *stubbedCallStackOfLastInvocation;
-@end
-
-@implementation MockInvocationsFinder
-
-- (void)findInvocationsInList:(NSArray *)invocations matching:(MKTInvocationMatcher *)wanted
-{
-    self.capturedInvocations = invocations;
-    self.capturedWanted = wanted;
-}
-
-- (NSUInteger)count
-{
-    return self.stubbedCount;
-}
-
-- (NSArray *)callStackOfInvocationAtIndex:(NSUInteger)index
-{
-    self.capturedInvocationIndex = index;
-    return self.stubbedCallStackOfInvocationAtIndex;
-}
-
-- (NSArray *)callStackOfLastInvocation
-{
-    return self.stubbedCallStackOfLastInvocation;
-}
-
-@end
 
 
 @interface MKTNumberOfInvocationsCheckerTests : XCTestCase
