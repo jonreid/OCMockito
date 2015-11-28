@@ -18,7 +18,6 @@
 {
     MockInvocationsFinder *mockInvocationsFinder;
     MKTNumberOfInvocationsChecker *sut;
-    NSArray *callStackPreamble;
 }
 
 - (void)setUp
@@ -27,10 +26,6 @@
     mockInvocationsFinder = [[MockInvocationsFinder alloc] init];
     sut = [[MKTNumberOfInvocationsChecker alloc] init];
     sut.invocationsFinder = mockInvocationsFinder;
-    callStackPreamble = @[
-            @"  3   ExampleTests                        0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91",
-            @"  4   CoreFoundation                      0x000000010e9f9d07 ___forwarding___ + 487",
-            @"  5   CoreFoundation                      0x000000010e9f9a98 _CF_forwarding_prep_0 + 120" ];
 }
 
 - (void)tearDown
@@ -88,6 +83,10 @@
 
 - (NSArray *)generateCallStack:(NSArray *)callStack
 {
+    NSArray *callStackPreamble = @[
+            @"  3   ExampleTests                        0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91",
+            @"  4   CoreFoundation                      0x000000010e9f9d07 ___forwarding___ + 487",
+            @"  5   CoreFoundation                      0x000000010e9f9a98 _CF_forwarding_prep_0 + 120" ];
     return [callStackPreamble arrayByAddingObjectsFromArray:callStack];
 }
 
