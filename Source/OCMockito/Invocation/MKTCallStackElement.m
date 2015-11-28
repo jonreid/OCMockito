@@ -17,9 +17,17 @@ static NSString *extractModuleName(NSString *element)
     return [element substringWithRange:range];
 }
 
+static BOOL isAddress32Bit(NSString *element)
+{
+    return [element characterAtIndex:50] == ' ';
+}
+
 static NSString *extractInstruction(NSString *element)
 {
-    NSRange range = NSMakeRange(59, element.length - 59);
+    NSUInteger loc = 59;
+    if (isAddress32Bit(element))
+        loc -= 8;
+    NSRange range = NSMakeRange(loc, element.length - loc);
     return [element substringWithRange:range];
 }
 

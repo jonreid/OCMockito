@@ -26,11 +26,6 @@ static NSUInteger MKTLastRelevantCallStackIndex(NSArray *parsedStack, NSString *
 NSArray *MKTFilterCallStack(NSArray *parsedStack)
 {
     NSUInteger firstIndex = MKTFirstRelevantCallStackIndex(parsedStack);
-    if (firstIndex >= parsedStack.count)
-    {
-        NSLog(@"first index: %ul", firstIndex);
-        NSLog(@"Parsed stack: %@", parsedStack);
-    }
     NSUInteger lastIndex = MKTLastRelevantCallStackIndex(parsedStack, [parsedStack[firstIndex] moduleName]);
     return [parsedStack subarrayWithRange:NSMakeRange(firstIndex, lastIndex - firstIndex + 1)];
 }
