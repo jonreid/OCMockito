@@ -36,9 +36,9 @@
 
 - (void)testInvocationsFinder_Default
 {
-    MKTNumberOfInvocationsChecker *sut = [[MKTNumberOfInvocationsChecker alloc] init];
+    MKTNumberOfInvocationsChecker *defaultSUT = [[MKTNumberOfInvocationsChecker alloc] init];
 
-    MKTInvocationsFinder *finder = sut.invocationsFinder;
+    MKTInvocationsFinder *finder = defaultSUT.invocationsFinder;
 
     assertThat(finder, isA([MKTInvocationsFinder class]));
 }

@@ -98,6 +98,8 @@
 		0E75D8B41C0418390079C41F /* MKTParseCallStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E75D8B21C0418390079C41F /* MKTParseCallStackTests.m */; };
 		0E75D8B91C041B940079C41F /* MKTFilterCallStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E75D8B81C041B940079C41F /* MKTFilterCallStackTests.m */; };
 		0E75D8BA1C041B940079C41F /* MKTFilterCallStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E75D8B81C041B940079C41F /* MKTFilterCallStackTests.m */; };
+		0EEDEB021C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB011C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m */; };
+		0EEDEB031C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB011C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m */; };
 		2AD030D61A8E4D7E001B43DC /* MKTAtMostTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */; };
 		2AD030D71A8E4D7E001B43DC /* MKTAtMostTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */; };
 		2AD030D81A8E4D7E001B43DC /* MKTAtMostTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD030D51A8E4D7E001B43DC /* MKTAtMostTimes.m */; };
@@ -122,11 +124,13 @@
 		361533CA153F276300BB982B /* MKTAtLeastTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 361533C5153F275800BB982B /* MKTAtLeastTimes.m */; };
 		609E90276445892A6D30A304 /* MKTInvocationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9002FF319995DA841094 /* MKTInvocationBuilder.m */; };
 		609E904B3DD180C7266AF783 /* MKTFilterCallStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9265E6EA8A5DBE45A71D /* MKTFilterCallStack.h */; };
+		609E905D807B1A487CFACCBD /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E96CF71F73917EACABEC0 /* MKTAtLeastNumberOfInvocationsChecker.m */; };
 		609E90E03D9B74473647815C /* MKTNumberOfInvocationsChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E992967BC9692FEE35A7E /* MKTNumberOfInvocationsChecker.h */; };
 		609E912EEBD7E28E5C4FD96E /* MKTFilterCallStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9E04B509B91CA6527013 /* MKTFilterCallStack.m */; };
 		609E921622C17A290D2A8674 /* StopMockingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9F142955F412A8AFE0AD /* StopMockingTests.m */; };
 		609E92AB5D8A9B7C73871112 /* MKTInvocationsFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E962857601A6E8BF744F4 /* MKTInvocationsFinder.h */; };
 		609E92DA930380C318EEA441 /* MKTParseCallStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9EB64D8810CF7E2F8E90 /* MKTParseCallStack.m */; };
+		609E92F67C28871B498DFB40 /* MKTAtLeastNumberOfInvocationsChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E99B8FAAE2EE35FE587DC /* MKTAtLeastNumberOfInvocationsChecker.h */; };
 		609E93BEE3D4FA6FAB8C7F00 /* MKTNumberOfInvocationsChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E992967BC9692FEE35A7E /* MKTNumberOfInvocationsChecker.h */; };
 		609E93F0AF4CF88EA58BE4F3 /* MKTParseCallStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9C3F40927D5208E9FDBF /* MKTParseCallStack.h */; };
 		609E951057B1EB0D06D1A4FF /* MKTInvocationsFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E962857601A6E8BF744F4 /* MKTInvocationsFinder.h */; };
@@ -139,6 +143,7 @@
 		609E98522222E05622342602 /* MKTParseCallStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9C3F40927D5208E9FDBF /* MKTParseCallStack.h */; };
 		609E98CFFF7905AD1C9F0827 /* MKTInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E91510EE6160A67EAF450 /* MKTInvocation.m */; };
 		609E9A4411D8D4601FA86822 /* StopMockingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9F142955F412A8AFE0AD /* StopMockingTests.m */; };
+		609E9A78C82C1232480816CE /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E96CF71F73917EACABEC0 /* MKTAtLeastNumberOfInvocationsChecker.m */; };
 		609E9AE638C6F118F9EA9AD2 /* MKTNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9C32C1094EC36C53F35A /* MKTNumberOfInvocationsChecker.m */; };
 		609E9BEB2716127F240545BB /* MKTCallStackElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9595A81660906404D934 /* MKTCallStackElement.h */; };
 		609E9C5755519B2F62429DAA /* MKTCallStackElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9595A81660906404D934 /* MKTCallStackElement.h */; };
@@ -148,6 +153,7 @@
 		609E9DD8DE53E7961E23C0F0 /* MKTInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E91510EE6160A67EAF450 /* MKTInvocation.m */; };
 		609E9E1BB226D286566616E5 /* MKTInvocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9491B1CD321816EB7BC4 /* MKTInvocation.h */; };
 		609E9E7E6D6B95F0938DEF43 /* MKTInvocationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9002FF319995DA841094 /* MKTInvocationBuilder.m */; };
+		609E9EA6795EF38FACABF182 /* MKTAtLeastNumberOfInvocationsChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E99B8FAAE2EE35FE587DC /* MKTAtLeastNumberOfInvocationsChecker.h */; };
 		609E9F0872526D05C1724B54 /* MKTNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9C32C1094EC36C53F35A /* MKTNumberOfInvocationsChecker.m */; };
 		609E9FC124ED879F4E6504AD /* MKTFilterCallStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9E04B509B91CA6527013 /* MKTFilterCallStack.m */; };
 		638F68D7150FC21A0081DEE6 /* MKTClassObjectMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -454,6 +460,7 @@
 		0E75D8AF1C04182C0079C41F /* MKTInvocationsFinderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocationsFinderTests.m; sourceTree = "<group>"; };
 		0E75D8B21C0418390079C41F /* MKTParseCallStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTParseCallStackTests.m; sourceTree = "<group>"; };
 		0E75D8B81C041B940079C41F /* MKTFilterCallStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTFilterCallStackTests.m; sourceTree = "<group>"; };
+		0EEDEB011C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtLeastNumberOfInvocationsCheckerTests.m; sourceTree = "<group>"; };
 		2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAtMostTimes.h; sourceTree = "<group>"; };
 		2AD030D51A8E4D7E001B43DC /* MKTAtMostTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtMostTimes.m; sourceTree = "<group>"; };
 		2AD030DA1A8E4EA0001B43DC /* VerifyCountAtMostTimesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCountAtMostTimesTests.m; sourceTree = "<group>"; };
@@ -477,8 +484,10 @@
 		609E9491B1CD321816EB7BC4 /* MKTInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTInvocation.h; sourceTree = "<group>"; };
 		609E9595A81660906404D934 /* MKTCallStackElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTCallStackElement.h; sourceTree = "<group>"; };
 		609E962857601A6E8BF744F4 /* MKTInvocationsFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTInvocationsFinder.h; sourceTree = "<group>"; };
+		609E96CF71F73917EACABEC0 /* MKTAtLeastNumberOfInvocationsChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtLeastNumberOfInvocationsChecker.m; sourceTree = "<group>"; };
 		609E9823571FDC1B4C3E39E0 /* MKTInvocationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTInvocationBuilder.h; sourceTree = "<group>"; };
 		609E992967BC9692FEE35A7E /* MKTNumberOfInvocationsChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTNumberOfInvocationsChecker.h; sourceTree = "<group>"; };
+		609E99B8FAAE2EE35FE587DC /* MKTAtLeastNumberOfInvocationsChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAtLeastNumberOfInvocationsChecker.h; sourceTree = "<group>"; };
 		609E9C32C1094EC36C53F35A /* MKTNumberOfInvocationsChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTNumberOfInvocationsChecker.m; sourceTree = "<group>"; };
 		609E9C3F40927D5208E9FDBF /* MKTParseCallStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTParseCallStack.h; sourceTree = "<group>"; };
 		609E9C444FF203935B12C662 /* MKTCallStackElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCallStackElement.m; sourceTree = "<group>"; };
@@ -796,6 +805,8 @@
 			children = (
 				361533C4153F275800BB982B /* MKTAtLeastTimes.h */,
 				361533C5153F275800BB982B /* MKTAtLeastTimes.m */,
+				609E99B8FAAE2EE35FE587DC /* MKTAtLeastNumberOfInvocationsChecker.h */,
+				609E96CF71F73917EACABEC0 /* MKTAtLeastNumberOfInvocationsChecker.m */,
 				2AD030D41A8E4D7E001B43DC /* MKTAtMostTimes.h */,
 				2AD030D51A8E4D7E001B43DC /* MKTAtMostTimes.m */,
 				0827E8671352CC6400C39A57 /* MKTExactTimes.h */,
@@ -838,6 +849,7 @@
 		740018751A58E8F800E9AC92 /* Verifying */ = {
 			isa = PBXGroup;
 			children = (
+				0EEDEB011C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m */,
 				0E6B77481C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m */,
 				609E909442C62BF97AD50CEC /* MockInvocationsFinder.h */,
 				609E943B7B6000A939756478 /* MockInvocationsFinder.m */,
@@ -1053,6 +1065,7 @@
 				609E951057B1EB0D06D1A4FF /* MKTInvocationsFinder.h in Headers */,
 				609E9CAF271ABE1F9FD75EEF /* MKTFilterCallStack.h in Headers */,
 				609E93BEE3D4FA6FAB8C7F00 /* MKTNumberOfInvocationsChecker.h in Headers */,
+				609E9EA6795EF38FACABF182 /* MKTAtLeastNumberOfInvocationsChecker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,6 +1143,7 @@
 				609E92AB5D8A9B7C73871112 /* MKTInvocationsFinder.h in Headers */,
 				609E904B3DD180C7266AF783 /* MKTFilterCallStack.h in Headers */,
 				609E90E03D9B74473647815C /* MKTNumberOfInvocationsChecker.h in Headers */,
+				609E92F67C28871B498DFB40 /* MKTAtLeastNumberOfInvocationsChecker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1343,6 +1357,7 @@
 				609E953433A4DE2339277FF0 /* MKTInvocationsFinder.m in Sources */,
 				609E912EEBD7E28E5C4FD96E /* MKTFilterCallStack.m in Sources */,
 				609E9AE638C6F118F9EA9AD2 /* MKTNumberOfInvocationsChecker.m in Sources */,
+				609E9A78C82C1232480816CE /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1417,6 +1432,7 @@
 				609E9511A39D8AB4D3A34736 /* MKTInvocationsFinder.m in Sources */,
 				609E9FC124ED879F4E6504AD /* MKTFilterCallStack.m in Sources */,
 				609E9F0872526D05C1724B54 /* MKTNumberOfInvocationsChecker.m in Sources */,
+				609E905D807B1A487CFACCBD /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1429,6 +1445,7 @@
 				74A3BDA119F767AD006591C9 /* BlockMatchingTests.m in Sources */,
 				74A3BD9E19F767AD006591C9 /* MKTProtocolMockTests.m in Sources */,
 				74A3BDA219F767B8006591C9 /* MockTestCase.m in Sources */,
+				0EEDEB021C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */,
 				74A3BDA819F767B8006591C9 /* VerifyProtocolTests.m in Sources */,
 				0E6B77491C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m in Sources */,
 				74A3BDA019F767AD006591C9 /* MKTMockingProgressTests.m in Sources */,
@@ -1464,6 +1481,7 @@
 				74A3BDD319F76DEA006591C9 /* BlockMatchingTests.m in Sources */,
 				74A3BDD019F76DEA006591C9 /* MKTProtocolMockTests.m in Sources */,
 				74A3BDD419F76DF0006591C9 /* MockTestCase.m in Sources */,
+				0EEDEB031C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */,
 				74A3BDDA19F76DF0006591C9 /* VerifyProtocolTests.m in Sources */,
 				0E6B774A1C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m in Sources */,
 				74A3BDD219F76DEA006591C9 /* MKTMockingProgressTests.m in Sources */,
