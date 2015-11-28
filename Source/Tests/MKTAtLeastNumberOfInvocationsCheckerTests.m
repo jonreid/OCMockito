@@ -84,9 +84,9 @@
 - (NSArray *)generateCallStack:(NSArray *)callStack
 {
     NSArray *callStackPreamble = @[
-            @"  3   ExampleTests                        0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91",
-            @"  4   CoreFoundation                      0x000000010e9f9d07 ___forwarding___ + 487",
-            @"  5   CoreFoundation                      0x000000010e9f9a98 _CF_forwarding_prep_0 + 120" ];
+            @"3   ExampleTests                        0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91",
+            @"4   CoreFoundation                      0x000000010e9f9d07 ___forwarding___ + 487",
+            @"5   CoreFoundation                      0x000000010e9f9a98 _CF_forwarding_prep_0 + 120" ];
     return [callStackPreamble arrayByAddingObjectsFromArray:callStack];
 }
 
@@ -94,8 +94,8 @@
 {
     mockInvocationsFinder.stubbedCount = 2;
     mockInvocationsFinder.stubbedCallStackOfLastInvocation = [self generateCallStack:@[
-            @"  6   ExampleTests                        0x0000000118430edc CALLER",
-            @"  7   ExampleTests                        0x0000000118430edc PREVIOUS",
+            @"6   ExampleTests                        0x0000000118430edc CALLER",
+            @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
     ]];
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];

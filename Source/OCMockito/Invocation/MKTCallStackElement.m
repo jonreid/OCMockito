@@ -13,13 +13,13 @@ static NSRange trimTrailingSpacesFromRange(NSString *string, NSRange range)
 
 static NSString *extractModuleName(NSString *element)
 {
-    NSRange range = trimTrailingSpacesFromRange(element, NSMakeRange(6, 33));
+    NSRange range = trimTrailingSpacesFromRange(element, NSMakeRange(4, 33));
     return [element substringWithRange:range];
 }
 
 static NSString *extractInstruction(NSString *element)
 {
-    NSRange range = NSMakeRange(61, element.length - 61);
+    NSRange range = NSMakeRange(59, element.length - 59);
     return [element substringWithRange:range];
 }
 

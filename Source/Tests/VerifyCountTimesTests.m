@@ -87,7 +87,7 @@
     [verifyCountWithMockTestCase(mockArray, times(1), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
-               is(@"Expected 1 matching invocation, but received 0"));
+               startsWith(@"Wanted 1 time but was called 0 times."));
 }
 
 - (void)testTimesTwoFailure_ShouldStateExpectedNumberOfInvocations
@@ -97,7 +97,7 @@
     [verifyCountWithMockTestCase(mockArray, times(2), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
-               is(@"Expected 2 matching invocations, but received 1"));
+               startsWith(@"Wanted 2 times but was called 1 time."));
 }
 
 @end

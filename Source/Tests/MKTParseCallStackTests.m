@@ -15,9 +15,9 @@
 - (void)testShouldParseModuleNames_WithShortAndLongNames
 {
     NSString *ordinary =
-            @"  3   ExampleTests                        0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91";
+            @"3   ExampleTests                        0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91";
     NSString *longModuleName =
-            @"  3   ThisIsAMuchLongerModuleName         0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91";
+            @"3   ThisIsAMuchLongerModuleName         0x0000000118446bee -[MKTBaseMockObject forwardInvocation:] + 91";
 
     NSArray *result = MKTParseCallStack(@[ ordinary, longModuleName ]);
 
@@ -30,9 +30,9 @@
 - (void)testShouldParseInstructions_FromFunctionsAndMethods
 {
     NSString *function =
-            @"  5   CoreFoundation                      0x000000010e9f9a98 _CF_forwarding_prep_0 + 120";
+            @"5   CoreFoundation                      0x000000010e9f9a98 _CF_forwarding_prep_0 + 120";
     NSString *method =
-            @"  6   ExampleTests                        0x0000000118430edc -[ExampleTests testVerifyWithMatcherForPrimitive] + 92";
+            @"6   ExampleTests                        0x0000000118430edc -[ExampleTests testVerifyWithMatcherForPrimitive] + 92";
 
     NSArray *result = MKTParseCallStack(@[ function, method ]);
 
