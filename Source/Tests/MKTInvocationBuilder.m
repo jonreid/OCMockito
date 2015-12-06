@@ -12,8 +12,8 @@
 
 @implementation MKTMethods
 
-- (NSString *)simpleMethod { return nil; }
-- (NSString *)differentMethod { return nil; }
+- (void)simpleMethod {}
+- (void)differentMethod {}
 
 @end
 
