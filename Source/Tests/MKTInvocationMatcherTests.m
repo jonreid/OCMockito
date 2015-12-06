@@ -304,7 +304,7 @@
 {
     [sut setExpectedInvocation:[DummyObject invocationWithIntArg:42]];
 
-    XCTAssertFalse([sut matches:[DummyObject invocationWithIntArg:99]]);
+    XCTAssertTrue([sut matches:[DummyObject invocationWithIntArg:42]]);
 }
 
 - (void)testInvocationWithIntArg_WithOverrideMatcherNotSatisfied_ShouldNotMatch
