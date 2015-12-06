@@ -1,5 +1,4 @@
 #import "MKTNumberOfInvocationsChecker.h"
-#import "MKTInvocationsChecker.h"
 
 #import "MKTFilterCallStack.h"
 #import "MKTParseCallStack.h"
