@@ -11,6 +11,23 @@
 #import <OCHamcrest/OCHamcrest.h>
 
 
+@interface MKTAtMostNumberOfInvocationsCheckerDefaultsTests : XCTestCase
+@end
+
+@implementation MKTAtMostNumberOfInvocationsCheckerDefaultsTests
+
+- (void)testInvocationsFinder_ShouldDefaultToMKTInvocationsFinder
+{
+    MKTAtMostNumberOfInvocationsChecker *sut = [[MKTAtMostNumberOfInvocationsChecker alloc] init];
+
+    MKTInvocationsFinder *finder = sut.invocationsFinder;
+
+    assertThat(finder, isA([MKTInvocationsFinder class]));
+}
+
+@end
+
+
 @interface MKTAtMostNumberOfInvocationsCheckerTests : XCTestCase
 @end
 
@@ -32,15 +49,6 @@
 {
     sut = nil;
     [super tearDown];
-}
-
-- (void)testInvocationsFinder_Default
-{
-    MKTAtMostNumberOfInvocationsChecker *defaultSUT = [[MKTAtMostNumberOfInvocationsChecker alloc] init];
-
-    MKTInvocationsFinder *finder = defaultSUT.invocationsFinder;
-
-    assertThat(finder, isA([MKTInvocationsFinder class]));
 }
 
 - (void)testCheckInvocations_ShouldAskInvocationsFinderToFindMatchingInvocationsInList
