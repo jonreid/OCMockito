@@ -54,6 +54,8 @@
 {
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:self.signature];
     [invocation setSelector:self.aSelector];
+    if (self.firstArgument)
+        [invocation setArgument:self.firstArgument atIndex:2];
     return invocation;
 }
 

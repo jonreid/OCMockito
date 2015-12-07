@@ -9,7 +9,10 @@
 
 @interface MKTInvocationBuilder : NSObject
 
+@property (nonatomic, assign) void *firstArgument;
+
 + (instancetype)invocationBuilder;
+- (void)setSelector:(SEL)selector;
 - (MKTInvocationBuilder *)simpleMethod;
 - (MKTInvocationBuilder *)differentMethod;
 - (NSInvocation *)buildNSInvocation;
