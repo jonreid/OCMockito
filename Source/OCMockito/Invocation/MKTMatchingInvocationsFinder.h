@@ -6,7 +6,7 @@
 @class MKTInvocationMatcher;
 
 
-@interface MKTInvocationsFinder : NSObject
+@interface MKTMatchingInvocationsFinder : NSObject
 
 @property (nonatomic, assign, readonly) NSUInteger count;
 

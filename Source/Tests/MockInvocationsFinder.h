@@ -1,10 +1,10 @@
 //  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
-#import "MKTInvocationsFinder.h"
+#import "MKTMatchingInvocationsFinder.h"
 
 
-@interface MockInvocationsFinder : MKTInvocationsFinder
+@interface MockInvocationsFinder : MKTMatchingInvocationsFinder
 
 @property (nonatomic, copy) NSArray *capturedInvocations;
 @property (nonatomic, strong) MKTInvocationMatcher *capturedWanted;

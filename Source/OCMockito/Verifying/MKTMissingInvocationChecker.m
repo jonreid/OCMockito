@@ -2,7 +2,7 @@
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
 #import "MKTMissingInvocationChecker.h"
-#import "MKTInvocationsFinder.h"
+#import "MKTMatchingInvocationsFinder.h"
 #import "MKTInvocationMatcher.h"
 
 

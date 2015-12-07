@@ -4,7 +4,7 @@
 #import "MKTNumberOfInvocationsChecker.h"
 
 #import "MKTInvocationMatcher.h"
-#import "MKTInvocationsFinder.h"
+#import "MKTMatchingInvocationsFinder.h"
 
 
 @implementation MKTNumberOfInvocationsChecker

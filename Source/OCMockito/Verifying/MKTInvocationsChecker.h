@@ -5,12 +5,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class MKTInvocationsFinder;
+@class MKTMatchingInvocationsFinder;
 
 
 @interface MKTInvocationsChecker : NSObject
 
-@property (nonatomic, strong) MKTInvocationsFinder *invocationsFinder;
+@property (nonatomic, strong) MKTMatchingInvocationsFinder *invocationsFinder;
 
 - (instancetype)initWithWantedDescription:(NSString *)wantedDescription;
 - (NSString *)tooLittleActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount;

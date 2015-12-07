@@ -20,9 +20,9 @@
 {
     MKTMissingInvocationChecker *sut = [[MKTMissingInvocationChecker alloc] init];
 
-    MKTInvocationsFinder *finder = sut.invocationsFinder;
+    MKTMatchingInvocationsFinder *finder = sut.invocationsFinder;
 
-    assertThat(finder, isA([MKTInvocationsFinder class]));
+    assertThat(finder, isA([MKTMatchingInvocationsFinder class]));
 }
 
 @end

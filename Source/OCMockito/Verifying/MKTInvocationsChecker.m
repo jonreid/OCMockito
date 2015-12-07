@@ -2,7 +2,7 @@
 
 #import "MKTFilterCallStack.h"
 #import "MKTParseCallStack.h"
-#import "MKTInvocationsFinder.h"
+#import "MKTMatchingInvocationsFinder.h"
 
 
 @interface MKTInvocationsChecker ()
@@ -19,10 +19,10 @@
     return self;
 }
 
-- (MKTInvocationsFinder *)invocationsFinder
+- (MKTMatchingInvocationsFinder *)invocationsFinder
 {
     if (!_invocationsFinder) {
-        _invocationsFinder = [[MKTInvocationsFinder alloc] init];
+        _invocationsFinder = [[MKTMatchingInvocationsFinder alloc] init];
     }
     return _invocationsFinder;
 }

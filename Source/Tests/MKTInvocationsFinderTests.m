@@ -1,7 +1,7 @@
 //  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
-#import "MKTInvocationsFinder.h"
+#import "MKTMatchingInvocationsFinder.h"
 
 #import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
@@ -11,7 +11,7 @@
 #import <XCTest/XCTest.h>
 
 
-@interface MKTInvocationsFinder (Testing)
+@interface MKTMatchingInvocationsFinder (Testing)
 @property (nonatomic, copy) NSArray *invocations;
 @end
 
@@ -26,7 +26,7 @@
     MKTInvocation *differentMethodInvocation;
     NSArray *invocations;
     MKTInvocationMatcher *wanted;
-    MKTInvocationsFinder *sut;
+    MKTMatchingInvocationsFinder *sut;
 }
 
 - (void)setUp
@@ -41,7 +41,7 @@
             differentMethodInvocation,
     ];
     wanted = [[[MKTInvocationBuilder invocationBuilder] simpleMethod] buildInvocationMatcher];
-    sut = [[MKTInvocationsFinder alloc] init];
+    sut = [[MKTMatchingInvocationsFinder alloc] init];
 }
 
 - (void)testFindInvocationsInList_ShouldCreateFinderWithMatchingInvocations

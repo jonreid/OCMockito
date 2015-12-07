@@ -1,6 +1,6 @@
 #import "MKTAtLeastNumberOfInvocationsChecker.h"
 
-#import "MKTInvocationsFinder.h"
+#import "MKTMatchingInvocationsFinder.h"
 
 
 @implementation MKTAtLeastNumberOfInvocationsChecker
