@@ -20,3 +20,10 @@
 - (MKTInvocationMatcher *)buildInvocationMatcher;
 
 @end
+
+
+@interface NSInvocation (MKTInvocationBuilder)
+
++ (instancetype)invocationFromBuilder:(void (^)(MKTInvocationBuilder *))configure;
+
+@end

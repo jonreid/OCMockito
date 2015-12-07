@@ -74,3 +74,15 @@
 }
 
 @end
+
+
+@implementation NSInvocation (MKTInvocationBuilder)
+
++ (instancetype)invocationFromBuilder:(void (^)(MKTInvocationBuilder *))configure
+{
+    MKTInvocationBuilder *builder = [MKTInvocationBuilder invocationBuilder];
+    configure(builder);
+    return [builder buildNSInvocation];
+}
+
+@end
