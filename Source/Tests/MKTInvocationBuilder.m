@@ -28,25 +28,26 @@
 + (instancetype)invocationBuilder
 {
     MKTInvocationBuilder *builder = [[MKTInvocationBuilder alloc] init];
-    [builder theSelector:@selector(simpleMethod)];  // Default if we don't care which method is invoked.
+    [builder setSelector:@selector(simpleMethod)];  // Default if we don't care which method is invoked.
     return builder;
 }
 
 - (MKTInvocationBuilder *)simpleMethod
 {
-    return [self theSelector:@selector(simpleMethod)];
+    [self setSelector:@selector(simpleMethod)];
+    return self;
 }
 
 - (MKTInvocationBuilder *)differentMethod
 {
-    return [self theSelector:@selector(differentMethod)];
+    [self setSelector:@selector(differentMethod)];
+    return self;
 }
 
-- (MKTInvocationBuilder *)theSelector:(SEL)selector
+- (void)setSelector:(SEL)selector
 {
     self.aSelector = selector;
     self.signature = [[MKTMethods class] instanceMethodSignatureForSelector:selector];
-    return self;
 }
 
 - (NSInvocation *)buildNSInvocation
