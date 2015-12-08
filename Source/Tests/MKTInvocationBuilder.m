@@ -3,17 +3,12 @@
 
 #import "MKTInvocationBuilder.h"
 
-#import "MKTInvocation.h"
-#import "MKTInvocationMatcher.h"
-
-
-@interface MKTMethods : NSObject
-@end
 
 @implementation MKTMethods
 
 - (void)simpleMethod {}
 - (void)differentMethod {}
+- (void)methodWithArg:(id)arg {}
 
 @end
 
@@ -76,13 +71,25 @@
 @end
 
 
-@implementation NSInvocation (MKTInvocationBuilder)
+@implementation MKTInvocation (MKTInvocationBuilder)
 
 + (instancetype)invocationFromBuilder:(void (^)(MKTInvocationBuilder *))configure
 {
     MKTInvocationBuilder *builder = [MKTInvocationBuilder invocationBuilder];
     configure(builder);
-    return [builder buildNSInvocation];
+    return [builder buildMKTInvocation];
+}
+
+@end
+
+
+@implementation MKTInvocationMatcher (MKTInvocationBuilder)
+
++ (instancetype)matcherFromBuilder:(void (^)(MKTInvocationBuilder *))configure
+{
+    MKTInvocationBuilder *builder = [MKTInvocationBuilder invocationBuilder];
+    configure(builder);
+    return [builder buildInvocationMatcher];
 }
 
 @end

@@ -2,9 +2,8 @@
 //  Copyright 2015 Jonathan M. Reid. See LICENSE.txt
 
 #import <Foundation/Foundation.h>
-
-@class MKTInvocation;
-@class MKTInvocationMatcher;
+#import "MKTInvocation.h"
+#import "MKTInvocationMatcher.h"
 
 
 @interface MKTInvocationBuilder : NSObject
@@ -22,6 +21,15 @@
 @end
 
 
-@interface NSInvocation (MKTInvocationBuilder)
+@interface MKTInvocation (MKTInvocationBuilder)
 + (instancetype)invocationFromBuilder:(void (^)(MKTInvocationBuilder *))configure;
+@end
+
+@interface MKTInvocationMatcher (MKTInvocationBuilder)
++ (instancetype)matcherFromBuilder:(void (^)(MKTInvocationBuilder *))configure;
+@end
+
+
+@interface MKTMethods : NSObject
+- (void)methodWithArg:(id)arg;
 @end
