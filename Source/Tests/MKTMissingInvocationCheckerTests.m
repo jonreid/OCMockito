@@ -4,10 +4,9 @@
 #import "MKTMissingInvocationChecker.h"
 
 #import "MKTInvocation.h"
-#import "MockInvocationsFinder.h"
 #import "MKTInvocationBuilder.h"
-#import "MKTInvocationMatcher.h"
 
+#import "MockInvocationsFinder.h"
 #import <XCTest/XCTest.h>
 #import <OCHamcrest/OCHamcrest.h>
 
@@ -53,16 +52,8 @@
 - (void)testFindSimilarInvocationBlock_WithSameSelectorsButDifferentArgs_ShouldReturnFirstMatch
 {
     MKTInvocation *otherInvocation = [[[MKTInvocationBuilder invocationBuilder] simpleMethod] buildMKTInvocation];
-    __block id actualArg = @"FOO";
-    MKTInvocation *invocationSimilar = [MKTInvocation invocationFromBuilder:^(MKTInvocationBuilder *builder) {
-        [builder setSelector:@selector(methodWithArg:)];
-        builder.firstArgument = &actualArg;
-    }];
-    __block id wantedArg = @"BAR";
-    MKTInvocationMatcher *invocationMatcher = [MKTInvocationMatcher matcherFromBuilder:^(MKTInvocationBuilder *builder) {
-        [builder setSelector:@selector(methodWithArg:)];
-        builder.firstArgument = &wantedArg;
-    }];
+    MKTInvocation *invocationSimilar = [[[MKTInvocationBuilder invocationBuilder] methodWithArg:@"FOO"] buildMKTInvocation];
+    MKTInvocationMatcher *invocationMatcher = [[[MKTInvocationBuilder invocationBuilder] methodWithArg:@"BAR"] buildInvocationMatcher];
 
     MKTInvocation *(^findSimilar)(NSArray *, MKTInvocationMatcher *) = sut.findSimilarInvocation;
     MKTInvocation *similar = findSimilar(@[ otherInvocation, invocationSimilar ], invocationMatcher);

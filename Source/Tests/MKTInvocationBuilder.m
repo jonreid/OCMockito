@@ -3,6 +3,12 @@
 
 #import "MKTInvocationBuilder.h"
 
+#import "MKTInvocation.h"
+#import "MKTInvocationMatcher.h"
+
+
+@interface MKTMethods : NSObject
+@end
 
 @implementation MKTMethods
 
@@ -39,6 +45,13 @@
     return self;
 }
 
+- (MKTInvocationBuilder *)methodWithArg:(id)arg
+{
+    [self setSelector:@selector(methodWithArg:)];
+    self.firstArgument = &arg;
+    return self;
+}
+
 - (void)setSelector:(SEL)selector
 {
     self.aSelector = selector;
@@ -66,30 +79,6 @@
     MKTInvocationMatcher *matcher = [[MKTInvocationMatcher alloc] init];
     [matcher setExpectedInvocation:invocation];
     return matcher;
-}
-
-@end
-
-
-@implementation MKTInvocation (MKTInvocationBuilder)
-
-+ (instancetype)invocationFromBuilder:(void (^)(MKTInvocationBuilder *))configure
-{
-    MKTInvocationBuilder *builder = [MKTInvocationBuilder invocationBuilder];
-    configure(builder);
-    return [builder buildMKTInvocation];
-}
-
-@end
-
-
-@implementation MKTInvocationMatcher (MKTInvocationBuilder)
-
-+ (instancetype)matcherFromBuilder:(void (^)(MKTInvocationBuilder *))configure
-{
-    MKTInvocationBuilder *builder = [MKTInvocationBuilder invocationBuilder];
-    configure(builder);
-    return [builder buildInvocationMatcher];
 }
 
 @end
