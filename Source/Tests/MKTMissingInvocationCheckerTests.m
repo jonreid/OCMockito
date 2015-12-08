@@ -15,14 +15,38 @@
 @end
 
 @implementation MKTMissingInvocationCheckerDefaultsTests
+{
+    MKTMissingInvocationChecker *sut;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    sut = [[MKTMissingInvocationChecker alloc] init];
+}
+
+- (void)tearDown
+{
+    sut = nil;
+    [super tearDown];
+}
 
 - (void)testInvocationsFinder_ShouldDefaultToMKTInvocationsFinder
 {
-    MKTMissingInvocationChecker *sut = [[MKTMissingInvocationChecker alloc] init];
-
     MKTMatchingInvocationsFinder *finder = sut.invocationsFinder;
 
     assertThat(finder, isA([MKTMatchingInvocationsFinder class]));
+}
+
+- (void)testFindSimilarInvocationBlock_WithNoMatchingSelectors_ShouldReturnNil
+{
+    MKTInvocation *invocation = [[[MKTInvocationBuilder invocationBuilder] simpleMethod] buildMKTInvocation];
+    MKTInvocationMatcher *invocationMatcher = [[[MKTInvocationBuilder invocationBuilder] differentMethod] buildInvocationMatcher];
+    
+    MKTInvocation *(^findSimilar)(NSArray *, MKTInvocationMatcher *) = sut.findSimilarInvocation;
+    MKTInvocation *similar = findSimilar(@[ invocation ], invocationMatcher);
+
+    assertThat(similar, is(nilValue()));
 }
 
 @end
