@@ -1658,6 +1658,7 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../Carthage/Build/Mac\"",
 					"\"$(SRCROOT)/../Frameworks/OCHamcrest-5.1.0\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1684,6 +1685,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../Carthage/Build/Mac\"",
 					"\"$(SRCROOT)/../Frameworks/OCHamcrest-5.1.0\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
