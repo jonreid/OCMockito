@@ -3,6 +3,7 @@
 #import "MKTFilterCallStack.h"
 #import "MKTParseCallStack.h"
 #import "MKTMatchingInvocationsFinder.h"
+#import "MKTLocation.h"
 
 
 @interface MKTInvocationsChecker ()
@@ -30,22 +31,22 @@
 - (NSString *)tooLittleActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount
 {
     NSString *problem = [self describeWanted:wantedCount butWasCalled:actualCount];
-    NSArray *callStack = [self.invocationsFinder callStackOfLastInvocation];
-    return [self joinProblem:problem callStack:callStack label:@"Last invocation:"];
+    MKTLocation *location = [self.invocationsFinder locationOfLastInvocation];
+    return [self joinProblem:problem callStack:location.callStackSymbols label:@"Last invocation:"];
 }
 
 - (NSString *)tooManyActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount
 {
     NSString *problem = [self describeWanted:wantedCount butWasCalled:actualCount];
-    NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:wantedCount];
-    return [self joinProblem:problem callStack:callStack label:@"Undesired invocation:"];
+    MKTLocation *location = [self.invocationsFinder locationOfInvocationAtIndex:wantedCount];
+    return [self joinProblem:problem callStack:location.callStackSymbols label:@"Undesired invocation:"];
 }
 
 - (NSString *)neverWantedButActual:(NSUInteger)actualCount
 {
     NSString *problem = [self describeNeverWantedButWasCalled:actualCount];
-    NSArray *callStack = [self.invocationsFinder callStackOfInvocationAtIndex:0];
-    return [self joinProblem:problem callStack:callStack label:@"Undesired invocation:"];
+    MKTLocation *location = [self.invocationsFinder locationOfInvocationAtIndex:0];
+    return [self joinProblem:problem callStack:location.callStackSymbols label:@"Undesired invocation:"];
 }
 
 - (NSString *)describeWanted:(NSUInteger)wantedCount butWasCalled:(NSUInteger)actualCount
