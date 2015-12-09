@@ -3,6 +3,9 @@
 
 #import "MKTLocation.h"
 
+#import "MKTFilterCallStack.h"
+#import "MKTParseCallStack.h"
+
 
 @implementation MKTLocation
 
@@ -12,6 +15,12 @@
     if (self)
         _callStackSymbols = [[NSThread callStackSymbols] copy];
     return self;
+}
+
+- (NSString *)description
+{
+    NSArray *stack = MKTFilterCallStack(MKTParseCallStack(self.callStackSymbols));
+    return [stack componentsJoinedByString:@"\n"];
 }
 
 @end

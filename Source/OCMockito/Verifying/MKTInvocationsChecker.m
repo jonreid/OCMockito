@@ -1,7 +1,5 @@
 #import "MKTNumberOfInvocationsChecker.h"
 
-#import "MKTFilterCallStack.h"
-#import "MKTParseCallStack.h"
 #import "MKTMatchingInvocationsFinder.h"
 #import "MKTLocation.h"
 
@@ -77,14 +75,8 @@
     else
     {
         NSString *report = [problem stringByAppendingFormat:@" %@\n", locationLabel];
-        return [report stringByAppendingString:[self reportLocation:location]];
+        return [report stringByAppendingString:location.description];
     }
-}
-
-- (NSString *)reportLocation:(MKTLocation *)location
-{
-    NSArray *stack = MKTFilterCallStack(MKTParseCallStack(location.callStackSymbols));
-    return [stack componentsJoinedByString:@"\n"];
 }
 
 @end
