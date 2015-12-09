@@ -744,14 +744,14 @@
 				609E91510EE6160A67EAF450 /* MKTInvocation.m */,
 				08F189FF135A6D8C00F76379 /* MKTInvocationMatcher.h */,
 				08F18A00135A6D8C00F76379 /* MKTInvocationMatcher.m */,
+				609E963E76556893CBC8FBD6 /* MKTLocation.h */,
+				609E9B11C7F5BCA246F3ED64 /* MKTLocation.m */,
 				609E962857601A6E8BF744F4 /* MKTMatchingInvocationsFinder.h */,
 				609E9F71638D13BBE9F107F1 /* MKTMatchingInvocationsFinder.m */,
 				609E9C3F40927D5208E9FDBF /* MKTParseCallStack.h */,
 				609E9EB64D8810CF7E2F8E90 /* MKTParseCallStack.m */,
 				BB3336ACE4225D6B90159620 /* NSInvocation+OCMockito.h */,
 				BB33364DC41A888C0E0DA542 /* NSInvocation+OCMockito.m */,
-				609E9B11C7F5BCA246F3ED64 /* MKTLocation.m */,
-				609E963E76556893CBC8FBD6 /* MKTLocation.h */,
 			);
 			path = Invocation;
 			sourceTree = "<group>";
