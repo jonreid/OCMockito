@@ -72,13 +72,16 @@
     if (!callStack)
         return problem;
     else
-        return [problem stringByAppendingString:[self reportCallStack:callStack label:label]];
+    {
+        NSString *report = [problem stringByAppendingFormat:@" %@\n", label];
+        return [report stringByAppendingString:[self reportCallStack:callStack]];
+    }
 }
 
-- (NSString *)reportCallStack:(NSArray *)callStack label:(NSString *)label
+- (NSString *)reportCallStack:(NSArray *)callStack
 {
     NSArray *stack = MKTFilterCallStack(MKTParseCallStack(callStack));
-    return [NSString stringWithFormat:@" %@\n%@", label, [stack componentsJoinedByString:@"\n"]];
+    return [stack componentsJoinedByString:@"\n"];
 }
 
 @end
