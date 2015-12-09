@@ -5,5 +5,5 @@
 
 
 @interface MKTLocation : NSObject
-@property (nonatomic, copy) NSArray *callStackSymbols;
+@property (nonatomic, copy) NSArray *callStack;
 @end

@@ -25,7 +25,7 @@
     if (!self.stubbedCallStackOfInvocationAtIndex)
         return nil;
     MKTLocation *location = [[MKTLocation alloc] init];
-    location.callStackSymbols = self.stubbedCallStackOfInvocationAtIndex;
+    location.callStack = self.stubbedCallStackOfInvocationAtIndex;
     return location;
 }
 
@@ -34,7 +34,7 @@
     if (!self.stubbedCallStackOfLastInvocation)
         return nil;
     MKTLocation *location = [[MKTLocation alloc] init];
-    location.callStackSymbols = self.stubbedCallStackOfLastInvocation;
+    location.callStack = self.stubbedCallStackOfLastInvocation;
     return location;
 }
 

@@ -13,13 +13,13 @@
 {
     self = [super init];
     if (self)
-        _callStackSymbols = [[NSThread callStackSymbols] copy];
+        _callStack = [[NSThread callStackSymbols] copy];
     return self;
 }
 
 - (NSString *)description
 {
-    NSArray *stack = MKTFilterCallStack(MKTParseCallStack(self.callStackSymbols));
+    NSArray *stack = MKTFilterCallStack(MKTParseCallStack(self.callStack));
     return [stack componentsJoinedByString:@"\n"];
 }
 
