@@ -32,21 +32,21 @@
 {
     NSString *problem = [self describeWanted:wantedCount butWasCalled:actualCount];
     MKTLocation *location = [self.invocationsFinder locationOfLastInvocation];
-    return [self joinProblem:problem callStack:location.callStackSymbols label:@"Last invocation:"];
+    return [self joinProblem:problem location:location locationLabel:@"Last invocation:"];
 }
 
 - (NSString *)tooManyActual:(NSUInteger)actualCount wantedCount:(NSUInteger)wantedCount
 {
     NSString *problem = [self describeWanted:wantedCount butWasCalled:actualCount];
     MKTLocation *location = [self.invocationsFinder locationOfInvocationAtIndex:wantedCount];
-    return [self joinProblem:problem callStack:location.callStackSymbols label:@"Undesired invocation:"];
+    return [self joinProblem:problem location:location locationLabel:@"Undesired invocation:"];
 }
 
 - (NSString *)neverWantedButActual:(NSUInteger)actualCount
 {
     NSString *problem = [self describeNeverWantedButWasCalled:actualCount];
     MKTLocation *location = [self.invocationsFinder locationOfInvocationAtIndex:0];
-    return [self joinProblem:problem callStack:location.callStackSymbols label:@"Undesired invocation:"];
+    return [self joinProblem:problem location:location locationLabel:@"Undesired invocation:"];
 }
 
 - (NSString *)describeWanted:(NSUInteger)wantedCount butWasCalled:(NSUInteger)actualCount
@@ -68,20 +68,22 @@
     return count == 1 ? @"1 time" : [NSString stringWithFormat:@"%lu times", (unsigned long)count];
 }
 
-- (NSString *)joinProblem:(NSString *)problem callStack:(NSArray *)callStack label:(NSString *)label
+- (NSString *)joinProblem:(NSString *)problem
+                 location:(MKTLocation *)location
+            locationLabel:(NSString *)locationLabel
 {
-    if (!callStack)
+    if (!location)
         return problem;
     else
     {
-        NSString *report = [problem stringByAppendingFormat:@" %@\n", label];
-        return [report stringByAppendingString:[self reportCallStack:callStack]];
+        NSString *report = [problem stringByAppendingFormat:@" %@\n", locationLabel];
+        return [report stringByAppendingString:[self reportLocation:location]];
     }
 }
 
-- (NSString *)reportCallStack:(NSArray *)callStack
+- (NSString *)reportLocation:(MKTLocation *)location
 {
-    NSArray *stack = MKTFilterCallStack(MKTParseCallStack(callStack));
+    NSArray *stack = MKTFilterCallStack(MKTParseCallStack(location.callStackSymbols));
     return [stack componentsJoinedByString:@"\n"];
 }
 

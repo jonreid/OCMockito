@@ -22,6 +22,8 @@
 - (MKTLocation *)locationOfInvocationAtIndex:(NSUInteger)index
 {
     self.capturedInvocationIndex = index;
+    if (!self.stubbedCallStackOfInvocationAtIndex)
+        return nil;
     MKTLocation *location = [[MKTLocation alloc] init];
     location.callStackSymbols = self.stubbedCallStackOfInvocationAtIndex;
     return location;
@@ -29,6 +31,8 @@
 
 - (MKTLocation *)locationOfLastInvocation
 {
+    if (!self.stubbedCallStackOfLastInvocation)
+        return nil;
     MKTLocation *location = [[MKTLocation alloc] init];
     location.callStackSymbols = self.stubbedCallStackOfLastInvocation;
     return location;
