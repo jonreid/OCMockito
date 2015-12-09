@@ -5,6 +5,7 @@
 
 #import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
+#import "MKTLocation.h"
 
 
 @interface MKTMatchingInvocationsFinder ()
@@ -32,13 +33,13 @@
 - (NSArray *)callStackOfInvocationAtIndex:(NSUInteger)index
 {
     MKTInvocation *invocation = self.invocations[index];
-    return invocation.callStackSymbols;
+    return invocation.location.callStackSymbols;
 }
 
 - (NSArray *)callStackOfLastInvocation
 {
     MKTInvocation *invocation = self.invocations.lastObject;
-    return invocation.callStackSymbols;
+    return invocation.location.callStackSymbols;
 }
 
 @end

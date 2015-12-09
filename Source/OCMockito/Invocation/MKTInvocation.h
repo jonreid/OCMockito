@@ -3,11 +3,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class MKTLocation;
+
 
 @interface MKTInvocation : NSObject
 
 @property (nonatomic, strong, readonly) NSInvocation *invocation;
 @property (nonatomic, copy) NSArray *callStackSymbols;
+@property (nonatomic, strong, readonly) MKTLocation *location;
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation;
 

@@ -3,6 +3,8 @@
 
 #import "MKTInvocation.h"
 
+#import "MKTLocation.h"
+
 
 @implementation MKTInvocation
 
@@ -12,6 +14,7 @@
     if (self) {
         _invocation = invocation;
         _callStackSymbols = [NSThread callStackSymbols];
+        _location = [[MKTLocation alloc] init];
     }
     return self;
 }
