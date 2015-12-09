@@ -36,10 +36,22 @@
     return invocation.location.callStackSymbols;
 }
 
+- (MKTLocation *)locationOfInvocationAtIndex:(NSUInteger)index
+{
+    MKTInvocation *invocation = self.invocations[index];
+    return invocation.location;
+}
+
 - (NSArray *)callStackOfLastInvocation
 {
     MKTInvocation *invocation = self.invocations.lastObject;
     return invocation.location.callStackSymbols;
+}
+
+- (MKTLocation *)locationOfLastInvocation
+{
+    MKTInvocation *invocation = self.invocations.lastObject;
+    return invocation.location;
 }
 
 @end
