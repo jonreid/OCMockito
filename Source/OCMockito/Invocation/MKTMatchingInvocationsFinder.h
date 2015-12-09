@@ -12,9 +12,7 @@
 @property (nonatomic, assign, readonly) NSUInteger count;
 
 - (void)findInvocationsInList:(NSArray *)invocations matching:(MKTInvocationMatcher *)wanted;
-- (NSArray *)callStackOfInvocationAtIndex:(NSUInteger)index;
 - (MKTLocation *)locationOfInvocationAtIndex:(NSUInteger)index;
-- (NSArray *)callStackOfLastInvocation;
 - (MKTLocation *)locationOfLastInvocation;
 
 @end

@@ -19,12 +19,6 @@
     return self.stubbedCount;
 }
 
-- (NSArray *)callStackOfInvocationAtIndex:(NSUInteger)index
-{
-    self.capturedInvocationIndex = index;
-    return self.stubbedCallStackOfInvocationAtIndex;
-}
-
 - (MKTLocation *)locationOfInvocationAtIndex:(NSUInteger)index
 {
     self.capturedInvocationIndex = index;
@@ -33,15 +27,10 @@
     return location;
 }
 
-- (NSArray *)callStackOfLastInvocation
-{
-    return self.stubbedCallStackOfLastInvocation;
-}
-
 - (MKTLocation *)locationOfLastInvocation
 {
     MKTLocation *location = [[MKTLocation alloc] init];
-    location.callStackSymbols = self.stubbedCallStackOfLastInvocation ;
+    location.callStackSymbols = self.stubbedCallStackOfLastInvocation;
     return location;
 }
 

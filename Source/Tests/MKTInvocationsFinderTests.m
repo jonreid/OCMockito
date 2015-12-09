@@ -5,7 +5,6 @@
 
 #import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
-#import "MKTLocation.h"
 
 #import "MKTInvocationBuilder.h"
 #import <OCHamcrest/OCHamcrest.h>
@@ -64,15 +63,6 @@
     assertThat(@(count), is(@2));
 }
 
-- (void)testCallStackOfInvocationAtIndex_WithIndex0
-{
-    [sut findInvocationsInList:invocations matching:wanted];
-
-    NSArray *callStack = [sut callStackOfInvocationAtIndex:0];
-
-    assertThat(callStack, is(sameInstance(simpleMethodInvocation.location.callStackSymbols)));
-}
-
 - (void)testLocationOfInvocationAtIndex_WithIndex0
 {
     [sut findInvocationsInList:invocations matching:wanted];
@@ -82,15 +72,6 @@
     assertThat(location, is(sameInstance(simpleMethodInvocation.location)));
 }
 
-- (void)testCallStackOfInvocationAtIndex_WithIndex1
-{
-    [sut findInvocationsInList:invocations matching:wanted];
-
-    NSArray *callStack = [sut callStackOfInvocationAtIndex:1];
-
-    assertThat(callStack, is(sameInstance(simpleMethodInvocationTwo.location.callStackSymbols)));
-}
-
 - (void)testLocationOfInvocationAtIndex_WithIndex1
 {
     [sut findInvocationsInList:invocations matching:wanted];
@@ -98,15 +79,6 @@
     MKTLocation *location = [sut locationOfInvocationAtIndex:1];
 
     assertThat(location, is(sameInstance(simpleMethodInvocationTwo.location)));
-}
-
-- (void)testCallStackOfLastInvocation
-{
-    [sut findInvocationsInList:invocations matching:wanted];
-
-    NSArray *callStack = [sut callStackOfLastInvocation];
-
-    assertThat(callStack, is(sameInstance(simpleMethodInvocationTwo.location.callStackSymbols)));
 }
 
 - (void)testLocationOfLastInvocation
