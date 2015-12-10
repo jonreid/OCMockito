@@ -5,5 +5,8 @@
 
 
 @interface MKTLocation : NSObject
-@property (nonatomic, copy) NSArray *callStack;
+
+- (instancetype)init;
+- (instancetype)initWithCallStack:(NSArray *)callStack;
+
 @end

@@ -7,13 +7,23 @@
 #import "MKTParseCallStack.h"
 
 
+@interface MKTLocation ()
+@property (nonatomic, copy, readonly) NSArray *callStack;
+@end
+
 @implementation MKTLocation
 
 - (instancetype)init
 {
+    self = [self initWithCallStack:[NSThread callStackSymbols]];
+    return self;
+}
+
+- (instancetype)initWithCallStack:(NSArray *)callStack
+{
     self = [super init];
     if (self)
-        _callStack = [[NSThread callStackSymbols] copy];
+        _callStack = [callStack copy];
     return self;
 }
 
