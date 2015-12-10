@@ -4,6 +4,7 @@
 #import "MKTAtLeastNumberOfInvocationsChecker.h"
 
 #import "MKTInvocation.h"
+#import "MKTLocation.h"
 #import "MockInvocationsFinder.h"
 
 #import "MKTInvocationBuilder.h"
@@ -101,10 +102,12 @@
 - (void)testCheckInvocations_WithTooLittleActual_ShouldIncludeFilteredStackTraceOfLastInvocation
 {
     mockInvocationsFinder.stubbedCount = 2;
-    mockInvocationsFinder.stubbedCallStackOfLastInvocation = [self generateCallStack:@[
+    MKTLocation *location = [[MKTLocation alloc] init];
+    location.callStack = [self generateCallStack:@[
             @"6   ExampleTests                        0x0000000118430edc CALLER",
             @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
     ]];
+    mockInvocationsFinder.stubbedLocationOfLastInvocation = location;
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
 

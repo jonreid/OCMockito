@@ -10,7 +10,6 @@
 @property (nonatomic, strong) MKTInvocationMatcher *capturedWanted;
 @property (nonatomic, assign) NSUInteger stubbedCount;
 @property (nonatomic, assign) NSUInteger capturedInvocationIndex;
-@property (nonatomic, copy) NSArray *stubbedCallStackOfInvocationAtIndex;
-@property (nonatomic, copy) NSArray *stubbedCallStackOfLastInvocation;
-
+@property (nonatomic, strong) MKTLocation *stubbedLocationOfInvocationAtIndex;
+@property (nonatomic, strong) MKTLocation *stubbedLocationOfLastInvocation;
 @end

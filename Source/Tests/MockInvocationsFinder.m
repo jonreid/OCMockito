@@ -3,8 +3,6 @@
 
 #import "MockInvocationsFinder.h"
 
-#import "MKTLocation.h"
-
 
 @implementation MockInvocationsFinder
 
@@ -22,20 +20,12 @@
 - (MKTLocation *)locationOfInvocationAtIndex:(NSUInteger)index
 {
     self.capturedInvocationIndex = index;
-    if (!self.stubbedCallStackOfInvocationAtIndex)
-        return nil;
-    MKTLocation *location = [[MKTLocation alloc] init];
-    location.callStack = self.stubbedCallStackOfInvocationAtIndex;
-    return location;
+    return self.stubbedLocationOfInvocationAtIndex;
 }
 
 - (MKTLocation *)locationOfLastInvocation
 {
-    if (!self.stubbedCallStackOfLastInvocation)
-        return nil;
-    MKTLocation *location = [[MKTLocation alloc] init];
-    location.callStack = self.stubbedCallStackOfLastInvocation;
-    return location;
+    return self.stubbedLocationOfLastInvocation;
 }
 
 @end
