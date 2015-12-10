@@ -102,11 +102,11 @@
 - (void)testCheckInvocations_WithTooLittleActual_ShouldIncludeFilteredStackTraceOfLastInvocation
 {
     mockInvocationsFinder.stubbedCount = 2;
-    MKTLocation *location = [[MKTLocation alloc] initWithCallStack:[self generateCallStack:@[
-            @"6   ExampleTests                        0x0000000118430edc CALLER",
-            @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
-    ]]];
-    mockInvocationsFinder.stubbedLocationOfLastInvocation = location;
+    mockInvocationsFinder.stubbedLocationOfLastInvocation = [[MKTLocation alloc] initWithCallStack:
+            [self generateCallStack:@[
+                    @"6   ExampleTests                        0x0000000118430edc CALLER",
+                    @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
+            ]]];
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
 
@@ -128,11 +128,11 @@
 - (void)testCheckInvocations_WithTooManyActual_ShouldIncludeFilteredStackTraceOfUndesiredInvocation
 {
     mockInvocationsFinder.stubbedCount = 2;
-    MKTLocation *location = [[MKTLocation alloc] initWithCallStack:[self generateCallStack:@[
-            @"6   ExampleTests                        0x0000000118430edc CALLER",
-            @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
-    ]]];
-    mockInvocationsFinder.stubbedLocationOfInvocationAtIndex = location;
+    mockInvocationsFinder.stubbedLocationOfInvocationAtIndex = [[MKTLocation alloc] initWithCallStack:
+            [self generateCallStack:@[
+                    @"6   ExampleTests                        0x0000000118430edc CALLER",
+                    @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
+            ]]];
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:1];
 
@@ -163,11 +163,11 @@
 - (void)testCheckInvocations_WithCallsWhereNoneWereExpected_ShouldIncludeFilteredStackTraceOfUndesiredInvocation
 {
     mockInvocationsFinder.stubbedCount = 2;
-    MKTLocation *location = [[MKTLocation alloc] initWithCallStack:[self generateCallStack:@[
-            @"6   ExampleTests                        0x0000000118430edc CALLER",
-            @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
-    ]]];
-    mockInvocationsFinder.stubbedLocationOfInvocationAtIndex = location;
+    mockInvocationsFinder.stubbedLocationOfInvocationAtIndex = [[MKTLocation alloc] initWithCallStack:
+            [self generateCallStack:@[
+                    @"6   ExampleTests                        0x0000000118430edc CALLER",
+                    @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
+            ]]];
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:0];
 
