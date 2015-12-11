@@ -13,7 +13,6 @@
     self = [super init];
     if (self) {
         _invocation = invocation;
-        _callStackSymbols = [NSThread callStackSymbols];
         _location = [[MKTLocation alloc] init];
     }
     return self;
