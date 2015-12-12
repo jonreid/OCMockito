@@ -15,7 +15,7 @@
 - (void)setSelector:(SEL)selector;
 - (MKTInvocationBuilder *)simpleMethod;
 - (MKTInvocationBuilder *)differentMethod;
-- (MKTInvocationBuilder *)methodWithArg:(id)arg;
+- (MKTInvocationBuilder *)methodWithArg:(__unsafe_unretained id)arg;
 - (NSInvocation *)buildNSInvocation;
 - (MKTInvocation *)buildMKTInvocation;
 - (MKTInvocationMatcher *)buildInvocationMatcher;

@@ -45,7 +45,7 @@
     return self;
 }
 
-- (MKTInvocationBuilder *)methodWithArg:(id)arg
+- (MKTInvocationBuilder *)methodWithArg:(__unsafe_unretained id)arg
 {
     [self setSelector:@selector(methodWithArg:)];
     self.firstArgument = &arg;
