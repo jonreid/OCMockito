@@ -6,7 +6,7 @@
 #import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
 
-#import "MKTInvocationBuilder.h"
+#import "DummyObject.h"
 #import <OCHamcrest/OCHamcrest.h>
 #import <XCTest/XCTest.h>
 
@@ -32,15 +32,15 @@
 - (void)setUp
 {
     [super setUp];
-    simpleMethodInvocation = [[[MKTInvocationBuilder invocationBuilder] simpleMethod] buildMKTInvocation];
-    simpleMethodInvocationTwo = [[[MKTInvocationBuilder invocationBuilder] simpleMethod] buildMKTInvocation];
-    differentMethodInvocation = [[[MKTInvocationBuilder invocationBuilder] differentMethod] buildMKTInvocation];
+    simpleMethodInvocation = wrappedInvocation([DummyObject invocationWithNoArgs]);
+    simpleMethodInvocationTwo = wrappedInvocation([DummyObject invocationWithNoArgs]);
+    differentMethodInvocation = wrappedInvocation([DummyObject differentInvocationWithNoArgs]);
     invocations = @[
             simpleMethodInvocation,
             simpleMethodInvocationTwo,
             differentMethodInvocation,
     ];
-    wanted = [[[MKTInvocationBuilder invocationBuilder] simpleMethod] buildInvocationMatcher];
+    wanted = matcherForInvocation([DummyObject invocationWithNoArgs]);
     sut = [[MKTMatchingInvocationsFinder alloc] init];
 }
 

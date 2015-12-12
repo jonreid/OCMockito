@@ -4,9 +4,9 @@
 #import "MKTMissingInvocationChecker.h"
 
 #import "MKTInvocation.h"
-#import "MKTInvocationBuilder.h"
-
 #import "MockInvocationsFinder.h"
+
+#import "DummyObject.h"
 #import <XCTest/XCTest.h>
 #import <OCHamcrest/OCHamcrest.h>
 
@@ -40,9 +40,9 @@
 
 - (void)testFindSimilarInvocationBlock_WithNoMatchingSelectors_ShouldReturnNil
 {
-    MKTInvocation *invocation = [[[MKTInvocationBuilder invocationBuilder] simpleMethod] buildMKTInvocation];
-    MKTInvocationMatcher *invocationMatcher = [[[MKTInvocationBuilder invocationBuilder] differentMethod] buildInvocationMatcher];
-    
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithNoArgs]);
+    MKTInvocationMatcher *invocationMatcher = matcherForInvocation([DummyObject differentInvocationWithNoArgs]);
+
     MKTInvocation *(^findSimilar)(NSArray *, MKTInvocationMatcher *) = sut.findSimilarInvocation;
     MKTInvocation *similar = findSimilar(@[ invocation ], invocationMatcher);
 
@@ -51,9 +51,9 @@
 
 - (void)testFindSimilarInvocationBlock_WithSameSelectorsButDifferentArgs_ShouldReturnFirstMatch
 {
-    MKTInvocation *otherInvocation = [[[MKTInvocationBuilder invocationBuilder] simpleMethod] buildMKTInvocation];
-    MKTInvocation *invocationSimilar = [[[MKTInvocationBuilder invocationBuilder] methodWithArg:@"FOO"] buildMKTInvocation];
-    MKTInvocationMatcher *invocationMatcher = [[[MKTInvocationBuilder invocationBuilder] methodWithArg:@"BAR"] buildInvocationMatcher];
+    MKTInvocation *otherInvocation = wrappedInvocation([DummyObject invocationWithNoArgs]);
+    MKTInvocation *invocationSimilar = wrappedInvocation([DummyObject invocationWithObjectArg:@"FOO"]);
+    MKTInvocationMatcher *invocationMatcher = matcherForInvocation([DummyObject invocationWithObjectArg:@"BAR"]);
 
     MKTInvocation *(^findSimilar)(NSArray *, MKTInvocationMatcher *) = sut.findSimilarInvocation;
     MKTInvocation *similar = findSimilar(@[ otherInvocation, invocationSimilar ], invocationMatcher);
@@ -89,8 +89,8 @@
 
 - (void)testCheckInvocations_ShouldAskInvocationsFinderToFindMatchingInvocationsInList
 {
-    NSArray *invocations = @[ [[MKTInvocationBuilder invocationBuilder] buildMKTInvocation] ];
-    MKTInvocationMatcher *wanted = [[MKTInvocationBuilder invocationBuilder] buildInvocationMatcher];
+    NSArray *invocations = @[ wrappedInvocation([DummyObject invocationWithNoArgs]) ];
+    MKTInvocationMatcher *wanted = matcherForInvocation([DummyObject invocationWithNoArgs]);
 
     [sut checkInvocations:invocations wanted:wanted];
 

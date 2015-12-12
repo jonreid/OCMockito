@@ -7,7 +7,7 @@
 #import "MKTLocation.h"
 #import "MockInvocationsFinder.h"
 
-#import "MKTInvocationBuilder.h"
+#import "DummyObject.h"
 #import <XCTest/XCTest.h>
 #import <OCHamcrest/OCHamcrest.h>
 
@@ -54,8 +54,8 @@
 
 - (void)testCheckInvocations_ShouldAskInvocationsFinderToFindMatchingInvocationsInList
 {
-    NSArray *invocations = @[ [[MKTInvocationBuilder invocationBuilder] buildMKTInvocation] ];
-    MKTInvocationMatcher *wanted = [[MKTInvocationBuilder invocationBuilder] buildInvocationMatcher];
+    NSArray *invocations = @[ wrappedInvocation([DummyObject invocationWithNoArgs]) ];
+    MKTInvocationMatcher *wanted = matcherForInvocation([DummyObject invocationWithNoArgs]);
 
     [sut checkInvocations:invocations wanted:wanted wantedCount:1];
 
