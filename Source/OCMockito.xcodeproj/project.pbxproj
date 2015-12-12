@@ -716,8 +716,8 @@
 				740018761A58E95100E9AC92 /* Mocking */,
 				740018741A58E8EF00E9AC92 /* Stubbing */,
 				740018751A58E8F800E9AC92 /* Verifying */,
-				609E9ECEDA1F0A719513AAC4 /* DummyObject.m */,
 				609E9D65B5AF85667D00AFCD /* DummyObject.h */,
+				609E9ECEDA1F0A719513AAC4 /* DummyObject.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

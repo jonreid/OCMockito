@@ -6,6 +6,7 @@
 @class MKTInvocation;
 @class MKTInvocationMatcher;
 
+
 @interface DummyObject : NSObject
 
 + (NSInvocation *)invocationWithNoArgs;
@@ -30,6 +31,7 @@
 + (NSInvocation *)invocationWithIntArg:(int)argument1 floatArg:(float)argument2;
 
 @end
+
 
 MKTInvocation *wrappedInvocation(NSInvocation *invocation);
 MKTInvocationMatcher *matcherForInvocation(NSInvocation *invocation);
