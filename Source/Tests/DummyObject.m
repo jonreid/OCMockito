@@ -13,6 +13,7 @@
 - (void)differentMethodWithNoArgs {}
 - (void)methodWithObjectArg:(id)arg {}
 - (void)differentMethodWithObjectArg:(id)arg {}
+- (void)methodWithSelectorArg:(SEL)arg {}
 - (void)methodWithBoolArg:(BOOL)arg {}
 - (void)methodWithCharArg:(char)arg {}
 - (void)methodWithIntArg:(int)arg {}
@@ -62,6 +63,15 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(differentMethodWithObjectArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
+    return inv;
+}
+
++ (NSInvocation *)invocationWithSelectorArg:(SEL)argument
+{
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithSelectorArg:)];
+    [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 

@@ -100,4 +100,13 @@
     assertThat(result, is(@"methodWithBoolArg:NO"));
 }
 
+- (void)testPrintInvocation_WithSelector
+{
+    NSInvocation *invocation = [DummyObject invocationWithSelectorArg:@selector(description)];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithSelectorArg:@selector(description)"));
+}
+
 @end

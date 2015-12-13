@@ -30,7 +30,7 @@
     if (arg == [NSNull null])
         return [self printNil];
     if ([arg isKindOfClass:[NSString class]])
-        return [self printNSString:arg];
+        return [self printString:arg type:type];
     if ([arg isKindOfClass:[NSNumber class]])
         return [self printNumber:arg type:type];
     return [arg description];
@@ -41,8 +41,10 @@
     return @"nil";
 }
 
-- (NSString *)printNSString:(id)arg
+- (NSString *)printString:(id)arg type:(const char *)type
 {
+    if (type[0] == @encode(SEL)[0])
+        return [NSString stringWithFormat:@"@selector(%@)", arg];
     return [NSString stringWithFormat:@"@\"%@\"", arg];
 }
 
