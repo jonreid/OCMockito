@@ -50,6 +50,8 @@
 {
     if (type[0] == @encode(id)[0])
         return [NSString stringWithFormat:@"@%@", arg];
+    if (type[0] == @encode(BOOL)[0])
+        return [arg boolValue] ? @"YES" : @"NO";
     return [arg description];
 }
 

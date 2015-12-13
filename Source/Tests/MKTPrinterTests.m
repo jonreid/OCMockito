@@ -82,4 +82,22 @@
     assertThat(result, is(@"methodWithIntArg:123"));
 }
 
+- (void)testPrintInvocation_WithBoolYes
+{
+    NSInvocation *invocation = [DummyObject invocationWithBoolArg:YES];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithBoolArg:YES"));
+}
+
+- (void)testPrintInvocation_WithBoolNo
+{
+    NSInvocation *invocation = [DummyObject invocationWithBoolArg:NO];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithBoolArg:NO"));
+}
+
 @end
