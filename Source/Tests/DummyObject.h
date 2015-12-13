@@ -9,10 +9,6 @@
 
 @interface DummyObject : NSObject
 
-- (void)methodWithNoArgs;
-- (void)differentMethodWithNoArgs;
-
-+ (NSInvocation *)invocationWithSelector:(SEL)selector;
 + (NSInvocation *)invocationWithNoArgs;
 + (NSInvocation *)differentInvocationWithNoArgs;
 + (NSInvocation *)invocationWithObjectArg:(__unsafe_unretained id)argument;

@@ -30,7 +30,7 @@
 
 - (void)testPrintInvocation_WithNoArgs
 {
-    NSInvocation *invocation = [DummyObject invocationWithSelector:@selector(methodWithNoArgs)];
+    NSInvocation *invocation = [DummyObject invocationWithNoArgs];
 
     NSString *result = [sut printInvocation:invocation];
     
