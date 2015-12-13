@@ -4,10 +4,12 @@
 #import <Foundation/Foundation.h>
 
 @class MKTInvocation;
+@class MKTInvocationMatcher;
 
 
 @interface MKTPrinter : NSObject
 
+- (NSString *)printMatcher:(MKTInvocationMatcher *)matcher;
 - (NSString *)printInvocation:(MKTInvocation *)invocation;
 
 @end

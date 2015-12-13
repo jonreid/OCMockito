@@ -4,10 +4,35 @@
 #import "MKTPrinter.h"
 
 #import "MKTInvocation.h"
+#import "MKTInvocationMatcher.h"
 #import "NSInvocation+OCMockito.h"
+#import <OCHamcrest/HCMatcher.h>
+#import <OCHamcrest/HCStringDescription.h>
 
 
 @implementation MKTPrinter
+
+- (NSString *)printMatcher:(MKTInvocationMatcher *)matcher
+{
+    if (matcher.matchers.count == 0)
+        return [self printInvocationWithNoArguments:matcher.expected];
+    return [self printMatcherWithArguments:matcher];
+
+}
+
+- (NSString *)printMatcherWithArguments:(MKTInvocationMatcher *)matcher
+{
+    NSArray *matchers = matcher.matchers;
+    NSArray *selectorParts = [NSStringFromSelector(matcher.expected.selector) componentsSeparatedByString:@":"];
+    NSMutableString *result = [[NSMutableString alloc] init];
+    for (NSUInteger index = 0; index < matchers.count; ++index)
+    {
+        HCStringDescription *description = [[HCStringDescription alloc] init];
+        [matchers[index] describeTo:description];
+        [result appendFormat:@" %@:%@", selectorParts[index], description];
+    }
+    return [result substringFromIndex:1]; // Remove first space
+}
 
 - (NSString *)printInvocation:(MKTInvocation *)invocation
 {

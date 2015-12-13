@@ -48,7 +48,8 @@
 
 - (void)testPrintInvocation_WithTwoArguments
 {
-    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg1:@12.34 objectArg2:@56]);
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg1:@12.34
+                                                                             objectArg2:@56]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -102,7 +103,8 @@
 
 - (void)testPrintInvocation_WithSelector
 {
-    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithSelectorArg:@selector(description)]);
+    MKTInvocation *invocation =
+            wrappedInvocation([DummyObject invocationWithSelectorArg:@selector(description)]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -111,7 +113,8 @@
 
 - (void)testPrintInvocation_WithClass
 {
-    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithClassArg:[DummyObject class]]);
+    MKTInvocation *invocation =
+            wrappedInvocation([DummyObject invocationWithClassArg:[DummyObject class]]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -120,7 +123,10 @@
 
 - (void)testPrintInvocation_WithArray
 {
-    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@[ @123, @"FOO" ]]);
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@[
+            @123,
+            @"FOO"
+    ]]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -129,11 +135,44 @@
 
 - (void)testPrintInvocation_WithDictionary
 {
-    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@{ @"KEY1" : @"VALUE1", @"KEY2" : @"VALUE2" }]);
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@{
+            @"KEY1" : @"VALUE1",
+            @"KEY2" : @"VALUE2"
+    }]);
 
     NSString *result = [sut printInvocation:invocation];
 
     assertThat(result, is(@"methodWithObjectArg:@{ @\"KEY1\" : @\"VALUE1\", @\"KEY2\" : @\"VALUE2\" }"));
+}
+
+- (void)testPrintMatcher_WithNoArgs
+{
+    MKTInvocationMatcher *matcher = matcherForInvocation([DummyObject invocationWithNoArgs]);
+
+    NSString *result = [sut printMatcher:matcher];
+
+    assertThat(result, is(@"methodWithNoArgs"));
+}
+
+- (void)testPrintMatcher_WithOneArgument
+{
+    MKTInvocationMatcher *matcher =
+            matcherForInvocation([DummyObject invocationWithObjectArg:anything()]);
+
+    NSString *result = [sut printMatcher:matcher];
+
+    assertThat(result, is(@"methodWithObjectArg:ANYTHING"));
+}
+
+- (void)testPrintMatcher_WithTwoArguments
+{
+    MKTInvocationMatcher *matcher =
+            matcherForInvocation([DummyObject invocationWithObjectArg1:anythingWithDescription(@"FOO")
+                                                            objectArg2:anythingWithDescription(@"BAR")]);
+
+    NSString *result = [sut printMatcher:matcher];
+
+    assertThat(result, is(@"methodWithObjectArg1:FOO objectArg2:BAR"));
 }
 
 @end
