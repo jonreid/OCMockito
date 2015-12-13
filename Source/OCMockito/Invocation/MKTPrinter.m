@@ -3,16 +3,17 @@
 
 #import "MKTPrinter.h"
 
+#import "MKTInvocation.h"
 #import "NSInvocation+OCMockito.h"
 
 
 @implementation MKTPrinter
 
-- (NSString *)printInvocation:(NSInvocation *)invocation
+- (NSString *)printInvocation:(MKTInvocation *)invocation
 {
-    if ([self invocationHasNoArguments:invocation])
-        return [self printInvocationWithNoArguments:invocation];
-    return [self printInvocationWithArguments:invocation];
+    if ([self invocationHasNoArguments:invocation.invocation])
+        return [self printInvocationWithNoArguments:invocation.invocation];
+    return [self printInvocationWithArguments:invocation.invocation];
 }
 
 - (BOOL)invocationHasNoArguments:(NSInvocation *)invocation

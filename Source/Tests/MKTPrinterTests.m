@@ -30,7 +30,7 @@
 
 - (void)testPrintInvocation_WithNoArgs
 {
-    NSInvocation *invocation = [DummyObject invocationWithNoArgs];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithNoArgs]);
 
     NSString *result = [sut printInvocation:invocation];
     
@@ -39,7 +39,7 @@
 
 - (void)testPrintInvocation_WithOneArgument
 {
-    NSInvocation *invocation = [DummyObject invocationWithObjectArg:@12.34];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@12.34]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -48,7 +48,7 @@
 
 - (void)testPrintInvocation_WithTwoArguments
 {
-    NSInvocation *invocation = [DummyObject invocationWithObjectArg1:@12.34 objectArg2:@56];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg1:@12.34 objectArg2:@56]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -57,7 +57,7 @@
 
 - (void)testPrintInvocation_WithString
 {
-    NSInvocation *invocation = [DummyObject invocationWithObjectArg:@"FOO"];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@"FOO"]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -66,7 +66,7 @@
 
 - (void)testPrintInvocation_WithNil
 {
-    NSInvocation *invocation = [DummyObject invocationWithObjectArg:nil];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:nil]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -75,7 +75,7 @@
 
 - (void)testPrintInvocation_WithInt
 {
-    NSInvocation *invocation = [DummyObject invocationWithIntArg:123];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithIntArg:123]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -84,7 +84,7 @@
 
 - (void)testPrintInvocation_WithBoolYes
 {
-    NSInvocation *invocation = [DummyObject invocationWithBoolArg:YES];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithBoolArg:YES]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -93,7 +93,7 @@
 
 - (void)testPrintInvocation_WithBoolNo
 {
-    NSInvocation *invocation = [DummyObject invocationWithBoolArg:NO];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithBoolArg:NO]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -102,7 +102,7 @@
 
 - (void)testPrintInvocation_WithSelector
 {
-    NSInvocation *invocation = [DummyObject invocationWithSelectorArg:@selector(description)];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithSelectorArg:@selector(description)]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -111,7 +111,7 @@
 
 - (void)testPrintInvocation_WithClass
 {
-    NSInvocation *invocation = [DummyObject invocationWithClassArg:[DummyObject class]];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithClassArg:[DummyObject class]]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -120,7 +120,7 @@
 
 - (void)testPrintInvocation_WithArray
 {
-    NSInvocation *invocation = [DummyObject invocationWithObjectArg:@[@123, @"FOO"]];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@[@123, @"FOO"]]);
 
     NSString *result = [sut printInvocation:invocation];
 
@@ -129,7 +129,7 @@
 
 - (void)testPrintInvocation_WithDictionary
 {
-    NSInvocation *invocation = [DummyObject invocationWithObjectArg:@{@"KEY1" : @"VALUE1", @"KEY2" : @"VALUE2"}];
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@{@"KEY1" : @"VALUE1", @"KEY2" : @"VALUE2"}]);
 
     NSString *result = [sut printInvocation:invocation];
 

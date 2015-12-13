@@ -3,9 +3,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class MKTInvocation;
+
 
 @interface MKTPrinter : NSObject
 
-- (NSString *)printInvocation:(NSInvocation *)invocation;
+- (NSString *)printInvocation:(MKTInvocation *)invocation;
 
 @end
