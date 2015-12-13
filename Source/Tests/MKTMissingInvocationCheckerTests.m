@@ -7,8 +7,8 @@
 #import "MockInvocationsFinder.h"
 
 #import "DummyObject.h"
-#import <XCTest/XCTest.h>
 #import <OCHamcrest/OCHamcrest.h>
+#import <XCTest/XCTest.h>
 
 
 @interface MKTMissingInvocationCheckerDefaultsTests : XCTestCase
