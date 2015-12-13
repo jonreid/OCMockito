@@ -55,7 +55,7 @@
     assertThat(result, is(@"methodWithObjectArg1:@12.34 objectArg2:@56"));
 }
 
-- (void)testPrintInvocation_WithNSString
+- (void)testPrintInvocation_WithString
 {
     NSInvocation *invocation = [DummyObject invocationWithObjectArg:@"FOO"];
 
@@ -107,6 +107,15 @@
     NSString *result = [sut printInvocation:invocation];
 
     assertThat(result, is(@"methodWithSelectorArg:@selector(description)"));
+}
+
+- (void)testPrintInvocation_WithClass
+{
+    NSInvocation *invocation = [DummyObject invocationWithClassArg:[DummyObject class]];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithClassArg:[DummyObject class]"));
 }
 
 @end

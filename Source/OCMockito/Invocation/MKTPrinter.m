@@ -29,6 +29,8 @@
 {
     if (arg == [NSNull null])
         return [self printNil];
+    if (type[0] == @encode(Class)[0])
+        return [self printClass:arg];
     if ([arg isKindOfClass:[NSString class]])
         return [self printString:arg type:type];
     if ([arg isKindOfClass:[NSNumber class]])
@@ -39,6 +41,11 @@
 - (NSString *)printNil
 {
     return @"nil";
+}
+
+- (NSString *)printClass:(id)className
+{
+    return [NSString stringWithFormat:@"[%@ class]", className];
 }
 
 - (NSString *)printString:(id)arg type:(const char *)type
