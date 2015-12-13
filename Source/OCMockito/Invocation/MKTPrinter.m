@@ -93,7 +93,7 @@
     for (id item in arg)
         [printedArgs addObject:[self printArgument:item type:@encode(id)]];
     NSString *joinedArgs = [printedArgs componentsJoinedByString:@", "];
-    return [NSString stringWithFormat:@"@[%@]", joinedArgs];
+    return [NSString stringWithFormat:@"@[ %@ ]", joinedArgs];
 }
 
 - (NSString *)printDictionary:(id)arg
@@ -106,7 +106,7 @@
         [printedArgs addObject:[NSString stringWithFormat:@"%@ : %@", printedKey, printedValue]];
     }
     NSString *joinedArgs = [printedArgs componentsJoinedByString:@", "];
-    return [NSString stringWithFormat:@"@{%@}", joinedArgs];
+    return [NSString stringWithFormat:@"@{ %@ }", joinedArgs];
 }
 
 @end

@@ -120,20 +120,20 @@
 
 - (void)testPrintInvocation_WithArray
 {
-    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@[@123, @"FOO"]]);
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@[ @123, @"FOO" ]]);
 
     NSString *result = [sut printInvocation:invocation];
 
-    assertThat(result, is(@"methodWithObjectArg:@[@123, @\"FOO\"]"));
+    assertThat(result, is(@"methodWithObjectArg:@[ @123, @\"FOO\" ]"));
 }
 
 - (void)testPrintInvocation_WithDictionary
 {
-    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@{@"KEY1" : @"VALUE1", @"KEY2" : @"VALUE2"}]);
+    MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithObjectArg:@{ @"KEY1" : @"VALUE1", @"KEY2" : @"VALUE2" }]);
 
     NSString *result = [sut printInvocation:invocation];
 
-    assertThat(result, is(@"methodWithObjectArg:@{@\"KEY1\" : @\"VALUE1\", @\"KEY2\" : @\"VALUE2\"}"));
+    assertThat(result, is(@"methodWithObjectArg:@{ @\"KEY1\" : @\"VALUE1\", @\"KEY2\" : @\"VALUE2\" }"));
 }
 
 @end
