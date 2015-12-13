@@ -25,14 +25,16 @@
     return [result substringFromIndex:1]; // Remove first space
 }
 
-- (NSObject *)printArgument:(id)arg type:(const char *)type
+- (NSString *)printArgument:(id)arg type:(const char *)type
 {
     if (arg == [NSNull null])
         return [self printNil];
     if (type[0] == @encode(Class)[0])
         return [self printClass:arg];
+    if (type[0] == @encode(SEL)[0])
+        return [self printSelector:arg];
     if ([arg isKindOfClass:[NSString class]])
-        return [self printString:arg type:type];
+        return [self printString:arg];
     if ([arg isKindOfClass:[NSNumber class]])
         return [self printNumber:arg type:type];
     return [arg description];
@@ -48,10 +50,13 @@
     return [NSString stringWithFormat:@"[%@ class]", className];
 }
 
-- (NSString *)printString:(id)arg type:(const char *)type
+- (NSString *)printSelector:(id)arg
 {
-    if (type[0] == @encode(SEL)[0])
-        return [NSString stringWithFormat:@"@selector(%@)", arg];
+    return [NSString stringWithFormat:@"@selector(%@)", arg];
+}
+
+- (NSString *)printString:(id)arg
+{
     return [NSString stringWithFormat:@"@\"%@\"", arg];
 }
 
