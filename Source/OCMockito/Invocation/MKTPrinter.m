@@ -52,6 +52,8 @@
         return [self printNumber:arg type:type];
     if ([arg isKindOfClass:[NSArray class]])
         return [self printArray:arg];
+    if ([arg isKindOfClass:[NSDictionary class]])
+        return [self printDictionary:arg];
     return [arg description];
 }
 
@@ -91,6 +93,19 @@
         [printedArgs addObject:[self printArgument:item type:@encode(id)]];
     NSString *joinedArgs = [printedArgs componentsJoinedByString:@", "];
     return [NSString stringWithFormat:@"@[%@]", joinedArgs];
+}
+
+- (NSString *)printDictionary:(id)arg
+{
+    NSMutableArray *printedArgs = [[NSMutableArray alloc] init];
+    for (id key in [[arg allKeys] sortedArrayUsingSelector:@selector(compare:)])
+    {
+        NSString *printedKey = [self printArgument:key type:@encode(id)];
+        NSString *printedValue = [self printArgument:[arg objectForKey:key] type:@encode(id)];
+        [printedArgs addObject:[NSString stringWithFormat:@"%@ : %@", printedKey, printedValue]];
+    }
+    NSString *joinedArgs = [printedArgs componentsJoinedByString:@", "];
+    return [NSString stringWithFormat:@"@{%@}", joinedArgs];
 }
 
 @end

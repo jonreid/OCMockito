@@ -127,4 +127,13 @@
     assertThat(result, is(@"methodWithObjectArg:@[@123, @\"FOO\"]"));
 }
 
+- (void)testPrintInvocation_WithDictionary
+{
+    NSInvocation *invocation = [DummyObject invocationWithObjectArg:@{@"KEY1" : @"VALUE1", @"KEY2" : @"VALUE2"}];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithObjectArg:@{@\"KEY1\" : @\"VALUE1\", @\"KEY2\" : @\"VALUE2\"}"));
+}
+
 @end

@@ -7,4 +7,5 @@
 @interface MKTPrinter : NSObject
 
 - (NSString *)printInvocation:(NSInvocation *)invocation;
+
 @end
