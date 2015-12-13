@@ -73,4 +73,13 @@
     assertThat(result, is(@"methodWithObjectArg:nil"));
 }
 
+- (void)testPrintInvocation_WithInt
+{
+    NSInvocation *invocation = [DummyObject invocationWithIntArg:123];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithIntArg:123"));
+}
+
 @end
