@@ -79,6 +79,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithBoolArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -86,6 +87,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithCharArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -93,6 +95,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithIntArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -100,6 +103,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithShortArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -107,6 +111,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithLongArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -114,6 +119,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithLongLongArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -121,6 +127,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithIntegerArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -128,6 +135,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedCharArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -135,6 +143,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedIntArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -142,6 +151,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedShortArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -149,6 +159,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedLongArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -156,6 +167,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedLongLongArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -163,6 +175,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithUnsignedIntegerArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -170,6 +183,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithFloatArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -177,6 +191,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithDoubleArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -185,6 +200,7 @@
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithObjectArg:intArg:)];
     [inv setArgument:&argument1 atIndex:2];
     [inv setArgument:&argument2 atIndex:3];
+    [inv retainArguments];
     return inv;
 }
 
@@ -202,6 +218,7 @@
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithIntArg:floatArg:)];
     [inv setArgument:&argument1 atIndex:2];
     [inv setArgument:&argument2 atIndex:3];
+    [inv retainArguments];
     return inv;
 }
 
