@@ -50,6 +50,8 @@
         return [self printString:arg];
     if ([arg isKindOfClass:[NSNumber class]])
         return [self printNumber:arg type:type];
+    if ([arg isKindOfClass:[NSArray class]])
+        return [self printArray:arg];
     return [arg description];
 }
 
@@ -80,6 +82,15 @@
     if (type[0] == @encode(BOOL)[0])
         return [arg boolValue] ? @"YES" : @"NO";
     return [arg description];
+}
+
+- (NSString *)printArray:(id)arg
+{
+    NSMutableArray *printedArgs = [[NSMutableArray alloc] init];
+    for (id item in arg)
+        [printedArgs addObject:[self printArgument:item type:@encode(id)]];
+    NSString *joinedArgs = [printedArgs componentsJoinedByString:@", "];
+    return [NSString stringWithFormat:@"@[%@]", joinedArgs];
 }
 
 @end

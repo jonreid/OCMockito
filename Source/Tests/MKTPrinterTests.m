@@ -118,4 +118,13 @@
     assertThat(result, is(@"methodWithClassArg:[DummyObject class]"));
 }
 
+- (void)testPrintInvocation_WithArray
+{
+    NSInvocation *invocation = [DummyObject invocationWithObjectArg:@[@123, @"FOO"]];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithObjectArg:@[@123, @\"FOO\"]"));
+}
+
 @end
