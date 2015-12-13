@@ -14,8 +14,8 @@
 
 - (NSArray *)mkt_arguments
 {
-    NSMethodSignature *signature = [self methodSignature];
-    NSUInteger numberOfArguments = [signature numberOfArguments];
+    NSMethodSignature *signature = self.methodSignature;
+    NSUInteger numberOfArguments = signature.numberOfArguments;
     NSMutableArray *arguments = [NSMutableArray arrayWithCapacity:numberOfArguments - 2];
 
     for (NSUInteger idx = 2; idx < numberOfArguments; ++idx) // Indices 0 and 1 are self and _cmd
@@ -36,16 +36,16 @@
 
 - (void)mkt_setReturnValue:(id)returnValue
 {
-    char const *returnType = [[self methodSignature] methodReturnType];
+    char const *returnType = self.methodSignature.methodReturnType;
     [MKTReturnValueSetterChain() setReturnValue:returnValue ofType:returnType onInvocation:self];
 }
 
 - (void)mkt_retainArgumentsWithWeakTarget
 {
-    if ([self argumentsRetained])
+    if (self.argumentsRetained)
         return;
-    MKT_TPDWeakProxy *proxy = [[MKT_TPDWeakProxy alloc] initWithObject:[self target]];
-    [self setTarget:proxy];
+    MKT_TPDWeakProxy *proxy = [[MKT_TPDWeakProxy alloc] initWithObject:self.target];
+    self.target = proxy;
     [self retainArguments];
 }
 

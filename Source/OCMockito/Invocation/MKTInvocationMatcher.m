@@ -102,7 +102,7 @@
 
 - (BOOL)matches:(NSInvocation *)actual
 {
-    if ([self.expected selector] != [actual selector])
+    if (self.expected.selector != actual.selector)
         return NO;
 
     NSArray *actualArgs = [actual mkt_arguments];
