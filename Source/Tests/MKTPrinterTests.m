@@ -28,7 +28,7 @@
     [super tearDown];
 }
 
-- (void)testPrintInvocation_MethodWithNoArgs
+- (void)testPrintInvocation_WithNoArgs
 {
     NSInvocation *invocation = [DummyObject invocationWithSelector:@selector(methodWithNoArgs)];
 
@@ -37,16 +37,7 @@
     assertThat(result, is(@"methodWithNoArgs"));
 }
 
-- (void)testPrintInvocation_DifferentMethodWithNoArgs
-{
-    NSInvocation *invocation = [DummyObject invocationWithSelector:@selector(differentMethodWithNoArgs)];
-
-    NSString *result = [sut printInvocation:invocation];
-
-    assertThat(result, is(@"differentMethodWithNoArgs"));
-}
-
-- (void)testPrintInvocation_MethodWithOneArgument
+- (void)testPrintInvocation_WithOneArgument
 {
     NSInvocation *invocation = [DummyObject invocationWithObjectArg:@12.34];
 
@@ -55,13 +46,31 @@
     assertThat(result, is(@"methodWithObjectArg:@12.34"));
 }
 
-- (void)testPrintInvocation_MethodWithTwoArguments
+- (void)testPrintInvocation_WithTwoArguments
 {
     NSInvocation *invocation = [DummyObject invocationWithObjectArg1:@12.34 objectArg2:@56];
 
     NSString *result = [sut printInvocation:invocation];
 
     assertThat(result, is(@"methodWithObjectArg1:@12.34 objectArg2:@56"));
+}
+
+- (void)testPrintInvocation_WithNSString
+{
+    NSInvocation *invocation = [DummyObject invocationWithObjectArg:@"FOO"];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithObjectArg:@\"FOO\""));
+}
+
+- (void)testPrintInvocation_WithNil
+{
+    NSInvocation *invocation = [DummyObject invocationWithObjectArg:nil];
+
+    NSString *result = [sut printInvocation:invocation];
+
+    assertThat(result, is(@"methodWithObjectArg:nil"));
 }
 
 @end
