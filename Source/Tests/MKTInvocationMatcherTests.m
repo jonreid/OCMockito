@@ -71,9 +71,7 @@
 - (void)testInvocationWithObjectArg_WithEqualArgsButDifferentSelectors_ShouldNotMatch
 {
     NSInvocation *expected = [DummyObject invocationWithObjectArg:@"something"];
-    NSInvocation *actual = [DummyObject invocationWithObjectArg:@"something"];
-    [expected setSelector:@selector(methodWithObjectArg:)];
-    [actual setSelector:@selector(differentMethodWithObjectArg:)];
+    NSInvocation *actual = [DummyObject differentInvocationWithObjectArg:@"something"];
 
     [sut setExpectedInvocation:expected];
 

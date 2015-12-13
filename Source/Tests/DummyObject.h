@@ -12,6 +12,7 @@
 + (NSInvocation *)invocationWithNoArgs;
 + (NSInvocation *)differentInvocationWithNoArgs;
 + (NSInvocation *)invocationWithObjectArg:(__unsafe_unretained id)argument;
++ (NSInvocation *)differentInvocationWithObjectArg:(__unsafe_unretained id)argument;
 + (NSInvocation *)invocationWithBoolArg:(BOOL)argument;
 + (NSInvocation *)invocationWithCharArg:(char)argument;
 + (NSInvocation *)invocationWithIntArg:(int)argument;

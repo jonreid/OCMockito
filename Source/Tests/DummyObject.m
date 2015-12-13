@@ -56,6 +56,13 @@
     return inv;
 }
 
++ (NSInvocation *)differentInvocationWithObjectArg:(__unsafe_unretained id)argument
+{
+    NSInvocation *inv = [self invocationWithSelector:@selector(differentMethodWithObjectArg:)];
+    [inv setArgument:&argument atIndex:2];
+    return inv;
+}
+
 + (NSInvocation *)invocationWithBoolArg:(BOOL)argument
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithBoolArg:)];
