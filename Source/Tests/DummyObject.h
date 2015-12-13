@@ -9,6 +9,10 @@
 
 @interface DummyObject : NSObject
 
+- (void)methodWithNoArgs;
+- (void)differentMethodWithNoArgs;
+
++ (NSInvocation *)invocationWithSelector:(SEL)selector;
 + (NSInvocation *)invocationWithNoArgs;
 + (NSInvocation *)differentInvocationWithNoArgs;
 + (NSInvocation *)invocationWithObjectArg:(__unsafe_unretained id)argument;
@@ -28,6 +32,7 @@
 + (NSInvocation *)invocationWithUnsignedIntegerArg:(NSUInteger)argument;
 + (NSInvocation *)invocationWithFloatArg:(float)argument;
 + (NSInvocation *)invocationWithDoubleArg:(double)argument;
++ (NSInvocation *)invocationWithObjectArg1:(__unsafe_unretained id)argument1 objectArg2:(__unsafe_unretained id)argument2;
 + (NSInvocation *)invocationWithObjectArg:(__unsafe_unretained id)argument1 intArg:(int)argument2;
 + (NSInvocation *)invocationWithIntArg:(int)argument1 floatArg:(float)argument2;
 

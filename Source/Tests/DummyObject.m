@@ -28,6 +28,7 @@
 - (void)methodWithUnsignedIntegerArg:(NSUInteger)arg {}
 - (void)methodWithFloatArg:(float)arg {}
 - (void)methodWithDoubleArg:(double)arg {}
+- (void)methodWithObjectArg1:(id)arg1 objectArg2:(id)arg2 {}
 - (void)methodWithObjectArg:(id)arg1 intArg:(int)arg2 {}
 - (void)methodWithIntArg:(int)arg1 floatArg:(float)arg2 {}
 
@@ -53,6 +54,7 @@
 {
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithObjectArg:)];
     [inv setArgument:&argument atIndex:2];
+    [inv retainArguments];
     return inv;
 }
 
@@ -173,6 +175,15 @@
     NSInvocation *inv = [self invocationWithSelector:@selector(methodWithObjectArg:intArg:)];
     [inv setArgument:&argument1 atIndex:2];
     [inv setArgument:&argument2 atIndex:3];
+    return inv;
+}
+
++ (NSInvocation *)invocationWithObjectArg1:(__unsafe_unretained id)argument1 objectArg2:(__unsafe_unretained id)argument2
+{
+    NSInvocation *inv = [self invocationWithSelector:@selector(methodWithObjectArg1:objectArg2:)];
+    [inv setArgument:&argument1 atIndex:2];
+    [inv setArgument:&argument2 atIndex:3];
+    [inv retainArguments];
     return inv;
 }
 
