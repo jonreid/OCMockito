@@ -9,11 +9,10 @@
 @interface MKTInvocationMatcher : NSObject
 
 @property (nonatomic, strong, readonly) NSInvocation *expected;
-@property (nonatomic, assign, readonly) NSUInteger numberOfArguments;
+@property (nonatomic, copy, readonly) NSArray *matchers;
 
 - (instancetype)init;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index;
-- (NSUInteger)argumentMatchersCount;
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation;
 - (BOOL)matches:(NSInvocation *)actual;
 

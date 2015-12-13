@@ -32,12 +32,19 @@
 
 @implementation MKTInvocationMatcher
 
+@dynamic matchers;
+
 - (instancetype)init
 {
     self = [super init];
     if (self)
         _argumentMatchers = [[NSMutableArray alloc] init];
     return self;
+}
+
+- (NSArray *)matchers
+{
+    return self.argumentMatchers;
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index
@@ -49,11 +56,6 @@
         [self trueUpArgumentMatchersToCount:index];
         [self.argumentMatchers addObject:matcher];
     }
-}
-
-- (NSUInteger)argumentMatchersCount
-{
-    return [self.argumentMatchers count];
 }
 
 - (void)trueUpArgumentMatchersToCount:(NSUInteger)desiredCount

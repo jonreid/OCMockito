@@ -95,7 +95,7 @@
 
     MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
 
-    assertThat(@([invocationMatcher argumentMatchersCount]), is(@2));
+    assertThat(invocationMatcher.matchers, hasCountOf(2));
 }
 
 - (void)testPullInvocationMatcher_ShouldClearCurrentMatcher
@@ -114,7 +114,7 @@
 
     MKTInvocationMatcher *invocationMatcher = [mockingProgress pullInvocationMatcher];
 
-    assertThat(@([invocationMatcher argumentMatchersCount]), is(@2));
+    assertThat(invocationMatcher.matchers, hasCountOf(2));
 }
 
 @end

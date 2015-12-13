@@ -262,7 +262,7 @@
     [sut setMatcher:equalTo(@"IRRELEVANT") atIndex:1];
     [sut setMatcher:equalTo(@"IRRELEVANT") atIndex:0];
 
-    assertThat(@([sut argumentMatchersCount]), is(@2));
+    assertThat(sut.matchers, hasCountOf(2));
 }
 
 @end
