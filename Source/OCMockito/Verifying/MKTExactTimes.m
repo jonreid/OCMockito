@@ -5,6 +5,7 @@
 
 #import "MKTNumberOfInvocationsChecker.h"
 #import "MKTVerificationData.h"
+#import "MKTMissingInvocationChecker.h"
 
 
 @interface MKTExactTimes ()
@@ -26,10 +27,20 @@
 
 - (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation
 {
-    MKTNumberOfInvocationsChecker *checker = [[MKTNumberOfInvocationsChecker alloc] init];
-    NSString *failureDescription = [checker checkInvocations:data.invocations
-                                                      wanted:data.wanted
-                                                 wantedCount:self.wantedCount];
+    NSString *failureDescription;
+    if (self.wantedCount > 0)
+    {
+        MKTMissingInvocationChecker *missingInvocation = [[MKTMissingInvocationChecker alloc] init];
+        failureDescription = [missingInvocation checkInvocations:data.invocations wanted:data.wanted];
+    }
+    if (!failureDescription)
+    {
+        MKTNumberOfInvocationsChecker *numberOfInvocations = [[MKTNumberOfInvocationsChecker alloc] init];
+        failureDescription = [numberOfInvocations checkInvocations:data.invocations
+                                                            wanted:data.wanted
+                                                       wantedCount:self.wantedCount];
+    }
+
     if (failureDescription)
         MKTFailTestLocation(testLocation, failureDescription);
 }

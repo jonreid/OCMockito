@@ -80,24 +80,36 @@
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
-- (void)testTimesOneFailure_ShouldStateExpectedNumberOfInvocations
+- (void)testExpectNoInvocations_WithMethodInvokedOnce_FailureMessage
 {
-    [self callRemoveAllObjectsTimes:0];
+    [self callRemoveAllObjectsTimes:1];
 
-    [verifyCountWithMockTestCase(mockArray, times(1), mockTestCase) removeAllObjects];
+    [verifyCountWithMockTestCase(mockArray, times(0), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
-               startsWith(@"Wanted 1 time but was called 0 times."));
+            startsWith(@"Never wanted but was called 1 time."));
 }
 
-- (void)testTimesTwoFailure_ShouldStateExpectedNumberOfInvocations
+- (void)testExpectTwice_WithMethodInvokedOnce_FailureMessage
 {
     [self callRemoveAllObjectsTimes:1];
 
     [verifyCountWithMockTestCase(mockArray, times(2), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
-               startsWith(@"Wanted 2 times but was called 1 time."));
+            startsWith(@"Wanted 2 times but was called 1 time."));
+}
+
+- (void)testExpectOnce_WithNoMethodsEverInvoked_FailureMessage
+{
+    [self callRemoveAllObjectsTimes:0];
+
+    [verifyCountWithMockTestCase(mockArray, times(1), mockTestCase) removeAllObjects];
+
+    assertThat(mockTestCase.failureDescription,
+            is(@"Wanted but not invoked:\n"
+                    "removeAllObjects\n"
+                    "Actually, there were zero interactions with this mock."));
 }
 
 @end
