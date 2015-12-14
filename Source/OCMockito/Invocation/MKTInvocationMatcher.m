@@ -121,4 +121,16 @@
     return ![matcher matches:arg];
 }
 
+- (NSUInteger)mismatchedArgument:(NSInvocation *)actual
+{
+    NSArray *actualArgs = [actual mkt_arguments];
+    NSUInteger index;
+    for (index = 0; index < self.numberOfArguments; ++index)
+    {
+        if ([self argument:actualArgs[index] doesNotMatch:self.argumentMatchers[index]])
+            break;
+    }
+    return index;
+}
+
 @end

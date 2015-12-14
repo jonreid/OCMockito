@@ -15,5 +15,6 @@
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index;
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation;
 - (BOOL)matches:(NSInvocation *)actual;
+- (NSUInteger)mismatchedArgument:(NSInvocation *)actual;
 
 @end

@@ -175,4 +175,18 @@
     assertThat(result, is(@"methodWithObjectArg1:FOO objectArg2:BAR"));
 }
 
+- (void)testPrintMismatch_WithMismatchInFirstArgument
+{
+    MKTInvocationMatcher *matcher =
+            matcherForInvocation([DummyObject invocationWithObjectArg1:equalTo(@"FOO")
+                                                            objectArg2:equalTo(@"BAR")]);
+    MKTInvocation *invocation =
+            wrappedInvocation([DummyObject invocationWithObjectArg1:@"___"
+                                                         objectArg2:@"BAR"]);
+
+    NSString *result = [sut printMismatchOf:invocation expectation:matcher];
+
+    assertThat(result, is(@"Mismatch in 1st argument. Expected \"FOO\", but was \"___\""));
+}
+
 @end

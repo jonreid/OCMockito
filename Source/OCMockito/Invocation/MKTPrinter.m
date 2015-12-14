@@ -10,6 +10,17 @@
 #import <OCHamcrest/HCStringDescription.h>
 
 
+static NSString *describeMismatch(id <HCMatcher> matcher, id actual)
+{
+    HCStringDescription *description = [HCStringDescription stringDescription];
+    [[[description appendText:@"Expected "]
+            appendDescriptionOf:matcher]
+            appendText:@", but "];
+    [matcher describeMismatchOf:actual to:description];
+    return description.description;
+}
+
+
 @implementation MKTPrinter
 
 - (NSString *)printMatcher:(MKTInvocationMatcher *)matcher
@@ -132,6 +143,16 @@
     }
     NSString *joinedArgs = [printedArgs componentsJoinedByString:@", "];
     return [NSString stringWithFormat:@"@{ %@ }", joinedArgs];
+}
+
+- (NSString *)printMismatchOf:(MKTInvocation *)invocation
+                  expectation:(MKTInvocationMatcher *)expectation
+{
+    NSUInteger index = [expectation mismatchedArgument:invocation.invocation];
+    id <HCMatcher> matcher = expectation.matchers[index];
+    id argument = [invocation.invocation mkt_arguments][index];
+    NSString *preamble = [NSString stringWithFormat:@"Mismatch in %@ argument. ", @"1st"];
+    return [preamble stringByAppendingString:describeMismatch(matcher, argument)];
 }
 
 @end

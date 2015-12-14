@@ -11,5 +11,7 @@
 
 - (NSString *)printMatcher:(MKTInvocationMatcher *)matcher;
 - (NSString *)printInvocation:(MKTInvocation *)invocation;
+- (NSString *)printMismatchOf:(MKTInvocation *)invocation
+                  expectation:(MKTInvocationMatcher *)expectation;
 
 @end
