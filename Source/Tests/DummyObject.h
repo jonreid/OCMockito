@@ -5,6 +5,7 @@
 
 @class MKTInvocation;
 @class MKTInvocationMatcher;
+@class MKTLocation;
 
 
 @interface DummyObject : NSObject
@@ -38,4 +39,5 @@
 
 
 MKTInvocation *wrappedInvocation(NSInvocation *invocation);
+MKTInvocation *wrappedInvocationWithLocation(NSInvocation *invocation, MKTLocation *location);
 MKTInvocationMatcher *matcherForInvocation(NSInvocation *invocation);

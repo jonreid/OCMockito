@@ -12,5 +12,6 @@
 @property (nonatomic, strong, readonly) MKTLocation *location;
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation;
+- (instancetype)initWithInvocation:(NSInvocation *)invocation location:(MKTLocation *)location;
 
 @end

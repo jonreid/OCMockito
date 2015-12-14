@@ -10,10 +10,16 @@
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation
 {
+    return [self initWithInvocation:invocation
+                           location:[[MKTLocation alloc] init]];
+}
+
+- (instancetype)initWithInvocation:(NSInvocation *)invocation location:(MKTLocation *)location
+{
     self = [super init];
     if (self) {
         _invocation = invocation;
-        _location = [[MKTLocation alloc] init];
+        _location = location;
     }
     return self;
 }

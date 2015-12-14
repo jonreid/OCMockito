@@ -239,6 +239,11 @@ MKTInvocation *wrappedInvocation(NSInvocation *invocation)
     return [[MKTInvocation alloc] initWithInvocation:invocation];
 }
 
+MKTInvocation *wrappedInvocationWithLocation(NSInvocation *invocation, MKTLocation *location)
+{
+    return [[MKTInvocation alloc] initWithInvocation:invocation location:location];
+}
+
 MKTInvocationMatcher *matcherForInvocation(NSInvocation *invocation)
 {
     MKTInvocationMatcher *matcher = [[MKTInvocationMatcher alloc] init];
