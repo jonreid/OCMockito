@@ -10,28 +10,7 @@
 #import "MKTPrinter.h"
 
 
-static MKTInvocation *MKTFindSimilarInvocation(NSArray *invocations, MKTInvocationMatcher *wanted)
-{
-    NSUInteger index = [invocations indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-        MKTInvocation *inv = obj;
-        return inv.invocation.selector == wanted.expected.selector;
-    }];
-    return (index == NSNotFound) ? nil : invocations[index];
-}
-
-
 @implementation MKTMissingInvocationChecker
-
-- (MKTInvocation *(^)(NSArray *, MKTInvocationMatcher *))findSimilarInvocation
-{
-    if (!_findSimilarInvocation)
-    {
-        _findSimilarInvocation = ^MKTInvocation *(NSArray *invocations, MKTInvocationMatcher *wanted) {
-            return MKTFindSimilarInvocation(invocations, wanted);
-        };
-    }
-    return _findSimilarInvocation;
-}
 
 - (NSString *)checkInvocations:(NSArray *)invocations wanted:(MKTInvocationMatcher *)wanted
 {
@@ -39,7 +18,7 @@ static MKTInvocation *MKTFindSimilarInvocation(NSArray *invocations, MKTInvocati
     NSString *description;
     if (self.invocationsFinder.count == 0)
     {
-        MKTInvocation *similar = self.findSimilarInvocation(invocations, wanted);
+        MKTInvocation *similar = MKTFindSimilarInvocation(invocations, wanted);
         if (similar)
             description = [self argumentsAreDifferent:similar wanted:wanted];
     }
@@ -62,3 +41,13 @@ static MKTInvocation *MKTFindSimilarInvocation(NSArray *invocations, MKTInvocati
 }
 
 @end
+
+
+MKTInvocation *MKTFindSimilarInvocation(NSArray *invocations, MKTInvocationMatcher *wanted)
+{
+    NSUInteger index = [invocations indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        MKTInvocation *inv = obj;
+        return inv.invocation.selector == wanted.expected.selector;
+    }];
+    return (index == NSNotFound) ? nil : invocations[index];
+}

@@ -29,48 +29,41 @@
 @end
 
 @implementation MKTMissingInvocationCheckerDefaultsTests
-{
-    MKTMissingInvocationChecker *sut;
-}
-
-- (void)setUp
-{
-    [super setUp];
-    sut = [[MKTMissingInvocationChecker alloc] init];
-}
-
-- (void)tearDown
-{
-    sut = nil;
-    [super tearDown];
-}
 
 - (void)testInvocationsFinder_ShouldDefaultToMKTInvocationsFinder
 {
+    MKTMissingInvocationChecker *sut = [[MKTMissingInvocationChecker alloc] init];
+
     MKTMatchingInvocationsFinder *finder = sut.invocationsFinder;
 
     assertThat(finder, isA([MKTMatchingInvocationsFinder class]));
 }
 
-- (void)testFindSimilarInvocationBlock_WithNoMatchingSelectors_ShouldReturnNil
+@end
+
+
+@interface MKTFindSimilarInvocationTests : XCTestCase
+@end
+
+@implementation MKTFindSimilarInvocationTests
+
+- (void)testFindSimilar_WithNoMatchingSelectors_ShouldReturnNil
 {
     MKTInvocation *invocation = wrappedInvocation([DummyObject invocationWithNoArgs]);
     MKTInvocationMatcher *invocationMatcher = matcherForInvocation([DummyObject differentInvocationWithNoArgs]);
 
-    MKTInvocation *(^findSimilar)(NSArray *, MKTInvocationMatcher *) = sut.findSimilarInvocation;
-    MKTInvocation *similar = findSimilar(@[ invocation ], invocationMatcher);
+    MKTInvocation *similar = MKTFindSimilarInvocation(@[ invocation ], invocationMatcher);
 
     assertThat(similar, is(nilValue()));
 }
 
-- (void)testFindSimilarInvocationBlock_WithSameSelectorsButDifferentArgs_ShouldReturnFirstMatch
+- (void)testFindSimilar_WithSameSelectorsButDifferentArgs_ShouldReturnFirstMatch
 {
     MKTInvocation *otherInvocation = wrappedInvocation([DummyObject invocationWithNoArgs]);
     MKTInvocation *invocationSimilar = wrappedInvocation([DummyObject invocationWithObjectArg:@"FOO"]);
     MKTInvocationMatcher *invocationMatcher = matcherForInvocation([DummyObject invocationWithObjectArg:@"BAR"]);
 
-    MKTInvocation *(^findSimilar)(NSArray *, MKTInvocationMatcher *) = sut.findSimilarInvocation;
-    MKTInvocation *similar = findSimilar(@[ otherInvocation, invocationSimilar ], invocationMatcher);
+    MKTInvocation *similar = MKTFindSimilarInvocation(@[ otherInvocation, invocationSimilar ], invocationMatcher);
 
     assertThat(similar, is(sameInstance(invocationSimilar)));
 }

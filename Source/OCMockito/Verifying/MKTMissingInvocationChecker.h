@@ -9,8 +9,9 @@
 
 @interface MKTMissingInvocationChecker : MKTInvocationsChecker
 
-@property (nonatomic, copy) MKTInvocation *(^findSimilarInvocation)(NSArray *, MKTInvocationMatcher *);
-
 - (NSString *)checkInvocations:(NSArray *)invocations wanted:(MKTInvocationMatcher *)wanted;
 
 @end
+
+
+MKTInvocation *MKTFindSimilarInvocation(NSArray *invocations, MKTInvocationMatcher *wanted);
