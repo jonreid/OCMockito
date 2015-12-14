@@ -151,8 +151,24 @@ static NSString *describeMismatch(id <HCMatcher> matcher, id actual)
     NSUInteger index = [expectation mismatchedArgument:invocation.invocation];
     id <HCMatcher> matcher = expectation.matchers[index];
     id argument = [invocation.invocation mkt_arguments][index];
-    NSString *preamble = [NSString stringWithFormat:@"Mismatch in %@ argument. ", @"1st"];
+    NSString *preamble = [NSString stringWithFormat:@"Mismatch in %@ argument. ", MKTOrdinal(index)];
     return [preamble stringByAppendingString:describeMismatch(matcher, argument)];
 }
 
 @end
+
+
+NSString *MKTOrdinal(NSUInteger index)
+{
+    index += 1;
+    NSString *suffix;
+    if (index == 1)
+        suffix = @"st";
+    else if (index == 2)
+        suffix = @"nd";
+    else if (index == 3)
+        suffix = @"rd";
+    else
+        suffix = @"th";
+    return [NSString stringWithFormat:@"%d%@", index, suffix];
+}

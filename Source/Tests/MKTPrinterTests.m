@@ -175,6 +175,31 @@
     assertThat(result, is(@"methodWithObjectArg1:FOO objectArg2:BAR"));
 }
 
+- (void)testOrdinal_With0_ShouldBe1st
+{
+    assertThat(MKTOrdinal(0), is(@"1st"));
+}
+
+- (void)testOrdinal_With1_ShouldBe2nd
+{
+    assertThat(MKTOrdinal(1), is(@"2nd"));
+}
+
+- (void)testOrdinal_With2_ShouldBe3rd
+{
+    assertThat(MKTOrdinal(2), is(@"3rd"));
+}
+
+- (void)testOrdinal_With3_ShouldBe4th
+{
+    assertThat(MKTOrdinal(3), is(@"4th"));
+}
+
+- (void)testOrdinal_With9_ShouldBe10th
+{
+    assertThat(MKTOrdinal(9), is(@"10th"));
+}
+
 - (void)testPrintMismatch_WithMismatchInFirstArgument
 {
     MKTInvocationMatcher *matcher =
@@ -187,6 +212,20 @@
     NSString *result = [sut printMismatchOf:invocation expectation:matcher];
 
     assertThat(result, is(@"Mismatch in 1st argument. Expected \"FOO\", but was \"___\""));
+}
+
+- (void)testPrintMismatch_WithMismatchInSecondArgument
+{
+    MKTInvocationMatcher *matcher =
+            matcherForInvocation([DummyObject invocationWithObjectArg1:equalTo(@"FOO")
+                                                            objectArg2:equalTo(@"BAR")]);
+    MKTInvocation *invocation =
+            wrappedInvocation([DummyObject invocationWithObjectArg1:@"FOO"
+                                                         objectArg2:@"___"]);
+
+    NSString *result = [sut printMismatchOf:invocation expectation:matcher];
+
+    assertThat(result, is(@"Mismatch in 2nd argument. Expected \"BAR\", but was \"___\""));
 }
 
 @end

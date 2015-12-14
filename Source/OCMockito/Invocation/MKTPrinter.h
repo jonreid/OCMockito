@@ -15,3 +15,6 @@
                   expectation:(MKTInvocationMatcher *)expectation;
 
 @end
+
+
+FOUNDATION_EXPORT NSString *MKTOrdinal(NSUInteger index);
