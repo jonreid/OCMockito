@@ -21,6 +21,8 @@
         MKTInvocation *similar = MKTFindSimilarInvocation(invocations, wanted);
         if (similar)
             description = [self argumentsAreDifferent:similar wanted:wanted];
+        else
+            description = [self wantedButNotInvoked:wanted otherInvocations:invocations];
     }
     return description;
 }
@@ -38,6 +40,35 @@
             actual.location.description,
     ];
     return [description componentsJoinedByString:@"\n"];
+}
+
+- (NSString *)wantedButNotInvoked:(MKTInvocationMatcher *)wanted otherInvocations:(NSArray *)invocations
+{
+    MKTPrinter *printer = [[MKTPrinter alloc] init];
+    NSMutableArray *description = [@[
+            @"Wanted but not invoked:",
+            [printer printMatcher:wanted],
+    ] mutableCopy];
+
+    if (!invocations.count)
+        [description addObject:@"Actually, there were zero interactions with this mock."];
+    else
+        [self reportOtherInvocations:invocations toDescriptionArray:description];
+
+    return [description componentsJoinedByString:@"\n"];
+}
+
+- (void)reportOtherInvocations:(NSArray *)invocations
+            toDescriptionArray:(NSMutableArray *)description
+{
+    MKTPrinter *printer = [[MKTPrinter alloc] init];
+    [description addObject:@"However, there were other interactions with this mock:"];
+    for (MKTInvocation *invocation in invocations)
+    {
+        [description addObject:@""];
+        [description addObject:[printer printInvocation:invocation]];
+        [description addObject:invocation.location.description];
+    }
 }
 
 @end

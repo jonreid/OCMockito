@@ -119,7 +119,7 @@
 {
     mockInvocationsFinder.stubbedCount = 0;
     MKTInvocation *differentInvocation =
-            wrappedInvocation([DummyObject differentInvocationWithObjectArg:@"IRRELEVANT"]);
+            wrappedInvocation([DummyObject differentInvocationWithObjectArg:@"DUMMY"]);
     id fakeLocation = [[FakeLocation alloc] init];
     MKTInvocation *similarInvocation =
             wrappedInvocationWithLocation([DummyObject invocationWithObjectArg:@"ACTUAL"], fakeLocation);
@@ -134,6 +134,42 @@
             "methodWithObjectArg:@\"ACTUAL\"\n"
             "Mismatch in 1st argument. Expected \"WANTED\", but was \"ACTUAL\"\n"
             "Call stack:\n"
+            "FAKE CALL STACK"));
+}
+
+- (void)testCheckInvocations_WithNoInvocations_ShouldReportThereWereNoInvocations
+{
+    mockInvocationsFinder.stubbedCount = 0;
+    MKTInvocationMatcher *wanted = matcherForInvocation([DummyObject invocationWithNoArgs]);
+
+    NSString *description = [sut checkInvocations:@[] wanted:wanted];
+
+    assertThat(description, is(@"Wanted but not invoked:\n"
+            "methodWithNoArgs\n"
+            "Actually, there were zero interactions with this mock."));
+}
+
+- (void)testCheckInvocations_WithNoSimilarInvocations_ShouldReportAllInvocations
+{
+    mockInvocationsFinder.stubbedCount = 0;
+    id fakeLocation = [[FakeLocation alloc] init];
+    MKTInvocation *differentInvocation1 =
+            wrappedInvocationWithLocation([DummyObject differentInvocationWithNoArgs], fakeLocation);
+    MKTInvocation *differentInvocation2 =
+            wrappedInvocationWithLocation([DummyObject invocationWithIntArg:123], fakeLocation);
+    NSArray *invocations = @[ differentInvocation1, differentInvocation2 ];
+    MKTInvocationMatcher *wanted = matcherForInvocation([DummyObject invocationWithNoArgs]);
+
+    NSString *description = [sut checkInvocations:invocations wanted:wanted];
+
+    assertThat(description, is(@"Wanted but not invoked:\n"
+            "methodWithNoArgs\n"
+            "However, there were other interactions with this mock:\n"
+            "\n"
+            "differentMethodWithNoArgs\n"
+            "FAKE CALL STACK\n"
+            "\n"
+            "methodWithIntArg:123\n"
             "FAKE CALL STACK"));
 }
 
