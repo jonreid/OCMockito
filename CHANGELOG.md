@@ -1,7 +1,7 @@
 Compatibility-breaking change
 -------------
 
-CocoaPods users: This pod now declares a dependency on OCHamcrest v5, so those changes also apply.
+OCMockito now requires OCHamcrest v5.1.0 or higher, which also potentially breaks compatibility.
 
 **Features:**
 
