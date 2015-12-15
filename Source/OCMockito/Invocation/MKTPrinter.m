@@ -6,19 +6,9 @@
 #import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
 #import "NSInvocation+OCMockito.h"
+#import <OCHamcrest/HCAssertThat.h>
 #import <OCHamcrest/HCMatcher.h>
 #import <OCHamcrest/HCStringDescription.h>
-
-
-static NSString *describeMismatch(id <HCMatcher> matcher, id actual)
-{
-    HCStringDescription *description = [HCStringDescription stringDescription];
-    [[[description appendText:@"Expected "]
-            appendDescriptionOf:matcher]
-            appendText:@", but "];
-    [matcher describeMismatchOf:actual to:description];
-    return description.description;
-}
 
 
 @implementation MKTPrinter
@@ -152,7 +142,7 @@ static NSString *describeMismatch(id <HCMatcher> matcher, id actual)
     id <HCMatcher> matcher = expectation.matchers[index];
     id argument = [invocation.invocation mkt_arguments][index];
     NSString *preamble = [NSString stringWithFormat:@"Mismatch in %@ argument. ", MKTOrdinal(index)];
-    return [preamble stringByAppendingString:describeMismatch(matcher, argument)];
+    return [preamble stringByAppendingString:HCDescribeMismatch(matcher, argument)];
 }
 
 @end
