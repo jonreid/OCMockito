@@ -170,5 +170,5 @@ NSString *MKTOrdinal(NSUInteger index)
         suffix = @"rd";
     else
         suffix = @"th";
-    return [NSString stringWithFormat:@"%d%@", index, suffix];
+    return [NSString stringWithFormat:@"%lu%@", (unsigned long)index, suffix];
 }
