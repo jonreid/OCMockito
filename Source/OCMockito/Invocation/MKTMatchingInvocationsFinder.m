@@ -20,7 +20,7 @@
     self.invocations = [invocations filteredArrayUsingPredicate:
             [NSPredicate predicateWithBlock:^BOOL(id obj, NSDictionary *bindings) {
                 MKTInvocation *invocation = obj;
-                return [wanted matches:invocation.invocation];
+                return !invocation.verified && [wanted matches:invocation.invocation];
             }]];
 }
 
@@ -39,6 +39,12 @@
 {
     MKTInvocation *invocation = self.invocations.lastObject;
     return invocation.location;
+}
+
+- (void)markInvocationsAsVerified
+{
+    for (MKTInvocation *invocation in self.invocations)
+        invocation.verified = YES;
 }
 
 @end

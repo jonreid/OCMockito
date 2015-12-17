@@ -14,5 +14,6 @@
 - (void)findInvocationsInList:(NSArray *)invocations matching:(MKTInvocationMatcher *)wanted;
 - (MKTLocation *)locationOfInvocationAtIndex:(NSUInteger)index;
 - (MKTLocation *)locationOfLastInvocation;
+- (void)markInvocationsAsVerified;
 
 @end

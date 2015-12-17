@@ -28,6 +28,7 @@
         description = [self neverWantedButActual:actualCount];
     else if (wantedCount < actualCount)
         description = [self tooManyActual:actualCount wantedCount:wantedCount];
+    [self.invocationsFinder markInvocationsAsVerified];
     return description;
 }
 

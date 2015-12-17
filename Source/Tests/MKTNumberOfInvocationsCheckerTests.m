@@ -7,6 +7,7 @@
 #import "MKTLocation.h"
 
 #import "DummyObject.h"
+#import "FakeLocation.h"
 #import "MockInvocationsFinder.h"
 #import <OCHamcrest/OCHamcrest.h>
 #import <XCTest/XCTest.h>
@@ -16,14 +17,43 @@
 @end
 
 @implementation MKTNumberOfInvocationsCheckerDefaultsTests
+{
+    MKTNumberOfInvocationsChecker *sut;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    sut = [[MKTNumberOfInvocationsChecker alloc] init];
+}
+
+- (void)tearDown
+{
+    sut = nil;
+    [super tearDown];
+}
 
 - (void)testInvocationsFinder_ShouldDefaultToMKTInvocationsFinder
 {
-    MKTNumberOfInvocationsChecker *sut = [[MKTNumberOfInvocationsChecker alloc] init];
-
     MKTMatchingInvocationsFinder *finder = sut.invocationsFinder;
 
     assertThat(finder, isA([MKTMatchingInvocationsFinder class]));
+}
+
+- (void)testCheckInvocations_WithAnyWantedCount_ShouldMarkAllMatchingInvocationsAsVerified
+{
+    id fakeLocation = [[FakeLocation alloc] init];
+    MKTInvocation *invocation1 = wrappedInvocationWithLocation([DummyObject invocationWithNoArgs], fakeLocation);
+    MKTInvocation *invocation2 = wrappedInvocationWithLocation([DummyObject invocationWithNoArgs], fakeLocation);
+    MKTInvocation *differentInvocation = wrappedInvocationWithLocation([DummyObject differentInvocationWithNoArgs], fakeLocation);
+    NSArray *invocations = @[ invocation1, invocation2, differentInvocation ];
+    MKTInvocationMatcher *wanted = matcherForInvocation([DummyObject invocationWithNoArgs]);
+    
+    [sut checkInvocations:invocations wanted:wanted wantedCount:1];
+    
+    XCTAssertTrue(invocation1.verified);
+    XCTAssertTrue(invocation2.verified);
+    XCTAssertFalse(differentInvocation.verified);
 }
 
 @end
@@ -54,7 +84,7 @@
 
 - (void)testCheckInvocations_ShouldAskInvocationsFinderToFindMatchingInvocationsInList
 {
-    NSArray *invocations = @[ wrappedInvocation([DummyObject invocationWithNoArgs])];
+    NSArray *invocations = @[ wrappedInvocation([DummyObject invocationWithNoArgs]) ];
     MKTInvocationMatcher *wanted = matcherForInvocation([DummyObject invocationWithNoArgs]);
 
     [sut checkInvocations:invocations wanted:wanted wantedCount:1];

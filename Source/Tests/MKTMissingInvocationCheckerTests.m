@@ -7,22 +7,10 @@
 #import "MKTInvocation.h"
 
 #import "DummyObject.h"
+#import "FakeLocation.h"
 #import "MockInvocationsFinder.h"
 #import <OCHamcrest/OCHamcrest.h>
 #import <XCTest/XCTest.h>
-
-
-@interface FakeLocation : NSObject
-@end
-
-@implementation FakeLocation
-
-- (NSString *)description
-{
-    return @"FAKE CALL STACK";
-}
-
-@end
 
 
 @interface MKTMissingInvocationCheckerDefaultsTests : XCTestCase

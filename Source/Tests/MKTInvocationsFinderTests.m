@@ -54,6 +54,16 @@
             sameInstance(simpleMethodInvocation), sameInstance(simpleMethodInvocationTwo) ]));
 }
 
+- (void)testFindInvocationsInList_ShouldExcludeVerifiedInvocations
+{
+    simpleMethodInvocation.verified = YES;
+    [sut findInvocationsInList:invocations matching:wanted];
+    
+    NSArray *found = sut.invocations;
+    
+    assertThat(found, containsIn(@[ sameInstance(simpleMethodInvocationTwo) ]));
+}
+
 - (void)testCount_ShouldReturnNumberOfMatchingInvocations
 {
     [sut findInvocationsInList:invocations matching:wanted];

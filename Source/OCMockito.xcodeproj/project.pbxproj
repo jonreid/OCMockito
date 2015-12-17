@@ -132,6 +132,7 @@
 		361533C7153F275800BB982B /* MKTAtLeastTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 361533C5153F275800BB982B /* MKTAtLeastTimes.m */; };
 		361533C9153F276300BB982B /* MKTAtLeastTimes.h in Headers */ = {isa = PBXBuildFile; fileRef = 361533C4153F275800BB982B /* MKTAtLeastTimes.h */; };
 		361533CA153F276300BB982B /* MKTAtLeastTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 361533C5153F275800BB982B /* MKTAtLeastTimes.m */; };
+		609E9040B5C0EF3A483BC57A /* FakeLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9BDCD18394B0FFD08C75 /* FakeLocation.m */; };
 		609E904B3DD180C7266AF783 /* MKTFilterCallStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9265E6EA8A5DBE45A71D /* MKTFilterCallStack.h */; };
 		609E905D807B1A487CFACCBD /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E96CF71F73917EACABEC0 /* MKTAtLeastNumberOfInvocationsChecker.m */; };
 		609E90E03D9B74473647815C /* MKTNumberOfInvocationsChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E992967BC9692FEE35A7E /* MKTNumberOfInvocationsChecker.h */; };
@@ -181,6 +182,7 @@
 		609E9ED69EC1807945E04E8C /* MKTMissingInvocationChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9FAEB69E7C0292A42760 /* MKTMissingInvocationChecker.m */; };
 		609E9F0872526D05C1724B54 /* MKTNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9C32C1094EC36C53F35A /* MKTNumberOfInvocationsChecker.m */; };
 		609E9FC124ED879F4E6504AD /* MKTFilterCallStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9E04B509B91CA6527013 /* MKTFilterCallStack.m */; };
+		609E9FCC824028BFC22851FB /* FakeLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9BDCD18394B0FFD08C75 /* FakeLocation.m */; };
 		609E9FF98494264314432079 /* MKTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9B11C7F5BCA246F3ED64 /* MKTLocation.m */; };
 		638F68D7150FC21A0081DEE6 /* MKTClassObjectMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		638F68D8150FC21A0081DEE6 /* MKTClassObjectMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -523,9 +525,11 @@
 		609E992967BC9692FEE35A7E /* MKTNumberOfInvocationsChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTNumberOfInvocationsChecker.h; sourceTree = "<group>"; };
 		609E99B8FAAE2EE35FE587DC /* MKTAtLeastNumberOfInvocationsChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAtLeastNumberOfInvocationsChecker.h; sourceTree = "<group>"; };
 		609E9B11C7F5BCA246F3ED64 /* MKTLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLocation.m; sourceTree = "<group>"; };
+		609E9BDCD18394B0FFD08C75 /* FakeLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeLocation.m; sourceTree = "<group>"; };
 		609E9C32C1094EC36C53F35A /* MKTNumberOfInvocationsChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTNumberOfInvocationsChecker.m; sourceTree = "<group>"; };
 		609E9C3F40927D5208E9FDBF /* MKTParseCallStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTParseCallStack.h; sourceTree = "<group>"; };
 		609E9C444FF203935B12C662 /* MKTCallStackElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTCallStackElement.m; sourceTree = "<group>"; };
+		609E9D120E577A372AE36EAA /* FakeLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeLocation.h; sourceTree = "<group>"; };
 		609E9D52C62F60F92D8EFC97 /* MKTInvocationsChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocationsChecker.m; sourceTree = "<group>"; };
 		609E9D65B5AF85667D00AFCD /* DummyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyObject.h; sourceTree = "<group>"; };
 		609E9E04B509B91CA6527013 /* MKTFilterCallStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTFilterCallStack.m; sourceTree = "<group>"; };
@@ -727,6 +731,8 @@
 				740018751A58E8F800E9AC92 /* Verifying */,
 				609E9D65B5AF85667D00AFCD /* DummyObject.h */,
 				609E9ECEDA1F0A719513AAC4 /* DummyObject.m */,
+				609E9D120E577A372AE36EAA /* FakeLocation.h */,
+				609E9BDCD18394B0FFD08C75 /* FakeLocation.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1544,6 +1550,7 @@
 				609E921622C17A290D2A8674 /* StopMockingTests.m in Sources */,
 				609E96F3205E56F759789056 /* MockInvocationsFinder.m in Sources */,
 				609E9334EA843A781ADA89F4 /* DummyObject.m in Sources */,
+				609E9FCC824028BFC22851FB /* FakeLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1583,6 +1590,7 @@
 				609E9A4411D8D4601FA86822 /* StopMockingTests.m in Sources */,
 				609E97203F621E0A67F7F97B /* MockInvocationsFinder.m in Sources */,
 				609E9EAB6F6AA639D6353956 /* DummyObject.m in Sources */,
+				609E9040B5C0EF3A483BC57A /* FakeLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 
 @property (nonatomic, strong, readonly) NSInvocation *invocation;
 @property (nonatomic, strong, readonly) MKTLocation *location;
+@property (nonatomic, assign) BOOL verified;
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation;
 - (instancetype)initWithInvocation:(NSInvocation *)invocation location:(MKTLocation *)location;

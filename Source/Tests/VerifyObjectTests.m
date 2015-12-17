@@ -77,6 +77,15 @@ static inline double *createArrayOf10Doubles(void)
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
+- (void)testVerify_ShouldIgnoreAlreadyVerifiedInvocations
+{
+    [mockArray removeObject:@"same"];
+    [verify(mockArray) removeObject:@"same"];
+
+    [mockArray removeObject:@"same"];
+    [verify(mockArray) removeObject:@"same"];
+}
+
 - (void)testVerify_WithArgumentSatisfyingMatcher_ShouldPass
 {
     [mockArray removeObject:@"same"];
