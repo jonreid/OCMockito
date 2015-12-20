@@ -38,7 +38,6 @@
             @"",
             [printer printMismatchOf:actual expectation:wanted],
             @"",
-            @"Call stack:",
             actual.location.description,
     ];
     return [description componentsJoinedByString:@"\n"];

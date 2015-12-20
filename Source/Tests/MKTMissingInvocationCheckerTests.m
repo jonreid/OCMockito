@@ -123,7 +123,6 @@
             "\n"
             "Mismatch in 1st argument. Expected \"WANTED\", but was \"ACTUAL\"\n"
             "\n"
-            "Call stack:\n"
             "FAKE CALL STACK"));
 }
 
