@@ -4,6 +4,7 @@
 #import "MKTInvocationMatcher.h"
 
 #import "NSInvocation+OCMockito.h"
+#import <OCHamcrest/HCAssertThat.h>
 #import <OCHamcrest/HCIsNil.h>
 #import <OCHamcrest/HCWrapInMatcher.h>
 
@@ -114,23 +115,24 @@
     return YES;
 }
 
+- (void)enumerateMismatchesOf:(NSInvocation *)actual
+                   usingBlock:(void (^)(NSUInteger idx, NSString *description))block
+{
+    NSArray *actualArgs = [actual mkt_arguments];
+    for (NSUInteger index = 0; index < self.numberOfArguments; ++index)
+        if ([self argument:actualArgs[index] doesNotMatch:self.argumentMatchers[index]])
+        {
+            id <HCMatcher> matcher = self.argumentMatchers[index];
+            id argument = actualArgs[index];
+            block(index, HCDescribeMismatch(matcher, argument));
+        }
+}
+
 - (BOOL)argument:(id)arg doesNotMatch:(id <HCMatcher>)matcher
 {
     if (arg == [NSNull null])
         arg = nil;
     return ![matcher matches:arg];
-}
-
-- (NSUInteger)mismatchedArgument:(NSInvocation *)actual
-{
-    NSArray *actualArgs = [actual mkt_arguments];
-    NSUInteger index;
-    for (index = 0; index < self.numberOfArguments; ++index)
-    {
-        if ([self argument:actualArgs[index] doesNotMatch:self.argumentMatchers[index]])
-            break;
-    }
-    return index;
 }
 
 @end

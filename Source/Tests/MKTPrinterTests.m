@@ -211,7 +211,7 @@
 
     NSString *result = [sut printMismatchOf:invocation expectation:matcher];
 
-    assertThat(result, is(@"Mismatch in 1st argument. Expected \"FOO\", but was \"___\""));
+    assertThat(result, is(@"\nMismatch in 1st argument. Expected \"FOO\", but was \"___\""));
 }
 
 - (void)testPrintMismatch_WithMismatchInSecondArgument
@@ -225,7 +225,7 @@
 
     NSString *result = [sut printMismatchOf:invocation expectation:matcher];
 
-    assertThat(result, is(@"Mismatch in 2nd argument. Expected \"BAR\", but was \"___\""));
+    assertThat(result, is(@"\nMismatch in 2nd argument. Expected \"BAR\", but was \"___\""));
 }
 
 @end

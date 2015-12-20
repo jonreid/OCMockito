@@ -126,6 +126,28 @@
             "FAKE CALL STACK"));
 }
 
+- (void)testCheckInvocations_WithMultipleArgumentMismatches_ShouldReportAllArgumentMismatches
+{
+    mockInvocationsFinder.stubbedCount = 0;
+    id fakeLocation = [[FakeLocation alloc] init];
+    MKTInvocation *similarInvocation =
+            wrappedInvocationWithLocation([DummyObject invocationWithObjectArg1:@"ACTUAL1" objectArg2:@"ACTUAL2"], fakeLocation);
+    NSArray *invocations = @[ similarInvocation ];
+    MKTInvocationMatcher *wanted = matcherForInvocation([DummyObject invocationWithObjectArg1:@"WANTED1" objectArg2:@"WANTED2"]);
+
+    NSString *description = [sut checkInvocations:invocations wanted:wanted];
+
+    assertThat(description, is(@"Argument(s) are different!\n"
+            "Wanted: methodWithObjectArg1:\"WANTED1\" objectArg2:\"WANTED2\"\n"
+            "Actual invocation has different arguments:\n"
+            "methodWithObjectArg1:@\"ACTUAL1\" objectArg2:@\"ACTUAL2\"\n"
+            "\n"
+            "Mismatch in 1st argument. Expected \"WANTED1\", but was \"ACTUAL1\"\n"
+            "Mismatch in 2nd argument. Expected \"WANTED2\", but was \"ACTUAL2\"\n"
+            "\n"
+            "FAKE CALL STACK"));
+}
+
 - (void)testCheckInvocations_WithNoInvocations_ShouldReportThereWereNoInvocations
 {
     mockInvocationsFinder.stubbedCount = 0;

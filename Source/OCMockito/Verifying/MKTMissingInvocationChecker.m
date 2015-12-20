@@ -35,7 +35,6 @@
             [@"Wanted: " stringByAppendingString:[printer printMatcher:wanted]],
             @"Actual invocation has different arguments:",
             [printer printInvocation:actual],
-            @"",
             [printer printMismatchOf:actual expectation:wanted],
             @"",
             actual.location.description,

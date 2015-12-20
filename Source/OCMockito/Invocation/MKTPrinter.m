@@ -6,7 +6,6 @@
 #import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
 #import "NSInvocation+OCMockito.h"
-#import <OCHamcrest/HCAssertThat.h>
 #import <OCHamcrest/HCMatcher.h>
 #import <OCHamcrest/HCStringDescription.h>
 
@@ -138,11 +137,13 @@
 - (NSString *)printMismatchOf:(MKTInvocation *)invocation
                   expectation:(MKTInvocationMatcher *)expectation
 {
-    NSUInteger index = [expectation mismatchedArgument:invocation.invocation];
-    id <HCMatcher> matcher = expectation.matchers[index];
-    id argument = [invocation.invocation mkt_arguments][index];
-    NSString *preamble = [NSString stringWithFormat:@"Mismatch in %@ argument. ", MKTOrdinal(index)];
-    return [preamble stringByAppendingString:HCDescribeMismatch(matcher, argument)];
+    NSMutableString *result = [[NSMutableString alloc] init];
+    [expectation enumerateMismatchesOf:invocation.invocation
+                            usingBlock:^(NSUInteger index, NSString *mismatchDescription) {
+                                [result appendString:[NSString stringWithFormat:
+                                        @"\nMismatch in %@ argument. %@", MKTOrdinal(index), mismatchDescription]];
+                            }];
+    return result;
 }
 
 @end
