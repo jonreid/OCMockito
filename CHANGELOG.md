@@ -7,7 +7,14 @@ OCMockito now requires OCHamcrest v5.1.0 or higher, which also potentially break
 
 - Instead of enabling short syntax by defining MOCKITO_SHORTHAND, short syntax is now enabled by
   default. To disable it, #define MKT_DISABLE_SHORT_SYNTAX.
-- More detailed failure information, including stack trace relevant to the unmet expectation.
+- Previously verified invocations are no longer considered for verification.
+- Report additional information about verification failures:
+  * If the number of matches is incorrect, report a filtered call stack of the first bad invocation
+    or the last good invocation.
+  * If there were no matches, but there was a call to the expected method, report it. Describe the
+    mismatched arguments along with a filtered call stack.
+  * If there were no matches, but there were other calls to the mock, report them with call stacks.
+  * If there were no matches, and in fact that mock received no calls, say so.
 
 **Fixes:**
 
