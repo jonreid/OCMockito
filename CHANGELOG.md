@@ -1,5 +1,6 @@
-Compatibility-breaking change
+Version 3.0.0
 -------------
+_21 Dec 2015_
 
 OCMockito now requires OCHamcrest v5.1.0 or higher, which also potentially breaks compatibility.
 
