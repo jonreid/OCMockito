@@ -91,12 +91,6 @@ $ Frameworks/gethamcrest
 $ cd Source
 $ ./MakeDistribution.sh
 ```
-
-### Xcode 5 confused by verify:
-
-Xcode 5 currently seems to get confused about #defines, and may complain
-"Ambiguous expansion of macro 'verify'". If this happens, change your Build
-Settings to set "Enable Modules" to No.
  
 
 Let's verify some behavior!
