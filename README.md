@@ -32,7 +32,7 @@ include any pods from their main targets:
 
 ```ruby
 target :MyTests, :exclusive => true do
-  pod 'OCMockito', '~> 1.0'
+  pod 'OCMockito', '~> 3.0'
 end
 ```
 
@@ -40,14 +40,6 @@ Use the following imports:
 
     #import <OCHamcrest/OCHamcrest.h>
     #import <OCMockito/OCMockito.h>
-
-Note: If you want to use the latest pre-release changes, use
-
-```ruby
-target :MyTests, :exclusive => true do
-  pod 'OCMockito', :git => 'https://github.com/jonreid/OCMockito.git'
-end
-```
 
 ### Prebuilt Frameworks
 
