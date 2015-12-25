@@ -56,6 +56,20 @@
     assertThat(similar, is(sameInstance(invocationSimilar)));
 }
 
+- (void)testFindSimilar_WithSameSelectorsButSomeAlreadyVerified_ShouldReturnFirstUnverifiedMatch
+{
+    MKTInvocation *invocationVerified = wrappedInvocation([DummyObject invocationWithNoArgs]);
+    invocationVerified.verified = YES;
+    MKTInvocation *invocationUnverified = wrappedInvocation([DummyObject invocationWithNoArgs]);
+    MKTInvocation *invocationUnverified2 = wrappedInvocation([DummyObject invocationWithNoArgs]);
+    MKTInvocationMatcher *invocationMatcher = matcherForInvocation([DummyObject invocationWithNoArgs]);
+
+    MKTInvocation *similar = MKTFindSimilarInvocation(
+            @[ invocationVerified, invocationUnverified, invocationUnverified2 ], invocationMatcher);
+
+    assertThat(similar, is(sameInstance(invocationUnverified)));
+}
+
 @end
 
 

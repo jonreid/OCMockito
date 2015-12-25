@@ -78,7 +78,7 @@ MKTInvocation *MKTFindSimilarInvocation(NSArray *invocations, MKTInvocationMatch
 {
     NSUInteger index = [invocations indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
         MKTInvocation *inv = obj;
-        return inv.invocation.selector == wanted.expected.selector;
+        return !inv.verified && inv.invocation.selector == wanted.expected.selector;
     }];
     return (index == NSNotFound) ? nil : invocations[index];
 }
