@@ -15,17 +15,18 @@ static NSUInteger MKTFirstRelevantCallStackIndex(NSArray *parsedStack)
     return firstIndex + 3;
 }
 
-static NSUInteger MKTLastRelevantCallStackIndex(NSArray *parsedStack, NSString *moduleName)
+static NSUInteger MKTLastRelevantCallStackIndex(NSArray *parsedStack, NSUInteger startBackFrom, NSString *moduleName)
 {
-    NSUInteger lastIndex = parsedStack.count - 1;
-    while (![[(parsedStack[lastIndex]) moduleName] isEqualToString:moduleName])
+    NSUInteger lastIndex = startBackFrom;
+    while (lastIndex > 0 && ![[(parsedStack[lastIndex]) moduleName] isEqualToString:moduleName])
         lastIndex -= 1;
-    return lastIndex;
+    return [[(parsedStack[lastIndex]) moduleName] isEqualToString:moduleName] ? lastIndex : startBackFrom;
 }
 
 NSArray *MKTFilterCallStack(NSArray *parsedStack)
 {
     NSUInteger firstIndex = MKTFirstRelevantCallStackIndex(parsedStack);
-    NSUInteger lastIndex = MKTLastRelevantCallStackIndex(parsedStack, [parsedStack[firstIndex] moduleName]);
+    NSUInteger lastIndex = MKTLastRelevantCallStackIndex(parsedStack, parsedStack.count - 1, @"XCTest");
+    lastIndex = MKTLastRelevantCallStackIndex(parsedStack, lastIndex, [parsedStack[firstIndex] moduleName]);
     return [parsedStack subarrayWithRange:NSMakeRange(firstIndex, lastIndex - firstIndex + 1)];
 }

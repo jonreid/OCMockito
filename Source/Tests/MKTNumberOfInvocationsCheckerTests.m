@@ -136,6 +136,7 @@
             [self generateCallStack:@[
                     @"6   ExampleTests                        0x0000000118430edc CALLER",
                     @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
+                    @"8   XCTest                              0x0000000118430edc IRRELEVANT",
             ]]];
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
@@ -162,6 +163,7 @@
             [self generateCallStack:@[
                     @"6   ExampleTests                        0x0000000118430edc CALLER",
                     @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
+                    @"8   XCTest                              0x0000000118430edc IRRELEVANT",
             ]]];
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:1];
@@ -197,6 +199,7 @@
             [self generateCallStack:@[
                     @"6   ExampleTests                        0x0000000118430edc CALLER",
                     @"7   ExampleTests                        0x0000000118430edc PREVIOUS",
+                    @"8   XCTest                              0x0000000118430edc IRRELEVANT",
             ]]];
 
     NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:0];
