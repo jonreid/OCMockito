@@ -62,7 +62,7 @@
             toDescriptionArray:(NSMutableArray *)description
 {
     MKTPrinter *printer = [[MKTPrinter alloc] init];
-    [description addObject:@"However, there were other interactions with this mock:"];
+    [description addObject:@"However, there were other interactions with this mock (✓ means already verified):"];
     for (MKTInvocation *invocation in invocations)
     {
         [description addObject:@""];

@@ -189,12 +189,37 @@
 
     assertThat(description, is(@"Wanted but not invoked:\n"
             "methodWithNoArgs\n"
-            "However, there were other interactions with this mock:\n"
+            "However, there were other interactions with this mock (✓ means already verified):\n"
             "\n"
             "differentMethodWithNoArgs\n"
             "FAKE CALL STACK\n"
             "\n"
             "methodWithIntArg:123\n"
+            "FAKE CALL STACK"));
+}
+
+- (void)testCheckInvocations_WithNoSimilarUnverifiedInvocations_ShouldReportAllInvocationsMarkingAlreadyVerifiedWithCheckMarks
+{
+    mockInvocationsFinder.stubbedCount = 0;
+    id fakeLocation = [[FakeLocation alloc] init];
+    MKTInvocation *differentInvocation1 =
+            wrappedInvocationWithLocation([DummyObject differentInvocationWithNoArgs], fakeLocation);
+    MKTInvocation *matchingInvocationAlreadyVerified =
+            wrappedInvocationWithLocation([DummyObject invocationWithNoArgs], fakeLocation);
+    matchingInvocationAlreadyVerified.verified = YES;
+    NSArray *invocations = @[ matchingInvocationAlreadyVerified, differentInvocation1 ];
+    MKTInvocationMatcher *wanted = matcherForInvocation([DummyObject invocationWithNoArgs]);
+
+    NSString *description = [sut checkInvocations:invocations wanted:wanted];
+
+    assertThat(description, is(@"Wanted but not invoked:\n"
+            "methodWithNoArgs\n"
+            "However, there were other interactions with this mock (✓ means already verified):\n"
+            "\n"
+            "✓ methodWithNoArgs\n"
+            "FAKE CALL STACK\n"
+            "\n"
+            "differentMethodWithNoArgs\n"
             "FAKE CALL STACK"));
 }
 

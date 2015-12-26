@@ -36,9 +36,14 @@
 
 - (NSString *)printInvocation:(MKTInvocation *)invocation
 {
+    NSString *result;
     if ([self invocationHasNoArguments:invocation.invocation])
-        return [self printInvocationWithNoArguments:invocation.invocation];
-    return [self printInvocationWithArguments:invocation.invocation];
+        result = [self printInvocationWithNoArguments:invocation.invocation];
+    else
+        result = [self printInvocationWithArguments:invocation.invocation];
+    if (invocation.verified)
+        result = [@"✓ " stringByAppendingString:result];
+    return result;
 }
 
 - (BOOL)invocationHasNoArguments:(NSInvocation *)invocation
