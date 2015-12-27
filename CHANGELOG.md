@@ -1,3 +1,13 @@
+NEXT RELEASE
+------------
+
+**Improvements:**
+
+- Don't consider already verified invocations when finding similar invocations.
+- Improved filtering of call stack to skip past XCTest frames.
+- When printing invocations, mark already-verified ones with check marks.
+
+
 Version 3.0.0
 -------------
 _21 Dec 2015_
