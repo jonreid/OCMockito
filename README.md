@@ -41,6 +41,18 @@ Use the following imports:
     #import <OCHamcrest/OCHamcrest.h>
     #import <OCMockito/OCMockito.h>
 
+### Carthage
+
+Add the following to your Cartfile:
+
+```
+github "jonreid/OCMockito" "master"
+```
+
+Then drag the the built frameworks (both OCHamcrest and OCMockito) from the
+appropriate Carthage/Build directory into your project, but with "Copy items
+into destination group's folder" disabled.
+
 ### Prebuilt Frameworks
 
 Prebuilt binaries are available on GitHub for
