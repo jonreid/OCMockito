@@ -9,3 +9,4 @@ project.xcworkspace/
 xcuserdata/
 OCHamcrest*
 compile_commands.json
+/Carthage
