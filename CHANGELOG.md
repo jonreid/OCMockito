@@ -21,7 +21,20 @@ Version 3.0.0
 -------------
 _21 Dec 2015_
 
-OCMockito now requires OCHamcrest v5.1.0 or higher, which also potentially breaks compatibility.
+**Compatibility-breaking Changes:**
+
+- The semantics for repeated verification have changed. Call counts used to always accumulate:
+
+```obj-c
+…something that invokes someMethod…
+[verifyCount(myMock, times(1)) someMethod];
+…another thing that invokes someMethod…
+[verifyCount(myMock, times(2)) someMethod];
+```
+
+But now, verification counts only the matches since the last verification.
+
+- OCMockito now requires OCHamcrest v5.1.0 or higher, which also potentially breaks compatibility.
 
 **Features:**
 
