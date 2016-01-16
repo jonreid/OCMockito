@@ -44,8 +44,12 @@
         return;
     if ([self handlingVerifyOfInvocation:invocation])
         return;
-    [self prepareInvocationForStubbing:invocation];
-    [self answerInvocation:invocation];
+
+    @synchronized (self)
+    {
+        [self prepareInvocationForStubbing:invocation];
+        [self answerInvocation:invocation];
+    }
 }
 
 - (BOOL)handlingVerifyOfInvocation:(NSInvocation *)invocation

@@ -1,6 +1,11 @@
 NEXT RELEASE
 ------------
 
+**Fixes:**
+
+- Fixed race condition when stubbed method is called from multiple threads. _Thanks to:
+  brianvanderwal_
+
 **Features:**
 
 - Added Carthage support for Mac, iOS, watchOS and tvOS. _Thanks to: Nikolaj Schumacher_
