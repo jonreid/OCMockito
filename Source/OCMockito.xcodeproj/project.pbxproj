@@ -2714,7 +2714,8 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-5.1.0\"",
+					"\"$(SRCROOT)/../Frameworks/\"/**",
+					"\"$(SRCROOT)/../Carthage/\"/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -2740,7 +2741,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../Frameworks/OCHamcrest-5.1.0\"",
+					"\"$(SRCROOT)/../Frameworks/\"/**",
+					"\"$(SRCROOT)/../Carthage/\"/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
