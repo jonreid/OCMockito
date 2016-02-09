@@ -6,6 +6,13 @@
 #import "MKTOngoingStubbing.h"
 #import "NSInvocation+OCMockito.h"
 
+// Explicitly import transitive headers for complete "umbrella header"
+#import "MKTBaseMockObject.h"
+#import "MKTClassObjectMock.h"
+#import "MKTObjectAndProtocolMock.h"
+#import "MKTObjectMock.h"
+#import "MKTProtocolMock.h"
+
 @protocol MKTVerificationMode;
 
 

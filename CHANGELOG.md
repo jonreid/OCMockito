@@ -5,6 +5,7 @@ NEXT RELEASE
 
 - Fixed race condition when stubbed method is called from multiple threads. _Thanks to:
   brianvanderwal_
+- Add transitive imports to OCMockito.h to satisfy new umbrella header requirements.
 
 **Features:**
 
