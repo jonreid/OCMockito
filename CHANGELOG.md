@@ -9,7 +9,8 @@ NEXT RELEASE
 
 **Features:**
 
-- Added Carthage support for Mac, iOS, watchOS and tvOS. _Thanks to: Nikolaj Schumacher_
+- Added Carthage support for Mac, iOS, watchOS and tvOS. _Thanks to: Nikolaj Schumacher,
+  Anthony Weiss_
 
 
 Version 3.0.1
