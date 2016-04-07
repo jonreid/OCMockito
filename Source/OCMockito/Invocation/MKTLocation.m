@@ -23,7 +23,7 @@
 {
     self = [super init];
     if (self)
-        _callStack = [callStack copy];
+        _callStack = callStack;
     return self;
 }
 
