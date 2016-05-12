@@ -192,6 +192,21 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
 #endif
 
 
+#define MKTStubSingleton(mockClass, sel) \
+    [(MKTClassObjectMock*)myMockClass swizzleSingletonAtSelector:@selector(sel)]
+
+#ifndef MKT_DISABLE_SHORT_SYNTAX
+/*!
+ * @abstract Stubs a singleton to the mock class object.
+ * @discussion
+ * <b>Name Clash</b><br />
+ * In the event of a name clash, <code>#define MKT_DISABLE_SHORT_SYNTAX</code> and use the synonym
+ * MKTStubSingleton instead.
+ */
+#define stubSingleton(mockClass, sel) MKTStubSingleton(mockClass, sel)
+#endif
+
+
 FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 #define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 

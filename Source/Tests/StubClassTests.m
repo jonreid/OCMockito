@@ -13,6 +13,17 @@
 
 + (id)methodReturningObject { return self; }
 
++ (id)singletonMethod
+{
+    static ClassMethodsReturningObject* sSingleton = nil;
+
+    if (!sSingleton) {
+        sSingleton = [ClassMethodsReturningObject new];
+    }
+
+    return sSingleton;
+}
+
 @end
 
 
@@ -35,6 +46,15 @@
     [given([myMockClass methodReturningObject]) willReturn:@"STUBBED"];
 
     assertThat([myMockClass methodReturningObject], is(@"STUBBED"));
+}
+
+- (void)testStubbedSingleton_ShouldReturnGivenObject
+{
+    stubSingleton(myMockClass, singletonMethod);
+
+    [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
+
+    assertThat([ClassMethodsReturningObject singletonMethod], is(@"STUBBED"));
 }
 
 @end
