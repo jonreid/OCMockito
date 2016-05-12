@@ -159,6 +159,22 @@ __strong Class mockStringClass = mockClass([NSString class]);
 it explicitly strong as shown above, or use `id` instead.)
 
 
+How do you mock a singleton?
+-------------------------------
+
+```obj-c
+NSUserDefaults* defaults = mock([NSUserDefaults class]);
+__strong Class mockUserDefaultsClass = mockClass([NSUserDefaults class]);
+
+stubSingleton(mockUserDefaultsClass, standardUserDefaults);
+
+[given([NSUserDefaults standardUserDefaults]) willReturn:defaults];
+```
+
+(In the iOS 64-bit runtime, Class objects aren't strong by default. Either make
+it explicitly strong as shown above, or use `id` instead.)
+
+
 How do you mock a protocol?
 ---------------------------
 

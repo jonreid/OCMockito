@@ -68,4 +68,37 @@
     assertThat([NSUserDefaults standardUserDefaults], is(@"STUBBED"));
 }
 
+- (void)testStubbedSingleton_FirstSingletonStubTakesPrecedence
+{
+    stubSingleton(myMockClass, singletonMethod);
+    
+    [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
+    
+    Class myNewMockClass = mockClass([ClassMethodsReturningObject class]);
+    stubSingleton(myNewMockClass, singletonMethod);
+
+    [given([myNewMockClass singletonMethod]) willReturn:@"STUBBED2"];
+    
+    assertThat([ClassMethodsReturningObject singletonMethod], is(@"STUBBED"));
+}
+
+- (void)testStubbedSingleton_ValidUnswizzle
+{
+    stubSingleton(myMockClass, singletonMethod);
+    
+    [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
+    
+    MKTClassObjectMock* mock = (MKTClassObjectMock*)myMockClass;
+    [mock unswizzleSingletonAtSelector:@selector(singletonMethod)];
+    
+    assertThat([ClassMethodsReturningObject singletonMethod], isNot(@"STUBBED"));
+}
+
+- (void)testStubbedSingleton_InvalidUnswizzling
+{
+    MKTClassObjectMock* mock = (MKTClassObjectMock*)myMockClass;
+    
+    [mock unswizzleSingletonAtSelector:@selector(standardUserDefaults)];
+}
+
 @end
