@@ -57,7 +57,10 @@ NSMutableDictionary* sSingletonMap = nil;
     
     MKTClassObjectMock* mock = entry.mock;
     if (mock) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         return [mock performSelector:_cmd withObject:nil];
+#pragma clang diagnostic pop
     }
 
     return nil;
