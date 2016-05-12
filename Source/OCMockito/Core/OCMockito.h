@@ -193,7 +193,7 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
 
 
 #define MKTStubSingleton(mockClass, sel) \
-    [(MKTClassObjectMock*)myMockClass swizzleSingletonAtSelector:@selector(sel)]
+    [(MKTClassObjectMock*)mockClass swizzleSingletonAtSelector:@selector(sel)]
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!

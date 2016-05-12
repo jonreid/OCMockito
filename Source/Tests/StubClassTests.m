@@ -57,4 +57,15 @@
     assertThat([ClassMethodsReturningObject singletonMethod], is(@"STUBBED"));
 }
 
+- (void)testStubbedSingletonOnExistingClass_ShouldReturnGivenObject
+{
+    Class userDefaultsClass = mockClass([NSUserDefaults class]);
+
+    stubSingleton(userDefaultsClass, standardUserDefaults);
+    
+    [given([userDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
+    
+    assertThat([NSUserDefaults standardUserDefaults], is(@"STUBBED"));
+}
+
 @end
