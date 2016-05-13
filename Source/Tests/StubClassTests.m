@@ -6,6 +6,12 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <XCTest/XCTest.h>
 
+@interface MKTClassObjectMock()
+
++ (id)mockSingleton;
+
+@end
+
 @interface ClassMethodsReturningObject : NSObject
 @end
 
@@ -99,6 +105,11 @@
     MKTClassObjectMock* mock = (MKTClassObjectMock*)myMockClass;
     
     [mock unswizzleSingletonAtSelector:@selector(standardUserDefaults)];
+}
+
+- (void)testNoStubbedSingleton_ReturnsNil
+{
+    assertThat([MKTClassObjectMock mockSingleton], equalTo(nil));
 }
 
 @end
