@@ -68,18 +68,18 @@
     assertThat([NSUserDefaults standardUserDefaults], is(@"STUBBED"));
 }
 
-- (void)testStubbedSingleton_FirstSingletonStubTakesPrecedence
+- (void)testStubbedSingleton_LastSingletonStubTakesPrecedence
 {
     stubSingleton(myMockClass, singletonMethod);
     
     [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
     
     Class myNewMockClass = mockClass([ClassMethodsReturningObject class]);
-    stubSingleton(myNewMockClass, singletonMethod);
-
+    [givenVoid(stubSingleton(myNewMockClass, singletonMethod)) willThrow:anything()];
+    
     [given([myNewMockClass singletonMethod]) willReturn:@"STUBBED2"];
     
-    assertThat([ClassMethodsReturningObject singletonMethod], is(@"STUBBED"));
+    assertThat([ClassMethodsReturningObject singletonMethod], is(@"STUBBED2"));
 }
 
 - (void)testStubbedSingleton_ValidUnswizzle
