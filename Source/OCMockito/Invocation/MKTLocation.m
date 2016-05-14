@@ -8,7 +8,7 @@
 
 
 @interface MKTLocation ()
-@property (nonatomic, copy, readonly) NSArray *callStack;
+@property (nonatomic, strong, readonly) NSArray *callStack; // strong not copy, for speed
 @end
 
 @implementation MKTLocation
