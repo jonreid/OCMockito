@@ -81,7 +81,8 @@
     [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
     
     Class myNewMockClass = mockClass([ClassMethodsReturningObject class]);
-    [givenVoid(stubSingleton(myNewMockClass, singletonMethod)) willThrow:anything()];
+
+    stubSingleton(myNewMockClass, singletonMethod);
     
     [given([myNewMockClass singletonMethod]) willReturn:@"STUBBED2"];
     
