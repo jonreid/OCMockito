@@ -2078,7 +2078,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0640;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Jonathan M. Reid";
 				TargetAttributes = {
 					247B9E6E1C33521500B10720 = {
@@ -2768,7 +2768,6 @@
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = unsupported;
 				INFOPLIST_FILE = "OCMockito-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2790,7 +2789,6 @@
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = unsupported;
 				INFOPLIST_FILE = "OCMockito-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
