@@ -1,4 +1,4 @@
-![mockito](http://docs.mockito.googlecode.com/hg/latest/org/mockito/logo.jpg)
+![mockito](https://raw.githubusercontent.com/mockito/mockito.github.io/master/img/logo.png)
 
 [![Build Status](https://travis-ci.org/jonreid/OCMockito.svg?branch=master)](https://travis-ci.org/jonreid/OCMockito)
 [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.svg?branch=master)](https://coveralls.io/r/jonreid/OCMockito?branch=master)
