@@ -35,7 +35,8 @@ to your Podfile. Most people will want OCMockito in their test targets, and not
 include any pods from their main targets:
 
 ```ruby
-target :MyTests, :exclusive => true do
+target 'MyTests' do
+  inherit! :search_paths
   pod 'OCMockito', '~> 3.0'
 end
 ```
