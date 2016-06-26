@@ -91,7 +91,7 @@
 		0E44F6C11C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */; };
 		0E44F6C21C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */; };
 		0E5F66331D20392D00D01554 /* ArgumentCaptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */; };
-		0E5F66341D20392D00D01554 /* ArgumentCaptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */; };
+		0E5F66351D208C4700D01554 /* ArgumentCaptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */; };
 		0E6B77491C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B77481C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m */; };
 		0E6B774A1C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B77481C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m */; };
 		0E72B1831C1D24470088E48C /* MKTPrinterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E72B1821C1D24470088E48C /* MKTPrinterTests.m */; };
@@ -2195,7 +2195,6 @@
 				08E9DC261516738200BD7FB4 /* MKTObjectAndProtocolMock.m in Sources */,
 				361533CA153F276300BB982B /* MKTAtLeastTimes.m in Sources */,
 				BB333D0D3FD6E3D3D9F1867B /* NSInvocation+OCMockito.m in Sources */,
-				0E5F66341D20392D00D01554 /* ArgumentCaptorTests.m in Sources */,
 				BB333891B1BA7D6DA324460A /* MKTArgumentGetter.m in Sources */,
 				BB3333E2E92AC07CA108B827 /* MKTArgumentGetterChain.m in Sources */,
 				BB33381F168BEA25F34F2B92 /* MKTBoolArgumentGetter.m in Sources */,
@@ -2637,6 +2636,7 @@
 				74A3BDD719F76DF0006591C9 /* StubObjectTests.m in Sources */,
 				0E72B1841C1D24470088E48C /* MKTPrinterTests.m in Sources */,
 				74A3BDDE19F76DF0006591C9 /* VerifyCountNeverTests.m in Sources */,
+				0E5F66351D208C4700D01554 /* ArgumentCaptorTests.m in Sources */,
 				74A3BDD919F76DF0006591C9 /* VerifyClassObjectTests.m in Sources */,
 				0E75D8BA1C041B940079C41F /* MKTFilterCallStackTests.m in Sources */,
 				74A3BDDF19F76DF0006591C9 /* VerifyProgrammerErrorTests.m in Sources */,
