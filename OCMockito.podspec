@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'v3.0.2' }
   s.source_files = 'Source/OCMockito/**/*.{h,m}', 'Source/ThirdParty/**/*.{h,m}'
-  s.public_header_files = 'Source/OCMockito/Core/MKTNonObjectArgumentMatching.h', 'Source/OCMockito/Core/OCMockito.h', 'Source/OCMockito/Invocation/NSInvocation+OCMockito.h', 'Source/OCMockito/Stubbing/MKTOngoingStubbing.h'
+  s.public_header_files = 'Source/OCMockito/Core/MKTNonObjectArgumentMatching.h', 'Source/OCMockito/Core/OCMockito.h', 'Source/OCMockito/Invocation/NSInvocation+OCMockito.h', 'Source/OCMockito/Mocking/MKTBaseMockObject.h', 'Source/OCMockito/Mocking/MKTClassMockObject.h', 'Source/OCMockito/Mocking/MKTClassObjectMock.h', 'Source/OCMockito/Mocking/MKTObjectAndProtocolMock.h', 'Source/OCMockito/Mocking/MKTProtocolMock.h', 'Source/OCMockito/Mocking/MKTObjectMock.h', 'Source/OCMockito/Stubbing/MKTOngoingStubbing.h'
   s.requires_arc = true
   s.dependency 'OCHamcrest', '~> 5.1'
 end
