@@ -209,11 +209,13 @@ SomeStruct aStruct = {...};
 How do you stub a property so that KVO works?
 ---------------------------------------------
 
-Use `stubProperty(instance, property, value)`. For example:
+Use `stubProperty(mock, property, stubbedValue)`. For example, say you have a mock object named `mockEmployee`. It has a property `firstName`. You want to stub it to return the value "FIRST-NAME":
 
 ```obj-c
-stubProperty(mockEmployee, firstName, @"fake-firstname");
+stubProperty(mockEmployee, firstName, @"FIRST-NAME");
 ```
+
+This stubs the `firstName` property, `valueForKey:` and `valueForKeyPath:`.
 
 
 Argument matchers
