@@ -1,3 +1,13 @@
+NEXT RELEASE
+------------
+
+OCMockito now requires OCHamcrest v5.4.0 or higher.
+
+**Fixes:**
+
+- Prevent argument captor from capturing values twice.
+
+
 Version 3.0.2
 -------------
 _25 Jun 2016_

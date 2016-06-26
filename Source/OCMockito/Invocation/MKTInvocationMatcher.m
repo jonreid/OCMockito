@@ -4,6 +4,7 @@
 #import "MKTInvocationMatcher.h"
 
 #import "NSInvocation+OCMockito.h"
+#import <OCHamcrest/HCArgumentCaptor.h>
 #import <OCHamcrest/HCAssertThat.h>
 #import <OCHamcrest/HCIsNil.h>
 #import <OCHamcrest/HCWrapInMatcher.h>
@@ -117,21 +118,12 @@
 
 - (void)stopArgumentCapture
 {
-    // For any matcher that is an HCArgumentCaptor, turn off capturing.
-    SEL setCaptureEnabledSelector = NSSelectorFromString(@"setCaptureEnabled:");
     for (id <HCMatcher> matcher in self.argumentMatchers)
-        if ([matcher respondsToSelector:setCaptureEnabledSelector])
-            [self invokeObject:matcher withSelector:setCaptureEnabledSelector settingBooleanValue:NO];
-}
-
-- (void)invokeObject:(id)obj withSelector:(SEL)sel settingBooleanValue:(BOOL)value
-{
-    NSMethodSignature *signature = [[obj class] instanceMethodSignatureForSelector:sel];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-    invocation.target = obj;
-    invocation.selector = sel;
-    [invocation setArgument:&value atIndex:2];
-    [invocation invoke];
+        if ([matcher isKindOfClass:[HCArgumentCaptor class]])
+        {
+            HCArgumentCaptor *captor = (HCArgumentCaptor *)matcher;
+            captor.captureEnabled = NO;
+        }
 }
 
 - (void)enumerateMismatchesOf:(NSInvocation *)actual
