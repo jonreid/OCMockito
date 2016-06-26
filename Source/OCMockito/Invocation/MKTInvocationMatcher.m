@@ -115,6 +115,25 @@
     return YES;
 }
 
+- (void)stopArgumentCapture
+{
+    // For any matcher that is an HCArgumentCaptor, turn off capturing.
+    SEL setCaptureEnabledSelector = NSSelectorFromString(@"setCaptureEnabled:");
+    for (id <HCMatcher> matcher in self.argumentMatchers)
+        if ([matcher respondsToSelector:setCaptureEnabledSelector])
+            [self invokeObject:matcher withSelector:setCaptureEnabledSelector settingBooleanValue:NO];
+}
+
+- (void)invokeObject:(id)obj withSelector:(SEL)sel settingBooleanValue:(BOOL)value
+{
+    NSMethodSignature *signature = [[obj class] instanceMethodSignatureForSelector:sel];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    invocation.target = obj;
+    invocation.selector = sel;
+    [invocation setArgument:&value atIndex:2];
+    [invocation invoke];
+}
+
 - (void)enumerateMismatchesOf:(NSInvocation *)actual
                    usingBlock:(void (^)(NSUInteger idx, NSString *description))block
 {

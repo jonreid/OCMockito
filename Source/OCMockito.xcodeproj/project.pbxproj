@@ -90,6 +90,8 @@
 		0E1A0AD71BEE64BA0044C5BA /* OCHamcrest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E1A0AD11BEE648B0044C5BA /* OCHamcrest.framework */; };
 		0E44F6C11C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */; };
 		0E44F6C21C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */; };
+		0E5F66331D20392D00D01554 /* ArgumentCaptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */; };
+		0E5F66341D20392D00D01554 /* ArgumentCaptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */; };
 		0E6B77491C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B77481C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m */; };
 		0E6B774A1C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B77481C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m */; };
 		0E72B1831C1D24470088E48C /* MKTPrinterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E72B1821C1D24470088E48C /* MKTPrinterTests.m */; };
@@ -934,6 +936,7 @@
 		0E1A0AD11BEE648B0044C5BA /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-5.4.0/OCHamcrest.framework"; sourceTree = "<group>"; };
 		0E1A0AD41BEE64940044C5BA /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-5.4.0/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMissingInvocationCheckerTests.m; sourceTree = "<group>"; };
+		0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgumentCaptorTests.m; sourceTree = "<group>"; };
 		0E6B77481C07AE9B00DBF6E0 /* MKTNumberOfInvocationsCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTNumberOfInvocationsCheckerTests.m; sourceTree = "<group>"; };
 		0E72B1821C1D24470088E48C /* MKTPrinterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPrinterTests.m; sourceTree = "<group>"; };
 		0E75D8AC1C0417F60079C41F /* MKTInvocationMatcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocationMatcherTests.m; sourceTree = "<group>"; };
@@ -1422,6 +1425,7 @@
 			isa = PBXGroup;
 			children = (
 				085CE8F1172A0D43004D070D /* BlockMatchingTests.m */,
+				0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */,
 				08F189E21359661E00F76379 /* MKTMockingProgressTests.m */,
 			);
 			name = Core;
@@ -2191,6 +2195,7 @@
 				08E9DC261516738200BD7FB4 /* MKTObjectAndProtocolMock.m in Sources */,
 				361533CA153F276300BB982B /* MKTAtLeastTimes.m in Sources */,
 				BB333D0D3FD6E3D3D9F1867B /* NSInvocation+OCMockito.m in Sources */,
+				0E5F66341D20392D00D01554 /* ArgumentCaptorTests.m in Sources */,
 				BB333891B1BA7D6DA324460A /* MKTArgumentGetter.m in Sources */,
 				BB3333E2E92AC07CA108B827 /* MKTArgumentGetterChain.m in Sources */,
 				BB33381F168BEA25F34F2B92 /* MKTBoolArgumentGetter.m in Sources */,
@@ -2591,6 +2596,7 @@
 				74A3BDA519F767B8006591C9 /* StubObjectTests.m in Sources */,
 				0E72B1831C1D24470088E48C /* MKTPrinterTests.m in Sources */,
 				74A3BDAC19F767B8006591C9 /* VerifyCountNeverTests.m in Sources */,
+				0E5F66331D20392D00D01554 /* ArgumentCaptorTests.m in Sources */,
 				74A3BDA719F767B8006591C9 /* VerifyClassObjectTests.m in Sources */,
 				0E75D8B91C041B940079C41F /* MKTFilterCallStackTests.m in Sources */,
 				74A3BDAD19F767B8006591C9 /* VerifyProgrammerErrorTests.m in Sources */,

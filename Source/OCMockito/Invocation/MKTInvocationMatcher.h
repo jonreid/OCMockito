@@ -16,6 +16,7 @@
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index;
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation;
 - (BOOL)matches:(NSInvocation *)actual;
+- (void)stopArgumentCapture;
 - (void)enumerateMismatchesOf:(NSInvocation *)actual
                    usingBlock:(void (^)(NSUInteger idx, NSString *description))block;
 

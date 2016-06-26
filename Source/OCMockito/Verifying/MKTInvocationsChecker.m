@@ -20,9 +20,8 @@
 
 - (MKTMatchingInvocationsFinder *)invocationsFinder
 {
-    if (!_invocationsFinder) {
+    if (!_invocationsFinder)
         _invocationsFinder = [[MKTMatchingInvocationsFinder alloc] init];
-    }
     return _invocationsFinder;
 }
 

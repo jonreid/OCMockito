@@ -3,6 +3,7 @@
 
 #import "MKTExactTimes.h"
 
+#import "MKTInvocationMatcher.h"
 #import "MKTNumberOfInvocationsChecker.h"
 #import "MKTVerificationData.h"
 #import "MKTMissingInvocationChecker.h"
@@ -32,6 +33,7 @@
     {
         MKTMissingInvocationChecker *missingInvocation = [[MKTMissingInvocationChecker alloc] init];
         failureDescription = [missingInvocation checkInvocations:data.invocations wanted:data.wanted];
+        [data.wanted stopArgumentCapture];
     }
     if (!failureDescription)
     {
