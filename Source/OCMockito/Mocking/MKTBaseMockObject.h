@@ -7,6 +7,8 @@
 
 @interface MKTBaseMockObject : NSProxy <MKTNonObjectArgumentMatching>
 
++ (BOOL)isMockObject:(id)object;
+
 - (instancetype)init;
 - (void)mkt_stopMocking;
 

@@ -4,6 +4,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import "MKTOngoingStubbing.h"
 
+#import "MKTBaseMockObject.h"
 #import "MKTInvocationContainer.h"
 #import "MKTReturnsValue.h"
 #import "MKTThrowsException.h"
@@ -26,6 +27,10 @@
 
 - (MKTOngoingStubbing *)willReturn:(id)object
 {
+    // Workaround for over-releasing mock object that is stubbed as return value for copy method.
+    if (self.invocationContainer.isStubbingCopyMethod && [MKTBaseMockObject isMockObject:object])
+        CFBridgingRetain(object);
+
     MKTReturnsValue *returnsValue = [[MKTReturnsValue alloc] initWithValue:object];
     [self.invocationContainer addAnswer:returnsValue];
     return self;

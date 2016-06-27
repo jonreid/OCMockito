@@ -21,6 +21,15 @@
 
 @implementation MKTBaseMockObject
 
++ (BOOL)isMockObject:(id)object
+{
+    NSString *className = NSStringFromClass([object class]);
+    return [className isEqualToString:@"MKTObjectMock"] ||
+            [className isEqualToString:@"MKTProtocolMock"] ||
+            [className isEqualToString:@"MKTClassObjectMock"] ||
+            [className isEqualToString:@"MKTObjectAndProtocolMock"];
+}
+
 - (instancetype)init
 {
     if (self)

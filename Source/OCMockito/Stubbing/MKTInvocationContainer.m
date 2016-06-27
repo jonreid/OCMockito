@@ -65,4 +65,10 @@
     return nil;
 }
 
+- (BOOL)isStubbingCopyMethod
+{
+    return self.registeredInvocations.count > 0 &&
+            [self.registeredInvocations[0] invocation].selector == @selector(copy);
+}
+
 @end

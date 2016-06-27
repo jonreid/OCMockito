@@ -5,21 +5,9 @@
 
 #import "MKTAtLeastTimes.h"
 #import "MKTAtMostTimes.h"
-#import "MKTClassObjectMock.h"
 #import "MKTExactTimes.h"
 #import "MKTMockitoCore.h"
-#import "MKTObjectAndProtocolMock.h"
-#import "MKTObjectMock.h"
 
-
-static BOOL isValidMockClass(id mock)
-{
-    NSString *className = NSStringFromClass([mock class]);
-    return [className isEqualToString:@"MKTObjectMock"] ||
-            [className isEqualToString:@"MKTProtocolMock"] ||
-            [className isEqualToString:@"MKTClassObjectMock"] ||
-            [className isEqualToString:@"MKTObjectAndProtocolMock"];
-}
 
 static NSString *actualTypeName(id mock)
 {
@@ -31,7 +19,7 @@ static NSString *actualTypeName(id mock)
 
 static BOOL reportedInvalidMock(id mock, id testCase, const char *fileName, int lineNumber, NSString *functionName)
 {
-    if (isValidMockClass(mock))
+    if ([MKTBaseMockObject isMockObject:mock])
         return NO;
     NSString *description = [NSString stringWithFormat:@"Argument passed to %@ should be a mock but is %@",
                                                        functionName, actualTypeName(mock)];

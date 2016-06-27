@@ -18,5 +18,6 @@
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id <MKTAnswer>)answer;
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
+- (BOOL)isStubbingCopyMethod;
 
 @end
