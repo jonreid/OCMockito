@@ -12,7 +12,7 @@
 @property (nonatomic, strong, readonly) NSMutableArray *mutableRegisteredInvocations;
 @property (nonatomic, strong) MKTStubbedInvocationMatcher *invocationForStubbing;
 @property (nonatomic, strong, readonly) NSMutableArray *stubbed;
-@property (nonatomic, strong, readonly) NSArray<NSString *> *ownedObjectMethodPrefixes;
+@property (nonatomic, strong, readonly) NSArray *ownedObjectMethodPrefixes;
 @end
 
 @implementation MKTInvocationContainer
