@@ -12,6 +12,7 @@
 @property (nonatomic, strong, readonly) NSMutableArray *mutableRegisteredInvocations;
 @property (nonatomic, strong) MKTStubbedInvocationMatcher *invocationForStubbing;
 @property (nonatomic, strong, readonly) NSMutableArray *stubbed;
+@property (nonatomic, strong, readonly) NSArray *ownedObjectMethodPrefixes;
 @end
 
 @implementation MKTInvocationContainer
@@ -24,6 +25,12 @@
     {
         _mutableRegisteredInvocations = [[NSMutableArray alloc] init];
         _stubbed = [[NSMutableArray alloc] init];
+        _ownedObjectMethodPrefixes = @[
+                                       NSStringFromSelector(@selector(alloc)),
+                                       NSStringFromSelector(@selector(new)),
+                                       NSStringFromSelector(@selector(copy)),
+                                       NSStringFromSelector(@selector(mutableCopy)),
+                                       ];
     }
     return self;
 }
@@ -65,10 +72,22 @@
     return nil;
 }
 
-- (BOOL)isStubbingCopyMethod
+- (BOOL)isStubbingOwnedObjectMethod
 {
-    return self.registeredInvocations.count > 0 &&
-            [self.registeredInvocations[0] invocation].selector == @selector(copy);
+    NSInvocation *invocation = [self.registeredInvocations.firstObject invocation];
+    SEL selector = invocation.selector;
+    if (selector == 0) {
+        return NO;
+    }
+
+    NSString *selectorName = NSStringFromSelector(selector);
+    for (NSString *ownedObjectMethodPrefix in self.ownedObjectMethodPrefixes) {
+        if ([selectorName hasPrefix:ownedObjectMethodPrefix]) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 @end
