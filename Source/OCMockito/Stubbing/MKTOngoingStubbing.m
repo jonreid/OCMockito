@@ -27,8 +27,8 @@
 
 - (MKTOngoingStubbing *)willReturn:(id)object
 {
-    // Workaround for over-releasing mock object that is stubbed as return value for copy method.
-    if (self.invocationContainer.isStubbingCopyMethod && [MKTBaseMockObject isMockObject:object])
+    // Workaround for over-releasing mock object that is stubbed as return value for an owned object method.
+    if (self.invocationContainer.isStubbingOwnedObjectMethod && [MKTBaseMockObject isMockObject:object])
         CFBridgingRetain(object);
 
     MKTReturnsValue *returnsValue = [[MKTReturnsValue alloc] initWithValue:object];
