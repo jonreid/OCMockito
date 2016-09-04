@@ -17,14 +17,11 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 
 @interface MKTSingletonMapEntry : NSObject
-
 @property (nonatomic, weak, readonly) MKTClassObjectMock *mock;
 @property (nonatomic, weak, readonly) Class mockedClass;
 @property (nonatomic, assign, readonly) IMP oldIMP;
 @property (nonatomic, assign, readonly) SEL selector;
-
 @end
-
 
 @implementation MKTSingletonMapEntry
 
