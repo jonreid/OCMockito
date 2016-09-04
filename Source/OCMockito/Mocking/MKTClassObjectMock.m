@@ -31,14 +31,9 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [self unswizzleSingletons];
-}
-
 - (void)mkt_stopMocking
 {
-    [self unswizzleSingletons];
+    self.swizzler = nil;
     [super mkt_stopMocking];
 }
 
@@ -55,12 +50,6 @@
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector
 {
     [self.swizzler swizzleSingletonAtSelector:singletonSelector];
-}
-
-- (void)unswizzleSingletons
-{
-    [self.swizzler unswizzleSingletonsForMock];
-    self.swizzler.classMock = nil;
 }
 
 #pragma mark NSObject protocol

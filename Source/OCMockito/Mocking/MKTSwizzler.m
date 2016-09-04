@@ -42,6 +42,11 @@ NSString *singletonKey(Class aClass, SEL aSelector)
         singletonMap = [[NSMutableDictionary alloc] init];
 }
 
+- (void)dealloc
+{
+    [self unswizzleSingletonsForMock];
+}
+
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector
 {
     MKTClassObjectMock *theMock = self.classMock;
