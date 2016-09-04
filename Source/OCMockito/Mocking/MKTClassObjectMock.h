@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong, readonly) Class mockedClass;
 
++ (id)mockSingleton;
+
 - (instancetype)initWithClass:(Class)aClass;
 
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;

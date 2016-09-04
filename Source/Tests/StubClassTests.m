@@ -7,10 +7,6 @@
 #import <XCTest/XCTest.h>
 
 
-@interface MKTClassObjectMock ()
-+ (id)mockSingleton;
-@end
-
 @interface ClassMethodsReturningObject : NSObject
 @end
 

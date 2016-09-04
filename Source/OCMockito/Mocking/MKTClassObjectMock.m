@@ -56,22 +56,12 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 + (id)mockSingleton
 {
-    NSString *key = singletonKey(self, _cmd);
-    
-    MKTClassObjectMockMapEntry *entry = singletonMap[key];
-    
-    MKTClassObjectMock *mock = entry.mock;
-    if (mock)
-    {
+    MKTClassObjectMockMapEntry *entry = singletonMap[singletonKey(self, _cmd)];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        return [mock performSelector:_cmd withObject:nil];
+    return [entry.mock performSelector:_cmd withObject:nil];
 #pragma clang diagnostic pop
-    }
-
-    return nil;
 }
-
 
 - (instancetype)initWithClass:(Class)aClass
 {
