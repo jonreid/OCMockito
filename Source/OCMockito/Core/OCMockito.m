@@ -27,6 +27,17 @@ static BOOL reportedInvalidMock(id mock, id testCase, const char *fileName, int 
     return YES;
 }
 
+static BOOL reportedInvalidClassMock(id classMock, id testCase, const char *fileName, int lineNumber, NSString *functionName)
+{
+    NSString *className = NSStringFromClass([classMock class]);
+    if ([className isEqualToString:@"MKTClassObjectMock"])
+        return NO;
+    NSString *description = [NSString stringWithFormat:@"Argument passed to %@ should be a class mock but is %@",
+                                                       functionName, actualTypeName(classMock)];
+    MKTFailTest(testCase, fileName, lineNumber, description);
+    return YES;
+}
+
 id MKTMock(Class classToMock)
 {
     return [[MKTObjectMock alloc] initWithClass:classToMock];
@@ -65,7 +76,9 @@ MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, const char *fileName, 
 
 void MKTStubSingletonWithLocation(id mockClass, SEL aSelector, id testCase, const char *fileName, int lineNumber)
 {
-    [(MKTClassObjectMock*)mockClass swizzleSingletonAtSelector:aSelector];
+    if (reportedInvalidClassMock(mockClass, testCase, fileName, lineNumber, @"stubSingleton()"))
+        return;
+    [(MKTClassObjectMock *)mockClass swizzleSingletonAtSelector:aSelector];
 }
 
 id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)

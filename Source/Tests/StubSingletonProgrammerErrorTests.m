@@ -1,0 +1,43 @@
+//  OCMockito by Jon Reid, http://qualitycoding.org/about/
+//  Copyright 2016 Jonathan M. Reid. See LICENSE.txt
+
+#import "OCMockito.h"
+
+#import "MockTestCase.h"
+#import <OCHamcrest/OCHamcrest.h>
+#import <XCTest/XCTest.h>
+
+
+@interface StubSingletonProgrammerErrorTests : XCTestCase
+@end
+
+@implementation StubSingletonProgrammerErrorTests
+{
+    MockTestCase *mockTestCase;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockTestCase = [[MockTestCase alloc] init];
+}
+
+- (void)testStubSingleton_WithNil_ShouldGiveError
+{
+    stubSingletonWithMockTestCase(nil, @selector(standardUserDefaults), mockTestCase);
+
+    assertThat(mockTestCase.failureDescription,
+               is(@"Argument passed to stubSingleton() should be a class mock but is nil"));
+}
+
+- (void)testStubSingleton_WithObjectMock_ShouldGiveError
+{
+    id objectMock = mock([NSUserDefaults class]);
+    
+    stubSingletonWithMockTestCase(objectMock, @selector(standardUserDefaults), mockTestCase);
+    
+    assertThat(mockTestCase.failureDescription,
+            is(@"Argument passed to stubSingleton() should be a class mock but is type MKTObjectMock"));
+}
+
+@end

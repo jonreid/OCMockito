@@ -4,6 +4,9 @@
 #import <Foundation/Foundation.h>
 
 
+#define stubSingletonWithMockTestCase(mockClass, aSelector, mockTestCase)  \
+    MKTStubSingletonWithLocation(mockClass, aSelector, mockTestCase, __FILE__, __LINE__)
+
 #define verifyWithMockTestCase(mock, mockTestCase)  \
     MKTVerifyWithLocation(mock, mockTestCase, __FILE__, __LINE__)
 
