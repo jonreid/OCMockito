@@ -66,4 +66,10 @@ NSString *singletonKey(Class aClass, SEL aSelector)
                                                                 selector:singletonSelector];
 }
 
+- (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle
+{
+    Method origMethod = class_getClassMethod(swizzle.mockedClass, swizzle.selector);
+    method_setImplementation(origMethod, swizzle.oldIMP);
+}
+
 @end

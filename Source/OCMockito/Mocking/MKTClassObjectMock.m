@@ -53,9 +53,7 @@
 
 - (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle
 {
-    NSAssert(swizzle, @"Invalid argument. swizzle argument cannot be nil");
-    Method origMethod = class_getClassMethod(swizzle.mockedClass, swizzle.selector);
-    method_setImplementation(origMethod, swizzle.oldIMP);
+    [self.swizzler unswizzleSingletonFromEntry:swizzle];
 }
 
 - (void)unswizzleSingletons

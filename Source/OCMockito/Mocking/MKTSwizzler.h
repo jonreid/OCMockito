@@ -27,4 +27,5 @@ NSString *singletonKey(Class aClass, SEL aSelector);
 
 @interface MKTSwizzler : NSObject
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector toMock:(MKTClassObjectMock *)theMock;
+- (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle;
 @end
