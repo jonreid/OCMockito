@@ -56,12 +56,6 @@
     [self.swizzler swizzleSingletonAtSelector:singletonSelector];
 }
 
-- (void)unswizzleSingletons
-{
-    [self.swizzler unswizzleSingletonsForMock];
-    self.swizzler.classMock = nil;
-}
-
 #pragma mark NSObject protocol
 
 - (BOOL)respondsToSelector:(SEL)aSelector
