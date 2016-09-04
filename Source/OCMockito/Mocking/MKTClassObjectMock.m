@@ -27,6 +27,7 @@
     {
         _mockedClass = aClass;
         _swizzler = [[MKTSwizzler alloc] init];
+        _swizzler.classMock = self;
     }
     return self;
 }
@@ -48,12 +49,12 @@
 
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector
 {
-    [self.swizzler swizzleSingletonAtSelector:singletonSelector toMock:self];
+    [self.swizzler swizzleSingletonAtSelector:singletonSelector];
 }
 
 - (void)unswizzleSingletons
 {
-    [self.swizzler unswizzleSingletonsForMock:self];
+    [self.swizzler unswizzleSingletonsForMock];
 }
 
 #pragma mark NSObject protocol

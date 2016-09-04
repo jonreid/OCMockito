@@ -42,8 +42,9 @@ NSString *singletonKey(Class aClass, SEL aSelector)
         singletonMap = [[NSMutableDictionary alloc] init];
 }
 
-- (void)swizzleSingletonAtSelector:(SEL)singletonSelector toMock:(MKTClassObjectMock *)theMock
+- (void)swizzleSingletonAtSelector:(SEL)singletonSelector
 {
+    MKTClassObjectMock *theMock = self.classMock;
     NSString *key = singletonKey(theMock.mockedClass, singletonSelector);
     
     Method origMethod = class_getClassMethod(theMock.mockedClass, singletonSelector);
@@ -66,8 +67,9 @@ NSString *singletonKey(Class aClass, SEL aSelector)
                                                                 selector:singletonSelector];
 }
 
-- (void)unswizzleSingletonsForMock:(MKTClassObjectMock *)theMock
+- (void)unswizzleSingletonsForMock
 {
+    MKTClassObjectMock *theMock = self.classMock;
     NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
     
     [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
