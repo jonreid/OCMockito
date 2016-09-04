@@ -6,10 +6,9 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <XCTest/XCTest.h>
 
-@interface MKTClassObjectMock()
 
+@interface MKTClassObjectMock ()
 + (id)mockSingleton;
-
 @end
 
 @interface ClassMethodsReturningObject : NSObject
@@ -21,12 +20,9 @@
 
 + (id)singletonMethod
 {
-    static ClassMethodsReturningObject* sSingleton = nil;
-
-    if (!sSingleton) {
+    static ClassMethodsReturningObject *sSingleton = nil;
+    if (!sSingleton)
         sSingleton = [ClassMethodsReturningObject new];
-    }
-
     return sSingleton;
 }
 
@@ -95,7 +91,7 @@
     
     [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
     
-    MKTClassObjectMock* mock = (MKTClassObjectMock*)myMockClass;
+    MKTClassObjectMock *mock = (MKTClassObjectMock *)myMockClass;
     [mock unswizzleSingletonAtSelector:@selector(singletonMethod)];
     
     assertThat([ClassMethodsReturningObject singletonMethod], isNot(@"STUBBED"));
@@ -103,7 +99,7 @@
 
 - (void)testStubbedSingleton_InvalidUnswizzling
 {
-    MKTClassObjectMock* mock = (MKTClassObjectMock*)myMockClass;
+    MKTClassObjectMock *mock = (MKTClassObjectMock *)myMockClass;
     
     [mock unswizzleSingletonAtSelector:@selector(standardUserDefaults)];
 }
