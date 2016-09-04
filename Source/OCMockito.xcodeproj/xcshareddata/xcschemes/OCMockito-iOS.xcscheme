@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "247B9E6E1C33521500B10720"
-               BuildableName = "OCMockito-iOS"
+               BuildableName = "OCMockito.framework"
                BlueprintName = "OCMockito-iOS"
                ReferencedContainer = "container:OCMockito.xcodeproj">
             </BuildableReference>
