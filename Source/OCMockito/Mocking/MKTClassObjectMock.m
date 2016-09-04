@@ -9,6 +9,12 @@
 
 static NSMutableDictionary *singletonMap = nil;
 
+static NSString *singletonKey(Class aClass, SEL aSelector)
+{
+    return [NSString stringWithFormat:@"%@-%@", aClass, NSStringFromSelector(aSelector)];
+}
+
+
 @interface MKTClassObjectMockMapEntry : NSObject
 {
 @public
@@ -48,11 +54,9 @@ static NSMutableDictionary *singletonMap = nil;
         singletonMap = [[NSMutableDictionary alloc] init];
 }
 
-#define SINGLETON_KEY(C, S) [NSString stringWithFormat:@"%@-%@", C, NSStringFromSelector(S)]
-
 + (id)mockSingleton
 {
-    NSString *key = SINGLETON_KEY(self, _cmd);
+    NSString *key = singletonKey(self, _cmd);
     
     MKTClassObjectMockMapEntry *entry = singletonMap[key];
     
@@ -96,7 +100,7 @@ static NSMutableDictionary *singletonMap = nil;
 
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector
 {
-    NSString *key = SINGLETON_KEY(self.mockedClass, singletonSelector);
+    NSString *key = singletonKey(self.mockedClass, singletonSelector);
 
     Method origMethod = class_getClassMethod(self.mockedClass, singletonSelector);
     Method newMethod = class_getClassMethod([self class], @selector(mockSingleton));
@@ -120,7 +124,7 @@ static NSMutableDictionary *singletonMap = nil;
 
 - (void)unswizzleSingletonAtSelector:(SEL)singletonSelector
 {
-    NSString *key = SINGLETON_KEY(self.mockedClass, singletonSelector);
+    NSString *key = singletonKey(self.mockedClass, singletonSelector);
     MKTClassObjectMockMapEntry *entry = singletonMap[key];
     if (!entry)
     {
