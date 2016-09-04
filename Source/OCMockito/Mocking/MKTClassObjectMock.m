@@ -4,15 +4,9 @@
 //  Contribution by Igor Sales
 
 #import "MKTClassObjectMock.h"
+
+#import "MKTSwizzler.h"
 #import <objc/runtime.h>
-
-
-static NSMutableDictionary *singletonMap = nil;
-
-static NSString *singletonKey(Class aClass, SEL aSelector)
-{
-    return [NSString stringWithFormat:@"%@-%@", aClass, NSStringFromSelector(aSelector)];
-}
 
 
 @interface MKTClassObjectMockMapEntry : NSObject
@@ -67,7 +61,10 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 {
     self = [super init];
     if (self)
+    {
         _mockedClass = aClass;
+        _swizzler = [[MKTSwizzler alloc] init];
+    }
     return self;
 }
 

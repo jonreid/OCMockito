@@ -4,6 +4,8 @@
 
 #import "MKTBaseMockObject.h"
 
+@class MKTSwizzler;
+
 
 /*!
  * @abstract Mock object of a given class object.
@@ -11,6 +13,7 @@
 @interface MKTClassObjectMock : MKTBaseMockObject
 
 @property (nonatomic, strong, readonly) Class mockedClass;
+@property (nonatomic, strong) MKTSwizzler *swizzler;
 
 + (id)mockSingleton;
 
