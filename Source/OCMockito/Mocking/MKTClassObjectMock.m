@@ -13,7 +13,7 @@
 
 NSMutableDictionary *sSingletonMap = nil;
 
-@interface _MKTClassObjectMockMapEntry : NSObject
+@interface MKTClassObjectMockMapEntry : NSObject
 {
 @public
     __weak MKTClassObjectMock *_mock;
@@ -26,7 +26,7 @@ NSMutableDictionary *sSingletonMap = nil;
 
 @end
 
-@implementation _MKTClassObjectMockMapEntry
+@implementation MKTClassObjectMockMapEntry
 
 - (instancetype)initWithMock:(MKTClassObjectMock *)mock IMP:(IMP)oldIMP selector:(SEL)selector
 {
@@ -58,7 +58,7 @@ NSMutableDictionary *sSingletonMap = nil;
 {
     NSString *key = SINGLETON_KEY(self, _cmd);
     
-    _MKTClassObjectMockMapEntry *entry = sSingletonMap[key];
+    MKTClassObjectMockMapEntry *entry = sSingletonMap[key];
     
     MKTClassObjectMock *mock = entry.mock;
     if (mock)
@@ -110,14 +110,14 @@ NSMutableDictionary *sSingletonMap = nil;
 
     method_setImplementation(origMethod, newIMP);
 
-    _MKTClassObjectMockMapEntry *entry = sSingletonMap[key];
+    MKTClassObjectMockMapEntry *entry = sSingletonMap[key];
     if (entry)
     {
         // The user has already swizzled this singleton, keep the original implementation
         oldIMP = entry.oldIMP;
     }
     
-    sSingletonMap[key] = [[_MKTClassObjectMockMapEntry alloc] initWithMock:self
+    sSingletonMap[key] = [[MKTClassObjectMockMapEntry alloc] initWithMock:self
                                                                        IMP:oldIMP
                                                                   selector:singletonSelector];
 }
@@ -125,7 +125,7 @@ NSMutableDictionary *sSingletonMap = nil;
 - (void)unswizzleSingletonAtSelector:(SEL)singletonSelector
 {
     NSString *key = SINGLETON_KEY(_mockedClass, singletonSelector);
-    _MKTClassObjectMockMapEntry *entry = sSingletonMap[key];
+    MKTClassObjectMockMapEntry *entry = sSingletonMap[key];
     if (!entry)
     {
         NSLog(@"Trying to unswizzle inexistent singleton method: + [%@ %@]",
@@ -139,7 +139,7 @@ NSMutableDictionary *sSingletonMap = nil;
 
 #pragma mark - Private
 
-- (void)unswizzleSingletonFromEntry:(_MKTClassObjectMockMapEntry *)swizzle
+- (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle
 {
     NSAssert(swizzle, @"Invalid argument. swizzle argument cannot be nil");
     Method origMethod = class_getClassMethod(swizzle.mockedClass, swizzle.selector);
@@ -151,7 +151,7 @@ NSMutableDictionary *sSingletonMap = nil;
     NSMutableArray *keysToRemove = [NSMutableArray new];
 
     [sSingletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
-            _MKTClassObjectMockMapEntry *swizzle,
+            MKTClassObjectMockMapEntry *swizzle,
             BOOL *stop) {
         
         //if (swizzle.mockedClass == self.mockedClass) {
