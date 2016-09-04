@@ -9,8 +9,7 @@
 
 @interface MKTSingletonSwizzler : NSObject
 
-@property (nonatomic, weak) MKTClassObjectMock *classMock;
-
+- (instancetype)initWithMock:(MKTClassObjectMock *)classMock;
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;
 
 @end

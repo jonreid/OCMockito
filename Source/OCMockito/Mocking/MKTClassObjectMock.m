@@ -24,10 +24,7 @@
 - (MKTSingletonSwizzler *)swizzler
 {
     if (!_swizzler)
-    {
-        _swizzler = [[MKTSingletonSwizzler alloc] init];
-        _swizzler.classMock = self;
-    }
+        _swizzler = [[MKTSingletonSwizzler alloc] initWithMock:self];
     return _swizzler;
 }
 

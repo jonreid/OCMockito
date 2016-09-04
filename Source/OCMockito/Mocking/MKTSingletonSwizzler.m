@@ -48,6 +48,10 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 @end
 
 
+@interface MKTSingletonSwizzler ()
+@property (nonatomic, weak) MKTClassObjectMock *classMock;
+@end
+
 @implementation MKTSingletonSwizzler
 
 + (void)initialize
@@ -63,6 +67,14 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     return [singleton.mock performSelector:_cmd withObject:nil];
 #pragma clang diagnostic pop
+}
+
+- (instancetype)initWithMock:(MKTClassObjectMock *)classMock
+{
+    self = [super init];
+    if (self)
+        _classMock = classMock;
+    return self;
 }
 
 - (void)dealloc
