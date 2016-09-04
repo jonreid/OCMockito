@@ -4,9 +4,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class MKTClassObjectMock;
+
 
 extern NSMutableDictionary *singletonMap;
 NSString *singletonKey(Class aClass, SEL aSelector);
 
 @interface MKTSwizzler : NSObject
+- (void)swizzleSingletonAtSelector:(SEL)singletonSelector toMock:(MKTClassObjectMock *)theMock;
 @end

@@ -20,6 +20,5 @@
 - (instancetype)initWithClass:(Class)aClass;
 
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;
-- (void)unswizzleSingletonAtSelector:(SEL)singletonSelector;
 
 @end

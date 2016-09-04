@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "247B9E8A1C33522D00B10720"
-               BuildableName = "OCMockito.framework"
+               BuildableName = "OCMockito-watchOS"
                BlueprintName = "OCMockito-watchOS"
                ReferencedContainer = "container:OCMockito.xcodeproj">
             </BuildableReference>

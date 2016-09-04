@@ -83,48 +83,10 @@
     return [self.mockedClass methodSignatureForSelector:aSelector];
 }
 
-#pragma mark Operations
-
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector
 {
-    NSString *key = singletonKey(self.mockedClass, singletonSelector);
-
-    Method origMethod = class_getClassMethod(self.mockedClass, singletonSelector);
-    Method newMethod = class_getClassMethod([self class], @selector(mockSingleton));
-
-    IMP oldIMP = method_getImplementation(origMethod);
-    IMP newIMP = method_getImplementation(newMethod);
-
-    method_setImplementation(origMethod, newIMP);
-
-    MKTClassObjectMockMapEntry *entry = singletonMap[key];
-    if (entry)
-    {
-        // The user has already swizzled this singleton, keep the original implementation
-        oldIMP = entry.oldIMP;
-    }
-    
-    singletonMap[key] = [[MKTClassObjectMockMapEntry alloc] initWithMock:self
-                                                                     IMP:oldIMP
-                                                                selector:singletonSelector];
+    [self.swizzler swizzleSingletonAtSelector:singletonSelector toMock:self];
 }
-
-- (void)unswizzleSingletonAtSelector:(SEL)singletonSelector
-{
-    NSString *key = singletonKey(self.mockedClass, singletonSelector);
-    MKTClassObjectMockMapEntry *entry = singletonMap[key];
-    if (!entry)
-    {
-        NSLog(@"Trying to unswizzle inexistent singleton method: + [%@ %@]",
-                self.mockedClass,
-                NSStringFromSelector(singletonSelector));
-        return;
-    }
-
-    [self unswizzleSingletonFromEntry:entry];
-}
-
-#pragma mark - Private
 
 - (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle
 {

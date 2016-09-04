@@ -81,28 +81,28 @@
     assertThat([ClassMethodsReturningObject singletonMethod], is(@"STUBBED2"));
 }
 
-- (void)testStubbedSingleton_ValidUnswizzle
-{
-    stubSingleton(myMockClass, singletonMethod);
-    
-    [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
-    
-    MKTClassObjectMock *mock = (MKTClassObjectMock *)myMockClass;
-    [mock unswizzleSingletonAtSelector:@selector(singletonMethod)];
-    
-    assertThat([ClassMethodsReturningObject singletonMethod], isNot(@"STUBBED"));
-}
-
-- (void)testStubbedSingleton_InvalidUnswizzling
-{
-    MKTClassObjectMock *mock = (MKTClassObjectMock *)myMockClass;
-    
-    [mock unswizzleSingletonAtSelector:@selector(standardUserDefaults)];
-}
-
-- (void)testNoStubbedSingleton_ReturnsNil
-{
-    assertThat([MKTClassObjectMock mockSingleton], equalTo(nil));
-}
+//- (void)testStubbedSingleton_ValidUnswizzle
+//{
+//    stubSingleton(myMockClass, singletonMethod);
+//
+//    [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
+//
+//    MKTClassObjectMock *mock = (MKTClassObjectMock *)myMockClass;
+//    [mock unswizzleSingletonAtSelector:@selector(singletonMethod)];
+//
+//    assertThat([ClassMethodsReturningObject singletonMethod], isNot(@"STUBBED"));
+//}
+//
+//- (void)testStubbedSingleton_InvalidUnswizzling
+//{
+//    MKTClassObjectMock *mock = (MKTClassObjectMock *)myMockClass;
+//
+//    [mock unswizzleSingletonAtSelector:@selector(standardUserDefaults)];
+//}
+//
+//- (void)testNoStubbedSingleton_ReturnsNil
+//{
+//    assertThat([MKTClassObjectMock mockSingleton], equalTo(nil));
+//}
 
 @end

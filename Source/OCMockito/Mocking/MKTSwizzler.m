@@ -2,6 +2,7 @@
 //  Copyright 2016 Jonathan M. Reid. See LICENSE.txt
 //  Contribution by Igor Sales
 
+#import <objc/runtime.h>
 #import "MKTSwizzler.h"
 
 #import "MKTClassObjectMock.h"
@@ -52,6 +53,30 @@ NSString *singletonKey(Class aClass, SEL aSelector)
 {
     if (!singletonMap)
         singletonMap = [[NSMutableDictionary alloc] init];
+}
+
+- (void)swizzleSingletonAtSelector:(SEL)singletonSelector toMock:(MKTClassObjectMock *)theMock
+{
+    NSString *key = singletonKey(theMock.mockedClass, singletonSelector);
+    
+    Method origMethod = class_getClassMethod(theMock.mockedClass, singletonSelector);
+    Method newMethod = class_getClassMethod([theMock class], @selector(mockSingleton));
+    
+    IMP oldIMP = method_getImplementation(origMethod);
+    IMP newIMP = method_getImplementation(newMethod);
+    
+    method_setImplementation(origMethod, newIMP);
+    
+    MKTClassObjectMockMapEntry2 *entry = singletonMap[key];
+    if (entry)
+    {
+        // The user has already swizzled this singleton, keep the original implementation
+        oldIMP = entry.oldIMP;
+    }
+    
+    singletonMap[key] = [[MKTClassObjectMockMapEntry2 alloc] initWithMock:theMock
+                                                                     IMP:oldIMP
+                                                                selector:singletonSelector];
 }
 
 @end
