@@ -32,7 +32,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 @implementation MKTSingletonMapEntry
 
-- (instancetype)initWithMock:(MKTClassObjectMock *)mock IMP:(IMP)oldIMP selector:(SEL)selector
+- (instancetype)initWithMock:(MKTClassObjectMock *)mock IMP:(IMP)oldIMP selector:(SEL)aSelector
 {
     self = [super init];
     if (self)
@@ -40,7 +40,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
         _mock = mock;
         _mockedClass = mock.mockedClass;
         _oldIMP = oldIMP;
-        _selector = selector;
+        _selector = aSelector;
     }
     return self;
 }
@@ -77,10 +77,8 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     
     Method origMethod = class_getClassMethod(theMock.mockedClass, singletonSelector);
     Method newMethod = class_getClassMethod([self class], @selector(mockSingleton));
-    
     IMP oldIMP = method_getImplementation(origMethod);
     IMP newIMP = method_getImplementation(newMethod);
-    
     method_setImplementation(origMethod, newIMP);
     
     MKTSingletonMapEntry *entry = singletonMap[key];
@@ -100,8 +98,6 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
             MKTSingletonMapEntry *swizzle,
             BOOL *stop) {
-        
-        //if (swizzle.mockedClass == self.mockedClass) {
         // At time of dealloc, it's possible the weak ref to swizzle.mock is nil,
         // so we also check directly on the struct member
         if (swizzle.mock == theMock || swizzle->_mock == theMock)
