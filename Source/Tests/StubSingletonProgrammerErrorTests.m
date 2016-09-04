@@ -40,4 +40,14 @@
             is(@"Argument passed to stubSingleton() should be a class mock but is type MKTObjectMock"));
 }
 
+- (void)testStubSingleton_WithNoSuchSingleton_ShouldGiveError
+{
+    id classMock = mockClass([NSArray class]);
+    
+    stubSingletonWithMockTestCase(classMock, @selector(standardUserDefaults), mockTestCase);
+    
+    assertThat(mockTestCase.failureDescription,
+            is(@"Method name passed to stubSingleton() should be a class method of NSArray but was standardUserDefaults"));
+}
+
 @end
