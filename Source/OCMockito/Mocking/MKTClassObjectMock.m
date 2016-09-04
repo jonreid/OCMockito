@@ -36,6 +36,12 @@
     [self unswizzleSingletons];
 }
 
+- (void)mkt_stopMocking
+{
+    [self unswizzleSingletons];
+    [super mkt_stopMocking];
+}
+
 - (NSString *)description
 {
     return [@"mock class of " stringByAppendingString:NSStringFromClass(self.mockedClass)];
@@ -54,6 +60,7 @@
 - (void)unswizzleSingletons
 {
     [self.swizzler unswizzleSingletonsForMock];
+    self.swizzler.classMock = nil;
 }
 
 #pragma mark NSObject protocol
