@@ -108,9 +108,9 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
                    oldIMP:(IMP)oldIMP
 {
     NSString *key = singletonKey(theMock.mockedClass, singletonSelector);
-    MKTSingletonMapEntry *entry = singletonMap[key];
-    if (entry)
-        oldIMP = entry.oldIMP;
+    MKTSingletonMapEntry *existingSingleton = singletonMap[key];
+    if (existingSingleton)
+        oldIMP = existingSingleton.oldIMP;
     singletonMap[key] = [[MKTSingletonMapEntry alloc] initWithMock:theMock
                                                                IMP:oldIMP
                                                           selector:singletonSelector];
