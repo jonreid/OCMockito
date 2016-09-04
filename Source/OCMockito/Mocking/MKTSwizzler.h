@@ -7,8 +7,8 @@
 @class MKTClassObjectMock;
 
 
-extern NSMutableDictionary *singletonMap;
-NSString *singletonKey(Class aClass, SEL aSelector);
+extern NSMutableDictionary *MKTSingletonMap;
+NSString *mkt_singletonKey(Class aClass, SEL aSelector);
 
 
 @interface MKTClassObjectMockMapEntry : NSObject

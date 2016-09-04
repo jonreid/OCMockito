@@ -8,9 +8,9 @@
 #import <objc/runtime.h>
 
 
-NSMutableDictionary *singletonMap = nil;
+NSMutableDictionary *MKTSingletonMap = nil;
 
-NSString *singletonKey(Class aClass, SEL aSelector)
+NSString *mkt_singletonKey(Class aClass, SEL aSelector)
 {
     return [NSString stringWithFormat:@"%@-%@", aClass, NSStringFromSelector(aSelector)];
 }
@@ -38,8 +38,8 @@ NSString *singletonKey(Class aClass, SEL aSelector)
 
 + (void)initialize
 {
-    if (!singletonMap)
-        singletonMap = [[NSMutableDictionary alloc] init];
+    if (!MKTSingletonMap)
+        MKTSingletonMap = [[NSMutableDictionary alloc] init];
 }
 
 - (void)dealloc
@@ -50,7 +50,7 @@ NSString *singletonKey(Class aClass, SEL aSelector)
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector
 {
     MKTClassObjectMock *theMock = self.classMock;
-    NSString *key = singletonKey(theMock.mockedClass, singletonSelector);
+    NSString *key = mkt_singletonKey(theMock.mockedClass, singletonSelector);
     
     Method origMethod = class_getClassMethod(theMock.mockedClass, singletonSelector);
     Method newMethod = class_getClassMethod([theMock class], @selector(mockSingleton));
@@ -60,14 +60,14 @@ NSString *singletonKey(Class aClass, SEL aSelector)
     
     method_setImplementation(origMethod, newIMP);
     
-    MKTClassObjectMockMapEntry *entry = singletonMap[key];
+    MKTClassObjectMockMapEntry *entry = MKTSingletonMap[key];
     if (entry)
     {
         // The user has already swizzled this singleton, keep the original implementation
         oldIMP = entry.oldIMP;
     }
     
-    singletonMap[key] = [[MKTClassObjectMockMapEntry alloc] initWithMock:theMock
+    MKTSingletonMap[key] = [[MKTClassObjectMockMapEntry alloc] initWithMock:theMock
                                                                      IMP:oldIMP
                                                                 selector:singletonSelector];
 }
@@ -77,7 +77,7 @@ NSString *singletonKey(Class aClass, SEL aSelector)
     MKTClassObjectMock *theMock = self.classMock;
     NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
     
-    [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
+    [MKTSingletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
             MKTClassObjectMockMapEntry *swizzle,
             BOOL *stop) {
         
@@ -91,7 +91,7 @@ NSString *singletonKey(Class aClass, SEL aSelector)
         }
     }];
     
-    [singletonMap removeObjectsForKeys:keysToRemove];
+    [MKTSingletonMap removeObjectsForKeys:keysToRemove];
 }
 
 - (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle
