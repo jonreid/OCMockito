@@ -12,10 +12,24 @@
 @end
 
 @implementation StubSingletonTests
+{
+    __strong Class mockUserDefaultsClass;
+}
+
+- (void)setUp
+{
+    [super setUp];
+    mockUserDefaultsClass = mockClass([NSUserDefaults class]);
+}
+
+- (void)tearDown
+{
+    mockUserDefaultsClass = nil;
+    [super tearDown];
+}
 
 - (void)testStubbedSingleton_ShouldReturnGivenObject
 {
-    __strong Class mockUserDefaultsClass = mockClass([NSUserDefaults class]);
     stubSingleton(mockUserDefaultsClass, standardUserDefaults);
     [given([mockUserDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
     
@@ -29,7 +43,6 @@
 
 - (void)testExplicitlyStopMocking_ClassWithStubbedSingleton_ShouldReturnOriginalSingleton
 {
-    __strong Class mockUserDefaultsClass = mockClass([NSUserDefaults class]);
     stubSingleton(mockUserDefaultsClass, standardUserDefaults);
     [given([mockUserDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
     
@@ -40,9 +53,8 @@
 
 - (void)testStubbedSingleton_WithMultipleStubs_ShouldGivePrecedenceToLastStub
 {
-    __strong Class firstMockClass = mockClass([NSUserDefaults class]);
-    stubSingleton(firstMockClass, standardUserDefaults);
-    [given([firstMockClass standardUserDefaults]) willReturn:@"STUBBED"];
+    stubSingleton(mockUserDefaultsClass, standardUserDefaults);
+    [given([mockUserDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
     
     __strong Class secondMockClass = mockClass([NSUserDefaults class]);
     stubSingleton(secondMockClass, standardUserDefaults);
@@ -53,15 +65,14 @@
 
 - (void)testExplicitlyStop_WithMultipleStubs_ShouldReturnOriginalSingleton
 {
-    __strong Class firstMockClass = mockClass([NSUserDefaults class]);
-    stubSingleton(firstMockClass, standardUserDefaults);
-    [given([firstMockClass standardUserDefaults]) willReturn:@"STUBBED"];
+    stubSingleton(mockUserDefaultsClass, standardUserDefaults);
+    [given([mockUserDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
     
     __strong Class secondMockClass = mockClass([NSUserDefaults class]);
     stubSingleton(secondMockClass, standardUserDefaults);
     [given([secondMockClass standardUserDefaults]) willReturn:@"STUBBED2"];
     
-    stopMocking(firstMockClass);
+    stopMocking(mockUserDefaultsClass);
     stopMocking(secondMockClass);
     
     assertThat([NSUserDefaults standardUserDefaults], is(instanceOf([NSUserDefaults class])));
