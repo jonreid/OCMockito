@@ -16,20 +16,7 @@ NSString *singletonKey(Class aClass, SEL aSelector)
 }
 
 
-@interface MKTClassObjectMockMapEntry2 : NSObject
-{
-@public
-    __weak MKTClassObjectMock *_mock;
-}
-
-@property (nonatomic, weak, readonly) MKTClassObjectMock *mock;
-@property (nonatomic, weak, readonly) Class mockedClass;
-@property (nonatomic, assign, readonly) IMP oldIMP;
-@property (nonatomic, assign, readonly) SEL selector;
-
-@end
-
-@implementation MKTClassObjectMockMapEntry2
+@implementation MKTClassObjectMockMapEntry
 
 - (instancetype)initWithMock:(MKTClassObjectMock *)mock IMP:(IMP)oldIMP selector:(SEL)selector
 {
@@ -67,14 +54,14 @@ NSString *singletonKey(Class aClass, SEL aSelector)
     
     method_setImplementation(origMethod, newIMP);
     
-    MKTClassObjectMockMapEntry2 *entry = singletonMap[key];
+    MKTClassObjectMockMapEntry *entry = singletonMap[key];
     if (entry)
     {
         // The user has already swizzled this singleton, keep the original implementation
         oldIMP = entry.oldIMP;
     }
     
-    singletonMap[key] = [[MKTClassObjectMockMapEntry2 alloc] initWithMock:theMock
+    singletonMap[key] = [[MKTClassObjectMockMapEntry alloc] initWithMock:theMock
                                                                      IMP:oldIMP
                                                                 selector:singletonSelector];
 }
