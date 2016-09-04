@@ -16,10 +16,10 @@
 
 + (id)mockSingleton
 {
-    MKTClassObjectMockMapEntry *entry = MKTSingletonMap[mkt_singletonKey(self, _cmd)];
+    MKTSingletonMapEntry *singleton = MKTSingletonMap[mkt_singletonKey(self, _cmd)];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    return [entry.mock performSelector:_cmd withObject:nil];
+    return [singleton.mock performSelector:_cmd withObject:nil];
 #pragma clang diagnostic pop
 }
 

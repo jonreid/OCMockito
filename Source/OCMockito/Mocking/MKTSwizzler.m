@@ -16,7 +16,7 @@ NSString *mkt_singletonKey(Class aClass, SEL aSelector)
 }
 
 
-@implementation MKTClassObjectMockMapEntry
+@implementation MKTSingletonMapEntry
 
 - (instancetype)initWithMock:(MKTClassObjectMock *)mock IMP:(IMP)oldIMP selector:(SEL)selector
 {
@@ -60,14 +60,14 @@ NSString *mkt_singletonKey(Class aClass, SEL aSelector)
     
     method_setImplementation(origMethod, newIMP);
     
-    MKTClassObjectMockMapEntry *entry = MKTSingletonMap[key];
+    MKTSingletonMapEntry *entry = MKTSingletonMap[key];
     if (entry)
     {
         // The user has already swizzled this singleton, keep the original implementation
         oldIMP = entry.oldIMP;
     }
     
-    MKTSingletonMap[key] = [[MKTClassObjectMockMapEntry alloc] initWithMock:theMock
+    MKTSingletonMap[key] = [[MKTSingletonMapEntry alloc] initWithMock:theMock
                                                                      IMP:oldIMP
                                                                 selector:singletonSelector];
 }
@@ -78,7 +78,7 @@ NSString *mkt_singletonKey(Class aClass, SEL aSelector)
     NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
     
     [MKTSingletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
-            MKTClassObjectMockMapEntry *swizzle,
+            MKTSingletonMapEntry *swizzle,
             BOOL *stop) {
         
         //if (swizzle.mockedClass == self.mockedClass) {
@@ -94,7 +94,7 @@ NSString *mkt_singletonKey(Class aClass, SEL aSelector)
     [MKTSingletonMap removeObjectsForKeys:keysToRemove];
 }
 
-- (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle
+- (void)unswizzleSingletonFromEntry:(MKTSingletonMapEntry *)swizzle
 {
     Method origMethod = class_getClassMethod(swizzle.mockedClass, swizzle.selector);
     method_setImplementation(origMethod, swizzle.oldIMP);

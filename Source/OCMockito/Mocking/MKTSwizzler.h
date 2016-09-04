@@ -11,7 +11,7 @@ extern NSMutableDictionary *MKTSingletonMap;
 NSString *mkt_singletonKey(Class aClass, SEL aSelector);
 
 
-@interface MKTClassObjectMockMapEntry : NSObject
+@interface MKTSingletonMapEntry : NSObject
 {
 @public
     __weak MKTClassObjectMock *_mock;
@@ -30,5 +30,5 @@ NSString *mkt_singletonKey(Class aClass, SEL aSelector);
 @property (nonatomic, weak) MKTClassObjectMock *classMock;
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;
 - (void)unswizzleSingletonsForMock;
-- (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle;
+- (void)unswizzleSingletonFromEntry:(MKTSingletonMapEntry *)swizzle;
 @end
