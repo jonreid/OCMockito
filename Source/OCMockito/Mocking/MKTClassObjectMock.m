@@ -11,12 +11,6 @@
 
 @implementation MKTClassObjectMock
 
-+ (void)initialize
-{
-    if (!singletonMap)
-        singletonMap = [[NSMutableDictionary alloc] init];
-}
-
 + (id)mockSingleton
 {
     MKTClassObjectMockMapEntry *entry = singletonMap[singletonKey(self, _cmd)];
