@@ -17,10 +17,6 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 
 @interface MKTSingletonMapEntry : NSObject
-{
-@public
-    __weak MKTClassObjectMock *_mock;
-}
 
 @property (nonatomic, weak, readonly) MKTClassObjectMock *mock;
 @property (nonatomic, weak, readonly) Class mockedClass;
