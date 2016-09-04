@@ -10,6 +10,8 @@
  */
 @interface MKTClassObjectMock : MKTBaseMockObject
 
+@property (nonatomic, strong, readonly) Class mockedClass;
+
 - (instancetype)initWithClass:(Class)aClass;
 
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;
