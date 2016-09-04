@@ -49,7 +49,7 @@ NSMutableDictionary *sSingletonMap = nil;
 + (void)initialize
 {
     if (!sSingletonMap)
-        sSingletonMap = [NSMutableDictionary new];
+        sSingletonMap = [[NSMutableDictionary alloc] init];
 }
 
 #define SINGLETON_KEY(C, S) [NSString stringWithFormat:@"%@-%@", C, NSStringFromSelector(S)]
@@ -148,7 +148,7 @@ NSMutableDictionary *sSingletonMap = nil;
 
 - (void)unswizzleSingletons
 {
-    NSMutableArray *keysToRemove = [NSMutableArray new];
+    NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
 
     [sSingletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
             MKTClassObjectMockMapEntry *swizzle,

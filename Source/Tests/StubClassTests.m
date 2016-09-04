@@ -22,7 +22,7 @@
 {
     static ClassMethodsReturningObject *sSingleton = nil;
     if (!sSingleton)
-        sSingleton = [ClassMethodsReturningObject new];
+        sSingleton = [[ClassMethodsReturningObject alloc] init];
     return sSingleton;
 }
 
