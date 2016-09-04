@@ -95,13 +95,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 {
     MKTClassObjectMock *theMock = self.classMock;
     IMP oldIMP = [self swizzleSingleton:singletonSelector forMock:theMock];
-    NSString *key = singletonKey(theMock.mockedClass, singletonSelector);
-    MKTSingletonMapEntry *entry = singletonMap[key];
-    if (entry)
-        oldIMP = entry.oldIMP;
-    singletonMap[key] = [[MKTSingletonMapEntry alloc] initWithMock:theMock
-                                                               IMP:oldIMP
-                                                          selector:singletonSelector];
+    [self registerSingleton:singletonSelector forMock:theMock oldIMP:oldIMP];
 }
 
 - (IMP)swizzleSingleton:(SEL)singletonSelector forMock:(MKTClassObjectMock *)theMock
@@ -110,6 +104,19 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     Method newMethod = class_getClassMethod([self class], @selector(mockSingleton));
     IMP newIMP = method_getImplementation(newMethod);
     return method_setImplementation(oldMethod, newIMP);
+}
+
+- (void)registerSingleton:(SEL)singletonSelector
+                  forMock:(MKTClassObjectMock *)theMock
+                   oldIMP:(IMP)oldIMP
+{
+    NSString *key = singletonKey(theMock.mockedClass, singletonSelector);
+    MKTSingletonMapEntry *entry = singletonMap[key];
+    if (entry)
+        oldIMP = entry.oldIMP;
+    singletonMap[key] = [[MKTSingletonMapEntry alloc] initWithMock:theMock
+                                                               IMP:oldIMP
+                                                          selector:singletonSelector];
 }
 
 - (void)unswizzleSingletonsForMock
