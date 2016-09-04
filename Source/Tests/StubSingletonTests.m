@@ -51,4 +51,20 @@
     assertThat([NSUserDefaults standardUserDefaults], is(@"STUBBED2"));
 }
 
+- (void)testExplicitlyStop_WithMultipleStubs_ShouldReturnOriginalSingleton
+{
+    __strong Class firstMockClass = mockClass([NSUserDefaults class]);
+    stubSingleton(firstMockClass, standardUserDefaults);
+    [given([firstMockClass standardUserDefaults]) willReturn:@"STUBBED"];
+    
+    __strong Class secondMockClass = mockClass([NSUserDefaults class]);
+    stubSingleton(secondMockClass, standardUserDefaults);
+    [given([secondMockClass standardUserDefaults]) willReturn:@"STUBBED2"];
+    
+    stopMocking(firstMockClass);
+    stopMocking(secondMockClass);
+    
+    assertThat([NSUserDefaults standardUserDefaults], is(instanceOf([NSUserDefaults class])));
+}
+
 @end

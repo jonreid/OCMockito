@@ -85,14 +85,11 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     
     MKTSingletonMapEntry *entry = singletonMap[key];
     if (entry)
-    {
-        // The user has already swizzled this singleton, keep the original implementation
         oldIMP = entry.oldIMP;
-    }
     
     singletonMap[key] = [[MKTSingletonMapEntry alloc] initWithMock:theMock
-                                                                     IMP:oldIMP
-                                                                selector:singletonSelector];
+                                                               IMP:oldIMP
+                                                          selector:singletonSelector];
 }
 
 - (void)unswizzleSingletonsForMock
