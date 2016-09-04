@@ -51,11 +51,6 @@
     [self.swizzler swizzleSingletonAtSelector:singletonSelector toMock:self];
 }
 
-- (void)unswizzleSingletonFromEntry:(MKTClassObjectMockMapEntry *)swizzle
-{
-    [self.swizzler unswizzleSingletonFromEntry:swizzle];
-}
-
 - (void)unswizzleSingletons
 {
     [self.swizzler unswizzleSingletonsForMock:self];
