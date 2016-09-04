@@ -42,6 +42,15 @@ NSString *mkt_singletonKey(Class aClass, SEL aSelector)
         MKTSingletonMap = [[NSMutableDictionary alloc] init];
 }
 
++ (id)mockSingleton
+{
+    MKTSingletonMapEntry *singleton = MKTSingletonMap[mkt_singletonKey(self, _cmd)];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    return [singleton.mock performSelector:_cmd withObject:nil];
+#pragma clang diagnostic pop
+}
+
 - (void)dealloc
 {
     [self unswizzleSingletonsForMock];
@@ -53,7 +62,7 @@ NSString *mkt_singletonKey(Class aClass, SEL aSelector)
     NSString *key = mkt_singletonKey(theMock.mockedClass, singletonSelector);
     
     Method origMethod = class_getClassMethod(theMock.mockedClass, singletonSelector);
-    Method newMethod = class_getClassMethod([theMock class], @selector(mockSingleton));
+    Method newMethod = class_getClassMethod([self class], @selector(mockSingleton));
     
     IMP oldIMP = method_getImplementation(origMethod);
     IMP newIMP = method_getImplementation(newMethod);

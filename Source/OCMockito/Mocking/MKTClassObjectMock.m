@@ -1,7 +1,6 @@
 //  OCMockito by Jon Reid, http://qualitycoding.org/about/
 //  Copyright 2016 Jonathan M. Reid. See LICENSE.txt
 //  Contribution by David Hart
-//  Contribution by Igor Sales
 
 #import "MKTClassObjectMock.h"
 
@@ -13,15 +12,6 @@
 @end
 
 @implementation MKTClassObjectMock
-
-+ (id)mockSingleton
-{
-    MKTSingletonMapEntry *singleton = MKTSingletonMap[mkt_singletonKey(self, _cmd)];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    return [singleton.mock performSelector:_cmd withObject:nil];
-#pragma clang diagnostic pop
-}
 
 - (instancetype)initWithClass:(Class)aClass
 {
