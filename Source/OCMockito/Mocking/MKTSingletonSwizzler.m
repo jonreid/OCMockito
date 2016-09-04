@@ -52,6 +52,12 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     return self.mock == theMock || self->_mock == theMock;
 }
 
+- (void)unswizzleSingleton
+{
+    Method originalMethod = class_getClassMethod(self.mockedClass, self.selector);
+    method_setImplementation(originalMethod, self.oldIMP);
+}
+
 @end
 
 
@@ -120,18 +126,12 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
             BOOL *stop) {
         if ([swizzled isForMock:theMock])
         {
-            [self unswizzleSingleton:swizzled];
+            [swizzled unswizzleSingleton];
             [keysToRemove addObject:key];
         }
     }];
     
     [singletonMap removeObjectsForKeys:keysToRemove];
-}
-
-- (void)unswizzleSingleton:(MKTSingletonMapEntry *)swizzled
-{
-    Method originalMethod = class_getClassMethod(swizzled.mockedClass, swizzled.selector);
-    method_setImplementation(originalMethod, swizzled.oldIMP);
 }
 
 @end
