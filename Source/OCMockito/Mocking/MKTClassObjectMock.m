@@ -4,7 +4,7 @@
 //  Contribution by Igor Sales
 
 #import "MKTClassObjectMock.h"
-#import <objc/objc-runtime.h>
+#import <objc/runtime.h>
 
 
 @interface MKTClassObjectMock ()
