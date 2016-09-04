@@ -402,7 +402,7 @@ static inline double *createArrayOf10Doubles(void)
 
 - (void)testStubbingWithBlock_ShouldReturnWhatBlockReturns
 {
-    [given([mockObject methodReturningObject]) willDo:^id (NSInvocation *invocation){
+    [given([mockObject methodReturningObject]) willDo:^id(NSInvocation *invocation) {
         return @"FOO";
     }];
 
@@ -411,7 +411,7 @@ static inline double *createArrayOf10Doubles(void)
 
 - (void)testStubbingWithBlock_ShouldBeAbleToAccessInvocationArguments
 {
-    [given([mockObject methodReturningObjectWithArg:anything()]) willDo:^id (NSInvocation *invocation){
+    [given([mockObject methodReturningObjectWithArg:anything()]) willDo:^id(NSInvocation *invocation) {
         NSArray *args = [invocation mkt_arguments];
         return @([args[0] intValue] * 2);
     }];
@@ -424,7 +424,7 @@ static inline double *createArrayOf10Doubles(void)
 {
     __block NSUInteger counter = 0;
     ReturningObject *mockObj = mockObject;
-    [givenVoid([mockObj methodReturningNothing]) willDo:^id (NSInvocation *invocation){
+    [givenVoid([mockObj methodReturningNothing]) willDo:^id(NSInvocation *invocation) {
         ++counter;
         return nil;
     }];

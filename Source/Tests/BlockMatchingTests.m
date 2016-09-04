@@ -59,7 +59,7 @@ typedef NSString *(^BlockReturningString)(void);
 - (void)testMockingMethodWithBlockArg_WithArgumentCaptor_ShouldLetYouExecuteCapturedBlock
 {
     HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
-
+    
     [mockObj doBlock:^NSString * {
         return @"SUCCESS";
     }];
