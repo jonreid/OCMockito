@@ -12,6 +12,5 @@
 @property (nonatomic, weak) MKTClassObjectMock *classMock;
 
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;
-- (void)unswizzleSingletonsForMock;
 
 @end
