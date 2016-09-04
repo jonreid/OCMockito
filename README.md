@@ -374,7 +374,7 @@ invocation arguments by calling `mkt_arguments` from NSInvocation+OCMockito.h.
 Whatever the block returns will be used as the stubbed return value.
 
 ```obj-c
-[[given([mockObject someMethod:anything()]) willDo:^id (NSInvocation *invocation){
+[given([mockObject someMethod:anything()]) willDo:^id (NSInvocation *invocation){
     NSArray *args = [invocation mkt_arguments];
     return @([args[0] intValue] * 2);
 }];

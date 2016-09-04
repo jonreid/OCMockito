@@ -163,7 +163,7 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
  * matcher is implicitly wrapped in <code>equalTo</code> to match for equality.
  *
  * Example:
- * <pre>[givenVoid([mockObject methodReturningVoid]) willDo:^{ magic(); }];</pre>
+ * <pre>[givenVoid([mockObject methodReturningVoid]) willDo:^id(NSInvocation *invocation) { magic(); return nil; }];</pre>
  *
  * <b>Name Clash</b><br />
  * In the event of a name clash, <code>#define MKT_DISABLE_SHORT_SYNTAX</code> and use the synonym
