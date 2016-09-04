@@ -7,24 +7,11 @@
 @class MKTClassObjectMock;
 
 
-@interface MKTSingletonMapEntry : NSObject
-{
-@public
-    __weak MKTClassObjectMock *_mock;
-}
-
-@property (nonatomic, weak, readonly) MKTClassObjectMock *mock;
-@property (nonatomic, weak, readonly) Class mockedClass;
-@property (nonatomic, assign, readonly) IMP oldIMP;
-@property (nonatomic, assign, readonly) SEL selector;
-
-@end
-
-
 @interface MKTSwizzler : NSObject
 
 @property (nonatomic, weak) MKTClassObjectMock *classMock;
+
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;
 - (void)unswizzleSingletonsForMock;
-- (void)unswizzleSingletonFromEntry:(MKTSingletonMapEntry *)swizzle;
+
 @end
