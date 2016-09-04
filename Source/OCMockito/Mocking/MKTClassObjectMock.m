@@ -17,12 +17,18 @@
 {
     self = [super init];
     if (self)
-    {
         _mockedClass = aClass;
+    return self;
+}
+
+- (MKTSingletonSwizzler *)swizzler
+{
+    if (!_swizzler)
+    {
         _swizzler = [[MKTSingletonSwizzler alloc] init];
         _swizzler.classMock = self;
     }
-    return self;
+    return _swizzler;
 }
 
 - (void)mkt_stopMocking

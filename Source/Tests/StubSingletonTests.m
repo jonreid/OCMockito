@@ -36,6 +36,11 @@
     assertThat([NSUserDefaults standardUserDefaults], is(@"STUBBED"));
 }
 
+- (void)testFoo
+{
+    stopMocking(mockUserDefaultsClass);
+}
+
 - (void)testStubbedSingleton_ShouldReturnGivenObject_SO_NAMED_TO_EXECUTE_AFTER_TEST_ABOVE_EnsureThatMockDeallocationRestoresOriginalSingleton
 {
     assertThat([NSUserDefaults standardUserDefaults], is(instanceOf([NSUserDefaults class])));
