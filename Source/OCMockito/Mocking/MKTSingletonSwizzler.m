@@ -99,10 +99,8 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 {
     Method oldMethod = class_getClassMethod(theMock.mockedClass, singletonSelector);
     Method newMethod = class_getClassMethod([self class], @selector(mockSingleton));
-    IMP oldIMP = method_getImplementation(oldMethod);
     IMP newIMP = method_getImplementation(newMethod);
-    method_setImplementation(oldMethod, newIMP);
-    return oldIMP;
+    return method_setImplementation(oldMethod, newIMP);
 }
 
 - (void)unswizzleSingletonsForMock
