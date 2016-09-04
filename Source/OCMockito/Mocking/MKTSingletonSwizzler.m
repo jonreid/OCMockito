@@ -45,6 +45,13 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     return self;
 }
 
+- (BOOL)isForMock:(MKTClassObjectMock *)theMock
+{
+    // At time of dealloc, it's possible the weak ref to self.mock is nil,
+    // so we also check directly on the ivar.
+    return self.mock == theMock || self->_mock == theMock;
+}
+
 @end
 
 
@@ -111,9 +118,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
             MKTSingletonMapEntry *swizzled,
             BOOL *stop) {
-        // At time of dealloc, it's possible the weak ref to swizzled.mock is nil,
-        // so we also check directly on the struct member
-        if (swizzled.mock == theMock || swizzled->_mock == theMock)
+        if ([swizzled isForMock:theMock])
         {
             [self unswizzleSingleton:swizzled];
             [keysToRemove addObject:key];
