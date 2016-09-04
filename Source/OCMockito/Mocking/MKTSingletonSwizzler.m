@@ -96,13 +96,13 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
     
     [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
-            MKTSingletonMapEntry *swizzle,
+            MKTSingletonMapEntry *swizzled,
             BOOL *stop) {
-        // At time of dealloc, it's possible the weak ref to swizzle.mock is nil,
+        // At time of dealloc, it's possible the weak ref to swizzled.mock is nil,
         // so we also check directly on the struct member
-        if (swizzle.mock == theMock || swizzle->_mock == theMock)
+        if (swizzled.mock == theMock || swizzled->_mock == theMock)
         {
-            [self unswizzleSingletonFromEntry:swizzle];
+            [self unswizzleSingletonFromEntry:swizzled];
             [keysToRemove addObject:key];
         }
     }];
@@ -110,10 +110,10 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     [singletonMap removeObjectsForKeys:keysToRemove];
 }
 
-- (void)unswizzleSingletonFromEntry:(MKTSingletonMapEntry *)swizzle
+- (void)unswizzleSingletonFromEntry:(MKTSingletonMapEntry *)swizzled
 {
-    Method origMethod = class_getClassMethod(swizzle.mockedClass, swizzle.selector);
-    method_setImplementation(origMethod, swizzle.oldIMP);
+    Method origMethod = class_getClassMethod(swizzled.mockedClass, swizzled.selector);
+    method_setImplementation(origMethod, swizzled.oldIMP);
 }
 
 @end
