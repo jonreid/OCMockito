@@ -63,6 +63,11 @@ MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, const char *fileName, 
     return [[MKTMockitoCore sharedCore] stubAtLocation:MKTTestLocationMake(testCase, fileName, lineNumber)];
 }
 
+void MKTStubSingletonWithLocation(id mockClass, SEL aSelector, id testCase, const char *fileName, int lineNumber)
+{
+    [(MKTClassObjectMock*)mockClass swizzleSingletonAtSelector:aSelector];
+}
+
 id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
     if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"verify()"))

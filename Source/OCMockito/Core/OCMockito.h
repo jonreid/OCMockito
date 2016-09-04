@@ -192,8 +192,8 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, cons
 #endif
 
 
-#define MKTStubSingleton(mockClass, sel) \
-    [(MKTClassObjectMock*)mockClass swizzleSingletonAtSelector:@selector(sel)]
+FOUNDATION_EXPORT void MKTStubSingletonWithLocation(id mockClass, SEL aSelector, id testCase, const char *fileName, int lineNumber);
+#define MKTStubSingleton(mockClass, methodName) MKTStubSingletonWithLocation(mockClass, @selector(methodName), self, __FILE__, __LINE__)
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
 /*!
