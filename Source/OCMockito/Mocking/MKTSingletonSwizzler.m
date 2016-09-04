@@ -115,7 +115,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
         // so we also check directly on the struct member
         if (swizzled.mock == theMock || swizzled->_mock == theMock)
         {
-            [self unswizzleSingletonFromEntry:swizzled];
+            [self unswizzleSingleton:swizzled];
             [keysToRemove addObject:key];
         }
     }];
@@ -123,10 +123,10 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     [singletonMap removeObjectsForKeys:keysToRemove];
 }
 
-- (void)unswizzleSingletonFromEntry:(MKTSingletonMapEntry *)swizzled
+- (void)unswizzleSingleton:(MKTSingletonMapEntry *)swizzled
 {
-    Method origMethod = class_getClassMethod(swizzled.mockedClass, swizzled.selector);
-    method_setImplementation(origMethod, swizzled.oldIMP);
+    Method originalMethod = class_getClassMethod(swizzled.mockedClass, swizzled.selector);
+    method_setImplementation(originalMethod, swizzled.oldIMP);
 }
 
 @end
