@@ -11,6 +11,7 @@
 @interface ClassWithSingleton : NSObject
 @end
 
+
 @implementation ClassWithSingleton
 
 + (id)singletonMethod
@@ -28,29 +29,29 @@
 @end
 
 @implementation StubSingletonTests
-{
-    __strong Class myMockClass;
-}
 
-- (void)setUp
+- (void)testUnstubbedSingleton_ShouldReturnExpectedInstance
 {
-    [super setUp];
-    myMockClass = mockClass([ClassWithSingleton class]);
+    ClassWithSingleton *instance = [ClassWithSingleton singletonMethod];
+    
+    assertThat(instance, is(instanceOf([ClassWithSingleton class])));
 }
 
 - (void)testStubbedSingleton_ShouldReturnGivenObject
 {
+    __strong Class myMockClass = mockClass([ClassWithSingleton class]);
     stubSingleton(myMockClass, singletonMethod);
-
+    
     [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
-
+    
     assertThat([ClassWithSingleton singletonMethod], is(@"STUBBED"));
 }
 
 - (void)testStubbedSingletonOnExistingClass_ShouldReturnGivenObject
 {
+    __strong Class myMockClass = mockClass([ClassWithSingleton class]);
     Class userDefaultsClass = mockClass([NSUserDefaults class]);
-
+    
     stubSingleton(userDefaultsClass, standardUserDefaults);
     
     [given([userDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
@@ -60,12 +61,13 @@
 
 - (void)testStubbedSingleton_LastSingletonStubTakesPrecedence
 {
+    __strong Class myMockClass = mockClass([ClassWithSingleton class]);
     stubSingleton(myMockClass, singletonMethod);
     
     [given([myMockClass singletonMethod]) willReturn:@"STUBBED"];
     
     Class myNewMockClass = mockClass([ClassWithSingleton class]);
-
+    
     stubSingleton(myNewMockClass, singletonMethod);
     
     [given([myNewMockClass singletonMethod]) willReturn:@"STUBBED2"];
