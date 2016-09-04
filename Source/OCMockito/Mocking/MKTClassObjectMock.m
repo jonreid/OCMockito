@@ -6,7 +6,6 @@
 #import "MKTClassObjectMock.h"
 
 #import "MKTSwizzler.h"
-#import <objc/runtime.h>
 
 
 @implementation MKTClassObjectMock

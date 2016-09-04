@@ -2,10 +2,10 @@
 //  Copyright 2016 Jonathan M. Reid. See LICENSE.txt
 //  Contribution by Igor Sales
 
-#import <objc/runtime.h>
 #import "MKTSwizzler.h"
 
 #import "MKTClassObjectMock.h"
+#import <objc/runtime.h>
 
 
 NSMutableDictionary *singletonMap = nil;
