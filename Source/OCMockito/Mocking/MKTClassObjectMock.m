@@ -8,6 +8,10 @@
 #import "MKTSwizzler.h"
 
 
+@interface MKTClassObjectMock ()
+@property (nonatomic, strong) MKTSwizzler *swizzler;
+@end
+
 @implementation MKTClassObjectMock
 
 + (id)mockSingleton
@@ -50,6 +54,12 @@
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector
 {
     [self.swizzler swizzleSingletonAtSelector:singletonSelector];
+}
+
+- (void)unswizzleSingletons
+{
+    [self.swizzler unswizzleSingletonsForMock];
+    self.swizzler.classMock = nil;
 }
 
 #pragma mark NSObject protocol
