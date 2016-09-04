@@ -58,23 +58,7 @@
 
 - (void)unswizzleSingletons
 {
-    NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
-
-    [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
-            MKTClassObjectMockMapEntry *swizzle,
-            BOOL *stop) {
-        
-        //if (swizzle.mockedClass == self.mockedClass) {
-        // At time of dealloc, it's possible the weak ref to swizzle.mock is nil,
-        // so we also check directly on the struct member
-        if (swizzle.mock == self || swizzle->_mock == self)
-        {
-            [self unswizzleSingletonFromEntry:swizzle];
-            [keysToRemove addObject:key];
-        }
-    }];
-
-    [singletonMap removeObjectsForKeys:keysToRemove];
+    [self.swizzler unswizzleSingletonsForMock:self];
 }
 
 #pragma mark NSObject protocol
