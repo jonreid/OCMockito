@@ -2,7 +2,7 @@
 //  Copyright 2016 Jonathan M. Reid. See LICENSE.txt
 //  Contribution by Igor Sales
 
-#import "MKTSwizzler.h"
+#import "MKTSingletonSwizzler.h"
 
 #import "MKTClassObjectMock.h"
 #import <objc/runtime.h>
@@ -48,7 +48,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 @end
 
 
-@implementation MKTSwizzler
+@implementation MKTSingletonSwizzler
 
 + (void)initialize
 {

@@ -4,11 +4,11 @@
 
 #import "MKTClassObjectMock.h"
 
-#import "MKTSwizzler.h"
+#import "MKTSingletonSwizzler.h"
 
 
 @interface MKTClassObjectMock ()
-@property (nonatomic, strong) MKTSwizzler *swizzler;
+@property (nonatomic, strong) MKTSingletonSwizzler *swizzler;
 @end
 
 @implementation MKTClassObjectMock
@@ -19,7 +19,7 @@
     if (self)
     {
         _mockedClass = aClass;
-        _swizzler = [[MKTSwizzler alloc] init];
+        _swizzler = [[MKTSingletonSwizzler alloc] init];
         _swizzler.classMock = self;
     }
     return self;

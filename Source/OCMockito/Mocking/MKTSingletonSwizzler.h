@@ -7,7 +7,7 @@
 @class MKTClassObjectMock;
 
 
-@interface MKTSwizzler : NSObject
+@interface MKTSingletonSwizzler : NSObject
 
 @property (nonatomic, weak) MKTClassObjectMock *classMock;
 

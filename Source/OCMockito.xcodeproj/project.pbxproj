@@ -700,16 +700,16 @@
 		74A3BDDE19F76DF0006591C9 /* VerifyCountNeverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */; };
 		74A3BDDF19F76DF0006591C9 /* VerifyProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */; };
 		74A3BDE019F76DF0006591C9 /* VerifyCountAtLeastTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */; };
-		BB1703E0B53EAE270808B4C9 /* MKTSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSwizzler.h */; };
-		BB17049F99AEF87E21119393 /* MKTSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSwizzler.h */; };
-		BB17065730240A1DF17600F1 /* MKTSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSwizzler.m */; };
-		BB17069FC87BDF21FA134045 /* MKTSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSwizzler.m */; };
-		BB17084C1E283F1700714FEE /* MKTSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSwizzler.h */; };
-		BB170A003C70B17CFB27C7A3 /* MKTSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSwizzler.m */; };
-		BB170C4B63C765380CB7041F /* MKTSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSwizzler.h */; };
-		BB170D5D9CFEBFF07BC2B571 /* MKTSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSwizzler.m */; };
-		BB170DEDD2F25A576736F96C /* MKTSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSwizzler.h */; };
-		BB170EC11FB903FB1BBBFD8D /* MKTSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSwizzler.m */; };
+		BB1703E0B53EAE270808B4C9 /* MKTSingletonSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */; };
+		BB17049F99AEF87E21119393 /* MKTSingletonSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */; };
+		BB17065730240A1DF17600F1 /* MKTSingletonSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */; };
+		BB17069FC87BDF21FA134045 /* MKTSingletonSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */; };
+		BB17084C1E283F1700714FEE /* MKTSingletonSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */; };
+		BB170A003C70B17CFB27C7A3 /* MKTSingletonSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */; };
+		BB170C4B63C765380CB7041F /* MKTSingletonSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */; };
+		BB170D5D9CFEBFF07BC2B571 /* MKTSingletonSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */; };
+		BB170DEDD2F25A576736F96C /* MKTSingletonSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */; };
+		BB170EC11FB903FB1BBBFD8D /* MKTSingletonSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */; };
 		BB3330085137F72188E7CE75 /* MKTUnsignedLongReturnSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB33324F2BE8DADF6F0E5390 /* MKTUnsignedLongReturnSetter.h */; };
 		BB333039B35D78F9DAE13CC6 /* MKTBoolArgumentGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BB333960BC18CA8AC49E35D1 /* MKTBoolArgumentGetter.h */; };
 		BB333056CD041DF834D427F2 /* MKTReturnValueSetterChain.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3332501CE8F77A2FCBCD12 /* MKTReturnValueSetterChain.h */; };
@@ -1023,8 +1023,8 @@
 		748491911A5919EC006A7579 /* MKTExecutesBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTExecutesBlock.m; sourceTree = "<group>"; };
 		74A3BD8219F765E2006591C9 /* OCMockitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A3BDB319F76C5F006591C9 /* libocmockitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libocmockitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB17021FCA430FAD53E07A7D /* MKTSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTSwizzler.h; sourceTree = "<group>"; };
-		BB17024B02E780AE9F1DF220 /* MKTSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTSwizzler.m; sourceTree = "<group>"; };
+		BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTSingletonSwizzler.h; sourceTree = "<group>"; };
+		BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTSingletonSwizzler.m; sourceTree = "<group>"; };
 		BB33301C3CD22FFA40C8F3C3 /* MKTObjectArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectArgumentGetter.m; sourceTree = "<group>"; };
 		BB33302AB2FEE151EDCCE859 /* MKTUnsignedIntReturnSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUnsignedIntReturnSetter.m; sourceTree = "<group>"; };
 		BB33302E3EAA83B57A5ADD39 /* MKTUnsignedShortArgumentGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUnsignedShortArgumentGetter.h; sourceTree = "<group>"; };
@@ -1327,8 +1327,8 @@
 				08E9DC221516738200BD7FB4 /* MKTObjectAndProtocolMock.m */,
 				085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */,
 				085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */,
-				BB17021FCA430FAD53E07A7D /* MKTSwizzler.h */,
-				BB17024B02E780AE9F1DF220 /* MKTSwizzler.m */,
+				BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */,
+				BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */,
 			);
 			path = Mocking;
 			sourceTree = "<group>";
@@ -1635,7 +1635,7 @@
 				609E99F44EA30BE6AEE362FA /* MKTMissingInvocationChecker.h in Headers */,
 				609E91931D1EEF9E6D7E6720 /* MKTLocation.h in Headers */,
 				609E936917673F3815CE1B28 /* MKTPrinter.h in Headers */,
-				BB170C4B63C765380CB7041F /* MKTSwizzler.h in Headers */,
+				BB170C4B63C765380CB7041F /* MKTSingletonSwizzler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1719,7 +1719,7 @@
 				609E9C81C6496CBEC6D946F8 /* MKTMissingInvocationChecker.h in Headers */,
 				609E99C759BCAE808358259C /* MKTLocation.h in Headers */,
 				609E9B818BE4A273E66338D8 /* MKTPrinter.h in Headers */,
-				BB170DEDD2F25A576736F96C /* MKTSwizzler.h in Headers */,
+				BB170DEDD2F25A576736F96C /* MKTSingletonSwizzler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1803,7 +1803,7 @@
 				247B9FF81C335EE500B10720 /* MKTUnsignedLongArgumentGetter.h in Headers */,
 				247BA0EB1C335F3000B10720 /* MKTAtLeastTimes.h in Headers */,
 				247BA0ED1C335F3000B10720 /* MKTAtLeastNumberOfInvocationsChecker.h in Headers */,
-				BB17049F99AEF87E21119393 /* MKTSwizzler.h in Headers */,
+				BB17049F99AEF87E21119393 /* MKTSingletonSwizzler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1887,7 +1887,7 @@
 				247B9FD01C335EE400B10720 /* MKTUnsignedLongArgumentGetter.h in Headers */,
 				247BA0FE1C335F3100B10720 /* MKTAtLeastTimes.h in Headers */,
 				247BA1001C335F3100B10720 /* MKTAtLeastNumberOfInvocationsChecker.h in Headers */,
-				BB1703E0B53EAE270808B4C9 /* MKTSwizzler.h in Headers */,
+				BB1703E0B53EAE270808B4C9 /* MKTSingletonSwizzler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1971,7 +1971,7 @@
 				247B9FA81C335EE300B10720 /* MKTUnsignedLongArgumentGetter.h in Headers */,
 				247BA1111C335F3200B10720 /* MKTAtLeastTimes.h in Headers */,
 				247BA1131C335F3200B10720 /* MKTAtLeastNumberOfInvocationsChecker.h in Headers */,
-				BB17084C1E283F1700714FEE /* MKTSwizzler.h in Headers */,
+				BB17084C1E283F1700714FEE /* MKTSingletonSwizzler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2278,7 +2278,7 @@
 				609E911679B7FDAFA17F7AFE /* MKTMissingInvocationChecker.m in Sources */,
 				609E99C9976A1A14C7795E41 /* MKTLocation.m in Sources */,
 				609E9B5DDA5398E35D344E19 /* MKTPrinter.m in Sources */,
-				BB170D5D9CFEBFF07BC2B571 /* MKTSwizzler.m in Sources */,
+				BB170D5D9CFEBFF07BC2B571 /* MKTSingletonSwizzler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2359,7 +2359,7 @@
 				609E9ED69EC1807945E04E8C /* MKTMissingInvocationChecker.m in Sources */,
 				609E9FF98494264314432079 /* MKTLocation.m in Sources */,
 				609E9929AE60F7EC92EBCDA5 /* MKTPrinter.m in Sources */,
-				BB170EC11FB903FB1BBBFD8D /* MKTSwizzler.m in Sources */,
+				BB170EC11FB903FB1BBBFD8D /* MKTSingletonSwizzler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2440,7 +2440,7 @@
 				247BA0791C335F0400B10720 /* MKTPrinter.m in Sources */,
 				247B9FE51C335EE500B10720 /* MKTIntArgumentGetter.m in Sources */,
 				247B9F701C335EB200B10720 /* MKTTestLocation.m in Sources */,
-				BB17069FC87BDF21FA134045 /* MKTSwizzler.m in Sources */,
+				BB17069FC87BDF21FA134045 /* MKTSingletonSwizzler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2521,7 +2521,7 @@
 				247BA08B1C335F0500B10720 /* MKTPrinter.m in Sources */,
 				247B9FBD1C335EE400B10720 /* MKTIntArgumentGetter.m in Sources */,
 				247B9F791C335EB200B10720 /* MKTTestLocation.m in Sources */,
-				BB17065730240A1DF17600F1 /* MKTSwizzler.m in Sources */,
+				BB17065730240A1DF17600F1 /* MKTSingletonSwizzler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2602,7 +2602,7 @@
 				247BA09D1C335F0500B10720 /* MKTPrinter.m in Sources */,
 				247B9F951C335EE300B10720 /* MKTIntArgumentGetter.m in Sources */,
 				247B9F821C335EB300B10720 /* MKTTestLocation.m in Sources */,
-				BB170A003C70B17CFB27C7A3 /* MKTSwizzler.m in Sources */,
+				BB170A003C70B17CFB27C7A3 /* MKTSingletonSwizzler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
