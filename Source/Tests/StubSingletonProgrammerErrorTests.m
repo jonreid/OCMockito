@@ -27,7 +27,7 @@
     stubSingletonWithMockTestCase(nil, @selector(standardUserDefaults), mockTestCase);
 
     assertThat(mockTestCase.failureDescription,
-               is(@"Argument passed to stubSingleton() should be a class mock but is nil"));
+               is(@"Argument passed to stubSingleton() should be a class mock, but was nil"));
 }
 
 - (void)testStubSingleton_WithObjectMock_ShouldGiveError
@@ -37,7 +37,7 @@
     stubSingletonWithMockTestCase(objectMock, @selector(standardUserDefaults), mockTestCase);
     
     assertThat(mockTestCase.failureDescription,
-            is(@"Argument passed to stubSingleton() should be a class mock but is type MKTObjectMock"));
+            is(@"Argument passed to stubSingleton() should be a class mock, but was type MKTObjectMock"));
 }
 
 - (void)testStubSingleton_WithNoSuchSingleton_ShouldGiveError
@@ -47,7 +47,7 @@
     stubSingletonWithMockTestCase(classMock, @selector(standardUserDefaults), mockTestCase);
     
     assertThat(mockTestCase.failureDescription,
-            is(@"Method name passed to stubSingleton() should be a class method of NSArray but was standardUserDefaults"));
+            is(@"Method name passed to stubSingleton() should be a class method of NSArray, but was standardUserDefaults"));
 }
 
 @end

@@ -27,7 +27,7 @@
     [verifyWithMockTestCase(nil, mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
-               is(@"Argument passed to verify() should be a mock but is nil"));
+               is(@"Argument passed to verify() should be a mock, but was nil"));
 }
 
 - (void)testVerifyCount_WithNil_ShouldGiveError
@@ -35,7 +35,7 @@
     [verifyCountWithMockTestCase(nil, times(1), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
-               is(@"Argument passed to verifyCount() should be a mock but is nil"));
+               is(@"Argument passed to verifyCount() should be a mock, but was nil"));
 }
 
 - (void)testVerify_WithNonMock_ShouldGiveError
@@ -45,7 +45,7 @@
     [verifyWithMockTestCase(realArray, mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
-               startsWith(@"Argument passed to verify() should be a mock but is type "));
+               startsWith(@"Argument passed to verify() should be a mock, but was type "));
 }
 
 - (void)testVerifyCount_WithNonMock_ShouldGiveError
@@ -55,7 +55,7 @@
     [verifyCountWithMockTestCase(realArray, times(1), mockTestCase) removeAllObjects];
 
     assertThat(mockTestCase.failureDescription,
-               startsWith(@"Argument passed to verifyCount() should be a mock but is type "));
+               startsWith(@"Argument passed to verifyCount() should be a mock, but was type "));
 }
 
 @end

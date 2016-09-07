@@ -102,7 +102,7 @@
     stopMockingWithMockTestCase(nil, mockTestCase);
 
     assertThat(mockTestCase.failureDescription,
-            is(@"Argument passed to stopMocking() should be a mock but is nil"));
+            is(@"Argument passed to stopMocking() should be a mock, but was nil"));
 }
 
 - (void)testStopMocking_WithNonMock_ShouldGiveError
@@ -112,7 +112,7 @@
     stopMockingWithMockTestCase(realArray, mockTestCase);
 
     assertThat(mockTestCase.failureDescription,
-            startsWith(@"Argument passed to stopMocking() should be a mock but is type "));
+            startsWith(@"Argument passed to stopMocking() should be a mock, but was type "));
 }
 
 @end

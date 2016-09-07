@@ -22,7 +22,7 @@ static BOOL reportedInvalidMock(id mock, id testCase, const char *fileName, int 
     if ([MKTBaseMockObject isMockObject:mock])
         return NO;
     NSString *description = [NSString stringWithFormat:
-            @"Argument passed to %@ should be a mock but is %@",
+            @"Argument passed to %@ should be a mock, but was %@",
             functionName, actualTypeName(mock)];
     MKTFailTest(testCase, fileName, lineNumber, description);
     return YES;
@@ -34,7 +34,7 @@ static BOOL reportedInvalidClassMock(id classMock, id testCase, const char *file
     if ([className isEqualToString:@"MKTClassObjectMock"])
         return NO;
     NSString *description = [NSString stringWithFormat:
-            @"Argument passed to %@ should be a class mock but is %@",
+            @"Argument passed to %@ should be a class mock, but was %@",
             functionName, actualTypeName(classMock)];
     MKTFailTest(testCase, fileName, lineNumber, description);
     return YES;
@@ -45,7 +45,7 @@ static BOOL reportedInvalidClassMethod(MKTClassObjectMock *theMock, SEL aSelecto
     if ([theMock respondsToSelector:aSelector])
         return NO;
     NSString *description = [NSString stringWithFormat:
-            @"Method name passed to %@ should be a class method of %@ but was %@",
+            @"Method name passed to %@ should be a class method of %@, but was %@",
             functionName, theMock.mockedClass, NSStringFromSelector(aSelector)];
     MKTFailTest(testCase, fileName, lineNumber, description);
     return YES;
