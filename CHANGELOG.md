@@ -1,7 +1,8 @@
 NEXT RELEASE
 ------------
 
-OCMockito now requires OCHamcrest v5.4.0 or higher.
+OCMockito now requires OCHamcrest v6.0.0 or higher. (Actually, it only needs v5.4.0 but v6.0.0
+is better for CocoaPods/Carthage users.)
 
 **Fixes:**
 
