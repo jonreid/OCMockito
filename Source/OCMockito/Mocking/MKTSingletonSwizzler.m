@@ -21,6 +21,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 @property (nonatomic, weak, readonly) Class mockedClass;
 @property (nonatomic, assign, readonly) IMP oldIMP;
 @property (nonatomic, assign, readonly) SEL selector;
+@property (nonatomic, assign, readonly) void *mockPtr;
 @end
 
 @implementation MKTSingletonMapEntry
@@ -31,6 +32,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     if (self)
     {
         _mock = mock;
+        _mockPtr = (__bridge void*)mock;
         _mockedClass = mock.mockedClass;
         _oldIMP = oldIMP;
         _selector = aSelector;
@@ -40,9 +42,9 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 - (BOOL)isForMock:(MKTClassObjectMock *)theMock
 {
-    // At time of dealloc, it's possible the weak ref to self.mock is nil,
-    // so we also check directly on the ivar.
-    return self.mock == theMock || self->_mock == theMock;
+    // At time of dealloc, it's possible the weak ref to self.mock returns nil,
+    // so only a pointer comparison is guaranteed to return YES
+    return self.mockPtr == (__bridge void *)theMock;
 }
 
 - (void)unswizzleSingleton
