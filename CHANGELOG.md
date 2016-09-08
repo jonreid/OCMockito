@@ -7,6 +7,7 @@ OCMockito now requires OCHamcrest v5.4.0 or higher.
 
 - Prevent argument captor from capturing values twice.
 - Prevent over-releasing mock object that is stubbed as return value for copy method.
+- Fixed crash when comparing literals to mocked protocols.
 
 
 Version 3.0.2

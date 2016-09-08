@@ -147,4 +147,32 @@
     XCTAssertFalse([mockImplementer respondsToSelector:@selector(objectAtIndex:)]);
 }
 
+- (void)testArray_ShouldBeAbleToCompareToMock
+{
+    id obj = @[];
+    
+    XCTAssertFalse([obj isEqual:mockImplementer]);
+}
+
+- (void)testDictionary_ShouldBeAbleToCompareToMock
+{
+    id obj = @{};
+    
+    XCTAssertFalse([obj isEqual:mockImplementer]);
+}
+
+- (void)testNumber_ShouldBeAbleToCompareToMock
+{
+    id obj = @0;
+    
+    XCTAssertFalse([obj isEqual:mockImplementer]);
+}
+
+- (void)testString_ShouldBeAbleToCompareToMock
+{
+    id obj = @"";
+    
+    XCTAssertFalse([obj isEqual:mockImplementer]);
+}
+
 @end
