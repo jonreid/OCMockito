@@ -10,6 +10,10 @@ OCMockito now requires OCHamcrest v5.4.0 or higher.
 - Fixed crash comparing literals to mocked protocols.
 - Fixed crash describing collection containing mocked protocol.
 
+**Project changes:**
+
+- Increased deployment targets to OS X 10.9, iOS 8.0.
+
 
 Version 3.0.2
 -------------
