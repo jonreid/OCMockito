@@ -147,32 +147,14 @@
     XCTAssertFalse([mockImplementer respondsToSelector:@selector(objectAtIndex:)]);
 }
 
-- (void)testArray_ShouldBeAbleToCompareToMock
+- (void)testDescriptionOfCollectionWithMockProtocol_ShouldNotCrash
 {
-    id obj = @[];
+    id <NSObject> mockedProtocol = mockProtocol(@protocol(NSObject));
+    NSArray *array = @[ mockedProtocol ];
     
-    XCTAssertFalse([obj isEqual:mockImplementer]);
-}
-
-- (void)testDictionary_ShouldBeAbleToCompareToMock
-{
-    id obj = @{};
+    NSString *description = array.description;
     
-    XCTAssertFalse([obj isEqual:mockImplementer]);
-}
-
-- (void)testNumber_ShouldBeAbleToCompareToMock
-{
-    id obj = @0;
-    
-    XCTAssertFalse([obj isEqual:mockImplementer]);
-}
-
-- (void)testString_ShouldBeAbleToCompareToMock
-{
-    id obj = @"";
-    
-    XCTAssertFalse([obj isEqual:mockImplementer]);
+    XCTAssertNotNil(description);
 }
 
 @end
