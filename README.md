@@ -388,7 +388,7 @@ The short answer is: Don't. Instead of your class deciding who it's going to
 talk to, inject those dependencies.
 
 The longer answer is: Well. Legacy code. Call `stubSingleton` on a mock class
-object.
+object, specifying the name of the factory method.
 
 ```obj-c
 __strong Class mockUserDefaultsClass = mockClass([NSUserDefaults class]);
