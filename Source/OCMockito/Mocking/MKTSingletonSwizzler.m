@@ -18,10 +18,10 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 @interface MKTSingletonMapEntry : NSObject
 @property (nonatomic, weak, readonly) MKTClassObjectMock *mock;
+@property (nonatomic, assign, readonly) void *mockPtr;
 @property (nonatomic, weak, readonly) Class mockedClass;
 @property (nonatomic, assign, readonly) IMP oldIMP;
 @property (nonatomic, assign, readonly) SEL selector;
-@property (nonatomic, assign, readonly) void *mockPtr;
 @end
 
 @implementation MKTSingletonMapEntry
@@ -32,7 +32,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     if (self)
     {
         _mock = mock;
-        _mockPtr = (__bridge void*)mock;
+        _mockPtr = (__bridge void *)mock;
         _mockedClass = mock.mockedClass;
         _oldIMP = oldIMP;
         _selector = aSelector;
@@ -40,11 +40,13 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     return self;
 }
 
-- (BOOL)isForMock:(MKTClassObjectMock *)theMock
+- (BOOL)isForMockPtr:(void *)theMockPtr
 {
-    // At time of dealloc, it's possible the weak ref to self.mock returns nil,
-    // so only a pointer comparison is guaranteed to return YES
-    return self.mockPtr == (__bridge void *)theMock;
+    NSAssert(theMockPtr, @"The mock pointer cannot be nil");
+
+    // We use the mockPtr as the tag to the mock, since the mock can be nullified
+    // when dealloc is called. The ptr here works as a unique tag to the mock.
+    return _mockPtr == theMockPtr;
 }
 
 - (void)unswizzleSingleton
@@ -58,6 +60,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 @interface MKTSingletonSwizzler ()
 @property (nonatomic, weak) MKTClassObjectMock *classMock;
+@property (nonatomic, assign) void *classMockPtr;
 @end
 
 @implementation MKTSingletonSwizzler
@@ -82,6 +85,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
     self = [super init];
     if (self)
         _classMock = classMock;
+        _classMockPtr = (__bridge void *)classMock;
     return self;
 }
 
@@ -120,13 +124,15 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 - (void)unswizzleSingletonsForMock
 {
-    MKTClassObjectMock *theMock = self.classMock;
+    void *theMockPtr = self.classMockPtr;
+    NSAssert(theMockPtr, @"mock pointer cannot be nil");
+
     NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
     
     [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
             MKTSingletonMapEntry *swizzled,
             BOOL *stop) {
-        if ([swizzled isForMock:theMock])
+        if ([swizzled isForMockPtr:theMockPtr])
         {
             [swizzled unswizzleSingleton];
             [keysToRemove addObject:key];
