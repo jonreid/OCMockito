@@ -37,7 +37,7 @@ include any pods from their main targets:
 ```ruby
 target 'MyTests' do
   inherit! :search_paths
-  pod 'OCMockito', '~> 3.0'
+  pod 'OCMockito', '~> 4.0'
 end
 ```
 
