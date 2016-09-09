@@ -387,7 +387,8 @@ How do you mock a singleton?
 The short answer is: Don't. Instead of your class deciding who it's going to
 talk to, inject those dependencies.
 
-The longer answer is: Well. Legacy code. Call `stubSingleton` on a mock class object.
+The longer answer is: Well. Legacy code. Call `stubSingleton` on a mock class
+object.
 
 ```obj-c
 __strong Class mockUserDefaultsClass = mockClass([NSUserDefaults class]);
@@ -401,10 +402,10 @@ Beware! This uses swizzling. You need to make sure the mock class object gets
 deallocated so that the swizzling is undone.
 
 In the example above, `mockUserDefaultsClass` will go out scope and be
-destroyed. But what if you kept in the test fixture, as an ivar or a property?
-Due to a bug in XCTest, it won't be implicitly destroyed. You need to explicitly
-set it to nil in `-tearDown`, or the swizzling will bleed over to your other
-tests, compromising their integrity.
+destroyed. But what if you kept it in the test fixture, as an ivar or a
+property? Due to a bug in XCTest, it won't be implicitly destroyed. You need to
+explicitly set it to nil in `-tearDown`, or the swizzling will bleed over to
+your other tests, compromising their integrity.
 
 If you need more control over when the swizzling is undone, call
 `stopMocking(…)` on the mock class.
