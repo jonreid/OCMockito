@@ -4,6 +4,11 @@ NEXT RELEASE
 OCMockito now requires OCHamcrest v6.0.0 or higher. (Actually, it only needs v5.4.0 but v6.0.0
 is better for CocoaPods/Carthage users.)
 
+**Features:**
+
+- Added `stubSingleton(…)`. "A patch for the rest of us, who know it's easier to live with the
+  reality that singletons are here to stay." _Thanks to: Igor Sales_
+
 **Fixes:**
 
 - Prevent argument captor from capturing values twice.
