@@ -51,7 +51,7 @@ Use the following imports:
 Add the following to your Cartfile:
 
 ```
-github "jonreid/OCMockito" "master"
+github "jonreid/OCMockito" ~> 4.0
 ```
 
 Then drag the the built frameworks (both OCHamcrest and OCMockito) from the
