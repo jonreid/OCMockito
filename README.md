@@ -160,22 +160,6 @@ __strong Class mockStringClass = mockClass([NSString class]);
 it explicitly strong as shown above, or use `id` instead.)
 
 
-How do you mock a singleton?
--------------------------------
-
-```obj-c
-NSUserDefaults* defaults = mock([NSUserDefaults class]);
-__strong Class mockUserDefaultsClass = mockClass([NSUserDefaults class]);
-
-stubSingleton(mockUserDefaultsClass, standardUserDefaults);
-
-[given([NSUserDefaults standardUserDefaults]) willReturn:defaults];
-```
-
-(In the iOS 64-bit runtime, Class objects aren't strong by default. Either make
-it explicitly strong as shown above, or use `id` instead.)
-
-
 How do you mock a protocol?
 ---------------------------
 
@@ -225,7 +209,9 @@ SomeStruct aStruct = {...};
 How do you stub a property so that KVO works?
 ---------------------------------------------
 
-Use `stubProperty(mock, property, stubbedValue)`. For example, say you have a mock object named `mockEmployee`. It has a property `firstName`. You want to stub it to return the value "FIRST-NAME":
+Use `stubProperty(mock, property, stubbedValue)`. For example, say you have a
+mock object named `mockEmployee`. It has a property `firstName`. You want to
+stub it to return the value "FIRST-NAME":
 
 ```obj-c
 stubProperty(mockEmployee, firstName, @"FIRST-NAME");
@@ -393,3 +379,32 @@ Use `stopMocking(…)` if a `-dealloc` of your System Under Test is trying to
 message an object that is mocked. It disables message handling on the mock and
 frees its retained arguments. This prevents retain cycles and crashes during
 test clean-up. See StopMockingTests.m for an example.
+
+
+How do you mock a singleton?
+----------------------------
+
+The short answer is: Don't. Instead of your class deciding who it's going to
+talk to, inject those dependencies.
+
+The longer answer is: Call `stubSingleton` on a mock class object.
+
+```obj-c
+__strong Class mockUserDefaultsClass = mockClass([NSUserDefaults class]);
+NSUserDefaults* mockDefaults = mock([NSUserDefaults class]);
+
+stubSingleton(mockUserDefaultsClass, standardUserDefaults);
+[given([NSUserDefaults standardUserDefaults]) willReturn:mockDefaults];
+```
+
+Beware! This uses swizzling. You need to make sure the mock class object gets
+deallocated so that the swizzling is undone.
+
+In the example above, `mockUserDefaultsClass` will go out scope and be
+destroyed. But what if you kept in the test fixture, as an ivar or a property?
+Due to a bug in XCTest, it won't be implicitly destroyed. You need to explicitly
+set it to nil in `-tearDown`, or the swizzling will bleed over to your other
+tests, compromising their integrity.
+
+If you need more control over when the swizzling is undone, call
+`stopMocking(…)` on the mock class.
