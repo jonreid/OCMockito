@@ -1,3 +1,11 @@
+NEXT RELEASE
+------------
+
+**Improvements:**
+
+- Improved reliability of stubSingleton. _Thanks to: Igor Sales_
+
+
 Version 4.0.0
 -------------
 _08 Sep 2016_
