@@ -42,8 +42,6 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 
 - (BOOL)isForMockPtr:(void *)theMockPtr
 {
-    NSAssert(theMockPtr, @"The mock pointer cannot be nil");
-
     // We use the mockPtr as the tag to the mock, since the mock can be nullified
     // when dealloc is called. The ptr here works as a unique tag to the mock.
     return _mockPtr == theMockPtr;
@@ -84,8 +82,10 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 {
     self = [super init];
     if (self)
+    {
         _classMock = classMock;
         _classMockPtr = (__bridge void *)classMock;
+    }
     return self;
 }
 
@@ -125,8 +125,6 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 - (void)unswizzleSingletonsForMock
 {
     void *theMockPtr = self.classMockPtr;
-    NSAssert(theMockPtr, @"mock pointer cannot be nil");
-
     NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
     
     [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
