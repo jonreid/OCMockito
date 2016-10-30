@@ -58,8 +58,7 @@ static inline double *createArrayOf10Doubles(void)
 - (NSUInteger)methodReturningUnsignedInteger { return 0; }
 - (float)methodReturningFloat { return 0; }
 - (double)methodReturningDouble { return 0; }
-- (MKTStruct)methodReturningStruct { MKTStruct returnedStruct; return returnedStruct; }
-
+- (MKTStruct)methodReturningStruct { MKTStruct returnedStruct = { 0, 0, NULL }; return returnedStruct; }
 @end
 
 
