@@ -5,9 +5,9 @@ before_install:
   - sudo easy_install cpp-coveralls
 
 script:
-  - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx10.9
-  - xctool test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator8.1 -destination "platform=iOS Simulator,name=iPhone 5,OS=8.1"
-  - xctool test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator8.1 -destination "platform=iOS Simulator,name=iPhone 5s,OS=8.1"
+  - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx
+  - xctool test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5,OS=9.3"
+  - xctool test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5s,OS=9.3"
 
 after_success:
   - ./Cocoanetics-Ruby/coveralls.rb --exclude-folder Source/Tests --exclude-folder Source/ThirdParty --exclude-folder Frameworks --exclude-folder Examples
