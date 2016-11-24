@@ -29,6 +29,12 @@
     myMockClass = mockClass([ClassMethodsReturningObject class]);
 }
 
+- (void)tearDown
+{
+    myMockClass = Nil;
+    [super tearDown];
+}
+
 - (void)testStubbedMethod_ShouldReturnGivenObject
 {
     [given([myMockClass methodReturningObject]) willReturn:@"STUBBED"];

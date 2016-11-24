@@ -22,6 +22,12 @@
     mockTestCase = [[MockTestCase alloc] init];
 }
 
+- (void)tearDown
+{
+    mockTestCase = nil;
+    [super tearDown];
+}
+
 - (void)testVerify_WithNil_ShouldGiveError
 {
 #pragma clang diagnostic push

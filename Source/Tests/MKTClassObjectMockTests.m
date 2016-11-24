@@ -22,6 +22,12 @@
     mockStringClass = mockClass([NSString class]);
 }
 
+- (void)tearDown
+{
+    mockStringClass = Nil;
+    [super tearDown];
+}
+
 - (void)testDescription
 {
     assertThat([mockStringClass description], is(@"mock class of NSString"));

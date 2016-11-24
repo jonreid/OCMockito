@@ -63,6 +63,12 @@
     mockImplementer = mockProtocol(@protocol(TestingProtocol));
 }
 
+- (void)tearDown
+{
+    mockImplementer = nil;
+    [super tearDown];
+}
+
 - (void)testDescription
 {
     assertThat([mockImplementer description], is(@"mock implementer of TestingProtocol protocol"));

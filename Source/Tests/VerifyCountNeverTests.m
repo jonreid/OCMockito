@@ -22,6 +22,12 @@
     mockArray = mock([NSMutableArray class]);
 }
 
+- (void)tearDown
+{
+    mockArray = nil;
+    [super tearDown];
+}
+
 - (void)testVerifyNever_WithMethodNotInvoked_ShouldPass
 {
     [verifyCount(mockArray, never()) removeAllObjects];

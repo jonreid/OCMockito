@@ -76,6 +76,12 @@ static inline double *createArrayOf10Doubles(void)
     mockObject = mock([ReturningObject class]);
 }
 
+- (void)tearDown
+{
+    mockObject = nil;
+    [super tearDown];
+}
+
 - (void)testStubbedMethodReturningObject_ShouldReturnGivenObject
 {
     [given([mockObject methodReturningObject]) willReturn:@"STUBBED"];

@@ -24,6 +24,13 @@
     mockTestCase = [[MockTestCase alloc] init];
 }
 
+- (void)tearDown
+{
+    mockLockingArray = nil;
+    mockTestCase = nil;
+    [super tearDown];
+}
+
 - (void)testInvokingInstanceMethod_ShouldPass
 {
     [mockLockingArray removeAllObjects];

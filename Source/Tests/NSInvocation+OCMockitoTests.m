@@ -26,6 +26,13 @@
     [invocation setSelector:selector];
 }
 
+- (void)tearDown
+{
+    target = nil;
+    invocation = nil;
+    [super tearDown];
+}
+
 - (void)testRetainArgumentsWithWeakTarget_ShouldRetainArguments
 {
     [invocation setTarget:target];

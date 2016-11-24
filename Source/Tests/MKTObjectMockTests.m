@@ -21,6 +21,12 @@
     mockString = mock([NSString class]);
 }
 
+- (void)tearDown
+{
+    mockString = nil;
+    [super tearDown];
+}
+
 - (void)testDescription
 {
     assertThat([mockString description], is(@"mock object of NSString"));
@@ -123,6 +129,12 @@
 {
     [super setUp];
     mockDynamicPropertyHolder = mock([DynamicPropertyHolder class]);
+}
+
+- (void)tearDown
+{
+    mockDynamicPropertyHolder = nil;
+    [super tearDown];
 }
 
 - (void)testShouldRespondToDynamicGetter

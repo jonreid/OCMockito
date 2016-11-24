@@ -47,6 +47,13 @@ static inline double *createArrayOf10Doubles(void)
     mockTestCase = [[MockTestCase alloc] init];
 }
 
+- (void)tearDown
+{
+    mockArray = nil;
+    mockTestCase = nil;
+    [super tearDown];
+}
+
 - (void)testVerify_WithMethodInvoked_ShouldPass
 {
     [mockArray removeAllObjects];

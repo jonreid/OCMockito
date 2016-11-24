@@ -25,6 +25,13 @@
     mockTestCase = [[MockTestCase alloc] init];
 }
 
+- (void)tearDown
+{
+    mockArray = nil;
+    mockTestCase = nil;
+    [super tearDown];
+}
+
 - (void)callRemoveAllObjectsTimes:(int)count
 {
     for (int i = 0; i < count; ++i)

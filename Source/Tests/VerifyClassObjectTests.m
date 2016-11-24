@@ -22,6 +22,12 @@
     mockStringClass = mockClass([NSString class]);
 }
 
+- (void)tearDown
+{
+    mockStringClass = Nil;
+    [super tearDown];
+}
+
 - (void)testVerify_WithClassMethodInvoked_ShouldPass
 {
     [mockStringClass string];

@@ -24,7 +24,7 @@
 
 - (void)tearDown
 {
-    mockUserDefaultsClass = nil;
+    mockUserDefaultsClass = Nil;
     [super tearDown];
 }
 

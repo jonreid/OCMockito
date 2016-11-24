@@ -55,6 +55,12 @@
     mock = mockObjectAndProtocol([TestClass class], @protocol(TestProtocol));
 }
 
+- (void)tearDown
+{
+    mock = nil;
+    [super tearDown];
+}
+
 - (void)testDescription
 {
     assertThat([mock description], is(@"mock object of TestClass implementing TestProtocol protocol"));

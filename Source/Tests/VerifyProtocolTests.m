@@ -31,6 +31,10 @@
 - (void)tearDown
 {
     [archiver finishEncoding];
+    mockLock = nil;
+    mockDelegate = nil;
+    mockTestCase = nil;
+    archiver = nil;
     [super tearDown];
 }
 

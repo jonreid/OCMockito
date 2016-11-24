@@ -38,6 +38,12 @@ typedef NSString *(^BlockReturningString)(void);
     mockObj = mock([ObjectWithBlockArg class]);
 }
 
+- (void)tearDown
+{
+    mockObj = nil;
+    [super tearDown];
+}
+
 - (void)testMockingMethodWithBlockArg_WithNilValueMatcher_ShouldMatchNil
 {
     [given([mockObj doBlock:(id)nilValue()]) willReturn:@"match nil"];

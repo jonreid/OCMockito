@@ -37,6 +37,12 @@ typedef struct {
     myMockProtocol = mockProtocol(@protocol(ReturningProtocol));
 }
 
+- (void)tearDown
+{
+    myMockProtocol = nil;
+    [super tearDown];
+}
+
 - (void)testStubbedMethodReturningObject_ShouldReturnGivenObject
 {
     [given([myMockProtocol methodReturningObject]) willReturn:@"STUBBED"];

@@ -44,6 +44,17 @@
     sut = [[MKTMatchingInvocationsFinder alloc] init];
 }
 
+- (void)tearDown
+{
+    simpleMethodInvocation = nil;
+    simpleMethodInvocationTwo = nil;
+    differentMethodInvocation = nil;
+    invocations = nil;
+    wanted = nil;
+    sut = nil;
+    [super tearDown];
+}
+
 - (void)testFindInvocationsInList_ShouldCreateFinderWithMatchingInvocations
 {
     [sut findInvocationsInList:invocations matching:wanted];

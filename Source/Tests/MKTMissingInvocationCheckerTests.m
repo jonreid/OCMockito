@@ -93,6 +93,7 @@
 
 - (void)tearDown
 {
+    mockInvocationsFinder = nil;
     sut = nil;
     [super tearDown];
 }
