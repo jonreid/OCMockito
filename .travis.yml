@@ -8,8 +8,8 @@ before_install:
 
 script:
   - set -o pipefail && xcodebuild test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx | xcpretty
-  - set -o pipefail && xcodebuild test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5,OS=9.3" | xcpretty
-  - set -o pipefail && xcodebuild test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5s,OS=9.3" | xcpretty
+  - set -o pipefail && xcodebuild test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator10.1 -destination "platform=iOS Simulator,name=iPhone 5,OS=10.1" | xcpretty
+  - set -o pipefail && xcodebuild test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator10.1 -destination "platform=iOS Simulator,name=iPhone 5s,OS=10.1" | xcpretty
   - pod spec lint --quick
 
 after_success:
