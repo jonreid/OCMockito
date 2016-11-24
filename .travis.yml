@@ -1,13 +1,16 @@
 language: objective-c
+osx_image: xcode8.1
 
 before_install:
   - Frameworks/gethamcrest
   - sudo easy_install cpp-coveralls
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 
 script:
-  - xctool test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx
-  - xctool test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5,OS=9.3"
-  - xctool test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5s,OS=9.3"
+  - set -o pipefail && xcodebuild test -project Source/OCMockito.xcodeproj -scheme OCMockito -sdk macosx | xcpretty
+  - set -o pipefail && xcodebuild test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5,OS=9.3" | xcpretty
+  - set -o pipefail && xcodebuild test -project Source/OCMockito.xcodeproj -scheme libocmockito -sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5s,OS=9.3" | xcpretty
+  - pod spec lint --quick
 
 after_success:
   - ./Cocoanetics-Ruby/coveralls.rb --exclude-folder Source/Tests --exclude-folder Source/ThirdParty --exclude-folder Frameworks --exclude-folder Examples
