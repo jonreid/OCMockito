@@ -9,6 +9,7 @@
 @property (nonatomic, copy, readonly) NSString *moduleName;
 @property (nonatomic, copy, readonly) NSString *instruction;
 
-- (instancetype)initWithSymbols:(NSString *)element;
+- (instancetype)initWithSymbols:(NSString *)element NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

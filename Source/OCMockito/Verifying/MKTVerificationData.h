@@ -15,6 +15,7 @@
 @property (nonatomic, strong, readonly) MKTInvocationMatcher *wanted;
 
 - (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
-                          invocationMatcher:(MKTInvocationMatcher *)wanted;
+                          invocationMatcher:(MKTInvocationMatcher *)wanted NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

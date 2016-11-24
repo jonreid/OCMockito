@@ -8,6 +8,7 @@
 
 @interface MKTAtMostTimes : NSObject <MKTVerificationMode>
 
-- (instancetype)initWithMaximumCount:(NSUInteger)maxNumberOfInvocations;
+- (instancetype)initWithMaximumCount:(NSUInteger)maxNumberOfInvocations NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

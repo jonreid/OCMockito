@@ -13,6 +13,7 @@
 @property (nonatomic, assign) BOOL verified;
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation;
-- (instancetype)initWithInvocation:(NSInvocation *)invocation location:(MKTLocation *)location;
+- (instancetype)initWithInvocation:(NSInvocation *)invocation location:(MKTLocation *)location NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

@@ -13,7 +13,7 @@
 
 @property (nonatomic, copy, readonly) NSArray *registeredInvocations;
 
-- (instancetype)init;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id <MKTAnswer>)answer;

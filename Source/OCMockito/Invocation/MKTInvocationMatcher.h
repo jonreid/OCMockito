@@ -12,7 +12,7 @@
 @property (nonatomic, assign, readonly) NSUInteger numberOfArguments;
 @property (nonatomic, copy, readonly) NSArray *matchers;
 
-- (instancetype)init;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)index;
 - (void)setExpectedInvocation:(NSInvocation *)expectedInvocation;
 - (BOOL)matches:(NSInvocation *)actual;

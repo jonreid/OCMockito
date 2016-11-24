@@ -12,6 +12,7 @@
 @property (nonatomic, strong, readonly) Protocol *mockedProtocol;
 
 - (instancetype)initWithProtocol:(Protocol *)aProtocol
-          includeOptionalMethods:(BOOL)includeOptionalMethods;
+          includeOptionalMethods:(BOOL)includeOptionalMethods NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

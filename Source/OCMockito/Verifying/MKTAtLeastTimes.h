@@ -8,6 +8,7 @@
 
 @interface MKTAtLeastTimes : NSObject <MKTVerificationMode>
 
-- (instancetype)initWithMinimumCount:(NSUInteger)minNumberOfInvocations;
+- (instancetype)initWithMinimumCount:(NSUInteger)minNumberOfInvocations NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

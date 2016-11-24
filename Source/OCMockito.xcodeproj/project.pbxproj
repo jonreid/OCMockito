@@ -1374,10 +1374,10 @@
 				0827E8551352BC1D00C39A57 /* MKTVerificationData.h */,
 				0827E86D1353E30400C39A57 /* MKTVerificationData.m */,
 				0827E8521352BBBC00C39A57 /* MKTVerificationMode.h */,
-				609E9C32C1094EC36C53F35A /* MKTNumberOfInvocationsChecker.m */,
 				609E992967BC9692FEE35A7E /* MKTNumberOfInvocationsChecker.h */,
-				609E9FAEB69E7C0292A42760 /* MKTMissingInvocationChecker.m */,
+				609E9C32C1094EC36C53F35A /* MKTNumberOfInvocationsChecker.m */,
 				609E94265919AA43C61F83A2 /* MKTMissingInvocationChecker.h */,
+				609E9FAEB69E7C0292A42760 /* MKTMissingInvocationChecker.m */,
 			);
 			path = Verifying;
 			sourceTree = "<group>";
@@ -1550,8 +1550,8 @@
 				BB33303DA52B2D959F139FE2 /* MKTUnsignedLongReturnSetter.m */,
 				BB3334A5CF10AB308B8F8E3F /* MKTUnsignedShortReturnSetter.h */,
 				BB333C0AEC66E89816C0219C /* MKTUnsignedShortReturnSetter.m */,
-				31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */,
 				31DDC490D49EF75359196CA2 /* MKTStructReturnSetter.h */,
+				31DDC4E1A9AC1563E0DB01CC /* MKTStructReturnSetter.m */,
 			);
 			path = ReturnValueSetters;
 			sourceTree = "<group>";

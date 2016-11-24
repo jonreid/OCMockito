@@ -14,7 +14,8 @@
  */
 @interface MKTOngoingStubbing : NSObject <MKTNonObjectArgumentMatching>
 
-- (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer;
+- (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*!
  * @abstract Sets an object to return when the method is called.

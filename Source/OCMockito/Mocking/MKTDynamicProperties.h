@@ -6,7 +6,8 @@
 
 @interface MKTDynamicProperties : NSObject
 
-- (instancetype)initWithClass:(Class)aClass;
+- (instancetype)initWithClass:(Class)aClass NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;
 
 @end

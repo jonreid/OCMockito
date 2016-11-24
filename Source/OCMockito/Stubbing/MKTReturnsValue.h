@@ -9,6 +9,7 @@
  */
 @interface MKTReturnsValue : NSObject <MKTAnswer>
 
-- (instancetype)initWithValue:(id)value;
+- (instancetype)initWithValue:(id)value NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

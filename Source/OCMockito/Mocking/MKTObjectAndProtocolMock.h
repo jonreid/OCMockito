@@ -10,6 +10,8 @@
  */
 @interface MKTObjectAndProtocolMock : MKTProtocolMock
 
-- (instancetype)initWithClass:(Class)aClass protocol:(Protocol *)protocol;
+- (instancetype)initWithClass:(Class)aClass protocol:(Protocol *)protocol NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithProtocol:(Protocol *)aProtocol
+          includeOptionalMethods:(BOOL)includeOptionalMethods NS_UNAVAILABLE;
 
 @end

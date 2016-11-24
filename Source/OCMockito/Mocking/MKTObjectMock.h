@@ -9,6 +9,7 @@
  */
 @interface MKTObjectMock : MKTBaseMockObject
 
-- (instancetype)initWithClass:(Class)aClass;
+- (instancetype)initWithClass:(Class)aClass NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

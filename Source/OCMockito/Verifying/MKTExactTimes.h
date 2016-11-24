@@ -7,6 +7,7 @@
 
 @interface MKTExactTimes : NSObject <MKTVerificationMode>
 
-- (instancetype)initWithCount:(NSUInteger)wantedNumberOfInvocations;
+- (instancetype)initWithCount:(NSUInteger)wantedNumberOfInvocations NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

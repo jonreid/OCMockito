@@ -8,6 +8,7 @@
  */
 @interface MKTExecutesBlock : NSObject <MKTAnswer>
 
-- (instancetype)initWithBlock:(id (^)(NSInvocation *))block;
+- (instancetype)initWithBlock:(id (^)(NSInvocation *))block NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

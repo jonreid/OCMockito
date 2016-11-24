@@ -9,6 +9,7 @@
  */
 @interface MKTThrowsException : NSObject <MKTAnswer>
 
-- (instancetype)initWithException:(NSException *)exception;
+- (instancetype)initWithException:(NSException *)exception NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

@@ -7,6 +7,6 @@
 @interface MKTLocation : NSObject
 
 - (instancetype)init;
-- (instancetype)initWithCallStack:(NSArray *)callStack;
+- (instancetype)initWithCallStack:(NSArray *)callStack NS_DESIGNATED_INITIALIZER;
 
 @end

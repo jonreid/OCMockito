@@ -9,7 +9,8 @@
 
 @interface MKTSingletonSwizzler : NSObject
 
-- (instancetype)initWithMock:(MKTClassObjectMock *)classMock;
+- (instancetype)initWithMock:(MKTClassObjectMock *)classMock NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;
 - (void)unswizzleSingletonsForMock;
 

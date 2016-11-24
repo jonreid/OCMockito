@@ -9,6 +9,8 @@
 
 @interface MKTMissingInvocationChecker : MKTInvocationsChecker
 
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithWantedDescription:(NSString *)wantedDescription NS_UNAVAILABLE;
 - (NSString *)checkInvocations:(NSArray *)invocations wanted:(MKTInvocationMatcher *)wanted;
 
 @end

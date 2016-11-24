@@ -12,6 +12,12 @@
 
 @implementation MKTMissingInvocationChecker
 
+- (instancetype)init
+{
+    self = [super initWithWantedDescription:@"Missing"];
+    return self;
+}
+
 - (NSString *)checkInvocations:(NSArray *)invocations wanted:(MKTInvocationMatcher *)wanted
 {
     [self.invocationsFinder findInvocationsInList:invocations matching:wanted];
