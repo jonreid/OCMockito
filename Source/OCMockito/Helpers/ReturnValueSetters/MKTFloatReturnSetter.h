@@ -6,6 +6,7 @@
 
 @interface MKTFloatReturnSetter : MKTReturnValueSetter
 
-- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor;
+- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithType:(char const *)handlerType successor:(MKTReturnValueSetter *)successor NS_UNAVAILABLE;
 
 @end

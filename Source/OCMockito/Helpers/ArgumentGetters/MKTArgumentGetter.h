@@ -14,7 +14,8 @@
  * @param handlerType Argument type managed by this getter. Assign with \@encode compiler directive.
  * @param successor Successor in chain to handle argument type.
  */
-- (instancetype)initWithType:(char const *)handlerType successor:(MKTArgumentGetter *)successor;
+- (instancetype)initWithType:(char const *)handlerType successor:(MKTArgumentGetter *)successor NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*!
  * @abstract Retrieve designated argument of specified type from NSInvocation, or pass to successor.

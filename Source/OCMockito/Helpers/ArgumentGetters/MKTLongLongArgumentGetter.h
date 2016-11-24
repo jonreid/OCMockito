@@ -6,5 +6,6 @@
 
 @interface MKTLongLongArgumentGetter : MKTArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor;
+- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithType:(char const *)handlerType successor:(MKTArgumentGetter *)successor NS_UNAVAILABLE;
 @end

@@ -14,7 +14,9 @@
  * @param handlerType Return type managed by this setter. Assign with \@encode compiler directive.
  * @param successor Successor in chain to handle return type.
  */
-- (instancetype)initWithType:(char const *)handlerType successor:(MKTReturnValueSetter *)successor;
+- (instancetype)initWithType:(char const *)handlerType successor:(MKTReturnValueSetter *)successor NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
+;
 
 /*!
  * @abstract Set NSInvocation return value of specified type, or pass to successor.
