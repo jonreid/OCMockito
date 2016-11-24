@@ -29,7 +29,7 @@
 @interface MKTInvocationMatcher ()
 @property (nonatomic, strong, readwrite) NSInvocation *expected;
 @property (nonatomic, assign, readwrite) NSUInteger numberOfArguments;
-@property (nonatomic, strong, readonly) NSMutableArray *argumentMatchers;
+@property (nonatomic, strong, readonly) NSMutableArray<id <HCMatcher>> *argumentMatchers;
 @end
 
 @implementation MKTInvocationMatcher
@@ -44,7 +44,7 @@
     return self;
 }
 
-- (NSArray *)matchers
+- (NSArray<id <HCMatcher>> *)matchers
 {
     return self.argumentMatchers;
 }

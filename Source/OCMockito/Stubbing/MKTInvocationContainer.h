@@ -3,6 +3,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class MKTInvocation;
 @class MKTInvocationMatcher;
 @class MKTStubbedInvocationMatcher;
 @protocol HCMatcher;
@@ -11,7 +12,7 @@
 
 @interface MKTInvocationContainer : NSObject
 
-@property (nonatomic, copy, readonly) NSArray *registeredInvocations;
+@property (nonatomic, copy, readonly) NSArray<MKTInvocation *> *registeredInvocations;
 
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;

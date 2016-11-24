@@ -3,6 +3,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class MKTInvocation;
 @class MKTInvocationMatcher;
 @class MKTLocation;
 
@@ -11,7 +12,7 @@
 
 @property (nonatomic, assign, readonly) NSUInteger count;
 
-- (void)findInvocationsInList:(NSArray *)invocations matching:(MKTInvocationMatcher *)wanted;
+- (void)findInvocationsInList:(NSArray<MKTInvocation *> *)invocations matching:(MKTInvocationMatcher *)wanted;
 - (MKTLocation *)locationOfInvocationAtIndex:(NSUInteger)index;
 - (MKTLocation *)locationOfLastInvocation;
 - (void)markInvocationsAsVerified;

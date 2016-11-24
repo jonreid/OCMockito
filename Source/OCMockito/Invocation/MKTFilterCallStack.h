@@ -3,4 +3,7 @@
 
 #import <Foundation/Foundation.h>
 
-NSArray *MKTFilterCallStack(NSArray *callStackSymbols);
+@class MKTCallStackElement;
+
+
+NSArray<MKTCallStackElement *> *MKTFilterCallStack(NSArray<MKTCallStackElement *> *callStackSymbols);

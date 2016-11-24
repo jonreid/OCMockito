@@ -6,7 +6,7 @@
 
 @interface MockInvocationsFinder : MKTMatchingInvocationsFinder
 
-@property (nonatomic, copy) NSArray *capturedInvocations;
+@property (nonatomic, copy) NSArray<MKTInvocation *> *capturedInvocations;
 @property (nonatomic, strong) MKTInvocationMatcher *capturedWanted;
 @property (nonatomic, assign) NSUInteger stubbedCount;
 @property (nonatomic, assign) NSUInteger capturedInvocationIndex;

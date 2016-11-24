@@ -3,6 +3,7 @@
 
 #import "MKTInvocationsChecker.h"
 
+@class MKTInvocation;
 @class MKTInvocationMatcher;
 
 
@@ -10,7 +11,7 @@
 
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
 - (instancetype)initWithWantedDescription:(NSString *)wantedDescription NS_UNAVAILABLE;
-- (NSString *)checkInvocations:(NSArray *)invocations
+- (NSString *)checkInvocations:(NSArray<MKTInvocation *> *)invocations
                         wanted:(MKTInvocationMatcher *)wanted
                    wantedCount:(NSUInteger)wantedCount;
 

@@ -6,7 +6,7 @@
 
 @implementation MockInvocationsFinder
 
-- (void)findInvocationsInList:(NSArray *)invocations matching:(MKTInvocationMatcher *)wanted
+- (void)findInvocationsInList:(NSArray<MKTInvocation *> *)invocations matching:(MKTInvocationMatcher *)wanted
 {
     self.capturedInvocations = invocations;
     self.capturedWanted = wanted;

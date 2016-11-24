@@ -5,13 +5,14 @@
 
 #import "MKTTestLocation.h"
 
+@class MKTInvocation;
 @class MKTInvocationContainer;
 @class MKTInvocationMatcher;
 
 
 @interface MKTVerificationData : NSObject
 
-@property (nonatomic, copy, readonly) NSArray *invocations;
+@property (nonatomic, copy, readonly) NSArray<MKTInvocation *> *invocations;
 @property (nonatomic, strong, readonly) MKTInvocationMatcher *wanted;
 
 - (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer

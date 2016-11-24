@@ -22,8 +22,8 @@
 
 - (NSString *)printMatcherWithArguments:(MKTInvocationMatcher *)matcher
 {
-    NSArray *matchers = matcher.matchers;
-    NSArray *selectorParts = [NSStringFromSelector(matcher.expected.selector) componentsSeparatedByString:@":"];
+    NSArray<id <HCMatcher>> *matchers = matcher.matchers;
+    NSArray<NSString *> *selectorParts = [NSStringFromSelector(matcher.expected.selector) componentsSeparatedByString:@":"];
     NSMutableString *result = [[NSMutableString alloc] init];
     for (NSUInteger index = 0; index < matchers.count; ++index)
     {
@@ -59,7 +59,7 @@
 - (NSString *)printInvocationWithArguments:(NSInvocation *)invocation
 {
     NSArray *arguments = [invocation mkt_arguments];
-    NSArray *selectorParts = [NSStringFromSelector(invocation.selector) componentsSeparatedByString:@":"];
+    NSArray<NSString *> *selectorParts = [NSStringFromSelector(invocation.selector) componentsSeparatedByString:@":"];
     NSMutableString *result = [[NSMutableString alloc] init];
     for (NSUInteger index = 0; index < arguments.count; ++index)
     {
@@ -119,7 +119,7 @@
 
 - (NSString *)printArray:(id)arg
 {
-    NSMutableArray *printedArgs = [[NSMutableArray alloc] init];
+    NSMutableArray<NSString *> *printedArgs = [[NSMutableArray alloc] init];
     for (id item in arg)
         [printedArgs addObject:[self printArgument:item type:@encode(id)]];
     NSString *joinedArgs = [printedArgs componentsJoinedByString:@", "];
@@ -128,7 +128,7 @@
 
 - (NSString *)printDictionary:(id)arg
 {
-    NSMutableArray *printedArgs = [[NSMutableArray alloc] init];
+    NSMutableArray<NSString *> *printedArgs = [[NSMutableArray alloc] init];
     for (id key in [[arg allKeys] sortedArrayUsingSelector:@selector(compare:)])
     {
         NSString *printedKey = [self printArgument:key type:@encode(id)];

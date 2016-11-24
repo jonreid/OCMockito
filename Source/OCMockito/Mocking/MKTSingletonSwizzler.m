@@ -7,8 +7,9 @@
 #import "MKTClassObjectMock.h"
 #import <objc/runtime.h>
 
+@class MKTSingletonMapEntry;
 
-static NSMutableDictionary *singletonMap = nil;
+static NSMutableDictionary<NSString *, MKTSingletonMapEntry *> *singletonMap = nil;
 
 static NSString *singletonKey(Class aClass, SEL aSelector)
 {
@@ -125,7 +126,7 @@ static NSString *singletonKey(Class aClass, SEL aSelector)
 - (void)unswizzleSingletonsForMock
 {
     void *theMockPtr = self.classMockPtr;
-    NSMutableArray *keysToRemove = [[NSMutableArray alloc] init];
+    NSMutableArray<NSString *> *keysToRemove = [[NSMutableArray alloc] init];
     
     [singletonMap enumerateKeysAndObjectsUsingBlock:^(NSString *key,
             MKTSingletonMapEntry *swizzled,

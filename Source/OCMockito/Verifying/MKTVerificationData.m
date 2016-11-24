@@ -27,7 +27,7 @@
     return self;
 }
 
-- (NSArray *)invocations
+- (NSArray<MKTInvocation *> *)invocations
 {
     return self.invocationContainer.registeredInvocations;
 }

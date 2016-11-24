@@ -6,7 +6,7 @@
 #import "MKTCallStackElement.h"
 
 
-static NSUInteger MKTFirstRelevantCallStackIndex(NSArray *parsedStack)
+static NSUInteger MKTFirstRelevantCallStackIndex(NSArray<MKTCallStackElement *> *parsedStack)
 {
     NSUInteger firstIndex = [parsedStack indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
         MKTCallStackElement *element = obj;
@@ -15,7 +15,9 @@ static NSUInteger MKTFirstRelevantCallStackIndex(NSArray *parsedStack)
     return firstIndex + 3;
 }
 
-static NSUInteger MKTLastRelevantCallStackIndex(NSArray *parsedStack, NSUInteger startBackFrom, NSString *moduleName)
+static NSUInteger MKTLastRelevantCallStackIndex(NSArray<MKTCallStackElement *> *parsedStack,
+                                                NSUInteger startBackFrom,
+                                                NSString *moduleName)
 {
     NSUInteger lastIndex = startBackFrom;
     while (lastIndex > 0 && ![[(parsedStack[lastIndex]) moduleName] isEqualToString:moduleName])
@@ -23,7 +25,7 @@ static NSUInteger MKTLastRelevantCallStackIndex(NSArray *parsedStack, NSUInteger
     return [[(parsedStack[lastIndex]) moduleName] isEqualToString:moduleName] ? lastIndex : startBackFrom;
 }
 
-NSArray *MKTFilterCallStack(NSArray *parsedStack)
+NSArray<MKTCallStackElement *> *MKTFilterCallStack(NSArray<MKTCallStackElement *> *parsedStack)
 {
     NSUInteger firstIndex = MKTFirstRelevantCallStackIndex(parsedStack);
     NSUInteger lastIndex = MKTLastRelevantCallStackIndex(parsedStack, parsedStack.count - 1, @"XCTest");
