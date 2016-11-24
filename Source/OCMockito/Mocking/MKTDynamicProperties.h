@@ -4,6 +4,8 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTDynamicProperties : NSObject
 
 - (instancetype)initWithClass:(Class)aClass NS_DESIGNATED_INITIALIZER;
@@ -11,3 +13,5 @@
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;
 
 @end
+
+NS_ASSUME_NONNULL_END

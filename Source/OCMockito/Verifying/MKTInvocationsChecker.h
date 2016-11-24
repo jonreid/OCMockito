@@ -8,6 +8,8 @@
 @class MKTMatchingInvocationsFinder;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTInvocationsChecker : NSObject
 
 @property (nonatomic, strong) MKTMatchingInvocationsFinder *invocationsFinder;
@@ -19,3 +21,5 @@
 - (NSString *)neverWantedButActual:(NSUInteger)actualCount;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,8 @@
 @class MKTLocation;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTMatchingInvocationsFinder : NSObject
 
 @property (nonatomic, assign, readonly) NSUInteger count;
@@ -18,3 +20,5 @@
 - (void)markInvocationsAsVerified;
 
 @end
+
+NS_ASSUME_NONNULL_END

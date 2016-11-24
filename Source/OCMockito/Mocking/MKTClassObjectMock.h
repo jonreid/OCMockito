@@ -5,6 +5,8 @@
 #import "MKTBaseMockObject.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*!
  * @abstract Mock object of a given class object.
  */
@@ -17,3 +19,5 @@
 - (void)swizzleSingletonAtSelector:(SEL)singletonSelector;
 
 @end
+
+NS_ASSUME_NONNULL_END

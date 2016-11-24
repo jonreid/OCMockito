@@ -7,6 +7,8 @@
 @class MKTClassObjectMock;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTSingletonSwizzler : NSObject
 
 - (instancetype)initWithMock:(MKTClassObjectMock *)classMock NS_DESIGNATED_INITIALIZER;
@@ -15,3 +17,5 @@
 - (void)unswizzleSingletonsForMock;
 
 @end
+
+NS_ASSUME_NONNULL_END

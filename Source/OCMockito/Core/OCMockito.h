@@ -16,6 +16,8 @@
 @protocol MKTVerificationMode;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 FOUNDATION_EXPORT id MKTMock(Class classToMock);
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
@@ -372,3 +374,5 @@ FOUNDATION_EXPORT void MKTStopMockingWithLocation(id mock, id testCase, const ch
  */
 #define stopMocking(mock) MKTStopMocking(mock)
 #endif
+
+NS_ASSUME_NONNULL_END

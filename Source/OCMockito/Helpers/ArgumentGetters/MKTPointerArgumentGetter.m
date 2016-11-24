@@ -6,7 +6,7 @@
 
 @implementation MKTPointerArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(void *) successor:successor];
     return self;

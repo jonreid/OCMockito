@@ -3,8 +3,9 @@
 
 #import "MKTMissingInvocationChecker.h"
 
-#import "MKTLocation.h"
 #import "MKTInvocation.h"
+#import "MKTInvocationMatcher.h"
+#import "MKTLocation.h"
 
 #import "DummyObject.h"
 #import "FakeLocation.h"
@@ -111,8 +112,10 @@
 - (void)testCheckInvocations_WithEvenOneMatchingInvocation_ShouldReturnNil
 {
     mockInvocationsFinder.stubbedCount = 1;
+    NSArray *dummyInvocations = [[NSArray alloc] init];
+    MKTInvocationMatcher *dummyWanted = [[MKTInvocationMatcher alloc] init];
 
-    NSString *description = [sut checkInvocations:nil wanted:nil];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted];
 
     assertThat(description, is(nilValue()));
 }

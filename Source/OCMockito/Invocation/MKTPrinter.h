@@ -7,6 +7,8 @@
 @class MKTInvocationMatcher;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTPrinter : NSObject
 
 - (NSString *)printMatcher:(MKTInvocationMatcher *)matcher;
@@ -18,3 +20,5 @@
 
 
 FOUNDATION_EXPORT NSString *MKTOrdinal(NSUInteger index);
+
+NS_ASSUME_NONNULL_END

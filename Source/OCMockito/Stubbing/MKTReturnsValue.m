@@ -5,12 +5,12 @@
 
 
 @interface MKTReturnsValue ()
-@property (nonatomic, strong, readonly) id value;
+@property (nullable, nonatomic, strong, readonly) id value;
 @end
 
 @implementation MKTReturnsValue
 
-- (instancetype)initWithValue:(id)value
+- (instancetype)initWithValue:(nullable id)value
 {
     self = [super init];
     if (self)

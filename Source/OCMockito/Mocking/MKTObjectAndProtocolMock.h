@@ -5,6 +5,8 @@
 #import "MKTProtocolMock.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*!
  * @abstract Mock object of a given class that also implements a given protocol.
  */
@@ -15,3 +17,5 @@
           includeOptionalMethods:(BOOL)includeOptionalMethods NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

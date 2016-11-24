@@ -4,6 +4,8 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*!
  * @abstract Specifies an action that is executed and a return value that is returned when you
  * interact with the mock.
@@ -18,3 +20,5 @@
 - (id)answerInvocation:(NSInvocation *)invocation;
 
 @end
+
+NS_ASSUME_NONNULL_END

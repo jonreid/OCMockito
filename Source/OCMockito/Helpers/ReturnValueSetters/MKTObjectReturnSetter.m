@@ -6,7 +6,7 @@
 
 @implementation MKTObjectReturnSetter
 
-- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTReturnValueSetter *)successor
 {
     self = [super initWithType:@encode(id) successor:successor];
     return self;

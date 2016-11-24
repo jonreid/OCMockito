@@ -6,7 +6,7 @@
 
 @implementation MKTFloatReturnSetter
 
-- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTReturnValueSetter *)successor
 {
     self = [super initWithType:@encode(float) successor:successor];
     return self;

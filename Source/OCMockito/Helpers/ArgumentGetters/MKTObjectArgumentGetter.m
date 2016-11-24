@@ -5,7 +5,7 @@
 
 @implementation MKTObjectArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(id) successor:successor];
     return self;

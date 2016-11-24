@@ -24,7 +24,10 @@
 
 - (void)testVerify_WithNil_ShouldGiveError
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
     [verifyWithMockTestCase(nil, mockTestCase) removeAllObjects];
+#pragma clang diagnostic pop
 
     assertThat(mockTestCase.failureDescription,
                is(@"Argument passed to verify() should be a mock, but was nil"));
@@ -32,7 +35,10 @@
 
 - (void)testVerifyCount_WithNil_ShouldGiveError
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
     [verifyCountWithMockTestCase(nil, times(1), mockTestCase) removeAllObjects];
+#pragma clang diagnostic pop
 
     assertThat(mockTestCase.failureDescription,
                is(@"Argument passed to verifyCount() should be a mock, but was nil"));

@@ -7,6 +7,8 @@
 @class MKTInvocationMatcher;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTMissingInvocationChecker : MKTInvocationsChecker
 
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
@@ -17,3 +19,5 @@
 
 
 MKTInvocation *MKTFindSimilarInvocation(NSArray<MKTInvocation *> *invocations, MKTInvocationMatcher *wanted);
+
+NS_ASSUME_NONNULL_END

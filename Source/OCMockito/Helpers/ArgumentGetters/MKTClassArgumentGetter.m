@@ -5,7 +5,7 @@
 
 @implementation MKTClassArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(Class) successor:successor];
     return self;

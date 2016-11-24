@@ -10,13 +10,13 @@
 
 @interface MKTReturnValueSetter ()
 @property (nonatomic, assign, readonly) char const *handlerType;
-@property (nonatomic, strong, readonly) MKTReturnValueSetter *successor;
+@property (nullable, nonatomic, strong, readonly) MKTReturnValueSetter *successor;
 @end
 
 
 @implementation MKTReturnValueSetter
 
-- (instancetype)initWithType:(char const *)handlerType successor:(MKTReturnValueSetter *)successor
+- (instancetype)initWithType:(char const *)handlerType successor:(nullable MKTReturnValueSetter *)successor
 {
     self = [super init];
     if (self)

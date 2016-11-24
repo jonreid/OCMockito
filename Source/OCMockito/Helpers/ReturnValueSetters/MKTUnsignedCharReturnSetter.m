@@ -6,7 +6,7 @@
 
 @implementation MKTUnsignedCharReturnSetter
 
-- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTReturnValueSetter *)successor
 {
     self = [super initWithType:@encode(unsigned char) successor:successor];
     return self;

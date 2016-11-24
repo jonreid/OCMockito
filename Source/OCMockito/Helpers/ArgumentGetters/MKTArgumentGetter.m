@@ -10,12 +10,12 @@
 
 @interface MKTArgumentGetter ()
 @property (nonatomic, assign, readonly) char const *handlerType;
-@property (nonatomic, strong, readonly) MKTArgumentGetter *successor;
+@property (nullable, nonatomic, strong, readonly) MKTArgumentGetter *successor;
 @end
 
 @implementation MKTArgumentGetter
 
-- (instancetype)initWithType:(char const *)handlerType successor:(MKTArgumentGetter *)successor
+- (instancetype)initWithType:(char const *)handlerType successor:(nullable MKTArgumentGetter *)successor
 {
     self = [super init];
     if (self)

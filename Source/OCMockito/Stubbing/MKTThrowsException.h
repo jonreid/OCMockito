@@ -4,6 +4,8 @@
 #import "MKTAnswer.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*!
  * @abstract Method answer that throws an exception.
  */
@@ -13,3 +15,5 @@
 - (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

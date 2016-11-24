@@ -8,7 +8,7 @@ typedef struct {} MKTDummyStructure;
 
 @implementation MKTStructArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(MKTDummyStructure) successor:successor];
     return self;

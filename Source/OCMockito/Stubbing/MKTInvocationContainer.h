@@ -10,6 +10,8 @@
 @protocol MKTAnswer;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTInvocationContainer : NSObject
 
 @property (nonatomic, copy, readonly) NSArray<MKTInvocation *> *registeredInvocations;
@@ -22,3 +24,5 @@
 - (BOOL)isStubbingCopyMethod;
 
 @end
+
+NS_ASSUME_NONNULL_END

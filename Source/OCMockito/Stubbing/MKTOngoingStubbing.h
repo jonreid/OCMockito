@@ -7,6 +7,8 @@
 @class MKTInvocationContainer;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*!
  * @abstract Methods to invoke on <code>given(methodCall)</code> to stub return values or behaviors.
  * @discussion The methods return <code>self</code> to allow stubbing consecutive calls. The last
@@ -23,7 +25,7 @@
  * <pre>[given([mock someMethod]) willReturn:@"FOO"];</pre>
  * @return MKTOngoingStubbing object to allow stubbing consecutive calls
  */
-- (MKTOngoingStubbing *)willReturn:(id)object;
+- (MKTOngoingStubbing *)willReturn:(nullable id)object;
 
 /*!
  * @abstract Sets a struct to return when the method is called.
@@ -145,3 +147,6 @@
 - (MKTOngoingStubbing *)willDo:(id (^)(NSInvocation *))block;
 
 @end
+
+NS_ASSUME_NONNULL_END
+

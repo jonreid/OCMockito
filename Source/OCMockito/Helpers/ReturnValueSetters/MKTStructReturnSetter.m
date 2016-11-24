@@ -6,7 +6,7 @@
 
 @implementation MKTStructReturnSetter
 
-- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTReturnValueSetter *)successor
 {
     self = [super initWithType:"{" successor:successor];
     return self;

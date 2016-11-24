@@ -5,7 +5,7 @@
 
 @implementation MKTUnsignedLongArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(unsigned long) successor:successor];
     return self;

@@ -4,10 +4,11 @@
 #import "MKTAtLeastNumberOfInvocationsChecker.h"
 
 #import "MKTInvocation.h"
+#import "MKTInvocationMatcher.h"
 #import "MKTLocation.h"
-#import "MockInvocationsFinder.h"
 
 #import "DummyObject.h"
+#import "MockInvocationsFinder.h"
 #import <OCHamcrest/OCHamcrest.h>
 #import <XCTest/XCTest.h>
 
@@ -36,6 +37,8 @@
 {
     MockInvocationsFinder *mockInvocationsFinder;
     MKTAtLeastNumberOfInvocationsChecker *sut;
+    NSArray *dummyInvocations;
+    MKTInvocationMatcher *dummyWanted;
 }
 
 - (void)setUp
@@ -44,6 +47,8 @@
     mockInvocationsFinder = [[MockInvocationsFinder alloc] init];
     sut = [[MKTAtLeastNumberOfInvocationsChecker alloc] init];
     sut.invocationsFinder = mockInvocationsFinder;
+    dummyInvocations = [[NSArray alloc] init];
+    dummyWanted = [[MKTInvocationMatcher alloc] init];
 }
 
 - (void)tearDown
@@ -67,7 +72,7 @@
 {
     mockInvocationsFinder.stubbedCount = 10;
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:5];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:5];
 
     assertThat(description, is(nilValue()));
 }
@@ -76,7 +81,7 @@
 {
     mockInvocationsFinder.stubbedCount = 5;
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:5];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:5];
 
     assertThat(description, is(nilValue()));
 }
@@ -85,7 +90,7 @@
 {
     mockInvocationsFinder.stubbedCount = 1;
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:100];
 
     assertThat(description, containsSubstring(@"Wanted at least 100 times but was called 1 time."));
 }
@@ -109,7 +114,7 @@
                     @"8   XCTest                              0x0000000118430edc IRRELEVANT",
             ]]];
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:100];
 
     assertThat(description, containsSubstring(
             @"Last invocation:\n"

@@ -5,7 +5,7 @@
 
 @implementation MKTBoolArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(BOOL) successor:successor];
     return self;

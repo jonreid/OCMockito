@@ -6,6 +6,8 @@
 @class MKTLocation;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTInvocation : NSObject
 
 @property (nonatomic, strong, readonly) NSInvocation *invocation;
@@ -17,3 +19,5 @@
 - (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

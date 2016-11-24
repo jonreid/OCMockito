@@ -24,8 +24,11 @@
 
 - (void)testStubSingleton_WithNil_ShouldGiveError
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
     stubSingletonWithMockTestCase(nil, @selector(standardUserDefaults), mockTestCase);
-
+#pragma clang diagnostic pop
+    
     assertThat(mockTestCase.failureDescription,
                is(@"Argument passed to stubSingleton() should be a class mock, but was nil"));
 }

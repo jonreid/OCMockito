@@ -5,7 +5,7 @@
 
 @implementation MKTUnsignedShortArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(unsigned short) successor:successor];
     return self;

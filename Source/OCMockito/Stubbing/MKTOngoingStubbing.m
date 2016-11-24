@@ -25,7 +25,7 @@
     return self;
 }
 
-- (MKTOngoingStubbing *)willReturn:(id)object
+- (MKTOngoingStubbing *)willReturn:(nullable id)object
 {
     // Workaround for over-releasing mock object that is stubbed as return value for copy method.
     if (self.invocationContainer.isStubbingCopyMethod && [MKTBaseMockObject isMockObject:object])

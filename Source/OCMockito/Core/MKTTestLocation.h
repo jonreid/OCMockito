@@ -4,6 +4,8 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef struct
 {
     __unsafe_unretained id testCase;
@@ -23,3 +25,5 @@ static inline MKTTestLocation MKTTestLocationMake(id test, const char *file, int
 
 void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description);
 void MKTFailTestLocation(MKTTestLocation testLocation, NSString *description);
+
+NS_ASSUME_NONNULL_END

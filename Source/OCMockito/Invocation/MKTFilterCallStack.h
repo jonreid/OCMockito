@@ -6,4 +6,8 @@
 @class MKTCallStackElement;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 NSArray<MKTCallStackElement *> *MKTFilterCallStack(NSArray<MKTCallStackElement *> *callStackSymbols);
+
+NS_ASSUME_NONNULL_END

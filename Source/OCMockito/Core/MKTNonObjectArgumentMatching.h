@@ -4,6 +4,8 @@
 @protocol HCMatcher;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*!
  * @abstract Ability to specify OCHamcrest matchers for non-object arguments.
  */
@@ -38,3 +40,5 @@
 - (id)withMatcher:(id <HCMatcher>)matcher;
 
 @end
+
+NS_ASSUME_NONNULL_END

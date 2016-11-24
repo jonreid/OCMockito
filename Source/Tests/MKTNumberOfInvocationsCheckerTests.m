@@ -4,6 +4,7 @@
 #import "MKTNumberOfInvocationsChecker.h"
 
 #import "MKTInvocation.h"
+#import "MKTInvocationMatcher.h"
 #import "MKTLocation.h"
 
 #import "DummyObject.h"
@@ -66,6 +67,8 @@
 {
     MockInvocationsFinder *mockInvocationsFinder;
     MKTNumberOfInvocationsChecker *sut;
+    NSArray *dummyInvocations;
+    MKTInvocationMatcher *dummyWanted;
 }
 
 - (void)setUp
@@ -74,6 +77,8 @@
     mockInvocationsFinder = [[MockInvocationsFinder alloc] init];
     sut = [[MKTNumberOfInvocationsChecker alloc] init];
     sut.invocationsFinder = mockInvocationsFinder;
+    dummyInvocations = [[NSArray alloc] init];
+    dummyWanted = [[MKTInvocationMatcher alloc] init];
 }
 
 - (void)tearDown
@@ -97,7 +102,7 @@
 {
     mockInvocationsFinder.stubbedCount = 100;
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:100];
 
     assertThat(description, is(nilValue()));
 }
@@ -106,7 +111,7 @@
 {
     mockInvocationsFinder.stubbedCount = 1;
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:100];
 
     assertThat(description, containsSubstring(@"Wanted 100 times but was called 1 time."));
 }
@@ -115,7 +120,7 @@
 {
     mockInvocationsFinder.stubbedCount = 100;
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:1];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:1];
 
     assertThat(description, containsSubstring(@"Wanted 1 time but was called 100 times."));
 }
@@ -139,7 +144,7 @@
                     @"8   XCTest                              0x0000000118430edc IRRELEVANT",
             ]]];
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:100];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:100];
 
     assertThat(description, containsSubstring(
             @"Last invocation:\n"
@@ -151,7 +156,7 @@
 {
     mockInvocationsFinder.stubbedCount = 2;
 
-    [sut checkInvocations:nil wanted:nil wantedCount:1];
+    [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:1];
 
     assertThat(@(mockInvocationsFinder.capturedInvocationIndex), is(@1));
 }
@@ -166,7 +171,7 @@
                     @"8   XCTest                              0x0000000118430edc IRRELEVANT",
             ]]];
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:1];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:1];
 
     assertThat(description, containsSubstring(
             @"Undesired invocation:\n"
@@ -178,7 +183,7 @@
 {
     mockInvocationsFinder.stubbedCount = 100;
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:0];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:0];
 
     assertThat(description, containsSubstring(@"Never wanted but was called 100 times."));
 }
@@ -187,7 +192,7 @@
 {
     mockInvocationsFinder.stubbedCount = 100;
 
-    [sut checkInvocations:nil wanted:nil wantedCount:0];
+    [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:0];
 
     assertThat(@(mockInvocationsFinder.capturedInvocationIndex), is(@0));
 }
@@ -202,7 +207,7 @@
                     @"8   XCTest                              0x0000000118430edc IRRELEVANT",
             ]]];
 
-    NSString *description = [sut checkInvocations:nil wanted:nil wantedCount:0];
+    NSString *description = [sut checkInvocations:dummyInvocations wanted:dummyWanted wantedCount:0];
 
     assertThat(description, containsSubstring(
             @"Undesired invocation:\n"

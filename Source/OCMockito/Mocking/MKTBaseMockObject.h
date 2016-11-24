@@ -5,6 +5,8 @@
 #import "MKTNonObjectArgumentMatching.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTBaseMockObject : NSProxy <MKTNonObjectArgumentMatching>
 
 + (BOOL)isMockObject:(id)object;
@@ -13,3 +15,5 @@
 - (void)mkt_stopMocking;
 
 @end
+
+NS_ASSUME_NONNULL_END

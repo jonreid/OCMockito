@@ -11,6 +11,8 @@
 @protocol MKTVerificationMode;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTMockingProgress : NSObject
 
 @property (nonatomic, assign, readonly) MKTTestLocation testLocation;
@@ -29,3 +31,5 @@
 - (MKTInvocationMatcher *)pullInvocationMatcher;
 
 @end
+
+NS_ASSUME_NONNULL_END

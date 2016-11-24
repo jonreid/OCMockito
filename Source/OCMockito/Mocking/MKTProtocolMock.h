@@ -4,6 +4,8 @@
 #import "MKTBaseMockObject.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*!
  * @abstract Mock object implementing a given protocol.
  */
@@ -16,3 +18,5 @@
 - (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

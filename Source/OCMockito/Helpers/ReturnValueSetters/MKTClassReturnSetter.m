@@ -6,7 +6,7 @@
 
 @implementation MKTClassReturnSetter
 
-- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTReturnValueSetter *)successor
 {
     self = [super initWithType:@encode(Class) successor:successor];
     return self;

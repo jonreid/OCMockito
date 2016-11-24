@@ -6,6 +6,8 @@
 @protocol HCMatcher;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MKTInvocationMatcher : NSObject
 
 @property (nonatomic, strong, readonly) NSInvocation *expected;
@@ -21,3 +23,5 @@
                    usingBlock:(void (^)(NSUInteger idx, NSString *description))block;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -5,7 +5,7 @@
 
 @implementation MKTDoubleArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(double) successor:successor];
     return self;

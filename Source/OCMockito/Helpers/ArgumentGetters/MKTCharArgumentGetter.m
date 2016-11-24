@@ -5,7 +5,7 @@
 
 @implementation MKTCharArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(char) successor:successor];
     return self;

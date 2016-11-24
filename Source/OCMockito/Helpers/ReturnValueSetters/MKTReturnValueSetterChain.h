@@ -6,7 +6,11 @@
 @class MKTReturnValueSetter;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*!
  * @abstract Returns chain of return value handlers.
  */
 FOUNDATION_EXPORT MKTReturnValueSetter *MKTReturnValueSetterChain(void);
+
+NS_ASSUME_NONNULL_END

@@ -6,7 +6,7 @@
 
 @implementation MKTLongLongReturnSetter
 
-- (instancetype)initWithSuccessor:(MKTReturnValueSetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTReturnValueSetter *)successor
 {
     self = [super initWithType:@encode(long long) successor:successor];
     return self;

@@ -5,7 +5,7 @@
 
 @implementation MKTUnsignedIntArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(unsigned int) successor:successor];
     return self;

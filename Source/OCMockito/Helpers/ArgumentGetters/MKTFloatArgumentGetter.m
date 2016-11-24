@@ -5,7 +5,7 @@
 
 @implementation MKTFloatArgumentGetter
 
-- (instancetype)initWithSuccessor:(MKTArgumentGetter *)successor
+- (instancetype)initWithSuccessor:(nullable MKTArgumentGetter *)successor
 {
     self = [super initWithType:@encode(float) successor:successor];
     return self;
