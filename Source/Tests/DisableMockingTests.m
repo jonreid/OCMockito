@@ -59,6 +59,14 @@
 
 - (void)tearDown
 {
+    // Without this disableMocking stage, 1 of the tests will fail, as we'll create a strong ref from
+    // a mock to an object that's being deallocated. The only other option would be for the test to know
+    // the correct order of stopMocking calls, which means that the test would need implementation-
+    // specific knowledge.
+    for (id trackedMock in trackedMocks) {
+        disableMocking(trackedMock);
+    }
+
     while (trackedMocks.count > 0) {
         id trackedMock = trackedMocks.firstObject;
         stopMocking(trackedMock);
