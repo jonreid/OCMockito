@@ -16,6 +16,9 @@
 #define stopMockingWithMockTestCase(mock, mockTestCase)  \
     MKTStopMockingWithLocation(mock, mockTestCase, __FILE__, __LINE__)
 
+#define disableMockingWithMockTestCase(mock, mockTestCase)  \
+    MKTDisableMockingWithLocation(mock, mockTestCase, __FILE__, __LINE__)
+
 
 @interface MockTestCase : NSObject
 
