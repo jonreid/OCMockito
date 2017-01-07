@@ -81,7 +81,7 @@
     [super tearDown];
 }
 
-- (void)testStoppingObject1ThenObject2
+- (void)testStoppingMocks_Object1ThenObject2_ShouldNotCrash
 {
     ObservableObject *mockObservableObject1 = mock([ObservableObject class]);
     ObservableObject *mockObservableObject2 = mock([ObservableObject class]);
@@ -94,7 +94,7 @@
     (void)helper;
 }
 
-- (void)testStoppingObject2ThenObject1
+- (void)testStoppingMocks_Object2ThenObject1_ShouldNotCrash
 {
     ObservableObject *mockObservableObject1 = mock([ObservableObject class]);
     ObservableObject *mockObservableObject2 = mock([ObservableObject class]);
