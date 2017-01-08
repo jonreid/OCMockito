@@ -144,12 +144,12 @@ void MKTDisableMockingWithLocation(id mock, id testCase, const char *fileName, i
 {
     if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"disableMocking()"))
         return;
-    [mock mkt_disableMocking];
+    [mock disableMocking];
 }
 
 void MKTStopMockingWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
     if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"stopMocking()"))
         return;
-    [mock mkt_stopMocking];
+    [mock stopMocking];
 }

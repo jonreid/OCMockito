@@ -28,14 +28,14 @@
     return _swizzler;
 }
 
-- (void)mkt_stopMocking
+- (void)stopMocking
 {
     if (_swizzler)
     {
         [_swizzler unswizzleSingletonsForMock]; // Explicitly call for 32-bit iOS because dealloc is called too late.
         _swizzler = nil;
     }
-    [super mkt_stopMocking];
+    [super stopMocking];
 }
 
 - (NSString *)description
