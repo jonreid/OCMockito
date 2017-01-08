@@ -11,7 +11,6 @@
 
 @interface ObservingObject : NSObject <ObjectObserver>
 @property (nonatomic, strong, readonly) ObservableObject *observableObject;
-- (instancetype)initWithObservableObject:(ObservableObject *)observableObject;
 @end
 
 @implementation ObservingObject

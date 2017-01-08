@@ -10,11 +10,10 @@
 
 #import <OCHamcrest/OCHamcrest.h>
 
-@interface DisableMockingTestsHelper : NSObject <ObjectObserver>
 
+@interface DisableMockingTestsHelper : NSObject <ObjectObserver>
 @property (nonatomic, strong, readonly) ObservableObject *observableObject1;
 @property (nonatomic, strong, readonly) ObservableObject *observableObject2;
-
 @end
 
 @implementation DisableMockingTestsHelper
@@ -29,11 +28,6 @@
         [_observableObject1 addObserver:self];
     }
     return self;
-}
-
-- (void)doSomethingLater
-{
-    [self.observableObject2 addObserver:self];
 }
 
 - (void)dealloc
@@ -56,7 +50,6 @@
 - (void)setUp
 {
     [super setUp];
-
     trackedMocks = [NSMutableArray array];
 }
 
@@ -88,10 +81,9 @@
 
     [trackedMocks addObject:mockObservableObject1];
     [trackedMocks addObject:mockObservableObject2];
-
-    DisableMockingTestsHelper *helper = [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
-                                                                                   observableObject2:mockObservableObject2];
-    (void)helper;
+    
+    [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
+                                               observableObject2:mockObservableObject2];
 }
 
 - (void)testStoppingMocks_Object2ThenObject1_ShouldNotCrash
@@ -101,13 +93,13 @@
 
     [trackedMocks addObject:mockObservableObject2];
     [trackedMocks addObject:mockObservableObject1];
-
-    DisableMockingTestsHelper *helper = [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
-                                                                                   observableObject2:mockObservableObject2];
-    (void)helper;
+    
+    [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
+                                               observableObject2:mockObservableObject2];
 }
 
 @end
+
 
 @interface DisableMockingProgrammerErrorTests : XCTestCase
 @end
@@ -120,14 +112,12 @@
 - (void)setUp
 {
     [super setUp];
-
     mockTestCase = [[MockTestCase alloc] init];
 }
 
 - (void)tearDown
 {
     mockTestCase = nil;
-
     [super tearDown];
 }
 
