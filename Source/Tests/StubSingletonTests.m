@@ -36,8 +36,19 @@
     assertThat([NSUserDefaults standardUserDefaults], is(@"STUBBED"));
 }
 
-- (void)testStubbedSingleton_ShouldReturnGivenObject_SO_NAMED_TO_EXECUTE_AFTER_TEST_ABOVE_EnsureThatMockDeallocationRestoresOriginalSingleton
+- (void)testStubbedSingleton_EnsureThatMockDeallocationRestoresOriginalSingleton
 {
+    __strong Class anotherMockUserDefaultsClass;
+
+    @autoreleasepool {
+        anotherMockUserDefaultsClass = mockClass([NSUserDefaults class]);
+        stubSingleton(anotherMockUserDefaultsClass, standardUserDefaults);
+        [given([anotherMockUserDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
+
+        assertThat([NSUserDefaults standardUserDefaults], is(@"STUBBED"));
+        anotherMockUserDefaultsClass = nil;
+    }
+
     assertThat([NSUserDefaults standardUserDefaults], is(instanceOf([NSUserDefaults class])));
 }
 
