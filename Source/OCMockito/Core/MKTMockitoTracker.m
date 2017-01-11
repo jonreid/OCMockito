@@ -30,35 +30,35 @@
 - (id)createAndTrackMockObject:(Class)classToMock
 {
     id theMock = [[MKTObjectMock alloc] initWithClass:classToMock];
-    [self.trackedMocks addObject:theMock];
+    [self addMock:theMock];
     return theMock;
 }
 
 - (id)createAndTrackMockClass:(Class)classToMock
 {
     id theMock = [[MKTClassObjectMock alloc] initWithClass:classToMock];
-    [self.trackedMocks addObject:theMock];
+    [self addMock:theMock];
     return theMock;
 }
 
 - (id)createAndTrackMockProtocol:(Protocol *)protocolToMock
 {
     id theMock = [[MKTProtocolMock alloc] initWithProtocol:protocolToMock includeOptionalMethods:YES];
-    [self.trackedMocks addObject:theMock];
+    [self addMock:theMock];
     return theMock;
 }
 
 - (id)createAndTrackMockProtocolWithoutOptionals:(Protocol *)protocolToMock
 {
     id theMock = [[MKTProtocolMock alloc] initWithProtocol:protocolToMock includeOptionalMethods:NO];
-    [self.trackedMocks addObject:theMock];
+    [self addMock:theMock];
     return theMock;
 }
 
 - (id)createAndTrackMockObject:(Class)classToMock andProtocol:(Protocol *)protocolToMock
 {
     id theMock = [[MKTObjectAndProtocolMock alloc] initWithClass:classToMock protocol:protocolToMock];
-    [self.trackedMocks addObject:theMock];
+    [self addMock:theMock];
     return theMock;
 }
 
