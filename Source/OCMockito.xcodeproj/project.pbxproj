@@ -646,6 +646,18 @@
 		638F68D8150FC21A0081DEE6 /* MKTClassObjectMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		638F68D9150FC21A0081DEE6 /* MKTClassObjectMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */; };
 		638F68DA150FC21A0081DEE6 /* MKTClassObjectMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */; };
+		65430DA31E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65430DA11E23DEF700632ED8 /* MKTMockitoTracker.h */; };
+		65430DA41E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65430DA11E23DEF700632ED8 /* MKTMockitoTracker.h */; };
+		65430DA51E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65430DA11E23DEF700632ED8 /* MKTMockitoTracker.h */; };
+		65430DA61E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65430DA11E23DEF700632ED8 /* MKTMockitoTracker.h */; };
+		65430DA71E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65430DA11E23DEF700632ED8 /* MKTMockitoTracker.h */; };
+		65430DA81E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65430DA21E23DEF700632ED8 /* MKTMockitoTracker.m */; };
+		65430DA91E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65430DA21E23DEF700632ED8 /* MKTMockitoTracker.m */; };
+		65430DAA1E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65430DA21E23DEF700632ED8 /* MKTMockitoTracker.m */; };
+		65430DAB1E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65430DA21E23DEF700632ED8 /* MKTMockitoTracker.m */; };
+		65430DAC1E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65430DA21E23DEF700632ED8 /* MKTMockitoTracker.m */; };
+		65D644841E24FD7B00D510B8 /* StopAllMocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D644831E24FD7B00D510B8 /* StopAllMocksTests.m */; };
+		65D644851E24FD7B00D510B8 /* StopAllMocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D644831E24FD7B00D510B8 /* StopAllMocksTests.m */; };
 		65EEDE271E1D327600463068 /* DisableMockingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EEDE261E1D327600463068 /* DisableMockingTests.m */; };
 		65EEDE2A1E1D337400463068 /* ObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EEDE291E1D337400463068 /* ObservableObject.m */; };
 		65EEDF231E1D389B00463068 /* DisableMockingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EEDE261E1D327600463068 /* DisableMockingTests.m */; };
@@ -1020,6 +1032,9 @@
 		638F68D5150FC21A0081DEE6 /* MKTClassObjectMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTClassObjectMock.h; sourceTree = "<group>"; };
 		638F68D6150FC21A0081DEE6 /* MKTClassObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMock.m; sourceTree = "<group>"; };
 		638F68DC150FC3210081DEE6 /* MKTClassObjectMockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTClassObjectMockTests.m; sourceTree = "<group>"; };
+		65430DA11E23DEF700632ED8 /* MKTMockitoTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTMockitoTracker.h; sourceTree = "<group>"; };
+		65430DA21E23DEF700632ED8 /* MKTMockitoTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMockitoTracker.m; sourceTree = "<group>"; };
+		65D644831E24FD7B00D510B8 /* StopAllMocksTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopAllMocksTests.m; sourceTree = "<group>"; };
 		65EEDE261E1D327600463068 /* DisableMockingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisableMockingTests.m; sourceTree = "<group>"; };
 		65EEDE281E1D337400463068 /* ObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservableObject.h; sourceTree = "<group>"; };
 		65EEDE291E1D337400463068 /* ObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservableObject.m; sourceTree = "<group>"; };
@@ -1396,6 +1411,8 @@
 			children = (
 				0827E83313526E7300C39A57 /* OCMockito.h */,
 				0827E83413526E7300C39A57 /* OCMockito.m */,
+				65430DA11E23DEF700632ED8 /* MKTMockitoTracker.h */,
+				65430DA21E23DEF700632ED8 /* MKTMockitoTracker.m */,
 				0827E8401352B6FC00C39A57 /* MKTMockitoCore.h */,
 				0827E8411352B6FC00C39A57 /* MKTMockitoCore.m */,
 				0827E8641352C50400C39A57 /* MKTTestLocation.h */,
@@ -1452,6 +1469,7 @@
 				085A8BC6150718E30018EC66 /* MKTProtocolMockTests.m */,
 				609E9F142955F412A8AFE0AD /* StopMockingTests.m */,
 				65EEDE261E1D327600463068 /* DisableMockingTests.m */,
+				65D644831E24FD7B00D510B8 /* StopAllMocksTests.m */,
 			);
 			name = Mocking;
 			sourceTree = "<group>";
@@ -1638,6 +1656,7 @@
 				7400186D1A58E60200E9AC92 /* MKTThrowsException.h in Headers */,
 				31DDC07A679FF558FB2E3069 /* MKT_TPDWeakProxy.h in Headers */,
 				31DDC37FB11D5CF77669F21B /* MKTDynamicProperties.h in Headers */,
+				65430DA41E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */,
 				609E9E1BB226D286566616E5 /* MKTInvocation.h in Headers */,
 				609E93F0AF4CF88EA58BE4F3 /* MKTParseCallStack.h in Headers */,
 				609E9BEB2716127F240545BB /* MKTCallStackElement.h in Headers */,
@@ -1672,6 +1691,7 @@
 				08E1E74F13633BC10066B0C7 /* MKTNonObjectArgumentMatching.h in Headers */,
 				085A8BCB15071F7B0018EC66 /* MKTProtocolMock.h in Headers */,
 				08FD4B2A1509BEA90004E1FA /* MKTBaseMockObject.h in Headers */,
+				65430DA31E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */,
 				638F68D7150FC21A0081DEE6 /* MKTClassObjectMock.h in Headers */,
 				08E9DC231516738200BD7FB4 /* MKTObjectAndProtocolMock.h in Headers */,
 				361533C6153F275800BB982B /* MKTAtLeastTimes.h in Headers */,
@@ -1806,6 +1826,7 @@
 				247B9FDE1C335EE500B10720 /* MKTClassArgumentGetter.h in Headers */,
 				247B9FE61C335EE500B10720 /* MKTLongArgumentGetter.h in Headers */,
 				247BA0F51C335F3000B10720 /* MKTInvocationsChecker.h in Headers */,
+				65430DA51E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */,
 				247BA0D21C335F2200B10720 /* MKTExecutesBlock.h in Headers */,
 				247B9FE41C335EE500B10720 /* MKTIntArgumentGetter.h in Headers */,
 				247BA00C1C335EF900B10720 /* MKTLongReturnSetter.h in Headers */,
@@ -1890,6 +1911,7 @@
 				247B9FB61C335EE400B10720 /* MKTClassArgumentGetter.h in Headers */,
 				247B9FBE1C335EE400B10720 /* MKTLongArgumentGetter.h in Headers */,
 				247BA1081C335F3100B10720 /* MKTInvocationsChecker.h in Headers */,
+				65430DA61E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */,
 				247BA0C51C335F2100B10720 /* MKTExecutesBlock.h in Headers */,
 				247B9FBC1C335EE400B10720 /* MKTIntArgumentGetter.h in Headers */,
 				247BA0301C335EFA00B10720 /* MKTLongReturnSetter.h in Headers */,
@@ -1974,6 +1996,7 @@
 				247B9F8E1C335EE300B10720 /* MKTClassArgumentGetter.h in Headers */,
 				247B9F961C335EE300B10720 /* MKTLongArgumentGetter.h in Headers */,
 				247BA11B1C335F3200B10720 /* MKTInvocationsChecker.h in Headers */,
+				65430DA71E23DEF700632ED8 /* MKTMockitoTracker.h in Headers */,
 				247BA0DF1C335F2300B10720 /* MKTExecutesBlock.h in Headers */,
 				247B9F941C335EE300B10720 /* MKTIntArgumentGetter.h in Headers */,
 				247BA0541C335EFA00B10720 /* MKTLongReturnSetter.h in Headers */,
@@ -2286,6 +2309,7 @@
 				609E9C9787F014378F462B06 /* MKTCallStackElement.m in Sources */,
 				609E953433A4DE2339277FF0 /* MKTMatchingInvocationsFinder.m in Sources */,
 				609E912EEBD7E28E5C4FD96E /* MKTFilterCallStack.m in Sources */,
+				65430DA91E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */,
 				609E9AE638C6F118F9EA9AD2 /* MKTNumberOfInvocationsChecker.m in Sources */,
 				609E9A78C82C1232480816CE /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */,
 				609E95B526E486C1C76464B7 /* MKTInvocationsChecker.m in Sources */,
@@ -2367,6 +2391,7 @@
 				609E9D91D52DC57C88272B1D /* MKTCallStackElement.m in Sources */,
 				609E9511A39D8AB4D3A34736 /* MKTMatchingInvocationsFinder.m in Sources */,
 				609E9FC124ED879F4E6504AD /* MKTFilterCallStack.m in Sources */,
+				65430DA81E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */,
 				609E9F0872526D05C1724B54 /* MKTNumberOfInvocationsChecker.m in Sources */,
 				609E905D807B1A487CFACCBD /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */,
 				609E934EF0A011ACD93A1ABB /* MKTInvocationsChecker.m in Sources */,
@@ -2448,6 +2473,7 @@
 				247BA0A31C335F1700B10720 /* MKTClassObjectMock.m in Sources */,
 				247B9FF91C335EE500B10720 /* MKTUnsignedLongArgumentGetter.m in Sources */,
 				247B9FD91C335EE500B10720 /* MKTArgumentGetterChain.m in Sources */,
+				65430DAA1E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */,
 				247BA0A11C335F1700B10720 /* MKTBaseMockObject.m in Sources */,
 				247B9FF71C335EE500B10720 /* MKTUnsignedIntArgumentGetter.m in Sources */,
 				247B9FFB1C335EE500B10720 /* MKTUnsignedLongLongArgumentGetter.m in Sources */,
@@ -2529,6 +2555,7 @@
 				247BA0AF1C335F1800B10720 /* MKTClassObjectMock.m in Sources */,
 				247B9FD11C335EE400B10720 /* MKTUnsignedLongArgumentGetter.m in Sources */,
 				247B9FB11C335EE400B10720 /* MKTArgumentGetterChain.m in Sources */,
+				65430DAB1E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */,
 				247BA0AD1C335F1800B10720 /* MKTBaseMockObject.m in Sources */,
 				247B9FCF1C335EE400B10720 /* MKTUnsignedIntArgumentGetter.m in Sources */,
 				247B9FD31C335EE400B10720 /* MKTUnsignedLongLongArgumentGetter.m in Sources */,
@@ -2610,6 +2637,7 @@
 				247BA0BB1C335F1800B10720 /* MKTClassObjectMock.m in Sources */,
 				247B9FA91C335EE300B10720 /* MKTUnsignedLongArgumentGetter.m in Sources */,
 				247B9F891C335EE300B10720 /* MKTArgumentGetterChain.m in Sources */,
+				65430DAC1E23DEF700632ED8 /* MKTMockitoTracker.m in Sources */,
 				247BA0B91C335F1800B10720 /* MKTBaseMockObject.m in Sources */,
 				247B9FA71C335EE300B10720 /* MKTUnsignedIntArgumentGetter.m in Sources */,
 				247B9FAB1C335EE300B10720 /* MKTUnsignedLongLongArgumentGetter.m in Sources */,
@@ -2655,6 +2683,7 @@
 				74A3BDAE19F767B8006591C9 /* VerifyCountAtLeastTimesTests.m in Sources */,
 				74A3BD9B19F767AD006591C9 /* MKTClassObjectMockTests.m in Sources */,
 				74A3BDA319F767B8006591C9 /* NSInvocation+OCMockitoTests.m in Sources */,
+				65D644841E24FD7B00D510B8 /* StopAllMocksTests.m in Sources */,
 				74A3BD9C19F767AD006591C9 /* MKTObjectMockTests.m in Sources */,
 				481D6E991D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m in Sources */,
 				74A3BDA419F767B8006591C9 /* StubClassTests.m in Sources */,
@@ -2701,6 +2730,7 @@
 				74A3BDE019F76DF0006591C9 /* VerifyCountAtLeastTimesTests.m in Sources */,
 				74A3BDCD19F76DEA006591C9 /* MKTClassObjectMockTests.m in Sources */,
 				74A3BDD519F76DF0006591C9 /* NSInvocation+OCMockitoTests.m in Sources */,
+				65D644851E24FD7B00D510B8 /* StopAllMocksTests.m in Sources */,
 				74A3BDCE19F76DEA006591C9 /* MKTObjectMockTests.m in Sources */,
 				481D6E9A1D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m in Sources */,
 				74A3BDD619F76DF0006591C9 /* StubClassTests.m in Sources */,

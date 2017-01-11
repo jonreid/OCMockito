@@ -40,6 +40,7 @@ typedef NSString *(^BlockReturningString)(void);
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockObj = nil;
     [super tearDown];
 }

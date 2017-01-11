@@ -23,6 +23,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockString = nil;
     [super tearDown];
 }
@@ -133,6 +134,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockDynamicPropertyHolder = nil;
     [super tearDown];
 }

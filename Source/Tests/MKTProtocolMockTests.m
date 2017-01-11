@@ -65,6 +65,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockImplementer = nil;
     [super tearDown];
 }

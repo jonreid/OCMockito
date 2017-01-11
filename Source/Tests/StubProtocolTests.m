@@ -39,6 +39,7 @@ typedef struct {
 
 - (void)tearDown
 {
+    stopAllMocks();
     myMockProtocol = nil;
     [super tearDown];
 }

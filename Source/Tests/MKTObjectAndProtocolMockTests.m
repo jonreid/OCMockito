@@ -57,6 +57,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     mock = nil;
     [super tearDown];
 }
