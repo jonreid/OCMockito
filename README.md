@@ -22,86 +22,6 @@ Key differences from other mocking frameworks:
   failures.
 
 
-How do I add OCMockito to my project?
--------------------------------------
-
-The Examples folder shows projects using OCMockito either through CocoaPods or
-through the prebuilt frameworks, for iOS and Mac OS X development.
-
-### CocoaPods
-
-If you want to add OCMockito using Cocoapods then add the following dependency
-to your Podfile. Most people will want OCMockito in their test targets, and not
-include any pods from their main targets:
-
-```ruby
-target 'MyTests' do
-  inherit! :search_paths
-  pod 'OCMockito', '~> 4.0'
-end
-```
-
-Use the following imports:
-
-    #import <OCHamcrest/OCHamcrest.h>
-    #import <OCMockito/OCMockito.h>
-
-### Carthage
-
-Add the following to your Cartfile:
-
-```
-github "jonreid/OCMockito" ~> 4.0
-```
-
-Then drag the the built frameworks (both OCHamcrest and OCMockito) from the
-appropriate Carthage/Build directory into your project, but with "Copy items
-into destination group's folder" disabled.
-
-### Prebuilt Frameworks
-
-Prebuilt binaries are available on GitHub for
-[OCMockito](https://github.com/jonreid/OCMockito/releases/). You will also need
-[OCHamcrest](https://github.com/hamcrest/OCHamcrest/releases/).
-The binaries are packaged as frameworks:
-
-* __OCMockitoIOS.framework__ for iOS development
-* __OCMockito.framework__ for Mac OS X development
-
-OCHamcrest comes in a similar scheme. Drag the appropriate frameworks for both
-both OCMockito and OCHamcrest into your project, specifying "Copy items into
-destination group's folder". Then specify `-ObjC` in your "Other Linker Flags".
-
-#### iOS Development:
-
-Use the following imports:
-
-    #import <OCHamcrestIOS/OCHamcrestIOS.h>
-    #import <OCMockitoIOS/OCMockitoIOS.h>
-
-
-#### Mac OS X Development:
-
-Add a "Copy Files" build phase to copy OCMockito.framework and
-OCHamcrest.framework to your Products Directory.
-
-Use the following imports:
-
-    #import <OCHamcrest/OCHamcrest.h>
-    #import <OCMockito/OCMockito.h>
-
-
-### Build Your Own
-
-If you want to build OCMockito yourself, clone the repo, then
-
-```sh
-$ Frameworks/gethamcrest
-$ cd Source
-$ ./MakeDistribution.sh
-```
- 
-
 Let's verify some behavior!
 ---------------------------
 
@@ -409,3 +329,83 @@ your other tests, compromising their integrity.
 
 If you need more control over when the swizzling is undone, call
 `stopMocking(…)` on the mock class.
+
+
+How do I add OCMockito to my project?
+-------------------------------------
+
+The Examples folder shows projects using OCMockito either through CocoaPods or
+through the prebuilt frameworks, for iOS and Mac OS X development.
+
+### CocoaPods
+
+If you want to add OCMockito using Cocoapods then add the following dependency
+to your Podfile. Most people will want OCMockito in their test targets, and not
+include any pods from their main targets:
+
+```ruby
+target 'MyTests' do
+  inherit! :search_paths
+  pod 'OCMockito', '~> 4.0'
+end
+```
+
+Use the following imports:
+
+    #import <OCHamcrest/OCHamcrest.h>
+    #import <OCMockito/OCMockito.h>
+
+### Carthage
+
+Add the following to your Cartfile:
+
+```
+github "jonreid/OCMockito" ~> 4.0
+```
+
+Then drag the the built frameworks (both OCHamcrest and OCMockito) from the
+appropriate Carthage/Build directory into your project, but with "Copy items
+into destination group's folder" disabled.
+
+### Prebuilt Frameworks
+
+Prebuilt binaries are available on GitHub for
+[OCMockito](https://github.com/jonreid/OCMockito/releases/). You will also need
+[OCHamcrest](https://github.com/hamcrest/OCHamcrest/releases/).
+The binaries are packaged as frameworks:
+
+* __OCMockitoIOS.framework__ for iOS development
+* __OCMockito.framework__ for Mac OS X development
+
+OCHamcrest comes in a similar scheme. Drag the appropriate frameworks for both
+both OCMockito and OCHamcrest into your project, specifying "Copy items into
+destination group's folder". Then specify `-ObjC` in your "Other Linker Flags".
+
+#### iOS Development:
+
+Use the following imports:
+
+    #import <OCHamcrestIOS/OCHamcrestIOS.h>
+    #import <OCMockitoIOS/OCMockitoIOS.h>
+
+
+#### Mac OS X Development:
+
+Add a "Copy Files" build phase to copy OCMockito.framework and
+OCHamcrest.framework to your Products Directory.
+
+Use the following imports:
+
+    #import <OCHamcrest/OCHamcrest.h>
+    #import <OCMockito/OCMockito.h>
+
+
+### Build Your Own
+
+If you want to build OCMockito yourself, clone the repo, then
+
+```sh
+$ Frameworks/gethamcrest
+$ cd Source
+$ ./MakeDistribution.sh
+```
