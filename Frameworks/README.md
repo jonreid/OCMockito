@@ -1,2 +1,2 @@
-To build OCMockito without CocoaPods, execute the following scripts:
+To build OCMockito without CocoaPods, execute the following script:
 - gethamcrest
