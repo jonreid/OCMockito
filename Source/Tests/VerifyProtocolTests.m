@@ -31,6 +31,7 @@
 - (void)tearDown
 {
     [archiver finishEncoding];
+    stopAllMocks();
     mockLock = nil;
     mockDelegate = nil;
     mockTestCase = nil;

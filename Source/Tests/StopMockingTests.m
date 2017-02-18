@@ -56,7 +56,7 @@
 
 - (void)tearDown
 {
-    stopMocking(mockObservableObject);
+    stopAllMocks();
     mockObservableObject = nil;
     observingObject = nil;
     [super tearDown];
@@ -64,49 +64,5 @@
 
 - (void)test1 {}
 - (void)test2 {}
-
-@end
-
-
-@interface StopMockingProgrammerErrorTests : XCTestCase
-@end
-
-@implementation StopMockingProgrammerErrorTests
-{
-    MockTestCase *mockTestCase;
-}
-
-- (void)setUp
-{
-    [super setUp];
-    mockTestCase = [[MockTestCase alloc] init];
-}
-
-- (void)tearDown
-{
-    mockTestCase = nil;
-    [super tearDown];
-}
-
-- (void)testStopMocking_WithNil_ShouldGiveError
-{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wnonnull"
-    stopMockingWithMockTestCase(nil, mockTestCase);
-#pragma clang diagnostic pop
-
-    assertThat(mockTestCase.failureDescription,
-            is(@"Argument passed to stopMocking() should be a mock, but was nil"));
-}
-
-- (void)testStopMocking_WithNonMock_ShouldGiveError
-{
-    NSMutableArray *realArray = [NSMutableArray array];
-
-    stopMockingWithMockTestCase(realArray, mockTestCase);
-
-    assertThat(mockTestCase.failureDescription,
-            startsWith(@"Argument passed to stopMocking() should be a mock, but was type "));
-}
 
 @end

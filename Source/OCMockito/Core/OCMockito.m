@@ -7,6 +7,7 @@
 #import "MKTAtMostTimes.h"
 #import "MKTExactTimes.h"
 #import "MKTMockitoCore.h"
+#import "MKTMockitoTracker.h"
 
 
 static NSString *actualTypeName(id mock)
@@ -53,27 +54,27 @@ static BOOL reportedInvalidClassMethod(MKTClassObjectMock *theMock, SEL aSelecto
 
 id MKTMock(Class classToMock)
 {
-    return [[MKTObjectMock alloc] initWithClass:classToMock];
+    return [[MKTMockitoTracker sharedTracker] createAndTrackMockObject:classToMock];
 }
 
 id MKTMockClass(Class classToMock)
 {
-    return [[MKTClassObjectMock alloc] initWithClass:classToMock];
+    return [[MKTMockitoTracker sharedTracker] createAndTrackMockClass:classToMock];
 }
 
 id MKTMockProtocol(Protocol *protocolToMock)
 {
-    return [[MKTProtocolMock alloc] initWithProtocol:protocolToMock includeOptionalMethods:YES];
+    return [[MKTMockitoTracker sharedTracker] createAndTrackMockProtocol:protocolToMock];
 }
 
 id MKTMockProtocolWithoutOptionals(Protocol *protocolToMock)
 {
-    return [[MKTProtocolMock alloc] initWithProtocol:protocolToMock includeOptionalMethods:NO];
+    return [[MKTMockitoTracker sharedTracker] createAndTrackMockProtocolWithoutOptionals:protocolToMock];
 }
 
 id MKTMockObjectAndProtocol(Class classToMock, Protocol *protocolToMock)
 {
-    return [[MKTObjectAndProtocolMock alloc] initWithClass:classToMock protocol:protocolToMock];
+    return [[MKTMockitoTracker sharedTracker] createAndTrackMockObject:classToMock andProtocol:protocolToMock];
 }
 
 MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const char *fileName, int lineNumber, ...)
@@ -140,16 +141,7 @@ id <MKTVerificationMode> MKTAtMost(NSUInteger maxNumberOfInvocations)
     return [[MKTAtMostTimes alloc] initWithMaximumCount:maxNumberOfInvocations];
 }
 
-void MKTDisableMockingWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
+void MKTStopAllMocks()
 {
-    if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"disableMocking()"))
-        return;
-    [mock disableMocking];
-}
-
-void MKTStopMockingWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
-{
-    if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"stopMocking()"))
-        return;
-    [mock stopMocking];
+    [[MKTMockitoTracker sharedTracker] stopTrackedMocks];
 }

@@ -24,6 +24,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockUserDefaultsClass = Nil;
     [super tearDown];
 }
@@ -44,6 +45,7 @@
         [given([mockUserDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
 
         assertThat([NSUserDefaults standardUserDefaults], is(@"STUBBED"));
+        stopAllMocks();
         mockUserDefaultsClass = nil;
     }
 
@@ -55,7 +57,7 @@
     stubSingleton(mockUserDefaultsClass, standardUserDefaults);
     [given([mockUserDefaultsClass standardUserDefaults]) willReturn:@"STUBBED"];
     
-    stopMocking(mockUserDefaultsClass);
+    stopAllMocks();
     
     assertThat([NSUserDefaults standardUserDefaults], is(instanceOf([NSUserDefaults class])));
 }
@@ -81,8 +83,7 @@
     stubSingleton(secondMockClass, standardUserDefaults);
     [given([secondMockClass standardUserDefaults]) willReturn:@"STUBBED2"];
     
-    stopMocking(mockUserDefaultsClass);
-    stopMocking(secondMockClass);
+    stopAllMocks();
     
     assertThat([NSUserDefaults standardUserDefaults], is(instanceOf([NSUserDefaults class])));
 }

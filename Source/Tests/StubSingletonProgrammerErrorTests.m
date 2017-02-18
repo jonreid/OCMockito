@@ -24,6 +24,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockTestCase = nil;
     [super tearDown];
 }

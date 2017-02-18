@@ -31,6 +31,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     myMockClass = Nil;
     [super tearDown];
 }

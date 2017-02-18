@@ -26,6 +26,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockLockingArray = nil;
     mockTestCase = nil;
     [super tearDown];

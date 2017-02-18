@@ -49,6 +49,7 @@ static inline double *createArrayOf10Doubles(void)
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockArray = nil;
     mockTestCase = nil;
     [super tearDown];

@@ -24,6 +24,7 @@
 
 - (void)tearDown
 {
+    stopAllMocks();
     mockStringClass = Nil;
     [super tearDown];
 }

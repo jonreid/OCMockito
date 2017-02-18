@@ -59,13 +59,13 @@
     // a mock to an object that's being deallocated. The only other option would be for the test to know
     // the correct order of stopMocking calls, which means that the test would need implementation-
     // specific knowledge.
-    for (id trackedMock in trackedMocks) {
-        disableMocking(trackedMock);
+    for (MKTBaseMockObject *trackedMock in trackedMocks) {
+        [trackedMock disableMocking];
     }
 
     while (trackedMocks.count > 0) {
-        id trackedMock = trackedMocks.firstObject;
-        stopMocking(trackedMock);
+        MKTBaseMockObject *trackedMock = trackedMocks.firstObject;
+        [trackedMock stopMocking];
         [trackedMocks removeObjectAtIndex:0];
     }
 
@@ -96,50 +96,6 @@
     
     (void) [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
                                                       observableObject2:mockObservableObject2];
-}
-
-@end
-
-
-@interface DisableMockingProgrammerErrorTests : XCTestCase
-@end
-
-@implementation DisableMockingProgrammerErrorTests
-{
-    MockTestCase *mockTestCase;
-}
-
-- (void)setUp
-{
-    [super setUp];
-    mockTestCase = [[MockTestCase alloc] init];
-}
-
-- (void)tearDown
-{
-    mockTestCase = nil;
-    [super tearDown];
-}
-
-- (void)testDisableMocking_WithNil_ShouldGiveError
-{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wnonnull"
-    disableMockingWithMockTestCase(nil, mockTestCase);
-#pragma clang diagnostic pop
-
-    assertThat(mockTestCase.failureDescription,
-               is(@"Argument passed to disableMocking() should be a mock, but was nil"));
-}
-
-- (void)testDisableMocking_WithNonMock_ShouldGiveError
-{
-    NSMutableArray *realArray = [NSMutableArray array];
-
-    disableMockingWithMockTestCase(realArray, mockTestCase);
-
-    assertThat(mockTestCase.failureDescription,
-               startsWith(@"Argument passed to disableMocking() should be a mock, but was type "));
 }
 
 @end
