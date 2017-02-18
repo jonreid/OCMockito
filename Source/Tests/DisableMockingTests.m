@@ -82,8 +82,8 @@
     [trackedMocks addObject:mockObservableObject1];
     [trackedMocks addObject:mockObservableObject2];
     
-    [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
-                                               observableObject2:mockObservableObject2];
+    (void) [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
+                                                      observableObject2:mockObservableObject2];
 }
 
 - (void)testStoppingMocks_Object2ThenObject1_ShouldNotCrash
@@ -94,8 +94,8 @@
     [trackedMocks addObject:mockObservableObject2];
     [trackedMocks addObject:mockObservableObject1];
     
-    [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
-                                               observableObject2:mockObservableObject2];
+    (void) [[DisableMockingTestsHelper alloc] initWithObservableObject1:mockObservableObject1
+                                                      observableObject2:mockObservableObject2];
 }
 
 @end
