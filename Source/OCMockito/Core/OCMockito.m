@@ -140,13 +140,6 @@ id <MKTVerificationMode> MKTAtMost(NSUInteger maxNumberOfInvocations)
     return [[MKTAtMostTimes alloc] initWithMaximumCount:maxNumberOfInvocations];
 }
 
-void MKTDisableMockingWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
-{
-    if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"disableMocking()"))
-        return;
-    [mock disableMocking];
-}
-
 void MKTStopMockingWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
     if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"stopMocking()"))

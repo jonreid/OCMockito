@@ -16,7 +16,7 @@
 @interface MKTBaseMockObject ()
 @property (nonatomic, strong, readonly) MKTMockingProgress *mockingProgress;
 @property (nonatomic, strong) MKTInvocationContainer *invocationContainer;
-@property (nonatomic, assign) BOOL mockingDisabled;
+@property (nonatomic, assign) BOOL stoppedMocking;
 @end
 
 @implementation MKTBaseMockObject
@@ -40,21 +40,16 @@
     return self;
 }
 
-- (void)disableMocking
-{
-    self.mockingDisabled = YES;
-}
-
 - (void)stopMocking
 {
-    [self disableMocking];
+    self.stoppedMocking = YES;
     self.invocationContainer = nil;
     [self.mockingProgress reset];
 }
 
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
-    if (self.mockingDisabled)
+    if (self.stoppedMocking)
         return;
     if ([self handlingVerifyOfInvocation:invocation])
         return;

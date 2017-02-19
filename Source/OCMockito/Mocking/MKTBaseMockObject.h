@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isMockObject:(id)object;
 
 - (instancetype)init;
-- (void)disableMocking;
 - (void)stopMocking;
 
 @end

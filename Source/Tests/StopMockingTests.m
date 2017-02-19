@@ -4,10 +4,24 @@
 #import "OCMockito.h"
 
 #import "MockTestCase.h"
-#import "ObservableObject.h"
 #import <OCHamcrest/OCHamcrest.h>
 #import <XCTest/XCTest.h>
 
+
+@protocol ObjectObserver <NSObject>
+@end
+
+@interface ObservableObject : NSObject
+- (void)addObserver:(id <ObjectObserver>)observer;
+- (void)removeObserver:(id <ObjectObserver>)observer;
+@end
+
+@implementation ObservableObject
+- (void)addObserver:(id <ObjectObserver>)observer {}
+- (void)removeObserver:(id <ObjectObserver>)observer {}
+@end
+
+@class ObservableObject;
 
 @interface ObservingObject : NSObject <ObjectObserver>
 @property (nonatomic, strong, readonly) ObservableObject *observableObject;
