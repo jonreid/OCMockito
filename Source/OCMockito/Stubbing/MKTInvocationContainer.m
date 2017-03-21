@@ -59,7 +59,7 @@
 
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation
 {
-    for (MKTStubbedInvocationMatcher *s in self.stubbed)
+    for (MKTStubbedInvocationMatcher *s in [self.stubbed copy])
         if ([s matches:invocation])
             return s;
     return nil;
