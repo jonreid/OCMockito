@@ -15,9 +15,9 @@
     return self;
 }
 
-- (NSString *)checkInvocations:(NSArray<MKTInvocation *> *)invocations
-                        wanted:(MKTInvocationMatcher *)wanted
-                   wantedCount:(NSUInteger)wantedCount
+- (nullable NSString *)checkInvocations:(NSArray<MKTInvocation *> *)invocations
+                                 wanted:(MKTInvocationMatcher *)wanted
+                            wantedCount:(NSUInteger)wantedCount
 {
     [self.invocationsFinder findInvocationsInList:invocations matching:wanted];
     NSUInteger actualCount = self.invocationsFinder.count;

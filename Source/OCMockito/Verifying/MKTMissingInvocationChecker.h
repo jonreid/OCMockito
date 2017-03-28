@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
 - (instancetype)initWithWantedDescription:(NSString *)wantedDescription NS_UNAVAILABLE;
-- (NSString *)checkInvocations:(NSArray<MKTInvocation *> *)invocations wanted:(MKTInvocationMatcher *)wanted;
+- (nullable NSString *)checkInvocations:(NSArray<MKTInvocation *> *)invocations wanted:(MKTInvocationMatcher *)wanted;
 
 @end
 

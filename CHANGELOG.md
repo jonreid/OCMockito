@@ -1,3 +1,12 @@
+UPCOMING VERSION
+----------------
+
+**Fixes:**
+
+- Avoid potential problem iterating over mutable array. _Thank to: David Siebecker_
+- Fixed nullability annotation mistakes.
+
+
 Version 4.1.0
 -------------
 _19 Feb 2017_

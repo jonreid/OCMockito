@@ -18,7 +18,7 @@
     return self;
 }
 
-- (NSString *)checkInvocations:(NSArray<MKTInvocation *> *)invocations wanted:(MKTInvocationMatcher *)wanted
+- (nullable NSString *)checkInvocations:(NSArray<MKTInvocation *> *)invocations wanted:(MKTInvocationMatcher *)wanted
 {
     [self.invocationsFinder findInvocationsInList:invocations matching:wanted];
     NSString *description;

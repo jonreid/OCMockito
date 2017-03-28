@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setInvocationForPotentialStubbing:(NSInvocation *)invocation;
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id <MKTAnswer>)answer;
-- (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
+- (nullable MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
 - (BOOL)isStubbingCopyMethod;
 
 @end

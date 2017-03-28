@@ -97,7 +97,7 @@ void MKTStubSingletonWithLocation(id mockClass, SEL aSelector, id testCase, cons
     [theMock swizzleSingletonAtSelector:aSelector];
 }
 
-id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
+_Nullable id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber)
 {
     if (reportedInvalidMock(mock, testCase, fileName, lineNumber, @"verify()"))
         return nil;

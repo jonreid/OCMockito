@@ -209,7 +209,7 @@ FOUNDATION_EXPORT void MKTStubSingletonWithLocation(id mockClass, SEL aSelector,
 #endif
 
 
-FOUNDATION_EXPORT id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
+FOUNDATION_EXPORT _Nullable id MKTVerifyWithLocation(id mock, id testCase, const char *fileName, int lineNumber);
 #define MKTVerify(mock) MKTVerifyWithLocation(mock, self, __FILE__, __LINE__)
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX

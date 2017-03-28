@@ -57,7 +57,7 @@
     [self.stubbed insertObject:self.invocationForStubbing atIndex:0];
 }
 
-- (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation
+- (nullable MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation
 {
     for (MKTStubbedInvocationMatcher *s in [self.stubbed copy])
         if ([s matches:invocation])
