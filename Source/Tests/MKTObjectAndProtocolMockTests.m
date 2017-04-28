@@ -117,6 +117,21 @@
     assertThat(signature, equalTo([obj methodSignatureForSelector:sel]));
 }
 
+- (void)testShouldBeKindOfSameClass
+{
+    XCTAssertTrue([mock isKindOfClass:[TestClass class]]);
+}
+
+- (void)testShouldBeKindOfSubclass
+{
+    XCTAssertTrue([mock isKindOfClass:[NSObject class]]);
+}
+
+- (void)testShouldNotBeKindOfDifferentClass
+{
+    XCTAssertFalse([mock isKindOfClass:[NSArray class]]);
+}
+
 - (void)testShouldConformToItsOwnProtocol
 {
     XCTAssertTrue([mock conformsToProtocol:@protocol(TestProtocol)]);
