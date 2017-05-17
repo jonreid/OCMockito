@@ -46,6 +46,11 @@
 
 #pragma mark NSObject protocol
 
+- (BOOL)isKindOfClass:(Class)aClass
+{
+    return [self.mockedClass isSubclassOfClass:aClass];
+}
+
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
     return [self.dynamicProperties methodSignatureForSelector:aSelector] ||
