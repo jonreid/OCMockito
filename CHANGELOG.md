@@ -1,6 +1,11 @@
 UPCOMING VERSION
 ----------------
 
+**Features:**
+
+- Added `isKindOfClass:` to mocks of an object of a given class that also implement a given
+  protocol. _Thank to: Kylan McBride_
+
 **Fixes:**
 
 - Avoid potential problem iterating over mutable array. _Thank to: David Siebecker_
