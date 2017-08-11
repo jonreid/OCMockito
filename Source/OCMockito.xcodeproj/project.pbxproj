@@ -2716,6 +2716,7 @@
 /* Begin XCBuildConfiguration section */
 		085D30141351254000EBBE91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/libocmockito.dst;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2727,6 +2728,7 @@
 		};
 		085D30151351254000EBBE91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/libocmockito.dst;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2738,6 +2740,7 @@
 		};
 		088DCADD1874B772004F1019 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2745,6 +2748,7 @@
 		};
 		088DCADE1874B772004F1019 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2781,6 +2785,7 @@
 		};
 		08BDD5CF1350C59C00E5A443 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -2804,6 +2809,7 @@
 		};
 		08BDD5D11350C59C00E5A443 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2824,6 +2830,7 @@
 		};
 		08BDD5D21350C59C00E5A443 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2843,6 +2850,7 @@
 		};
 		247B9E801C33521500B10720 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2879,6 +2887,7 @@
 		};
 		247B9E811C33521500B10720 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2912,6 +2921,7 @@
 		};
 		247B9E911C33522D00B10720 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2949,6 +2959,7 @@
 		};
 		247B9E921C33522D00B10720 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2983,6 +2994,7 @@
 		};
 		247B9EAA1C33523B00B10720 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -3019,6 +3031,7 @@
 		};
 		247B9EAB1C33523B00B10720 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -3052,6 +3065,7 @@
 		};
 		74A3BD8F19F765E2006591C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3072,6 +3086,7 @@
 		};
 		74A3BD9019F765E2006591C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3091,6 +3106,7 @@
 		};
 		74A3BDC319F76C5F006591C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = "Tests-Info.plist";
@@ -3107,6 +3123,7 @@
 		};
 		74A3BDC419F76C5F006591C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Tests-Info.plist";
 				OTHER_LDFLAGS = (
