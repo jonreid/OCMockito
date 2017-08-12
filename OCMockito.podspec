@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
   s.author   = { 'Jon Reid' => 'jon@qualitycoding.org' }
   s.social_media_url = 'https://twitter.com/qcoding'
     
-  s.ios.deployment_target = '6.0'
-  s.osx.deployment_target = '10.8'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
   s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'v4.1.0' }
   s.source_files = 'Source/OCMockito/**/*.{h,m}', 'Source/ThirdParty/**/*.{h,m}'
