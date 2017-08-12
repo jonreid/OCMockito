@@ -1,6 +1,8 @@
 UPCOMING VERSION
 ----------------
 
+OCMockito now requires OCHamcrest v7.0.0 or higher.
+
 **Features:**
 
 - Added `isKindOfClass:` to class-and-protocol mocks. _Thank to: Kylan McBride_
