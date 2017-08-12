@@ -1,16 +1,17 @@
-UPCOMING VERSION
-----------------
+Version 5.0.0
+-------------
+_12 Aug 2017_
 
 OCMockito now requires OCHamcrest v7.0.0 or higher.
 
 **Features:**
 
-- Added `isKindOfClass:` to class-and-protocol mocks. _Thank to: Kylan McBride_
-- Support protocol class methods. _Thank to: Kylan McBride_
+- Added `isKindOfClass:` to class-and-protocol mocks. _Thanks to: Kylan McBride_
+- Support protocol class methods. _Thanks to: Kylan McBride_
 
 **Fixes:**
 
-- Avoid potential problem iterating over mutable array. _Thank to: David Siebecker_
+- Avoid potential problem iterating over mutable array. _Thanks to: David Siebecker_
 - Fixed nullability annotation mistakes.
 
 
