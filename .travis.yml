@@ -3,7 +3,7 @@ osx_image: xcode8.3
 
 before_install:
   - Frameworks/gethamcrest
-  - sudo easy_install cpp-coveralls
+  - pip install --user cpp-coveralls
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 
 script:
