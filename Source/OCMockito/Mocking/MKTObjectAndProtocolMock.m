@@ -44,7 +44,7 @@
 }
 
 
-#pragma mark NSObject protocol
+#pragma mark - NSObject protocol
 
 - (BOOL)isKindOfClass:(Class)aClass
 {

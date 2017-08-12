@@ -164,7 +164,7 @@
 }
 
 
-#pragma mark MKTNonObjectArgumentMatching
+#pragma mark - MKTNonObjectArgumentMatching
 
 - (id)withMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index
 {

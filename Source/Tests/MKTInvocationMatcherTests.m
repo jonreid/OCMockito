@@ -8,8 +8,6 @@
 #import <XCTest/XCTest.h>
 
 
-#pragma mark -
-
 @interface MKTInvocationMatcherTests : XCTestCase
 @end
 

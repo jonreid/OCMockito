@@ -24,7 +24,7 @@
 }
 
 
-#pragma mark MKTVerificationMode
+#pragma mark - MKTVerificationMode
 
 - (void)verifyData:(MKTVerificationData *)data testLocation:(MKTTestLocation)testLocation
 {

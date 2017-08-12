@@ -53,7 +53,7 @@
     [self.swizzler swizzleSingletonAtSelector:singletonSelector];
 }
 
-#pragma mark NSObject protocol
+#pragma mark - NSObject protocol
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {

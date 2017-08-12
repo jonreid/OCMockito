@@ -45,7 +45,7 @@
     return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
 }
 
-#pragma mark NSObject protocol
+#pragma mark - NSObject protocol
 
 - (BOOL)conformsToProtocol:(Protocol *)aProtocol
 {
@@ -57,7 +57,7 @@
     return [self methodSignatureForSelector:aSelector] != nil;
 }
 
-#pragma mark Support being called as isEqual: argument
+#pragma mark - Support being called as isEqual: argument
 
 - (BOOL)isNSArray__ { return NO; }
 - (BOOL)isNSData__ { return NO; }
