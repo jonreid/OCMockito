@@ -3,8 +3,8 @@ UPCOMING VERSION
 
 **Features:**
 
-- Added `isKindOfClass:` to mocks of an object of a given class that also implement a given
-  protocol. _Thank to: Kylan McBride_
+- Added `isKindOfClass:` to class-and-protocol mocks. _Thank to: Kylan McBride_
+- Support protocol class methods. _Thank to: Kylan McBride_
 
 **Fixes:**
 
