@@ -11,12 +11,12 @@
 #pragma mark -
 
 @interface MKTInvocationMatcherTests : XCTestCase
-{
-    MKTInvocationMatcher *sut;
-}
 @end
 
 @implementation MKTInvocationMatcherTests
+{
+    MKTInvocationMatcher *sut;
+}
 
 - (void)setUp
 {

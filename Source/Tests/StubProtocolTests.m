@@ -24,12 +24,12 @@ typedef struct {
 
 
 @interface StubProtocolTests : XCTestCase
-{
-    id <ReturningProtocol> myMockProtocol;
-}
 @end
 
 @implementation StubProtocolTests
+{
+    id <ReturningProtocol> myMockProtocol;
+}
 
 - (void)setUp
 {

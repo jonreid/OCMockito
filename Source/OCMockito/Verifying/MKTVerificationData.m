@@ -16,7 +16,7 @@
 @dynamic invocations;
 
 - (instancetype)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer
-                          invocationMatcher:(MKTInvocationMatcher *)wanted;
+                          invocationMatcher:(MKTInvocationMatcher *)wanted
 {
     self = [super init];
     if (self)
