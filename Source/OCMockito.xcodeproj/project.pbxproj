@@ -3013,10 +3013,6 @@
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					XCTest,
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -3033,10 +3029,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					XCTest,
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -3049,11 +3041,7 @@
 			buildSettings = {
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					XCTest,
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -3065,11 +3053,7 @@
 			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					XCTest,
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
