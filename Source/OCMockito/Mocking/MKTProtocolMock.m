@@ -37,6 +37,10 @@
     if (!methodDescription.name && self.includeOptionalMethods)
         methodDescription = protocol_getMethodDescription(self.mockedProtocol, aSelector, NO, YES);
     if (!methodDescription.name)
+        methodDescription = protocol_getMethodDescription(self.mockedProtocol, aSelector, YES, NO);
+    if (!methodDescription.name && self.includeOptionalMethods)
+        methodDescription = protocol_getMethodDescription(self.mockedProtocol, aSelector, NO, NO);
+    if (!methodDescription.name)
         return nil;
     return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
 }
