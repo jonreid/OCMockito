@@ -2,7 +2,7 @@
 //  Copyright 2017 Jonathan M. Reid. See LICENSE.txt
 //  Contribution by Emile Cantin
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 #import "MKTVerificationMode.h"
 
 
