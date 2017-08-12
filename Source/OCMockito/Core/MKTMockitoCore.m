@@ -1,4 +1,4 @@
-//  OCMockito by Jon Reid, http://qualitycoding.org/about/
+//  OCMockito by Jon Reid, https://qualitycoding.org/
 //  Copyright 2017 Jonathan M. Reid. See LICENSE.txt
 
 #import "MKTMockitoCore.h"
