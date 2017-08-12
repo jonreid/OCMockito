@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		082CEB961813A25D0013FC27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB951813A25D0013FC27 /* Foundation.framework */; };
 		082CEB9B1813A25D0013FC27 /* Example.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 082CEB9A1813A25D0013FC27 /* Example.h */; };
 		082CEB9D1813A25D0013FC27 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 082CEB9C1813A25D0013FC27 /* Example.m */; };
-		082CEBA41813A25D0013FC27 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEBA31813A25D0013FC27 /* XCTest.framework */; };
-		082CEBA51813A25D0013FC27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB951813A25D0013FC27 /* Foundation.framework */; };
 		082CEBAA1813A25D0013FC27 /* libExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB921813A25D0013FC27 /* libExample.a */; };
 		082CEBB21813A25D0013FC27 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 082CEBB11813A25D0013FC27 /* ExampleTests.m */; };
 /* End PBXBuildFile section */
@@ -41,11 +38,9 @@
 
 /* Begin PBXFileReference section */
 		082CEB921813A25D0013FC27 /* libExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libExample.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		082CEB951813A25D0013FC27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		082CEB9A1813A25D0013FC27 /* Example.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
 		082CEB9C1813A25D0013FC27 /* Example.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
 		082CEBA21813A25D0013FC27 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		082CEBA31813A25D0013FC27 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		082CEBAD1813A25D0013FC27 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		082CEBB11813A25D0013FC27 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082CEB961813A25D0013FC27 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,9 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082CEBA41813A25D0013FC27 /* XCTest.framework in Frameworks */,
 				082CEBAA1813A25D0013FC27 /* libExample.a in Frameworks */,
-				082CEBA51813A25D0013FC27 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +69,6 @@
 			children = (
 				082CEB971813A25D0013FC27 /* Example */,
 				082CEBAB1813A25D0013FC27 /* ExampleTests */,
-				082CEB941813A25D0013FC27 /* Frameworks */,
 				082CEB931813A25D0013FC27 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,15 +80,6 @@
 				082CEBA21813A25D0013FC27 /* ExampleTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		082CEB941813A25D0013FC27 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				082CEB951813A25D0013FC27 /* Foundation.framework */,
-				082CEBA31813A25D0013FC27 /* XCTest.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		082CEB971813A25D0013FC27 /* Example */ = {

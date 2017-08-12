@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		082CEB57181382F30013FC27 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB56181382F30013FC27 /* Cocoa.framework */; };
-		082CEB68181382F30013FC27 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB67181382F30013FC27 /* XCTest.framework */; };
-		082CEB69181382F30013FC27 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB56181382F30013FC27 /* Cocoa.framework */; };
 		082CEB6C181382F30013FC27 /* libExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB53181382F30013FC27 /* libExample.a */; };
 		082CEB74181382F30013FC27 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 082CEB73181382F30013FC27 /* ExampleTests.m */; };
 		082CEB7F181385590013FC27 /* Example.h in Headers */ = {isa = PBXBuildFile; fileRef = 082CEB7D181385590013FC27 /* Example.h */; };
@@ -40,9 +37,7 @@
 
 /* Begin PBXFileReference section */
 		082CEB53181382F30013FC27 /* libExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libExample.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		082CEB56181382F30013FC27 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		082CEB66181382F30013FC27 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		082CEB67181382F30013FC27 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		082CEB6F181382F30013FC27 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		082CEB73181382F30013FC27 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
 		082CEB7D181385590013FC27 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
@@ -54,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082CEB57181382F30013FC27 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082CEB69181382F30013FC27 /* Cocoa.framework in Frameworks */,
-				082CEB68181382F30013FC27 /* XCTest.framework in Frameworks */,
 				082CEB6C181382F30013FC27 /* libExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,7 +68,6 @@
 			children = (
 				082CEB5C181382F30013FC27 /* Example */,
 				082CEB6D181382F30013FC27 /* ExampleTests */,
-				082CEB55181382F30013FC27 /* Frameworks */,
 				082CEB54181382F30013FC27 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,15 +79,6 @@
 				082CEB66181382F30013FC27 /* ExampleTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		082CEB55181382F30013FC27 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				082CEB56181382F30013FC27 /* Cocoa.framework */,
-				082CEB67181382F30013FC27 /* XCTest.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		082CEB5C181382F30013FC27 /* Example */ = {
@@ -243,6 +225,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -281,6 +264,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;

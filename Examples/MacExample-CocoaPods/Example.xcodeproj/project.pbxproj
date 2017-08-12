@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		082CEB57181382F30013FC27 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB56181382F30013FC27 /* Cocoa.framework */; };
-		082CEB68181382F30013FC27 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB67181382F30013FC27 /* XCTest.framework */; };
-		082CEB69181382F30013FC27 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB56181382F30013FC27 /* Cocoa.framework */; };
 		082CEB6C181382F30013FC27 /* libExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CEB53181382F30013FC27 /* libExample.a */; };
 		082CEB74181382F30013FC27 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 082CEB73181382F30013FC27 /* ExampleTests.m */; };
 		082CEB7F181385590013FC27 /* Example.h in Headers */ = {isa = PBXBuildFile; fileRef = 082CEB7D181385590013FC27 /* Example.h */; };
 		082CEB80181385590013FC27 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 082CEB7E181385590013FC27 /* Example.m */; };
-		451CB5EF10F77237F292D594 /* libPods-ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B85C3B93A417CCF44883F53 /* libPods-ExampleTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,16 +25,11 @@
 
 /* Begin PBXFileReference section */
 		082CEB53181382F30013FC27 /* libExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libExample.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		082CEB56181382F30013FC27 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		082CEB66181382F30013FC27 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		082CEB67181382F30013FC27 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		082CEB6F181382F30013FC27 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		082CEB73181382F30013FC27 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
 		082CEB7D181385590013FC27 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
 		082CEB7E181385590013FC27 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
-		1B85C3B93A417CCF44883F53 /* libPods-ExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4815060619EEBBE071EE1FC1 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleTests/Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		CB30AF2DAA9ABA95FE93F9B4 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleTests/Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082CEB57181382F30013FC27 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,10 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082CEB69181382F30013FC27 /* Cocoa.framework in Frameworks */,
-				082CEB68181382F30013FC27 /* XCTest.framework in Frameworks */,
 				082CEB6C181382F30013FC27 /* libExample.a in Frameworks */,
-				451CB5EF10F77237F292D594 /* libPods-ExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,9 +56,7 @@
 			children = (
 				082CEB5C181382F30013FC27 /* Example */,
 				082CEB6D181382F30013FC27 /* ExampleTests */,
-				082CEB55181382F30013FC27 /* Frameworks */,
 				082CEB54181382F30013FC27 /* Products */,
-				7C0F73E6B6D32ABAF8D4421C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,16 +67,6 @@
 				082CEB66181382F30013FC27 /* ExampleTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		082CEB55181382F30013FC27 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				082CEB56181382F30013FC27 /* Cocoa.framework */,
-				082CEB67181382F30013FC27 /* XCTest.framework */,
-				1B85C3B93A417CCF44883F53 /* libPods-ExampleTests.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		082CEB5C181382F30013FC27 /* Example */ = {
@@ -118,15 +93,6 @@
 				082CEB6F181382F30013FC27 /* ExampleTests-Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7C0F73E6B6D32ABAF8D4421C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CB30AF2DAA9ABA95FE93F9B4 /* Pods-ExampleTests.debug.xcconfig */,
-				4815060619EEBBE071EE1FC1 /* Pods-ExampleTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +255,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -327,6 +294,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -370,7 +338,6 @@
 		};
 		082CEB7B181382F30013FC27 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB30AF2DAA9ABA95FE93F9B4 /* Pods-ExampleTests.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -390,7 +357,6 @@
 		};
 		082CEB7C181382F30013FC27 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4815060619EEBBE071EE1FC1 /* Pods-ExampleTests.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (

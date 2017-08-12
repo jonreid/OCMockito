@@ -1,6 +1,6 @@
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #import <OCMockitoIOS/OCMockitoIOS.h>
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 
 @interface ExampleTests : XCTestCase
