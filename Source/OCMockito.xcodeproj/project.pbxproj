@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		088DCADC1874B772004F1019 /* OCLint */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 088DCADF1874B772004F1019 /* Build configuration list for PBXAggregateTarget "OCLint" */;
-			buildPhases = (
-				088DCAE01874B77A004F1019 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = OCLint;
-			productName = OCLint;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		08068ED21505A59700FA2D8F /* MKTTestLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08068ED11505A59700FA2D8F /* MKTTestLocation.m */; };
 		08068ED31505A59700FA2D8F /* MKTTestLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08068ED11505A59700FA2D8F /* MKTTestLocation.m */; };
@@ -2137,7 +2123,6 @@
 				74A3BD8119F765E1006591C9 /* OCMockitoTests */,
 				085D2FF41351254000EBBE91 /* libocmockito */,
 				74A3BDB219F76C5F006591C9 /* libocmockitoTests */,
-				088DCADC1874B772004F1019 /* OCLint */,
 				247B9E6E1C33521500B10720 /* OCMockito-iOS */,
 				247B9E8A1C33522D00B10720 /* OCMockito-watchOS */,
 				247B9E971C33523B00B10720 /* OCMockito-tvOS */,
@@ -2175,22 +2160,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		088DCAE01874B77A004F1019 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "source ~/.zshrc\ncd ${SRCROOT}\n\"${XCTOOL_HOME}/xctool.sh\" -project OCMockito.xcodeproj -scheme OCMockito clean > /dev/null\n\"${XCTOOL_HOME}/xctool.sh\" -project OCMockito.xcodeproj -scheme OCMockito -reporter json-compilation-database:compile_commands.json build\n\"${OCLINT_HOME}/bin/oclint-json-compilation-database\" -- -rc=LONG_LINE=120 -rc=SHORT_VARIABLE_NAME=0 | sed 's/\\(.*\\.\\m\\{1,2\\}:[0-9]*:[0-9]*:\\)/\\1 warning:/'\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		085D2FF11351254000EBBE91 /* Sources */ = {
@@ -2726,22 +2695,6 @@
 			};
 			name = Release;
 		};
-		088DCADD1874B772004F1019 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		088DCADE1874B772004F1019 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		08BDD5CE1350C59C00E5A443 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
@@ -3131,15 +3084,6 @@
 			buildConfigurations = (
 				085D30141351254000EBBE91 /* Debug */,
 				085D30151351254000EBBE91 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		088DCADF1874B772004F1019 /* Build configuration list for PBXAggregateTarget "OCLint" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				088DCADD1874B772004F1019 /* Debug */,
-				088DCADE1874B772004F1019 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
