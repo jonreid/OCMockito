@@ -346,7 +346,7 @@ include any pods from their main targets:
 ```ruby
 target 'MyTests' do
   inherit! :search_paths
-  pod 'OCMockito', '~> 4.0'
+  pod 'OCMockito', '~> 5.0'
 end
 ```
 
@@ -360,7 +360,7 @@ Use the following imports:
 Add the following to your Cartfile:
 
 ```
-github "jonreid/OCMockito" ~> 4.0
+github "jonreid/OCMockito" ~> 5.0
 ```
 
 Then drag the the built frameworks (both OCHamcrest and OCMockito) from the
