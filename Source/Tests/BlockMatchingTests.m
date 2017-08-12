@@ -4,7 +4,7 @@
 #import "OCMockito.h"
 
 #import <OCHamcrest/OCHamcrest.h>
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 
 typedef NSString *(^BlockReturningString)(void);

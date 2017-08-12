@@ -6,7 +6,7 @@
 #import "MKTParseCallStack.h"
 
 #import <OCHamcrest/OCHamcrest.h>
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 
 @interface MKTFilterCallStackTests : XCTestCase

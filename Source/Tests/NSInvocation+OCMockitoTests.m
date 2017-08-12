@@ -4,7 +4,7 @@
 #import "NSInvocation+OCMockito.h"
 
 #import <OCHamcrest/OCHamcrest.h>
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 
 @interface NSInvocation_OCMockitoTests : XCTestCase

@@ -9,7 +9,7 @@
 #import "MKTOngoingStubbing.h"
 
 #import <OCHamcrest/OCHamcrest.h>
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 
 @interface MKTMockingProgressTests : XCTestCase

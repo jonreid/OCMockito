@@ -11,7 +11,7 @@
 #import "FakeLocation.h"
 #import "MockInvocationsFinder.h"
 #import <OCHamcrest/OCHamcrest.h>
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 
 @interface MKTMissingInvocationCheckerDefaultsTests : XCTestCase

@@ -5,7 +5,7 @@
 
 #import "MockTestCase.h"
 #import <OCHamcrest/OCHamcrest.h>
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 struct MKTStruct {
     int anInt;
