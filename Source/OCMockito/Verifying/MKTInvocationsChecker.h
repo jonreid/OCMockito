@@ -3,7 +3,7 @@
 // Copyright (c) 2015 Jonathan M. Reid. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @class MKTMatchingInvocationsFinder;
 

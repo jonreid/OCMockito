@@ -5,7 +5,7 @@
 //  Copyright 2013 Tetherpad.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 /**
  Instances of `TPDWeakProxy` hold a weak reference to the target object.
