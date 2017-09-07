@@ -152,7 +152,7 @@ FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenWithLocation(id testCase, const ch
 #endif
 
 
-FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)());
+FOUNDATION_EXPORT MKTOngoingStubbing *MKTGivenVoidWithLocation(id testCase, const char *fileName, int lineNumber, void(^methodCallWrapper)(void));
 #define MKTGivenVoid(methodCall) MKTGivenVoidWithLocation(self, __FILE__, __LINE__, ^{ methodCall; })
 
 #ifndef MKT_DISABLE_SHORT_SYNTAX
