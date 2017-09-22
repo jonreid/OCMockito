@@ -1,3 +1,12 @@
+Version 5.0.1
+-------------
+_22 Sep 2017_
+
+**Fixes:**
+
+- Fixed new warnings from Xcode 9.
+
+
 Version 5.0.0
 -------------
 _12 Aug 2017_
