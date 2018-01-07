@@ -176,6 +176,8 @@ the method with a dummy argument, then call `-withMatcher:forArgument:`
  willReturn:@"foo"];
 ```
 
+This is particularly useful for ignoring `NSError **` parameters: pass in `NULL`, but override it with an `anything()` matcher.
+
 Use the shortcut `-withMatcher:` to specify a matcher for a single argument:
 
 ```obj-c
