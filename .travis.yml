@@ -1,11 +1,9 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9
 
 before_install:
   - Frameworks/gethamcrest
-  - sudo easy_install pip
-  - pip install --user cpp-coveralls
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - gem install slather
 
 script:
   - set -o pipefail;
@@ -15,4 +13,4 @@ script:
   - pod spec lint --quick
 
 after_success:
-  - ./Cocoanetics-Ruby/coveralls.rb --exclude-folder Source/Tests --exclude-folder Source/ThirdParty --exclude-folder Frameworks --exclude-folder Examples
+  - slather
