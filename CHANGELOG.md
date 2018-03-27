@@ -1,3 +1,10 @@
+NEXT RELEASE
+------------
+
+- Made OCMockito/OCMockitoIOS into modules, so you can @import them.
+
+
+
 Version 5.0.1
 -------------
 _22 Sep 2017_

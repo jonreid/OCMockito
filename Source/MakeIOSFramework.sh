@@ -48,3 +48,8 @@ ln -s Versions/Current/OCMockitoIOS "${IOS_FRAMEWORK}/OCMockitoIOS"
 # Update the name in the plist file.
 NAME_EXPRESSION="s/OCMockito/OCMockitoIOS/g;"
 perl -pi -e "${NAME_EXPRESSION}" "${IOS_FRAMEWORK}/Resources/Info.plist"
+
+# Update the module variables.
+perl -pi -e "s/OCMockitoVersionNumber/OCMockitoIOSVersionNumber/" "${IOS_FRAMEWORK}/Headers/OCMockitoIOS.h"
+perl -pi -e "s/OCMockitoVersionString/OCMockitoIOSVersionString/" "${IOS_FRAMEWORK}/Headers/OCMockitoIOS.h"
+perl -pi -e "s/OCMockito/OCMockitoIOS/" "${IOS_FRAMEWORK}/Modules/module.modulemap"

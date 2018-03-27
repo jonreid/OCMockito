@@ -3,6 +3,9 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT double OCMockitoVersionNumber;
+FOUNDATION_EXPORT const unsigned char OCMockitoVersionString[];
+
 #import "MKTOngoingStubbing.h"
 #import "NSInvocation+OCMockito.h"
 
