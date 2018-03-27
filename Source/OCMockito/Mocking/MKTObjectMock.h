@@ -1,5 +1,5 @@
 //  OCMockito by Jon Reid, https://qualitycoding.org/
-//  Copyright 2017 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2018 Jonathan M. Reid. See LICENSE.txt
 
 #import "MKTBaseMockObject.h"
 
