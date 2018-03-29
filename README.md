@@ -6,7 +6,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
-OCMockito is an iOS and Mac OS X implementation of Mockito, supporting creation,
+OCMockito is an Objective-C implementation of Mockito, supporting creation,
 verification and stubbing of mock objects.
 
 Key differences from other mocking frameworks:
@@ -337,7 +337,7 @@ How do I add OCMockito to my project?
 -------------------------------------
 
 The Examples folder shows projects using OCMockito either through CocoaPods or
-through the prebuilt frameworks, for iOS and Mac OS X development.
+through the prebuilt frameworks, for iOS and macOS development.
 
 ### CocoaPods
 
@@ -354,8 +354,8 @@ end
 
 Use the following imports:
 
-    #import <OCHamcrest/OCHamcrest.h>
-    #import <OCMockito/OCMockito.h>
+    @import OCHamcrest;
+    @import OCMockito;
 
 ### Carthage
 
@@ -377,29 +377,29 @@ Prebuilt binaries are available on GitHub for
 The binaries are packaged as frameworks:
 
 * __OCMockitoIOS.framework__ for iOS development
-* __OCMockito.framework__ for Mac OS X development
+* __OCMockito.framework__ for macOS development
 
 OCHamcrest comes in a similar scheme. Drag the appropriate frameworks for both
 both OCMockito and OCHamcrest into your project, specifying "Copy items into
-destination group's folder". Then specify `-ObjC` in your "Other Linker Flags".
+destination group's folder".
 
 #### iOS Development:
 
 Use the following imports:
 
-    #import <OCHamcrestIOS/OCHamcrestIOS.h>
-    #import <OCMockitoIOS/OCMockitoIOS.h>
+	@import OCHamcrestIOS;
+	@import OCMockitoIOS;
 
 
-#### Mac OS X Development:
+#### macOS Development:
 
 Add a "Copy Files" build phase to copy OCMockito.framework and
 OCHamcrest.framework to your Products Directory.
 
 Use the following imports:
 
-    #import <OCHamcrest/OCHamcrest.h>
-    #import <OCMockito/OCMockito.h>
+    @import OCHamcrest;
+    @import OCMockito;
 
 
 ### Build Your Own

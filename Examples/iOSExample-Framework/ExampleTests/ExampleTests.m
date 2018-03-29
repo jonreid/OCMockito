@@ -1,5 +1,5 @@
-#import <OCHamcrestIOS/OCHamcrestIOS.h>
-#import <OCMockitoIOS/OCMockitoIOS.h>
+@import OCHamcrest;
+@import OCMockito;
 @import XCTest;
 
 
