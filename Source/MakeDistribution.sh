@@ -31,7 +31,7 @@ mkdir "${DISTPATH}"
 cp -R "build/Release/OCMockito.framework" "${DISTPATH}"
 cp -R "build/Release/OCMockitoIOS.framework" "${DISTPATH}"
 cp "${PROJECTROOT}/README.md" "${DISTPATH}"
-cp "${PROJECTROOT}/CHANGES.md" "${DISTPATH}"
+cp "${PROJECTROOT}/CHANGELOG.md" "${DISTPATH}"
 cp "${PROJECTROOT}/LICENSE.txt" "${DISTPATH}"
 cp -R "${PROJECTROOT}/Examples" "${DISTPATH}"
 
