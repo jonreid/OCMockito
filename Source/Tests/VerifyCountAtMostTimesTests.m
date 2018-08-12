@@ -5,7 +5,7 @@
 #import "OCMockito.h"
 
 #import "MockTestCase.h"
-#import <OCHamcrest/OCHamcrest.h>
+@import OCHamcrest;
 @import XCTest;
 
 

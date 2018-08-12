@@ -9,7 +9,7 @@
 
 #import "DummyObject.h"
 #import "MockInvocationsFinder.h"
-#import <OCHamcrest/OCHamcrest.h>
+@import OCHamcrest;
 @import XCTest;
 
 

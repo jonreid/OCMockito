@@ -8,7 +8,7 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTOngoingStubbing.h"
 
-#import <OCHamcrest/OCHamcrest.h>
+@import OCHamcrest;
 @import XCTest;
 
 

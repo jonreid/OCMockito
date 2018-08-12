@@ -3,7 +3,7 @@
 
 #import "MKTParseCallStack.h"
 
-#import <OCHamcrest/OCHamcrest.h>
+@import OCHamcrest;
 @import XCTest;
 
 

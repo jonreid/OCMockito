@@ -3,9 +3,7 @@
 
 #import "MKTTestLocation.h"
 
-#import <OCHamcrest/HCTestFailure.h>
-#import <OCHamcrest/HCTestFailureReporter.h>
-#import <OCHamcrest/HCTestFailureReporterChain.h>
+@import OCHamcrest;
 
 void MKTFailTest(id testCase, const char *fileName, int lineNumber, NSString *description)
 {
