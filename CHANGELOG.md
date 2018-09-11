@@ -1,3 +1,12 @@
+Version 5.1.1
+-------------
+_11 Sep 2018_
+
+**Improvements:**
+
+- Remove .gitkeep from Carthage folder.
+
+
 Version 5.1.0
 -------------
 _29 Mar 2018_
