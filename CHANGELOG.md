@@ -13,7 +13,7 @@ _29 Mar 2018_
 
 **Features:**
 
-- Made OCMockito/OCMockitoIOS into modules, so you can @import them.
+- Made OCMockito/OCMockitoIOS into modules, so you can `@import` them. CocoaPods users should specify `use_frameworks!`
 
 
 Version 5.0.1

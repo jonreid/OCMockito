@@ -350,6 +350,7 @@ include any pods from their main targets:
 ```ruby
 target 'MyTests' do
   inherit! :search_paths
+  use_frameworks!
   pod 'OCMockito', '~> 5.0'
 end
 ```
