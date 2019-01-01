@@ -1,16 +1,20 @@
 //  XcodeWarnings by Jon Reid, https://qualitycoding.org/
-//  Copyright 2018 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2019 Jonathan M. Reid. See LICENSE.txt
 //  Source: https://github.com/jonreid/XcodeWarnings
 
 // Apple Clang - Preprocessing
 ENABLE_STRICT_OBJC_MSGSEND = YES
+GCC_ENABLE_TRIGRAPHS = NO
 
 // Apple Clang - Undefined Behavior Sanitizer
 CLANG_UNDEFINED_BEHAVIOR_SANITIZER_INTEGER = YES
 CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES
+CLANG_ADDRESS_SANITIZER_CONTAINER_OVERFLOW = YES
+// CLANG_ANALYZER_SECURITY_BUFFER_OVERFLOW_EXPERIMENTAL = YES  // Currently causes an error
 
 // Apple Clang - Warning Policies
 //GCC_TREAT_WARNINGS_AS_ERRORS = YES
+//GCC_WARN_PEDANTIC = YES
 
 // Apple Clang - Warnings - All languages
 CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES
@@ -54,6 +58,7 @@ GCC_WARN_UNUSED_LABEL = YES
 //GCC_WARN_UNUSED_PARAMETER = YES
 GCC_WARN_UNUSED_VALUE = YES
 GCC_WARN_UNUSED_VARIABLE = YES
+//OCMockito: CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = YES
 
 // Apple Clang - Warnings - C++
 CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES
