@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  * @abstract Set NSInvocation return value of specified type, or pass to successor.
  */
-- (void)setReturnValue:(id)returnValue ofType:(char const *)type onInvocation:(NSInvocation *)invocation;
+- (void)setReturnValue:(nullable id)returnValue ofType:(char const *)type onInvocation:(NSInvocation *)invocation;
 
 @end
 

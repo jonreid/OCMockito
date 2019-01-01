@@ -31,7 +31,7 @@
     return argType[0] == self.handlerType[0];
 }
 
-- (id)retrieveArgumentAtIndex:(NSInteger)idx ofType:(char const *)type onInvocation:(NSInvocation *)invocation
+- (nullable id)retrieveArgumentAtIndex:(NSInteger)idx ofType:(char const *)type onInvocation:(NSInvocation *)invocation
 {
     if ([self handlesArgumentType:type])
         return [self getArgumentAtIndex:idx ofType:type onInvocation:invocation];

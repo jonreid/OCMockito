@@ -18,7 +18,7 @@
     return self;
 }
 
-- (id)answerInvocation:(NSInvocation *)invocation
+- (nullable id)answerInvocation:(NSInvocation *)invocation
 {
     [self.exception raise];
     return nil;

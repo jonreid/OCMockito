@@ -21,7 +21,7 @@
 
 @implementation MKTBaseMockObject
 
-+ (BOOL)isMockObject:(id)object
++ (BOOL)isMockObject:(nullable id)object
 {
     NSString *className = NSStringFromClass([object class]);
     return [className isEqualToString:@"MKTObjectMock"] ||

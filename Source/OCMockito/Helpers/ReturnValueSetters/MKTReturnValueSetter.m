@@ -32,7 +32,7 @@
     return returnType[0] == self.handlerType[0];
 }
 
-- (void)setReturnValue:(id)returnValue ofType:(char const *)type onInvocation:(NSInvocation *)invocation
+- (void)setReturnValue:(nullable id)returnValue ofType:(char const *)type onInvocation:(NSInvocation *)invocation
 {
     if ([self handlesReturnType:type])
         [self setReturnValue:returnValue onInvocation:invocation];

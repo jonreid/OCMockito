@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param invocation Method invocation to answer.
  * @return The value to be returned.
  */
-- (id)answerInvocation:(NSInvocation *)invocation;
+- (nullable id)answerInvocation:(NSInvocation *)invocation;
 
 @end
 

@@ -34,7 +34,7 @@
     return arguments;
 }
 
-- (void)mkt_setReturnValue:(id)returnValue
+- (void)mkt_setReturnValue:(nullable id)returnValue
 {
     char const *returnType = self.methodSignature.methodReturnType;
     [MKTReturnValueSetterChain() setReturnValue:returnValue ofType:returnType onInvocation:self];

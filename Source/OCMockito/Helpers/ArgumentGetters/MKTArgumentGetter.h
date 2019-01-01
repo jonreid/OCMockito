@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  * @abstract Retrieve designated argument of specified type from NSInvocation, or pass to successor.
  */
-- (id)retrieveArgumentAtIndex:(NSInteger)idx ofType:(char const *)type onInvocation:(NSInvocation *)invocation;
+- (nullable id)retrieveArgumentAtIndex:(NSInteger)idx ofType:(char const *)type onInvocation:(NSInvocation *)invocation;
 
 @end
 

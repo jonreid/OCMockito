@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray *)mkt_arguments;
 
 /*! @abstract Sets invocation return value. */
-- (void)mkt_setReturnValue:(id)returnValue;
+- (void)mkt_setReturnValue:(nullable id)returnValue;
 
 /*! @abstract Retains arguments but with weak invocation target to avoid retain cycles. */
 - (void)mkt_retainArgumentsWithWeakTarget;

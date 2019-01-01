@@ -24,7 +24,7 @@
     [self.answers addObject:answer];
 }
 
-- (id)answerInvocation:(NSInvocation *)invocation
+- (nullable id)answerInvocation:(NSInvocation *)invocation
 {
     id <MKTAnswer> a = self.answers[self.index];
     NSUInteger bumpedIndex = self.index + 1;

@@ -7,7 +7,7 @@
 
 
 @interface MKTDynamicProperties ()
-@property (nonatomic, copy, readonly) NSDictionary<NSString *, NSMethodSignature *> *selectorToSignature;
+@property (nonnull, nonatomic, copy, readonly) NSDictionary<NSString *, NSMethodSignature *> *selectorToSignature;
 @end
 
 @implementation MKTDynamicProperties

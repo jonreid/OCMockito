@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKTBaseMockObject : NSProxy <MKTNonObjectArgumentMatching>
 
-+ (BOOL)isMockObject:(id)object;
++ (BOOL)isMockObject:(nullable id)object;
 
 - (instancetype)init;
 - (void)stopMocking;

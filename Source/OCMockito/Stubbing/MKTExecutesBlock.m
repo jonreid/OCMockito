@@ -18,7 +18,7 @@
     return self;
 }
 
-- (id)answerInvocation:(NSInvocation *)invocation
+- (nullable id)answerInvocation:(NSInvocation *)invocation
 {
     return self.block(invocation);
 }
