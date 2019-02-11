@@ -4,7 +4,6 @@
 [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.svg?branch=master)](https://coveralls.io/r/jonreid/OCMockito?branch=master)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Cocoapods Version](https://cocoapod-badges.herokuapp.com/v/OCMockito/badge.png)](http://cocoapods.org/pods/OCMockito)
-![Cocoapods Downloads](https://img.shields.io/cocoapods/dt/OCMockito.svg)
 [![Twitter Follow](https://img.shields.io/twitter/follow/qcoding.svg?style=social)](https://twitter.com/qcoding)
 
 
