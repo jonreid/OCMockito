@@ -2,7 +2,7 @@
 //  Copyright 2019 Jonathan M. Reid. See LICENSE.txt
 //  Contribution by Kevin Lundberg
 
-#import "MKTProtocolMock.h"
+#import <OCMockito/MKTProtocolMock.h>
 
 
 NS_ASSUME_NONNULL_BEGIN

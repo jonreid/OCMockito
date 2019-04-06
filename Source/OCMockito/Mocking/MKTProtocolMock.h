@@ -1,7 +1,7 @@
 //  OCMockito by Jon Reid, https://qualitycoding.org/
 //  Copyright 2019 Jonathan M. Reid. See LICENSE.txt
 
-#import "MKTBaseMockObject.h"
+#import <OCMockito/MKTBaseMockObject.h>
 
 
 NS_ASSUME_NONNULL_BEGIN

@@ -2,7 +2,7 @@
 //  Copyright 2019 Jonathan M. Reid. See LICENSE.txt
 
 #import <Foundation/Foundation.h>
-#import "MKTNonObjectArgumentMatching.h"
+#import <OCMockito/MKTNonObjectArgumentMatching.h>
 
 
 NS_ASSUME_NONNULL_BEGIN

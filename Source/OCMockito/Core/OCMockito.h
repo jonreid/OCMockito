@@ -6,15 +6,15 @@
 FOUNDATION_EXPORT double OCMockitoVersionNumber;
 FOUNDATION_EXPORT const unsigned char OCMockitoVersionString[];
 
-#import "MKTOngoingStubbing.h"
-#import "NSInvocation+OCMockito.h"
+#import <OCMockito/MKTOngoingStubbing.h>
+#import <OCMockito/NSInvocation+OCMockito.h>
 
 // Explicitly import transitive headers for complete "umbrella header"
-#import "MKTBaseMockObject.h"
-#import "MKTClassObjectMock.h"
-#import "MKTObjectAndProtocolMock.h"
-#import "MKTObjectMock.h"
-#import "MKTProtocolMock.h"
+#import <OCMockito/MKTBaseMockObject.h>
+#import <OCMockito/MKTClassObjectMock.h>
+#import <OCMockito/MKTObjectAndProtocolMock.h>
+#import <OCMockito/MKTObjectMock.h>
+#import <OCMockito/MKTProtocolMock.h>
 
 @protocol MKTVerificationMode;
 
