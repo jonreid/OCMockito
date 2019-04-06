@@ -2109,10 +2109,11 @@
 			};
 			buildConfigurationList = 08BDD5A21350C59C00E5A443 /* Build configuration list for PBXProject "OCMockito" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 08BDD59D1350C59C00E5A443;
 			productRefGroup = 08BDD5AA1350C59C00E5A443 /* Products */;
