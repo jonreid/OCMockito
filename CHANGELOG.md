@@ -1,3 +1,12 @@
+Version 5.1.2
+-------------
+_24 Sep 2019_
+
+**Improvements:**
+
+- For building, update OCHamcrest to v7.1.2 to quiet warnings.
+
+
 Version 5.1.1
 -------------
 _11 Sep 2018_
