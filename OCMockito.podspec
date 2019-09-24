@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'OCMockito'
-  s.version  = '5.1.1'
+  s.version  = '5.1.2'
   s.summary  = 'OCMockito is an Objective-C implementation of Mockito, supporting creation, verification and stubbing of mock objects.'
   s.description = <<-DESC
                     OCMockito is an Objective-C implementation of Mockito, supporting creation, 
@@ -17,14 +17,14 @@ Pod::Spec.new do |s|
                       it easier to identify failures.
                   DESC
   s.homepage = 'https://github.com/jonreid/OCMockito'
-  s.license  = 'MIT'
+  s.license  = { :type => 'MIT' }
   s.author   = { 'Jon Reid' => 'jon@qualitycoding.org' }
   s.social_media_url = 'https://twitter.com/qcoding'
     
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
-  s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'v5.1.1' }
+  s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'v5.1.2' }
   s.source_files = 'Source/OCMockito/**/*.{h,m}', 'Source/ThirdParty/**/*.{h,m}'
   s.public_header_files = 'Source/OCMockito/Core/MKTNonObjectArgumentMatching.h',  'Source/OCMockito/Core/OCMockito.h',  'Source/OCMockito/Invocation/NSInvocation+OCMockito.h',  'Source/OCMockito/Mocking/MKTBaseMockObject.h',  'Source/OCMockito/Mocking/MKTClassObjectMock.h',  'Source/OCMockito/Mocking/MKTObjectAndProtocolMock.h',  'Source/OCMockito/Mocking/MKTObjectMock.h',  'Source/OCMockito/Mocking/MKTProtocolMock.h',  'Source/OCMockito/Stubbing/MKTOngoingStubbing.h'
   s.requires_arc = true
