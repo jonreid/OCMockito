@@ -3,7 +3,7 @@
 
 #import "OCMockito.h"
 
-@import OCHamcrest;
+#import <OCHamcrest/OCHamcrest.h>
 @import XCTest;
 
 typedef void (^StubObjectBlockArgument)(void);

@@ -4,7 +4,7 @@
 #import "OCMockito.h"
 
 #import "MockTestCase.h"
-@import OCHamcrest;
+#import <OCHamcrest/OCHamcrest.h>
 @import XCTest;
 
 struct MKTStruct {

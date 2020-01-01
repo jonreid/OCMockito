@@ -1,7 +1,7 @@
 //  OCMockito by Jon Reid, https://qualitycoding.org/
 //  Copyright 2020 Quality Coding, Inc. See LICENSE.txt
 
-@import OCHamcrest;
+#import <OCHamcrest/OCHamcrest.h>
 #import "MKTOngoingStubbing.h"
 
 #import "MKTBaseMockObject.h"

@@ -7,7 +7,7 @@
 #import "MKTInvocationMatcher.h"
 
 #import "DummyObject.h"
-@import OCHamcrest;
+#import <OCHamcrest/OCHamcrest.h>
 @import XCTest;
 
 

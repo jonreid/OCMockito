@@ -4,7 +4,10 @@
 #import "MKTInvocationMatcher.h"
 
 #import "NSInvocation+OCMockito.h"
-@import OCHamcrest;
+#import <OCHamcrest/HCArgumentCaptor.h>
+#import <OCHamcrest/HCAssertThat.h>
+#import <OCHamcrest/HCIsNil.h>
+#import <OCHamcrest/HCWrapInMatcher.h>
 
 
 @interface MKTUnspecifiedArgumentPlaceholder : NSObject

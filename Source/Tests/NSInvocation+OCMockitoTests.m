@@ -3,7 +3,7 @@
 
 #import "NSInvocation+OCMockito.h"
 
-@import OCHamcrest;
+#import <OCHamcrest/OCHamcrest.h>
 @import XCTest;
 
 

@@ -1,3 +1,12 @@
+Version 5.1.3
+-------------
+_01 Jan 2020_
+
+**Fixes:**
+
+- Don't require clang module import.
+
+
 Version 5.1.2
 -------------
 _24 Sep 2019_

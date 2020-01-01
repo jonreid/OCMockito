@@ -6,7 +6,8 @@
 #import "MKTInvocation.h"
 #import "MKTInvocationMatcher.h"
 #import "NSInvocation+OCMockito.h"
-@import OCHamcrest;
+#import <OCHamcrest/HCMatcher.h>
+#import <OCHamcrest/HCStringDescription.h>
 
 
 @implementation MKTPrinter
