@@ -1,5 +1,5 @@
 //  OCMockito by Jon Reid, https://qualitycoding.org/
-//  Copyright 2019 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2020 Quality Coding, Inc. See LICENSE.txt
 
 #import "MKTLongArgumentGetter.h"
 

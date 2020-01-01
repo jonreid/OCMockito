@@ -1,7 +1,5 @@
-//
-// Created by Jon Reid on 11/27/15.
-// Copyright (c) 2015 Jonathan M. Reid. All rights reserved.
-//
+//  OCMockito by Jon Reid, https://qualitycoding.org/
+//  Copyright 2020 Quality Coding, Inc. See LICENSE.txt
 
 #import <Foundation/Foundation.h>
 
