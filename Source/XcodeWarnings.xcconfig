@@ -1,5 +1,5 @@
 //  XcodeWarnings by Jon Reid, https://qualitycoding.org/
-//  Copyright 2019 Jonathan M. Reid. See LICENSE.txt
+//  Copyright 2020 Quality Coding, Inc. See LICENSE.txt
 //  Source: https://github.com/jonreid/XcodeWarnings
 
 // Apple Clang - Address Sanitizer
@@ -23,6 +23,7 @@ CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES
 // Apple Clang - Warning Policies
 //GCC_WARN_PEDANTIC = YES
 //GCC_TREAT_WARNINGS_AS_ERRORS = YES
+//SWIFT_TREAT_WARNINGS_AS_ERRORS = YES
 
 // Apple Clang - Warnings - All languages
 CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES
@@ -95,7 +96,7 @@ CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES
 GCC_WARN_UNDECLARED_SELECTOR = YES
 CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR
 
-// Apple LLVM 9.0 - Warnings - Objective-C and ARC
+// Apple Clang - Warnings - Objective-C and ARC
 CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES
 CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES
 CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES_AGGRESSIVE
