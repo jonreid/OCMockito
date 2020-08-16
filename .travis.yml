@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode11.2.1
+osx_image: xcode11.6
 
 before_install:
   - Frameworks/gethamcrest
