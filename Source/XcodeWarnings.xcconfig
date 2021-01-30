@@ -1,4 +1,4 @@
-//  XcodeWarnings by Jon Reid, https://qualitycoding.org/
+//  XcodeWarnings by Jon Reid, https://qualitycoding.org
 //  Copyright 2021 Quality Coding, Inc. See LICENSE.txt
 //  Source: https://github.com/jonreid/XcodeWarnings
 
@@ -51,6 +51,7 @@ GCC_WARN_ABOUT_MISSING_NEWLINE = YES
 CLANG_WARN_ASSIGN_ENUM = YES
 CLANG_WARN_PRIVATE_MODULE = YES
 GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES
+CLANG_WARN_FRAMEWORK_INCLUDE_PRIVATE_FROM_PUBLIC = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES
 CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES
 GCC_WARN_SIGN_COMPARE = YES
