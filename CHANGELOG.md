@@ -1,3 +1,12 @@
+NEXT RELEASE
+------------
+
+**Features:**
+
+- Mac binary now supports Apple Silicon.
+- Use latest OCHamcrest to eport mismatches using XCTIssue if using Xcode 12 or higher.
+
+
 Version 5.1.3
 -------------
 _01 Jan 2020_
