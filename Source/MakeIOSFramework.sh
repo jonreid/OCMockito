@@ -36,11 +36,14 @@ find "${IOS_FRAMEWORK}" -name '*.h' -print0 | xargs -0 perl -pi -e "${IMPORT_EXP
 rm "${IOS_FRAMEWORK}/OCMockito" "${IOS_FRAMEWORK}/Versions/Current/OCMockito"
 
 # Create a new library that is a fat library containing both static libraries.
+# Remove ARM64 from simulator build because it conflicts with device build.
 DEVICE_LIB="build/Release-iphoneos/libocmockito.a"
 SIMULATOR_LIB="build/Release-iphonesimulator/libocmockito.a"
+SIMULATOR_LIB_THIN="build/Release-iphonesimulator/libocmockito-thin.a"
 OUTPUT_LIB="${IOS_FRAMEWORK}/Versions/Current/OCMockitoIOS"
+lipo -extract x86_64 -extract i386 -output "${SIMULATOR_LIB_THIN}" "${SIMULATOR_LIB}"
 
-lipo -create "${DEVICE_LIB}" "${SIMULATOR_LIB}" -o "${OUTPUT_LIB}"
+lipo -create "${DEVICE_LIB}" "${SIMULATOR_LIB_THIN}" -o "${OUTPUT_LIB}"
 
 # Add a symlink, as required by the framework.
 ln -s Versions/Current/OCMockitoIOS "${IOS_FRAMEWORK}/OCMockitoIOS"
