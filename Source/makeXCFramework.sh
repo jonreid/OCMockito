@@ -20,7 +20,6 @@ xcodebuild archive -scheme ${FRAMEWORK_NAME}-tvOS -archivePath ${TV_SIMULATOR_AR
 xcodebuild archive -scheme ${FRAMEWORK_NAME}-watchOS -archivePath ${WATCH_ARCHIVE_PATH} -sdk watchos SKIP_INSTALL=NO
 xcodebuild archive -scheme ${FRAMEWORK_NAME}-watchOS -archivePath ${WATCH_SIMULATOR_ARCHIVE_PATH} -sdk watchsimulator SKIP_INSTALL=NO
 
-
 # Creating XCFramework
 
 xcodebuild -create-xcframework \
