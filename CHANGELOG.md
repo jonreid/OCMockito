@@ -1,4 +1,4 @@
-Version 5.2.0
+NEXT RELEASE
 -------------
 
 **Features:**
