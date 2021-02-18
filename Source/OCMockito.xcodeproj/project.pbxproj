@@ -67,8 +67,6 @@
 		08FD4B2B1509BEA90004E1FA /* MKTBaseMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08FD4B2C1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */; };
 		08FD4B2D1509BEA90004E1FA /* MKTBaseMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */; };
-		0E1A0AD51BEE64940044C5BA /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1A0AD41BEE64940044C5BA /* OCHamcrestIOS.framework */; };
-		0E1A0AD61BEE64940044C5BA /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1A0AD41BEE64940044C5BA /* OCHamcrestIOS.framework */; };
 		0E44F6C11C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */; };
 		0E44F6C21C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */; };
 		0E5F66331D20392D00D01554 /* ArgumentCaptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */; };
@@ -568,12 +566,12 @@
 		481D6E971D7C786500F2C988 /* StubSingletonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 481D6E951D7C786500F2C988 /* StubSingletonTests.m */; };
 		481D6E991D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 481D6E981D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m */; };
 		481D6E9A1D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 481D6E981D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m */; };
-		4E28829525D679DC00749E81 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E28829425D679DC00749E81 /* OCHamcrest.xcframework */; };
-		4E2882A425D679F100749E81 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E28829425D679DC00749E81 /* OCHamcrest.xcframework */; };
-		4E2882B325D67A0000749E81 /* OCHamcrest.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E28829425D679DC00749E81 /* OCHamcrest.xcframework */; };
-		4E2882C225D67D7D00749E81 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E28829425D679DC00749E81 /* OCHamcrest.xcframework */; };
-		4E2882D125D67D8300749E81 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E28829425D679DC00749E81 /* OCHamcrest.xcframework */; };
-		4E2882E025D67D8B00749E81 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E28829425D679DC00749E81 /* OCHamcrest.xcframework */; };
+		4E53C39725DE851D006E266C /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E53C39625DE851D006E266C /* OCHamcrest.xcframework */; };
+		4E53C3A625DE8536006E266C /* OCHamcrest.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E53C39625DE851D006E266C /* OCHamcrest.xcframework */; };
+		4ED9B66225DE8EF5005466A3 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E53C39625DE851D006E266C /* OCHamcrest.xcframework */; };
+		4ED9B66B25DE8EFA005466A3 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E53C39625DE851D006E266C /* OCHamcrest.xcframework */; };
+		4ED9B67325DE8EFF005466A3 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E53C39625DE851D006E266C /* OCHamcrest.xcframework */; };
+		4ED9B67A25DE8F03005466A3 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E53C39625DE851D006E266C /* OCHamcrest.xcframework */; };
 		609E9040B5C0EF3A483BC57A /* FakeLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E9BDCD18394B0FFD08C75 /* FakeLocation.m */; };
 		609E904B3DD180C7266AF783 /* MKTFilterCallStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9265E6EA8A5DBE45A71D /* MKTFilterCallStack.h */; };
 		609E905D807B1A487CFACCBD /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E96CF71F73917EACABEC0 /* MKTAtLeastNumberOfInvocationsChecker.m */; };
@@ -872,7 +870,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				4E2882B325D67A0000749E81 /* OCHamcrest.xcframework in CopyFiles */,
+				4E53C3A625DE8536006E266C /* OCHamcrest.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,8 +927,6 @@
 		08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBaseMockObject.h; sourceTree = "<group>"; };
 		08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBaseMockObject.m; sourceTree = "<group>"; };
 		0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeWarnings.xcconfig; sourceTree = "<group>"; };
-		0E1A0AD11BEE648B0044C5BA /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-7.2.0/OCHamcrest.framework"; sourceTree = "<group>"; };
-		0E1A0AD41BEE64940044C5BA /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-7.2.0/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMissingInvocationCheckerTests.m; sourceTree = "<group>"; };
 		0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgumentCaptorTests.m; sourceTree = "<group>"; };
 		0E5F66391D209EBB00D01554 /* StubbingCopyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubbingCopyTests.m; sourceTree = "<group>"; };
@@ -964,7 +960,7 @@
 		361533C5153F275800BB982B /* MKTAtLeastTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtLeastTimes.m; sourceTree = "<group>"; };
 		481D6E951D7C786500F2C988 /* StubSingletonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubSingletonTests.m; sourceTree = "<group>"; };
 		481D6E981D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubSingletonProgrammerErrorTests.m; sourceTree = "<group>"; };
-		4E28829425D679DC00749E81 /* OCHamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OCHamcrest.xcframework; path = ../Carthage/Build/OCHamcrest.xcframework; sourceTree = "<group>"; };
+		4E53C39625DE851D006E266C /* OCHamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OCHamcrest.xcframework; path = "../Frameworks/OCHamcrest-8.0.0/OCHamcrest.xcframework"; sourceTree = "<group>"; };
 		609E909442C62BF97AD50CEC /* MockInvocationsFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockInvocationsFinder.h; sourceTree = "<group>"; };
 		609E91510EE6160A67EAF450 /* MKTInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocation.m; sourceTree = "<group>"; };
 		609E9265E6EA8A5DBE45A71D /* MKTFilterCallStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTFilterCallStack.h; sourceTree = "<group>"; };
@@ -1092,7 +1088,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E1A0AD51BEE64940044C5BA /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1100,7 +1095,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E28829525D679DC00749E81 /* OCHamcrest.xcframework in Frameworks */,
+				4ED9B66225DE8EF5005466A3 /* OCHamcrest.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1108,7 +1103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2882C225D67D7D00749E81 /* OCHamcrest.xcframework in Frameworks */,
+				4ED9B66B25DE8EFA005466A3 /* OCHamcrest.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1116,7 +1111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2882E025D67D8B00749E81 /* OCHamcrest.xcframework in Frameworks */,
+				4ED9B67A25DE8F03005466A3 /* OCHamcrest.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,7 +1119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2882D125D67D8300749E81 /* OCHamcrest.xcframework in Frameworks */,
+				4ED9B67325DE8EFF005466A3 /* OCHamcrest.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1132,7 +1127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2882A425D679F100749E81 /* OCHamcrest.xcframework in Frameworks */,
+				4E53C39725DE851D006E266C /* OCHamcrest.xcframework in Frameworks */,
 				74A3BD9419F76630006591C9 /* OCMockito.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1142,7 +1137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74A3BDC719F76C97006591C9 /* libocmockito.a in Frameworks */,
-				0E1A0AD61BEE64940044C5BA /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,9 +1176,7 @@
 		08BDD5AB1350C59C00E5A443 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E28829425D679DC00749E81 /* OCHamcrest.xcframework */,
-				0E1A0AD11BEE648B0044C5BA /* OCHamcrest.framework */,
-				0E1A0AD41BEE64940044C5BA /* OCHamcrestIOS.framework */,
+				4E53C39625DE851D006E266C /* OCHamcrest.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
