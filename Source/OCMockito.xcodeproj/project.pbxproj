@@ -2225,6 +2225,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 6.0.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.hamcrest.${TARGET_NAME}";
 				PRODUCT_NAME = OCMockito;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2256,6 +2257,7 @@
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 6.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.hamcrest.${TARGET_NAME}";
 				PRODUCT_NAME = OCMockito;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -2278,7 +2280,6 @@
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = "OCMockito-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2297,7 +2298,6 @@
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "OCMockito-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2324,7 +2324,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-iOS";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2351,7 +2350,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-iOS";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2380,7 +2378,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-watchOS";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2408,7 +2405,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-watchOS";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2436,7 +2432,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-tvOS";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -2463,7 +2458,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-tvOS";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -2481,7 +2475,6 @@
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -2497,7 +2490,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
