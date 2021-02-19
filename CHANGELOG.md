@@ -3,6 +3,21 @@ NEXT RELEASE
 
 **Features:**
 
+- Packaged pre-built binary as single XCFramework containing 7 architectures:
+  * macOS
+  * iOS device
+  * iOS simulator
+  * tvOS device
+  * tvOS simulator
+  * watchOS device
+  * watchOS simulator 
+    
+  Note:
+    - iOS projects that use the pre-built binary should now import OCMockito and OCHamcrest, instead
+      of OCMockitoIOS and OCHamcrestIOS.
+    - macOS projects should remove OCMockito and OCHamcrest from the Copy Files build phase.
+  
+  _Thanks to: Mateusz Szklarek_
 - Mac binary now supports Apple Silicon.
 - Use latest OCHamcrest to report mismatches using XCTIssue if using Xcode 12 or higher.
 
