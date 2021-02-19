@@ -1,6 +1,6 @@
 coverage_service: coveralls
 xcodeproj: ./Source/OCMockito.xcodeproj
-scheme: libocmockito
+scheme: OCMockito
 ignore:
   - Frameworks/*
   - Source/Tests/*
