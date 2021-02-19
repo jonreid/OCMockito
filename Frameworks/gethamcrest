@@ -4,9 +4,16 @@ OCH=OCHamcrest-${OCH_VERSION}
 OCH_ZIP=${OCH}.zip
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd $DIR
+pushd $DIR
 
 curl -L https://github.com/hamcrest/OCHamcrest/releases/download/v${OCH_VERSION}/${OCH_ZIP} > ${OCH_ZIP}
+OUT=$?
+if [ "${OUT}" -ne "0" ]; then
+    echo OCHamcrest download failed
+    exit ${OUT}
+fi
+
 rm -rf ${OCH}
 unzip ${OCH_ZIP}
 rm ${OCH_ZIP}
+popd
