@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=5.2.0
+VERSION=6.0.0
 DISTFILE=OCMockito-${VERSION}
 DISTPATH=build/${DISTFILE}
 PROJECTROOT=..
@@ -9,27 +9,18 @@ echo Preparing clean build
 rm -rf build
 mkdir build
 
-echo Building OCMockito - Release
-xcodebuild -configuration Release -target OCMockito
+echo Building XCFramework
+source makeXCFramework.sh
 OUT=$?
 if [ "${OUT}" -ne "0" ]; then
-    echo OCMockito release build failed
-    exit ${OUT}
-fi
-
-echo Building OCMockitoIOS - Release
-source MakeIOSFramework.sh
-OUT=$?
-if [ "${OUT}" -ne "0" ]; then
-    echo OCMockitoIOS release build failed
+    echo OCMockito build failed
     exit ${OUT}
 fi
 
 echo Assembling Distribution
 rm -rf "${DISTPATH}"
 mkdir "${DISTPATH}"
-cp -R "build/Release/OCMockito.framework" "${DISTPATH}"
-cp -R "build/Release/OCMockitoIOS.framework" "${DISTPATH}"
+cp -R "build/OCMockito.xcframework" "${DISTPATH}"
 cp "${PROJECTROOT}/README.md" "${DISTPATH}"
 cp "${PROJECTROOT}/CHANGELOG.md" "${DISTPATH}"
 cp "${PROJECTROOT}/LICENSE.txt" "${DISTPATH}"
