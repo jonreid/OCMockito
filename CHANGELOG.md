@@ -1,6 +1,6 @@
 Version 6.0.0
 -------------
-_18 Feb 2021_
+_19 Feb 2021_
 
 **Features:**
 
@@ -14,13 +14,18 @@ _18 Feb 2021_
   * watchOS simulator 
     
   Note:
-    - iOS projects that use the pre-built binary should now import OCMockito and OCHamcrest, instead
-      of OCMockitoIOS and OCHamcrestIOS.
-    - macOS projects should remove OCMockito and OCHamcrest from the Copy Files build phase.
+  - iOS projects that use the pre-built binary should now import OCMockito instead of OCMockitoIOS.
+  - macOS projects should remove OCMockito from the Copy Files build phase.
+  - For Carthage builds, specify --use-xcframeworks
   
   _Thanks to: Mateusz Szklarek_
+
 - Mac binary now supports Apple Silicon.
 - Use latest OCHamcrest to report mismatches using XCTIssue if using Xcode 12 or higher.
+- Simplified project settings. In particular:
+    * Removed iOS Static Library target.
+    * Removed iOS-specific test target.
+    * Simplified Product Bundle Identifiers.
 
 
 Version 5.1.3
