@@ -9,6 +9,13 @@ echo Preparing clean build
 rm -rf build
 mkdir build
 
+echo Downloading OCHamcrest
+source ../Frameworks/gethamcrest
+OUT=$?
+if [ "${OUT}" -ne "0" ]; then
+    exit ${OUT}
+fi
+
 echo Building XCFramework
 source makeXCFramework.sh
 OUT=$?
