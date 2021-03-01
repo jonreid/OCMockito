@@ -16,4 +16,9 @@ fi
 rm -rf ${OCH}
 unzip ${OCH_ZIP}
 rm ${OCH_ZIP}
+
+cd ..
+mkdir -p Carthage/Build
+mv $DIR/$OCH/OCHamcrest.xcframework Carthage/Build
+
 popd
