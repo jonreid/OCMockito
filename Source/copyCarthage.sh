@@ -7,4 +7,6 @@ if [ -e $CARTHAGE_BUILD ] && [ ! -e $LOCAL_FRAMEWORK/OCHamcrest.xcframework ]; t
   echo "Copying Carthage OCHamcrest"
   mkdir -p $LOCAL_FRAMEWORK
   cp -pR $CARTHAGE_BUILD $LOCAL_FRAMEWORK/OCHamcrest.xcframework
+else
+  echo "Skipping Carthage copy"
 fi
