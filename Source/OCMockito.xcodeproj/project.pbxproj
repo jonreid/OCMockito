@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1655,6 +1655,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08BDD5D01350C59C00E5A443 /* Build configuration list for PBXNativeTarget "OCMockito" */;
 			buildPhases = (
+				48A3CF4B25EF579D00515C5F /* Copy Carthage OCHamcrest */,
 				08BDD5A41350C59C00E5A443 /* Sources */,
 				08BDD5A51350C59C00E5A443 /* Frameworks */,
 				08BDD5A61350C59C00E5A443 /* Headers */,
@@ -1817,6 +1818,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48A3CF4B25EF579D00515C5F /* Copy Carthage OCHamcrest */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Carthage OCHamcrest";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/copied_ochamcrest.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "CARTHAGE_BUILD=../../../Build/OCHamcrest.xcframework\nLOCAL_FRAMEWORK=../Frameworks/OCHamcrest-8.0.0/\n\nif [ -e $CARTHAGE_BUILD ]; then\n  mkdir -p $LOCAL_FRAMEWORK\n  cp -pR $CARTHAGE_BUILD $LOCAL_FRAMEWORK/OCHamcrest.xcframework\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08BDD5A41350C59C00E5A443 /* Sources */ = {
