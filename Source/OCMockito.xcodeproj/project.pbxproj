@@ -2306,6 +2306,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../Frameworks/\"/**",
 					"\"$(SRCROOT)/../Carthage/Build\"",
+					"\"$(SRCROOT)/../../Build\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2349,6 +2350,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../Frameworks/\"/**",
 					"\"$(SRCROOT)/../Carthage/Build\"",
+					"\"$(SRCROOT)/../../Build\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
