@@ -802,7 +802,7 @@
 		748491901A5919EC006A7579 /* MKTExecutesBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTExecutesBlock.h; sourceTree = "<group>"; };
 		748491911A5919EC006A7579 /* MKTExecutesBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTExecutesBlock.m; sourceTree = "<group>"; };
 		74A3BD8219F765E2006591C9 /* OCMockitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7234939258233130084C514 /* OCHamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OCHamcrest.xcframework; path = ../Frameworks/OCHamcrest-8.0.0/OCHamcrest.xcframework; sourceTree = "<group>"; };
+		A7234939258233130084C514 /* OCHamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OCHamcrest.xcframework; path = "../Frameworks/OCHamcrest-8.0.0/OCHamcrest.xcframework"; sourceTree = "<group>"; };
 		BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTSingletonSwizzler.h; sourceTree = "<group>"; };
 		BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTSingletonSwizzler.m; sourceTree = "<group>"; };
 		BB33301C3CD22FFA40C8F3C3 /* MKTObjectArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectArgumentGetter.m; sourceTree = "<group>"; };
@@ -1653,7 +1653,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08BDD5D01350C59C00E5A443 /* Build configuration list for PBXNativeTarget "OCMockito" */;
 			buildPhases = (
-				48A3CF4B25EF579D00515C5F /* Copy Carthage OCHamcrest */,
 				08BDD5A41350C59C00E5A443 /* Sources */,
 				08BDD5A51350C59C00E5A443 /* Frameworks */,
 				08BDD5A61350C59C00E5A443 /* Headers */,
@@ -1672,7 +1671,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247B9E841C33521500B10720 /* Build configuration list for PBXNativeTarget "OCMockito-iOS" */;
 			buildPhases = (
-				48FEC02025EF5F9300218306 /* Copy Carthage OCHamcrest */,
 				247B9E6A1C33521500B10720 /* Sources */,
 				247B9E6B1C33521500B10720 /* Frameworks */,
 				247B9E6C1C33521500B10720 /* Headers */,
@@ -1691,7 +1689,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247B9E901C33522D00B10720 /* Build configuration list for PBXNativeTarget "OCMockito-watchOS" */;
 			buildPhases = (
-				48FEC02225EF600C00218306 /* Copy Carthage OCHamcrest */,
 				247B9E861C33522D00B10720 /* Sources */,
 				247B9E871C33522D00B10720 /* Frameworks */,
 				247B9E881C33522D00B10720 /* Headers */,
@@ -1821,48 +1818,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48A3CF4B25EF579D00515C5F /* Copy Carthage OCHamcrest */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Carthage OCHamcrest";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/copied_ochamcrest.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./copyCarthage.sh\n";
-			showEnvVarsInLog = 0;
-		};
-		48FEC02025EF5F9300218306 /* Copy Carthage OCHamcrest */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Carthage OCHamcrest";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/copied_ochamcrest.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./copyCarthage.sh\n";
-			showEnvVarsInLog = 0;
-		};
 		48FEC02125EF5FDC00218306 /* Copy Carthage OCHamcrest */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -1882,27 +1837,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./copyCarthage.sh\n";
-		};
-		48FEC02225EF600C00218306 /* Copy Carthage OCHamcrest */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Carthage OCHamcrest";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/copied_ochamcrest.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./copyCarthage.sh\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
