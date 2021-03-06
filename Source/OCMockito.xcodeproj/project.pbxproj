@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1707,7 +1707,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247B9EA91C33523B00B10720 /* Build configuration list for PBXNativeTarget "OCMockito-tvOS" */;
 			buildPhases = (
-				48FEC02125EF5FDC00218306 /* Copy Carthage OCHamcrest */,
 				247B9E931C33523B00B10720 /* Sources */,
 				247B9E941C33523B00B10720 /* Frameworks */,
 				247B9E951C33523B00B10720 /* Headers */,
@@ -1816,29 +1815,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		48FEC02125EF5FDC00218306 /* Copy Carthage OCHamcrest */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Carthage OCHamcrest";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/copied_ochamcrest.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./copyCarthage.sh\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08BDD5A41350C59C00E5A443 /* Sources */ = {
