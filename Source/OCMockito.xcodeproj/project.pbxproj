@@ -2355,7 +2355,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Carthage/Build/\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-iOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2374,7 +2373,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Carthage/Build/\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-iOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2390,7 +2388,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-watchOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -2406,7 +2403,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-watchOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -2421,7 +2417,6 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-tvOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -2436,7 +2431,6 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-tvOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
