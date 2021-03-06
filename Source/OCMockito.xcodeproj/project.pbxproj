@@ -2355,11 +2355,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Carthage/Build/\"",
 				);
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-iOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = iphoneos;
@@ -2379,11 +2374,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Carthage/Build/\"",
 				);
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-iOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = iphoneos;
@@ -2400,11 +2390,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-watchOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = watchos;
@@ -2421,11 +2406,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-watchOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = watchos;
@@ -2441,11 +2421,6 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-tvOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = appletvos;
@@ -2461,11 +2436,6 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mockito.OCMockito.OCMockito-tvOS";
 				PRODUCT_NAME = OCMockito;
 				SDKROOT = appletvos;
