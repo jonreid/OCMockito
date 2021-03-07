@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -510,6 +510,11 @@
 		361533C7153F275800BB982B /* MKTAtLeastTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 361533C5153F275800BB982B /* MKTAtLeastTimes.m */; };
 		481D6E961D7C786500F2C988 /* StubSingletonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 481D6E951D7C786500F2C988 /* StubSingletonTests.m */; };
 		481D6E991D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 481D6E981D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m */; };
+		4878715625F44F0900B27122 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4878715525F44F0900B27122 /* OCHamcrest.framework */; };
+		4878715725F44F0900B27122 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4878715525F44F0900B27122 /* OCHamcrest.framework */; };
+		4878715825F44F0900B27122 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4878715525F44F0900B27122 /* OCHamcrest.framework */; };
+		4878715925F44F0900B27122 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4878715525F44F0900B27122 /* OCHamcrest.framework */; };
+		4878715A25F44F0900B27122 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4878715525F44F0900B27122 /* OCHamcrest.framework */; };
 		609E904B3DD180C7266AF783 /* MKTFilterCallStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E9265E6EA8A5DBE45A71D /* MKTFilterCallStack.h */; };
 		609E905D807B1A487CFACCBD /* MKTAtLeastNumberOfInvocationsChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E96CF71F73917EACABEC0 /* MKTAtLeastNumberOfInvocationsChecker.m */; };
 		609E90E03D9B74473647815C /* MKTNumberOfInvocationsChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 609E992967BC9692FEE35A7E /* MKTNumberOfInvocationsChecker.h */; };
@@ -565,11 +570,6 @@
 		74A3BDAC19F767B8006591C9 /* VerifyCountNeverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */; };
 		74A3BDAD19F767B8006591C9 /* VerifyProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */; };
 		74A3BDAE19F767B8006591C9 /* VerifyCountAtLeastTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */; };
-		A723493A2582331E0084C514 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7234939258233130084C514 /* OCHamcrest.xcframework */; };
-		A72349422582331E0084C514 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7234939258233130084C514 /* OCHamcrest.xcframework */; };
-		A723495A258233200084C514 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7234939258233130084C514 /* OCHamcrest.xcframework */; };
-		A7234962258233200084C514 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7234939258233130084C514 /* OCHamcrest.xcframework */; };
-		A723496A258233200084C514 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7234939258233130084C514 /* OCHamcrest.xcframework */; };
 		BB1703E0B53EAE270808B4C9 /* MKTSingletonSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */; };
 		BB17049F99AEF87E21119393 /* MKTSingletonSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */; };
 		BB17065730240A1DF17600F1 /* MKTSingletonSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */; };
@@ -761,6 +761,7 @@
 		361533C5153F275800BB982B /* MKTAtLeastTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtLeastTimes.m; sourceTree = "<group>"; };
 		481D6E951D7C786500F2C988 /* StubSingletonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubSingletonTests.m; sourceTree = "<group>"; };
 		481D6E981D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubSingletonProgrammerErrorTests.m; sourceTree = "<group>"; };
+		4878715525F44F0900B27122 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = "../Frameworks/OCHamcrest-8.0.0/OCHamcrest.xcframework/macos-arm64_x86_64/OCHamcrest.framework"; sourceTree = "<group>"; };
 		609E909442C62BF97AD50CEC /* MockInvocationsFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockInvocationsFinder.h; sourceTree = "<group>"; };
 		609E91510EE6160A67EAF450 /* MKTInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocation.m; sourceTree = "<group>"; };
 		609E9265E6EA8A5DBE45A71D /* MKTFilterCallStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTFilterCallStack.h; sourceTree = "<group>"; };
@@ -802,7 +803,6 @@
 		748491901A5919EC006A7579 /* MKTExecutesBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTExecutesBlock.h; sourceTree = "<group>"; };
 		748491911A5919EC006A7579 /* MKTExecutesBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTExecutesBlock.m; sourceTree = "<group>"; };
 		74A3BD8219F765E2006591C9 /* OCMockitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7234939258233130084C514 /* OCHamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OCHamcrest.xcframework; path = "../Frameworks/OCHamcrest-8.0.0/OCHamcrest.xcframework"; sourceTree = "<group>"; };
 		BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTSingletonSwizzler.h; sourceTree = "<group>"; };
 		BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTSingletonSwizzler.m; sourceTree = "<group>"; };
 		BB33301C3CD22FFA40C8F3C3 /* MKTObjectArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectArgumentGetter.m; sourceTree = "<group>"; };
@@ -888,7 +888,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A723493A2582331E0084C514 /* OCHamcrest.xcframework in Frameworks */,
+				4878715625F44F0900B27122 /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,7 +896,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A723495A258233200084C514 /* OCHamcrest.xcframework in Frameworks */,
+				4878715825F44F0900B27122 /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,7 +904,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7234962258233200084C514 /* OCHamcrest.xcframework in Frameworks */,
+				4878715A25F44F0900B27122 /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,7 +912,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A723496A258233200084C514 /* OCHamcrest.xcframework in Frameworks */,
+				4878715925F44F0900B27122 /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,8 +920,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A72349422582331E0084C514 /* OCHamcrest.xcframework in Frameworks */,
 				74A3BD9419F76630006591C9 /* OCMockito.framework in Frameworks */,
+				4878715725F44F0900B27122 /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,7 +959,7 @@
 		08BDD5AB1350C59C00E5A443 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A7234939258233130084C514 /* OCHamcrest.xcframework */,
+				4878715525F44F0900B27122 /* OCHamcrest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2213,8 +2213,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../Frameworks/\"/**",
-					"\"$(SRCROOT)/../Carthage/Build\"",
-					"\"$(SRCROOT)/../../Build\"",
+					"\"$(SRCROOT)/../../../Carthage/Build\"/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2225,11 +2224,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 6.0.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2257,8 +2252,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../Frameworks/\"/**",
-					"\"$(SRCROOT)/../Carthage/Build\"",
-					"\"$(SRCROOT)/../../Build\"",
+					"\"$(SRCROOT)/../../../Carthage/Build\"/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -2268,11 +2262,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 6.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.hamcrest.${TARGET_NAME}";
