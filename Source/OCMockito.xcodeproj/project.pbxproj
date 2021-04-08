@@ -2286,12 +2286,6 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../Frameworks/\"/**",
-					"\"$(SRCROOT)/../Carthage/Build\"/**",
-					"\"$(SRCROOT)/../../Build\"",
-				);
 				FRAMEWORK_VERSION = A;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
@@ -2304,12 +2298,6 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../Frameworks/\"/**",
-					"\"$(SRCROOT)/../Carthage/Build\"/**",
-					"\"$(SRCROOT)/../../Build\"",
-				);
 				FRAMEWORK_VERSION = A;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
@@ -2323,10 +2311,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Carthage/Build/\"",
-				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2340,10 +2324,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Carthage/Build/\"",
-				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
