@@ -1,0 +1,60 @@
+name: Build
+on: [ push, pull_request ]
+
+env:
+  project: Source/OCMockito.xcodeproj
+
+jobs:
+  build:
+    name: Build without tests
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        run-config:
+          - { scheme: 'OCMockito-iOS', -sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 8' }
+          - { scheme: 'OCMockito-tvOS', -sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
+          - { scheme: 'OCMockito-watchOS', -sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 5 - 44mm' }
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v2
+      - name: Show current version of Xcode
+        run: xcodebuild -version
+      - name: Build
+        run: xcodebuild build -project $project -scheme '${{ matrix.run-config['scheme'] }}' -sdk '${{ matrix.run-config['sdk'] }}' -destination '${{ matrix.run-config['destination'] }}' | xcpretty
+
+  test:
+    name: Build, test, report coverage
+    runs-on: macos-latest
+    env:
+      scheme: OCMockito
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v2
+      - name: Show current version of Xcode
+        run: xcodebuild -version
+      - name: Build & test
+        run: xcodebuild test -project $project -scheme $scheme -sdk macosx | xcpretty
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle config set --local without 'documentation'
+          bundle install --jobs 4 --retry 3
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: get_branch
+      - name: Report coverage
+        run: bundle exec slather
+        env:
+          GIT_BRANCH: ${{ steps.get_branch.outputs.branch }}
+          CI_PULL_REQUEST: ${{ github.event.number }}
+          COVERAGE_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  podspec:
+    name: Pod Spec Lint
+    runs-on: macos-latest
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v2
+      - name: Lint the pod spec
+        run: pod spec lint --quick
