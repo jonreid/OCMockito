@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Show current version of Xcode
         run: xcodebuild -version
+      - name: Get OCHamcrest
+        run: Frameworks/gethamcrest
       - name: Build
         run: xcodebuild build -project $project -scheme '${{ matrix.run-config['scheme'] }}' -sdk '${{ matrix.run-config['sdk'] }}' -destination '${{ matrix.run-config['destination'] }}' | xcpretty
 
@@ -32,6 +34,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Show current version of Xcode
         run: xcodebuild -version
+      - name: Get OCHamcrest
+        run: Frameworks/gethamcrest
       - name: Build & test
         run: xcodebuild test -project $project -scheme $scheme -sdk macosx | xcpretty
       - name: Install gems
