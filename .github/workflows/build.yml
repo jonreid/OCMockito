@@ -11,9 +11,9 @@ jobs:
     strategy:
       matrix:
         run-config:
-          - { scheme: 'OCMockito-iOS', -sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 8' }
-          - { scheme: 'OCMockito-tvOS', -sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
-          - { scheme: 'OCMockito-watchOS', -sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 5 - 44mm' }
+          - { scheme: 'OCMockito-iOS', sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 8' }
+          - { scheme: 'OCMockito-tvOS', sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
+          - { scheme: 'OCMockito-watchOS', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 5 - 44mm' }
     steps:
       - name: Check out project
         uses: actions/checkout@v2
