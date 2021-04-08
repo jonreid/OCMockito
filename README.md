@@ -2,7 +2,6 @@
 
 [![Build Status](https://github.com/jonreid/OCMockito/actions/workflows/build.yml/badge.svg)](https://github.com/jonreid/OCMockito/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.svg)](https://coveralls.io/r/jonreid/OCMockito)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Cocoapods Version](https://cocoapod-badges.herokuapp.com/v/OCMockito/badge.png)](http://cocoapods.org/pods/OCMockito)
 [![Twitter Follow](https://img.shields.io/twitter/follow/qcoding.svg?style=social)](https://twitter.com/qcoding)
 
