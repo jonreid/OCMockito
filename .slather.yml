@@ -1,3 +1,4 @@
+ci_service: github
 coverage_service: coveralls
 xcodeproj: ./Source/OCMockito.xcodeproj
 scheme: OCMockito
