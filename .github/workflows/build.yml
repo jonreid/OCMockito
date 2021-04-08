@@ -38,7 +38,7 @@ jobs:
       - name: Get OCHamcrest
         run: Frameworks/gethamcrest
       - name: Build & test
-        run: set -o pipefail && xcodebuild test -project '${{ env.project }}' -scheme '${{ env.scheme }}' -sdk '${{ env.project }}' | xcpretty
+        run: set -o pipefail && xcodebuild test -project '${{ env.project }}' -scheme '${{ env.scheme }}' -sdk '${{ env.sdk }}' | xcpretty
       - name: Install gems
         run: |
           bundle config path vendor/bundle
