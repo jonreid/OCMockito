@@ -25,7 +25,10 @@
     mockLock = mockProtocol(@protocol(NSLocking));
     mockDelegate = mockProtocol(@protocol(NSKeyedArchiverDelegate));
     mockTestCase = [[MockTestCase alloc] init];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:[NSMutableData data]];
+#pragma clang diagnostic pop
 }
 
 - (void)tearDown
