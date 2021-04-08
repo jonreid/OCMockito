@@ -2413,6 +2413,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -2427,6 +2428,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
