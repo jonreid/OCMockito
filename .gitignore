@@ -10,3 +10,6 @@ xcuserdata/
 OCHamcrest*
 compile_commands.json
 /Carthage
+.swiftpm
+**/Package.resolved
+.build

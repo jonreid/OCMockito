@@ -1,0 +1,1 @@
+../../OCMockito/Mocking/MKTBaseMockObject.h
