@@ -7,6 +7,7 @@
 #import "MKTInvocationContainer.h"
 #import "MKTInvocationMatcher.h"
 #import "MKTOngoingStubbing.h"
+#import "MKTBaseMockObject.h"
 
 #import <OCHamcrest/OCHamcrest.h>
 @import XCTest;
@@ -18,12 +19,14 @@
 @implementation MKTMockingProgressTests
 {
     MKTMockingProgress *mockingProgress;
+    MKTBaseMockObject *baseMockObject;
 }
 
 - (void)setUp
 {
     [super setUp];
     mockingProgress = [[MKTMockingProgress alloc] init];
+    baseMockObject = [[MKTBaseMockObject alloc] init];
 }
 
 - (void)tearDown
@@ -62,26 +65,30 @@
 
 - (void)testPullVerificationMode_WithoutVerificationStarted_ShouldReturnNil
 {
-    assertThat([mockingProgress pullVerificationMode], is(nilValue()));
+    assertThat([mockingProgress pullVerificationModeWithMock:baseMockObject], is(nilValue()));
 }
 
 - (void)testPullVerificationMode_WithVerificationStarted_ShouldReturnMode
 {
     id <MKTVerificationMode> mode = [[MKTExactTimes alloc] initWithCount:42];
 
-    [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
+    [mockingProgress verificationStarted:mode
+                              atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)
+                                withMock:baseMockObject];
 
-    assertThat([mockingProgress pullVerificationMode], is(sameInstance(mode)));
+    assertThat([mockingProgress pullVerificationModeWithMock:baseMockObject], is(sameInstance(mode)));
 }
 
 - (void)testPullVerificationMode_ShouldClearCurrentVerification
 {
     id <MKTVerificationMode> mode = [[MKTExactTimes alloc] initWithCount:42];
 
-    [mockingProgress verificationStarted:mode atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)];
-    [mockingProgress pullVerificationMode];
+    [mockingProgress verificationStarted:mode
+                              atLocation:MKTTestLocationMake(self, __FILE__, __LINE__)
+                                withMock:baseMockObject];
+    [mockingProgress pullVerificationModeWithMock:baseMockObject];
 
-    assertThat([mockingProgress pullVerificationMode], is(nilValue()));
+    assertThat([mockingProgress pullVerificationModeWithMock:baseMockObject], is(nilValue()));
 }
 
 - (void)testPullInvocationMatcher_WithoutSettingMatchers_ShouldReturnNil

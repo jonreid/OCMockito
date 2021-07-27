@@ -7,6 +7,7 @@
 
 @class MKTInvocationMatcher;
 @class MKTOngoingStubbing;
+@class MKTBaseMockObject;
 @protocol HCMatcher;
 @protocol MKTVerificationMode;
 
@@ -24,8 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)reportOngoingStubbing:(MKTOngoingStubbing *)ongoingStubbing;
 - (MKTOngoingStubbing *)pullOngoingStubbing;
 
-- (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location;
-- (id <MKTVerificationMode>)pullVerificationMode;
+- (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location withMock:(MKTBaseMockObject *)mock;
+
+- (id <MKTVerificationMode>)pullVerificationModeWithMock:(MKTBaseMockObject *)mock;
 
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
 - (MKTInvocationMatcher *)pullInvocationMatcher;

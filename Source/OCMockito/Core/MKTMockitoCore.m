@@ -5,7 +5,7 @@
 
 #import "MKTMockingProgress.h"
 #import "MKTVerificationMode.h"
-
+#import "MKTObjectMock.h"
 
 @interface MKTMockitoCore ()
 @property (nonatomic, strong, readonly) MKTMockingProgress *mockingProgress;
@@ -44,7 +44,7 @@
         withMode:(id <MKTVerificationMode>)mode
       atLocation:(MKTTestLocation)location
 {
-    [self.mockingProgress verificationStarted:mode atLocation:location];
+    [self.mockingProgress verificationStarted:mode atLocation:location withMock:mock];
     return mock;
 }
 
