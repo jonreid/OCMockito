@@ -565,6 +565,7 @@
 		74A3BDAC19F767B8006591C9 /* VerifyCountNeverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCACAAA78463D591CB091 /* VerifyCountNeverTests.m */; };
 		74A3BDAD19F767B8006591C9 /* VerifyProgrammerErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */; };
 		74A3BDAE19F767B8006591C9 /* VerifyCountAtLeastTimesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */; };
+		7B1B7A9726B03DD00029A2AF /* VerifyAndStubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B7A9626B03DD00029A2AF /* VerifyAndStubTests.m */; };
 		A723493A2582331E0084C514 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7234939258233130084C514 /* OCHamcrest.xcframework */; };
 		A72349422582331E0084C514 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7234939258233130084C514 /* OCHamcrest.xcframework */; };
 		A723495A258233200084C514 /* OCHamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7234939258233130084C514 /* OCHamcrest.xcframework */; };
@@ -802,6 +803,7 @@
 		748491901A5919EC006A7579 /* MKTExecutesBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTExecutesBlock.h; sourceTree = "<group>"; };
 		748491911A5919EC006A7579 /* MKTExecutesBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTExecutesBlock.m; sourceTree = "<group>"; };
 		74A3BD8219F765E2006591C9 /* OCMockitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B1B7A9626B03DD00029A2AF /* VerifyAndStubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerifyAndStubTests.m; sourceTree = "<group>"; };
 		A7234939258233130084C514 /* OCHamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OCHamcrest.xcframework; path = "../Frameworks/OCHamcrest-8.0.0/OCHamcrest.xcframework"; sourceTree = "<group>"; };
 		BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTSingletonSwizzler.h; sourceTree = "<group>"; };
 		BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTSingletonSwizzler.m; sourceTree = "<group>"; };
@@ -1181,6 +1183,7 @@
 				31DDCF493BD60433EC2CE5B4 /* VerifyProgrammerErrorTests.m */,
 				31DDC4EC077BF6043636A170 /* VerifyCountAtLeastTimesTests.m */,
 				2AD030DA1A8E4EA0001B43DC /* VerifyCountAtMostTimesTests.m */,
+				7B1B7A9626B03DD00029A2AF /* VerifyAndStubTests.m */,
 			);
 			name = Verifying;
 			sourceTree = "<group>";
@@ -2149,6 +2152,7 @@
 				0E5F663A1D209EBB00D01554 /* StubbingCopyTests.m in Sources */,
 				74A3BD9D19F767AD006591C9 /* MKTObjectAndProtocolMockTests.m in Sources */,
 				74A3BDA119F767AD006591C9 /* BlockMatchingTests.m in Sources */,
+				7B1B7A9726B03DD00029A2AF /* VerifyAndStubTests.m in Sources */,
 				74A3BD9E19F767AD006591C9 /* MKTProtocolMockTests.m in Sources */,
 				74A3BDA219F767B8006591C9 /* MockTestCase.m in Sources */,
 				0EEDEB021C0949AF0078A8F0 /* MKTAtLeastNumberOfInvocationsCheckerTests.m in Sources */,

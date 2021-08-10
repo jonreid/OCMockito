@@ -6,12 +6,14 @@
 #import "MKTInvocationMatcher.h"
 #import "MKTOngoingStubbing.h"
 #import "MKTVerificationMode.h"
-
+#import "MKTBaseMockObject.h"
 
 @interface MKTMockingProgress ()
 @property (nonatomic, assign, readwrite) MKTTestLocation testLocation;
 @property (nonatomic, strong) MKTInvocationMatcher *invocationMatcher;
 @property (nonatomic, strong) id <MKTVerificationMode> verificationMode;
+@property (nonatomic, strong) MKTBaseMockObject *verificationModeMockObject;
+
 @property (nonatomic, strong) MKTOngoingStubbing *ongoingStubbing;
 @end
 
@@ -49,16 +51,20 @@
     return result;
 }
 
-- (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location
+- (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location withMock:(MKTBaseMockObject *)mock
 {
     self.verificationMode = mode;
+    self.verificationModeMockObject = mock;
     [self setTestLocation:location];
 }
 
-- (id <MKTVerificationMode>)pullVerificationMode
+- (id <MKTVerificationMode>)pullVerificationModeWithMock:(MKTBaseMockObject *)mock
 {
     id <MKTVerificationMode> result = self.verificationMode;
-    self.verificationMode = nil;
+
+    if ([mock isEqual:self.verificationModeMockObject])
+        self.verificationMode = nil;
+
     return result;
 }
 

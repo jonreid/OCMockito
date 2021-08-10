@@ -63,7 +63,7 @@
 
 - (BOOL)handlingVerifyOfInvocation:(NSInvocation *)invocation
 {
-    id <MKTVerificationMode> verificationMode = [self.mockingProgress pullVerificationMode];
+    id <MKTVerificationMode> verificationMode = [self.mockingProgress pullVerificationModeWithMock:self];
     if (verificationMode)
         [self verifyInvocation:invocation usingVerificationMode:verificationMode];
     return verificationMode != nil;
