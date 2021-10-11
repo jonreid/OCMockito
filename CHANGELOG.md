@@ -1,3 +1,9 @@
+NEXT RELEASE
+------------
+
+- Prevent false positives from verifying while stubbing. _Thanks to: Damian Ferrai_
+
+
 Version 6.0.0
 -------------
 _19 Feb 2021_
