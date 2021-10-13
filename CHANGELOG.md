@@ -4,6 +4,7 @@ NEXT RELEASE
 **Features:**
 
 - Add support for Swift Package Manager. _Thanks to: nrudnyk_
+- Add Mac Catalyst to XCFramework-supported architectures in build script `makeXCFramework.sh`
 
 **Fixes:**
 
