@@ -1,6 +1,12 @@
 NEXT RELEASE
 ------------
 
+**Features:**
+
+- Add support for Swift Package Manager. _Thanks to: nrudnyk_
+
+**Fixes:**
+
 - Prevent false positives from verifying while stubbing. _Thanks to: Damian Ferrai_
 
 
