@@ -13,7 +13,11 @@ let package = Package(
         .library(name: "OCMockito", targets: ["OCMockito"]),
     ],
     dependencies: [
-         .package(url: "https://github.com/ABTSoftware/OCHamcrest", from: "8.0.1"),
+        .package(
+            name: "OCHamcrest",
+            url: "https://github.com/hamcrest/OCHamcrest",
+            .upToNextMajor(from: "9.0.0")
+        ),
     ],
     targets: [
         .target(
