@@ -1,6 +1,8 @@
 NEXT RELEASE
 ------------
 
+OCMockito now requires OCHamcrest v9.0.0 or higher.
+
 **Features:**
 
 - Add support for Swift Package Manager. _Thanks to: nrudnyk_
