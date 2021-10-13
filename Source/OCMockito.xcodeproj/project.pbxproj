@@ -939,7 +939,6 @@
 				08BED0781350DD8900CCBF76 /* Supporting Files */,
 				08BDD5AB1350C59C00E5A443 /* Frameworks */,
 				08BDD5AA1350C59C00E5A443 /* Products */,
-				31DDCCD7D7D7FB304E6F3DD8 /* ThirdParty */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -1008,6 +1007,8 @@
 		0E2AF2441B3E1B920031E201 /* Invocation */ = {
 			isa = PBXGroup;
 			children = (
+				31DDC358ECB610A3EEDF1DA9 /* MKT_TPDWeakProxy.h */,
+				31DDC079EF920524F16F93F2 /* MKT_TPDWeakProxy.m */,
 				609E9595A81660906404D934 /* MKTCallStackElement.h */,
 				609E9C444FF203935B12C662 /* MKTCallStackElement.m */,
 				609E9265E6EA8A5DBE45A71D /* MKTFilterCallStack.h */,
@@ -1041,31 +1042,6 @@
 				085750F8191EB5E6002F6DC0 /* NSInvocation+OCMockitoTests.m */,
 			);
 			name = Invocation;
-			sourceTree = "<group>";
-		};
-		31DDC3D6375FBF130E53553B /* TPDWeakProxy-1.1.0 */ = {
-			isa = PBXGroup;
-			children = (
-				31DDCF19A36C199804C3989A /* TPDWeakProxy */,
-			);
-			path = "TPDWeakProxy-1.1.0";
-			sourceTree = "<group>";
-		};
-		31DDCCD7D7D7FB304E6F3DD8 /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				31DDC3D6375FBF130E53553B /* TPDWeakProxy-1.1.0 */,
-			);
-			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		31DDCF19A36C199804C3989A /* TPDWeakProxy */ = {
-			isa = PBXGroup;
-			children = (
-				31DDC358ECB610A3EEDF1DA9 /* MKT_TPDWeakProxy.h */,
-				31DDC079EF920524F16F93F2 /* MKT_TPDWeakProxy.m */,
-			);
-			path = TPDWeakProxy;
 			sourceTree = "<group>";
 		};
 		740018701A58E71D00E9AC92 /* Mocking */ = {
