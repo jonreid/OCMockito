@@ -358,13 +358,14 @@ end
 Unfortunately, shifting the OCHamcrest dependency to an XCFramework has meant
 dropping support for Carthage. Please let me know if this situation changes.
 
-### Prebuilt Frameworks
+### Prebuilt Framework
 
 A prebuilt binary is available on GitHub for
 [OCMockito](https://github.com/jonreid/OCMockito/releases/). You will also need
 [OCHamcrest](https://github.com/hamcrest/OCHamcrest/releases/).
 The binary is packaged as OCMockito.xcframework, containing these architectures:
 * macOS
+* Mac Catalyst
 * iOS device
 * iOS simulator
 * tvOS device
