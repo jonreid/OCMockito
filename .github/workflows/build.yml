@@ -55,6 +55,14 @@ jobs:
           CI_PULL_REQUEST: ${{ github.event.number }}
           COVERAGE_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  buildSwiftPackage:
+    name: Build Swift package
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: cd Source; swift build -v
+
   podspec:
     name: Pod Spec Lint
     runs-on: macos-latest
