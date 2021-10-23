@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 OCH_VERSION=9.0.0
 OCH=OCHamcrest-${OCH_VERSION}
 OCH_ZIP=${OCH}.zip
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-pushd $DIR
+pushd "$DIR"
 
 curl -L https://github.com/hamcrest/OCHamcrest/releases/download/v${OCH_VERSION}/${OCH_ZIP} > ${OCH_ZIP}
 OUT=$?
