@@ -349,12 +349,11 @@ Include an OCMockito package in your Package.swift manifest's array of `dependen
 dependencies: [
     .package(
         url: "https://github.com/jonreid/OCMockito",
-        .branch("main")
-//            .upToNextMajor(from: "7.0.0")
+        .upToNextMajor(from: "7.0.0")
     ),
 ],
 ```
-<sup><a href='/Examples/MacExample-SwiftPackageManager/Package.swift#L13-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-swiftpm-declare-dependencies' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/Examples/MacExample-SwiftPackageManager/Package.swift#L13-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-swiftpm-declare-dependencies' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Then add OCMockito to the dependencies of your `.testTarget`:
@@ -370,7 +369,7 @@ Then add OCMockito to the dependencies of your `.testTarget`:
     ]
 ),
 ```
-<sup><a href='/Examples/MacExample-SwiftPackageManager/Package.swift#L28-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-swiftpm-use-dependencies' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/Examples/MacExample-SwiftPackageManager/Package.swift#L27-L35' title='Snippet source file'>snippet source</a> | <a href='#snippet-swiftpm-use-dependencies' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ### CocoaPods
