@@ -1,5 +1,6 @@
-NEXT RELEASE
-------------
+Version 7.0.0
+-------------
+_24 Nov 2021_
 
 OCMockito now requires OCHamcrest v9.0.0 or higher.
 
