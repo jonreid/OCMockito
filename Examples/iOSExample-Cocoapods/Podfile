@@ -1,4 +1,5 @@
 target 'ExampleTests' do
   inherit! :search_paths
-  pod 'OCMockito', '~> 6.0'
+  use_frameworks!
+  pod 'OCMockito', '~> 7.0'
 end

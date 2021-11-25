@@ -382,7 +382,7 @@ include any pods from their main targets:
 target 'MyTests' do
   inherit! :search_paths
   use_frameworks!
-  pod 'OCMockito', '~> 6.0'
+  pod 'OCMockito', '~> 7.0'
 end
 ```
 
