@@ -336,7 +336,7 @@ If you need more control over when the swizzling is undone, call
 How do I add OCMockito to my project?
 -------------------------------------
 
-The [Examples](https://github.com/hamcrest/OCMockito/tree/main/Examples) folder shows projects
+The [Examples](https://github.com/jonreid/OCMockito/tree/main/Examples) folder shows projects
 ready to use OCMockito via Swift Package Manager, CocoaPods, or through the prebuilt framework.
 
 ### Swift Package Manager
