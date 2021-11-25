@@ -14,8 +14,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/jonreid/OCMockito",
-            .branch("main")
-//            .upToNextMajor(from: "7.0.0")
+            .upToNextMajor(from: "7.0.0")
         ),
     ],
     // end-snippet
