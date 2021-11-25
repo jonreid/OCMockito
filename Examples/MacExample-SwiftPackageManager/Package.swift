@@ -13,7 +13,6 @@ let package = Package(
     // begin-snippet: swiftpm-declare-dependencies
     dependencies: [
         .package(
-            name: "OCMockito",
             url: "https://github.com/jonreid/OCMockito",
             .branch("main")
 //            .upToNextMajor(from: "7.0.0")
