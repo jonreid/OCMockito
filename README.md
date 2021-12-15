@@ -1,5 +1,7 @@
 ![mockito](https://raw.githubusercontent.com/mockito/mockito.github.io/master/img/logo.png)
 
+# OCMockito
+
 [![Build Status](https://github.com/jonreid/OCMockito/actions/workflows/build.yml/badge.svg)](https://github.com/jonreid/OCMockito/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.svg)](https://coveralls.io/r/jonreid/OCMockito)
 [![Swift Package Index Platform Compatibility](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fjonreid%2FOCMockito%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/jonreid/OCMockito)
@@ -22,9 +24,9 @@ Key differences from other mocking frameworks:
   lines instead of throwing exceptions. This makes it easier to identify
   failures.
 
+toc
 
-Let's verify some behavior!
----------------------------
+## Let's verify some behavior!
 
 ```obj-c
 // mock creation
@@ -46,8 +48,7 @@ verify whatever interactions you are interested in.
 to the mocked class.)
 
 
-How about some stubbing?
-------------------------
+## How about some stubbing?
 
 ```obj-c
 // mock creation
@@ -70,8 +71,7 @@ NSLog(@"%@", [mockArray objectAtIndex:999]);
 ```
 
 
-How do you mock a class object?
--------------------------------
+## How do you mock a class object?
 
 ```obj-c
 __strong Class mockStringClass = mockClass([NSString class]);
@@ -81,8 +81,7 @@ __strong Class mockStringClass = mockClass([NSString class]);
 it explicitly strong as shown above, or use `id` instead.)
 
 
-How do you mock a protocol?
----------------------------
+## How do you mock a protocol?
 
 ```obj-c
 id <MyDelegate> delegate = mockProtocol(@protocol(MyDelegate));
@@ -95,8 +94,7 @@ id <MyDelegate> delegate = mockProtocolWithoutOptionals(@protocol(MyDelegate));
 ```
 
 
-How do you mock an object that also implements a protocol?
-----------------------------------------------------------
+## How do you mock an object that also implements a protocol?
 
 ```obj-c
 UIViewController <CustomProtocol> *controller =
@@ -104,8 +102,7 @@ UIViewController <CustomProtocol> *controller =
 ```
 
 
-How do you stub methods that return primitives?
------------------------------------------------
+## How do you stub methods that return primitives?
 
 To stub methods that return primitive scalars, box the scalars into NSValues:
 
@@ -114,8 +111,7 @@ To stub methods that return primitive scalars, box the scalars into NSValues:
 ```
 
 
-How do you stub methods that return structs?
---------------------------------------------
+## How do you stub methods that return structs?
 
 Use `willReturnStruct:objCType:` passing a pointer to your structure and its
 type from the Objective-C `@encode()` compiler directive:
@@ -127,8 +123,7 @@ SomeStruct aStruct = {...};
 ```
 
 
-How do you stub a property so that KVO works?
----------------------------------------------
+## How do you stub a property so that KVO works?
 
 Use `stubProperty(mock, property, stubbedValue)`. For example, say you have a
 mock object named `mockEmployee`. It has a property `firstName`. You want to
@@ -141,8 +136,7 @@ stubProperty(mockEmployee, firstName, @"FIRST-NAME");
 This stubs the `firstName` property, `valueForKey:` and `valueForKeyPath:`.
 
 
-Argument matchers
------------------
+## Argument matchers
 
 OCMockito verifies argument values by testing for equality. But when extra
 flexibility is required, you can specify
@@ -166,8 +160,7 @@ Typed arguments will issue a warning that the matcher is the wrong type. Just
 cast the matcher to `id`.
 
 
-How do you specify matchers for non-object arguments?
------------------------------------------------------
+## How do you specify matchers for non-object arguments?
 
 To stub a method that takes a non-object argument but specify a matcher, invoke
 the method with a dummy argument, then call `-withMatcher:forArgument:`
@@ -194,8 +187,7 @@ them after `verify(…)` but before the invocation you want to verify:
 ```
 
 
-Verifying exact number of invocations / at least x / never
-----------------------------------------------------------
+## Verifying exact number of invocations / at least x / never
 
 ```obj-c
 // using mock
@@ -222,8 +214,7 @@ Verifying exact number of invocations / at least x / never
 ```
 
 
-Capturing arguments for further assertions
-------------------------------------------
+## Capturing arguments for further assertions
 
 OCMockito verifies argument values using OCHamcrest matchers; non-matcher
 arguments are implicitly wrapped in the `equalTo` matcher to test for equality.
@@ -255,8 +246,7 @@ assertThat(@(block(@"a", @"z")), is(@(NSOrderedAscending)));
 ```
 
 
-Stubbing consecutive calls
---------------------------
+## Stubbing consecutive calls
 
 ```obj-c
 [[given([mockObject someMethod:@"some arg"])
@@ -274,8 +264,7 @@ NSLog(@"%@", [mockObject someMethod:@"some arg"]);
 ```
 
 
-Stubbing with blocks
---------------------
+## Stubbing with blocks
 
 We recommend using simple stubbing with `willReturn:` or `willThrow:` only. But
 `willDo:` using a block can sometimes be helpful. The block can easily access
@@ -295,8 +284,7 @@ NSLog(@"%@", [mockObject someMethod:@2]);
 You can stub a void method with a block by using `givenVoid` instead of `given`.
 
 
-Problems with dealloc
----------------------
+## Problems with dealloc
 
 Use `stopMocking(…)` if a `-dealloc` of your System Under Test is trying to
 message an object that is mocked. It disables message handling on the mock and
@@ -304,8 +292,7 @@ frees its retained arguments. This prevents retain cycles and crashes during
 test clean-up. See StopMockingTests.m for an example.
 
 
-How do you mock a singleton?
-----------------------------
+## How do you mock a singleton?
 
 The short answer is: Don't. Instead of your class deciding who it's going to
 talk to, inject those dependencies.
@@ -334,8 +321,7 @@ If you need more control over when the swizzling is undone, call
 `stopMocking(…)` on the mock class.
 
 
-How do I add OCMockito to my project?
--------------------------------------
+## How do I add OCMockito to my project?
 
 The [Examples](https://github.com/jonreid/OCMockito/tree/main/Examples) folder shows projects
 ready to use OCMockito via Swift Package Manager, CocoaPods, or through the prebuilt framework.
