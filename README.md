@@ -24,7 +24,31 @@ Key differences from other mocking frameworks:
   lines instead of throwing exceptions. This makes it easier to identify
   failures.
 
-toc
+<!-- toc -->
+## Contents
+
+  * [Let's verify some behavior!](#lets-verify-some-behavior)
+  * [How about some stubbing?](#how-about-some-stubbing)
+  * [How do you mock a class object?](#how-do-you-mock-a-class-object)
+  * [How do you mock a protocol?](#how-do-you-mock-a-protocol)
+  * [How do you mock an object that also implements a protocol?](#how-do-you-mock-an-object-that-also-implements-a-protocol)
+  * [How do you stub methods that return primitives?](#how-do-you-stub-methods-that-return-primitives)
+  * [How do you stub methods that return structs?](#how-do-you-stub-methods-that-return-structs)
+  * [How do you stub a property so that KVO works?](#how-do-you-stub-a-property-so-that-kvo-works)
+  * [Argument matchers](#argument-matchers)
+  * [How do you specify matchers for non-object arguments?](#how-do-you-specify-matchers-for-non-object-arguments)
+  * [Verifying exact number of invocations / at least x / never](#verifying-exact-number-of-invocations--at-least-x--never)
+  * [Capturing arguments for further assertions](#capturing-arguments-for-further-assertions)
+  * [Stubbing consecutive calls](#stubbing-consecutive-calls)
+  * [Stubbing with blocks](#stubbing-with-blocks)
+  * [Problems with dealloc](#problems-with-dealloc)
+  * [How do you mock a singleton?](#how-do-you-mock-a-singleton)
+  * [How do I add OCMockito to my project?](#how-do-i-add-ocmockito-to-my-project)
+    * [Swift Package Manager](#swift-package-manager)
+    * [CocoaPods](#cocoapods)
+    * [Carthage](#carthage)
+    * [Prebuilt Framework](#prebuilt-framework)
+    * [Build Your Own](#build-your-own)<!-- endToc -->
 
 ## Let's verify some behavior!
 
