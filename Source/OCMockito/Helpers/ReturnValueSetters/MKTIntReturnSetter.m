@@ -1,5 +1,5 @@
 //  OCMockito by Jon Reid, https://qualitycoding.org
-//  Copyright 2021 Quality Coding, Inc. See LICENSE.txt
+//  Copyright 2022 Jonathan M. Reid. See LICENSE.txt
 
 #import "MKTIntReturnSetter.h"
 
