@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)verificationStarted:(id <MKTVerificationMode>)mode atLocation:(MKTTestLocation)location withMock:(MKTBaseMockObject *)mock;
 
-- (id <MKTVerificationMode>)pullVerificationModeWithMock:(MKTBaseMockObject *)mock;
+- (nullable id <MKTVerificationMode>)pullVerificationModeWithMock:(MKTBaseMockObject *)mock;
 
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index;
 - (MKTInvocationMatcher *)pullInvocationMatcher;

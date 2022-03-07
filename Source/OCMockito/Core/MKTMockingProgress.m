@@ -58,14 +58,15 @@
     [self setTestLocation:location];
 }
 
-- (id <MKTVerificationMode>)pullVerificationModeWithMock:(MKTBaseMockObject *)mock
+- (nullable id <MKTVerificationMode>)pullVerificationModeWithMock:(MKTBaseMockObject *)mock
 {
-    id <MKTVerificationMode> result = self.verificationMode;
-
-    if ([mock isEqual:self.verificationModeMockObject])
+    if (self.verificationMode != nil && [mock isEqual:self.verificationModeMockObject]) {
+        id <MKTVerificationMode> result = self.verificationMode;
         self.verificationMode = nil;
-
-    return result;
+        return result;
+    } else {
+        return nil;
+    }
 }
 
 - (void)setMatcher:(id <HCMatcher>)matcher forArgument:(NSUInteger)index

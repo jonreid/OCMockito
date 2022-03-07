@@ -58,6 +58,21 @@
     mockTestCase = [[MockTestCase alloc] init];
 }
 
+- (void)testStub_whileVerify
+{
+    // Given
+    B *b = mock(B.class);
+    C *c = mock(C.class);
+
+    [given(c.text) willReturn:@"test"];
+
+    // When
+    [b processStringFromC:c.text];
+
+    // Then
+    [verify(b) processStringFromC:c.text];
+}
+
 - (void)testVerify_whileNotStubbing_ShouldFail
 {
     // Given
