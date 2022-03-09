@@ -1,5 +1,6 @@
 //  OCMockito by Jon Reid, https://qualitycoding.org
 //  Copyright 2022 Jonathan M. Reid. See LICENSE.txt
+//  Contribution by David Ferrai
 
 #import "OCMockito.h"
 
@@ -60,45 +61,35 @@
 
 - (void)testStub_whileVerify
 {
-    // Given
     B *b = mock(B.class);
     C *c = mock(C.class);
-
     [given(c.text) willReturn:@"test"];
 
-    // When
     [b processStringFromC:c.text];
 
-    // Then
     [verify(b) processStringFromC:c.text];
 }
 
 - (void)testVerify_whileNotStubbing_ShouldFail
 {
-    // Given
     A *a = [[A alloc] init]; // A is not initialized with B
     B *b = mock(B.class); // not used at all
     C *c = [[C alloc] init]; // not stubbing
 
-    // When
     [a useC:c];
 
-    // Then
     [verifyWithMockTestCase(b, mockTestCase) processStringFromC:c.text];
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
 
 - (void)testVerify_whileStubbing_ShouldFail
 {
-    // Given
     A *a = [[A alloc] init]; // A is not initialized with B
     B *b = mock(B.class); // not used at all
     C *c = mock(C.class); // stubbing
 
-    // When
     [a useC:c];
 
-    // Then
     [verifyWithMockTestCase(b, mockTestCase) processStringFromC:c.text];
     assertThat(@(mockTestCase.failureCount), is(@1));
 }
