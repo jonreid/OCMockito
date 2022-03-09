@@ -1,4 +1,4 @@
-//  OCopyright 2020 Quality Coding, Inc.Mockito by Jon Reid, https://qualitycoding.org
+//  OCMockito by Jon Reid, https://qualitycoding.org
 //  Copyright 2022 Jonathan M. Reid. See LICENSE.txt
 
 #import "OCMockito.h"
