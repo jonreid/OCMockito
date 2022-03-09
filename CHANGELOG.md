@@ -1,3 +1,11 @@
+NEXT VERSION
+------------
+
+**Fixes:**
+
+- Keep stubs working while verifying. #165 _Thanks to: Damian Ferrai_
+
+
 Version 7.0.0
 -------------
 _24 Nov 2021_
