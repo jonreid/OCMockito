@@ -56,6 +56,7 @@ jobs:
           COVERAGE_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   buildSwiftPackage:
+    needs: [ build, test ]
     name: Build Swift package
     runs-on: macos-latest
     steps:
@@ -64,6 +65,7 @@ jobs:
       run: cd Source; swift build -v
 
   podspec:
+    needs: [ build, test ]
     name: Pod Spec Lint
     runs-on: macos-latest
     steps:
