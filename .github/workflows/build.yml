@@ -16,7 +16,7 @@ jobs:
           - { scheme: 'OCMockito-watchOS', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 5 - 44mm' }
     steps:
       - name: Check out project
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
@@ -32,7 +32,7 @@ jobs:
       sdk: 'macosx'
     steps:
       - name: Check out project
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
@@ -60,7 +60,7 @@ jobs:
     name: Build Swift package
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build
       run: cd Source; swift build -v
 
@@ -70,7 +70,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Check out project
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Lint the pod spec
         run: pod spec lint --quick
 
