@@ -27,7 +27,7 @@ jobs:
       - name: Get OCHamcrest
         run: Frameworks/gethamcrest
       - name: Build
-        run: set -o pipefail && xcodebuild build -project '${{ env.project }}' -scheme '${{ matrix.run-config['scheme'] }}' -sdk '${{ matrix.run-config['sdk'] }}' -destination '${{ matrix.run-config['destination'] }}' | xcpretty
+        run: xcodebuild build -project '${{ env.project }}' -scheme '${{ matrix.run-config['scheme'] }}' -sdk '${{ matrix.run-config['sdk'] }}' -destination '${{ matrix.run-config['destination'] }}' | xcpretty && exit ${PIPESTATUS[0]}
 
   test:
     name: Build, test, report coverage
@@ -43,7 +43,7 @@ jobs:
       - name: Get OCHamcrest
         run: Frameworks/gethamcrest
       - name: Build & test
-        run: set -o pipefail && xcodebuild test -project '${{ env.project }}' -scheme '${{ env.scheme }}' -sdk '${{ env.sdk }}' | xcpretty
+        run: xcodebuild test -project '${{ env.project }}' -scheme '${{ env.scheme }}' -sdk '${{ env.sdk }}' | xcpretty && exit ${PIPESTATUS[0]}
       - name: Install gems
         run: |
           bundle config path vendor/bundle
