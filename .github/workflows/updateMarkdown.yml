@@ -2,7 +2,6 @@ name: Update markdown snippets
 
 on:
   push:
-    branches: [ main ]
 
 jobs:
   update-markdown-snippets:
