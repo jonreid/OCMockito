@@ -36,7 +36,7 @@
 
 - (void)testMock_ShouldAnswerSameMethodSignatureForSelectorAsRealObject
 {
-    SEL sel = @selector(text);
+    SEL sel = NSSelectorFromString(@"text");
 
     NSMethodSignature *signature = [mockStringClass methodSignatureForSelector:sel];
 
