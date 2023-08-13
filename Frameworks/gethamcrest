@@ -16,4 +16,8 @@ fi
 rm -rf ${OCH}
 unzip ${OCH_ZIP}
 rm ${OCH_ZIP}
+
+mkdir -p ../Carthage/Build/
+mv ${OCH}/OCHamcrest.xcframework ../Carthage/Build
+
 popd
