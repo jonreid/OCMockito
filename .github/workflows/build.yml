@@ -12,16 +12,20 @@ env:
 jobs:
   build:
     name: Build without tests
-    runs-on: macos-latest
+    runs-on: macos-13
     strategy:
       matrix:
         run-config:
-          - { scheme: 'OCMockito-iOS', sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 8' }
-          - { scheme: 'OCMockito-tvOS', sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
-          - { scheme: 'OCMockito-watchOS', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 5 (44mm)' }
+          - { scheme: 'OCHamcrest-iOS', sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 14' }
+          - { scheme: 'OCHamcrest-tvOS', sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
+          - { scheme: 'OCHamcrest-watchOS', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 6 (44mm)' }
     steps:
       - name: Check out project
         uses: actions/checkout@v3
+      - name: Set up Xcode version
+        uses: maxim-lobanov/setup-xcode@v1.5.1
+        with:
+          xcode-version: '14.3'
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
@@ -31,13 +35,17 @@ jobs:
 
   test:
     name: Build, test, report coverage
-    runs-on: macos-latest
+    runs-on: macos-13
     env:
       scheme: 'OCMockito'
       sdk: 'macosx'
     steps:
       - name: Check out project
         uses: actions/checkout@v3
+      - name: Set up Xcode version
+        uses: maxim-lobanov/setup-xcode@v1.5.1
+        with:
+          xcode-version: '14.3'
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
@@ -63,19 +71,26 @@ jobs:
   buildSwiftPackage:
     needs: [ build, test ]
     name: Build Swift package
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
-    - uses: actions/checkout@v3
+    - name: Check out project
+      uses: actions/checkout@v3
+    - name: Set up Xcode version
+      uses: maxim-lobanov/setup-xcode@v1.5.1
+      with:
+        xcode-version: '14.3'
     - name: Build
       run: cd Source; swift build -v
 
   podspec:
     needs: [ build, test ]
     name: Pod Spec Lint
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - name: Check out project
         uses: actions/checkout@v3
+      - name: Show current version of CocoaPods
+        run: pod --version
       - name: Lint the pod spec
         run: pod spec lint --quick
 
