@@ -16,9 +16,9 @@ jobs:
     strategy:
       matrix:
         run-config:
-          - { scheme: 'OCHamcrest-iOS', sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 14' }
-          - { scheme: 'OCHamcrest-tvOS', sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
-          - { scheme: 'OCHamcrest-watchOS', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 6 (44mm)' }
+          - { scheme: 'OCMockito-iOS', sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 14' }
+          - { scheme: 'OCMockito-tvOS', sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
+          - { scheme: 'OCMockito-watchOS', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 6 (44mm)' }
     steps:
       - name: Check out project
         uses: actions/checkout@v3
