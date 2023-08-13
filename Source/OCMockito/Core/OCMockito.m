@@ -121,7 +121,7 @@ id <MKTVerificationMode> MKTTimes(NSUInteger wantedNumberOfInvocations)
     return [[MKTExactTimes alloc] initWithCount:wantedNumberOfInvocations];
 }
 
-id <MKTVerificationMode> MKTNever()
+id <MKTVerificationMode> MKTNever(void)
 {
     return MKTTimes(0);
 }
@@ -131,7 +131,7 @@ id <MKTVerificationMode> MKTAtLeast(NSUInteger minNumberOfInvocations)
     return [[MKTAtLeastTimes alloc] initWithMinimumCount:minNumberOfInvocations];
 }
 
-id <MKTVerificationMode> MKTAtLeastOnce()
+id <MKTVerificationMode> MKTAtLeastOnce(void)
 {
     return MKTAtLeast(1);
 }
