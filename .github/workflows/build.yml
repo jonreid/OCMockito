@@ -82,6 +82,24 @@ jobs:
     - name: Build
       run: cd Source; swift build -v
 
+  buildCarthage:
+    needs: [ build, test ]
+    name: Build Carthage
+    runs-on: macos-13
+    steps:
+    - name: Check out project
+      uses: actions/checkout@v3
+    - name: Set up Xcode version
+      uses: maxim-lobanov/setup-xcode@v1.5.1
+      with:
+        xcode-version: '14.3'
+    - name: Show current version of Xcode
+      run: xcodebuild -version
+    - name: Show current version of Carthage
+      run: carthage version
+    - name: Build
+      run: carthage build --configuration Release --no-skip-current --use-xcframeworks
+
   podspec:
     needs: [ build, test ]
     name: Pod Spec Lint
@@ -95,7 +113,7 @@ jobs:
         run: pod spec lint --quick
 
   auto-merge:
-    needs: [ buildSwiftPackage, podspec ]
+    needs: [ buildSwiftPackage, buildCarthage, podspec ]
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
