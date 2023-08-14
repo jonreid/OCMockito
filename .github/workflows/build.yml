@@ -97,6 +97,8 @@ jobs:
       run: xcodebuild -version
     - name: Show current version of Carthage
       run: carthage version
+    - name: Update dependencies
+      run: carthage update --use-xcframeworks
     - name: Build
       run: carthage build --configuration Release --no-skip-current --use-xcframeworks
 
