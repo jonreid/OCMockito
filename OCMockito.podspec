@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/jonreid/OCMockito'
   s.license  = { :type => 'MIT' }
   s.author   = { 'Jon Reid' => 'jon@qualitycoding.org' }
-  s.social_media_url = 'https://twitter.com/qcoding'
+  s.social_media_url = 'https://iosdev.space/@qcoding'
 
   s.osx.deployment_target = '10.13'
   s.ios.deployment_target = '12.0'
