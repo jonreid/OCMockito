@@ -1,3 +1,16 @@
+Version 7.0.2
+-------------
+_13 Aug 2022_
+
+**Fixes:**
+
+- Restores Carthage build. #169 _Thanks to: Christian Tietze_
+
+**Other:**
+
+- Restores "year of first publication" in copyright notices 
+
+
 Version 7.0.1
 -------------
 _13 Mar 2022_
