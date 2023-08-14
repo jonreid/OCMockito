@@ -5,6 +5,7 @@
 [![Build Status](https://github.com/jonreid/OCMockito/actions/workflows/build.yml/badge.svg)](https://github.com/jonreid/OCMockito/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.svg)](https://coveralls.io/r/jonreid/OCMockito)
 [![Swift Package Index Platform Compatibility](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fjonreid%2FOCMockito%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/jonreid/OCMockito)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/OCMockito.svg?style=flat)](https://cocoapods.org/pods/OCMockito)
 [![Mastodon Follow](https://img.shields.io/mastodon/follow/109765011064804734?domain=https%3A%2F%2Fiosdev.space
 )](https://iosdev.space/@qcoding)
@@ -399,8 +400,15 @@ end
 
 ### Carthage
 
-Unfortunately, shifting the OCHamcrest dependency to an XCFramework has meant
-dropping support for Carthage. Please let me know if this situation changes.
+Add the following to your Cartfile:
+
+```
+github "jonreid/OCMockito" ~> 7.0
+```
+
+Then drag the the built frameworks (both OCHamcrest and OCMockito) from the
+appropriate Carthage/Build directory into your project, but with "Copy items
+into destination group's folder" disabled.
 
 ### Prebuilt Framework
 
