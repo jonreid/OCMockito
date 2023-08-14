@@ -59,7 +59,7 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: Extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
         id: get_branch
       - name: Report coverage
         run: bundle exec slather
