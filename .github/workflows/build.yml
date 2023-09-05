@@ -21,7 +21,7 @@ jobs:
           - { scheme: 'OCMockito-watchOS', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 6 (44mm)' }
     steps:
       - name: Check out project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Xcode version
         uses: maxim-lobanov/setup-xcode@v1.5.1
         with:
@@ -41,7 +41,7 @@ jobs:
       sdk: 'macosx'
     steps:
       - name: Check out project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Xcode version
         uses: maxim-lobanov/setup-xcode@v1.5.1
         with:
@@ -74,7 +74,7 @@ jobs:
     runs-on: macos-13
     steps:
     - name: Check out project
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Set up Xcode version
       uses: maxim-lobanov/setup-xcode@v1.5.1
       with:
@@ -88,7 +88,7 @@ jobs:
     runs-on: macos-13
     steps:
     - name: Check out project
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Set up Xcode version
       uses: maxim-lobanov/setup-xcode@v1.5.1
       with:
@@ -108,7 +108,7 @@ jobs:
     runs-on: macos-13
     steps:
       - name: Check out project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Show current version of CocoaPods
         run: pod --version
       - name: Lint the pod spec
@@ -119,7 +119,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: auto-merge
         if: |
           github.actor == 'dependabot[bot]' &&
