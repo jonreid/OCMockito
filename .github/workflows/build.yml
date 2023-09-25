@@ -23,7 +23,7 @@ jobs:
       - name: Check out project
         uses: actions/checkout@v3
       - name: Set up Xcode version
-        uses: maxim-lobanov/setup-xcode@v1.5.1
+        uses: maxim-lobanov/setup-xcode@v1.6.0
         with:
           xcode-version: '14.3'
       - name: Show current version of Xcode
@@ -43,7 +43,7 @@ jobs:
       - name: Check out project
         uses: actions/checkout@v3
       - name: Set up Xcode version
-        uses: maxim-lobanov/setup-xcode@v1.5.1
+        uses: maxim-lobanov/setup-xcode@v1.6.0
         with:
           xcode-version: '14.3'
       - name: Show current version of Xcode
@@ -76,7 +76,7 @@ jobs:
     - name: Check out project
       uses: actions/checkout@v3
     - name: Set up Xcode version
-      uses: maxim-lobanov/setup-xcode@v1.5.1
+      uses: maxim-lobanov/setup-xcode@v1.6.0
       with:
         xcode-version: '14.3'
     - name: Build
@@ -90,7 +90,7 @@ jobs:
     - name: Check out project
       uses: actions/checkout@v3
     - name: Set up Xcode version
-      uses: maxim-lobanov/setup-xcode@v1.5.1
+      uses: maxim-lobanov/setup-xcode@v1.6.0
       with:
         xcode-version: '14.3'
     - name: Show current version of Xcode
