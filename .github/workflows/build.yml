@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ main ]
 
+concurrency:
+  # Cancel any in-progress workflows for this workflow/branch combination.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   project: Source/OCMockito.xcodeproj
 
