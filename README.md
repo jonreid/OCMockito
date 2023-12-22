@@ -435,3 +435,7 @@ If you want to build OCMockito yourself, clone the repo, then
 $ cd Source
 $ ./MakeDistribution.sh
 ```
+
+## Author
+
+- Jon Reid is the author of _[iOS Unit Testing by Example](https://iosunittestingbyexample.com)._ His website is [Quality Coding](https://qualitycoding.org).
