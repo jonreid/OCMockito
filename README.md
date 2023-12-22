@@ -49,7 +49,8 @@ Key differences from other mocking frameworks:
     * [CocoaPods](#cocoapods)
     * [Carthage](#carthage)
     * [Prebuilt Framework](#prebuilt-framework)
-    * [Build Your Own](#build-your-own)<!-- endToc -->
+    * [Build Your Own](#build-your-own)
+  * [Author](#author)<!-- endToc -->
 
 ## Let's verify some behavior!
 
