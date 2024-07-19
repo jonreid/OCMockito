@@ -32,7 +32,7 @@ jobs:
       - name: Get OCHamcrest
         run: Frameworks/gethamcrest
       - name: Build
-        run: xcodebuild build -project '${{ env.project }}' -scheme '${{ matrix.run-config['scheme'] }}' -sdk '${{ matrix.run-config['sdk'] }}' -destination '${{ matrix.run-config['destination'] }}' | xcpretty && exit ${PIPESTATUS[0]}
+        run: xcodebuild build -project '${{ env.project }}' -scheme '${{ matrix.run-config['scheme'] }}' -sdk '${{ matrix.run-config['sdk'] }}' -destination '${{ matrix.run-config['destination'] }}' CODE_SIGNING_ALLOWED='NO' | xcpretty && exit ${PIPESTATUS[0]}
 
   test:
     name: Build, test, report coverage
@@ -48,7 +48,7 @@ jobs:
       - name: Get OCHamcrest
         run: Frameworks/gethamcrest
       - name: Build & test
-        run: xcodebuild test -project '${{ env.project }}' -scheme '${{ env.scheme }}' -sdk '${{ env.sdk }}' | xcpretty && exit ${PIPESTATUS[0]}
+        run: xcodebuild test -project '${{ env.project }}' -scheme '${{ env.scheme }}' -sdk '${{ env.sdk }}' CODE_SIGNING_ALLOWED='NO' | xcpretty && exit ${PIPESTATUS[0]}
       - name: Install gems
         run: |
           bundle config path vendor/bundle
