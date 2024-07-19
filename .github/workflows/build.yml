@@ -17,7 +17,7 @@ env:
 jobs:
   build:
     name: Build without tests
-    runs-on: macos-13
+    runs-on: macos-latest
     strategy:
       matrix:
         run-config:
@@ -27,8 +27,6 @@ jobs:
     steps:
       - name: Check out project
         uses: actions/checkout@v4
-      - name: Set up Xcode version
-        run: sudo xcode-select -s /Applications/Xcode_14.3.app/Contents/Developer
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
@@ -38,15 +36,13 @@ jobs:
 
   test:
     name: Build, test, report coverage
-    runs-on: macos-13
+    runs-on: macos-latest
     env:
       scheme: 'OCMockito'
       sdk: 'macosx'
     steps:
       - name: Check out project
         uses: actions/checkout@v4
-      - name: Set up Xcode version
-        run: sudo xcode-select -s /Applications/Xcode_14.3.app/Contents/Developer
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
@@ -72,24 +68,20 @@ jobs:
   buildSwiftPackage:
     needs: [ build, test ]
     name: Build Swift package
-    runs-on: macos-13
+    runs-on: macos-latest
     steps:
     - name: Check out project
       uses: actions/checkout@v4
-    - name: Set up Xcode version
-      run: sudo xcode-select -s /Applications/Xcode_14.3.app/Contents/Developer
     - name: Build
       run: cd Source; swift build -v
 
   buildCarthage:
     needs: [ build, test ]
     name: Build Carthage
-    runs-on: macos-13
+    runs-on: macos-latest
     steps:
     - name: Check out project
       uses: actions/checkout@v4
-    - name: Set up Xcode version
-      run: sudo xcode-select -s /Applications/Xcode_14.3.app/Contents/Developer
     - name: Show current version of Xcode
       run: xcodebuild -version
     - name: Show current version of Carthage
@@ -102,7 +94,7 @@ jobs:
   podspec:
     needs: [ build, test ]
     name: Pod Spec Lint
-    runs-on: macos-13
+    runs-on: macos-latest
     steps:
       - name: Check out project
         uses: actions/checkout@v4
