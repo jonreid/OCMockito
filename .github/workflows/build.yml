@@ -1,13 +1,13 @@
 name: Build
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
 concurrency:
-  # Cancel any in-progress workflows for this workflow/branch combination.
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
@@ -25,14 +25,13 @@ jobs:
           - { scheme: 'OCMockito-tvOS', sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
           - { scheme: 'OCMockito-watchOS', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 6 (44mm)' }
     steps:
-      - name: Check out project
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
         run: Frameworks/gethamcrest
       - name: Build
-        run: xcodebuild build -project '${{ env.project }}' -scheme '${{ matrix.run-config['scheme'] }}' -sdk '${{ matrix.run-config['sdk'] }}' -destination '${{ matrix.run-config['destination'] }}' CODE_SIGNING_ALLOWED='NO' | xcpretty && exit ${PIPESTATUS[0]}
+        run: set -o pipefail && xcodebuild build -project '${{ env.project }}' -scheme '${{ matrix.run-config['scheme'] }}' -sdk '${{ matrix.run-config['sdk'] }}' -destination '${{ matrix.run-config['destination'] }}' CODE_SIGNING_ALLOWED='NO' | xcbeautify
 
   test:
     name: Build, test, report coverage
@@ -41,14 +40,13 @@ jobs:
       scheme: 'OCMockito'
       sdk: 'macosx'
     steps:
-      - name: Check out project
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
         run: Frameworks/gethamcrest
       - name: Build & test
-        run: xcodebuild test -project '${{ env.project }}' -scheme '${{ env.scheme }}' -sdk '${{ env.sdk }}' CODE_SIGNING_ALLOWED='NO' | xcpretty && exit ${PIPESTATUS[0]}
+        run: set -o pipefail && xcodebuild test -project '${{ env.project }}' -scheme '${{ env.scheme }}' -sdk '${{ env.sdk }}' CODE_SIGNING_ALLOWED='NO' | xcbeautify
       - name: Install gems
         run: |
           bundle config path vendor/bundle
@@ -70,8 +68,7 @@ jobs:
     name: Build Swift package
     runs-on: macos-latest
     steps:
-    - name: Check out project
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
     - name: Build
       run: cd Source; swift build -v
 
@@ -80,8 +77,7 @@ jobs:
     name: Build Carthage
     runs-on: macos-latest
     steps:
-    - name: Check out project
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
     - name: Show current version of Xcode
       run: xcodebuild -version
     - name: Show current version of Carthage
@@ -96,8 +92,7 @@ jobs:
     name: Pod Spec Lint
     runs-on: macos-latest
     steps:
-      - name: Check out project
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Show current version of CocoaPods
         run: pod --version
       - name: Lint the pod spec
@@ -107,8 +102,7 @@ jobs:
     needs: [ buildSwiftPackage, buildCarthage, podspec ]
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: auto-merge
         if: |
           github.actor == 'dependabot[bot]' &&
