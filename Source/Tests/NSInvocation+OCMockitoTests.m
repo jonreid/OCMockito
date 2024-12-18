@@ -63,4 +63,11 @@
     assertThat([invocation target], is(sameInstance(weakProxy)));
 }
 
+- (void)testArguments_ShouldCopyStackBlocks
+{
+    assertThat(@(invocation.argumentsRetained), isFalse());
+    [invocation mkt_arguments];
+    assertThat(@(invocation.argumentsRetained), isTrue());
+}
+
 @end
