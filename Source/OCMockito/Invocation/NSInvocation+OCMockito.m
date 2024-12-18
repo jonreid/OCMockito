@@ -15,6 +15,8 @@
 
 - (NSArray *)mkt_arguments
 {
+    [self retainArguments]; // make sure no stack blocks are added to the autoreleased array that can outlive them
+
     NSMethodSignature *signature = self.methodSignature;
     NSUInteger numberOfArguments = signature.numberOfArguments;
     NSMutableArray *arguments = [NSMutableArray arrayWithCapacity:numberOfArguments - 2];
