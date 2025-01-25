@@ -2264,10 +2264,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64e,
+					arm64_32,
+				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2,4";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -2276,10 +2284,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64e,
+					arm64_32,
+				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2,4";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
