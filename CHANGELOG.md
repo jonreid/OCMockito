@@ -1,3 +1,11 @@
+NEXT VERSION
+------------
+
+**Project changes:**
+
+- Make framework multibinary and add arm64e and arm64_32 architectures.
+
+
 Version 7.0.2
 -------------
 _01 Oct 2022_
