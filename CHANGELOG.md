@@ -3,6 +3,8 @@ NEXT VERSION
 
 **Project changes:**
 
+- Make it safe to use `-[NSInvocation mkt_arguments]` on objects that don't come from OCMockito
+  itself. _Thanks to: Emma Blink_
 - Make framework multibinary and add arm64e and arm64_32 architectures.
 
 
