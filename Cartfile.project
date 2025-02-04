@@ -2,18 +2,11 @@ OCMockito:
   project: Source/OCMockito.xcodeproj
   sdks:
   - macosx
-OCMockito-iOS:
-  project: Source/OCMockito.xcodeproj
-  sdks:
   - iphonesimulator
   - iphoneos
-OCMockito-tvOS:
-  project: Source/OCMockito.xcodeproj
-  sdks:
   - appletvos
   - appletvsimulator
-OCMockito-watchOS:
-  project: Source/OCMockito.xcodeproj
-  sdks:
   - watchsimulator
   - watchos
+  - xros
+  - xrsimulator
