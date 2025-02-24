@@ -1,5 +1,5 @@
 #!/bin/bash
-OCH_VERSION=9.1.0
+OCH_VERSION=9.1.1
 OCH=OCHamcrest-${OCH_VERSION}
 OCH_ZIP=${OCH}.zip
 
