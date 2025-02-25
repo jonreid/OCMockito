@@ -1,11 +1,15 @@
 NEXT VERSION
 ------------
 
-**Project changes:**
+**Features:**
 
 - Make it safe to use `-[NSInvocation mkt_arguments]` on objects that don't come from OCMockito
   itself. _Thanks to: Emma Blink_
+
+**Project changes:**
+
 - Make framework multibinary and add arm64e and arm64_32 architectures.
+- Rework project into single multiplatform target and add visionOS. _Thanks to: Jens Nerup_
 
 
 Version 7.0.2
