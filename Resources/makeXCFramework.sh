@@ -5,7 +5,7 @@
 # macOS on Intel architecture since the `-destination generic/platform=visionOS ...` is missing on
 # that architecture.
 
-XCODE_PROJECT_PATH="OCMockito.xcodeproj"
+XCODE_PROJECT_PATH="../OCMockito.xcodeproj"
 FRAMEWORK_NAME="OCMockito"
 
 MACOS_ARCHIVE_PATH="./build/archives/macos.xcarchive"
