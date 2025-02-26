@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "OCMockito",
     platforms: [
-        .macOS(.v10_10),
+        .macOS(.v10_13),
         .iOS(.v9),
         .tvOS(.v12),
         .watchOS(.v2)
