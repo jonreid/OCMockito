@@ -3,10 +3,10 @@
 // SPDX-License-Identifier: MIT
 //  Contribution by Markus Gasser
 
-#import "OCMockito.h"
+#import <OCMockito/OCMockito.h>
+#import <OCHamcrest/OCHamcrest.h>
 
 #import "MockTestCase.h"
-#import <OCHamcrest/OCHamcrest.h>
 @import XCTest;
 
 

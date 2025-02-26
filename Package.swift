@@ -29,8 +29,19 @@ let package = Package(
                 .headerSearchPath("./Invocation"),
                 .headerSearchPath("./Mocking"),
                 .headerSearchPath("./Stubbing"),
-                .headerSearchPath("./Verifying"),
+                .headerSearchPath("./Verifying")
             ]
         ),
+        .testTarget(
+            name: "OCMockitoTests",
+            dependencies: ["OCMockito","OCHamcrest"],
+            cSettings: [
+                .headerSearchPath("./"),
+                .headerSearchPath("../../Sources/OCMockito/Core"),
+                .headerSearchPath("../../Sources/OCMockito/Invocation"),
+                .headerSearchPath("../../Sources/OCMockito/Stubbing"),
+                .headerSearchPath("../../Sources/OCMockito/Verifying")
+            ]
+        )
     ]
 )

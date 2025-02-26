@@ -2,8 +2,8 @@
 // Copyright 2011 Jonathan M. Reid. https://github.com/jonreid/OCMockito/blob/main/LICENSE.txt
 // SPDX-License-Identifier: MIT
 
-#import "OCMockito.h"
 
+#import <OCMockito/OCMockito.h>
 #import <OCHamcrest/OCHamcrest.h>
 @import XCTest;
 
