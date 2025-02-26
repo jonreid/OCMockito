@@ -489,7 +489,7 @@
 				740018721A58E72D00E9AC92 /* Verifying */,
 			);
 			name = OCMockito;
-			path = Source/OCMockito;
+			path = Sources/OCMockito;
 			sourceTree = "<group>";
 		};
 		08BDD5C31350C59C00E5A443 /* Tests */ = {
@@ -506,7 +506,7 @@
 				609E9BDCD18394B0FFD08C75 /* FakeLocation.m */,
 			);
 			name = Tests;
-			path = Source/Tests;
+			path = Tests/OCMockitoTests;
 			sourceTree = "<group>";
 		};
 		08BED0781350DD8900CCBF76 /* Supporting Files */ = {
@@ -810,9 +810,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				085D2FB51351082800EBBE91 /* MKTObjectMock.h in Headers */,
-				0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */,
 				0827E8421352B6FC00C39A57 /* MKTMockitoCore.h in Headers */,
 				0827E8481352B7BF00C39A57 /* MKTMockingProgress.h in Headers */,
+				0827E83D1352B1AE00C39A57 /* OCMockito.h in Headers */,
 				0827E8531352BBBC00C39A57 /* MKTVerificationMode.h in Headers */,
 				0827E8561352BC1D00C39A57 /* MKTVerificationData.h in Headers */,
 				0827E8651352C50400C39A57 /* MKTTestLocation.h in Headers */,

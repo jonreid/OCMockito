@@ -15,34 +15,21 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/hamcrest/OCHamcrest",
-            .upToNextMajor(from: "9.0.0")
+            .upToNextMajor(from: "9.1.1")
         ),
     ],
     targets: [
         .target(
             name: "OCMockito",
             dependencies: ["OCHamcrest"],
-            path: "Source",
-            exclude: [
-                "Tests",
-                "MakeDistribution.sh",
-                "makeXCFramework.sh",
-                "OCMockito-Info.plist",
-                "Tests-Info.plist",
-                "XcodeWarnings.xcconfig",
-            ],
-            sources: [
-                "OCMockito",
-            ],
-            publicHeadersPath: "include",
             cSettings: [
-                CSetting.headerSearchPath("OCMockito/Core"),
-                CSetting.headerSearchPath("OCMockito/Helpers/ArgumentGetters"),
-                CSetting.headerSearchPath("OCMockito/Helpers/ReturnValueSetters"),
-                CSetting.headerSearchPath("OCMockito/Invocation"),
-                CSetting.headerSearchPath("OCMockito/Mocking"),
-                CSetting.headerSearchPath("OCMockito/Stubbing"),
-                CSetting.headerSearchPath("OCMockito/Verifying"),
+                .headerSearchPath("./Core"),
+                .headerSearchPath("./Helpers/ArgumentGetters"),
+                .headerSearchPath("./Helpers/ReturnValueSetters"),
+                .headerSearchPath("./Invocation"),
+                .headerSearchPath("./Mocking"),
+                .headerSearchPath("./Stubbing"),
+                .headerSearchPath("./Verifying"),
             ]
         ),
     ]
