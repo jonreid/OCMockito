@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -243,7 +243,7 @@
 		085A8BC915071F7A0018EC66 /* MKTProtocolMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTProtocolMock.h; sourceTree = "<group>"; };
 		085A8BCA15071F7A0018EC66 /* MKTProtocolMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTProtocolMock.m; sourceTree = "<group>"; };
 		085CE8F1172A0D43004D070D /* BlockMatchingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockMatchingTests.m; sourceTree = "<group>"; };
-		085CE8F8172A1DCA004D070D /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		085CE8F8172A1DCA004D070D /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		085D2FB11351080400EBBE91 /* VerifyObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyObjectTests.m; sourceTree = "<group>"; };
 		085D2FB31351082800EBBE91 /* MKTObjectMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTObjectMock.h; sourceTree = "<group>"; };
 		085D2FB41351082800EBBE91 /* MKTObjectMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectMock.m; sourceTree = "<group>"; };
@@ -252,8 +252,8 @@
 		089A8C341356A7BA003E7D27 /* MKTOngoingStubbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTOngoingStubbing.h; sourceTree = "<group>"; };
 		089A8C351356A7BB003E7D27 /* MKTOngoingStubbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTOngoingStubbing.m; sourceTree = "<group>"; };
 		08BDD5A91350C59C00E5A443 /* OCMockito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMockito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		08BED07F1350DE4900CCBF76 /* OCMockito-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OCMockito-Info.plist"; sourceTree = "<group>"; };
-		08BED0811350DE4900CCBF76 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		08BED07F1350DE4900CCBF76 /* OCMockito-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "OCMockito-Info.plist"; path = "Resources/OCMockito-Info.plist"; sourceTree = "<group>"; };
+		08BED0811350DE4900CCBF76 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Tests-Info.plist"; path = "Resources/Tests-Info.plist"; sourceTree = "<group>"; };
 		08E1E748136289C70066B0C7 /* MKTStubbedInvocationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTStubbedInvocationMatcher.h; sourceTree = "<group>"; };
 		08E1E749136289C70066B0C7 /* MKTStubbedInvocationMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTStubbedInvocationMatcher.m; sourceTree = "<group>"; };
 		08E1E74E13633BC10066B0C7 /* MKTNonObjectArgumentMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTNonObjectArgumentMatching.h; sourceTree = "<group>"; };
@@ -271,7 +271,6 @@
 		08FD4B251509B8740004E1FA /* StubProtocolTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubProtocolTests.m; sourceTree = "<group>"; };
 		08FD4B281509BEA90004E1FA /* MKTBaseMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBaseMockObject.h; sourceTree = "<group>"; };
 		08FD4B291509BEA90004E1FA /* MKTBaseMockObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBaseMockObject.m; sourceTree = "<group>"; };
-		0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		0E44F6C01C154E690007E1A4 /* MKTMissingInvocationCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMissingInvocationCheckerTests.m; sourceTree = "<group>"; };
 		0E5F66321D20392D00D01554 /* ArgumentCaptorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgumentCaptorTests.m; sourceTree = "<group>"; };
 		0E5F66391D209EBB00D01554 /* StubbingCopyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubbingCopyTests.m; sourceTree = "<group>"; };
@@ -302,7 +301,7 @@
 		361533C5153F275800BB982B /* MKTAtLeastTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAtLeastTimes.m; sourceTree = "<group>"; };
 		481D6E951D7C786500F2C988 /* StubSingletonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubSingletonTests.m; sourceTree = "<group>"; };
 		481D6E981D7CE05100F2C988 /* StubSingletonProgrammerErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubSingletonProgrammerErrorTests.m; sourceTree = "<group>"; };
-		501A8CE228F95AEA00AB1DFA /* OCHamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OCHamcrest.xcframework; path = ../Carthage/Build/OCHamcrest.xcframework; sourceTree = "<group>"; };
+		501A8CE228F95AEA00AB1DFA /* OCHamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OCHamcrest.xcframework; path = Carthage/Build/OCHamcrest.xcframework; sourceTree = "<group>"; };
 		609E909442C62BF97AD50CEC /* MockInvocationsFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockInvocationsFinder.h; sourceTree = "<group>"; };
 		609E91510EE6160A67EAF450 /* MKTInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTInvocation.m; sourceTree = "<group>"; };
 		609E9265E6EA8A5DBE45A71D /* MKTFilterCallStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTFilterCallStack.h; sourceTree = "<group>"; };
@@ -345,7 +344,8 @@
 		748491911A5919EC006A7579 /* MKTExecutesBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTExecutesBlock.m; sourceTree = "<group>"; };
 		74A3BD8219F765E2006591C9 /* OCMockitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCMockitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1B7A9626B03DD00029A2AF /* VerifyAndStubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerifyAndStubTests.m; sourceTree = "<group>"; };
-		B42249582D4EB8A1004182AD /* XcodeTargets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeTargets.xcconfig; sourceTree = "<group>"; };
+		B4B7E5382D6F19A400B01FD1 /* XcodeTargets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XcodeTargets.xcconfig; path = Resources/XcodeTargets.xcconfig; sourceTree = "<group>"; };
+		B4B7E5392D6F19B100B01FD1 /* XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XcodeWarnings.xcconfig; path = Resources/XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		BB17021FCA430FAD53E07A7D /* MKTSingletonSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTSingletonSwizzler.h; sourceTree = "<group>"; };
 		BB17024B02E780AE9F1DF220 /* MKTSingletonSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTSingletonSwizzler.m; sourceTree = "<group>"; };
 		BB33301C3CD22FFA40C8F3C3 /* MKTObjectArgumentGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTObjectArgumentGetter.m; sourceTree = "<group>"; };
@@ -488,7 +488,8 @@
 				740018711A58E72500E9AC92 /* Stubbing */,
 				740018721A58E72D00E9AC92 /* Verifying */,
 			);
-			path = OCMockito;
+			name = OCMockito;
+			path = Source/OCMockito;
 			sourceTree = "<group>";
 		};
 		08BDD5C31350C59C00E5A443 /* Tests */ = {
@@ -504,16 +505,17 @@
 				609E9D120E577A372AE36EAA /* FakeLocation.h */,
 				609E9BDCD18394B0FFD08C75 /* FakeLocation.m */,
 			);
-			path = Tests;
+			name = Tests;
+			path = Source/Tests;
 			sourceTree = "<group>";
 		};
 		08BED0781350DD8900CCBF76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				08BED07F1350DE4900CCBF76 /* OCMockito-Info.plist */,
-				B42249582D4EB8A1004182AD /* XcodeTargets.xcconfig */,
-				0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */,
 				08BED0811350DE4900CCBF76 /* Tests-Info.plist */,
+				B4B7E5382D6F19A400B01FD1 /* XcodeTargets.xcconfig */,
+				B4B7E5392D6F19B100B01FD1 /* XcodeWarnings.xcconfig */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1111,7 +1113,7 @@
 /* Begin XCBuildConfiguration section */
 		08BDD5CE1350C59C00E5A443 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B42249582D4EB8A1004182AD /* XcodeTargets.xcconfig */;
+			baseConfigurationReference = B4B7E5382D6F19A400B01FD1 /* XcodeTargets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -1150,7 +1152,7 @@
 		};
 		08BDD5CF1350C59C00E5A443 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B42249582D4EB8A1004182AD /* XcodeTargets.xcconfig */;
+			baseConfigurationReference = B4B7E5382D6F19A400B01FD1 /* XcodeTargets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -1187,7 +1189,7 @@
 		};
 		08BDD5D11350C59C00E5A443 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
+			baseConfigurationReference = B4B7E5392D6F19B100B01FD1 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
@@ -1196,7 +1198,12 @@
 				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks/\"",
+				);
 				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/OCMockito-Info.plist";
 				SDKROOT = macosx;
 				SUPPORTS_MACCATALYST = YES;
 				WRAPPER_EXTENSION = framework;
@@ -1205,7 +1212,7 @@
 		};
 		08BDD5D21350C59C00E5A443 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
+			baseConfigurationReference = B4B7E5392D6F19B100B01FD1 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
@@ -1214,7 +1221,12 @@
 				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks/\"",
+				);
 				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/OCMockito-Info.plist";
 				SDKROOT = macosx;
 				SUPPORTS_MACCATALYST = YES;
 				WRAPPER_EXTENSION = framework;
@@ -1223,13 +1235,13 @@
 		};
 		74A3BD8F19F765E2006591C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
+			baseConfigurationReference = B4B7E5392D6F19B100B01FD1 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Tests-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -1237,13 +1249,13 @@
 		};
 		74A3BD9019F765E2006591C9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E1563B41CE7E2A90037EBC8 /* XcodeWarnings.xcconfig */;
+			baseConfigurationReference = B4B7E5392D6F19B100B01FD1 /* XcodeWarnings.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Tests-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};

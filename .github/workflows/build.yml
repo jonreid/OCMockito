@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  project: Source/OCMockito.xcodeproj
+  project: Resources/OCMockito.xcodeproj
 
 jobs:
   build:

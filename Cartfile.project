@@ -1,5 +1,5 @@
 OCMockito:
-  project: Source/OCMockito.xcodeproj
+  project: Resources/OCMockito.xcodeproj
   sdks:
   - macosx
   - iphonesimulator
