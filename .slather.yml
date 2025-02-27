@@ -4,5 +4,5 @@ xcodeproj: ./Resources/OCMockito.xcodeproj
 scheme: OCMockito
 ignore:
   - Frameworks/*
-  - Source/Tests/*
-  - Source/ThirdParty/*
+  - Sources/*/ThirdParty/*
+  - Tests/*
