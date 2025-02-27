@@ -1,1 +1,0 @@
-../../OCMockito/Mocking/MKTClassObjectMock.h

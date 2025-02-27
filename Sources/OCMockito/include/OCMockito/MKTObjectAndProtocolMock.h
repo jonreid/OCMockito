@@ -1,0 +1,1 @@
+../../Mocking/MKTObjectAndProtocolMock.h

@@ -1,1 +1,0 @@
-../../OCMockito/Mocking/MKTObjectAndProtocolMock.h
