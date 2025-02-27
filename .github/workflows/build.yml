@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  project: Resources/OCMockito.xcodeproj
+  project: OCMockito.xcodeproj
 
 jobs:
   build:
@@ -70,8 +70,8 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Build
-      run: cd Source; swift build -v
+    - name: Build & test
+      run: swift test | xcbeautify
 
   buildCarthage:
     needs: [ build, test ]

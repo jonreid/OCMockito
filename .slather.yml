@@ -1,6 +1,6 @@
 ci_service: github
 coverage_service: coveralls
-xcodeproj: ./Resources/OCMockito.xcodeproj
+xcodeproj: ./OCMockito.xcodeproj
 scheme: OCMockito
 ignore:
   - Frameworks/*
