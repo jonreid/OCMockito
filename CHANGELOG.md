@@ -10,6 +10,7 @@ NEXT VERSION
 
 - Make framework multibinary and add arm64e and arm64_32 architectures.
 - Rework project into single multiplatform target and add visionOS. _Thanks to: Jens Nerup_
+- Reorganize files into standard Swift Package Manager arrangement. _Thanks to: Jens Nerup_
 
 
 Version 7.0.2
