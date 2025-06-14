@@ -48,7 +48,7 @@ Key differences from other mocking frameworks:
     * [Carthage](#carthage)
     * [Prebuilt Framework](#prebuilt-framework)
     * [Build Your Own](#build-your-own)
-  * [Author](#author)<!-- endToc -->
+  * [About the Author](#about-the-author)<!-- endToc -->
 
 ## Let's verify some behavior!
 
