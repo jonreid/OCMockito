@@ -26,7 +26,7 @@ jobs:
           - { scheme: 'OCMockito', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 6 (44mm)' }
           - { scheme: 'OCMockito', sdk: 'xrsimulator', destination: 'platform=visionOS Simulator,OS=latest,name=Apple Vision Pro' }
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
@@ -41,7 +41,7 @@ jobs:
       scheme: 'OCMockito'
       sdk: 'macosx'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Show current version of Xcode
         run: xcodebuild -version
       - name: Get OCHamcrest
@@ -69,7 +69,7 @@ jobs:
     name: Build Swift package
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Build & test
       run: swift test | xcbeautify
 
@@ -78,7 +78,7 @@ jobs:
     name: Build Carthage
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Show current version of Xcode
       run: xcodebuild -version
     - name: Show current version of Carthage
@@ -93,7 +93,7 @@ jobs:
     name: Pod Spec Lint
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Show current version of CocoaPods
         run: pod --version
       - name: Lint the pod spec
@@ -103,7 +103,7 @@ jobs:
     needs: [ buildSwiftPackage, buildCarthage, podspec ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: auto-merge
         if: |
           github.actor == 'dependabot[bot]' &&
