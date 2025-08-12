@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         run-config:
-          - { scheme: 'OCMockito', sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 14' }
+          - { scheme: 'OCMockito', sdk: 'iphonesimulator', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 16' }
           - { scheme: 'OCMockito', sdk: 'appletvsimulator', destination: 'platform=tvOS Simulator,OS=latest,name=Apple TV' }
           - { scheme: 'OCMockito', sdk: 'watchsimulator', destination: 'platform=watchOS Simulator,OS=latest,name=Apple Watch Series 6 (44mm)' }
           - { scheme: 'OCMockito', sdk: 'xrsimulator', destination: 'platform=visionOS Simulator,OS=latest,name=Apple Vision Pro' }
