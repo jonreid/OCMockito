@@ -102,15 +102,17 @@ jobs:
   auto-merge:
     needs: [ buildSwiftPackage, buildCarthage, podspec ]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6
       - name: auto-merge
         if: |
           github.actor == 'dependabot[bot]' &&
           github.event_name == 'pull_request'
-        run: |
-          ./merge_dependabot.sh
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          # this secret needs to be in the settings.secrets.dependabot
-          GITHUB_TOKEN: ${{secrets.GH_ACTION_TOKEN}}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # built-in token
+        run: |
+          GH_TOKEN="$GITHUB_TOKEN" ./merge_dependabot.sh
